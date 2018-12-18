@@ -6,7 +6,7 @@
 <html>
 <head>
 	<title>Insert title here</title>
-	<link href="./css/common.css" rel="stylesheet" type="text/css">
+	<link href="../css/common.css" rel="stylesheet" type="text/css">
 <style>
 	.menu_home{
 		border-bottom: 3px solid #51abf3!important;
@@ -34,7 +34,7 @@
 			<!-- headerTop_left -->
 			<div class="headerTop_left">
 				<a href="Main.action"> 
-					<img src="./images/logo.jpg" width="300px" alt="TMT" id="logo"> 
+					<img src="../images/logo.jpg" width="300px" alt="TMT" id="logo"> 
 					<!-- 로고 및 로고이미지에  링크추가 -->
 				</a>
 			</div>

@@ -1,0 +1,40 @@
+@charset "EUC-KR";
+
+#air_header{
+	margin:0 auto;
+	width: 100%;
+	background-color: #3366ff;
+	height:115pt;
+	color:white;
+	text-align: center;
+}
+
+#air_header_search{
+	padding-top:30pt;
+}
+
+body{
+	font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "¸¼Àº °íµñ", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #343a40;
+    letter-spacing: -0.2px;
+    -webkit-font-smoothing: antialiased;
+   }
+   
+   .air_list{
+   	margin: 3% 5%;
+   }
+   
+   .air_left{
+   	float: left;
+   	width: 20%;
+   	height: 800pt;
+   	border-right: 3px solid #51abf3!important;
+   	background-color: white;
+   	font-size: 15pt;
+   }
+   
+   .air_right{
+   	background-color: gray;
+   	height: 800pt;
+   }
