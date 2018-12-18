@@ -5,7 +5,7 @@
 <html>
 
 <head>
-	<!-- 十虞戚希ぞぞぞぞぞぞ -->
+	<!-- 十虞戚希 -->
 	<link href="./css/common.css" rel="stylesheet" type="text/css">
     <link href="./css/basic_slider.css" rel="stylesheet" type="text/css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
