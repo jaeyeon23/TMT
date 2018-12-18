@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+	
+<struts>
+	<package name="admin" extends="struts-default, tiles-default">
+		<action name="AdminMain" class="admin.main.AdminMain">
+			<result name="success" type="tiles">AdminMain</result>
+		</action>
+		
+		<action name="AdminAirList" class="admin.air.AdminAirList">
+			<result type="tiles">AdminAirList</result>
+		</action>
+		
+		<action name="AdminMemberList" class="admin.member.AdminMemberList">
+			<result type="tiles">AdminMemberList</result>
+		</action>
+		
+		<action name="AdminHotelList" class="admin.hotel.AdminHotelList">
+			<result type="tiles">AdminHotelList</result>
+		</action>
+		
+		<action name="AdminTourList" class="admin.tour.AdminTourList">
+			<result type="tiles">AdminTour
+			List</result>
+		</action>
+		
+		<action name="AdminAirList" class="admin.air.AirList">
+			<result type="tiles">AdminAirList</result>
+		</action>
+		
+		<action name="AdminAirList" class="admin.air.AirList">
+			<result type="tiles">AdminAirList</result>
+		</action>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</package>
+</struts>
