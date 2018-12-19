@@ -21,6 +21,25 @@
 			<result name="success" type="tiles">HotelList</result>
 		</action>
 		
+<<<<<<< HEAD
+=======
+		<action name="BasketList" class="basket.BasketList">
+			<result name="success" type="tiles">BasketList</result>
+		</action>
+		
+		<action name="OrderList" class="order.OrderList">
+			<result name="success" type="tiles">OrderList</result>
+		</action>
+		
+		<action name="MyPageForm" class="member.ServiceMember">
+			<result name="success" type="tiles">MyPageForm</result>
+		</action>
+		
+		<action name="DeleteMemberCheck" class="member.DeleteMember">
+			<result name="success" type="tiles">DeleteMember</result>
+		</action>
+		
+>>>>>>> origin/WJY
 	</package>
 	<include file="struts/admin.xml" />
 	<include file="struts/notice.xml" />

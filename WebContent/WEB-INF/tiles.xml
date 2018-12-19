@@ -32,6 +32,7 @@
 	<definition name="HotelList" extends="Main">
 		<put-attribute name="body" value="/item/hotel/hotelList.jsp" />
 	</definition>
+<<<<<<< HEAD
 
 
 
@@ -91,6 +92,24 @@
 		<put-attribute name="body" value="/admin/main/adminMain.jsp" />
 	</definition> -->
 
+=======
+	
+	<definition name="BasketList" extends="Main">
+		<put-attribute name="body" value="/basket/basketList.jsp" />
+	</definition>
+	
+	<definition name="OrderList" extends="Main">
+		<put-attribute name="body" value="/order/OrderList.jsp" />
+	</definition>
+	
+    <definition name="MyPageForm" extends="Main">
+		<put-attribute name="body" value="/mypage/MyPage.jsp" />
+	</definition>
+	
+	<definition name="DeleteMemberCheck" extends="Main">
+		<put-attribute name="body" value="/member/DeleteMemberCheck.jsp" />
+	</definition>
+>>>>>>> origin/WJY
 <!-- 
 	 로그인 폼
 	<definition name="LoginForm" extends="Main">
