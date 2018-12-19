@@ -15,15 +15,9 @@
 		<filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
 		<init-param>
 			<param-name>struts.i18n.encoding</param-name>
-<<<<<<< HEAD
-<<<<<<< HEAD
-			<param-value>utf-8</param-value>
-=======
+
 			<param-value>UTF-8</param-value>
->>>>>>> origin/WJY
-=======
-			<param-value>UTF-8</param-value>
->>>>>>> origin/주영
+
 		</init-param>
 	</filter>
 

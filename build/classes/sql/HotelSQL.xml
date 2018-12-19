@@ -11,13 +11,8 @@
 		<result property="price" column="price" />
 		<result property="content" column="content" />
 		<result property="country" column="country" />
-<<<<<<< HEAD
-		<result property="region" column="region" />
-		<result property="readcount" column="readcount" />
-=======
 		<result property="region" column="region"/>
 		<result property="readcount" column="readcount"/>
->>>>>>> origin/iyiy
 		<result property="image1" column="image1" />
 		<result property="image2" column="image2" />
 		<result property="image3" column="image3" />
@@ -26,11 +21,7 @@
 		<result property="checkin" column="checkin" />
 		<result property="checkout" column="checkout" />
 		<result property="maxnum" column="maxnum" />
-<<<<<<< HEAD
-		<result property="grade" column="grade" />
-=======
 		<!-- <result property="grade" column="grade" /> -->
->>>>>>> origin/iyiy
 	</resultMap>
 	
 	<!-- 공통으로 사용할 select 절 정의 -->
@@ -39,47 +30,11 @@
 		</sql>
 		
 		<!-- 공통으로 사용할 where-no 절 정의 -->
-<<<<<<< HEAD
-		<sql id="where-noH">
-=======
 	 	<sql id="where-noH">
->>>>>>> origin/iyiy
 			WHERE no = #no#
 		</sql>
 	
 		<!-- select 쿼리문 정의 -->
-<<<<<<< HEAD
-		<select id="selectAllH" resultMap="hotelRes">
-			<include refid="select-allH" />
-			ORDER BY no DESC
-		</select>
-		
-		<select id="selectOneH" resultMap="hotelRes" parameterClass="int">
-			<include refid="select-allH" />
-			<include refid="where-noH" />
-		</select>
-		
-		<select id="selectLastNoH" resultClass="hotel">
-			SELECT max(no) as no FROM HOTEL
-		</select>		
-
-
-	<!-- 검색어 없을 때 (정렬만 헀을 때도 포함) 
-	<select id="listhotel" resultMap="boardhotel" parameterClass="hotel">
-		SELECT * from hotelvo WHERE region like '%'||#searchn#||'%' ORDER BY
-		region DESC, reg_date DESC
-	</select>
-
-	 정렬 후에 검색할 때 
-	<select id="searchhotel" resultMap="boardhotel" parameterClass="hotel">
-		SELECT * FROM (SELECT * FROM hotelvo where region like
-		'%'||#searchn#||'%' and people > #people# and room > #room#) where name like '%'||#search#||'%' or content
-		like '%'||#search#||'%'
-		or region like '%'||#search#||'%' ORDER BY
-		reg_date DESC
-	</select>
-    -->
-=======
 		<select id="selectAllH" resultMap="boardhotel">
 			<include refid="select-allH" />
 			ORDER BY NO DESC
@@ -91,6 +46,5 @@
 		</select>
 	
 
->>>>>>> origin/iyiy
 
 </sqlMap>

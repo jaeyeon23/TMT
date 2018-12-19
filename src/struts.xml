@@ -20,10 +20,6 @@
 		<action name="HotelList" class="item.hotel.HotelList">
 			<result name="success" type="tiles">HotelList</result>
 		</action>
-		
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 		<action name="BasketList" class="basket.BasketList">
 			<result name="success" type="tiles">BasketList</result>
 		</action>
@@ -39,9 +35,6 @@
 		<action name="DeleteMemberCheck" class="member.DeleteMember">
 			<result name="success" type="tiles">DeleteMember</result>
 		</action>
-		
->>>>>>> origin/WJY
-=======
 		<action name="Login" class="member.LoginMember">
 			<result name="success" type="tiles">Login</result>
 		</action>
@@ -53,8 +46,7 @@
 		<action name="ConfirmId" class="member.JoinMemberIdChk">
 			<result name="success" type="tiles">ConfirmId</result>
 		</action>
-		
->>>>>>> origin/주영
+
 	</package>
 	<include file="struts/admin.xml" />
 	<include file="struts/notice.xml" />
