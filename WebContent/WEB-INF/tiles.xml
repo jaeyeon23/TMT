@@ -32,6 +32,12 @@
 	<definition name="HotelList" extends="Main">
 		<put-attribute name="body" value="/item/hotel/hotelList.jsp" />
 	</definition>
+	
+	<!-- 관리자메인 -->
+<!-- 	<definition name="AdminMain" extends="Main">
+		<put-attribute name="header" value="/admin/main/adminHeader.jsp" />
+		<put-attribute name="body" value="/admin/main/adminMain.jsp" />
+	</definition> -->
 <!-- 
 	 로그인 폼
 	<definition name="LoginForm" extends="Main">
@@ -192,10 +198,7 @@
 
 	ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ관리자ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
-	관리자(상품등록) 폼 이동
-	<definition name="AdminForm" extends="Main">
-		<put-attribute name="body" value="/admin/adminmember/AdminForm.jsp" />
-	</definition>
+
 
 	회원목록 이동
 	<definition name="AdminMemberList" extends="Main">

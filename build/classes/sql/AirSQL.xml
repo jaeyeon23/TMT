@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
+	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap>
+
+	<typeAlias alias="air" type="item.air.AirVO" />
+	<!-- 리절트 맵 정의 -->
+	<resultMap id="boardair" class="air">
+		<result property="no" column="no" />
+		<result property="arv" column="arv" />
+		<result property="dep" column="dep" />
+		<result property="price" column="price" />
+		<result property="content" column="content" />
+		<result property="image1" column="image1" />
+		<result property="seat" column="seat" />
+		<result property="seat_grade" column="seat_grade" />
+		<result property="ad" column="ad" />
+		<result property="dd" column="dd" />
+		<result property="ad_time" column="ad_time" />
+		<result property="dd_time" column="dd_time" />
+		<result property="air_company" column="air_company" />
+		<result property="grade" column="grade" />
+	</resultMap>
+
+	<!-- 공통으로 사용할 select 정의 -->
+	<select id="select-allA" resultMap="boardair">
+		select * from air
+	</select>	
+	
+	<!-- 일반 검색 -->
+	<select id="listAir" resultMap="boardair" parameterClass="air">
+		SELECT * from air WHERE arv=#arv# and ad>=#ad# and 
+				seat>=#seat# and seat_grade=#seat_grade#
+	</select>
+	
+	<!-- 가격 낮은 순 -->
+	<select id="listAir_lowprice" resultMap="boardair" parameterClass="air">
+		SELECT * from air WHERE arv=#arv# and ad>=#ad# and 
+				seat>=#seat# and seat_grade=#seat_grade# order by price asc
+	</select>
+	
+	<!-- 출발시간 빠른 순 -->
+	<select id="listAir_ad_time" resultMap="boardair" parameterClass="air">
+		SELECT * from air WHERE arv=#arv# and ad>=#ad# and 
+				seat>=#seat# and seat_grade=#seat_grade# order by ad_time asc
+	</select>
+
+	<!-- 도착시간 빠른 순 -->
+	<select id="listAir_dd_time" resultMap="boardair" parameterClass="air">
+		SELECT * from air WHERE arv=#arv# and ad>=#ad# and 
+				seat>=#seat# and seat_grade=#seat_grade# order by ad_time desc
+	</select>
+</sqlMap>

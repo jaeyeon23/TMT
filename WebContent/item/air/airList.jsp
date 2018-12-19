@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -26,8 +26,6 @@
     </script>
     
     
-	<link href="../css/air.css" rel="stylesheet" type="text/css">
-	<link href="../css/common.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="../calendar/jquery-ui.min.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="../calendar/jquery-ui.min.js"></script>
@@ -50,23 +48,23 @@
 		}(function(datepicker) {
 	
 			datepicker.regional.ko = {
-				closeText : "´İ±â",
-				prevText : "ÀÌÀü´Ş",
-				nextText : "´ÙÀ½´Ş",
-				currentText : "¿À´Ã",
-				monthNames : [ "1¿ù", "2¿ù", "3¿ù", "4¿ù", "5¿ù", "6¿ù", "7¿ù", "8¿ù",
-						"9¿ù", "10¿ù", "11¿ù", "12¿ù" ],
-				monthNamesShort : [ "1¿ù", "2¿ù", "3¿ù", "4¿ù", "5¿ù", "6¿ù", "7¿ù", "8¿ù",
-						"9¿ù", "10¿ù", "11¿ù", "12¿ù" ],
-				dayNames : [ "ÀÏ¿äÀÏ", "¿ù¿äÀÏ", "È­¿äÀÏ", "¼ö¿äÀÏ", "¸ñ¿äÀÏ", "±İ¿äÀÏ", "Åä¿äÀÏ" ],
-				dayNamesShort : [ "ÀÏ", "¿ù", "È­", "¼ö", "¸ñ", "±İ", "Åä" ],
-				dayNamesMin : [ "ÀÏ", "¿ù", "È­", "¼ö", "¸ñ", "±İ", "Åä" ],
-				weekHeader : "ÁÖ",
-				dateFormat : "yy³â m¿ù dÀÏ",
+				closeText : "ë‹«ê¸°",
+				prevText : "ì´ì „ë‹¬",
+				nextText : "ë‹¤ìŒë‹¬",
+				currentText : "ì˜¤ëŠ˜",
+				monthNames : [ "1ì›”", "2ì›”", "3ì›”", "4ì›”", "5ì›”", "6ì›”", "7ì›”", "8ì›”",
+						"9ì›”", "10ì›”", "11ì›”", "12ì›”" ],
+				monthNamesShort : [ "1ì›”", "2ì›”", "3ì›”", "4ì›”", "5ì›”", "6ì›”", "7ì›”", "8ì›”",
+						"9ì›”", "10ì›”", "11ì›”", "12ì›”" ],
+				dayNames : [ "ì¼ìš”ì¼", "ì›”ìš”ì¼", "í™”ìš”ì¼", "ìˆ˜ìš”ì¼", "ëª©ìš”ì¼", "ê¸ˆìš”ì¼", "í† ìš”ì¼" ],
+				dayNamesShort : [ "ì¼", "ì›”", "í™”", "ìˆ˜", "ëª©", "ê¸ˆ", "í† " ],
+				dayNamesMin : [ "ì¼", "ì›”", "í™”", "ìˆ˜", "ëª©", "ê¸ˆ", "í† " ],
+				weekHeader : "ì£¼",
+				dateFormat : "yyë…„ mì›” dì¼",
 				firstDay : 0,
 				isRTL : false,
 				showMonthAfterYear : true,
-				yearSuffix : "³â"
+				yearSuffix : "ë…„"
 			};
 			datepicker.setDefaults(datepicker.regional.ko);
 	
@@ -76,15 +74,15 @@
 	
 		///
 		$(function() {
-			$(".date1").datepicker();
-	
+			$("#date1").datepicker();
+
 			$("#date2").datepicker({
 				showOn : "button",
 				buttonImage : "images/calendar.gif",
 				buttonImageOnly : false,
 				buttonText : "Select date"
 			});
-	
+			
 			$("#date3").datepicker({
 				onSelect : function(dateText, inst) {
 					console.log(dateText);
@@ -93,18 +91,75 @@
 			});
 		});
 		//]]>
+		
+		
+		/* ì •ë ¬ */
+		function sm() {
+			document.frm.submit();
+		}
+</script>
 	</script>
+	
+	<style>
+		#air_header_search{
+			background-color: #d3ffce;
+			text-align: center;
+		}
+		
+		.air_array{
+			float:right;
+			margin-right:10%;
+		}
+		
+		.air_list{
+			width:100%;
+		}
+		
+		.air_left{
+		   	float: left;
+		   	width: 20%;
+		   	height: 800pt;
+		   	border-right: 3px solid #51abf3!important;
+		   	background-color: gray;
+		   	font-size: 15pt;
+		   	margin-left:5%;
+		}
+		   
+		.air_right{
+		   	background-color: white;
+		   	height: 800pt;
+		   	margin-right:5%;
+		}
+	</style>
 </head>
 <body>
 	<div id="air_header">
 		<div id="air_header_search">
-			<form method="post">
-				<input type="text" name="arv" readonly placeholder="Ãâ¹ßÁö">
-				<input type="text" name="dep" readonly placeholder="µµÂøÁö">
-				<input type="text" name="ad" class="date1" size="12" readonly placeholder="Ãâ¹ßÀÏ"/>
-				<input type="text" name="dd" class="date1" size="12" readonly placeholder="µµÂøÀÏ"/>
-				ÀÎ¿ø
-				<select name="seat">
+			<form method="get">
+				<s:if test="arv != null">
+					<input type="text" name="arv" value='<s:property value="%{arv}"/>'>
+				</s:if>
+				<s:else>
+					<input type="text" name="arv" placeholder="ì¶œë°œì§€">
+				</s:else>
+				
+				<s:if test="dep != null">
+					<input type="text" name="dep" value='<s:property value="%{dep}"/>'>
+				</s:if>
+				<s:else>
+					<input type="text" name="dep" placeholder="ë„ì°©ì§€">
+				</s:else>
+				
+				<s:if test="ad != null">
+					<input type="text" name="ad" class="date1" size="12" value='<s:property value="%{ad}"/>'/>
+				</s:if>
+				<s:else>
+					<input type="text" name="ad" class="date1" size="12" placeholder="ì¶œë°œì¼"/>
+				<!-- <input type="text" name="dd" class="date1" size="12" readonly placeholder="ë„ì°©ì¼"/> -->
+				</s:else>
+				
+				ì¸ì›
+				<select name="seat" class="form-control" style="width:10%; display:inline;" value='<s:property value="%{seat}"/>'>
 					<option value="1">1</option>	
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -115,38 +170,53 @@
 					<option value="8">8</option>
 					<option value="9">9</option>
 				</select>
-				
-				ÁÂ¼® µî±Ş
-				<select name="seat_grade">
-					<option value="0">ÀÏ¹İ</option>	
-					<option value="1">ºñÁî´Ï½º</option>
+				ì¢Œì„ ë“±ê¸‰
+				<select name="seat_grade" class="form-control" style="width:10%; display:inline;">
+					<option value="0">ì¼ë°˜</option>	
+					<option value="1">ë¹„ì¦ˆë‹ˆìŠ¤</option>
 				</select>
-				<input type="submit" value="°Ë»ö">
+				<input type="submit" class="btn btn-info" value="ê²€ìƒ‰">
 			</form>
 		</div>
 	</div>
 	<br>
+	<!-- ì •ë ¬ -->
+	<div class="air_array">
+		<form name="frm">
+			<select name="air_array" class="form-control" onchange="sm()">
+				<option value="1">ê°€ê²© ë‚®ì€ ìˆœ</option>	
+				<option value="2">ê°€ëŠ” ë‚  ì¶œë°œì‹œê°„ ë¹ ë¥¸ ìˆœ</option>
+				<option value="3">ê°€ëŠ” ë‚  ë„ì°©ì‹œê°„ ë¹ ë¥¸ ìˆœ</option>
+				<s:hidden name="arv" value="%{arv}"/>
+				<s:hidden name="dep" value="%{dep}"/>
+				<s:hidden name="seat" value="%{seat}"/>
+				<s:hidden name="ad" value="%{ad}"/>
+				<s:hidden name="seat_grade" value="%{seat_grade}"/>	
+			</select>
+		</form>
+		<br><br>
+	</div>
 	<div class="air_list">
 		<div class="air_left">
-			<form method="post">
-				<strong>Ãâ¹ß½Ã°£</strong><br>
-				<input type="checkbox" checked>&nbsp;&nbsp;»õº® 00:00~06:00<br>
-				<input type="checkbox" checked>&nbsp;&nbsp;»õº® 06:00~12:00<br>
-				<input type="checkbox" checked>&nbsp;&nbsp;»õº® 12:00~18:00<br>
-				<input type="checkbox" checked>&nbsp;&nbsp;»õº® 18:00~24:00<br>
+			<form method="get">
+				<strong>ì¶œë°œì‹œê°„</strong><br>
+				<input type="checkbox" checked>&nbsp;&nbsp;ìƒˆë²½ 00:00~06:00<br>
+				<input type="checkbox" checked>&nbsp;&nbsp;ìƒˆë²½ 06:00~12:00<br>
+				<input type="checkbox" checked>&nbsp;&nbsp;ìƒˆë²½ 12:00~18:00<br>
+				<input type="checkbox" checked>&nbsp;&nbsp;ìƒˆë²½ 18:00~24:00<br>
 				<br><br>
-				<strong>µµÂø½Ã°£</strong><br>			
-				<input type="checkbox" checked>&nbsp;&nbsp;»õº® 00:00~06:00<br>
-				<input type="checkbox" checked>&nbsp;&nbsp;»õº® 06:00~12:00<br>
-				<input type="checkbox" checked>&nbsp;&nbsp;»õº® 12:00~18:00<br>
-				<input type="checkbox" checked>&nbsp;&nbsp;»õº® 18:00~24:00<br>
+				<strong>ë„ì°©ì‹œê°„</strong><br>			
+				<input type="checkbox" checked>&nbsp;&nbsp;ìƒˆë²½ 00:00~06:00<br>
+				<input type="checkbox" checked>&nbsp;&nbsp;ìƒˆë²½ 06:00~12:00<br>
+				<input type="checkbox" checked>&nbsp;&nbsp;ìƒˆë²½ 12:00~18:00<br>
+				<input type="checkbox" checked>&nbsp;&nbsp;ìƒˆë²½ 18:00~24:00<br>
 				<br><br>
-				<strong>Ç×°ø½Ã°£</strong><br>
-				<input type="checkbox" checked>&nbsp;&nbsp;´ëÇÑÇ×°ø<br>
-				<input type="checkbox" checked>&nbsp;&nbsp;¾Æ½Ã¾Æ³ª<br>
-				<input type="checkbox" checked>&nbsp;&nbsp;Áø¿¡¾î<br>
+				<strong>í•­ê³µì‹œê°„</strong><br>
+				<input type="checkbox" checked>&nbsp;&nbsp;ëŒ€í•œí•­ê³µ<br>
+				<input type="checkbox" checked>&nbsp;&nbsp;ì•„ì‹œì•„ë‚˜<br>
+				<input type="checkbox" checked>&nbsp;&nbsp;ì§„ì—ì–´<br>
 				<br><br>
-				<strong>°¡°İ´ë</strong><br>
+				<strong>ê°€ê²©ëŒ€</strong><br>
 				    <p>
 				        <input type="text" id="amount3" readonly style="border:0; color:#f6931f; font-weight:bold;">
 				    </p>
@@ -154,7 +224,46 @@
 			</form>
 		</div>
 		<div class="air_right">
-			<!-- ¸®½ºÆ® Ãâ·Â -->
+			<!-- ë¦¬ìŠ¤íŠ¸ ì¶œë ¥ -->
+			<table class="table table-hover" style="width:70%">
+				<tr>
+					<th>
+						í•­ê³µì‚¬
+					</th>
+					<th>
+						ì¶œë°œì‹œê°„
+					</th>
+					<th>
+						ë„ì°©ì‹œê°„
+					</th>
+					<th>
+						ìš”ê¸ˆ
+					</th>
+				</tr>
+				<s:if test="Airlist == null">
+				<tr>
+					<td colspan=4>
+						í•­ê³µê¶Œì„ ê²€ìƒ‰í•´ ì£¼ì„¸ìš”
+					</td>
+				</tr>
+				</s:if>
+				<s:iterator value="Airlist" status="stat">
+				<tr>
+					<td>
+						<s:property value="air_company"/>
+					</td>
+					<td>
+						<s:property value="ad_time"/>
+					</td>
+					<td>
+						<s:property value="dd_time"/>
+					</td>
+					<td>
+						<s:property value="price"/>
+					</td>
+				</tr>
+				</s:iterator>
+			</table>
 		</div>
 	</div>
 </body>
