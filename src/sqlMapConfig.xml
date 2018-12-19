@@ -16,5 +16,7 @@
 
     <!-- xml 아래에 추가 .... -->
 	
+	<!-- Hotel 리스트 xml -->
+	<sqlMap resource="/sql/HotelSQL.xml"/>
 	
 </sqlMapConfig>
