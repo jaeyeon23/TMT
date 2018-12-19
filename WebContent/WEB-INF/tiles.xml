@@ -32,6 +32,7 @@
 	<definition name="HotelList" extends="Main">
 		<put-attribute name="body" value="/item/hotel/hotelList.jsp" />
 	</definition>
+<<<<<<< HEAD
 
 
 	<!-- 공지사항 -->
@@ -82,6 +83,14 @@
 	
 	
 	
+=======
+	
+	<!-- 관리자메인 -->
+<!-- 	<definition name="AdminMain" extends="Main">
+		<put-attribute name="header" value="/admin/main/adminHeader.jsp" />
+		<put-attribute name="body" value="/admin/main/adminMain.jsp" />
+	</definition> -->
+>>>>>>> origin/jaeyeon
 <!-- 
 	 로그인 폼
 	<definition name="LoginForm" extends="Main">

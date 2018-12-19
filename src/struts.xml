@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="EUC-KR"?>
 <!DOCTYPE struts PUBLIC
 	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
 	"http://struts.apache.org/dtds/struts-2.0.dtd">
@@ -9,10 +9,27 @@
 			<result name="success" type="tiles">Main</result>
 		</action>
 		
+<<<<<<< HEAD
 		<action name="AirList" class="item.air.AirList">
 			<result name="success" type="tiles">AirList</result>
 		</action>
 	</package>
 	<include file="struts/admin.xml" />
 	<include file="struts/notice.xml" />
+=======
+		<action name="TourList" class="item.tour.TourList">
+			<result name="success" type="tiles">TourList</result>
+		</action>
+		
+		<action name="HotelList" class="item.hotel.HotelList">
+			<result name="success" type="tiles">HotelList</result>
+		</action>
+		
+		
+	</package>
+	
+	<!-- Ç×°ø -->
+	<include file="/struts/air.xml" />
+		
+>>>>>>> origin/jaeyeon
 </struts>
