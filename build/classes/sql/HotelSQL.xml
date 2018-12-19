@@ -11,8 +11,13 @@
 		<result property="price" column="price" />
 		<result property="content" column="content" />
 		<result property="country" column="country" />
+<<<<<<< HEAD
 		<result property="region" column="region" />
 		<result property="readcount" column="readcount" />
+=======
+		<result property="region" column="region"/>
+		<result property="readcount" column="readcount"/>
+>>>>>>> origin/iyiy
 		<result property="image1" column="image1" />
 		<result property="image2" column="image2" />
 		<result property="image3" column="image3" />
@@ -21,7 +26,11 @@
 		<result property="checkin" column="checkin" />
 		<result property="checkout" column="checkout" />
 		<result property="maxnum" column="maxnum" />
+<<<<<<< HEAD
 		<result property="grade" column="grade" />
+=======
+		<!-- <result property="grade" column="grade" /> -->
+>>>>>>> origin/iyiy
 	</resultMap>
 	
 	<!-- 공통으로 사용할 select 절 정의 -->
@@ -30,11 +39,16 @@
 		</sql>
 		
 		<!-- 공통으로 사용할 where-no 절 정의 -->
+<<<<<<< HEAD
 		<sql id="where-noH">
+=======
+	 	<sql id="where-noH">
+>>>>>>> origin/iyiy
 			WHERE no = #no#
 		</sql>
 	
 		<!-- select 쿼리문 정의 -->
+<<<<<<< HEAD
 		<select id="selectAllH" resultMap="hotelRes">
 			<include refid="select-allH" />
 			ORDER BY no DESC
@@ -65,5 +79,18 @@
 		reg_date DESC
 	</select>
     -->
+=======
+		<select id="selectAllH" resultMap="boardhotel">
+			<include refid="select-allH" />
+			ORDER BY NO DESC
+		</select>
+		
+		<select id="selectOneH" resultMap="boardhotel" parameterClass="int">
+			<include refid="select-allH" />
+			<include refid="where-noH" />
+		</select>
+	
+
+>>>>>>> origin/iyiy
 
 </sqlMap>

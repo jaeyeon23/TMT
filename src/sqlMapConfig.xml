@@ -22,6 +22,8 @@
 	
 	
 	
+	<!-- Hotel 리스트 xml -->
+	<sqlMap resource="/sql/HotelSQL.xml" />
 	
 	
 	
