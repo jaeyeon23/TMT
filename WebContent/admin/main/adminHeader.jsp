@@ -30,28 +30,16 @@
 	<!-- header -->
 	<div id="header">
 		<!-- headTop -->
-		<div class="headTop">
-			<!-- headerTop_left -->
-			<div class="headerTop_left">
-				<a href="Main.action"> 
-					<img src="./images/logo.jpg" width="300px" alt="TMT" id="logo"> 
-					<!-- 로고 및 로고이미지에  링크추가 -->
-				</a>
-			</div>
-			<!-- headerTop_left -->
-			<!-- headerTop_right -->
-			
-			<!-- headerTop_right -->
-		</div>
+	
 		<!-- headTop -->
 	<!-- menu -->
 	<div class="menu">
 		<ul>
-			<li><div class="menu_hotel"><a href="Main.action">멤버관리</a></div></li>
-			<li><div class="menu_tour"><a href="TourList.action">투어관리</a></div></li>
-			<li><div class="menu_air"><a href="AirList.action">항공권관리</a></div></li>
-			<li><div class="menu_hotel"><a href="HotelList.action">숙소관리</a></div></li>
-			<li><div class="menu_hotel"><a href="HotelList.action">공지사항관리</a></div></li>
+			<li><div class="menu_hotel"><a href="AdminMemberList.action">멤버관리</a></div></li>
+			<li><div class="menu_tour"><a href="AdminTourList.action">투어관리</a></div></li>
+			<li><div class="menu_air"><a href="AdminAirList.action">항공권관리</a></div></li>
+			<li><div class="menu_hotel"><a href="AdminHotelList.action">숙소관리</a></div></li>
+			<li><div class="menu_hotel"><a href="AdminNoticeList.action">공지사항관리</a></div></li>
 		</ul>
 	</div>
 	<!-- menu -->

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
+	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap>
+	<typeAlias alias="adminMember" type="member.MemberVO" />
+	<typeAlias alias="adminAir" type="item.air.AirVO" />
+	<typeAlias alias="adminTour" type="item.tour.TourVO" />
+	<typeAlias alias="adminHotel" type="item.hotel.HotelVO" />
+	<typeAlias alias="adminNotice" type="service.NoticeVO" />
+</sqlMap>

@@ -1,6 +1,6 @@
-package item.hotel;
+package admin.notice;
 
-public class HotelpagingAction {
+public class PagingAction {
 
 	private int currentPage;   // 현재페이지
 	private int totalCount;	 // 전체 게시물 수
@@ -15,7 +15,7 @@ public class HotelpagingAction {
 	private StringBuffer pagingHtml;
 
 	// 페이징 생성자
-	public HotelpagingAction(int currentPage, int totalCount, int blockCount,
+	public PagingAction(int currentPage, int totalCount, int blockCount,
 			int blockPage) {
 
 		this.blockCount = blockCount;
@@ -50,7 +50,7 @@ public class HotelpagingAction {
 		// 이전 block 페이지
 		pagingHtml = new StringBuffer();
 		if (currentPage > blockPage) {
-			pagingHtml.append("<a href=NoticeList.action?currentPage="
+			pagingHtml.append("<a href=AdminNoticeList.action?currentPage="
 					+ (startPage - 1) + ">");
 			pagingHtml.append("이전");
 			pagingHtml.append("</a>");
@@ -69,7 +69,7 @@ public class HotelpagingAction {
 				pagingHtml.append("</font></b>");
 			} else {
 				pagingHtml
-						.append("&nbsp;<a href='NoticeList.action?currentPage=");
+						.append("&nbsp;<a href='AdminNoticeList.action?currentPage=");
 				pagingHtml.append(i);
 				pagingHtml.append("'>");
 				pagingHtml.append(i);
@@ -83,7 +83,7 @@ public class HotelpagingAction {
 
 		// 다음 block 페이지
 		if (totalPage - startPage >= blockPage) {
-			pagingHtml.append("<a href=NoticeList.action?currentPage="
+			pagingHtml.append("<a href=AdminNoticeList.action?currentPage="
 					+ (endPage + 1) + ">");
 			pagingHtml.append("다음");
 			pagingHtml.append("</a>");

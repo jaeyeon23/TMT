@@ -12,12 +12,12 @@ public class AdminMain extends ActionSupport{
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 	
-	/*public AdminMain() throws IOException{
+	public AdminMain() throws IOException{
 	      
 	      reader = Resources.getResourceAsReader("sqlMapConfig.xml");
 	      sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
 	      reader.close();
-	}*/
+	}
 
 	@Override
 	public String execute() throws Exception {

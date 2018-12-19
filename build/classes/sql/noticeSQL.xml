@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
+	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap>
+	<typeAlias alias="notice" type="service.NoticeVO" />
+
+	<resultMap id="noticeRes" class="notice">
+		<result property="notice_no" column="notice_no"/>
+		<result property="subject" column="subject"/>
+		<result property="content" column="content"/>
+		<result property="reg_date" column="reg_date"/>
+		<result property="readcount" column="readcount"/>
+	</resultMap>
+	
+	<select id="noticeList" resultMap="noticeRes">
+		select * from notice
+		order by reg_date desc
+	</select>
+	
+	<select id="noticeView" resultMap="noticeRes" parameterClass="int">
+		select * from notice where notice_no = #notice_no#
+	</select>
+	
+	<insert id="insertNotice" parameterClass="notice">
+		insert into notice(notice_no, subject, content, reg_date, readcount)
+		values(seq_noticevo.nextval, #subject#, #content#, #reg_date#, #readcount#)
+	</insert>
+	
+	<update id="modifyNotice" parameterClass="notice">
+		update notice set  subject=#subject#, content=#content# where notice_no = #notice_no#	
+	</update>
+	
+	<update id="readHitNotice" parameterClass="notice">
+		update notice set readcount = readcount+1 where notice_no=#notice_no#
+	</update>
+	
+	<delete id="deleteNotice" parameterClass="notice">
+		delete from notice where notice_no = #notice_no#
+	</delete>	
+</sqlMap>

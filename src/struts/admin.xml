@@ -5,11 +5,12 @@
 	
 <struts>
 	<package name="admin" extends="struts-default, tiles-default">
+	
 		<action name="AdminMain" class="admin.main.AdminMain">
 			<result name="success" type="tiles">AdminMain</result>
 		</action>
 		
-		<action name="AdminAirList" class="admin.air.AdminAirList">
+		<action name="AdminAirList" class="admin.item.AdminAirList">
 			<result type="tiles">AdminAirList</result>
 		</action>
 		
@@ -17,30 +18,29 @@
 			<result type="tiles">AdminMemberList</result>
 		</action>
 		
-		<action name="AdminHotelList" class="admin.hotel.AdminHotelList">
+		<action name="AdminHotelList" class="admin.item.AdminHotelList">
 			<result type="tiles">AdminHotelList</result>
 		</action>
 		
-		<action name="AdminTourList" class="admin.tour.AdminTourList">
-			<result type="tiles">AdminTour
-			List</result>
+		<action name="AdminTourList" class="admin.item.AdminTourList">
+			<result type="tiles">AdminTourList</result>
 		</action>
 		
-		<action name="AdminAirList" class="admin.air.AirList">
-			<result type="tiles">AdminAirList</result>
+		<action name="AdminNoticeList" class="admin.notice.AdminNoticeList">
+			<result type="tiles">AdminNoticeList</result>
 		</action>
 		
-		<action name="AdminAirList" class="admin.air.AirList">
-			<result type="tiles">AdminAirList</result>
+		<action name="AdminNoticeWriteForm" class="admin.notice.AdminNoticeWrite" method="form">
+			<result type="tiles">AdminNoticeWrite</result>
+		</action> 
+			
+		<action name="AdminNoticeWrite" class="admin.notice.AdminNoticeWrite">
+			<result type="redirect-action">AdminNoticeList</result>
 		</action>
 		
-		
-		
-		
-		
-		
-		
-		
+		<action name="AdminNoticeView" class="admin.notice.AdminNoticeView">
+			<result type="tiles">AdminNoticeList</result>
+		</action>
 		
 		
 		

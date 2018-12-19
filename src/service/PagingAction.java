@@ -1,6 +1,6 @@
-package item.hotel;
+package service;
 
-public class HotelpagingAction {
+public class PagingAction {
 
 	private int currentPage;   // 현재페이지
 	private int totalCount;	 // 전체 게시물 수
@@ -15,7 +15,7 @@ public class HotelpagingAction {
 	private StringBuffer pagingHtml;
 
 	// 페이징 생성자
-	public HotelpagingAction(int currentPage, int totalCount, int blockCount,
+	public PagingAction(int currentPage, int totalCount, int blockCount,
 			int blockPage) {
 
 		this.blockCount = blockCount;

@@ -12,13 +12,7 @@
 		<action name="AirList" class="item.air.AirList">
 			<result name="success" type="tiles">AirList</result>
 		</action>
-		
-		<action name="TourList" class="item.tour.TourList">
-			<result name="success" type="tiles">TourList</result>
-		</action>
-		
-		<action name="HotelList" class="item.hotel.HotelList">
-			<result name="success" type="tiles">HotelList</result>
-		</action>
 	</package>
+	<include file="struts/admin.xml" />
+	<include file="struts/notice.xml" />
 </struts>
