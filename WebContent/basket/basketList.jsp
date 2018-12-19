@@ -6,6 +6,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-theme.css" rel="stylesheet">
+<script src="js/bootstrap.js" type="text/javascript"></script>
 <meta charset="EUC-KR">
 <title>나의 위시리스트</title>
 <script type="text/JavaScript">
