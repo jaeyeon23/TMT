@@ -33,6 +33,7 @@
 		<put-attribute name="body" value="/item/hotel/hotelList.jsp" />
 	</definition>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 
@@ -110,6 +111,20 @@
 		<put-attribute name="body" value="/member/DeleteMemberCheck.jsp" />
 	</definition>
 >>>>>>> origin/WJY
+=======
+	
+	<definition name="Login" extends="Main">
+		<put-attribute name="body" value="/member/login.jsp" />
+	</definition>
+	
+	<definition name="Join" extends="Main">
+		<put-attribute name="body" value="/member/join.jsp" />
+	</definition>
+	
+	<definition name="ConfirmedId" extends="Main">
+		<put-attribute name="body" value="/member/idCheck.jsp" />
+	</definition>
+>>>>>>> origin/주영
 <!-- 
 	 로그인 폼
 	<definition name="LoginForm" extends="Main">

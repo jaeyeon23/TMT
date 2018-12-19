@@ -6,6 +6,7 @@
 <html>
 <head>
 	<title>Insert title here</title>
+<<<<<<< HEAD
 	<link href="./css/bootstrap.css" rel="stylesheet">
 	<link href="./css/bootstrap-theme.css" rel="stylesheet">
 	<script src="js/bootstrap.js" type="text/javascript"></script>
@@ -41,6 +42,24 @@
 		    margin-bottom: 100pt;
 		    
 		}
+=======
+	<link href="./css/common.css" rel="stylesheet" type="text/css">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.css" rel="stylesheet">
+	<script src="js/bootstrap.js" type="text/javascript"></script>
+<style>
+	.menu_home{
+		border-bottom: 3px solid #51abf3!important;
+    	color: #343a40;
+    	font-weight: 700;
+    	display: inline;
+	}
+	
+	.menu_tour, .menu_air, .menu_hotel{
+		color: #495056;
+	    display: inline;
+	}
+>>>>>>> origin/주영
 	
 		.headerTop_left{
 			justify-content: flex-start;

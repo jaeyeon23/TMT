@@ -1,11 +1,17 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
+=======
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+>>>>>>> origin/Ï£ºÏòÅ
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<title>Insert title here</title>
+<<<<<<< HEAD
 
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -27,9 +33,31 @@
     
     
 	<link rel="stylesheet" href="../calendar/jquery-ui.min.css">
+=======
+	<style>
+		#air_header{
+			width: 100%;
+			background-color: #3366ff;
+			height:115pt;
+			color:white;
+		}
+		
+		body{
+			font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "∏º¿∫ ∞ÌµÒ", Roboto, Helvetica, Arial, sans-serif;
+		    font-size: 14px;
+		    color: #343a40;
+		    letter-spacing: -0.2px;
+		    -webkit-font-smoothing: antialiased;
+	    }
+	</style>
+	
+	<link href="./css/common.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="./calendar/jquery-ui.min.css">
+>>>>>>> origin/Ï£ºÏòÅ
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="../calendar/jquery-ui.min.js"></script>
-	<script src="../calendar/datepicker-ko.js"></script>
+	<script src="./calendar/jquery-ui.min.js"></script>
+	
+	<script src="./calendar/datepicker-ko.js"></script>
 	<script type="text/javascript">
 		//<![CDATA[
 	
@@ -134,6 +162,7 @@
 </head>
 <body>
 	<div id="air_header">
+<<<<<<< HEAD
 		<div id="air_header_search">
 			<form method="get">
 				<s:if test="arv != null">
@@ -265,6 +294,27 @@
 				</s:iterator>
 			</table>
 		</div>
+=======
+		<form method="post">
+			<input type="text" name="arv" readonly placeholder="√‚πﬂ¡ˆ">
+			<input type="text" name="dep" readonly placeholder="µµ¬¯¡ˆ">
+			<input type="text" name="ad" class="date1" size="12" readonly placeholder="√‚πﬂ¿œ"/>
+			<input type="text" name="dd" class="date1" size="12" readonly placeholder="µµ¬¯¿œ"/>
+			¿Œø¯
+			<select name="seat">
+				<option>1</option>	
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+				<option>6</option>
+				<option>7</option>
+				<option>8</option>
+				<option>9</option>
+			</select>
+			<input type="submit" value="∞Àªˆ">
+		</form>
+>>>>>>> origin/Ï£ºÏòÅ
 	</div>
 </body>
 </html>

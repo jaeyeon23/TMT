@@ -22,6 +22,7 @@
 		</action>
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 		<action name="BasketList" class="basket.BasketList">
 			<result name="success" type="tiles">BasketList</result>
@@ -40,6 +41,20 @@
 		</action>
 		
 >>>>>>> origin/WJY
+=======
+		<action name="Login" class="member.LoginMember">
+			<result name="success" type="tiles">Login</result>
+		</action>
+		
+		<action name="Join" class="member.JoinMember">
+			<result name="success" type="tiles">Join</result>
+		</action>
+		
+		<action name="ConfirmId" class="member.JoinMemberIdChk">
+			<result name="success" type="tiles">ConfirmId</result>
+		</action>
+		
+>>>>>>> origin/주영
 	</package>
 	<include file="struts/admin.xml" />
 	<include file="struts/notice.xml" />
