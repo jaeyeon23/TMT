@@ -2,14 +2,14 @@ package item.hotel;
 
 import java.util.Date;
 
-public class HotelVO {
+public class HotelVO{
 	private int no;            //상품번호
 	private String name;      //상품명      
 	private int price;       //가격
 	private String content;  //내용
 	private String country;	 //국가
 	private String region;	//지역
-	private int readcount;   //조회수
+	private int readcount;  //조회수
 	private String image1; 
 	private String image2;  //이미지1~3
 	private String image3;  
@@ -18,7 +18,7 @@ public class HotelVO {
 	private String checkin;    //체크인
 	private String checkout;   //체크아웃
 	private int maxnum; 	//인원수
-	private int grade;		//평균 별점
+	private int grade;	//평균 별점
 	
 	
 	//상품번호
