@@ -8,15 +8,11 @@
 		<action name="Main" class="main.Main">
 			<result name="success" type="tiles">Main</result>
 		</action>
-		
-<<<<<<< HEAD
+
 		<action name="AirList" class="item.air.AirList">
 			<result name="success" type="tiles">AirList</result>
 		</action>
-	</package>
-	<include file="struts/admin.xml" />
-	<include file="struts/notice.xml" />
-=======
+		
 		<action name="TourList" class="item.tour.TourList">
 			<result name="success" type="tiles">TourList</result>
 		</action>
@@ -25,11 +21,11 @@
 			<result name="success" type="tiles">HotelList</result>
 		</action>
 		
-		
 	</package>
-	
+	<include file="struts/admin.xml" />
+	<include file="struts/notice.xml" />
+
 	<!-- Ç×°ø -->
 	<include file="/struts/air.xml" />
-		
->>>>>>> origin/jaeyeon
+
 </struts>
