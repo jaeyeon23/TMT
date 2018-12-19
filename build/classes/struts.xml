@@ -20,5 +20,18 @@
 		<action name="HotelList" class="item.hotel.HotelList">
 			<result name="success" type="tiles">HotelList</result>
 		</action>
+		
+		<action name="Login" class="member.LoginMember">
+			<result name="success" type="tiles">Login</result>
+		</action>
+		
+		<action name="Join" class="member.JoinMember">
+			<result name="success" type="tiles">Join</result>
+		</action>
+		
+		<action name="ConfirmId" class="member.JoinMemberIdChk">
+			<result name="success" type="tiles">ConfirmId</result>
+		</action>
+		
 	</package>
 </struts>

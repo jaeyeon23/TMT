@@ -32,6 +32,18 @@
 	<definition name="HotelList" extends="Main">
 		<put-attribute name="body" value="/item/hotel/hotelList.jsp" />
 	</definition>
+	
+	<definition name="Login" extends="Main">
+		<put-attribute name="body" value="/member/login.jsp" />
+	</definition>
+	
+	<definition name="Join" extends="Main">
+		<put-attribute name="body" value="/member/join.jsp" />
+	</definition>
+	
+	<definition name="ConfirmedId" extends="Main">
+		<put-attribute name="body" value="/member/idCheck.jsp" />
+	</definition>
 <!-- 
 	 로그인 폼
 	<definition name="LoginForm" extends="Main">

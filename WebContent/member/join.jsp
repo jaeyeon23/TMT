@@ -1,194 +1,315 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.util.HashMap"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
+<style>
+	.factor{
+	align:left;
+	width:15%;
+	FONT-SIZE: 15pt;
+	}
+	.notice{
+	width:20%;
+	valign:middle;
+	font-size:15pt;
+	}
+	.term{
+	font-family:;
+	color:;
+	resize:none;
+	background-color:#FBF8EF;
+	border:0;
+	}
+	.title{
+	FONT-SIZE: 20pt;
+	}
+	.agree{
+	font-size:13pt;
+	}
+	.regButton{
+    background-color:rgba(249, 214, 169, 1);
+    border: none;
+    color:#000000;
+    padding: 5px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 3px;
+    cursor: pointer;
+    border-radius:5px;
+    width:100;
+    font-size:20px;
+	}	
+	.regButton:hover{
+	background-color: #F5D0A9;
+	}
+</style>
+<script type="text/javascript">
+function check(){
+	
+	var f=document.join;
+	
+	if (f.id.value == "") {
+		alert("아이디를 입력해주십시오");
+		f.id.focus();
+		return false;
+	}
+	if (f.id2.value == "") {
+		alert("아이디 중복확인을 해주십시오");
+		return false;
+	}
+	if (f.password.value == "") {
+		alert("비밀번호를 입력해주십시오");
+		f.password.focus();
+		return false;
+	}
+	if (f.password.value != f.password2.value) {
+		alert("비빌번호를 재입력 해주세요.");
+		f.password2.select();
+		return false;
+	}
+	if (f.name.value == "") {
+		alert("이름을 입력해주십시오");
+		f.name.focus();
+		return false;
+	}
+	if (f.tel.value == "") {
+		alert("핸드폰번호를 입력해주십시오");
+		f.tel.focus();
+		return false;
+	}
+	if (f.email.value == "") {
+		alert("이메일을 입력해주십시오");
+		f.email.focus();
+		return false;
+	}
+	if(f.passport.value==""){
+		alert("여권번호를 입력해주십시오");
+		f.passport.focus();
+		return false;
+	}
+	if (f.passport2.value == "") {
+		alert("여권번호 중복확인을 해주십시오");
+		return false;
+	}
+	if (join.agreeUse.checked == false) {
+		alert("이용약관, 개인정보 수집 및 이용에 모두 동의해 주시기 바랍니다.");
+		return false;
+	}
+
+	if (join.agreePrivacy.checked == false) {
+		alert("이용약관, 개인정보 수집 및 이용에 모두 동의해 주시기 바랍니다.");
+		return false;
+	}
+
+}
+function openConfirmId(){
+	var url="ConfirmId.action?id="+document.join.id.value;
+	var f=document.join;
+	var idPs = /^[0-9a-zA-Z]{4,12}$/; //아이디 비밀번호 체크표현식
+	if(f.id.value==""){
+		alert("아이디를 입력해주세요.");
+		f.id.focus();
+		return false;
+	}
+	open(url,"confirmid","toolbar=no,location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
+}
+function openConfirmPassport(){
+	var url="passportCheck.action?id="+document.join.passport.value;
+	var f=document.join;
+
+	if(f.passport.value==""){
+		alert("여권번호를 입력해주세요.");
+		f.passport.focus();
+		return false;
+	}
+	open(url,"confirmpassport","toolbar=no,location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
+}
+function chkBox(bool){
+	var obj=document.getElementsByName("join");
+	for(var i=0;i<obj.length;i++)
+		obj[i].checked=bool;
+}
+
+</script>
 <title>TMT회원가입</title>
 </head>
 <body>
-<main class="member member-signup">
-<div class="container-fluid content-wrap">
-<form class="fv-form fv-form-bootstrap" role="form" action="/users" method="post" accept-charset="euc-kr" novalidate="novalidate" data-validation="true"><button class="fv-hidden-submit" style="width: 0px; height: 0px; display: none;" type="submit"></button>
-<input name="euckr" type="hidden" value="!!!">
-<input name="authenticity_token" type="hidden" value="kkHefXE9VpJNTWY5FFB4dBYcfURNq2YOjxfdwMSFf6cuZ5xOygUhypMvkL9wG7yqLQnhi5vRy1TmtyVYFprA5w==">
-<!-- 로그인 -->
-<div class="member-panel">
-<div class="panel-button">
-<div class="btn-wrap">
-<a class="btn-new btn--type-outline btn--width-100 btn-sns" href="https://www.myrealtrip.com/users/auth/naver" data-gtm-category="회원가입" data-gtm-action="네이버로 회원가입">
-<img width="18" class="icon" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/naver-logo@2x-332865f7b796a02822378e0b61e6dcace93ae9a24abd810cd774a06b5fbcb0b5.png">
-<span>네이버로 회원가입</span>
-</a>
-</div>
-</div>
-<div class="panel-line clearfix">
-<hr class="divider">
-<div class="or">또는</div>
-</div>
+<center>
+		<form name="join" action="Join.action" method="post" onsubmit="return check()">
+			<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td height="50">&nbsp;</td>
+				</tr>							
+				<tr>
+					<td colspan="100%" height="3" bgcolor="black"/>
+				</tr>				
+				<tr>
+					<td height="20">&nbsp;</td>
+				</tr>
+				<tr>
+					<td height="40" align="center" colspan="100%" class="title">회원가입</td>
+				</tr>				
+				<tr>
+					<td height="20">&nbsp;</td>
+				</tr>				
+				<tr>
+					<td colspan="100%" height="3" bgcolor="black"/>
+				</tr>				
 
-<div class="panel-body">
-<div class="form-wrapper">
+				<tr>
+					<td height="20" colspan="100%">&nbsp;</td>
+				</tr>			
+				<tr>
+					<td class="factor">아이디</td>
+					<td>
+					<input type="text" name="id" size="28"> &nbsp;&nbsp;&nbsp;
+					<input type="button" name="id2" value=" 중복확인 " onclick="openConfirmId()" class="button"></td>
+					<td class="notice">영문/숫자를 이용하여 4~12자로 입력하세요</td>
+				</tr>	
+				
+				<tr>
+					<td height="20" colspan="100%">&nbsp;</td>
+				</tr>			
+				<tr>
+					<td class="factor">비밀번호</td>
+					<td>
+					<input type="password" name="password" size="28"></td>
+					<td class="notice">영문/숫자를 이용하여 4~12자로 입력하세요</td>
+				</tr>
+				
+				<tr>
+					<td height="30" colspan="100%">&nbsp;</td>
+				</tr>			
+				<tr>
+					<td class="factor">비밀번호 재확인</td>
+					<td>
+					<input type="password" name="password2" size="28" placeholder="비밀번호를 재입력 해주십시오"></td>
+				</tr>			
+	
+				<tr>
+					<td height="30" colspan="100%">&nbsp;</td>
+				</tr>			
+				<tr>
+					<td class="factor">이름</td>
+					<td>
+					<input type="text" name="name" size="28"></td>
+					<td class="notice">회원가입 후 수정이 불가능합니다</td>
+				</tr>
+								
+				<tr>
+					<td height="30" colspan="100%">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="factor">전화번호</td>
+					<td>
+					<input type="text" name="tel" size="28"></td>
+					<td class="notice">"-" 없이 숫자만 입력하세요</td>
+				</tr>
+				
+				<tr>
+					<td height="30" colspan="100%">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="factor">이메일</td>
+					<td>
+					<input type="text" name="email" size="28" placeholder="______________ @ ______________">&nbsp;&nbsp;&nbsp;
+					<input type="button" name="emailChk" value="메일 인증" onclick="openConfirmEmail()" class="button"></td>
+					<td class="notice">이메일 형식에 맞춰 입력해 주세요</td>
+				</tr>
+				
+				<tr>
+					<td height="30" colspan="100%">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="factor">여권번호</td>
+					<td>
+					<input type="text" name="passport" size="28">&nbsp;&nbsp;&nbsp;
+					<!--  <input type="button" name="passport2" value=" 중복확인 " onclick="openConfirmPassport()" class="button"></td>-->
+				</tr>
+				
+				<tr>
+					<td height="50">&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="100%" height="3" bgcolor="black"/>
+				</tr>
+	
+				<tr>
+					<td height="10">&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="100%" height="40" align="center"><font size="5" >주요 정책 및 이용 방법</font>
+					</td>
+				</tr>
+				
+				<tr>
+					<td height="10">&nbsp;</td>
+				</tr>
+				
+				<tr>
+					<td colspan="100%" height="3" bgcolor="black"/>
+				</tr>
+	
+				<tr>
+					<td height="40">&nbsp;</td>
+				</tr>
+				
+				<tr>
+					<td colspan="100%" align="right">
+					<label for="agreeAll">
+							<strong class="agree">이용약관, 개인정보 수집 및 이용에 모두 동의합니다.</strong>
+							<input type="checkbox" id="agreeAll" value="" class="checkbox" onclick=chkBox(this.checked) />
+					</label>
+					</td>
+				</tr>
+				<tr>
+					<td height="90">&nbsp;</td>
+				</tr>
 
-<div class="content-wrapper">
-<div class="form-group">
-<div class="content-title-box">
-<div class="sub-title">
-이름
-<span class="required">*</span>
-</div>
-</div>
-<div class="row">
-<div class="col-xs-12">
-<input name="user[username]" title="이름" class="form-control" type="text" placeholder="이름을 입력해주세요." data-fv-field="user[username]">
-<small class="help-block" style="display: none;" data-fv-validator="notEmpty" data-fv-for="user[username]" data-fv-result="NOT_VALIDATED">멋진 이름이 있으시잖아요.</small>
-<small class="help-block" style="display: none;" data-fv-validator="stringLength" data-fv-for="user[username]" data-fv-result="NOT_VALIDATED">이름은 두 글자 이상 입력해주세요.</small>
-</div>
-</div>
-</div>
-</div>
-<div class="content-wrapper">
-<div class="form-group">
-<div class="content-title-box">
-<div class="sub-title">
-이메일
-<span class="required">*</span>
-</div>
-</div>
-<div class="row">
-<div class="col-xs-12">
-<input name="user[email]" title="이메일" class="form-control" type="email" placeholder="ID@example.com" autocomplete="off" data-fv-field="user[email]">
-<small class="help-block" style="display: none;" data-fv-validator="notEmpty" data-fv-for="user[email]" data-fv-result="NOT_VALIDATED">꼭 필요해요.</small>
-<small class="help-block" style="display: none;" data-fv-validator="emailAddress" data-fv-for="user[email]" data-fv-result="NOT_VALIDATED">이메일 주소가 맞나요?</small>
-</div>
-</div>
-</div>
-</div>
-
-<div class="content-wrapper">
-<div class="form-group">
-<div class="content-title-box">
-<div class="sub-title">
-아이디
-<span class="required">*</span>
-</div>
-</div>
-<div class="row">
-<div class="col-xs-12">
-<input name="user[username]" title="아이디" class="form-control" type="text" placeholder="아이디 입력해주세요." data-fv-field="user[id]">
-<small class="help-block" style="display: none;" data-fv-validator="notEmpty" data-fv-for="user[id]" data-fv-result="NOT_VALIDATED">아이디를 입력해주세요.</small>
-<small class="help-block" style="display: none;" data-fv-validator="stringLength" data-fv-for="user[id]" data-fv-result="NOT_VALIDATED">아이디 중복확인을 해주세요.</small>
-</div>
-</div>
-</div>
-</div>
-
-<div class="content-wrapper">
-<div class="form-group">
-<div class="content-title-box">
-<div class="sub-title">
-비밀번호
-<span class="required">*</span>
-</div>
-</div>
-<div class="row">
-<div class="col-xs-12">
-<input name="user[password]" title="비밀번호" class="form-control" type="password" placeholder="비밀번호" data-fv-field="user[password]">
-<small class="help-block" style="display: none;" data-fv-validator="notEmpty" data-fv-for="user[password]" data-fv-result="NOT_VALIDATED">비밀번호를 입력해주세요.</small>
-<small class="help-block" style="display: none;" data-fv-validator="stringLength" data-fv-for="user[password]" data-fv-result="NOT_VALIDATED">너무 짧은 비밀번호입니다.</small>
-</div>
-</div>
-</div>
-</div>
-
-<div class="content-wrapper">
-<div class="form-group">
-<div class="content-title-box">
-<div class="sub-title">
-비밀번호 확인
-<span class="required">*</span>
-</div>
-</div>
-<div class="row">
-<div class="col-xs-12">
-<input name="user[password_confirmation]" title="비밀번호" class="form-control" type="password" placeholder="비밀번호 확인" data-fv-field="user[password_confirmation]">
-<small class="help-block" style="display: none;" data-fv-validator="notEmpty" data-fv-for="user[password_confirmation]" data-fv-result="NOT_VALIDATED">비밀번호를 다시 한번 입력해주세요.</small><small class="help-block" style="display: none;" data-fv-validator="identical" data-fv-for="user[password_confirmation]" data-fv-result="NOT_VALIDATED">비밀번호가 일치하지 않습니다.</small></div>
-</div>
-</div>
-</div>
-
-<div class="content-wrapper">
-<div class="form-group">
-<div class="content-title-box">
-<div class="sub-title">
-여권번호
-<span class="required">*</span>
-</div>
-</div>
-<div class="row">
-<div class="col-xs-12">
-<input name="user[passport]" title="아이디" class="form-control" type="text" placeholder="여권번호를 입력해주세요." data-fv-field="user[passport]">
-<small class="help-block" style="display: none;" data-fv-validator="notEmpty" data-fv-for="user[passport]" data-fv-result="NOT_VALIDATED">여권번호를 입력해주세요.</small>
-</div>
-</div>
-</div>
-</div>
-
-<div class="content-wrapper">
-<div class="form-group">
-<div class="content-title-box">
-<div class="sub-title">
-전화번호
-</div>
-</div>
-<div class="row">
-<div class="col-xs-12">
-<input name="user[tel]" title="전화번호" class="form-control" type="text" placeholder="전화번호를 입력해주세요." data-fv-field="user[tel]">
-<small class="help-block" style="display: none;" data-fv-validator="notEmpty" data-fv-for="user[tel]" data-fv-result="NOT_VALIDATED">전화번호를 입력해주세요.</small>
-</div>
-</div>
-</div>
-</div>
-
-<div class="form-wrapper">
-<div class="content-wrapper">
-<div class="form-group clearfix agreements-container">
-<div class="row">
-<div class="col-xs-12">
-<div class="checkbox-signup checkbox-signup-all checkbox-custom checkbox-primary">
-<input id="checkAll" type="checkbox"><label for="checkAll">아래 약관에 모두 동의합니다.</label></div>
-<div class="checkbox-signup-wrapper" id="signupCheckboxGroup">
-<div class="checkbox-signup form-group checkbox-custom checkbox-primary">
-<input name="checkbox_terms" id="checkTerms" type="checkbox" value="true" data-fv-field="checkbox_terms">
-<label for="checkTerms">
-<a class="terms-link">회원가입 및 운영약관</a>
-(필수)
-</label><div class="terms-text" data-title="회원가입 및 운영약관">회원가입 및 운영약관<br>
-<small class="help-block" style="display: none;" data-fv-validator="notEmpty" data-fv-for="checkbox_terms" data-fv-result="NOT_VALIDATED">약관 동의에 체크해 주세요.</small></div>
-<div class="checkbox-signup form-group checkbox-custom checkbox-primary">
-<input name="checkbox_agree" id="checkAgree" type="checkbox" value="true" data-fv-field="checkbox_agree">
-<label for="checkAgree">
-<a class="terms-link">개인정보 수집 및 이용</a>
-(필수)
-</label><div class="terms-text" data-title="개인정보 수집 및 이용">개인정보 수집 및 이용<br>
-<small class="help-block" style="display: none;" data-fv-validator="notEmpty" data-fv-for="checkbox_agree" data-fv-result="NOT_VALIDATED">개인정보수집 동의에 체크해 주세요.</small></div>
-<div class="checkbox-signup checkbox-custom checkbox-primary">
-
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="btn-wrap">
-<button disabled="" class="btn-new btn--type-primary btn--width-100" type="submit" data-gtm-category="회원가입" data-gtm-action="이메일 회원가입" data-disable_with="회원가입">회원가입</button>
-</div>
-</div>
-</div>
-</div>
-</form>
-
-</div>
-</main>
+				
+				<tr>
+					<td colspan="100%" align="middle" class="title">이용약관</td>
+				</tr>
+				
+				<tr>
+					<td height="20">&nbsp;</td>
+				</tr>	
+				<tr>
+					<td align="center" colspan="100%">
+					<textarea readonly="readonly" rows="10" cols="120" class="term">
+					!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!이용약관 들어가는 곳!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+					</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td height="10">&nbsp;</td>
+				</tr>
+				
+				<tr>
+					<td colspan="100%" height="60" valign="top" align="right">
+					<label for="agreePrivacy" class="agree"> 개인정보수집, 이용 동의에 동의합니다. 
+					<input type="checkbox" id="agreePrivacy" name="join" value="" class="checkbox" />
+					</label>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="100%" align="center">
+					<input type="submit" value=" 회원가입 " class="regButton" >
+						&nbsp;&nbsp;&nbsp;&nbsp; 
+						<a href="Main.action" class="regButton">&nbsp;&nbsp;취소&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr>
+					<td height="50">&nbsp;</td>
+				</tr>
+				
+			</table>
+		</form>
+	</center>
 </body>
 </html>
