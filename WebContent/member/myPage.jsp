@@ -3,16 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="css/bootstrap.css" rel="stylesheet">
-<link href="css/bootstrap-theme.css" rel="stylesheet">
-<script src="js/bootstrap.js" type="text/javascript"></script>
-<style>
-body{
-    background-color:#EFEFEF;
-}
+<link href="../css/bootstrap.css" rel="stylesheet">
+<link href="../css/bootstrap-theme.css" rel="stylesheet">
+<script src="../js/bootstrap.js" type="text/javascript"></script>
 
-
-</style>
 <meta charset="EUC-KR">
 <title>마이페이지</title>
 </head>
@@ -25,12 +19,14 @@ body{
 
 <tr>
 <td align="right" bgcolor="white" height="20">
-  <input type="button" onclick="javascript:window.location='modify.jsp'" value="편집"/>
+<form action="ModifyMemberForm.action" name="Modify" method="post">
+  <input type="button"  value="편집"/>
   </td>
   </tr>
+  </form>
   <tr>
     <td align="center" bgcolor="white" height="70">
-    <img width=60 height=60></td>
+    <img width=60 height=60 ></td>
   </tr>
  <tr>
   <td bgcolor="white"height="40">이름&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;홍길동</td>

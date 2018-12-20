@@ -1,36 +1,49 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>°θΑ¤ »θΑ¦</title>
+<link href="../css/bootstrap.css" rel="stylesheet">
+<link href="../css/bootstrap-theme.css" rel="stylesheet">
+<script src="../js/bootstrap.js" type="text/javascript"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>κ³„μ • μ‚­μ </title>
 </head>
 <body>
-<table width="960" cellspacing="0" cellpadding="0" border="0" align="center">
+<div style="padding:150px;"> 
+
+<table align="center">
 <tr>
 <td colspan=2>
 <p align="center">
 <form action="Main.action" method="post">
-
-<table align="center" border="1" width="380" cellpadding="0" cellspacing="0">
+ 
+<table class="table table-bordered"  align="center"  width="70%">
 	<tr>
-		<td align="center" colspan="2">
-			<font size="4"><b>ΘΈΏψ Ε»Επ</b></font>
+		<th align="center" colspan="2" >
+			<font size="4"><b>νμ› νƒν‡΄</b></font>
+		</th>
+	</tr>
+	<tr>
+		<td align="center" width="200">
+		<font size="2">μ•„μ΄λ””</font></td>
+		<td>
+		
 		</td>
 	</tr>
 	<tr>
-		<td align="center" height="35" width="125">
-		<font size="2">ΊρΉΠΉψΘ£</font></td>
+		<td align="center" width="200">
+		<font size="2">λΉ„λ°€λ²νΈ</font></td>
 		<td>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<input type="password" name="MEMBER_PW" />
 		</td>
 	</tr>
 	<tr>
-		<td align="center" colspan="2" height="35">
-			<input type="submit" value="ΘΈΏψ Ε»Επ"/>
-			<input type="reset" value="Γλ ΌÒ" />
+		<td align="center" colspan="2">
+			<input type="submit" value="νμ› νƒν‡΄"/>
+			<input type="reset" value="μ·¨ μ†" />
 		</td>
 	</tr>				
 </table>
@@ -38,6 +51,6 @@
 </td>
 </tr>
 </table>
-
+</div>
 </body>
 </html>
