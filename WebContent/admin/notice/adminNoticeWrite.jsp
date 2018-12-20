@@ -25,9 +25,8 @@
 </script>
 </head>
 <body>
-	<form action="AdminNoticeWrite.action" name="write" method="post"
-			enctype="multipart/form-data" onsubmit="return validation();">
-
+	<form action="AdminNoticeWrite.action" name="write" method="post">
+			
 	<table width="600" border="0" cellspacing="0" cellpadding="0">
 		<tr>
 			<td align="right" colspan="2"><font color="#FF0000">*</font>는 필수 입력사항입니다.</td>

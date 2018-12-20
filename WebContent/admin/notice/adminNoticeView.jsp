@@ -66,7 +66,7 @@
 		<tr>
 			<td align="right" colspan="2">
 				<input name="list" type="button" value="수정" class="inputb"
-				onclick="javascript:location.href='AdminNoticeModify.action?currentPage=<s:property value="currentPage"/>&notice_no=<s:property value="resultClass.notice_no"/>'">
+				onclick="javascript:location.href='AdminNoticeModifyForm.action?currentPage=<s:property value="currentPage"/>&notice_no=<s:property value="resultClass.notice_no"/>'">
 				<input name="list" type="button" value="삭제" class="inputb"
 				onclick="javascript:location.href='AdminNoticeDelete.action?currentPage=<s:property value="currentPage"/>&notice_no=<s:property value="resultClass.notice_no"/>'">
 				<input name="list" type="button" value="목록" class="inputb"
