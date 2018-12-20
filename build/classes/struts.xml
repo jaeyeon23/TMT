@@ -15,7 +15,7 @@
 		
 		<action name="TourList" class="item.tour.TourList">
 			<result name="success" type="tiles">TourList</result>
-		</action>
+		</action> 
 		
 		<action name="HotelList" class="item.hotel.HotelList">
 			<result name="success" type="tiles">HotelList</result>
