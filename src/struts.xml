@@ -15,7 +15,7 @@
 		
 		<action name="TourList" class="item.tour.TourList">
 			<result name="success" type="tiles">TourList</result>
-		</action>
+		</action> 
 		
 		<action name="HotelList" class="item.hotel.HotelList">
 			<result name="success" type="tiles">HotelList</result>
@@ -33,7 +33,7 @@
 		</action>
 		
 		<action name="DeleteMemberCheck" class="member.DeleteMember">
-			<result name="success" type="tiles">DeleteMember</result>
+			<result name="success" type="tiles">DeleteMemberCheck</result>
 		</action>
 		<action name="Login" class="member.LoginMember">
 			<result name="success" type="tiles">Login</result>
@@ -45,6 +45,10 @@
 		
 		<action name="ConfirmId" class="member.JoinMemberIdChk">
 			<result name="success" type="tiles">ConfirmId</result>
+		</action>
+		
+		<action name="ModifymemberForm" class="member.ModifyMember">
+			<result name="success" type="tiles">ModifyMemberForm</result>
 		</action>
 
 	</package>

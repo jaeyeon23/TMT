@@ -25,9 +25,9 @@
 		<put-attribute name="body" value="/item/air/airList.jsp" />
 	</definition>
 	
-	<definition name="TourList" extends="Main">
+    <definition name="TourList" extends="Main">
 		<put-attribute name="body" value="/item/tour/tourList.jsp" />
-	</definition>
+	</definition> 
 	
 	<definition name="HotelList" extends="Main">
 		<put-attribute name="body" value="/item/hotel/hotelList.jsp" />
@@ -163,6 +163,10 @@
 	
 	<definition name="ConfirmedId" extends="Main">
 		<put-attribute name="body" value="/member/idCheck.jsp" />
+	</definition>
+	
+	<definition name="ModifyMemberForm" extends="Main">
+		<put-attribute name="body" value="/member/modify.jsp" />
 	</definition>
 
 <!-- 

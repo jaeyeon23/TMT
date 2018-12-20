@@ -1,6 +1,6 @@
-package item.hotel;
+package item.tour;
 
-public class HotelpagingAction {
+public class TourpagingAction {
 
 	private int currentPage;   // 현재페이지
 	private int totalCount;	 // 전체 게시물 수
@@ -15,9 +15,9 @@ public class HotelpagingAction {
 	private StringBuffer pagingHtml;
 
 	// 페이징 생성자
-	public HotelpagingAction(int currentPage, int totalCount, int blockCount,
+	public TourpagingAction(int currentPage, int totalCount, int blockCount,
 			int blockPage) {
-
+		
 		this.blockCount = blockCount;
 		this.blockPage = blockPage;
 		this.currentPage = currentPage;
@@ -51,8 +51,7 @@ public class HotelpagingAction {
 		pagingHtml = new StringBuffer();
 		
 		if (currentPage > blockPage) {
-
-			pagingHtml.append("<a href=HotelList.action?currentPage=" + (startPage - 1) + ">");
+			pagingHtml.append("<a href=TourList.action?currentPage=" + (startPage - 1) + ">");
 			pagingHtml.append("이전");
 			pagingHtml.append("</a>");
 		}
@@ -69,7 +68,7 @@ public class HotelpagingAction {
 				pagingHtml.append(i);
 				pagingHtml.append("</font></b>");
 			} else {
-				pagingHtml.append("&nbsp;<a href='HotelList.action?currentPage=");
+				pagingHtml.append("&nbsp;<a href='TourList.action?currentPage=");
 				pagingHtml.append(i);
 				pagingHtml.append("'>");
 				pagingHtml.append(i);
@@ -83,8 +82,7 @@ public class HotelpagingAction {
 
 		// 다음 block 페이지
 		if (totalPage - startPage >= blockPage) {
-
-			pagingHtml.append("<a href=HotelList.action?currentPage=" + (endPage + 1) + ">");
+			pagingHtml.append("<a href=TourList.action?currentPage=" + (endPage + 1) + ">");
 			pagingHtml.append("다음");
 			pagingHtml.append("</a>");
 		}
@@ -169,4 +167,5 @@ public class HotelpagingAction {
 	public void setPagingHtml(StringBuffer pagingHtml) {
 		this.pagingHtml = pagingHtml;
 	}
+
 }

@@ -137,6 +137,7 @@
 			<li><div class="menu_tour"><a href="TourList.action">투어&티켓</a></div></li>
 			<li><div class="menu_air"><a href="AirList.action">항공권</a></div></li>
 			<li><div class="menu_hotel"><a href="HotelList.action">숙소</a></div></li>
+			<li><div class="menu_hotel"><a href="NoticeList.action">고객센터</a></div></li>
 		</ul>
 	</div>
 	<!-- menu -->
