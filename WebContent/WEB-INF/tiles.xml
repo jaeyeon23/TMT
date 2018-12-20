@@ -110,6 +110,10 @@
 	<definition name="ConfirmedId" extends="Main">
 		<put-attribute name="body" value="/member/idCheck.jsp" />
 	</definition>
+	
+	<definition name="ModifyMemberForm" extends="Main">
+		<put-attribute name="body" value="/member/modify.jsp" />
+	</definition>
 
 <!-- 
 	 로그인 폼
