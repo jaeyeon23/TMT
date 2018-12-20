@@ -14,7 +14,7 @@
 #left_nav>ul>li a { color: #737373; }
 #left_nav>ul>li>a:hover, #left_nav>ul>li>a:hover>span { color: #283444; }
 
-.left_subject { width: 175px; height: 43px; background: url('/resources/images/common/back_left.jpg'); padding: 20px 0 0 10px; font-size: 22px; color: #333333; letter-spacing: -1px; }
+.left_subject { width: 175px; height: 43px; background: url('/resources/images/common/back_left.jpg'); padding: 20px 0 0 10px; font-size: 22px; color: #333333; letter-spacing: -1px; padding-bottom: 28px; }
 
 #left_num { overflow: hidden; padding-bottom: 50px; }
 #left_num img { float: left; }
