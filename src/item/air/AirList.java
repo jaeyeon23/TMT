@@ -2,7 +2,9 @@ package item.air;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.ibatis.common.resources.Resources;
@@ -31,16 +33,16 @@ public class AirList extends ActionSupport{
 	private String image1;	//항공사 이미지 썸네일
 	private int seat;		//좌석 수
 	private int seat_grade;	//좌석 등급
-	private String ad;		//출발일
-	private String dd;		//도착일
+	private Date ad;		//출발일
+	private Date dd;		//도착일
+	private Date ad_time;		//출발시간
+	private Date dd_time;		//도착시간
 	private String air_company;		//항공사
 	private String grade;
 	
 	/*변수 end*/
 	private String air_array;
-	
-	
-	
+	private String ad_str;			//날짜 string
 	
 	public AirList() throws IOException{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -54,18 +56,19 @@ public class AirList extends ActionSupport{
 		if(arv == null) {
 			Airlist = null;
 		}else {
-			/*<option value="1">가격 낮은 순</option>	
-			<option value="2">가는 날 출발시간 빠른 순</option>
-			<option value="3">가는 날 도착시간 빠른 순</option>*/
-			
+			SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+			Date to = transFormat.parse(getAd_str());
+				
+			avo.setAd(to);
 			avo.setArv(getArv());
 			avo.setDep(getDep());
-			avo.setAd(getAd());
 			avo.setSeat(getSeat());
 			avo.setSeat_grade(getSeat_grade());
 			
 			if(air_array == null) {
 				Airlist = sqlMapper.queryForList("listAir", avo);
+				
 			}else {
 				if(getAir_array().equals("1")) {
 					Airlist = sqlMapper.queryForList("listAir_lowprice", avo);
@@ -75,6 +78,7 @@ public class AirList extends ActionSupport{
 					Airlist = sqlMapper.queryForList("listAir_dd_time", avo);
 				}
 			}
+			
 		}
 		
 		return SUCCESS;
@@ -144,22 +148,6 @@ public class AirList extends ActionSupport{
 		this.seat_grade = seat_grade;
 	}
 
-	public String getAd() {
-		return ad;
-	}
-
-	public void setAd(String ad) {
-		this.ad = ad;
-	}
-
-	public String getDd() {
-		return dd;
-	}
-
-	public void setDd(String dd) {
-		this.dd = dd;
-	}
-
 	public String getAir_company() {
 		return air_company;
 	}
@@ -200,4 +188,43 @@ public class AirList extends ActionSupport{
 		this.air_array = air_array;
 	}
 
+	public Date getAd() {
+		return ad;
+	}
+
+	public void setAd(Date ad) {
+		this.ad = ad;
+	}
+
+	public Date getDd() {
+		return dd;
+	}
+
+	public void setDd(Date dd) {
+		this.dd = dd;
+	}
+
+	public Date getAd_time() {
+		return ad_time;
+	}
+
+	public void setAd_time(Date ad_time) {
+		this.ad_time = ad_time;
+	}
+
+	public Date getDd_time() {
+		return dd_time;
+	}
+
+	public void setDd_time(Date dd_time) {
+		this.dd_time = dd_time;
+	}
+
+	public String getAd_str() {
+		return ad_str;
+	}
+
+	public void setAd_str(String ad_str) {
+		this.ad_str = ad_str;
+	}
 }

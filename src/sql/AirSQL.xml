@@ -29,8 +29,9 @@
 	
 	<!-- 일반 검색 -->
 	<select id="listAir" resultMap="boardair" parameterClass="air">
-		SELECT * from air WHERE arv=#arv# and ad>=#ad# and 
-				seat>=#seat# and seat_grade=#seat_grade#
+		<!-- ad날짜만 계산 -->
+		SELECT * from air WHERE arv=#arv# and seat>=#seat# 
+				and seat_grade=#seat_grade# and ad>=#ad#
 	</select>
 	
 	<!-- 가격 낮은 순 -->

@@ -1,5 +1,7 @@
 package item.air;
 
+import java.util.Date;
+
 public class AirVO {
 
 	private int no;
@@ -10,10 +12,10 @@ public class AirVO {
 	private String image1;	//항공사 이미지 썸네일
 	private int seat;		//좌석 수
 	private int seat_grade;	//좌석 등급
-	private String ad;		//출발일
-	private String dd;		//도착일
-	private String ad_time;		//출발시간
-	private String dd_time;		//도착시간
+	private Date ad;		//출발일
+	private Date dd;		//도착일
+	private Date ad_time;		//출발시간
+	private Date dd_time;		//도착시간
 	private String air_company;		//항공사
 	private int grade;		//별점
 	
@@ -65,18 +67,6 @@ public class AirVO {
 	public void setSeat_grade(int seat_grade) {
 		this.seat_grade = seat_grade;
 	}
-	public String getAd() {
-		return ad;
-	}
-	public void setAd(String ad) {
-		this.ad = ad;
-	}
-	public String getDd() {
-		return dd;
-	}
-	public void setDd(String dd) {
-		this.dd = dd;
-	}
 	public String getAir_company() {
 		return air_company;
 	}
@@ -89,18 +79,28 @@ public class AirVO {
 	public void setGrade(int grade) {
 		this.grade = grade;
 	}
-	public String getAd_time() {
+	public Date getAd() {
+		return ad;
+	}
+	public void setAd(Date ad) {
+		this.ad = ad;
+	}
+	public Date getDd() {
+		return dd;
+	}
+	public void setDd(Date dd) {
+		this.dd = dd;
+	}
+	public Date getAd_time() {
 		return ad_time;
 	}
-	public void setAd_time(String ad_time) {
+	public void setAd_time(Date ad_time) {
 		this.ad_time = ad_time;
 	}
-	public String getDd_time() {
+	public Date getDd_time() {
 		return dd_time;
 	}
-	public void setDd_time(String dd_time) {
+	public void setDd_time(Date dd_time) {
 		this.dd_time = dd_time;
 	}
-	
-	
 }
