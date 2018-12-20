@@ -2,7 +2,6 @@
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
 	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 <sqlMap>
-
 	<typeAlias alias="hotel" type="item.hotel.HotelVO" />
 	<!-- 리절트 맵 정의 -->
 	<resultMap id="boardhotel" class="hotel">
@@ -21,7 +20,7 @@
 		<result property="checkin" column="checkin" />
 		<result property="checkout" column="checkout" />
 		<result property="maxnum" column="maxnum" />
-		<!-- <result property="grade" column="grade" /> -->
+		<result property="grade" column="grade" /> 
 	</resultMap>
 	
 	<!-- 공통으로 사용할 select 절 정의 -->
