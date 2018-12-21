@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.HashMap"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>IDÃ£±â</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>IDì°¾ê¸°</title>
 <style>
 
 .title{
@@ -20,7 +20,7 @@
 .result{
 	font-size:20px;
 }
-/* ¾ÆÀÌµğ Ã£±â ¹öÆ° */
+/* ì•„ì´ë”” ì°¾ê¸° ë²„íŠ¼ */
 .button{
     background-color: #F6E3CE;
     border: none;
@@ -51,7 +51,7 @@
 				<td align="center" height="300">
 					<table border="0">
 						<tr>
-							<td colspan="100%" align="center" class="title">¾ÆÀÌµğ Ã£±â</td>
+							<td colspan="100%" align="center" class="title">ì•„ì´ë”” ì°¾ê¸°</td>
 						</tr>
 						<tr>
 							<td height="30"/>
@@ -61,7 +61,7 @@
 							<td height="5" colspan="2"></td>
 						</tr>
 						<tr>
-							<td width="110" class="factors">ÀÌ¸§&nbsp;<br/><br/>ÀÌ¸ŞÀÏ&nbsp;
+							<td width="110" class="factors">ì´ë¦„&nbsp;<br/><br/>ì´ë©”ì¼&nbsp;
 							</td>
 							<td><input type="text" name="name"><br><br/>
 							<input type="text" name="email"></td>
@@ -71,21 +71,21 @@
 						</tr>
 						<tr>
 							<td align="center">
-							<input type="submit" value="  ¾ÆÀÌµğ Ã£±â  " class="button">
+							<input type="submit" value="  ì•„ì´ë”” ì°¾ê¸°  " class="button">
 							</td>
 							<s:if test='%{resultClass.id != null}'>
 								<td class="result">RESULT&nbsp;:&nbsp;</td>
 								<td align="left" class="result"><br> <b>${resultClass.name}</b>
-									´ÔÀÇ ID´Â <b>${resultClass.id}</b>ÀÔ´Ï´Ù.<br>&nbsp;</td>
+									ë‹˜ì˜ IDëŠ” <b>${resultClass.id}</b>ì…ë‹ˆë‹¤.<br>&nbsp;</td>
 								<td align="middle">
-									<a href="LoginForm.action" class="button">&nbsp;&nbsp;·Î±×ÀÎÆûÀ¸·Î&nbsp;&nbsp;</a>
+									<a href="LoginForm.action" class="button">&nbsp;&nbsp;ë¡œê·¸ì¸í¼ìœ¼ë¡œ&nbsp;&nbsp;</a>
 								</td>
 							</s:if>
 							<s:else>
 								<td></td>
 								<td></td>
 								<td align="middle">
-									<a href="LoginForm.action" class="button">&nbsp;&nbsp;·Î±×ÀÎÆûÀ¸·Î&nbsp;&nbsp;</a>
+									<a href="LoginForm.action" class="button">&nbsp;&nbsp;ë¡œê·¸ì¸í¼ìœ¼ë¡œ&nbsp;&nbsp;</a>
 								</td>
 							</s:else>
 						</tr>

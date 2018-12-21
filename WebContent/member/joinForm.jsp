@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.HashMap"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <style>
 	.factor{
 	align:left;
@@ -55,55 +55,55 @@ function check(){
 	var f=document.join;
 	
 	if (f.id.value == "") {
-		alert("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ½Ê½Ã¿À");
+		alert("ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì‹­ì‹œì˜¤");
 		f.id.focus();
 		return false;
 	}
 	if (f.id2.value == "") {
-		alert("¾ÆÀÌµğ Áßº¹È®ÀÎÀ» ÇØÁÖ½Ê½Ã¿À");
+		alert("ì•„ì´ë”” ì¤‘ë³µí™•ì¸ì„ í•´ì£¼ì‹­ì‹œì˜¤");
 		return false;
 	}
 	if (f.password.value == "") {
-		alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ½Ê½Ã¿À");
+		alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì‹­ì‹œì˜¤");
 		f.password.focus();
 		return false;
 	}
 	if (f.password.value != f.password2.value) {
-		alert("ºñºô¹øÈ£¸¦ ÀçÀÔ·Â ÇØÁÖ¼¼¿ä.");
+		alert("ë¹„ë¹Œë²ˆí˜¸ë¥¼ ì¬ì…ë ¥ í•´ì£¼ì„¸ìš”.");
 		f.password2.select();
 		return false;
 	}
 	if (f.name.value == "") {
-		alert("ÀÌ¸§À» ÀÔ·ÂÇØÁÖ½Ê½Ã¿À");
+		alert("ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì‹­ì‹œì˜¤");
 		f.name.focus();
 		return false;
 	}
 	if (f.tel.value == "") {
-		alert("ÇÚµåÆù¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ½Ê½Ã¿À");
+		alert("í•¸ë“œí°ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì‹­ì‹œì˜¤");
 		f.tel.focus();
 		return false;
 	}
 	if (f.email.value == "") {
-		alert("ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇØÁÖ½Ê½Ã¿À");
+		alert("ì´ë©”ì¼ì„ ì…ë ¥í•´ì£¼ì‹­ì‹œì˜¤");
 		f.email.focus();
 		return false;
 	}
 	if(f.passport.value==""){
-		alert("¿©±Ç¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ½Ê½Ã¿À");
+		alert("ì—¬ê¶Œë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì‹­ì‹œì˜¤");
 		f.passport.focus();
 		return false;
 	}
 	if (f.passport2.value == "") {
-		alert("¿©±Ç¹øÈ£ Áßº¹È®ÀÎÀ» ÇØÁÖ½Ê½Ã¿À");
+		alert("ì—¬ê¶Œë²ˆí˜¸ ì¤‘ë³µí™•ì¸ì„ í•´ì£¼ì‹­ì‹œì˜¤");
 		return false;
 	}
 	if (join.agreeUse.checked == false) {
-		alert("ÀÌ¿ë¾à°ü, °³ÀÎÁ¤º¸ ¼öÁı ¹× ÀÌ¿ë¿¡ ¸ğµÎ µ¿ÀÇÇØ ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.");
+		alert("ì´ìš©ì•½ê´€, ê°œì¸ì •ë³´ ìˆ˜ì§‘ ë° ì´ìš©ì— ëª¨ë‘ ë™ì˜í•´ ì£¼ì‹œê¸° ë°”ëë‹ˆë‹¤.");
 		return false;
 	}
 
 	if (join.agreePrivacy.checked == false) {
-		alert("ÀÌ¿ë¾à°ü, °³ÀÎÁ¤º¸ ¼öÁı ¹× ÀÌ¿ë¿¡ ¸ğµÎ µ¿ÀÇÇØ ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.");
+		alert("ì´ìš©ì•½ê´€, ê°œì¸ì •ë³´ ìˆ˜ì§‘ ë° ì´ìš©ì— ëª¨ë‘ ë™ì˜í•´ ì£¼ì‹œê¸° ë°”ëë‹ˆë‹¤.");
 		return false;
 	}
 
@@ -111,9 +111,9 @@ function check(){
 function openConfirmId(){
 	var url="ConfirmId.action?id="+document.join.id.value;
 	var f=document.join;
-	var idPs = /^[0-9a-zA-Z]{4,12}$/; //¾ÆÀÌµğ ºñ¹Ğ¹øÈ£ Ã¼Å©Ç¥Çö½Ä
+	var idPs = /^[0-9a-zA-Z]{4,12}$/; //ì•„ì´ë”” ë¹„ë°€ë²ˆí˜¸ ì²´í¬í‘œí˜„ì‹
 	if(f.id.value==""){
-		alert("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+		alert("ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 		f.id.focus();
 		return false;
 	}
@@ -124,7 +124,7 @@ function openConfirmPassport(){
 	var f=document.join;
 
 	if(f.passport.value==""){
-		alert("¿©±Ç¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+		alert("ì—¬ê¶Œë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 		f.passport.focus();
 		return false;
 	}
@@ -137,7 +137,7 @@ function chkBox(bool){
 }
 
 </script>
-<title>TMTÈ¸¿ø°¡ÀÔ</title>
+<title>TMTíšŒì›ê°€ì…</title>
 </head>
 <body>
 <center>
@@ -153,7 +153,7 @@ function chkBox(bool){
 					<td height="20">&nbsp;</td>
 				</tr>
 				<tr>
-					<td height="40" align="center" colspan="100%" class="title">È¸¿ø°¡ÀÔ</td>
+					<td height="40" align="center" colspan="100%" class="title">íšŒì›ê°€ì…</td>
 				</tr>				
 				<tr>
 					<td height="20">&nbsp;</td>
@@ -166,71 +166,71 @@ function chkBox(bool){
 					<td height="20" colspan="100%">&nbsp;</td>
 				</tr>			
 				<tr>
-					<td class="factor">¾ÆÀÌµğ</td>
+					<td class="factor">ì•„ì´ë””</td>
 					<td>
 					<input type="text" name="id" size="28"> &nbsp;&nbsp;&nbsp;
-					<input type="button" name="id2" value=" Áßº¹È®ÀÎ " onclick="openConfirmId()" class="button"></td>
-					<td class="notice">¿µ¹®/¼ıÀÚ¸¦ ÀÌ¿ëÇÏ¿© 4~12ÀÚ·Î ÀÔ·ÂÇÏ¼¼¿ä</td>
+					<input type="button" name="id2" value=" ì¤‘ë³µí™•ì¸ " onclick="openConfirmId()" class="button"></td>
+					<td class="notice">ì˜ë¬¸/ìˆ«ìë¥¼ ì´ìš©í•˜ì—¬ 4~12ìë¡œ ì…ë ¥í•˜ì„¸ìš”</td>
 				</tr>	
 				
 				<tr>
 					<td height="20" colspan="100%">&nbsp;</td>
 				</tr>			
 				<tr>
-					<td class="factor">ºñ¹Ğ¹øÈ£</td>
+					<td class="factor">ë¹„ë°€ë²ˆí˜¸</td>
 					<td>
 					<input type="password" name="password" size="28"></td>
-					<td class="notice">¿µ¹®/¼ıÀÚ¸¦ ÀÌ¿ëÇÏ¿© 4~12ÀÚ·Î ÀÔ·ÂÇÏ¼¼¿ä</td>
+					<td class="notice">ì˜ë¬¸/ìˆ«ìë¥¼ ì´ìš©í•˜ì—¬ 4~12ìë¡œ ì…ë ¥í•˜ì„¸ìš”</td>
 				</tr>
 				
 				<tr>
 					<td height="30" colspan="100%">&nbsp;</td>
 				</tr>			
 				<tr>
-					<td class="factor">ºñ¹Ğ¹øÈ£ ÀçÈ®ÀÎ</td>
+					<td class="factor">ë¹„ë°€ë²ˆí˜¸ ì¬í™•ì¸</td>
 					<td>
-					<input type="password" name="password2" size="28" placeholder="ºñ¹Ğ¹øÈ£¸¦ ÀçÀÔ·Â ÇØÁÖ½Ê½Ã¿À"></td>
+					<input type="password" name="password2" size="28" placeholder="ë¹„ë°€ë²ˆí˜¸ë¥¼ ì¬ì…ë ¥ í•´ì£¼ì‹­ì‹œì˜¤"></td>
 				</tr>			
 	
 				<tr>
 					<td height="30" colspan="100%">&nbsp;</td>
 				</tr>			
 				<tr>
-					<td class="factor">ÀÌ¸§</td>
+					<td class="factor">ì´ë¦„</td>
 					<td>
 					<input type="text" name="name" size="28"></td>
-					<td class="notice">È¸¿ø°¡ÀÔ ÈÄ ¼öÁ¤ÀÌ ºÒ°¡´ÉÇÕ´Ï´Ù</td>
+					<td class="notice">íšŒì›ê°€ì… í›„ ìˆ˜ì •ì´ ë¶ˆê°€ëŠ¥í•©ë‹ˆë‹¤</td>
 				</tr>
 								
 				<tr>
 					<td height="30" colspan="100%">&nbsp;</td>
 				</tr>
 				<tr>
-					<td class="factor">ÀüÈ­¹øÈ£</td>
+					<td class="factor">ì „í™”ë²ˆí˜¸</td>
 					<td>
 					<input type="text" name="tel" size="28"></td>
-					<td class="notice">"-" ¾øÀÌ ¼ıÀÚ¸¸ ÀÔ·ÂÇÏ¼¼¿ä</td>
+					<td class="notice">"-" ì—†ì´ ìˆ«ìë§Œ ì…ë ¥í•˜ì„¸ìš”</td>
 				</tr>
 				
 				<tr>
 					<td height="30" colspan="100%">&nbsp;</td>
 				</tr>
 				<tr>
-					<td class="factor">ÀÌ¸ŞÀÏ</td>
+					<td class="factor">ì´ë©”ì¼</td>
 					<td>
 					<input type="text" name="email" size="28" placeholder="______________ @ ______________">&nbsp;&nbsp;&nbsp;
-					<input type="button" name="emailChk" value="¸ŞÀÏ ÀÎÁõ" onclick="openConfirmEmail()" class="button"></td>
-					<td class="notice">ÀÌ¸ŞÀÏ Çü½Ä¿¡ ¸ÂÃç ÀÔ·ÂÇØ ÁÖ¼¼¿ä</td>
+					<input type="button" name="emailChk" value="ë©”ì¼ ì¸ì¦" onclick="openConfirmEmail()" class="button"></td>
+					<td class="notice">ì´ë©”ì¼ í˜•ì‹ì— ë§ì¶° ì…ë ¥í•´ ì£¼ì„¸ìš”</td>
 				</tr>
 				
 				<tr>
 					<td height="30" colspan="100%">&nbsp;</td>
 				</tr>
 				<tr>
-					<td class="factor">¿©±Ç¹øÈ£</td>
+					<td class="factor">ì—¬ê¶Œë²ˆí˜¸</td>
 					<td>
 					<input type="text" name="passport" size="28">&nbsp;&nbsp;&nbsp;
-					<!--  <input type="button" name="passport2" value=" Áßº¹È®ÀÎ " onclick="openConfirmPassport()" class="button"></td>-->
+					<!--  <input type="button" name="passport2" value=" ì¤‘ë³µí™•ì¸ " onclick="openConfirmPassport()" class="button"></td>-->
 				</tr>
 				
 				<tr>
@@ -244,7 +244,7 @@ function chkBox(bool){
 					<td height="10">&nbsp;</td>
 				</tr>
 				<tr>
-					<td colspan="100%" height="40" align="center"><font size="5" >ÁÖ¿ä Á¤Ã¥ ¹× ÀÌ¿ë ¹æ¹ı</font>
+					<td colspan="100%" height="40" align="center"><font size="5" >ì£¼ìš” ì •ì±… ë° ì´ìš© ë°©ë²•</font>
 					</td>
 				</tr>
 				
@@ -263,7 +263,7 @@ function chkBox(bool){
 				<tr>
 					<td colspan="100%" align="right">
 					<label for="agreeAll">
-							<strong class="agree">ÀÌ¿ë¾à°ü, °³ÀÎÁ¤º¸ ¼öÁı ¹× ÀÌ¿ë¿¡ ¸ğµÎ µ¿ÀÇÇÕ´Ï´Ù.</strong>
+							<strong class="agree">ì´ìš©ì•½ê´€, ê°œì¸ì •ë³´ ìˆ˜ì§‘ ë° ì´ìš©ì— ëª¨ë‘ ë™ì˜í•©ë‹ˆë‹¤.</strong>
 							<input type="checkbox" id="agreeAll" value="" class="checkbox" onclick=chkBox(this.checked) />
 					</label>
 					</td>
@@ -274,7 +274,7 @@ function chkBox(bool){
 
 				
 				<tr>
-					<td colspan="100%" align="middle" class="title">ÀÌ¿ë¾à°ü</td>
+					<td colspan="100%" align="middle" class="title">ì´ìš©ì•½ê´€</td>
 				</tr>
 				
 				<tr>
@@ -283,7 +283,7 @@ function chkBox(bool){
 				<tr>
 					<td align="center" colspan="100%">
 					<textarea readonly="readonly" rows="10" cols="120" class="term">
-					!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ÀÌ¿ë¾à°ü µé¾î°¡´Â °÷!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+					!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ì´ìš©ì•½ê´€ ë“¤ì–´ê°€ëŠ” ê³³!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 					</textarea>
 					</td>
 				</tr>
@@ -293,16 +293,16 @@ function chkBox(bool){
 				
 				<tr>
 					<td colspan="100%" height="60" valign="top" align="right">
-					<label for="agreePrivacy" class="agree"> °³ÀÎÁ¤º¸¼öÁı, ÀÌ¿ë µ¿ÀÇ¿¡ µ¿ÀÇÇÕ´Ï´Ù. 
+					<label for="agreePrivacy" class="agree"> ê°œì¸ì •ë³´ìˆ˜ì§‘, ì´ìš© ë™ì˜ì— ë™ì˜í•©ë‹ˆë‹¤. 
 					<input type="checkbox" id="agreePrivacy" name="join" value="" class="checkbox" />
 					</label>
 					</td>
 				</tr>
 				<tr>
 					<td colspan="100%" align="center">
-					<input type="submit" value=" È¸¿ø°¡ÀÔ " class="regButton" >
+					<input type="submit" value=" íšŒì›ê°€ì… " class="regButton" >
 						&nbsp;&nbsp;&nbsp;&nbsp; 
-						<a href="Main.action" class="regButton">&nbsp;&nbsp;Ãë¼Ò&nbsp;&nbsp;</a></td>
+						<a href="Main.action" class="regButton">&nbsp;&nbsp;ì·¨ì†Œ&nbsp;&nbsp;</a></td>
 				</tr>
 				<tr>
 					<td height="50">&nbsp;</td>
