@@ -57,8 +57,8 @@ public class JoinMember extends ActionSupport{
 	Calendar today=Calendar.getInstance();
 	
 	public JoinMember() throws Exception{
-		reader=Resources.getResourceAsReader("sqlMapConfig.xml");// sqlMapConfig.xml ÆÄÀÏÀÇ ¼³Á¤ ³»¿ëÀ» °¡Á®¿Â´Ù
-		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader); // sqlMapConfig.xmlÀÇ ³»¿ëÀ» Àû¿ëÇÑ sqlMapper °´Ã¼ »ı¼º
+		reader=Resources.getResourceAsReader("sqlMapConfig.xml");// sqlMapConfig.xml íŒŒì¼ì˜ ì„¤ì • ë‚´ìš©ì„ ê°€ì ¸ì˜¨ë‹¤
+		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader); // sqlMapConfig.xmlì˜ ë‚´ìš©ì„ ì ìš©í•œ sqlMapper ê°ì²´ ìƒì„±
 		reader.close();
 		
 	}
@@ -67,7 +67,7 @@ public class JoinMember extends ActionSupport{
 		return SUCCESS;
 	}
 	
-	public String Join()throws Exception{//È¸¿ø°¡ÀÔ
+	public String Join()throws Exception{//íšŒì›ê°€ì…
 		
 		paramClass = new MemberVO();
 	    resultClass = new MemberVO();
@@ -100,13 +100,13 @@ public class JoinMember extends ActionSupport{
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out=response.getWriter();
 			out.println("<script>");
-			out.println("alert('µ¿ÀÏÇÑ ÀÌ¸ŞÀÏÀÌ Á¸ÀçÇÕ´Ï´Ù.');");
+			out.println("alert('ë™ì¼í•œ ì´ë©”ì¼ì´ ì¡´ì¬í•©ë‹ˆë‹¤.');");
 			out.println("history.go(-1);");
 			out.println("</script>");
 			out.close();
 			return LOGIN;
 		}
-		//µ¿ÀÏÇÑ ÀÌ¸ŞÀÏÀÌ ¾ø´Ù¸é È¸¿ø°¡ÀÔÀÎÁõ¿ë ¸ŞÀÏ ¹ß¼Û
+		//ë™ì¼í•œ ì´ë©”ì¼ì´ ì—†ë‹¤ë©´ íšŒì›ê°€ì…ì¸ì¦ìš© ë©”ì¼ ë°œì†¡
 		Properties props = new Properties();
 		props.setProperty("mail.transport.protocol", "smtp");
 		props.setProperty("mail.smtp.host", "smtp.gmail.com");
@@ -120,7 +120,7 @@ public class JoinMember extends ActionSupport{
 
 		Authenticator auth = new Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("khtour8282@gmail.com", "");//¹ß½ÅÀÚ ÀÌ¸ŞÀÏ°ú ºñ¹Ğ¹øÈ£ ÀÔ·Â
+				return new PasswordAuthentication("khtour8282@gmail.com", "");//ë°œì‹ ì ì´ë©”ì¼ê³¼ ë¹„ë°€ë²ˆí˜¸ ì…ë ¥
 			}
 		};
 
@@ -128,14 +128,14 @@ public class JoinMember extends ActionSupport{
 
 		MimeMessage message = new MimeMessage(session);
 		message.setSender(new InternetAddress("khtour8282@gmail.com"));
-		message.setSubject("È¸¿ø°¡ÀÔ ÀÌ¸ŞÀÏ ÀÎÁõ ¸ŞÀÏÀÔ´Ï´Ù.");
+		message.setSubject("íšŒì›ê°€ì… ì´ë©”ì¼ ì¸ì¦ ë©”ì¼ì…ë‹ˆë‹¤.");
 
 		message.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
 		
-		//È¸¿ø°¡ÀÔÆû¿¡¼­ ÀÔ·ÂÇÑ Á¤º¸¸¦ ³ëÃâµÇÁö¾Ê°Ô aÅÂ±×·Î ¹ß¼Û
-		//¿©±â¸¦ ´©¸£¸é ÇØ´ç °ªÀÌ °¡ÀÔ·ÎÁ÷À¸·Î Àü´ŞµÊ
+		//íšŒì›ê°€ì…í¼ì—ì„œ ì…ë ¥í•œ ì •ë³´ë¥¼ ë…¸ì¶œë˜ì§€ì•Šê²Œ aíƒœê·¸ë¡œ ë°œì†¡
+		//ì—¬ê¸°ë¥¼ ëˆ„ë¥´ë©´ í•´ë‹¹ ê°’ì´ ê°€ì…ë¡œì§ìœ¼ë¡œ ì „ë‹¬ë¨
 		String confirmUrl = "<a href='http://localhost:8080/khtour/JoinMember.action?email=" + email + "&id=" + id
-				+ "&password=" + password + "&name=" + name + "" + "&tel=" + tel + "&admin=5'>¿©±â</a>¸¦ ´©¸£½Ã¸é È¸¿ø°¡ÀÔÀÌ ¿Ï·áµË´Ï´Ù.";
+				+ "&password=" + password + "&name=" + name + "" + "&tel=" + tel + "&admin=5'>ì—¬ê¸°</a>ë¥¼ ëˆ„ë¥´ì‹œë©´ íšŒì›ê°€ì…ì´ ì™„ë£Œë©ë‹ˆë‹¤.";
 
 		Multipart mp = new MimeMultipart();
 		MimeBodyPart mbp1 = new MimeBodyPart();

@@ -63,10 +63,10 @@ public class LoginMember extends ActionSupport implements SessionAware{
 		
 		resultClass = (MemberVO) sqlMapper.queryForObject("selectOne", getId());
 
-	    if (resultClass != null) { // ¾ÆÀÌµğ°¡ ÀÖÀ¸¸é 
-	      if (resultClass.getPassword().equals(getPassword())) { // ºñ¹Ğ¹øÈ£ ÀÏÄ¡
+	    if (resultClass != null) { // ì•„ì´ë””ê°€ ìˆìœ¼ë©´ 
+	      if (resultClass.getPassword().equals(getPassword())) { // ë¹„ë°€ë²ˆí˜¸ ì¼ì¹˜
 	        
-	    	  // ·Î±×ÀÎ ¼º°ø . ¼¼¼Ç ¼³Á¤
+	    	  // ë¡œê·¸ì¸ ì„±ê³µ . ì„¸ì…˜ ì„¤ì •
 	        session.put("id", resultClass.getId());
 	        session.put("password", resultClass.getPassword());
 	        session.put("admin", resultClass.getAdmin());
@@ -82,7 +82,7 @@ public class LoginMember extends ActionSupport implements SessionAware{
 		//return SUCCESS;
 	}
 	
-	//·Î±×¾Æ¿ô
+	//ë¡œê·¸ì•„ì›ƒ
 	 public String logout() throws Exception {
 			
 			if (session.get("id") != null) {
