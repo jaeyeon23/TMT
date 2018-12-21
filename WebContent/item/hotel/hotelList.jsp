@@ -42,7 +42,7 @@ background-color: green;
 <body>
 	<div id="hotelBox">
 		<div class="hotel_search_Box">
-			<div id="search_h1">첫번재 검색방법(상품명or숙소명,날짜,인원,가격)
+			<div id="search_h1">&nbsp;&nbsp;&nbsp;<b>호텔검색(상품명or숙소명,날짜,인원,가격)</b>
 			<br/><center><input type="text" size="60" value=" 숙소 또는 상품을 입력해주세요."/></center>
 			
 			</div>
