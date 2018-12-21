@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="EUC-KR"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE struts PUBLIC
 	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
 	"http://struts.apache.org/dtds/struts-2.0.dtd">
@@ -9,10 +9,6 @@
 			<result name="success" type="tiles">Main</result>
 		</action>
 
-		<action name="AirList" class="item.air.AirList">
-			<result name="success" type="tiles">AirList</result>
-		</action>
-		
 		<action name="TourList" class="item.tour.TourList">
 			<result name="success" type="tiles">TourList</result>
 		</action> 
@@ -55,7 +51,7 @@
 	<include file="struts/admin.xml" />
 	<include file="struts/notice.xml" />
 
-	<!-- 항공 -->
+	<!-- �빆怨� -->
 	<include file="/struts/air.xml" />
 
 </struts>

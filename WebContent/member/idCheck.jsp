@@ -1,17 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
  <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>ȸ������ ���̵� �ߺ�Ȯ��</title>
+<meta charset="UTF-8">
+<title>회원가입 아이디 중복확인</title>
 <script type="text/javascript">
 function check(){
 	var f=document.ConfirmIdForm;
 	
 	if(f.id.value==""){
-		alert("���̵� �Է����ּ���.");
+		alert("아이디를 입력해주세요.");
 		return false;
 	}
 }
@@ -26,7 +26,7 @@ function windowclose(){
 <table width="400" border="0" cellspacing="0" cellpadding="5">
 <tr align="center">
 <td height="30">
-<b>${id}</b>��(��) �̹� ��� ���� ���̵��Դϴ�!
+<b>${id}</b>은(는) 이미 사용 중인 아이디입니다!
 </td>
 </tr>
 </table>
@@ -34,9 +34,9 @@ function windowclose(){
 	<table width="400" border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<td align="center">
-				<font>�ٸ� ���̵� �Է��ϼ���!</font>
+				<font>다른 아이디를 입력하세요!</font>
 				<input type="text" size="10" maxlength="12" name="id" />
-				<input type="submit"  value="�ߺ�Ȯ��">
+				<input type="submit"  value="중복확인">
 			</td>
 		</tr>
 	</table>
@@ -48,9 +48,9 @@ function windowclose(){
 		<tr>
 			<td align="center">
 				<br><br>
-				<font>�Է��Ͻ� <b>${id}</b> ��(��) ����� �� �ִ� ���̵��Դϴ�.</font>
+				<font>입력하신 <b>${id}</b> 은(는) 사용할 수 있는 아이디입니다.</font>
 				<br/><br/>
-				<input type="button" value="�ݱ�" onclick="windowclose()"/>
+				<input type="button" value="닫기" onclick="windowclose()"/>
 			</td>
 		</tr>
 	</table>

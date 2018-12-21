@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="EUC-KR"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
 	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 <sqlMap>
 	<typeAlias alias="tour" type="item.tour.TourVO" />
-	<!-- ¸®ÀýÆ® ¸Ê Á¤ÀÇ -->
+	<!-- ë¦¬ì ˆíŠ¸ ë§µ ì •ì˜ -->
 	<resultMap id="boardtour" class="tour">
 		<result property="no" column="no" />
 		<result property="name" column="name" />
@@ -19,17 +19,17 @@
 		<result property="grade" column="grade" />
 	</resultMap>
 
-	<!-- °øÅëÀ¸·Î »ç¿ëÇÒ select Àý Á¤ÀÇ -->
+	<!-- ê³µí†µìœ¼ë¡œ ì‚¬ìš©í•  select ì ˆ ì •ì˜ -->
 	<sql id="select-allT">
 		SELECT * FROM TOUR
 	</sql>
 
-	<!-- °øÅëÀ¸·Î »ç¿ëÇÒ where-no Àý Á¤ÀÇ -->
+	<!-- ê³µí†µìœ¼ë¡œ ì‚¬ìš©í•  where-no ì ˆ ì •ì˜ -->
 	<sql id="where-noT">
 		WHERE no = #no#
 	</sql>
 
-	<!-- select Äõ¸®¹® Á¤ÀÇ -->
+	<!-- select ì¿¼ë¦¬ë¬¸ ì •ì˜ -->
 	<select id="selectAllT" resultMap="boardtour">
 		<include refid="select-allT" />
 		ORDER BY NO DESC
