@@ -73,7 +73,7 @@ public class FindMemberPw extends ActionSupport implements SessionAware {
 		session.remove("EMAIL");
 		//session.remove("REGDATE");
 
-		context.setSession(session); // 다시 session을 적용 시켜서 초기화
+		context.setSession(session); 
 		
 		return SUCCESS;
 	}

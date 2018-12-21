@@ -14,43 +14,43 @@ import item.tour.TourpagingAction;
 
 public class TourList extends ActionSupport{
 	
-	public static Reader reader; // ÆÄÀÏ ½ºÆ®¸²À» À§ÇÑ reader.
-	public static SqlMapClient sqlMapper; // SqlMapClient API¸¦ »ç¿ëÇÏ±â À§ÇÑ sqlMapper °´Ã¼.
+	public static Reader reader; //  Æ®  reader.
+	public static SqlMapClient sqlMapper; // SqlMapClient API Ï±  sqlMapper Ã¼.
 
 	private List<TourVO> Tourlist = new ArrayList<TourVO>();
 	
-	private int currentPage = 1; // ÇöÀç ÆäÀÌÁö
-	private int totalCount; // ÃÑ °Ô½Ã¹°ÀÇ ¼ö
-	private int blockCount = 10; // ÇÑ ÆäÀÌÁöÀÇ °Ô½Ã¹°ÀÇ ¼ö
-	private int blockPage = 5; // ÇÑ È­¸é¿¡ º¸¿©ÁÙ ÆäÀÌÁö ¼ö
-	private String pagingHtml; // ÆäÀÌÂ¡À» ±¸ÇöÇÑ HTML
-	private TourpagingAction page; // ÆäÀÌÂ¡ Å¬·¡½º
+	private int currentPage = 1; //  
+	private int totalCount; //  Ô½Ã¹ 
+	private int blockCount = 10; //   Ô½Ã¹ 
+	private int blockPage = 5; //  È­é¿¡   
+	private String pagingHtml; // Â¡  HTML
+	private TourpagingAction page; // Â¡ Å¬
 
-	// »ı¼ºÀÚ
+	// 
 	public TourList() throws IOException {
-			reader = Resources.getResourceAsReader("sqlMapConfig.xml"); // sqlMapConfig.xml ÆÄÀÏÀÇ ¼³Á¤³»¿ëÀ» °¡Á®¿Â´Ù.
-			sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader); // sqlMapConfig.xmlÀÇ ³»¿ëÀ» Àû¿ëÇÑ sqlMapper °´Ã¼ »ı¼º.
+			reader = Resources.getResourceAsReader("sqlMapConfig.xml"); // sqlMapConfig.xml   Â´.
+			sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader); // sqlMapConfig.xml   sqlMapper Ã¼ .
 			reader.close();
 	}
 
-	// °Ô½ÃÆÇ ¸®½ºÆ® ¾×¼Ç
+	// Ô½ Æ® ×¼
 	public String execute() throws Exception {
-		// ¸ğµç ±ÛÀ» °¡Á®¿ÍÅõ¾î¸®½ºÆ®¿¡ ³ÖÀ½
+		//   î¸®Æ® 
 		Tourlist = sqlMapper.queryForList("selectAllT");
 		
-		totalCount = Tourlist.size(); // ÀüÃ¼ °Ô½Ã±ÛÀÇ ¼ö
+		totalCount = Tourlist.size(); // Ã¼ Ô½Ã± 
 
-		// TourpagingAction °´Ã¼ »ı¼º.
+		// TourpagingAction Ã¼ .
 		page = new TourpagingAction(currentPage, totalCount, blockCount, blockPage);
 		pagingHtml = page.getPagingHtml().toString();
 
-		// ÇöÀç ÆäÀÌÁö¿¡¼­ º¸¿©ÁÙ ¸¶Áö¸· ±ÛÀÇ ¹øÈ£ ¼³Á¤.
+		//      È£ .
 		int lastCount = totalCount;
-		// lastCount¸¦ +1 ¹øÈ£·Î ¼³Á¤.
+		// lastCount +1 È£ .
 		if (page.getEndCount() < totalCount)
 			lastCount = page.getEndCount() + 1;
 
-		// ÀüÃ¼ ¸®½ºÆ®¿¡¼­ ÇöÀç ÆäÀÌÁö¸¸Å­ÀÇ ¸®½ºÆ®¸¸ °¡Á®¿Â´Ù.
+		// Ã¼ Æ®  Å­ Æ® Â´.
 		Tourlist = Tourlist.subList(page.getStartCount(), lastCount);
 		
 		return SUCCESS;
