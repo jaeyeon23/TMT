@@ -27,11 +27,11 @@
     
     
 	<link rel="stylesheet" href="./calendar/jquery-ui.min.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="./calendar/jquery-ui.min.js"></script>
-
-<script src="./calendar/datepicker-ko.js"></script>
-<script type="text/javascript">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="./calendar/jquery-ui.min.js"></script>
+	
+	<script src="./calendar/datepicker-ko.js"></script>
+	<script type="text/javascript">
 	//<![CDATA[
 
 	/* Korean initialisation for the jQuery calendar extension. */
@@ -76,20 +76,6 @@
 	///
 	$(function() {
 		$(".date1").datepicker();
-
-		$(".date2").datepicker({
-			showOn : "button",
-			buttonImage : "images/calendar.gif",
-			buttonImageOnly : false,
-			buttonText : "Select date"
-		});
-
-		$(".date3").datepicker({
-			onSelect : function(dateText, inst) {
-				console.log(dateText);
-				console.log(inst);
-			}
-		});
 	});
 	//]]>
 		
@@ -98,6 +84,50 @@
 		function sm() {
 			document.frm.submit();
 		}
+		
+		/* 검색조건 */
+		$("#gg").change(function(){
+			var frm = document.Test;
+			
+			if(!($('.checkbox').is(':checked'))){
+				$("input[name=chAD_1]").val('Y');
+			}
+			
+			frm.submit();
+		})
+		
+		function choice() {
+
+			var frm = document.Test;
+	
+			if($('.checkbox').is(':checked')){
+	
+				$("input[name=ckAD_1]",frm).val();
+			}
+			else{
+				$("input[name=ckAD_1]",frm).val('N');
+			}
+	
+			frm.submit();
+		} 
+		
+		
+	/* 	$("#CHECK_YN").change(
+			function() {
+			// 체크박스 값에 따라 히든 값 변경
+            	if ( $("#CHECK_YN").is(":checked") ){
+				    $("YN").val('Y');
+			    } else {
+                	$("YN").val('N');
+			    }
+			}
+		); */
+		
+		/* $(document).ready(function(){
+			$('#myModal').click(function(){
+				
+			});			
+		}) */
 	</script>
 	
 	<style>
@@ -119,11 +149,12 @@
 		   	float: left;
 		   	width: 15%;
 		   	height: 550pt;
-		   	border-right: 3px solid #51abf3!important;
-		   	background-color: gray;
+		   	background-color: #ccccff;
 		   	font-size: 15pt;
 		   	margin-left:5%;
 		   	margin-right:5%;
+		   	padding-left:13pt;
+		   	padding-top:5pt;
 		}
 		   
 		.air_right{
@@ -219,27 +250,36 @@
 		<div class="air_left">
 			<form method="get">
 				<strong>출발시간</strong><br>
-				<input type="checkbox" checked>&nbsp;&nbsp;새벽 00:00~06:00<br>
-				<input type="checkbox" checked>&nbsp;&nbsp;새벽 06:00~12:00<br>
-				<input type="checkbox" checked>&nbsp;&nbsp;새벽 12:00~18:00<br>
-				<input type="checkbox" checked>&nbsp;&nbsp;새벽 18:00~24:00<br>
+				<input type="checkbox" name="ckAD_1" value="06">&nbsp;&nbsp;새벽 00:00~06:00<br>
+				<input type="checkbox" name="ckAD_2" value="12">&nbsp;&nbsp;오전 06:00~12:00<br>
+				<input type="checkbox" name="ckAD_3" value="18">&nbsp;&nbsp;오후 12:00~18:00<br>
+				<input type="checkbox" name="ckAD_4" value="24">&nbsp;&nbsp;야간 18:00~24:00<br>
 				<br><br>
 				<strong>도착시간</strong><br>			
-				<input type="checkbox" checked>&nbsp;&nbsp;새벽 00:00~06:00<br>
-				<input type="checkbox" checked>&nbsp;&nbsp;새벽 06:00~12:00<br>
-				<input type="checkbox" checked>&nbsp;&nbsp;새벽 12:00~18:00<br>
-				<input type="checkbox" checked>&nbsp;&nbsp;새벽 18:00~24:00<br>
+				<input type="checkbox" name="ckDD_1" value="060000">&nbsp;&nbsp;새벽 00:00~06:00<br>
+				<input type="checkbox" name="ckDD_2" value="120000">&nbsp;&nbsp;오전 06:00~12:00<br>
+				<input type="checkbox" name="ckDD_3" value="180000">&nbsp;&nbsp;오후 12:00~18:00<br>
+				<input type="checkbox" name="ckDD_4" value="240000">&nbsp;&nbsp;야간 18:00~24:00<br>
 				<br><br>
-				<strong>항공시간</strong><br>
-				<input type="checkbox" checked>&nbsp;&nbsp;대한항공<br>
-				<input type="checkbox" checked>&nbsp;&nbsp;아시아나<br>
-				<input type="checkbox" checked>&nbsp;&nbsp;진에어<br>
+				<strong>항공사</strong><br>
+				<input type="checkbox" name="air_company_korea" value="korea">&nbsp;&nbsp;대한항공<br>
+				<input type="checkbox" name="air_company_asia" value="asia">&nbsp;&nbsp;아시아나<br>
+				<input type="checkbox" name="air_company_jin" value="jin">&nbsp;&nbsp;진에어<br>
 				<br><br>
 				<strong>가격대</strong><br>
 				    <p>
 				        <input type="text" id="amount3" readonly style="width:100pt;border:0; color:#f6931f; font-weight:bold;">
 				    </p>
 				    <div id="slider" style="width:150pt;"></div>
+				    
+			    <!-- test -->
+			    
+			    <s:hidden name="arv" value="%{arv}"/>
+				<s:hidden name="dep" value="%{dep}"/>
+				<s:hidden name="seat" value="%{seat}"/>
+				<s:hidden name="ad_str" value="%{ad_str}"/>
+				<s:hidden name="seat_grade" value="%{seat_grade}"/>	
+			    <input type="submit" value="test">
 			</form>
 		</div>
 		<div class="air_right">
@@ -264,8 +304,8 @@
 				</tr>
 				<s:if test="Airlist == null">
 				<tr>
-					<td colspan=4>
-						항공권을 검색해 주세요
+					<td colspan=5>
+						<center>항공권을 검색해 주세요</center>
 					</td>
 				</tr>
 				</s:if>
@@ -277,20 +317,20 @@
 					</td>
 					<td>
 						<%-- <s:property value="ad_time"/> --%>
-						<s:date name="ad_time" format="yyyy-MM-dd HH:mm" />
+						<s:date name="ad" format="HH:mm" />
 					</td>
 					<td>
 						<%-- <s:property value="dd_time"/> --%>
-						<s:date name="dd_time" format="yyyy-MM-dd HH:mm" />
+						<s:date name="dd" format="HH:mm" />
 					</td>
 					<td>
 						<s:property value="price"/>
 					</td>
 					<td>
-						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal${stat.index }">
   							상세보기
 						</button>
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal fade" id="myModal${stat.index }" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">
 									<div class="modal-header">
@@ -311,6 +351,9 @@
 						        				<th>
 						        					가격
 						        				</th>
+						        				<!-- <th>
+						        					운행 시간
+						        				</th> -->
 						        			</tr>
 						        			<tr>
 						        				<td>
@@ -321,6 +364,10 @@
 						        				</td>
 						        				<td>
 						        					${price * param.seat}원
+						        				</td>
+						        				<td>
+						        					<s:property value="air_company"/>
+						        					<%-- <s:date name="dd_time - ad_time" format="HH:mm" /> --%>
 						        				</td>
 						        			</tr>
 						        		</table>

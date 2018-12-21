@@ -54,4 +54,10 @@
 		</action>
 
 	</package>
+	<include file="struts/admin.xml" />
+	<include file="struts/notice.xml" />
+
+	<!-- 항공 -->
+	<include file="/struts/air.xml" />
+
 </struts>
