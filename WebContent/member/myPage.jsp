@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,11 +10,11 @@
 <script>
 function removeCheck() {
 
-	 if (confirm("Á¤¸» °èÁ¤À» »èÁ¦ÇÏ½Ã°Ú½À´Ï±î??") == true){    //È®ÀÎ
+	 if (confirm("ì •ë§ ê³„ì •ì„ ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ??") == true){    //í™•ì¸
 
 	     document.removefrm.submit();
 
-	 }else{   //Ãë¼Ò
+	 }else{   //ì·¨ì†Œ
 
 	     return false;
 
@@ -23,12 +23,12 @@ function removeCheck() {
 	}
 </script>
 
-<meta charset="EUC-KR">
-<title>¸¶ÀÌÆäÀÌÁö</title>
+<meta charset="UTF-8">
+<title>ë§ˆì´í˜ì´ì§€</title>
 </head>
 <body>
 <div>
-<h2>ÇÁ·ÎÇÊ °ü¸®</h2>
+<h2>í”„ë¡œí•„ ê´€ë¦¬</h2>
 </div>
 <div class="mypage">
 
@@ -38,7 +38,7 @@ function removeCheck() {
 <form action="ModifyMember.action" name="Modify" method="post" >
 <tr>
 <td align="right" bgcolor="white" height="20">
-<button type="submit"class="btn btn-default" align="right">ÆíÁı</button>
+<button type="submit"class="btn btn-default" align="right">í¸ì§‘</button>
   </td>
   </tr>
   </form>
@@ -47,26 +47,26 @@ function removeCheck() {
     <img width=60 height=60 ></td>
   </tr>
  <tr>
-  <td align="left" bgcolor="white"height="40"><strong>ÀÌ¸§</strong>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;È«±æµ¿</td>
+  <td align="left" bgcolor="white"height="40"><strong>ì´ë¦„</strong>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;í™ê¸¸ë™</td>
   </tr>
    <tr>
-  <td align="left" bgcolor="white"height="40"><strong>ÀÌ¸ŞÀÏ</strong>&emsp;&emsp;&emsp;&emsp;&emsp;www.naver.com</td>
+  <td align="left" bgcolor="white"height="40"><strong>ì´ë©”ì¼</strong>&emsp;&emsp;&emsp;&emsp;&emsp;www.naver.com</td>
   </tr>
    <tr>
-  <td align="left" bgcolor="white" height="40"><strong>¿¬¶ôÃ³</strong>&emsp;&emsp;&emsp;&emsp;&emsp;132-456-789</td>
+  <td align="left" bgcolor="white" height="40"><strong>ì—°ë½ì²˜</strong>&emsp;&emsp;&emsp;&emsp;&emsp;132-456-789</td>
   </tr>
    <tr>
-  <td align="left" bgcolor="white" height="40"><strong>ºñ¹Ğ¹øÈ£</strong>&emsp;&emsp;&emsp;&emsp;&emsp;*******</td>
+  <td align="left" bgcolor="white" height="40"><strong>ë¹„ë°€ë²ˆí˜¸</strong>&emsp;&emsp;&emsp;&emsp;&emsp;*******</td>
   </tr>
    <tr>
-  <td align="left" bgcolor="white" height="60"><strong>¸¶ÄÏÆÃ¼ö½Åµ¿ÀÇ</strong>&nbsp;&nbsp;&nbsp;e-mail:¼ö½Å°ÅºÎ<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sms:¼ö½Å°ÅºÎ</td>
+  <td align="left" bgcolor="white" height="60"><strong>ë§ˆì¼“íŒ…ìˆ˜ì‹ ë™ì˜</strong>&nbsp;&nbsp;&nbsp;e-mail:ìˆ˜ì‹ ê±°ë¶€<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sms:ìˆ˜ì‹ ê±°ë¶€</td>
   </tr>
 </table>
 </div>
 <br><br>
 <div align="center">
 <form action="DeleteMember.action" name="Mdel" method="post">
-     <button type="submit" class="btn btn-primary" onclick="removeCheck()">°èÁ¤»èÁ¦</button><br><br>
+     <button type="submit" class="btn btn-primary" onclick="removeCheck()">ê³„ì •ì‚­ì œ</button><br><br>
     
 </form></div>
 </body>

@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
  <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>È¸¿ø°¡ÀÔ ¾ÆÀÌµğ Áßº¹È®ÀÎ</title>
+<meta charset="UTF-8">
+<title>íšŒì›ê°€ì… ì•„ì´ë”” ì¤‘ë³µí™•ì¸</title>
 <script type="text/javascript">
 function windowclose(){
 	opener.document.join.id.value="${id}";
@@ -13,10 +13,10 @@ function windowclose(){
 }
 function check() {
 	
-	var f=document.checkId;  //¹®¼­.Form name="";
+	var f=document.checkId;  //ë¬¸ì„œ.Form name="";
 
 	if(f.id.value==""){
-		alert("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+		alert("ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 		f.id.focus();
 		return false;
 	}
@@ -29,16 +29,16 @@ function check() {
 <table width="400" border="0" cellspacing="0" cellpadding="5">
 <tr align="center">
 <td height="30">
-<b>${id}</b>Àº(´Â) ÀÌ¹Ì »ç¿ë ÁßÀÎ ¾ÆÀÌµğÀÔ´Ï´Ù!
+<b>${id}</b>ì€(ëŠ”) ì´ë¯¸ ì‚¬ìš© ì¤‘ì¸ ì•„ì´ë””ì…ë‹ˆë‹¤!
 </td>
 </tr>
 </table>
 	<table width="400" border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<td align="center">
-				<font>´Ù¸¥ ¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä!</font>
+				<font>ë‹¤ë¥¸ ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”!</font>
 				<input type="text" size="10" maxlength="12" name="id" />
-				<input type="submit"  value="Áßº¹È®ÀÎ">
+				<input type="submit"  value="ì¤‘ë³µí™•ì¸">
 			</td>
 		</tr>
 	</table>
@@ -50,9 +50,9 @@ function check() {
 		<tr>
 			<td align="center">
 				<br><br>
-				<font>ÀÔ·ÂÇÏ½Å <b>${id}</b> Àº(´Â) »ç¿ëÇÒ ¼ö ÀÖ´Â ¾ÆÀÌµğÀÔ´Ï´Ù.</font>
+				<font>ì…ë ¥í•˜ì‹  <b>${id}</b> ì€(ëŠ”) ì‚¬ìš©í•  ìˆ˜ ìˆëŠ” ì•„ì´ë””ì…ë‹ˆë‹¤.</font>
 				<br/><br/>
-				<input type="button" value="´İ±â" onclick="windowclose()"/>
+				<input type="button" value="ë‹«ê¸°" onclick="windowclose()"/>
 			</td>
 		</tr>
 	</table>

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
@@ -21,9 +21,9 @@
 #left_num p { padding-top: 5px;, float: left; background: url('/resources/images/common/sub_left_num.png') no-repeat; padding-left: 65px; height: 56px;}
 .left_num_intro {  color: #3a3a3a; font-weight: 700; }
 .left_num_time { font-size: 11px; color: #a8a8a8; line-height: 14px; }
-.left_num { font-size: 18px; font-weight: 900; color: #fa5c3f; font-family: Tahoma, 'Nanum Gothic', 'µ¸¿ò', Dotum, sans-serif; line-height: 15px; }
+.left_num { font-size: 18px; font-weight: 900; color: #fa5c3f; font-family: Tahoma, 'Nanum Gothic', 'ë‹ì›€', Dotum, sans-serif; line-height: 15px; }
 
-/* ±³À°°úÁ¤ ÁÂÃø³»ºñ */
+/* êµìœ¡ê³¼ì • ì¢Œì¸¡ë‚´ë¹„ */
 .edu .left_subject { width: 200px; }
 #left_nav.edu>ul { width: 200px; }
 #left_nav ul .depth { padding: 15px 0 15px 10px; line-height: 15px; *padding: 15px 0 10px 10px; background: url('/resources/images/sub02/sub02_left_off.jpg'); background-repeat: no-repeat; background-color: #fff; background-position: center right; height: auto; }
@@ -71,21 +71,21 @@ function fnPrevDept(){
 }
 </script>
 <div id="left_nav">
-	<div class="left_subject">°í°´¼¾ÅÍ</div>
+	<div class="left_subject">ê³ ê°ì„¼í„°</div>
 	<ul>
-		<li><a href="NoticeList.action">°øÁö»çÇ×</a></li>
+		<li><a href="NoticeList.action">ê³µì§€ì‚¬í•­</a></li>
 	</ul>
 </div>
 <div id="content_right">
 	<div class="subject">
-		<span>°øÁö</span>
+		<span>ê³µì§€</span>
 	</div>
 	<table class="table table-hover" style="width:90%">
 		<tbody><tr>
-			<th width="7%">¹øÈ£</th>
-			<th width="68%">Á¦¸ñ</th>
-			<th width="10%">Á¶È¸¼ö</th>
-			<th width="15%">ÀÛ¼ºÀÏ</th>
+			<th width="7%">ë²ˆí˜¸</th>
+			<th width="68%">ì œëª©</th>
+			<th width="10%">ì¡°íšŒìˆ˜</th>
+			<th width="15%">ì‘ì„±ì¼</th>
 		</tr>
 		
 		<s:iterator value="list" status="stat">
@@ -104,7 +104,7 @@ function fnPrevDept(){
 	</s:iterator>
 	<s:if test="list.size() <= 0">
 		<tr bgcolor="#FFFFFF" align="center">
-			<td colspan="4">µî·ÏµÈ °Ô½Ã¹°ÀÌ ¾ø½À´Ï´Ù</td>
+			<td colspan="4">ë“±ë¡ëœ ê²Œì‹œë¬¼ì´ ì—†ìŠµë‹ˆë‹¤</td>
 		</tr>
 	</s:if>
 	<tr align="center">
@@ -114,43 +114,5 @@ function fnPrevDept(){
 			</tbody></table>
 		</div>
 	</div>
-<%-- 
-<table width="600" border="0" cellspacing="0" cellpadding="2" align="center">
-	
-	
-	<s:iterator value="list" status="stat">
-		<s:url id="viewURL" action="NoticeView"><!--  -->
-			<s:param name="notice_no" value="notice_no"/><!--  -->
-			<s:param name="currentPage" value="currentPage"/><!--  -->
-		</s:url><!--  -->
-		<tr bgcolor="#FFFFFF" align="center">
-			<td><s:property value="notice_no"/></td>
-			<td align="left">
-				<s:a href="%{viewURL}"><s:property value="subject"/></s:a>
-			</td>
-			<td><s:property value="reg_date"/></td>
-			<td><s:property value="readcount"/></td>
-		</tr>
-		<tr bgcolor="#777777">
-			<td height="1" colspan="5"></td>
-		</tr>
-	</s:iterator>
-	<s:if test="list.size() <= 0">
-		<tr bgcolor="#FFFFFF" align="center">
-			<td colspan="5">µî·ÏµÈ °Ô½Ã¹°ÀÌ ¾ø½À´Ï´Ù</td>
-		</tr>
-		<tr bgcolor="#777777">
-			<td height="1" colspan="5"></td>
-		</tr>
-	</s:if>
-	<tr align="center">
-		<td colspan="5"><s:property value="pagingHtml" escape="false"/></td>
-	</tr>
-	</table>
-		</div>
-	</div>
- --%>
-	 --%>
-
 </body>
 </html>

@@ -13,12 +13,7 @@
   	<filter>
 		<filter-name>Tour</filter-name>
 		<filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
-		<init-param>
-			<param-name>struts.i18n.encoding</param-name>
-
-			<param-value>UTF-8</param-value>
-
-		</init-param>
+		
 	</filter>
 
 	<filter-mapping>

@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>È¸¿ø°¡ÀÔ ¼º°ø</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>íšŒì›ê°€ì… ì„±ê³µ</title>
 <style>
 	.title{
 	FONT-SIZE: 20pt;
@@ -30,11 +30,11 @@
 </head>
 <body>
 <center>
-<h1 class="title">È¸¿ø°¡ÀÔÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.</h1>
+<h1 class="title">íšŒì›ê°€ì…ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.</h1>
 	<form action="LoginForm.action" method="post">
 	<table>
 		<tr>
-			<td class="title">TMTÀÇ È¸¿øÀÌ µÇ½Å°É È¯¿µÇÕ´Ï´Ù.&nbsp;&nbsp;<b>${id}</b>´Ô</td>
+			<td class="title">TMTì˜ íšŒì›ì´ ë˜ì‹ ê±¸ í™˜ì˜í•©ë‹ˆë‹¤.&nbsp;&nbsp;<b>${id}</b>ë‹˜</td>
 		</tr>
 		<tr>
 		<td>&nbsp;</td>
@@ -43,8 +43,8 @@
 		<td>&nbsp;</td>
 		</tr>
 		<tr>
-			<td><a href="LoginForm.action" class="regButton">·Î±×ÀÎ&nbsp;&nbsp;</a>
-			&nbsp;&nbsp;&nbsp;&nbsp;<a href="Main.action" class="regButton">&nbsp;&nbsp;&nbsp;&nbsp;È¨À¸·Î</a></td>
+			<td><a href="LoginForm.action" class="regButton">ë¡œê·¸ì¸&nbsp;&nbsp;</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="Main.action" class="regButton">&nbsp;&nbsp;&nbsp;&nbsp;í™ˆìœ¼ë¡œ</a></td>
 			</td>
 		</tr>
 	</table>

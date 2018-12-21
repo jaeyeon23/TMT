@@ -1,16 +1,16 @@
-<%@ page contentType="text/html;charset=EUC-KR" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>·Î±×ÀÎ¿Ï·á</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ë¡œê·¸ì¸ì™„ë£Œ</title>
 </head>
 <body>
 <table width="740" cellspacing="0" cellpadding="0" border="0" align="center">
 <tr>
 <td>
 <div align="center">
-<font>${id}&nbsp;&nbsp;°í°´´Ô</font>
+<font>${id}&nbsp;&nbsp;ê³ ê°ë‹˜</font>
 </div>
 </td>
 </tr>
@@ -19,10 +19,10 @@
 <br>
  
 <div align="center">
-<font>È¯¿µÇÕ´Ï´Ù.<br>
-<a href="javascript:window.location='./Main.action'">¸ÞÀÎÀ¸·Î °¡±â</a>
+<font>í™˜ì˜í•©ë‹ˆë‹¤.<br>
+<a href="javascript:window.location='./Main.action'">ë©”ì¸ìœ¼ë¡œ ê°€ê¸°</a>
 <s:if test='%{session.admin.equals(0)}'>
-<a href="javascript:window.location='./AdminMain.action'">°ü¸®ÀÚ ÆäÀÌÁö·Î °¡±â</a>
+<a href="javascript:window.location='./AdminMain.action'">ê´€ë¦¬ìž íŽ˜ì´ì§€ë¡œ ê°€ê¸°</a>
 </s:if>
 </div>
 </td>

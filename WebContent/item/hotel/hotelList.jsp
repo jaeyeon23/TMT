@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -42,27 +42,27 @@ background-color: green;
 <body>
 	<div id="hotelBox">
 		<div class="hotel_search_Box">
-			<div id="search_h1">Ã¹¹øÀç °Ë»ö¹æ¹ý(»óÇ°¸íor¼÷¼Ò¸í,³¯Â¥,ÀÎ¿ø,°¡°Ý)
-			<br/><center><input type="text" size="60" value=" ¼÷¼Ò ¶Ç´Â »óÇ°À» ÀÔ·ÂÇØÁÖ¼¼¿ä."/></center>
+			<div id="search_h1">ì²«ë²ˆìž¬ ê²€ìƒ‰ë°©ë²•(ìƒí’ˆëª…orìˆ™ì†Œëª…,ë‚ ì§œ,ì¸ì›,ê°€ê²©)
+			<br/><center><input type="text" size="60" value=" ìˆ™ì†Œ ë˜ëŠ” ìƒí’ˆì„ ìž…ë ¥í•´ì£¼ì„¸ìš”."/></center>
 			
 			</div>
-			<div id="search_h2">µÎ¹øÂ° °Ë»ö¹æ¹ý(±¹°¡,Áö¿ª)</div>
+			<div id="search_h2">ë‘ë²ˆì§¸ ê²€ìƒ‰ë°©ë²•(êµ­ê°€,ì§€ì—­)</div>
 		</div>
-		<div id="hotel_list_Box">È£ÅÚ ¸®½ºÆ®°¡ º¸¿©Áö´Â°÷</div>
+		<div id="hotel_list_Box">í˜¸í…” ë¦¬ìŠ¤íŠ¸ê°€ ë³´ì—¬ì§€ëŠ”ê³³</div>
 	</div>
 	<br/><br/><br/>
--------------------------------------Äõ¸® test----------------------------------
+-------------------------------------ì¿¼ë¦¬ test----------------------------------
 	<div>
 		<div>
 			<table width="600" border="0" cellspacing="0" cellpadding="2">
 				<tr align="center" bgcolor="#F3F3F3">
-					<td width="50"><strong>¹øÈ£</strong></td>
-					<td width="350"><strong>»óÇ°¸í</strong></td>
-					<td width="70"><strong>°¡°Ý</strong></td>
-					<td width="50"><strong>±¹°¡</strong></td>
-					<td width="50"><strong>Áö¿ª</strong></td>
-					<td width="50"><strong>ÀÎ¿ø¼ö</strong></td>
-					<td width="50"><strong>Æò±Õ º°Á¡</strong></td>
+					<td width="50"><strong>ë²ˆí˜¸</strong></td>
+					<td width="350"><strong>ìƒí’ˆëª…</strong></td>
+					<td width="70"><strong>ê°€ê²©</strong></td>
+					<td width="50"><strong>êµ­ê°€</strong></td>
+					<td width="50"><strong>ì§€ì—­</strong></td>
+					<td width="50"><strong>ì¸ì›ìˆ˜</strong></td>
+					<td width="50"><strong>í‰ê·  ë³„ì </strong></td>
 				</tr>
 				<s:iterator value="Hotellist" status="stat">
 					<tr bgcolor="#FFFFFF" align="center">
