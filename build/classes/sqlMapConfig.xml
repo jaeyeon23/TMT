@@ -1,34 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"  
+	"http://ibatis.apache.org/dtd/sql-map-config-2.dtd">  <!-- 필수 -->
+<sqlMapConfig>  <!-- 필수 -->
+	<properties resource="/dbconnect.properties" /> <!-- 명시된 프로퍼티 에서 변수 값을 가져온다. -->
+	<settings useStatementNamespaces="true" /> <!-- 트랜잭션 관리 및 sqlMapClient 상세 제어 -->
 
-<!DOCTYPE sqlMapConfig PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
-	"http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
-<sqlMapConfig>
-	<properties resource="/dbconnect.properties"/>
-	<settings useStatementNamespaces="true"/>
-		<transactionManager type="JDBC" commitRequired="false">
-			<dataSource type="SIMPLE">
-				<property name="JDBC.Driver" value="${driver}"/>
-				<property name="JDBC.ConnectionURL" value="${url}"/>
-				<property name="JDBC.Username" value="${username}"/>
-				<property name="JDBC.Password" value="${password}"/>
-			</dataSource>
-		</transactionManager>
-	<sqlMap resource="/sql/adminSQL.xml"/>
-	<sqlMap resource="/sql/noticeSQL.xml"/>
-	
-	<sqlMap resource="/sql/AirSQL.xml" />
-	
-	
-	
-	
-	
-	<!-- Hotel 리스트 xml -->
-	<sqlMap resource="/sql/HotelSQL.xml" />
-	
-	
-	
-	
-	
+	<transactionManager type="JDBC" commitRequired="false">  <!-- DataSource를 이용해 SQL Map을 사용하기 위한 데이터소스 설정 -->
+		<dataSource type="SIMPLE">
+			<property name="JDBC.Driver" value="${driver}" />  <!-- properties에 정해놓은 key이름 -->
+			<property name="JDBC.ConnectionURL" value="${url}" />
+			<property name="JDBC.Username" value="${username}" />
+			<property name="JDBC.Password" value="${password}" />
+		</dataSource>
+	</transactionManager>
 
+    <!-- xml 아래에 추가 .... -->
+	  <sqlMap resource="/sql/memberSQL.xml"/> 
+	  
 	
 </sqlMapConfig>

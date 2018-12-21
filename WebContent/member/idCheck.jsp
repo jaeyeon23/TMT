@@ -7,22 +7,15 @@
 <meta charset="EUC-KR">
 <title>회원가입 아이디 중복확인</title>
 <script type="text/javascript">
-function check(){
-	var f=document.ConfirmIdForm;
-	
-	if(f.id.value==""){
-		alert("아이디를 입력해주세요.");
-		return false;
-	}
-}
 function windowclose(){
-	opener.document.join.id.value="${id}";
+	opener.document.join_form.id.value="${id}";
 	self.close();
 }
 </script>
 </head>
 <body>
 <s:if test="chkId==1">
+<form name="checkId" action="ConfirmId.action" method="post">
 <table width="400" border="0" cellspacing="0" cellpadding="5">
 <tr align="center">
 <td height="30">
@@ -30,7 +23,6 @@ function windowclose(){
 </td>
 </tr>
 </table>
-<form action="ConfirmId.action" method="post" name="ConfirmIdForm" onsubmit="return check()">
 	<table width="400" border="0" cellpadding="0" cellspacing="0">
 		<tr>
 			<td align="center">

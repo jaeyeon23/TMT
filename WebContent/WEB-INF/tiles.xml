@@ -99,12 +99,22 @@
 		<put-attribute name="body" value="/member/DeleteMemberCheck.jsp" />
 	</definition>
 
+<!-- 로그인 -->
 	<definition name="Login" extends="Main">
 		<put-attribute name="body" value="/member/login.jsp" />
 	</definition>
 	
+	<definition name="LoginForm" extends="Main">
+		<put-attribute name="body" value="/member/loginForm.jsp" />
+	</definition>
+	
+<!-- 회원가입 -->	
 	<definition name="Join" extends="Main">
 		<put-attribute name="body" value="/member/join.jsp" />
+	</definition>
+	
+	<definition name="JoinForm" extends="Main">
+		<put-attribute name="body" value="/member/joinForm.jsp" />
 	</definition>
 	
 	<definition name="ConfirmedId" extends="Main">

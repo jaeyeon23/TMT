@@ -2,8 +2,10 @@ package member;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Reader;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.activation.CommandMap;
@@ -27,16 +29,19 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
-import com.opensymphony.xwork2.ActionSupport;
-
 public class JoinMember extends ActionSupport{
-
+	
+	public static Reader reader;
 	private static SqlMapClient sqlMapper;
+	
+	private MemberVO paramClass;
+	private MemberVO resultClass;
 	
 	private int no;
 	private String id;
 	private String password;
 	private String password2;
+	private String passport;
 	private String name;
 	private String email;
 	private int tel;
@@ -44,42 +49,48 @@ public class JoinMember extends ActionSupport{
 	private Date regdate;
 	
 	private String confirmidcheck;
-	private String confirmemail;
+	//private String confirmemail;
 	
-	private MemberVO mvo=new MemberVO();
+	private Map session;
+
 	
 	Calendar today=Calendar.getInstance();
 	
-	@Override
-	public String execute() throws Exception {
-		if(admin==5) {
-			mvo.setId(id);
-			mvo.setPassword(password);
-			mvo.setEmail(email);
-			mvo.setTel(tel);
-			mvo.setAdmin(0);
-			mvo.setRegdate(today.getTime());
-			sqlMapper.insert("insertmember",mvo);
-			
-			sqlMapper.update("commit");
-			//return SUCCESS;
-		}
-		//return ERROR;
-		return SUCCESS;
-	}
-	public String comfirmId() throws Exception{
-		mvo.setId(id);
-		String confirmid=(String) sqlMapper.queryForObject("cofirmid",mvo);
+	public JoinMember() throws Exception{
+		reader=Resources.getResourceAsReader("sqlMapConfig.xml");// sqlMapConfig.xml 파일의 설정 내용을 가져온다
+		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader); // sqlMapConfig.xml의 내용을 적용한 sqlMapper 객체 생성
+		reader.close();
 		
-		if(confirmid==null) {
-			confirmidcheck="yes";
-		}else {
-			confirmidcheck="no";
-		}
+	}
+
+	public String execute() throws Exception {
 		return SUCCESS;
 	}
 	
-	public String confirmEmail()throws Exception{
+	public String Join()throws Exception{//회원가입
+		
+		paramClass = new MemberVO();
+	    resultClass = new MemberVO();
+
+	    paramClass.setNo(getNo());
+	    paramClass.setId(getId());
+	    paramClass.setName(getName());
+	    paramClass.setPassword(getPassword());
+	    paramClass.setPassword2(getPassword2());
+	    paramClass.setEmail(getEmail());
+	    paramClass.setTel(getTel());
+	    paramClass.setAdmin(getAdmin());
+	    paramClass.setPassport(getPassport());
+	    paramClass.setRegdate(today.getTime());
+	    sqlMapper.insert("JoinMember", paramClass);
+
+		return SUCCESS;
+	}
+	
+
+
+	
+	/*public String confirmEmail()throws Exception{
 		HttpServletResponse response=ServletActionContext.getResponse();
 		
 		mvo.setEmail(email);
@@ -146,7 +157,137 @@ public class JoinMember extends ActionSupport{
 		return SUCCESS;
 		
 		
+	}*/
+
+	public int getNo() {
+		return no;
 	}
+
+	public void setNo(int no) {
+		this.no = no;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getPassword2() {
+		return password2;
+	}
+
+	public void setPassword2(String password2) {
+		this.password2 = password2;
+	}
+
+	public String getPassport() {
+		return passport;
+	}
+
+	public void setPassport(String passport) {
+		this.passport = passport;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getTel() {
+		return tel;
+	}
+
+	public void setTel(int tel) {
+		this.tel = tel;
+	}
+
+	public int getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(int admin) {
+		this.admin = admin;
+	}
+
+	public Date getRegdate() {
+		return regdate;
+	}
+
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
+	}
+
+	public MemberVO getParamClass() {
+		return paramClass;
+	}
+
+	public void setParamClass(MemberVO paramClass) {
+		this.paramClass = paramClass;
+	}
+
+	public MemberVO getResultClass() {
+		return resultClass;
+	}
+
+	public void setResultClass(MemberVO resultClass) {
+		this.resultClass = resultClass;
+	}
+
+	public Calendar getToday() {
+		return today;
+	}
+
+	public void setToday(Calendar today) {
+		this.today = today;
+	}
+
+	public static SqlMapClient getSqlMapper() {
+		return sqlMapper;
+	}
+
+	public static void setSqlMapper(SqlMapClient sqlMapper) {
+		JoinMember.sqlMapper = sqlMapper;
+	}
+
+	public static Reader getReader() {
+		return reader;
+	}
+
+	public static void setReader(Reader reader) {
+		JoinMember.reader = reader;
+	}
+
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
+	}
+	
+	
+	
 	
 	
 }
