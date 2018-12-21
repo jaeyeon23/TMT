@@ -13,13 +13,32 @@
 <body>
 
 <div class="main">
-<div class='header-title'><h2><center>예약내역</center></h2></div><br><br>
+<div class='header-title'><h2><center><br><br>예약내역</center></h2></div>
+<div class='wishlists-header-divider'></div>
+<div class='wishlists-header-subtitle'><center>총 개의 상품</center></div>
 
 
-	<table class="table" width="80%" cellpadding="0" cellspacing="0">
-			<tr height=26 bgcolor="#EEDAFF">
+<table class="table" width="100%" cellpadding="0" cellspacing="0">
+	<table width="100%" cellpadding="0" cellspacing="0">
+  <tr width="100%">
+    <td align="right">
+  <select>
+    <option value="투어">투어&티켓</option>
+   <option value="숙소">숙소</option>
+  </select>
+  </td>
+</tr>
+</table>
+<tr>
+		<td colspan=2>
+		<p align="center">
+			<tr >
 				<td height="3" colspan="7" align=left></td>
 			</tr>
+			
+			<table class="table" width="80%" cellpadding="0" cellspacing="0">
+			<tr height=26 bgcolor="#EEDAFF">
+				<td height="3" colspan="7" align=left></td></tr>
 
 			
 			<tr align="center">
@@ -30,8 +49,8 @@
 		
 			<tr align="center">
 			<td><font size="2"></font></td>
-			<td><font size="2"><img width=80 height=80></font></td>
-			<td><font size="2"></font></td>
+			<td><font size="2"><form action="ViewOrder.action" name="ov" method="post""><input type="image" width=80 height=80></font></td></form>
+			<td><font size="2"><a href="orderView.jsp"></a></font></td>
 			</tr>
 
 	</table>
@@ -39,7 +58,22 @@
 			<tr>
 				<td height="2" bgcolor="#EEDAFF"></td>
 			</tr>
+<div class='traveler-body'>
+<div class='box clearfix'>
+<div class='shared-empty-container'>
+<div class='empty-wrapper wrapper-center' align="center">
+<img alt='empty' class='icon' height='56px' src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/empty/ic_reservation@2x-8ab77f8ad8f413a06e719279615decc80fecd3deea6ed9c67ad032d95a8069a0.png' width='58px'>
+<div class='empty-text' align="center">아직 준비중인 여행이 없습니다.<br/>TMT와 함께 즐거운 여행을 떠나보세요.<br/></div>
+</div>
+</div>
+
+</div>
+			
 		</table>
+		
+
+</div>
+</div>
 
 			
 
