@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+	
+<struts>
+	<package name="service" extends="struts-default, tiles-default">
+		
+		<action name="BasketList" class="basket.BasketList">
+			<result name="success" type="tiles">BasketList</result>
+		</action>
+		
+		<action name="OrderList" class="order.OrderList">
+			<result name="success" type="tiles">OrderList</result>
+		</action>
+		
+		<action name="MyPage" class="member.ServiceMember">
+			<result name="success" type="tiles">MyPage</result>
+		</action>
+		
+		<action name="DeleteMember" class="member.DeleteMember">
+			<result name="success" type="tiles">DeleteMember</result>
+		</action>
+		
+		<action name="ModifyMember" class="member.ModifyMember">
+			<result name="success" type="tiles">ModifyMember</result>
+		</action>
+		
+		<action name="ViewOrder" class="order.ViewOrder">
+			<result name="success" type="tiles">ViewOrder</result>
+		</action>
+		
+		<action name="ModifyOrder" class="order.ModifyOrder">
+			<result name="success" type="tiles">ModifyOrder</result>
+		</action>
+
+	</package>
+</struts>
