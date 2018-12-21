@@ -11,14 +11,17 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class FindMember extends ActionSupport implements SessionAware {
+public class FindMemberPw extends ActionSupport implements SessionAware {
 	
 	private Map session;
+	private String id;
 	private String name;
 	private String email;
-	private String id;
+	private int tel;
+	private String password;
 	
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
@@ -28,7 +31,7 @@ public class FindMember extends ActionSupport implements SessionAware {
 	private MemberVO paramClass=new MemberVO();
 	private MemberVO resultClass=new MemberVO();
 	
-	public FindMember()throws IOException{
+	public FindMemberPw()throws IOException{
 		reader=Resources.getResourceAsReader("sqlMapConfig.xml");
 		sqlMapper=SqlMapClientBuilder.buildSqlMapClient(reader);
 		reader.close();
@@ -40,16 +43,71 @@ public class FindMember extends ActionSupport implements SessionAware {
 	
 	public String execute() throws Exception{
 		
+		paramClass.setId(getId());
 		paramClass.setName(getName());
 		paramClass.setEmail(getEmail());
+		paramClass.setTel(getTel());;
 		
-		list=sqlMapper.queryForList("FindID",paramClass);
+		resultClass=(MemberVO)sqlMapper.queryForObject("FindPw",paramClass);
 		
-		if(list.size()>0) {
+		if(resultClass!=null) {
 			return SUCCESS;
 		}else {
 			return ERROR;
 		}
+	}
+	
+	public String ModifyPw() throws Exception {
+		
+		paramClass = new MemberVO();
+		
+		paramClass.setId(getId());
+		paramClass.setPassword(getPassword());
+		
+		sqlMapper.update("ModifyPw",paramClass);
+		
+		ActionContext context = ActionContext.getContext();
+		Map<String, String> session = (Map<String, String>) context.getSession();
+		
+		session.remove("ID");
+		session.remove("EMAIL");
+		//session.remove("REGDATE");
+
+		context.setSession(session); // 다시 session을 적용 시켜서 초기화
+		
+		return SUCCESS;
+	}
+
+	public int getTel() {
+		return tel;
+	}
+
+	public void setTel(int tel) {
+		this.tel = tel;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public static Reader getReader() {
+		return reader;
+	}
+
+	public static void setReader(Reader reader) {
+		FindMemberPw.reader = reader;
+	}
+
+	public static SqlMapClient getSqlMapper() {
+		return sqlMapper;
+	}
+
+	public static void setSqlMapper(SqlMapClient sqlMapper) {
+		FindMemberPw.sqlMapper = sqlMapper;
 	}
 
 	public Map getSession() {
