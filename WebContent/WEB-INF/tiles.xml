@@ -88,14 +88,22 @@
 	</definition>
 	
 	<definition name="OrderList" extends="Main">
-		<put-attribute name="body" value="/order/OrderList.jsp" />
+		<put-attribute name="body" value="/order/orderList.jsp" />
 	</definition>
 	
-    <definition name="MyPageForm" extends="Main">
-		<put-attribute name="body" value="/mypage/MyPage.jsp" />
+	<definition name="ViewOrder" extends="Main">
+		<put-attribute name="body" value="/order/orderView.jsp" />
 	</definition>
 	
-	<definition name="DeleteMemberCheck" extends="Main">
+	<definition name="ModifyOrder" extends="Main">
+		<put-attribute name="body" value="/order/orderModify.jsp" />
+	</definition>
+	
+    <definition name="MyPage" extends="Main">
+		<put-attribute name="body" value="/member/myPage.jsp" />
+	</definition>
+	
+	<definition name="DeleteMember" extends="Main">
 		<put-attribute name="body" value="/member/DeleteMemberCheck.jsp" />
 	</definition>
 
@@ -111,7 +119,7 @@
 		<put-attribute name="body" value="/member/idCheck.jsp" />
 	</definition>
 	
-	<definition name="ModifyMemberForm" extends="Main">
+	<definition name="ModifyMember" extends="Main">
 		<put-attribute name="body" value="/member/modify.jsp" />
 	</definition>
 
