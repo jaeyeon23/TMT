@@ -6,10 +6,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -28,9 +24,7 @@ public class LoginMember extends ActionSupport implements SessionAware{
 
 	private MemberVO resultClass;
 	private MemberVO paramClass;
-	
-	private HttpServletRequest request;
-	private HttpServletResponse response;
+
 
 	private int no;
 	private String id;
@@ -52,11 +46,21 @@ public class LoginMember extends ActionSupport implements SessionAware{
 		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
 		reader.close();
 	}
-	public String execute() throws Exception {
+/*	public String execute() throws Exception {
+		return SUCCESS;
+	}
+	*/
+	public String Form() throws Exception {
 		return SUCCESS;
 	}
 		
-	public String Login() throws Exception {
+	public String execute() throws Exception {
+		
+		paramClass = new MemberVO();
+
+		paramClass.setId(getId());
+		paramClass.setPassword(getPassword());
+		
 		resultClass = (MemberVO) sqlMapper.queryForObject("selectOne", getId());
 
 	    if (resultClass != null) { // 아이디가 있으면 
@@ -110,15 +114,7 @@ public class LoginMember extends ActionSupport implements SessionAware{
 	public void setParamClass(MemberVO paramClass) {
 		this.paramClass = paramClass;
 	}
-
-	public HttpServletRequest getRequest() {
-		return request;
-	}
-
-	public void setRequest(HttpServletRequest request) {
-		this.request = request;
-	}
-
+	
 	public int getNo() {
 		return no;
 	}
@@ -222,15 +218,6 @@ public class LoginMember extends ActionSupport implements SessionAware{
 	public static void setSqlMapper(SqlMapClient sqlMapper) {
 		LoginMember.sqlMapper = sqlMapper;
 	}
-
-	public HttpServletResponse getResponse() {
-		return response;
-	}
-
-	public void setResponse(HttpServletResponse response) {
-		this.response = response;
-	}
-
 	public Map getSession() {
 		return session;
 	}

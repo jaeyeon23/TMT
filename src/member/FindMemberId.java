@@ -13,7 +13,7 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class FindMember extends ActionSupport implements SessionAware {
+public class FindMemberId extends ActionSupport implements SessionAware {
 	
 	private Map session;
 	private String name;
@@ -28,7 +28,7 @@ public class FindMember extends ActionSupport implements SessionAware {
 	private MemberVO paramClass=new MemberVO();
 	private MemberVO resultClass=new MemberVO();
 	
-	public FindMember()throws IOException{
+	public FindMemberId()throws IOException{
 		reader=Resources.getResourceAsReader("sqlMapConfig.xml");
 		sqlMapper=SqlMapClientBuilder.buildSqlMapClient(reader);
 		reader.close();

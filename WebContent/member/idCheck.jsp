@@ -8,14 +8,24 @@
 <title>회원가입 아이디 중복확인</title>
 <script type="text/javascript">
 function windowclose(){
-	opener.document.join_form.id.value="${id}";
+	opener.document.join.id.value="${id}";
 	self.close();
+}
+function check() {
+	
+	var f=document.checkId;  //문서.Form name="";
+
+	if(f.id.value==""){
+		alert("아이디를 입력해주세요.");
+		f.id.focus();
+		return false;
+	}
 }
 </script>
 </head>
 <body>
 <s:if test="chkId==1">
-<form name="checkId" action="ConfirmId.action" method="post">
+<form name="checkId" action="ConfirmId.action" method="post" onsubmit="return check()">
 <table width="400" border="0" cellspacing="0" cellpadding="5">
 <tr align="center">
 <td height="30">

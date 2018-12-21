@@ -27,11 +27,6 @@
 	WHERE NO = #no#
 </sql>
 
-<!-- <select id="selectAll" resultMap="memberRes">
-<include refid="select-all"/>
-ORDER BY ID DESC
-</select> -->
-
 <select id="selectOne" resultMap="memberRes">
    <include refid="select-all"/>
    <include refid="where-Id"/>
@@ -54,11 +49,11 @@ ORDER BY ID DESC
 
    <select id="FindID" resultMap="memberRes">
     <include refid="select-all" />
-    WHERE NAME = #name#
+    WHERE NAME = #name# AND EMAIL=#email#
   </select>
 
-  <select id="FindPassword" resultMap="memberRes">
-    SELECT * FROM MEMBER WHERE id=#id# AND tel=#tel#
+  <select id="FindPw" resultMap="memberRes">
+    SELECT * FROM MEMBER WHERE id=#id# AND EMAIL=#email# AND tel=#tel#
   </select>
  
  </sqlMap>

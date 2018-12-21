@@ -48,7 +48,7 @@ function validation(userinput){
 </head>
 <body>
 <center>
-	<form method="post" action="Login.action">
+	<form name="login" method="post" action="Login.action">
 		<table width="70%" border="0" cellspacing="0" cellpadding="10px" align="middle">
 			<tr>
 				<td height="100" colspan="80%" class="title">회원로그인</td>

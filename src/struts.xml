@@ -20,16 +20,38 @@
 		<action name="HotelList" class="item.hotel.HotelList">
 			<result name="success" type="tiles">HotelList</result>
 		</action>
-		
-		<action name="Login" class="member.LoginMember" method="Login">
+<!-- 로그인 -->		
+		<action name="Login" class="member.LoginMember">
 			<result name="success" type="tiles">Login</result>
+			<result name="error">/member/loginError.jsp</result>
 		</action>		
 		
-		<action name="LoginForm" class="member.LoginMember">
+		<action name="LoginForm" class="member.LoginMember" method="Form">
 			<result name="success" type="tiles">LoginForm</result>
-			<result name="error">/member/loginError.jsp</result>
 		</action>
-				
+<!-- 아이디 찾기 -->		
+		<action name="FindId" class="member.FindMemberId">
+			<result name="success" type="tiles">FindId</result>
+			<result name="error">/member/findIdError.jsp</result>
+		</action>
+		
+		<action name="FindIdForm" class="member.FindMemberId" method="Form">
+			<result name="success" type="tiles">FindIdForm</result>
+		</action>
+<!-- 비밀번호 찾기 -->
+		<action name="FindPw" class="member.FindMemberPw">
+			<result name="success" type="tiles">ModifyPw</result>
+			<result name="error">/member/findPwError.jsp</result>
+		</action>
+		
+		<action name="FindPwForm" class="member.FindMemberPw" method="Form">
+			<result name="success" type="tiles">FindPwForm</result>
+		</action>		
+		
+		<action name="ModifyPwForm" class="member.FindMemberPw" method="ModifyPw">
+			<result name="success" type="tiles">ModifyPw</result>
+		</action>
+<!-- 회원가입 -->				
 		<action name="Join" class="member.JoinMember" method="Join">
 			<result name="success" type="tiles">Join</result>
 		</action>
@@ -39,7 +61,7 @@
 		</action>
 		
 		<action name="ConfirmId" class="member.JoinMemberIdChk">
-			<result name="success" type="tiles">ConfirmId</result>
+			<result>/member/idCheck.jsp</result>
 		</action>
 		
 	</package>
