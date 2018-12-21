@@ -38,18 +38,18 @@ public class AdminTourList extends ActionSupport{
 	public String execute() throws Exception {
 		/*list = sqlMapper.queryForList("tourList");
 		
-		totalCount = list.size(); // listü ũ- totalCount
+		totalCount = list.size(); // list객체의 크기- totalCount
 		page = new TourPagingAction(currentPage, totalCount, blockCount, blockPage);
 		pagingHtml = page.getPagingHtml().toString();
 		
 		int lastCount = totalCount;
-		if(page.getEndCount()<totalCount) //   ü  
-			lastCount = page.getEndCount()+1; // +1 ϱ.
-		//  ¡ϱ	
-//		System.out.println("Ż: "+totalCount);
+		if(page.getEndCount()<totalCount) // 마지막 페이지가 전체 수보다 작으면
+			lastCount = page.getEndCount()+1; // +1 하기.
+		// 여기까지가 페이징하기	
+//		System.out.println("토탈: "+totalCount);
 		list = list.subList(page.getStartCount(), lastCount);
-		// listü ùٺ ٱ ƿ´.
-//		System.out.println("Ʈ: "+list);
+		// list객체에 첫줄부터 끝줄까지 담아온다.
+//		System.out.println("리스트: "+list);
 		*/
 		return SUCCESS;
 	}
