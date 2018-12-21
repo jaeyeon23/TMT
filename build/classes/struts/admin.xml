@@ -69,7 +69,7 @@
 			<result type="tiles">AdminHotelList</result>
 		</action>
 		
-		<!-- <action name="AdminHotelWriteForm" class="admin.item.AdminHotelWrite" method="form">
+		<action name="AdminHotelWriteForm" class="admin.item.AdminHotelWrite" method="form">
 			<result type="tiles">AdminHotelWrite</result>
 		</action>
 		
@@ -77,7 +77,7 @@
 			<result type="redirect-action">AdminHotelList</result>
 		</action>
 		
-		<action name="AdminHotelView" class="admin.item.AdminHotelView">
+		<!-- <action name="AdminHotelView" class="admin.item.AdminHotelView">
 			<result type="tiles">AdminHotelView</result>
 		</action>
 		
@@ -91,14 +91,13 @@
 		
 		<action name="AdminHotelDelete" class="admin.item.AdminHotelDelete">
 			<result type="redirect-action">AdminHotelList${uri}</result>
-		</action> -->
+		</action>  -->
 		
 		<!-- 투어 -->
 		<action name="AdminTourList" class="admin.item.AdminTourList">
 			<result type="tiles">AdminTourList</result>
 		</action>
 		
-		<!-- 
 		<action name="AdminTourWriteForm" class="admin.item.AdminTourWrite" method="form">
 			<result type="tiles">AdminTourWrite</result>
 		</action>
@@ -106,7 +105,7 @@
 		<action name="AdminTourWrite" class="admin.item.AdminTourWrite">
 			<result type="redirect-action">AdminTourList</result>
 		</action>
-		
+		<!-- 
 		<action name="AdminTourView" class="admin.item.AdminTourView">
 			<result type="tiles">AdminTourView</result>
 		</action>

@@ -24,25 +24,25 @@ public class AirList extends ActionSupport{
 	
 	
 	
-	/*º¯¼ö*/
+	/*ï¿½ï¿½ï¿½ï¿½*/
 	private int no;
-	private String arv;	//Ãâ¹ßÁö
-	private String dep;	//µµÂøÁö
-	private int price;	//°¡°Ý
-	private String content;	//³»¿ë
-	private String image1;	//Ç×°ø»ç ÀÌ¹ÌÁö ½æ³×ÀÏ
-	private int seat;		//ÁÂ¼® ¼ö
-	private int seat_grade;	//ÁÂ¼® µî±Þ
-	private Date ad;		//Ãâ¹ßÀÏ
-	private Date dd;		//µµÂøÀÏ
-	private Date ad_time;		//Ãâ¹ß½Ã°£
-	private Date dd_time;		//µµÂø½Ã°£
-	private String air_company;		//Ç×°ø»ç
+	private String arv;	//ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String dep;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private int price;	//ï¿½ï¿½ï¿½ï¿½
+	private String content;	//ï¿½ï¿½ï¿½ï¿½
+	private String image1;	//ï¿½×°ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+	private int seat;		//ï¿½Â¼ï¿½ ï¿½ï¿½
+	private int seat_grade;	//ï¿½Â¼ï¿½ ï¿½ï¿½ï¿½
+	private Date ad;		//ï¿½ï¿½ï¿½ï¿½ï¿½
+	private Date dd;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private Date ad_time;		//ï¿½ï¿½ß½Ã°ï¿½
+	private Date dd_time;		//ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
+	private String air_company;		//ï¿½×°ï¿½ï¿½ï¿½
 	private String grade;
 	
-	/*º¯¼ö end*/
+	/*ï¿½ï¿½ï¿½ï¿½ end*/
 	private String air_array;
-	private String ad_str;			//³¯Â¥ string
+	private String ad_str;			//ï¿½ï¿½Â¥ string
 	
 	public AirList() throws IOException{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -60,7 +60,7 @@ public class AirList extends ActionSupport{
 
 			Date to = transFormat.parse(getAd_str());
 				
-			avo.setAd(to);
+			avo.setAd(to); 
 			avo.setArv(getArv());
 			avo.setDep(getDep());
 			avo.setSeat(getSeat());

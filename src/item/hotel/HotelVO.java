@@ -3,25 +3,25 @@ package item.hotel;
 import java.util.Date;
 
 public class HotelVO{
-	private int no;            //»óÇ°¹øÈ£
-	private String name;      //»óÇ°¸í      
-	private int price;       //°¡°Ý
-	private String content;  //³»¿ë
-	private String country;	 //±¹°¡
-	private String region;	//Áö¿ª
-	private int readcount;  //Á¶È¸¼ö
+	private int no;            //ï¿½ï¿½Ç°ï¿½ï¿½È£
+	private String name;      //ï¿½ï¿½Ç°ï¿½ï¿½      
+	private int price;       //ï¿½ï¿½ï¿½ï¿½
+	private String content;  //ï¿½ï¿½ï¿½ï¿½
+	private String country;	 //ï¿½ï¿½ï¿½ï¿½
+	private String region;	//ï¿½ï¿½ï¿½ï¿½
+	private int readcount;  //ï¿½ï¿½È¸ï¿½ï¿½
 	private String image1; 
-	private String image2;  //ÀÌ¹ÌÁö1~3
+	private String image2;  //ï¿½Ì¹ï¿½ï¿½ï¿½1~3
 	private String image3;  
-	private Date reg_date;   //µî·ÏÀÏ
-	private String tel;       //ÀüÈ­¹øÈ£
-	private String checkin;    //Ã¼Å©ÀÎ
-	private String checkout;   //Ã¼Å©¾Æ¿ô
-	private int maxnum; 	//ÀÎ¿ø¼ö
-	private int grade;	//Æò±Õ º°Á¡
+	private Date reg_date;   //ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String tel;       //ï¿½ï¿½È­ï¿½ï¿½È£
+	private String checkin;    //Ã¼Å©ï¿½ï¿½
+	private String checkout;   //Ã¼Å©ï¿½Æ¿ï¿½
+	private int maxnum; 	//ï¿½Î¿ï¿½ï¿½ï¿½
+	private int grade;	//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	
 	
-	//»óÇ°¹øÈ£
+	//ï¿½ï¿½Ç°ï¿½ï¿½È£
 	public int getNo() {
 		return no;
 	}
@@ -29,7 +29,7 @@ public class HotelVO{
 		this.no = no;
 	}
 	
-	//»óÇ°¸í
+	//ï¿½ï¿½Ç°ï¿½ï¿½
 	public String getName() {
 		return name;
 	}
@@ -37,7 +37,7 @@ public class HotelVO{
 		this.name = name;
 	}
 	
-	//°¡°Ý
+	//ï¿½ï¿½ï¿½ï¿½
 	public int getPrice() {
 		return price;
 	}
@@ -45,7 +45,7 @@ public class HotelVO{
 		this.price = price;
 	}
 	
-	//³»¿ë
+	//ï¿½ï¿½ï¿½ï¿½
 	public String getContent() {
 		return content;
 	}
@@ -53,7 +53,7 @@ public class HotelVO{
 		this.content = content;
 	}
 	
-	//±¹°¡
+	//ï¿½ï¿½ï¿½ï¿½
 	public String getCountry() {
 		return country;
 	}
@@ -61,7 +61,7 @@ public class HotelVO{
 		this.country = country;
 	}
 	
-	//Áö¿ª
+	//ï¿½ï¿½ï¿½ï¿½
 	public String getRegion() {
 		return region;
 	}
@@ -69,7 +69,7 @@ public class HotelVO{
 		this.region = region;
 	}
 	
-	//Á¶È¸¼ö
+	//ï¿½ï¿½È¸ï¿½ï¿½
 	public int getReadcount() {
 		return readcount;
 	}
@@ -77,7 +77,7 @@ public class HotelVO{
 		this.readcount = readcount;
 	}
 	
-	//ÀÌ¹ÌÁö1~3
+	//ï¿½Ì¹ï¿½ï¿½ï¿½1~3
 	public String getImage1() {
 		return image1;
 	}
@@ -97,7 +97,7 @@ public class HotelVO{
 		this.image3 = image3;
 	}
 	
-	//µî·ÏÀÏ
+	//ï¿½ï¿½ï¿½ï¿½ï¿½
 	public Date getReg_date() {
 		return reg_date;
 	}
@@ -105,7 +105,7 @@ public class HotelVO{
 		this.reg_date = reg_date;
 	}
 	
-	//ÀüÈ­¹øÈ£
+	//ï¿½ï¿½È­ï¿½ï¿½È£
 	public String getTel() {
 		return tel;
 	}
@@ -113,7 +113,7 @@ public class HotelVO{
 		this.tel = tel;
 	}
 	
-	//Ã¼Å©ÀÎ
+	//Ã¼Å©ï¿½ï¿½
 	public String getCheckin() {
 		return checkin;
 	}
@@ -121,7 +121,7 @@ public class HotelVO{
 		this.checkin = checkin;
 	}
 	
-	//Ã¼Å©¾Æ¿ô
+	//Ã¼Å©ï¿½Æ¿ï¿½
 	public String getCheckout() {
 		return checkout;
 	}
@@ -129,7 +129,7 @@ public class HotelVO{
 		this.checkout = checkout;
 	}
 	
-	//ÀÎ¿ø¼ö
+	//ï¿½Î¿ï¿½ï¿½ï¿½
 	public int getMaxnum() {
 		return maxnum;
 	}
@@ -137,7 +137,7 @@ public class HotelVO{
 		this.maxnum = maxnum;
 	}
 	
-	//Æò±Õº°Á¡
+	//ï¿½ï¿½Õºï¿½ï¿½ï¿½
 	public int getGrade() {
 		return grade;
 	}
