@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,7 @@
 			<td height="1" colspan="2"></td>
 		</tr>
 		<tr>
-			<td bgcolor="#F4F4F4">¹øÈ£</td>
+			<td bgcolor="#F4F4F4">ë²ˆí˜¸</td>
 			<td bgcolor="#FFFFFF">
 				&nbsp;&nbsp;<s:property value="resultClass.notice_no"/>
 			</td>
@@ -24,7 +24,7 @@
 			<td height="1" colspan="2"></td>
 		</tr>
 		<tr>
-			<td width="100" bgcolor="#F4F4F4">Á¦¸ñ</td>
+			<td width="100" bgcolor="#F4F4F4">ì œëª©</td>
 			<td width="500" bgcolor="#FFFFFF">
 				&nbsp;&nbsp;<s:property value="resultClass.subject"/>
 			</td>
@@ -33,7 +33,7 @@
 			<td height="1" colspan="2"></td>
 		</tr>
 		<tr>
-			<td bgcolor="#F4F4F4">³»¿ë</td>
+			<td bgcolor="#F4F4F4">ë‚´ìš©</td>
 			<td bgcolor="#FFFFFF">
 				&nbsp;&nbsp;<s:property value="resultClass.content"/>
 			</td>
@@ -43,7 +43,7 @@
 			<td height="1" colspan="2"></td>
 		</tr>
 		<tr>
-			<td bgcolor="#F4F4F4">Á¶È¸¼ö</td>
+			<td bgcolor="#F4F4F4">ì¡°íšŒìˆ˜</td>
 			<td bgcolor="#FFFFFF">
 				&nbsp;&nbsp;<s:property value="resultClass.readcount"/>
 			</td>
@@ -53,7 +53,7 @@
 			<td height="1" colspan="2"></td>
 		</tr>
 		<tr>
-			<td bgcolor="#F4F4F4">µî·Ï³¯Â¥</td>
+			<td bgcolor="#F4F4F4">ë“±ë¡ë‚ ì§œ</td>
 			<td bgcolor="#FFFFFF">
 				&nbsp;&nbsp;<s:property value="resultClass.reg_date"/>
 			</td>
@@ -65,11 +65,11 @@
 		
 		<tr>
 			<td align="right" colspan="2">
-				<input name="list" type="button" value="¼öÁ¤" class="inputb"
+				<input name="list" type="button" value="ìˆ˜ì •" class="inputb"
 				onclick="javascript:location.href='AdminNoticeModify.action?currentPage=<s:property value="currentPage"/>&notice_no=<s:property value="resultClass.notice_no"/>'">
-				<input name="list" type="button" value="»èÁ¦" class="inputb"
+				<input name="list" type="button" value="ì‚­ì œ" class="inputb"
 				onclick="javascript:location.href='AdminNoticeDelete.action?currentPage=<s:property value="currentPage"/>&notice_no=<s:property value="resultClass.notice_no"/>'">
-				<input name="list" type="button" value="¸ñ·Ï" class="inputb"
+				<input name="list" type="button" value="ëª©ë¡" class="inputb"
 				onclick="javascript:location.href='AdminNoticeList.action?currentPage=<s:property value="currentPage"/>'">
 			</td>
 		</tr>

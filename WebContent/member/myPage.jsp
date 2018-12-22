@@ -1,11 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link href="css/bootstrap.css" rel="stylesheet">
-<link href="css/bootstrap-theme.css" rel="stylesheet">
-<script src="js/bootstrap.js" type="text/javascript"></script>
 <style>
 body{
     background-color:#EFEFEF;
@@ -13,19 +10,18 @@ body{
 
 
 </style>
-<meta charset="EUC-KR">
-<title>¸¶ÀÌÆäÀÌÁö</title>
+<title>ë§ˆì´í˜ì´ì§€</title>
 </head>
 <body>
 <div>
-<h2>ÇÁ·ÎÇÊ °ü¸®</h2>
+<h2>í”„ë¡œí•„ ê´€ë¦¬</h2>
 </div>
 <div class="mypage">
-<table size="80%" height="80%" width="40%" align="center" cellspacing="0" cellpadding="0"  >
+<table width="80%" height="80%" width="40%" align="center" cellspacing="0" cellpadding="0"  >
 
 <tr>
 <td align="right" bgcolor="white" height="20">
-  <input type="button" onclick="javascript:window.location='modify.jsp'" value="ÆíÁı"/>
+  <input type="button" onclick="javascript:window.location='modify.jsp'" value="í¸ì§‘"/>
   </td>
   </tr>
   <tr>
@@ -33,19 +29,19 @@ body{
     <img width=60 height=60></td>
   </tr>
  <tr>
-  <td bgcolor="white"height="40">ÀÌ¸§&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;È«±æµ¿</td>
+  <td bgcolor="white"height="40">ì´ë¦„&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;í™ê¸¸ë™</td>
   </tr>
    <tr>
-  <td bgcolor="white"height="40">ÀÌ¸ŞÀÏ&emsp;&emsp;&emsp;&emsp;&emsp;www.naver.com</td>
+  <td bgcolor="white"height="40">ì´ë©”ì¼&emsp;&emsp;&emsp;&emsp;&emsp;www.naver.com</td>
   </tr>
    <tr>
-  <td bgcolor="white" height="40">¿¬¶ôÃ³&emsp;&emsp;&emsp;&emsp;&emsp;132-456-789</td>
+  <td bgcolor="white" height="40">ì—°ë½ì²˜&emsp;&emsp;&emsp;&emsp;&emsp;132-456-789</td>
   </tr>
    <tr>
-  <td bgcolor="white" height="40">ºñ¹Ğ¹øÈ£&emsp;&emsp;&emsp;&emsp;&emsp;*******</td>
+  <td bgcolor="white" height="40">ë¹„ë°€ë²ˆí˜¸&emsp;&emsp;&emsp;&emsp;&emsp;*******</td>
   </tr>
    <tr>
-  <td bgcolor="white" height="60">¸¶ÄÏÆÃ¼ö½Åµ¿ÀÇ&nbsp;&nbsp;&nbsp;e-mail:¼ö½Å°ÅºÎ<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sms:¼ö½Å°ÅºÎ</td>
+  <td bgcolor="white" height="60">ë§ˆì¼“íŒ…ìˆ˜ì‹ ë™ì˜&nbsp;&nbsp;&nbsp;e-mail:ìˆ˜ì‹ ê±°ë¶€<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sms:ìˆ˜ì‹ ê±°ë¶€</td>
   </tr>
 </table>
 </div>
@@ -53,7 +49,7 @@ body{
  <table align="center">
   <tr>
    <td align="center">
-     <input type="submit" value="°èÁ¤»èÁ¦" onclick="alert('°èÁ¤À» »èÁ¦ÇÏ½Ã°Ú½À´Ï±î?')">
+     <input type="submit" value="ê³„ì •ì‚­ì œ" onclick="alert('ê³„ì •ì„ ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?')">
    </td>
   </tr>
 </table>

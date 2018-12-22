@@ -1,17 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link href="css/bootstrap.css" rel="stylesheet">
-<link href="css/bootstrap-theme.css" rel="stylesheet">
-<script src="js/bootstrap.js" type="text/javascript"></script>
 </head>
 <body>
 <table width="600" border="0" cellspacing="0" cellpadding="2" align="center">
 		<tr>
-			<td align="center"><h2>°øÁö»çÇ×</h2></td>
+			<td align="center"><h2>ê³µì§€ì‚¬í•­</h2></td>
 		</tr>
 		<tr>
 			<td height="20"></td>
@@ -23,7 +20,7 @@
 			<td height="1" colspan="2"></td>
 		</tr>
 		<tr>
-			<td bgcolor="#F4F4F4">¹øÈ£</td>
+			<td bgcolor="#F4F4F4">ë²ˆí˜¸</td>
 			<td bgcolor="#FFFFFF">
 				&nbsp;&nbsp;<s:property value="resultClass.notice_no"/>
 			</td>
@@ -33,7 +30,7 @@
 			<td height="1" colspan="2"></td>
 		</tr>
 		<tr>
-			<td width="100" bgcolor="#F4F4F4">Á¦¸ñ</td>
+			<td width="100" bgcolor="#F4F4F4">ì œëª©</td>
 			<td width="500" bgcolor="#FFFFFF">
 				&nbsp;&nbsp;<s:property value="resultClass.subject"/>
 			</td>
@@ -45,7 +42,7 @@
 			<td height="1" colspan="2"></td>
 		</tr>
 		<tr>
-			<td bgcolor="#F4F4F4">³»¿ë</td>
+			<td bgcolor="#F4F4F4">ë‚´ìš©</td>
 			<td bgcolor="#FFFFFF">
 				&nbsp;&nbsp;<s:property value="resultClass.content"/>
 			</td>
@@ -55,7 +52,7 @@
 			<td height="1" colspan="2"></td>
 		</tr>
 		<tr>
-			<td bgcolor="#F4F4F4">Á¶È¸¼ö</td>
+			<td bgcolor="#F4F4F4">ì¡°íšŒìˆ˜</td>
 			<td bgcolor="#FFFFFF">
 				&nbsp;&nbsp;<s:property value="resultClass.readcount"/>
 			</td>
@@ -65,7 +62,7 @@
 			<td height="1" colspan="2"></td>
 		</tr>
 		<tr>
-			<td bgcolor="#F4F4F4">µî·Ï³¯Â¥</td>
+			<td bgcolor="#F4F4F4">ë“±ë¡ë‚ ì§œ</td>
 			<td bgcolor="#FFFFFF">
 				&nbsp;&nbsp;<s:property value="resultClass.reg_date"/>
 			</td>

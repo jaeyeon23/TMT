@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,7 +9,19 @@
 	<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 	<link href="./css/bootstrap.css" rel="stylesheet">
 	<link href="./css/bootstrap-theme.css" rel="stylesheet">
-	<script src="js/bootstrap.js" type="text/javascript"></script>
+	<script src="./js/bootstrap.js" type="text/javascript"></script>
+	
+	<!-- ê°€ê²©í‘œ ìŠ¬ë¼ì´ë” -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+    
+	<!-- ë‹¬ë ¥ -->
+	<link rel="stylesheet" href="./calendar/jquery-ui.min.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="./calendar/jquery-ui.min.js"></script>
+	<script src="./calendar/datepicker-ko.js"></script>
+	
 	<style>
 		.menu_home{
 			border-bottom: 3px solid #51abf3!important;
@@ -116,15 +128,15 @@
 			<div class="headerTop_left">
 				<a href="Main.action"> 
 					<img src="./images/logo.jpg" width="300px" alt="TMT" id="logo"> 
-					<!-- ·Î°í ¹× ·Î°íÀÌ¹ÌÁö¿¡  ¸µÅ©Ãß°¡ -->
+					<!-- ë¡œê³  ë° ë¡œê³ ì´ë¯¸ì§€ì—  ë§í¬ì¶”ê°€ -->
 				</a>
 			</div>
 			<!-- headerTop_left -->
 			<!-- headerTop_right -->
 			<div class="headerTop_right">
-				<a href="#">·Î±×ÀÎ</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#">ë¡œê·¸ì¸</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<!-- headerTop_right_membership -->
-				<a href="#"><div class="headerTop_right_membership">È¸¿ø°¡ÀÔ</div></a>
+				<a href="#"><div class="headerTop_right_membership">íšŒì›ê°€ì…</div></a>
 				<!-- headerTop_right_membership -->
 			</div>
 			<!-- headerTop_right -->
@@ -133,10 +145,10 @@
 	<!-- menu -->
 	<div class="menu">
 		<ul>
-			<li><div class="menu_home"><a href="Main.action">È¨</a></div></li>
-			<li><div class="menu_tour"><a href="TourList.action">Åõ¾î&Æ¼ÄÏ</a></div></li>
-			<li><div class="menu_air"><a href="AirList.action">Ç×°ø±Ç</a></div></li>
-			<li><div class="menu_hotel"><a href="HotelList.action">¼÷¼Ò</a></div></li>
+			<li><div class="menu_home"><a href="Main.action">í™ˆ</a></div></li>
+			<li><div class="menu_tour"><a href="TourList.action">íˆ¬ì–´&í‹°ì¼“</a></div></li>
+			<li><div class="menu_air"><a href="AirList.action">í•­ê³µê¶Œ</a></div></li>
+			<li><div class="menu_hotel"><a href="HotelList.action">ìˆ™ì†Œ</a></div></li>
 		</ul>
 	</div>
 	<!-- menu -->

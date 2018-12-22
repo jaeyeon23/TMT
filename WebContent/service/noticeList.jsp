@@ -1,17 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link href="css/bootstrap.css" rel="stylesheet">
-<link href="css/bootstrap-theme.css" rel="stylesheet">
-<script src="js/bootstrap.js" type="text/javascript"></script>
 </head>
 <body>
 	<table width="600" border="0" cellspacing="0" cellpadding="2" align="center">
 		<tr>
-			<td align="center"><h2>°øÁö»çÇ×</h2></td>
+			<td align="center"><h2>ê³µì§€ì‚¬í•­</h2></td>
 		</tr>
 		<tr>
 			<td height="20"></td>
@@ -23,10 +20,10 @@
 		<div>
 <table width="600" border="0" cellspacing="0" cellpadding="2" align="center">
 	<tr align="center" bgcolor="#F3F3F3">
-		<td width="50"><strong>¹øÈ£</strong></td>
-		<td width="350"><strong>Á¦¸ñ</strong></td>
-		<td width="80"><strong>³¯Â¥</strong></td>
-		<td width="50"><strong>Á¶È¸</strong></td>
+		<td width="50"><strong>ë²ˆí˜¸</strong></td>
+		<td width="350"><strong>ì œëª©</strong></td>
+		<td width="80"><strong>ë‚ ì§œ</strong></td>
+		<td width="50"><strong>ì¡°íšŒ</strong></td>
 	</tr>
 	<tr bgcolor="#777777">
 		<td height="1" colspan="5"></td>
@@ -50,7 +47,7 @@
 	</s:iterator>
 	<s:if test="list.size() <= 0">
 		<tr bgcolor="#FFFFFF" align="center">
-			<td colspan="5">µî·ÏµÈ °Ô½Ã¹°ÀÌ ¾ø½À´Ï´Ù</td>
+			<td colspan="5">ë“±ë¡ëœ ê²Œì‹œë¬¼ì´ ì—†ìŠµë‹ˆë‹¤</td>
 		</tr>
 		<tr bgcolor="#777777">
 			<td height="1" colspan="5"></td>

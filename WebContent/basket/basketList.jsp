@@ -1,16 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-<link href="css/bootstrap.css" rel="stylesheet">
-<link href="css/bootstrap-theme.css" rel="stylesheet">
-<script src="js/bootstrap.js" type="text/javascript"></script>
-<meta charset="EUC-KR">
-<title>³ªÀÇ À§½Ã¸®½ºÆ®</title>
+<meta charset="UTF-8">
+<title>ë‚˜ì˜ ìœ„ì‹œë¦¬ìŠ¤íŠ¸</title>
 <script type="text/JavaScript">
 	var check = false;
 	function CheckAll() {
@@ -33,7 +30,7 @@
 	function check() {
 
 		if (frm.deleteCheck.checked == false) {
-			alert("Ã¼Å©¹Ú½º¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä");
+			alert("ì²´í¬ë°•ìŠ¤ë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”");
 			return false;
 		}
 	}
@@ -46,11 +43,11 @@
 <div class='wishlists-header-container'>
 <div class='wishlists-title-wrapper'>
 
-<div class='header-title'><h2><center>³ªÀÇ À§½Ã¸®½ºÆ®</center></h2></div>
+<div class='header-title'><h2><center>ë‚˜ì˜ ìœ„ì‹œë¦¬ìŠ¤íŠ¸</center></h2></div>
 
 </div>
 <div class='wishlists-header-divider'></div>
-<div class='wishlists-header-subtitle'><center>ÃÑ °³ÀÇ »óÇ°</center></div>
+<div class='wishlists-header-subtitle'><center>ì´ ê°œì˜ ìƒí’ˆ</center></div>
 </div>
 
 <div class='wishlists-cards-container'>
@@ -63,8 +60,8 @@
 <tr width="80%">
 <td align=right>
   <select>
-    <option value="µµ½Ã">µµ½Ãº°·Î º¸±â</option>
-   <option value="»óÇ°">»óÇ° ¸®½ºÆ®·Î º¸±â</option>
+    <option value="ë„ì‹œ">ë„ì‹œë³„ë¡œ ë³´ê¸°</option>
+   <option value="ìƒí’ˆ">ìƒí’ˆ ë¦¬ìŠ¤íŠ¸ë¡œ ë³´ê¸°</option>
   </select>
   </td>
 </tr>
@@ -82,11 +79,11 @@
 							onclick="javascript:CheckAll()"></td>
 			</tr>
 			<tr bgcolor="#F5D0A9" align="center">
-				<td width="10%"><font size="2">¹øÈ£</font></td>
-				<td width="15%"><font size="2">»çÁø</font></td>
-				<td width="55%"><font size="2">»óÇ°¸í</font></td>
-				<td width="10%"><font size="2">¼ö·®</font></td>
-				<td width="10%"><font size="2">°¡°Ý</font></td>
+				<td width="10%"><font size="2">ë²ˆí˜¸</font></td>
+				<td width="15%"><font size="2">ì‚¬ì§„</font></td>
+				<td width="55%"><font size="2">ìƒí’ˆëª…</font></td>
+				<td width="10%"><font size="2">ìˆ˜ëŸ‰</font></td>
+				<td width="10%"><font size="2">ê°€ê²©</font></td>
 			</tr>
 		
 			<tr align="center">
@@ -109,8 +106,8 @@
 			    onclick="chkBox(this.checked)"></li>
 			    <li><img src="" alt=""></li>
 			    <li><s:property value="name" /></li>
-			    <li><s:property value="price"/>¿ø</li>
-			    <li><s:property value="amount"/>°³</li>
+			    <li><s:property value="price"/>ì›</li>
+			    <li><s:property value="amount"/>ê°œ</li>
 			  </ul>
 			  </li>
 			  </s:iterator>	
@@ -120,7 +117,7 @@
 			<tr class="btn_wrap">
 			<s:if test="blist.size()>0">
 			<td colspan="7" align="center">
-				<font size="2">À§½Ã¸®½ºÆ®¿¡ ´ã±ä »óÇ°ÀÌ ¾ø½À´Ï´Ù.<br>Thankyou My Tour¿Í Áñ°Å¿î ¿©ÇàÀ» °èÈ¹ÇØº¸¼¼¿ä. </font>
+				<font size="2">ìœ„ì‹œë¦¬ìŠ¤íŠ¸ì— ë‹´ê¸´ ìƒí’ˆì´ ì—†ìŠµë‹ˆë‹¤.<br>Thankyou My Tourì™€ ì¦ê±°ìš´ ì—¬í–‰ì„ ê³„íší•´ë³´ì„¸ìš”. </font>
 			</td>
 			</tr>
 		</s:if>

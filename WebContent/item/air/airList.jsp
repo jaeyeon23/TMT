@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,78 +7,10 @@
 <head>
 	<title>Insert title here</title>
 
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-    <script>
-        $(function() {
-            $("#slider").slider({
-                value:10,
-                min: 0,
-                max: 10,
-                step: 0.1,
-                slide: function( event, ui ) {
-                    $( "#amount3" ).val( "$" + ui.value );
-                }
-            });
-            $( "#amount3" ).val( "$" + $( "#slider" ).slider( "value" ) );
-        });
-    </script>
-    
-    
-	<link rel="stylesheet" href="./calendar/jquery-ui.min.css">
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="./calendar/jquery-ui.min.js"></script>
-	
-	<script src="./calendar/datepicker-ko.js"></script>
+	<script src="./script/calendar.js" type="text/javascript"></script>
+	<script src="./script/slider_bar.js" type="text/javascript"></script>
+
 	<script type="text/javascript">
-	//<![CDATA[
-
-	/* Korean initialisation for the jQuery calendar extension. */
-	/* Written by DaeKwon Kang (ncrash.dk@gmail.com), Edited by Genie and Myeongjin Lee. */
-	(function(factory) {
-		if (typeof define === "function" && define.amd) {
-
-			// AMD. Register as an anonymous module.
-			define([ "../widgets/datepicker" ], factory);
-		} else {
-
-			// Browser globals
-			factory(jQuery.datepicker);
-		}
-	}(function(datepicker) {
-
-		datepicker.regional.ko = {
-			closeText : "닫기",
-			prevText : "이전달",
-			nextText : "다음달",
-			currentText : "오늘",
-			monthNames : [ "1", "2", "3", "4", "5", "6", "7", "8",
-					"9", "10", "11", "12" ],
-			monthNamesShort : [ "1", "2", "3", "4", "5", "6", "7", "8",
-					"9", "10", "11", "12" ],
-			dayNames : [ "일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일" ],
-			dayNamesShort : [ "일", "월", "화", "수", "목", "금", "토" ],
-			dayNamesMin : [ "일", "월", "화", "수", "목", "금", "토" ],
-			weekHeader : "주",
-			dateFormat : "yy-MM-dd",
-			firstDay : 0,
-			isRTL : false,
-			showMonthAfterYear : true,
-			yearSuffix : "년",
-		};
-		datepicker.setDefaults(datepicker.regional.ko);
-
-		return datepicker.regional.ko;
-
-	}));
-
-	///
-	$(function() {
-		$(".date1").datepicker();
-	});
-	//]]>
-		
 		
 		/* 정렬 */
 		function sm() {

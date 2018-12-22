@@ -29,25 +29,25 @@ public class AirList extends ActionSupport{
 	
 	
 	
-	/*ë³€ìˆ˜ ì‹œì‘*/
+	/*º¯¼ö ½ÃÀÛ*/
 	private int no;
-	private String arv;	//ï¿½ï¿½ï¿½ï¿½ï¿½
-	private String dep;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	private int price;	//ï¿½ï¿½ï¿½ï¿½
-	private String content;	//ï¿½ï¿½ï¿½ï¿½
-	private String image1;	//ï¿½×°ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
-	private int seat;		//ï¿½Â¼ï¿½ ï¿½ï¿½
-	private int seat_grade;	//ï¿½Â¼ï¿½ ï¿½ï¿½ï¿½
-	private Date ad;		//ï¿½ï¿½ß½Ã°ï¿½
-	private Date dd;		//ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
-	private String air_company;		//ï¿½×°ï¿½ï¿½ï¿½
+	private String arv;	
+	private String dep;	
+	private int price;	
+	private String content;	
+	private String image1;	
+	private int seat;		
+	private int seat_grade;	
+	private Date ad;		
+	private Date dd;		
+	private String air_company;		
 	private String grade;
-	/*ë³€ìˆ˜ end*/
+	/*º¯¼ö end*/
 	
 	private String air_array;
-	private String ad_str;			//ï¿½ï¿½Â¥ string
+	private String ad_str;			
 	
-	/*í…ŒìŠ¤íŠ¸ ë³€ìˆ˜*/
+	/*Å×½ºÆ® º¯¼ö*/
 	private String ckAD_1;			//06
 	private String ckAD_2;			//12
 	private String ckAD_3;			//18
@@ -58,9 +58,9 @@ public class AirList extends ActionSupport{
 	private String ckDD_3;			//18
 	private String ckDD_4;			//24
 	
-	private String air_company_korea;		//ëŒ€í•œí•­ê³µ
-	private String air_company_asia;		//ëŒ€í•œí•­ê³µ
-	private String air_company_jin;		//ëŒ€í•œí•­ê³µ
+	private String air_company_korea;		//´ëÇÑÇ×°ø
+	private String air_company_asia;		//´ëÇÑÇ×°ø
+	private String air_company_jin;		//´ëÇÑÇ×°ø
 	
 	private String[] ckAD_search;
 	private Map map = new HashMap<>();
@@ -112,14 +112,14 @@ public class AirList extends ActionSupport{
 
 	private void makeSearch() throws IOException, SQLException{
 		System.out.println("makeSearch");
-		/*ê²€ìƒ‰ì„ ìœ„í•œ map*/
+		/*°Ë»öÀ» À§ÇÑ map*/
 		map.put("ad", getAd_str());
 		map.put("arv", getArv());
 		map.put("dep", getDep());
 		map.put("seat", getSeat());
 		map.put("seat_grade", getSeat_grade());
 		
-		/*ì¶œë°œì‹œê°„*/
+		/*Ãâ¹ß½Ã°£*/
 		if(ckAD_1 != null) {
 			map.put("ckAD_1", ckAD_1);
 		}
@@ -133,7 +133,7 @@ public class AirList extends ActionSupport{
 			map.put("ckAD_4", ckAD_4);
 		}
 		
-		/*ë„ì°©ì‹œê°„*/
+		/*µµÂø½Ã°£*/
 		if(ckDD_1 != null) {
 			map.put("ckDD_1", ckDD_1);
 		}
@@ -147,7 +147,7 @@ public class AirList extends ActionSupport{
 			map.put("ckDD_4", ckDD_4);
 		}
 		
-		/*í•­ê³µ*/
+		/*Ç×°ø*/
 		if(air_company_korea != null) {
 			map.put("air_company_korea", air_company_korea);
 		}
