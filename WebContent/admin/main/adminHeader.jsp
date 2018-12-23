@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -115,15 +115,15 @@
 			<div class="headerTop_left">
 				<a href="Main.action"> 
 					<img src="./images/logo.jpg" width="300px" alt="TMT" id="logo"> 
-					<!-- ·Î°í ¹× ·Î°íÀÌ¹ÌÁö¿¡  ¸µÅ©Ãß°¡ -->
+					<!-- ë¡œê³  ë° ë¡œê³ ì´ë¯¸ì§€ì—  ë§í¬ì¶”ê°€ -->
 				</a>
 			</div>
 			<!-- headerTop_left -->
 			<!-- headerTop_right -->
 			<div class="headerTop_right">
-				<a href="#">·Î±×ÀÎ</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#">ë¡œê·¸ì¸</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<!-- headerTop_right_membership -->
-				<a href="#"><div class="headerTop_right_membership">È¸¿ø°¡ÀÔ</div></a>
+				<a href="#"><div class="headerTop_right_membership">íšŒì›ê°€ìž…</div></a>
 				<!-- headerTop_right_membership -->
 			</div>
 			<!-- headerTop_right -->
@@ -132,11 +132,11 @@
 	<!-- menu -->
 	<div class="menu">
 		<ul>
-			<li><div class="menu_hotel"><a href="AdminMemberList.action">¸â¹ö°ü¸®</a></div></li>
-			<li><div class="menu_tour"><a href="AdminTourList.action">Åõ¾î°ü¸®</a></div></li>
-			<li><div class="menu_air"><a href="AdminAirList.action">Ç×°ø±Ç°ü¸®</a></div></li>
-			<li><div class="menu_hotel"><a href="AdminHotelList.action">¼÷¼Ò°ü¸®</a></div></li>
-			<li><div class="menu_hotel"><a href="AdminNoticeList.action">°øÁö»çÇ×°ü¸®</a></div></li>
+			<li><div class="menu_hotel"><a href="AdminMemberList.action">ë©¤ë²„ê´€ë¦¬</a></div></li>
+			<li><div class="menu_tour"><a href="AdminTourList.action">íˆ¬ì–´ê´€ë¦¬</a></div></li>
+			<li><div class="menu_air"><a href="AdminAirList.action">í•­ê³µê¶Œê´€ë¦¬</a></div></li>
+			<li><div class="menu_hotel"><a href="AdminHotelList.action">ìˆ™ì†Œê´€ë¦¬</a></div></li>
+			<li><div class="menu_hotel"><a href="AdminNoticeList.action">ê³µì§€ì‚¬í•­ê´€ë¦¬</a></div></li>
 		</ul>
 	</div>
 	<!-- menu -->

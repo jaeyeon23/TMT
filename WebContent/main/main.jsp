@@ -1,16 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 <head>
-	<!-- ½½¶óÀÌ´õ -->
+	<!-- ìŠ¬ë¼ì´ë” -->
 	<link href="./css/common.css" rel="stylesheet" type="text/css">
     <link href="./css/basic_slider.css" rel="stylesheet" type="text/css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
    	<script src="./js/basic_slider_jquery.js"></script>
-   	<!-- ½½¶óÀÌ´õ -->
+   	<!-- ìŠ¬ë¼ì´ë” -->
 	<style>
 		input[type=text]{
 			width: 40%;

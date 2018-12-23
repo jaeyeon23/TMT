@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
@@ -19,9 +19,9 @@
 #left_num p { padding-top: 5px;, float: left; background: url('/resources/images/common/sub_left_num.png') no-repeat; padding-left: 65px; height: 56px;}
 .left_num_intro {  color: #3a3a3a; font-weight: 700; }
 .left_num_time { font-size: 11px; color: #a8a8a8; line-height: 14px; }
-.left_num { font-size: 18px; font-weight: 900; color: #fa5c3f; font-family: Tahoma, 'Nanum Gothic', 'µ¸¿ò', Dotum, sans-serif; line-height: 15px; }
+.left_num { font-size: 18px; font-weight: 900; color: #fa5c3f; font-family: Tahoma, 'Nanum Gothic', 'ë‹ì›€', Dotum, sans-serif; line-height: 15px; }
 
-/* ±³À°°úÁ¤ ÁÂÃø³»ºñ */
+/* êµìœ¡ê³¼ì • ì¢Œì¸¡ë‚´ë¹„ */
 .edu .left_subject { width: 200px; }
 #left_nav.edu>ul { width: 200px; }
 #left_nav ul .depth { padding: 15px 0 15px 10px; line-height: 15px; *padding: 15px 0 10px 10px; background: url('/resources/images/sub02/sub02_left_off.jpg'); background-repeat: no-repeat; background-color: #fff; background-position: center right; height: auto; }
@@ -51,7 +51,7 @@ textarea { resize: none; }
 .board_view_subject { overflow: hidden; border-top: 2px solid #283444; border-bottom: 1px solid #283444; height: 42px; padding: 0 20px; line-height: 42px; }
 .board_view_subject_left { float: left; color: #283444; }
 .board_view_subject_right { float: right;  color: #6d6e72; }
-.board_view_content { padding: 40px;  color: #6d6e72; line-height: 1.5; }
+.board_view_content { padding: 40px;  line-height: 1.5; }
 .tutorial_content { padding: 40px;  color: #6d6e72; line-height: 1.5; }
 .photo_content { padding: 40px 0; }
 .industrialEdu_content { padding: 40px 0; }
@@ -82,9 +82,9 @@ textarea { resize: none; }
 	}
 	</script>
 	<div id="left_nav">
-		<div class="left_subject">°í°´¼¾ÅÍ</div>
+		<div class="left_subject">ê³ ê°ì„¼í„°</div>
 		<ul>
-			<li><a href="NoticeList.action">°øÁö»çÇ×</a></li>
+			<li><a href="NoticeList.action">ê³µì§€ì‚¬í•­</a></li>
 		</ul>
 	</div>
 	<div id="content_right">
@@ -94,19 +94,19 @@ textarea { resize: none; }
 				<p class="board_view_subject_right"><s:property value="resultClass.reg_date"/></p>
 			</div>
 			<div class="board_view_content">
-				<p style="text-align: center;"><s:property value="resultClass.content"/></p><p style="text-align: left;"><br></p><p><br></p><p><br></p>
+				<p><s:property value="resultClass.content"/></p>
 			</div>
 			
 			<div class="board_view_prev">
-				<span>ÀÌÀü±Û</span><a href="/community/noticeView.kh?no=3459&amp;cpage=1&amp;classify=">KHÁ¤º¸±³À°¿ø °­³²Áö¿ø ÈÆ·ÃÀÌ¼öÀÚÆò°¡</a>
+				<span>ì´ì „ê¸€</span><a href="/community/noticeView.kh?no=3459&amp;cpage=1&amp;classify=">KHì •ë³´êµìœ¡ì› ê°•ë‚¨ì§€ì› í›ˆë ¨ì´ìˆ˜ìí‰ê°€</a>
 			</div>
 			<div class="board_view_next">
-				<span>´ÙÀ½±Û</span>´ÙÀ½±ÛÀÌ ¾ø½À´Ï´Ù.
+				<span>ë‹¤ìŒê¸€</span>ë‹¤ìŒê¸€ì´ ì—†ìŠµë‹ˆë‹¤.
 			</div>
 			
 			<div class="board_view_botton">
 			<button type="button" class="btn btn-default btn-xs"
-			onclick="javascript:location.href='NoticeList.action?currentPage=<s:property value="currentPage"/>'">¸ñ·Ï</button>
+			onclick="javascript:location.href='NoticeList.action?currentPage=<s:property value="currentPage"/>'">ëª©ë¡</button>
 			</div>
 		</div>
 	</div>

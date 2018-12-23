@@ -1,35 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="java.util.HashMap"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>íšŒì›ê°€ì… ì„±ê³µ</title>
 <style>
-	.factor{
-	align:left;
-	width:15%;
-	FONT-SIZE: 15pt;
-	}
-	.notice{
-	width:20%;
-	valign:middle;
-	font-size:15pt;
-	}
-	.term{
-	font-family:;
-	color:;
-	resize:none;
-	background-color:#FBF8EF;
-	border:0;
-	}
 	.title{
 	FONT-SIZE: 20pt;
-	}
-	.agree{
-	font-size:13pt;
 	}
 	.regButton{
     background-color:rgba(249, 214, 169, 1);
@@ -49,267 +27,28 @@
 	background-color: #F5D0A9;
 	}
 </style>
-<script type="text/javascript">
-function check(){
-	
-	var f=document.join;
-	
-	if (f.id.value == "") {
-		alert("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ½Ê½Ã¿À");
-		f.id.focus();
-		return false;
-	}
-	if (f.id2.value == "") {
-		alert("¾ÆÀÌµğ Áßº¹È®ÀÎÀ» ÇØÁÖ½Ê½Ã¿À");
-		return false;
-	}
-	if (f.password.value == "") {
-		alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ½Ê½Ã¿À");
-		f.password.focus();
-		return false;
-	}
-	if (f.password.value != f.password2.value) {
-		alert("ºñºô¹øÈ£¸¦ ÀçÀÔ·Â ÇØÁÖ¼¼¿ä.");
-		f.password2.select();
-		return false;
-	}
-	if (f.name.value == "") {
-		alert("ÀÌ¸§À» ÀÔ·ÂÇØÁÖ½Ê½Ã¿À");
-		f.name.focus();
-		return false;
-	}
-	if (f.tel.value == "") {
-		alert("ÇÚµåÆù¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ½Ê½Ã¿À");
-		f.tel.focus();
-		return false;
-	}
-	if (f.email.value == "") {
-		alert("ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇØÁÖ½Ê½Ã¿À");
-		f.email.focus();
-		return false;
-	}
-	if(f.passport.value==""){
-		alert("¿©±Ç¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ½Ê½Ã¿À");
-		f.passport.focus();
-		return false;
-	}
-	if (f.passport2.value == "") {
-		alert("¿©±Ç¹øÈ£ Áßº¹È®ÀÎÀ» ÇØÁÖ½Ê½Ã¿À");
-		return false;
-	}
-	if (join.agreeUse.checked == false) {
-		alert("ÀÌ¿ë¾à°ü, °³ÀÎÁ¤º¸ ¼öÁı ¹× ÀÌ¿ë¿¡ ¸ğµÎ µ¿ÀÇÇØ ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.");
-		return false;
-	}
-
-	if (join.agreePrivacy.checked == false) {
-		alert("ÀÌ¿ë¾à°ü, °³ÀÎÁ¤º¸ ¼öÁı ¹× ÀÌ¿ë¿¡ ¸ğµÎ µ¿ÀÇÇØ ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.");
-		return false;
-	}
-
-}
-function openConfirmId(){
-	var url="ConfirmId.action?id="+document.join.id.value;
-	var f=document.join;
-	var idPs = /^[0-9a-zA-Z]{4,12}$/; //¾ÆÀÌµğ ºñ¹Ğ¹øÈ£ Ã¼Å©Ç¥Çö½Ä
-	if(f.id.value==""){
-		alert("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
-		f.id.focus();
-		return false;
-	}
-	open(url,"confirmid","toolbar=no,location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
-}
-function openConfirmPassport(){
-	var url="passportCheck.action?id="+document.join.passport.value;
-	var f=document.join;
-
-	if(f.passport.value==""){
-		alert("¿©±Ç¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
-		f.passport.focus();
-		return false;
-	}
-	open(url,"confirmpassport","toolbar=no,location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
-}
-function chkBox(bool){
-	var obj=document.getElementsByName("join");
-	for(var i=0;i<obj.length;i++)
-		obj[i].checked=bool;
-}
-
-</script>
-<title>TMTÈ¸¿ø°¡ÀÔ</title>
 </head>
 <body>
 <center>
-		<form name="join" action="Join.action" method="post" onsubmit="return check()">
-			<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
-				<tr>
-					<td height="50">&nbsp;</td>
-				</tr>							
-				<tr>
-					<td colspan="100%" height="3" bgcolor="black"/>
-				</tr>				
-				<tr>
-					<td height="20">&nbsp;</td>
-				</tr>
-				<tr>
-					<td height="40" align="center" colspan="100%" class="title">È¸¿ø°¡ÀÔ</td>
-				</tr>				
-				<tr>
-					<td height="20">&nbsp;</td>
-				</tr>				
-				<tr>
-					<td colspan="100%" height="3" bgcolor="black"/>
-				</tr>				
-
-				<tr>
-					<td height="20" colspan="100%">&nbsp;</td>
-				</tr>			
-				<tr>
-					<td class="factor">¾ÆÀÌµğ</td>
-					<td>
-					<input type="text" name="id" size="28"> &nbsp;&nbsp;&nbsp;
-					<input type="button" name="id2" value=" Áßº¹È®ÀÎ " onclick="openConfirmId()" class="button"></td>
-					<td class="notice">¿µ¹®/¼ıÀÚ¸¦ ÀÌ¿ëÇÏ¿© 4~12ÀÚ·Î ÀÔ·ÂÇÏ¼¼¿ä</td>
-				</tr>	
-				
-				<tr>
-					<td height="20" colspan="100%">&nbsp;</td>
-				</tr>			
-				<tr>
-					<td class="factor">ºñ¹Ğ¹øÈ£</td>
-					<td>
-					<input type="password" name="password" size="28"></td>
-					<td class="notice">¿µ¹®/¼ıÀÚ¸¦ ÀÌ¿ëÇÏ¿© 4~12ÀÚ·Î ÀÔ·ÂÇÏ¼¼¿ä</td>
-				</tr>
-				
-				<tr>
-					<td height="30" colspan="100%">&nbsp;</td>
-				</tr>			
-				<tr>
-					<td class="factor">ºñ¹Ğ¹øÈ£ ÀçÈ®ÀÎ</td>
-					<td>
-					<input type="password" name="password2" size="28" placeholder="ºñ¹Ğ¹øÈ£¸¦ ÀçÀÔ·Â ÇØÁÖ½Ê½Ã¿À"></td>
-				</tr>			
-	
-				<tr>
-					<td height="30" colspan="100%">&nbsp;</td>
-				</tr>			
-				<tr>
-					<td class="factor">ÀÌ¸§</td>
-					<td>
-					<input type="text" name="name" size="28"></td>
-					<td class="notice">È¸¿ø°¡ÀÔ ÈÄ ¼öÁ¤ÀÌ ºÒ°¡´ÉÇÕ´Ï´Ù</td>
-				</tr>
-								
-				<tr>
-					<td height="30" colspan="100%">&nbsp;</td>
-				</tr>
-				<tr>
-					<td class="factor">ÀüÈ­¹øÈ£</td>
-					<td>
-					<input type="text" name="tel" size="28"></td>
-					<td class="notice">"-" ¾øÀÌ ¼ıÀÚ¸¸ ÀÔ·ÂÇÏ¼¼¿ä</td>
-				</tr>
-				
-				<tr>
-					<td height="30" colspan="100%">&nbsp;</td>
-				</tr>
-				<tr>
-					<td class="factor">ÀÌ¸ŞÀÏ</td>
-					<td>
-					<input type="text" name="email" size="28" placeholder="______________ @ ______________">&nbsp;&nbsp;&nbsp;
-					<input type="button" name="emailChk" value="¸ŞÀÏ ÀÎÁõ" onclick="openConfirmEmail()" class="button"></td>
-					<td class="notice">ÀÌ¸ŞÀÏ Çü½Ä¿¡ ¸ÂÃç ÀÔ·ÂÇØ ÁÖ¼¼¿ä</td>
-				</tr>
-				
-				<tr>
-					<td height="30" colspan="100%">&nbsp;</td>
-				</tr>
-				<tr>
-					<td class="factor">¿©±Ç¹øÈ£</td>
-					<td>
-					<input type="text" name="passport" size="28">&nbsp;&nbsp;&nbsp;
-					<!--  <input type="button" name="passport2" value=" Áßº¹È®ÀÎ " onclick="openConfirmPassport()" class="button"></td>-->
-				</tr>
-				
-				<tr>
-					<td height="50">&nbsp;</td>
-				</tr>
-				<tr>
-					<td colspan="100%" height="3" bgcolor="black"/>
-				</tr>
-	
-				<tr>
-					<td height="10">&nbsp;</td>
-				</tr>
-				<tr>
-					<td colspan="100%" height="40" align="center"><font size="5" >ÁÖ¿ä Á¤Ã¥ ¹× ÀÌ¿ë ¹æ¹ı</font>
-					</td>
-				</tr>
-				
-				<tr>
-					<td height="10">&nbsp;</td>
-				</tr>
-				
-				<tr>
-					<td colspan="100%" height="3" bgcolor="black"/>
-				</tr>
-	
-				<tr>
-					<td height="40">&nbsp;</td>
-				</tr>
-				
-				<tr>
-					<td colspan="100%" align="right">
-					<label for="agreeAll">
-							<strong class="agree">ÀÌ¿ë¾à°ü, °³ÀÎÁ¤º¸ ¼öÁı ¹× ÀÌ¿ë¿¡ ¸ğµÎ µ¿ÀÇÇÕ´Ï´Ù.</strong>
-							<input type="checkbox" id="agreeAll" value="" class="checkbox" onclick=chkBox(this.checked) />
-					</label>
-					</td>
-				</tr>
-				<tr>
-					<td height="90">&nbsp;</td>
-				</tr>
-
-				
-				<tr>
-					<td colspan="100%" align="middle" class="title">ÀÌ¿ë¾à°ü</td>
-				</tr>
-				
-				<tr>
-					<td height="20">&nbsp;</td>
-				</tr>	
-				<tr>
-					<td align="center" colspan="100%">
-					<textarea readonly="readonly" rows="10" cols="120" class="term">
-					!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ÀÌ¿ë¾à°ü µé¾î°¡´Â °÷!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-					</textarea>
-					</td>
-				</tr>
-				<tr>
-					<td height="10">&nbsp;</td>
-				</tr>
-				
-				<tr>
-					<td colspan="100%" height="60" valign="top" align="right">
-					<label for="agreePrivacy" class="agree"> °³ÀÎÁ¤º¸¼öÁı, ÀÌ¿ë µ¿ÀÇ¿¡ µ¿ÀÇÇÕ´Ï´Ù. 
-					<input type="checkbox" id="agreePrivacy" name="join" value="" class="checkbox" />
-					</label>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="100%" align="center">
-					<input type="submit" value=" È¸¿ø°¡ÀÔ " class="regButton" >
-						&nbsp;&nbsp;&nbsp;&nbsp; 
-						<a href="Main.action" class="regButton">&nbsp;&nbsp;Ãë¼Ò&nbsp;&nbsp;</a></td>
-				</tr>
-				<tr>
-					<td height="50">&nbsp;</td>
-				</tr>
-				
-			</table>
-		</form>
+<h1 class="title">íšŒì›ê°€ì…ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.</h1>
+	<form action="LoginForm.action" method="post">
+	<table>
+		<tr>
+			<td class="title">TMTì˜ íšŒì›ì´ ë˜ì‹ ê±¸ í™˜ì˜í•©ë‹ˆë‹¤.&nbsp;&nbsp;<b>${id}</b>ë‹˜</td>
+		</tr>
+		<tr>
+		<td>&nbsp;</td>
+		</tr>
+		<tr>
+		<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td><a href="LoginForm.action" class="regButton">ë¡œê·¸ì¸&nbsp;&nbsp;</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;<a href="Main.action" class="regButton">&nbsp;&nbsp;&nbsp;&nbsp;í™ˆìœ¼ë¡œ</a></td>
+			</td>
+		</tr>
+	</table>
+	</form>
 	</center>
 </body>
 </html>

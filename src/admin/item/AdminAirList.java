@@ -36,18 +36,18 @@ public class AdminAirList extends ActionSupport{
 	public String execute() throws Exception {
 		list = sqlMapper.queryForList("select-allA");
 		
-		totalCount = list.size(); // list∞¥√º¿« ≈©±‚- totalCount
+		totalCount = list.size(); // listÍ∞ùÏ≤¥Ïùò ÌÅ¨Í∏∞- totalCount
 		page = new AirPagingAction(currentPage, totalCount, blockCount, blockPage);
 		pagingHtml = page.getPagingHtml().toString();
 		
 		int lastCount = totalCount;
-		if(page.getEndCount()<totalCount) // ∏∂¡ˆ∏∑ ∆‰¿Ã¡ˆ∞° ¿¸√º ºˆ∫∏¥Ÿ ¿€¿∏∏È
-			lastCount = page.getEndCount()+1; // +1 «œ±‚.
-		// ø©±‚±Ó¡ˆ∞° ∆‰¿Ã¬°«œ±‚	
-//		System.out.println("≈‰≈ª: "+totalCount);
+		if(page.getEndCount()<totalCount) // ÎßàÏßÄÎßâ ÌéòÏù¥ÏßÄÍ∞Ä Ï†ÑÏ≤¥ ÏàòÎ≥¥Îã§ ÏûëÏúºÎ©¥
+			lastCount = page.getEndCount()+1; // +1 ÌïòÍ∏∞.
+		// Ïó¨Í∏∞ÍπåÏßÄÍ∞Ä ÌéòÏù¥ÏßïÌïòÍ∏∞	
+//		System.out.println("ÌÜ†ÌÉà: "+totalCount);
 		list = list.subList(page.getStartCount(), lastCount);
-		// list∞¥√ºø° √π¡Ÿ∫Œ≈Õ ≥°¡Ÿ±Ó¡ˆ ¥„æ∆ø¬¥Ÿ.
-//		System.out.println("∏ÆΩ∫∆Æ: "+list);
+		// listÍ∞ùÏ≤¥Ïóê Ï≤´Ï§ÑÎ∂ÄÌÑ∞ ÎÅùÏ§ÑÍπåÏßÄ Îã¥ÏïÑÏò®Îã§.
+//		System.out.println("Î¶¨Ïä§Ìä∏: "+list);
 		
 		return SUCCESS;
 	}

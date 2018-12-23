@@ -43,7 +43,15 @@
 			<include refid="select-allH" />
 			<include refid="where-noH" />
 		</select>
-	
+		
+		<select id="selectLastNoH" resultClass="hotel">
+				select max(no) as no from hotel
+		</select>
+		
+		<insert id="insertHotel" parameterClass="hotel">
+			insert into hotel(no, name, price, content, country, region, readcount, image1, image2, image3, reg_date, tel,checkin,checkout,maxnum,grade)
+			values(seq_hotelnum.nextval, #name#, #price#, #content#, #country#, #region#, 0, #image1#, #image2#, #image3#, sysdate, #tel#,#checkin#,#checkout#,#maxnum#,#grade#)	
+		</insert>
 
 
 </sqlMap>
