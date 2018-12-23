@@ -16,7 +16,7 @@ public class HotelpagingAction {
 
 	// 페이징 생성자
 	public HotelpagingAction(int currentPage, int totalCount, int blockCount,
-			int blockPage) {
+			int blockPage, String isSearch) {
 
 		this.blockCount = blockCount;
 		this.blockPage = blockPage;
@@ -51,8 +51,10 @@ public class HotelpagingAction {
 		pagingHtml = new StringBuffer();
 		
 		if (currentPage > blockPage) {
-
-			pagingHtml.append("<a href=HotelList.action?currentPage=" + (startPage - 1) + ">");
+			if(isSearch != "")
+				pagingHtml.append("<a href=HotelList.action?currentPage=" + (startPage - 1) + "&hotelname="+isSearch+">");
+			else
+				pagingHtml.append("<a href=HotelList.action?currentPage=" + (startPage - 1) + ">");
 			pagingHtml.append("이전");
 			pagingHtml.append("</a>");
 		}
@@ -71,6 +73,8 @@ public class HotelpagingAction {
 			} else {
 				pagingHtml.append("&nbsp;<a href='HotelList.action?currentPage=");
 				pagingHtml.append(i);
+				if(isSearch != "")
+					pagingHtml.append("&hotelname="+isSearch);
 				pagingHtml.append("'>");
 				pagingHtml.append(i);
 				pagingHtml.append("</a>");
@@ -83,8 +87,11 @@ public class HotelpagingAction {
 
 		// 다음 block 페이지
 		if (totalPage - startPage >= blockPage) {
-
-			pagingHtml.append("<a href=HotelList.action?currentPage=" + (endPage + 1) + ">");
+			pagingHtml.append("&nbsp;<a href=HotelList.action?currentPage=");
+			pagingHtml.append((endPage+1));
+			if(isSearch != "")
+				pagingHtml.append("&hotelname="+isSearch);
+			pagingHtml.append("'>");
 			pagingHtml.append("다음");
 			pagingHtml.append("</a>");
 		}

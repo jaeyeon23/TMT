@@ -32,7 +32,11 @@
 	 	<sql id="where-noH">
 			WHERE no = #no#
 		</sql>
-	
+		
+	    <sql id = "select-search">
+	        WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%')
+	    </sql>
+	    
 		<!-- select 쿼리문 정의 -->
 		<select id="selectAllH" resultMap="boardhotel">
 			<include refid="select-allH" />
@@ -43,7 +47,44 @@
 			<include refid="select-allH" />
 			<include refid="where-noH" />
 		</select>
-	
 
+<!-- 검색로직 추가시작 -->
+    <!-- 기본 -->	
+	<select id="Search_Hotel" resultMap="boardhotel" parameterClass="hotel">
+		<include refid="select-allH" />
+		<include refid="select-search"/>
+		<![CDATA[     
+		and checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number#
+		]]>
+	</select> 
+	
+    <!-- 인기순정렬 -->
+	<select id="Search_Hotel_read" parameterClass="string" resultMap="boardhotel">
+		<include refid="select-allH" />
+		<include refid="select-search"/>
+		<![CDATA[     
+		and checkin <= #checkin# and checkout >= #checkout# and maxnum >= #maxnum# order by readcount desc
+		]]>		
+	</select>
+	
+    <!-- 가격순정렬 -->
+	<select id="Search_Hotel_price" parameterClass="string" resultMap="boardhotel">
+		<include refid="select-allH" />
+		<include refid="select-search"/>
+		<![CDATA[     
+		and checkin <= #checkin# and checkout >= #checkout# and maxnum >= #maxnum# order by price asc
+		]]>		
+	</select>
+	
+    <!-- 별점순정렬 -->
+	<select id="Search_Hotel_date" parameterClass="string" resultMap="boardhotel">
+		<include refid="select-allH" />
+		<include refid="select-search"/>
+		<![CDATA[     
+		and checkin <= #checkin# and checkout >= #checkout# and maxnum >= #maxnum# order by grade desc
+		]]>		
+	</select>
+
+<!-- 검색로직 끝 -->
 
 </sqlMap>

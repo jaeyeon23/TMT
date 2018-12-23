@@ -20,6 +20,9 @@ public class HotelVO{
 	private int maxnum; 	//인원수
 	private int grade;	//평균 별점
 	
+	private String hotelname;
+	private int number;
+	private Date inDay, outDay;
 	
 	//상품번호
 	public int getNo() {
@@ -143,6 +146,31 @@ public class HotelVO{
 	}
 	public void setGrade(int grade) {
 		this.grade = grade;
+	}
+	
+	
+	public String getHotelname() {
+		return hotelname;
+	}
+	public void setHotelname(String hotelname) {
+		this.hotelname = hotelname;
+	}
+
+	// 체크인 , 체크아웃
+	public Date getInDay() {
+		return inDay;
+	}
+
+	public void setInDay(Date inDay) {
+		this.inDay = inDay;
+	}
+
+	public Date getOutDay() {
+		return outDay;
+	}
+
+	public void setOutDay(Date outDay) {
+		this.outDay = outDay;
 	}
 	
 }
