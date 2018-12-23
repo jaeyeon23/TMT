@@ -16,19 +16,19 @@ import com.opensymphony.xwork2.ActionSupport;
 import service.NoticeVO;
 
 public class AdminNoticeWrite extends ActionSupport{
-	public static Reader reader; //ÆÄÀÏ ½ºÆ®¸²À» À§ÇÑ reader.
-	public static SqlMapClient sqlMapper; //SqlMapClient API¸¦ »ç¿ëÇÏ±â À§ÇÑ sqlMapper °´Ã¼
+	public static Reader reader; //íŒŒì¼ ìŠ¤íŠ¸ë¦¼ì„ ìœ„í•œ reader.
+	public static SqlMapClient sqlMapper; //SqlMapClient APIë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•œ sqlMapper ê°ì²´
 	
-	private NoticeVO paramClass; //ÆÄ¶ó¹ÌÅÍ¸¦ ÀúÀåÇÒ °´Ã¼ (°´Ã¼¸¦ Àü´ŞÇÏ±â À§ÇØ)
-	private NoticeVO resultClass; //Äõ¸® °á°ú °ªÀ» ÀúÀåÇÒ °´Ã¼ (Ã³¸®µÈ °á°ú¸¦ ¹Ş±â À§ÇØ)
+	private NoticeVO paramClass; //íŒŒë¼ë¯¸í„°ë¥¼ ì €ì¥í•  ê°ì²´ (ê°ì²´ë¥¼ ì „ë‹¬í•˜ê¸° ìœ„í•´)
+	private NoticeVO resultClass; //ì¿¼ë¦¬ ê²°ê³¼ ê°’ì„ ì €ì¥í•  ê°ì²´ (ì²˜ë¦¬ëœ ê²°ê³¼ë¥¼ ë°›ê¸° ìœ„í•´)
 	
-	private String subject; //Á¦¸ñ
-	private String content; //±Û ³»¿ë
-	Calendar today = Calendar.getInstance(); //¿À´Ã ³¯Â¥ ±¸ÇÏ±â.
+	private String subject; //ì œëª©
+	private String content; //ê¸€ ë‚´ìš©
+	Calendar today = Calendar.getInstance(); //ì˜¤ëŠ˜ ë‚ ì§œ êµ¬í•˜ê¸°.
 	
 	public AdminNoticeWrite() throws IOException {
-		reader = Resources.getResourceAsReader("sqlMapConfig.xml"); // sqlMapConfig.xml ÆÄÀÏÀÇ ¼³Á¤³»¿ëÀ» °¡Á®¿Â´Ù.
-		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader); // sqlMapConfig.xmlÀÇ ³»¿ëÀ» Àû¿ëÇÑ sqlMapper °´Ã¼ »ı¼º.
+		reader = Resources.getResourceAsReader("sqlMapConfig.xml"); // sqlMapConfig.xml íŒŒì¼ì˜ ì„¤ì •ë‚´ìš©ì„ ê°€ì ¸ì˜¨ë‹¤.
+		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader); // sqlMapConfig.xmlì˜ ë‚´ìš©ì„ ì ìš©í•œ sqlMapper ê°ì²´ ìƒì„±.
 
 		reader.close();
 	}
@@ -38,16 +38,16 @@ public class AdminNoticeWrite extends ActionSupport{
 	}
 	public String execute() throws Exception {
 		
-		//ÆÄ¶ó¹ÌÅÍ¿Í ¸®ÀıÆ® °´Ã¼ »ı¼º
+		//íŒŒë¼ë¯¸í„°ì™€ ë¦¬ì ˆíŠ¸ ê°ì²´ ìƒì„±
 		paramClass = new NoticeVO();
 		resultClass = new NoticeVO();
 		
-		//µî·ÏÇÒ Ç×¸ñ ¼³Á¤
+		//ë“±ë¡í•  í•­ëª© ì„¤ì •
 		paramClass.setSubject(getSubject());
 		paramClass.setContent(getContent());
 		paramClass.setReg_date(today.getTime());
 		
-		//µî·Ï Äõ¸® ¼öÇà
+		//ë“±ë¡ ì¿¼ë¦¬ ìˆ˜í–‰
 		sqlMapper.insert("insertNotice", paramClass);
 		
 

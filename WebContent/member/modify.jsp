@@ -15,12 +15,12 @@
 <h2>프로필 수정</h2>
 </div>
 <form class="form-horizontal">
-<table size="80%" align="center"height="80%" width="40%" cellspacing="0" cellpadding="0"> 
+<table size="80%" align="center"height="80%" width="40%" cellspacing="0" cellpadding="0"border=1px solid="#444444;"> 
 <tr>
     <td align="center" bgcolor="white" height="70">
 <div class="form-group" >
  <label for="picture" class="col-sm-2 control-label"></label>
-   <div class="col-sm-10">
+   <div  align="center">
     <img width=60 height=60 >
   </div>
   </div>
@@ -85,8 +85,9 @@
   </tr>
 </table>
 </form>
+<br><br>
 
-  <form action="MyPageForm.action" name="Mdel" method="post">
+  <form action="MyPage.action" name="Mdel" method="post">
 <table align="center">
  <tr>
  <td>

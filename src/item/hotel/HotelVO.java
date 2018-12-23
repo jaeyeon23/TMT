@@ -3,25 +3,25 @@ package item.hotel;
 import java.util.Date;
 
 public class HotelVO{
-	private int no;            //��ǰ��ȣ
-	private String name;      //��ǰ��      
-	private int price;       //����
-	private String content;  //����
-	private String country;	 //����
-	private String region;	//����
-	private int readcount;  //��ȸ��
+	private int no;            //ǰȣ
+	private String name;      //ǰ      
+	private int price;       //
+	private String content;  //
+	private String country;	 //
+	private String region;	//
+	private int readcount;  //ȸ
 	private String image1; 
-	private String image2;  //�̹���1~3
+	private String image2;  //̹1~3
 	private String image3;  
-	private Date reg_date;   //�����
-	private String tel;       //��ȭ��ȣ
-	private String checkin;    //üũ��
-	private String checkout;   //üũ�ƿ�
-	private int maxnum; 	//�ο���
-	private int grade;	//��� ����
+	private Date reg_date;   //
+	private String tel;       //ȭȣ
+	private String checkin;    //üũ
+	private String checkout;   //üũƿ
+	private int maxnum; 	//ο
+	private int grade;	// 
 	
 	
-	//��ǰ��ȣ
+	//ǰȣ
 	public int getNo() {
 		return no;
 	}
@@ -29,7 +29,7 @@ public class HotelVO{
 		this.no = no;
 	}
 	
-	//��ǰ��
+	//ǰ
 	public String getName() {
 		return name;
 	}
@@ -37,7 +37,7 @@ public class HotelVO{
 		this.name = name;
 	}
 	
-	//����
+	//
 	public int getPrice() {
 		return price;
 	}
@@ -45,7 +45,7 @@ public class HotelVO{
 		this.price = price;
 	}
 	
-	//����
+	//
 	public String getContent() {
 		return content;
 	}
@@ -53,7 +53,7 @@ public class HotelVO{
 		this.content = content;
 	}
 	
-	//����
+	//
 	public String getCountry() {
 		return country;
 	}
@@ -61,7 +61,7 @@ public class HotelVO{
 		this.country = country;
 	}
 	
-	//����
+	//
 	public String getRegion() {
 		return region;
 	}
@@ -69,7 +69,7 @@ public class HotelVO{
 		this.region = region;
 	}
 	
-	//��ȸ��
+	//ȸ
 	public int getReadcount() {
 		return readcount;
 	}
@@ -77,7 +77,7 @@ public class HotelVO{
 		this.readcount = readcount;
 	}
 	
-	//�̹���1~3
+	//̹1~3
 	public String getImage1() {
 		return image1;
 	}
@@ -97,7 +97,7 @@ public class HotelVO{
 		this.image3 = image3;
 	}
 	
-	//�����
+	//
 	public Date getReg_date() {
 		return reg_date;
 	}
@@ -105,7 +105,7 @@ public class HotelVO{
 		this.reg_date = reg_date;
 	}
 	
-	//��ȭ��ȣ
+	//ȭȣ
 	public String getTel() {
 		return tel;
 	}
@@ -113,7 +113,7 @@ public class HotelVO{
 		this.tel = tel;
 	}
 	
-	//üũ��
+	//üũ
 	public String getCheckin() {
 		return checkin;
 	}
@@ -121,7 +121,7 @@ public class HotelVO{
 		this.checkin = checkin;
 	}
 	
-	//üũ�ƿ�
+	//üũƿ
 	public String getCheckout() {
 		return checkout;
 	}
@@ -129,7 +129,7 @@ public class HotelVO{
 		this.checkout = checkout;
 	}
 	
-	//�ο���
+	//ο
 	public int getMaxnum() {
 		return maxnum;
 	}
@@ -137,7 +137,7 @@ public class HotelVO{
 		this.maxnum = maxnum;
 	}
 	
-	//��պ���
+	//պ
 	public int getGrade() {
 		return grade;
 	}

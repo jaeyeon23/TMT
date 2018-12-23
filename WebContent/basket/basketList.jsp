@@ -48,8 +48,9 @@
 <div class='wishlists-header-container'>
 <div class='wishlists-title-wrapper'>
 
-<div class='header-title'><h2><center>나의 위시리스트</center></h2></div>
+<div class='header-title'><h2><center>나의 위시리스트&nbsp;<img src="../images/heart.png" width="20" height="20"></center></h2>
 
+</div>
 </div>
 <div class='wishlists-header-divider'></div>
 <div class='wishlists-header-subtitle'><p class="np"><center>총 개의 상품</center></p></div>

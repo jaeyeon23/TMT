@@ -16,8 +16,6 @@
 		<result property="seat_grade" column="seat_grade" />
 		<result property="ad" column="ad" />
 		<result property="dd" column="dd" />
-		<result property="ad_time" column="ad_time" />
-		<result property="dd_time" column="dd_time" />
 		<result property="air_company" column="air_company" />
 		<result property="grade" column="grade" />
 	</resultMap>
@@ -43,13 +41,57 @@
 	<!-- 출발시간 빠른 순 -->
 	<select id="listAir_ad_time" resultMap="boardair" parameterClass="air">
 		SELECT * from air WHERE arv=#arv# and ad>=#ad# and 
-				seat>=#seat# and seat_grade=#seat_grade# order by ad_time asc
+				seat>=#seat# and seat_grade=#seat_grade# order by ad asc
 	</select>
 
 	<!-- 도착시간 빠른 순 -->
 	<select id="listAir_dd_time" resultMap="boardair" parameterClass="air">
 		SELECT * from air WHERE arv=#arv# and ad>=#ad# and 
-				seat>=#seat# and seat_grade=#seat_grade# order by ad_time desc
+				seat>=#seat# and seat_grade=#seat_grade# order by dd asc
+	</select>
+	
+	<!-- 검색 테슽 -->
+	<select id="listAir_search" resultMap="boardair" parameterClass="java.util.Map">
+		SELECT * from air WHERE arv=#arv# and ad>=to_date(#ad#,'yyyy-MM-dd') and 
+				seat>=#seat# and seat_grade=#seat_grade#
+				<isEqual property="ckAD_1" compareValue="06">
+					 <!-- and ad between to_date('2019-02-01 08:00:00','yyyy-MM-dd HH24:MI:SS') and to_date('2019-02-01 09:00:00','yyyy-MM-dd HH24:MI:SS') -->
+					 and air_company='대한항공'
+				</isEqual>
+				<isEqual property="ckAD_2" compareValue="12">
+				
+				</isEqual>
+				<isEqual property="ckAD_3" compareValue="18">
+				
+				</isEqual>
+				<isEqual property="ckAD_4" compareValue="24">
+				
+				</isEqual>
+				
+				<isEqual property="ckDD_1" compareValue="06">
+				
+				</isEqual>
+				<isEqual property="ckDD_1" compareValue="12">
+				
+				</isEqual>
+				<isEqual property="ckDD_1" compareValue="18">
+				
+				</isEqual>
+				<isEqual property="ckDD_1" compareValue="24">
+				
+				</isEqual>
+				
+				<isEqual property="air_company_korea" compareValue="korea">
+					and air_company='대한항공'
+				</isEqual>
+				<isEqual property="air_company_asia" compareValue="asia">
+					and air_company='아시아나'
+				</isEqual>
+				<isEqual property="air_company_jin" compareValue="jin">
+					and air_company='진에어'
+				</isEqual>
+				
+
 	</select>
 	
 	<insert id="insertAir" parameterClass="air">
