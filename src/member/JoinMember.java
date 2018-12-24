@@ -2,8 +2,10 @@ package member;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Reader;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.activation.CommandMap;
@@ -27,16 +29,19 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
-import com.opensymphony.xwork2.ActionSupport;
-
 public class JoinMember extends ActionSupport{
-
+	
+	public static Reader reader;
 	private static SqlMapClient sqlMapper;
+	
+	private MemberVO paramClass;
+	private MemberVO resultClass;
 	
 	private int no;
 	private String id;
 	private String password;
 	private String password2;
+	private String passport;
 	private String name;
 	private String email;
 	private int tel;
@@ -44,42 +49,48 @@ public class JoinMember extends ActionSupport{
 	private Date regdate;
 	
 	private String confirmidcheck;
-	private String confirmemail;
+	//private String confirmemail;
 	
-	private MemberVO mvo=new MemberVO();
+	private Map session;
+
 	
 	Calendar today=Calendar.getInstance();
 	
-	@Override
-	public String execute() throws Exception {
-		if(admin==5) {
-			mvo.setId(id);
-			mvo.setPassword(password);
-			mvo.setEmail(email);
-			mvo.setTel(tel);
-			mvo.setAdmin(0);
-			mvo.setRegdate(today.getTime());
-			sqlMapper.insert("insertmember",mvo);
-			
-			sqlMapper.update("commit");
-			//return SUCCESS;
-		}
-		//return ERROR;
-		return SUCCESS;
-	}
-	public String comfirmId() throws Exception{
-		mvo.setId(id);
-		String confirmid=(String) sqlMapper.queryForObject("cofirmid",mvo);
+	public JoinMember() throws Exception{
+		reader=Resources.getResourceAsReader("sqlMapConfig.xml");// sqlMapConfig.xml íŒŒì¼ì˜ ì„¤ì • ë‚´ìš©ì„ ê°€ì ¸ì˜¨ë‹¤
+		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader); // sqlMapConfig.xmlì˜ ë‚´ìš©ì„ ì ìš©í•œ sqlMapper ê°ì²´ ìƒì„±
+		reader.close();
 		
-		if(confirmid==null) {
-			confirmidcheck="yes";
-		}else {
-			confirmidcheck="no";
-		}
+	}
+
+	public String execute() throws Exception {
 		return SUCCESS;
 	}
 	
-	public String confirmEmail()throws Exception{
+	public String Join()throws Exception{//íšŒì›ê°€ì…
+		
+		paramClass = new MemberVO();
+	    resultClass = new MemberVO();
+
+	    paramClass.setNo(getNo());
+	    paramClass.setId(getId());
+	    paramClass.setName(getName());
+	    paramClass.setPassword(getPassword());
+	    paramClass.setPassword2(getPassword2());
+	    paramClass.setEmail(getEmail());
+	    paramClass.setTel(getTel());
+	    paramClass.setAdmin(getAdmin());
+	    paramClass.setPassport(getPassport());
+	    paramClass.setRegdate(today.getTime());
+	    sqlMapper.insert("JoinMember", paramClass);
+
+		return SUCCESS;
+	}
+	
+
+
+	
+	/*public String confirmEmail()throws Exception{
 		HttpServletResponse response=ServletActionContext.getResponse();
 		
 		mvo.setEmail(email);
@@ -89,13 +100,13 @@ public class JoinMember extends ActionSupport{
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out=response.getWriter();
 			out.println("<script>");
-			out.println("alert('µ¿ÀÏÇÑ ÀÌ¸ŞÀÏÀÌ Á¸ÀçÇÕ´Ï´Ù.');");
+			out.println("alert('ë™ì¼í•œ ì´ë©”ì¼ì´ ì¡´ì¬í•©ë‹ˆë‹¤.');");
 			out.println("history.go(-1);");
 			out.println("</script>");
 			out.close();
 			return LOGIN;
 		}
-		//µ¿ÀÏÇÑ ÀÌ¸ŞÀÏÀÌ ¾ø´Ù¸é È¸¿ø°¡ÀÔÀÎÁõ¿ë ¸ŞÀÏ ¹ß¼Û
+		//ë™ì¼í•œ ì´ë©”ì¼ì´ ì—†ë‹¤ë©´ íšŒì›ê°€ì…ì¸ì¦ìš© ë©”ì¼ ë°œì†¡
 		Properties props = new Properties();
 		props.setProperty("mail.transport.protocol", "smtp");
 		props.setProperty("mail.smtp.host", "smtp.gmail.com");
@@ -109,7 +120,7 @@ public class JoinMember extends ActionSupport{
 
 		Authenticator auth = new Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("khtour8282@gmail.com", "");//¹ß½ÅÀÚ ÀÌ¸ŞÀÏ°ú ºñ¹Ğ¹øÈ£ ÀÔ·Â
+				return new PasswordAuthentication("khtour8282@gmail.com", "");//ë°œì‹ ì ì´ë©”ì¼ê³¼ ë¹„ë°€ë²ˆí˜¸ ì…ë ¥
 			}
 		};
 
@@ -117,14 +128,14 @@ public class JoinMember extends ActionSupport{
 
 		MimeMessage message = new MimeMessage(session);
 		message.setSender(new InternetAddress("khtour8282@gmail.com"));
-		message.setSubject("È¸¿ø°¡ÀÔ ÀÌ¸ŞÀÏ ÀÎÁõ ¸ŞÀÏÀÔ´Ï´Ù.");
+		message.setSubject("íšŒì›ê°€ì… ì´ë©”ì¼ ì¸ì¦ ë©”ì¼ì…ë‹ˆë‹¤.");
 
 		message.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
 		
-		//È¸¿ø°¡ÀÔÆû¿¡¼­ ÀÔ·ÂÇÑ Á¤º¸¸¦ ³ëÃâµÇÁö¾Ê°Ô aÅÂ±×·Î ¹ß¼Û
-		//¿©±â¸¦ ´©¸£¸é ÇØ´ç °ªÀÌ °¡ÀÔ·ÎÁ÷À¸·Î Àü´ŞµÊ
+		//íšŒì›ê°€ì…í¼ì—ì„œ ì…ë ¥í•œ ì •ë³´ë¥¼ ë…¸ì¶œë˜ì§€ì•Šê²Œ aíƒœê·¸ë¡œ ë°œì†¡
+		//ì—¬ê¸°ë¥¼ ëˆ„ë¥´ë©´ í•´ë‹¹ ê°’ì´ ê°€ì…ë¡œì§ìœ¼ë¡œ ì „ë‹¬ë¨
 		String confirmUrl = "<a href='http://localhost:8080/khtour/JoinMember.action?email=" + email + "&id=" + id
-				+ "&password=" + password + "&name=" + name + "" + "&tel=" + tel + "&admin=5'>¿©±â</a>¸¦ ´©¸£½Ã¸é È¸¿ø°¡ÀÔÀÌ ¿Ï·áµË´Ï´Ù.";
+				+ "&password=" + password + "&name=" + name + "" + "&tel=" + tel + "&admin=5'>ì—¬ê¸°</a>ë¥¼ ëˆ„ë¥´ì‹œë©´ íšŒì›ê°€ì…ì´ ì™„ë£Œë©ë‹ˆë‹¤.";
 
 		Multipart mp = new MimeMultipart();
 		MimeBodyPart mbp1 = new MimeBodyPart();
@@ -146,7 +157,137 @@ public class JoinMember extends ActionSupport{
 		return SUCCESS;
 		
 		
+	}*/
+
+	public int getNo() {
+		return no;
 	}
+
+	public void setNo(int no) {
+		this.no = no;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getPassword2() {
+		return password2;
+	}
+
+	public void setPassword2(String password2) {
+		this.password2 = password2;
+	}
+
+	public String getPassport() {
+		return passport;
+	}
+
+	public void setPassport(String passport) {
+		this.passport = passport;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getTel() {
+		return tel;
+	}
+
+	public void setTel(int tel) {
+		this.tel = tel;
+	}
+
+	public int getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(int admin) {
+		this.admin = admin;
+	}
+
+	public Date getRegdate() {
+		return regdate;
+	}
+
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
+	}
+
+	public MemberVO getParamClass() {
+		return paramClass;
+	}
+
+	public void setParamClass(MemberVO paramClass) {
+		this.paramClass = paramClass;
+	}
+
+	public MemberVO getResultClass() {
+		return resultClass;
+	}
+
+	public void setResultClass(MemberVO resultClass) {
+		this.resultClass = resultClass;
+	}
+
+	public Calendar getToday() {
+		return today;
+	}
+
+	public void setToday(Calendar today) {
+		this.today = today;
+	}
+
+	public static SqlMapClient getSqlMapper() {
+		return sqlMapper;
+	}
+
+	public static void setSqlMapper(SqlMapClient sqlMapper) {
+		JoinMember.sqlMapper = sqlMapper;
+	}
+
+	public static Reader getReader() {
+		return reader;
+	}
+
+	public static void setReader(Reader reader) {
+		JoinMember.reader = reader;
+	}
+
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
+	}
+	
+	
+	
 	
 	
 }

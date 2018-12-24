@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -11,18 +11,18 @@
 	<div>
 	<table width="600" border="0" cellspacing="0" cellpadding="2">
 		<tr align="center" bgcolor="#F3F3F3">
-			<td width="50"><strong>¹øÈ£</strong></td>
-			<td width="350"><strong>»óÇ°¸í</strong></td>
-			<td width="70"><strong>°¡°Ý</strong></td>
-			<td width="80"><strong>³»¿ë</strong></td>
-			<td width="50"><strong>±¹°¡</strong></td>
-			<td width="50"><strong>Áö¿ª</strong></td>
-			<td width="50"><strong>Á¶È¸¼ö</strong></td>
-			<td width="50"><strong>ÀÌ1</strong></td>
-			<td width="50"><strong>ÀÌ2</strong></td>
-			<td width="50"><strong>ÀÌ3</strong></td>
-			<td width="50"><strong>µî·ÏÀÏ</strong></td>
-			<td width="50"><strong>Æò±Õ º°Á¡</strong></td>
+			<td width="50"><strong>ë²ˆí˜¸</strong></td>
+			<td width="350"><strong>ìƒí’ˆëª…</strong></td>
+			<td width="70"><strong>ê°€ê²©</strong></td>
+			<td width="80"><strong>ë‚´ìš©</strong></td>
+			<td width="50"><strong>êµ­ê°€</strong></td>
+			<td width="50"><strong>ì§€ì—­</strong></td>
+			<td width="50"><strong>ì¡°íšŒìˆ˜</strong></td>
+			<td width="50"><strong>ì´1</strong></td>
+			<td width="50"><strong>ì´2</strong></td>
+			<td width="50"><strong>ì´3</strong></td>
+			<td width="50"><strong>ë“±ë¡ì¼</strong></td>
+			<td width="50"><strong>í‰ê·  ë³„ì </strong></td>
 		</tr>
 		
 

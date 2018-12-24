@@ -1,21 +1,21 @@
 package item.air;
 
+import java.util.Date;
+
 public class AirVO {
 
 	private int no;
-	private String arv;	//Ãâ¹ßÁö
-	private String dep;	//µµÂøÁö
-	private int price;	//°¡°İ
-	private String content;	//³»¿ë
-	private String image1;	//Ç×°ø»ç ÀÌ¹ÌÁö ½æ³×ÀÏ
-	private int seat;		//ÁÂ¼® ¼ö
-	private int seat_grade;	//ÁÂ¼® µî±Ş
-	private String ad;		//Ãâ¹ßÀÏ
-	private String dd;		//µµÂøÀÏ
-	private String ad_time;		//Ãâ¹ß½Ã°£
-	private String dd_time;		//µµÂø½Ã°£
-	private String air_company;		//Ç×°ø»ç
-	private int grade;		//º°Á¡
+	private String arv;	//ì¶œë°œì§€
+	private String dep;	//ë„ì°©ì§€
+	private int price;	//ê°€ê²©
+	private String content;	//ë‚´ìš©
+	private String image1;	//í•­ê³µì‚¬ ì´ë¯¸ì§€ ì¸ë„¤ì¼
+	private int seat;		//ì¢Œì„ ìˆ˜
+	private int seat_grade;	//ì¢Œì„ ë“±ê¸‰
+	private Date ad;		//ì¶œë°œì‹œê°„
+	private Date dd;		//ë„ì°©ì‹œê°„
+	private String air_company;		//í•­ê³µì‚¬
+	private int grade;		//ë³„ì 
 	
 	public int getNo() {
 		return no;
@@ -65,18 +65,6 @@ public class AirVO {
 	public void setSeat_grade(int seat_grade) {
 		this.seat_grade = seat_grade;
 	}
-	public String getAd() {
-		return ad;
-	}
-	public void setAd(String ad) {
-		this.ad = ad;
-	}
-	public String getDd() {
-		return dd;
-	}
-	public void setDd(String dd) {
-		this.dd = dd;
-	}
 	public String getAir_company() {
 		return air_company;
 	}
@@ -89,18 +77,16 @@ public class AirVO {
 	public void setGrade(int grade) {
 		this.grade = grade;
 	}
-	public String getAd_time() {
-		return ad_time;
+	public Date getAd() {
+		return ad;
 	}
-	public void setAd_time(String ad_time) {
-		this.ad_time = ad_time;
+	public void setAd(Date ad) {
+		this.ad = ad;
 	}
-	public String getDd_time() {
-		return dd_time;
+	public Date getDd() {
+		return dd;
 	}
-	public void setDd_time(String dd_time) {
-		this.dd_time = dd_time;
+	public void setDd(Date dd) {
+		this.dd = dd;
 	}
-	
-	
 }

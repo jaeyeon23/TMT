@@ -1,91 +1,32 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="java.util.HashMap"%>
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
-<script type="text/javascript">
-function validation(userinput){
-	if(userinput.memberid.value==""){
-		alert("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
-		return false;
-	}
-	else if(userinput.memberpassword.value==""){
-		alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
-		return false;
-	}
-	return true;
-}
-</script>
-<style>
-.title {
-	font-wight: 300;
-	font-size: 30px;
-	text-align:center;
-	text-valign:center;
-}
-.login{
-    background-color: rgba(249, 214, 169, 1);
-    border: none;
-    padding: 5px 0;
-    text-align: center;
-    margin: 3px;
-    cursor: pointer;
-    border-radius:5px;
-    height:40px;
-    width:400px;
-    font-size:20px;
-}
-.find {
-	font-size:18px;
-	color:#000000;
-}
-</style>
-<meta charset="EUC-KR">
-<title>TMT·Î±×ÀÎ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ë¡œê·¸ì¸ì™„ë£Œ</title>
 </head>
 <body>
-<center>
-	<form method="post" action="Login.action">
-		<table width="70%" border="0" cellspacing="0" cellpadding="10px" align="middle">
-			<tr>
-				<td height="100" colspan="80%" class="title">È¸¿ø·Î±×ÀÎ</td>
-			</tr>
-			
-			<tr>
-
-				<td align="right">¾ÆÀÌµğ</td>
-				<td align="center"><input type="text" name="id" size="17" width="100%"></td>
-
-			</tr>
-
-			<tr>
-				<td align="right">ºñ¹Ğ¹øÈ£</td>
-				<td align="center"><input type="password" name="password" size="17" width="100%"></td>
-			</tr>
-			<tr>
-				<td width="100%" align="center" colspan="80%">
-					<input type="submit" value="·Î±×ÀÎ" class="login">
-				</td>
-				</tr>
-			<tr>
-				<td width="100%" align="center" colspan="80%">
-					<a href="FindIdForm.action" class="find">¾ÆÀÌµğ Ã£±â</a>
-					&nbsp;l&nbsp;
-					<a href="FindPwForm.action" class="find">ºñ¹Ğ¹øÈ£ Ã£±â</a>
-					&nbsp;&nbsp;
-				</td>
-			</tr>
-			<tr align="center" height="100">
-				<td width="30%"/>
-				<td colspan="3" valign="middle">
-				¾ÆÁ÷ TMTÀÇ È¸¿øÀÌ ¾Æ´Ï½Å°¡¿ä? <a href="JoinForm.action">È¸¿ø°¡ÀÔ</a></td>
-				<td width="30%"/>
-			</tr>
-		</table>
-	</form>
-</center>
+<table width="740" cellspacing="0" cellpadding="0" border="0" align="center">
+<tr>
+<td>
+<div align="center">
+<font>${id}&nbsp;&nbsp;ê³ ê°ë‹˜</font>
+</div>
+</td>
+</tr>
+<tr>
+<td>
+<br>
+ 
+<div align="center">
+<font>í™˜ì˜í•©ë‹ˆë‹¤.<br>
+<a href="javascript:window.location='./Main.action'">ë©”ì¸ìœ¼ë¡œ ê°€ê¸°</a>
+<s:if test='%{session.admin.equals(0)}'>
+<a href="javascript:window.location='./AdminMain.action'">ê´€ë¦¬ì í˜ì´ì§€ë¡œ ê°€ê¸°</a>
+</s:if>
+</div>
+</td>
+</tr>
+</table>
 </body>
 </html>
