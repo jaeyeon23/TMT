@@ -25,7 +25,7 @@
 			<result name="success" type="tiles">FindIdForm</result>
 		</action>
 <!-- 비밀번호 찾기 -->
-		<action name="FindPw" class="member.FindMemberPw">
+	<!-- 	<action name="FindPw" class="member.FindMemberPw">
 			<result name="success" type="tiles">ModifyPw</result>
 			<result name="error">/member/findPwError.jsp</result>
 		</action>
@@ -36,7 +36,7 @@
 		
 		<action name="ModifyPwForm" class="member.FindMemberPw" method="ModifyPw">
 			<result name="success" type="tiles">ModifyPw</result>
-		</action>
+		</action> -->
 <!-- 회원가입 -->				
 		<action name="Join" class="member.JoinMember" method="Join">
 			<result name="success" type="tiles">Join</result>

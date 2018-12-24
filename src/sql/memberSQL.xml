@@ -43,18 +43,18 @@
 	WHERE ID = #id#
 </select>
 
- <update id="ModifyMember" parameterClass="member">
+<!--  <update id="ModifyMember" parameterClass="member">
    UPDATE MEMBER SET PASSWORD=#password#, EMAIL=#email#, TEL=#tel#
    <include refid="where-Id" />
- </update>
+ </update> -->
 
    <select id="FindID" resultMap="memberRes">
     <include refid="select-all" />
     WHERE NAME = #name# AND EMAIL=#email#
   </select>
 
-  <select id="FindPw" resultMap="memberRes">
+<!--   <select id="FindPw" resultMap="memberRes">
     SELECT * FROM MEMBER WHERE id=#id# AND EMAIL=#email# AND tel=#tel#
-  </select>
+  </select> -->
  
  </sqlMap>

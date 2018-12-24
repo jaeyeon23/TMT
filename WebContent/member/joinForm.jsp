@@ -3,11 +3,12 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.HashMap"%>
+<link rel="stylesheet" href="/TMT/css/member/joinForm.css"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<style>
+<%-- <style>
 	.factor{
 	align:left;
 	width:15%;
@@ -48,7 +49,7 @@
 	.regButton:hover{
 	background-color: #F5D0A9;
 	}
-</style>
+</style> --%>
 <script type="text/javascript">
 function check(){
 	
@@ -140,54 +141,36 @@ function chkBox(bool){
 <title>TMT회원가입</title>
 </head>
 <body>
-<center>
+<%-- <center>
 		<form name="join" action="Join.action" method="post" onsubmit="return check()">
 			<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+											
+						
+				
 				<tr>
-					<td height="50">&nbsp;</td>
-				</tr>							
-				<tr>
-					<td colspan="100%" height="3" bgcolor="black"/>
+					회원가입
 				</tr>				
+							
+				
+						
 				<tr>
-					<td height="20">&nbsp;</td>
-				</tr>
-				<tr>
-					<td height="40" align="center" colspan="100%" class="title">회원가입</td>
-				</tr>				
-				<tr>
-					<td height="20">&nbsp;</td>
-				</tr>				
-				<tr>
-					<td colspan="100%" height="3" bgcolor="black"/>
-				</tr>				
-
-				<tr>
-					<td height="20" colspan="100%">&nbsp;</td>
-				</tr>			
-				<tr>
-					<td class="factor">아이디</td>
+					<td>아이디</td>
 					<td>
-					<input type="text" name="id" size="28"> &nbsp;&nbsp;&nbsp;
-					<input type="button" name="id2" value=" 중복확인 " onclick="openConfirmId()" class="button"></td>
+						<input type="text" name="id">
+						<input type="button" name="id2" value=" 중복확인 " onclick="openConfirmId()" class="button">
+					</td>
 					<td class="notice">영문/숫자를 이용하여 4~12자로 입력하세요</td>
 				</tr>	
-				
+						
 				<tr>
-					<td height="20" colspan="100%">&nbsp;</td>
-				</tr>			
-				<tr>
-					<td class="factor">비밀번호</td>
+					<td>비밀번호</td>
 					<td>
-					<input type="password" name="password" size="28"></td>
-					<td class="notice">영문/숫자를 이용하여 4~12자로 입력하세요</td>
+						<input type="password" name="password"></td>
+						<td>영문/숫자를 이용하여 4~12자로 입력하세요</td>
 				</tr>
-				
+							
 				<tr>
-					<td height="30" colspan="100%">&nbsp;</td>
-				</tr>			
-				<tr>
-					<td class="factor">비밀번호 재확인</td>
+					<td>비밀번호 재확인</td>
 					<td>
 					<input type="password" name="password2" size="28" placeholder="비밀번호를 재입력 해주십시오"></td>
 				</tr>			
@@ -310,6 +293,147 @@ function chkBox(bool){
 				
 			</table>
 		</form>
-	</center>
+	</center> --%>
+	
+	
+	
+	
+	<!-- ///////////////////////////// -->
+<main class="member member-signup">
+<div class="container-fluid content-wrap">
+<form name="join" action="Join.action" method="post" onsubmit="return check()" class="fv-form fv-form-bootstrap">
+	<div class="member-panel">
+	
+		<div class="panel-button">
+			<div class="btn-wrap">
+				<a class="btn-new btn--type-outline btn--width-100 btn-sns" data-gtm-action="네이버로 회원가입" data-gtm-category="회원가입" href="https://www.myrealtrip.com/users/auth/naver">
+					<img class="icon" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/naver-logo@2x-332865f7b796a02822378e0b61e6dcace93ae9a24abd810cd774a06b5fbcb0b5.png" width="18">
+					<span>네이버회원가입</span>
+				</a>
+			</div>
+		</div>
+		<div class="panel-line clearfix">
+			<hr class="divider">
+			<div class="or">또는</div>
+		</div>
+		<div class="panel-body">
+			<div class="form-wrapper">
+				<div class="content-wrapper">
+					<div class="form-group">
+						<div class="content-title-box">
+							<div class="sub-title">
+								아이디
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<input class="form-control" name="id" placeholder="아이디를 입력해주세요." title="아이디" type="text">
+								<input type="button" name="id2" value=" 중복확인 " onclick="openConfirmId()" class="button">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="content-wrapper">
+					<div class="form-group">
+						<div class="content-title-box">
+							<div class="sub-title">
+								비밀번호
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<input class="form-control" name="password" placeholder="비밀번호" title="비밀번호" type="password">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="content-wrapper">
+					<div class="form-group">
+						<div class="content-title-box">
+							<div class="sub-title">
+								비밀번호 확인
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<input class="form-control" name="password2" placeholder="비밀번호 확인" title="비밀번호확인" type="password">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="content-wrapper">
+					<div class="form-group">
+						<div class="content-title-box">
+							<div class="sub-title">
+								이름
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<input class="form-control" name="name" placeholder="이름을 입력해주세요." title="이름" type="text">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="content-wrapper">
+					<div class="form-group">
+						<div class="content-title-box">
+							<div class="sub-title">
+								전화번호
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<input class="form-control" name="tel" placeholder="전화번호를 입력해주세요." title="전화번호" type="text">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="content-wrapper">
+					<div class="form-group">
+						<div class="content-title-box">
+							<div class="sub-title">
+								이메일
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<input autocomplete="off" class="form-control" name="email" placeholder="ID@example.com" title="이메일" type="email">
+								<input type="button" name="emailChk" value="메일 인증" onclick="openConfirmEmail()" class="button">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="content-wrapper">
+					<div class="form-group">
+						<div class="content-title-box">
+							<div class="sub-title">
+								여권번호
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<input class="form-control" name="passport" placeholder="여권번호를 입력해주세요." title="여권번호" type="text">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-wrapper">
+					<div class="btn-wrap">
+						<button class="btn-new btn--type-primary btn--width-100" data-disable_with="회원가입" data-gtm-action="이메일 회원가입" data-gtm-category="회원가입" type="submit">회원가입</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+</div>
+</main>
+
+
+
+	<!-- ////////////////////////////////// -->	
+	
+	
 </body>
 </html>
