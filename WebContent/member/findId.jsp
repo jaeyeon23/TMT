@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<link rel="stylesheet" href="/TMT/css/member/joinForm.css"/>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>아이디 찾기 성공</title>
@@ -33,8 +34,8 @@
 				</s:iterator>
 				</table>
 		</div><br><br>
-				<input type="submit" value="Login" /> &nbsp; <input
-							type="button" value="비밀번호 찾기" onclick="javascript:location.href='FindPwForm.action'"/>
+				<input type="submit" value="로그인" class="btn-new btn--type-primary btn--width-100"/> &nbsp; <input
+							type="button" value="비밀번호 찾기" onclick="javascript:location.href='FindPwForm.action'" class="btn-new btn--type-primary btn--width-100"/>
 		</form>
 		
 	</body>

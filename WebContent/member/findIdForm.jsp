@@ -3,48 +3,17 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.HashMap"%>
+<link rel="stylesheet" href="/TMT/css/member/joinForm.css"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>ID찾기</title>
-<style>
-
-.title{
-	font-size:30px;
-}
-.factors{
-	font-size:20px;
-}
-
-.result{
-	font-size:20px;
-}
-/* 아이디 찾기 버튼 */
-.button{
-    background-color: #F6E3CE;
-    border: none;
-    color:#000000;
-    padding: 4px 0;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 2px;
-    cursor: pointer;
-    border-radius:5px;
-    height:70px;
-    font-size:20px;
-}
-.button:hover{
-	background-color: #F5D0A9;
-	text-decoration:none;color:#F3683D;
-}
-</style>
 
 </head>
 <body>
 
-	<form action="FindId.action">
+<%-- 	<form action="FindId.action">
 		<br>
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
@@ -96,6 +65,59 @@
 				</td>
 			</tr>
 		</table>
-	</form>
+	</form> --%>
+	
+	
+<main class="member member-verify">
+	<div class="container-fluid content-wrap with-panel-title">
+		<div class="panel-title-wrapper">
+			<h1><center><div class="panel-title">아이디 찾기</div></center></h1>
+		</div>
+		<div class="member-panel">
+			<div class="panel-body">
+				<form action="FindId.action" role="form" data-validation="true" accept-charset="UTF-8" method="post" novalidate="novalidate" class="fv-form fv-form-bootstrap">
+					<button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;">
+					</button>
+					<input name="utf8" type="hidden" value="!">
+						<input type="hidden" name="authenticity_token" value="5ysdT7Us4SP04bVPqREEzraPcEoAO+mPIKPfvArAy5CJrTsl5aB/VpIelg5F67bm1YeWsoxJ3lu9Wii9SGsHRg==">
+							<div class="form-wrapper">
+								<div class="content-wrapper">
+									<div class="form-group">
+										<div class="content-title-box">
+											<div class="sub-title">
+												이름
+											</div>
+										</div>
+											<div class="row">
+												<div class="col-xs-12">
+													<input class="form-control" name="name" placeholder="이름" type="text">
+												</div>
+											</div>
+									</div>
+								</div>
+								<div class="content-wrapper">
+									<div class="form-group">
+										<div class="content-title-box">
+											<div class="sub-title">
+												이메일
+											</div>
+										</div>
+											<div class="row">
+												<div class="col-xs-12">
+													<input class="form-control" name="email" placeholder="이메일" type="email">
+												</div>
+											</div>
+									</div>
+								</div>
+								<div class="btn-wrap">
+								<center><button class="btn-new btn--type-primary btn--width-100" type="submit">아이디 찾기</button></center>
+								</div>
+							</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</main>
 </body>
 </html>
