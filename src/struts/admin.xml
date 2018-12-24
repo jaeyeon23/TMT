@@ -16,14 +16,14 @@
 			<result type="tiles">AdminAirList</result>
 		</action>
 		
-		<!-- <action name="AdminAirWriteForm" class="admin.item.AdminAirWrite" method="form">
+		<action name="AdminAirWriteForm" class="admin.item.AdminAirWrite" method="form">
 			<result type="tiles">AdminAirWrite</result>
 		</action>
 		
 		<action name="AdminAirWrite" class="admin.item.AdminAirWrite">
 			<result type="redirect-action">AdminAirList</result>
 		</action>
-		
+		<!-- 
 		<action name="AdminAirView" class="admin.item.AdminAirView">
 			<result type="tiles">AdminAirView</result>
 		</action>
@@ -77,10 +77,10 @@
 			<result type="redirect-action">AdminHotelList</result>
 		</action>
 		
-		<!-- <action name="AdminHotelView" class="admin.item.AdminHotelView">
+		 <action name="AdminHotelView" class="admin.item.AdminHotelView">
 			<result type="tiles">AdminHotelView</result>
 		</action>
-		
+		<!-- 
 		<action name="AdminHotelModifyForm" class="admin.item.AdminHotelModify" method="form">
 			<result type="tiles">AdminHotelModify</result>
 		</action>

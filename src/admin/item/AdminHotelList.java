@@ -11,51 +11,65 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
 import item.hotel.HotelVO;
+import item.hotel.HotelpagingAction;
 
 public class AdminHotelList extends ActionSupport {
-	public static Reader reader;
-	public static SqlMapClient sqlMapper;
+
+	public static Reader reader; // ���� ��Ʈ���� ���� reader.
+	public static SqlMapClient sqlMapper; // SqlMapClient API�� ����ϱ� ���� sqlMapper ��ü.
+
+	private List<HotelVO> Hotellist = new ArrayList<HotelVO>();
 	
-	private int currentPage = 1;
-	private int totalCount;
-	private int blockCount=9;
-	private int blockPage = 5;
-	private String pagingHtml;
-	private HotelPagingAction page;
-	
-	private List<HotelVO> list = new ArrayList<HotelVO>();
-	
-	public AdminHotelList() throws IOException{
-	      
-	      reader = Resources.getResourceAsReader("sqlMapConfig.xml");
-	      sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
-	      reader.close();
-	}
-	
-	@Override
-	public String execute() throws Exception {
-		
-		list = sqlMapper.queryForList("selectAllH");
-		
-		totalCount = list.size(); // list��ü�� ũ��- totalCount
-		page = new HotelPagingAction(currentPage, totalCount, blockCount, blockPage);
-		pagingHtml = page.getPagingHtml().toString();
-		
-		int lastCount = totalCount;
-		if(page.getEndCount()<totalCount) 
-			lastCount = page.getEndCount()+1; 
-		list = list.subList(page.getStartCount(), lastCount);
-		
-		return SUCCESS;
+	// private HotelVO hvo = new HotelVO();
+
+	private int currentPage = 1; // ���� ������
+	private int totalCount; // �� �Խù��� ��
+	private int blockCount = 5; // �� �������� �Խù��� ��
+	private int blockPage = 5; // �� ȭ�鿡 ������ ������ ��
+	private String pagingHtml; // ����¡�� ������ HTML
+	private HotelpagingAction page; // ����¡ Ŭ����
+
+	// ������
+	public AdminHotelList() throws IOException {
+		reader = Resources.getResourceAsReader("sqlMapConfig.xml"); // sqlMapConfig.xml ������ ���������� �����´�.
+		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader); // sqlMapConfig.xml�� ������ ������ sqlMapper ��ü ����.
+		reader.close();
 	}
 
+	// �Խ��� ����Ʈ �׼�
+	public String execute() throws Exception {
+		// ��� ���� ������ ȣ�� ����Ʈ�� ����
+		Hotellist = sqlMapper.queryForList("selectAllH");
+
+		totalCount = Hotellist.size(); // ��ü �Խñ��� ��
+
+		// HotelpagingAction ��ü ����.
+		page = new HotelpagingAction(currentPage, totalCount, blockCount, blockPage);
+		pagingHtml = page.getPagingHtml().toString();
+
+		// ���� ���������� ������ ������ ���� ��ȣ ����.
+		int lastCount = totalCount;
+		// lastCount�� +1 ��ȣ�� ����.
+		if (page.getEndCount() < totalCount)
+			lastCount = page.getEndCount() + 1;
+
+		// ��ü ����Ʈ���� ���� ��������ŭ�� ����Ʈ�� �����´�.
+		Hotellist = Hotellist.subList(page.getStartCount(), lastCount);
+
+		return SUCCESS;
+	}
 	
-	
-	
+	public List<HotelVO> getHotellist() {
+		return Hotellist;
+	}
+
+	public void setHotellist(List<HotelVO> hotellist) {
+		Hotellist = hotellist;
+	}
+
 	public int getCurrentPage() {
 		return currentPage;
 	}
-
 	public void setCurrentPage(int currentPage) {
 		this.currentPage = currentPage;
 	}
@@ -63,7 +77,6 @@ public class AdminHotelList extends ActionSupport {
 	public int getTotalCount() {
 		return totalCount;
 	}
-
 	public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;
 	}
@@ -71,7 +84,6 @@ public class AdminHotelList extends ActionSupport {
 	public int getBlockCount() {
 		return blockCount;
 	}
-
 	public void setBlockCount(int blockCount) {
 		this.blockCount = blockCount;
 	}
@@ -79,7 +91,6 @@ public class AdminHotelList extends ActionSupport {
 	public int getBlockPage() {
 		return blockPage;
 	}
-
 	public void setBlockPage(int blockPage) {
 		this.blockPage = blockPage;
 	}
@@ -87,25 +98,17 @@ public class AdminHotelList extends ActionSupport {
 	public String getPagingHtml() {
 		return pagingHtml;
 	}
-
 	public void setPagingHtml(String pagingHtml) {
 		this.pagingHtml = pagingHtml;
 	}
 
-	public HotelPagingAction getPage() {
+	public HotelpagingAction getPage() {
 		return page;
 	}
-
-	public void setPage(HotelPagingAction page) {
+	public void setPage(HotelpagingAction page) {
 		this.page = page;
 	}
 
-	public List<HotelVO> getList() {
-		return list;
-	}
-
-	public void setList(List<HotelVO> list) {
-		this.list = list;
-	}
-
 }
+	
+	
