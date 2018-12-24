@@ -1,62 +1,73 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<link href="css/bootstrap.css" rel="stylesheet">
-<link href="css/bootstrap-theme.css" rel="stylesheet">
-<script src="js/bootstrap.js" type="text/javascript"></script>
-<style>
-body{
-    background-color:#EFEFEF;
-}
+<link href="../css/bootstrap.css" rel="stylesheet">
+<link href="../css/bootstrap-theme.css" rel="stylesheet">
+<script src="../js/bootstrap.js" type="text/javascript"></script>
 
+<script>
+function removeCheck() {
 
-</style>
-<meta charset="EUC-KR">
-<title>¸¶ÀÌÆäÀÌÁö</title>
+	 if (confirm("ì •ë§ ê³„ì •ì„ ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ??") == true){    //í™•ì¸
+
+	     document.removefrm.submit();
+
+	 }else{   //ì·¨ì†Œ
+
+	     return false;
+
+	 }
+
+	}
+</script>
+
+<meta charset="UTF-8">
+<title>ë§ˆì´í˜ì´ì§€</title>
 </head>
 <body>
 <div>
-<h2>ÇÁ·ÎÇÊ °ü¸®</h2>
+<h2>í”„ë¡œí•„ ê´€ë¦¬</h2>
 </div>
 <div class="mypage">
-<table size="80%" height="80%" width="40%" align="center" cellspacing="0" cellpadding="0"  >
 
+<table size="80%" height="80%" width="40%" align="center" cellspacing="0" cellpadding="0" border=1px solid="#444444;">
+
+
+<form action="ModifyMember.action" name="Modify" method="post" >
 <tr>
 <td align="right" bgcolor="white" height="20">
-  <input type="button" onclick="javascript:window.location='modify.jsp'" value="ÆíÁı"/>
+<button type="submit"class="btn btn-default" align="right">í¸ì§‘</button>
   </td>
   </tr>
+  </form>
   <tr>
     <td align="center" bgcolor="white" height="70">
-    <img width=60 height=60></td>
+    <img width=60 height=60 ></td>
   </tr>
  <tr>
-  <td bgcolor="white"height="40">ÀÌ¸§&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;È«±æµ¿</td>
+  <td align="left" bgcolor="white"height="40"><strong>ì´ë¦„</strong>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;í™ê¸¸ë™</td>
   </tr>
    <tr>
-  <td bgcolor="white"height="40">ÀÌ¸ŞÀÏ&emsp;&emsp;&emsp;&emsp;&emsp;www.naver.com</td>
+  <td align="left" bgcolor="white"height="40"><strong>ì´ë©”ì¼</strong>&emsp;&emsp;&emsp;&emsp;&emsp;www.naver.com</td>
   </tr>
    <tr>
-  <td bgcolor="white" height="40">¿¬¶ôÃ³&emsp;&emsp;&emsp;&emsp;&emsp;132-456-789</td>
+  <td align="left" bgcolor="white" height="40"><strong>ì—°ë½ì²˜</strong>&emsp;&emsp;&emsp;&emsp;&emsp;132-456-789</td>
   </tr>
    <tr>
-  <td bgcolor="white" height="40">ºñ¹Ğ¹øÈ£&emsp;&emsp;&emsp;&emsp;&emsp;*******</td>
+  <td align="left" bgcolor="white" height="40"><strong>ë¹„ë°€ë²ˆí˜¸</strong>&emsp;&emsp;&emsp;&emsp;&emsp;*******</td>
   </tr>
    <tr>
-  <td bgcolor="white" height="60">¸¶ÄÏÆÃ¼ö½Åµ¿ÀÇ&nbsp;&nbsp;&nbsp;e-mail:¼ö½Å°ÅºÎ<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sms:¼ö½Å°ÅºÎ</td>
+  <td align="left" bgcolor="white" height="60"><strong>ë§ˆì¼“íŒ…ìˆ˜ì‹ ë™ì˜</strong>&nbsp;&nbsp;&nbsp;e-mail:ìˆ˜ì‹ ê±°ë¶€<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sms:ìˆ˜ì‹ ê±°ë¶€</td>
   </tr>
 </table>
 </div>
-<form action="DeleteMemberCheck.jsp" name="Mdel" method="post">
- <table align="center">
-  <tr>
-   <td align="center">
-     <input type="submit" value="°èÁ¤»èÁ¦" onclick="alert('°èÁ¤À» »èÁ¦ÇÏ½Ã°Ú½À´Ï±î?')">
-   </td>
-  </tr>
-</table>
-</form>
+<br><br>
+<div align="center">
+<form action="DeleteMember.action" name="Mdel" method="post">
+     <button type="submit" class="btn btn-primary" onclick="removeCheck()">ê³„ì •ì‚­ì œ</button><br><br>
+    
+</form></div>
 </body>
 </html>

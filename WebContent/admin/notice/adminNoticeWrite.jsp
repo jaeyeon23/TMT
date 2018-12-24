@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
@@ -12,11 +12,11 @@
 		var frm = document.write;
 		
 		if(frm.subject.value==""){
-			alert("Á¦¸ñÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+			alert("ì œëª©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 			return false;	
 		}
 		else if(frm.content.value==""){
-			alert("³»¿ëÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä");
+			alert("ë‚´ìš©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”");
 			return false;
 		}
 		return true;
@@ -25,18 +25,17 @@
 </script>
 </head>
 <body>
-	<form action="AdminNoticeWrite.action" name="write" method="post"
-			enctype="multipart/form-data" onsubmit="return validation();">
-
+	<form action="AdminNoticeWrite.action" name="write" method="post">
+			
 	<table width="600" border="0" cellspacing="0" cellpadding="0">
 		<tr>
-			<td align="right" colspan="2"><font color="#FF0000">*</font>´Â ÇÊ¼ö ÀÔ·Â»çÇ×ÀÔ´Ï´Ù.</td>
+			<td align="right" colspan="2"><font color="#FF0000">*</font>ëŠ” í•„ìˆ˜ ì…ë ¥ì‚¬í•­ì…ë‹ˆë‹¤.</td>
 		</tr>
 		<tr bgcolor="#777777">
 			<td height="1" colspan="2"></td>
 		</tr>
 		<tr>
-			<td width="100" bgcolor="#F4F4F4"><font color="#FF0000">*</font>Á¦¸ñ</td>
+			<td width="100" bgcolor="#F4F4F4"><font color="#FF0000">*</font>ì œëª©</td>
 			<td width="500" bgcolor="#FFFFFF">
 				<s:textfield name="subject" theme="simple" value="%{resultClass.subject}"
 					cssStyle="width:370px" maxlength="50"/>
@@ -46,7 +45,7 @@
 			<td height="1" colspan="2"></td>
 		</tr>
 		<tr>
-			<td width="100" bgcolor="#F4F4F4"><font color="#FF0000">*</font>³»¿ë</td>
+			<td width="100" bgcolor="#F4F4F4"><font color="#FF0000">*</font>ë‚´ìš©</td>
 			<td width="500" bgcolor="#FFFFFF">
 				<s:textarea name="content" theme="simple" value="%{resultClass.content}"
 					cols="50" rows="10"/>
@@ -60,8 +59,8 @@
 		</tr>
 		<tr>
 			<td align="right" colspan="2">
-				<input name="submit" type="submit" value="ÀÛ¼º¿Ï·á" class="inputb">
-				<input name="list" type="button" value="¸ñ·Ï" class="inputb"
+				<input name="submit" type="submit" value="ì‘ì„±ì™„ë£Œ" class="inputb">
+				<input name="list" type="button" value="ëª©ë¡" class="inputb"
 					onclick="javascript:location.href='AdminNoticeList.action?currentPage=<s:property value="currentPage"/>'">
 			</td>
 		</tr>

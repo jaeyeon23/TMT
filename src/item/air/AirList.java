@@ -2,8 +2,15 @@ package item.air;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.net.URLEncoder;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -22,25 +29,41 @@ public class AirList extends ActionSupport{
 	
 	
 	
-	/*º¯¼ö*/
+	/*ë³€ìˆ˜ ì‹œì‘*/
 	private int no;
-	private String arv;	//Ãâ¹ßÁö
-	private String dep;	//µµÂøÁö
-	private int price;	//°¡°İ
-	private String content;	//³»¿ë
-	private String image1;	//Ç×°ø»ç ÀÌ¹ÌÁö ½æ³×ÀÏ
-	private int seat;		//ÁÂ¼® ¼ö
-	private int seat_grade;	//ÁÂ¼® µî±Ş
-	private String ad;		//Ãâ¹ßÀÏ
-	private String dd;		//µµÂøÀÏ
-	private String air_company;		//Ç×°ø»ç
+	private String arv;	//ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String dep;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private int price;	//ï¿½ï¿½ï¿½ï¿½
+	private String content;	//ï¿½ï¿½ï¿½ï¿½
+	private String image1;	//ï¿½×°ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
+	private int seat;		//ï¿½Â¼ï¿½ ï¿½ï¿½
+	private int seat_grade;	//ï¿½Â¼ï¿½ ï¿½ï¿½ï¿½
+	private Date ad;		//ï¿½ï¿½ß½Ã°ï¿½
+	private Date dd;		//ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
+	private String air_company;		//ï¿½×°ï¿½ï¿½ï¿½
 	private String grade;
+	/*ë³€ìˆ˜ end*/
 	
-	/*º¯¼ö end*/
 	private String air_array;
+	private String ad_str;			//ï¿½ï¿½Â¥ string
 	
+	/*í…ŒìŠ¤íŠ¸ ë³€ìˆ˜*/
+	private String ckAD_1;			//06
+	private String ckAD_2;			//12
+	private String ckAD_3;			//18
+	private String ckAD_4;			//24
 	
+	private String ckDD_1;			//06
+	private String ckDD_2;			//12
+	private String ckDD_3;			//18
+	private String ckDD_4;			//24
 	
+	private String air_company_korea;		//ëŒ€í•œí•­ê³µ
+	private String air_company_asia;		//ëŒ€í•œí•­ê³µ
+	private String air_company_jin;		//ëŒ€í•œí•­ê³µ
+	
+	private String[] ckAD_search;
+	private Map map = new HashMap<>();
 	
 	public AirList() throws IOException{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -54,18 +77,24 @@ public class AirList extends ActionSupport{
 		if(arv == null) {
 			Airlist = null;
 		}else {
-			/*<option value="1">°¡°İ ³·Àº ¼ø</option>	
-			<option value="2">°¡´Â ³¯ Ãâ¹ß½Ã°£ ºü¸¥ ¼ø</option>
-			<option value="3">°¡´Â ³¯ µµÂø½Ã°£ ºü¸¥ ¼ø</option>*/
-			
+			SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+			Date to = transFormat.parse(getAd_str());
+				
+			avo.setAd(to);
 			avo.setArv(getArv());
 			avo.setDep(getDep());
-			avo.setAd(getAd());
 			avo.setSeat(getSeat());
 			avo.setSeat_grade(getSeat_grade());
 			
+			
 			if(air_array == null) {
-				Airlist = sqlMapper.queryForList("listAir", avo);
+				if(air_company_korea == null) {
+					Airlist = sqlMapper.queryForList("listAir", avo);
+				}else {
+					makeSearch();
+				}
+				
 			}else {
 				if(getAir_array().equals("1")) {
 					Airlist = sqlMapper.queryForList("listAir_lowprice", avo);
@@ -75,11 +104,63 @@ public class AirList extends ActionSupport{
 					Airlist = sqlMapper.queryForList("listAir_dd_time", avo);
 				}
 			}
+			
 		}
 		
 		return SUCCESS;
 	}
 
+	private void makeSearch() throws IOException, SQLException{
+		System.out.println("makeSearch");
+		/*ê²€ìƒ‰ì„ ìœ„í•œ map*/
+		map.put("ad", getAd_str());
+		map.put("arv", getArv());
+		map.put("dep", getDep());
+		map.put("seat", getSeat());
+		map.put("seat_grade", getSeat_grade());
+		
+		/*ì¶œë°œì‹œê°„*/
+		if(ckAD_1 != null) {
+			map.put("ckAD_1", ckAD_1);
+		}
+		if(ckAD_2 != null) {
+			map.put("ckAD_2", ckAD_2);
+		}
+		if(ckAD_3 != null) {
+			map.put("ckAD_3", ckAD_3);
+		}
+		if(ckAD_4 != null) {
+			map.put("ckAD_4", ckAD_4);
+		}
+		
+		/*ë„ì°©ì‹œê°„*/
+		if(ckDD_1 != null) {
+			map.put("ckDD_1", ckDD_1);
+		}
+		if(ckDD_2 != null) {
+			map.put("ckDD_2", ckDD_2);
+		}
+		if(ckDD_3 != null) {
+			map.put("ckDD_3", ckDD_3);
+		}
+		if(ckDD_4 != null) {
+			map.put("ckDD_4", ckDD_4);
+		}
+		
+		/*í•­ê³µ*/
+		if(air_company_korea != null) {
+			map.put("air_company_korea", air_company_korea);
+		}
+		if(air_company_asia != null) {
+			map.put("air_company_asia", air_company_asia);
+		}
+		if(air_company_jin != null) {
+			map.put("air_company_jin", air_company_jin);
+		}
+		
+		Airlist = sqlMapper.queryForList("listAir_search", map);
+	}
+	
 	public int getNo() {
 		return no;
 	}
@@ -144,22 +225,6 @@ public class AirList extends ActionSupport{
 		this.seat_grade = seat_grade;
 	}
 
-	public String getAd() {
-		return ad;
-	}
-
-	public void setAd(String ad) {
-		this.ad = ad;
-	}
-
-	public String getDd() {
-		return dd;
-	}
-
-	public void setDd(String dd) {
-		this.dd = dd;
-	}
-
 	public String getAir_company() {
 		return air_company;
 	}
@@ -200,4 +265,115 @@ public class AirList extends ActionSupport{
 		this.air_array = air_array;
 	}
 
+	public Date getAd() {
+		return ad;
+	}
+
+	public void setAd(Date ad) {
+		this.ad = ad;
+	}
+
+	public Date getDd() {
+		return dd;
+	}
+
+	public void setDd(Date dd) {
+		this.dd = dd;
+	}
+
+	public String getAd_str() {
+		return ad_str;
+	}
+
+	public void setAd_str(String ad_str) {
+		this.ad_str = ad_str;
+	}
+
+	public String getCkAD_1() {
+		return ckAD_1;
+	}
+
+	public void setCkAD_1(String ckAD_1) {
+		this.ckAD_1 = ckAD_1;
+	}
+
+	public String getCkAD_2() {
+		return ckAD_2;
+	}
+
+	public void setCkAD_2(String ckAD_2) {
+		this.ckAD_2 = ckAD_2;
+	}
+
+	public String getCkAD_3() {
+		return ckAD_3;
+	}
+
+	public void setCkAD_3(String ckAD_3) {
+		this.ckAD_3 = ckAD_3;
+	}
+
+	public String getCkAD_4() {
+		return ckAD_4;
+	}
+
+	public void setCkAD_4(String ckAD_4) {
+		this.ckAD_4 = ckAD_4;
+	}
+
+	public String getCkDD_1() {
+		return ckDD_1;
+	}
+
+	public void setCkDD_1(String ckDD_1) {
+		this.ckDD_1 = ckDD_1;
+	}
+
+	public String getCkDD_2() {
+		return ckDD_2;
+	}
+
+	public void setCkDD_2(String ckDD_2) {
+		this.ckDD_2 = ckDD_2;
+	}
+
+	public String getCkDD_3() {
+		return ckDD_3;
+	}
+
+	public void setCkDD_3(String ckDD_3) {
+		this.ckDD_3 = ckDD_3;
+	}
+
+	public String getCkDD_4() {
+		return ckDD_4;
+	}
+
+	public void setCkDD_4(String ckDD_4) {
+		this.ckDD_4 = ckDD_4;
+	}
+
+	public String getAir_company_korea() {
+		return air_company_korea;
+	}
+
+	public void setAir_company_korea(String air_company_korea) {
+		this.air_company_korea = air_company_korea;
+	}
+
+	public String getAir_company_asia() {
+		return air_company_asia;
+	}
+
+	public void setAir_company_asia(String air_company_asia) {
+		this.air_company_asia = air_company_asia;
+	}
+
+	public String getAir_company_jin() {
+		return air_company_jin;
+	}
+
+	public void setAir_company_jin(String air_company_jin) {
+		this.air_company_jin = air_company_jin;
+	}
 }

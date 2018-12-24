@@ -43,30 +43,78 @@
 	<definition name="NoticeView" extends="Main">
 		<put-attribute name="body" value="/service/noticeView.jsp" />
 	</definition>
-
-
-
+	
 	<!-- 관리자메인 -->
 	 <definition name="AdminMain" extends="Main">
 		<put-attribute name="header" value="/admin/main/adminHeader.jsp" />
 		<put-attribute name="body" value="/admin/main/adminMain.jsp" />
 	</definition>
 	
+	<!-- 관리자 멤버 -->
 	<definition name="AdminMemberList" extends="AdminMain">
 		<put-attribute name="body" value="/admin/member/adminMemberList.jsp" />
 	</definition>
 	
+	<definition name="AdminMemberView" extends="AdminMain">
+		<put-attribute name="body" value="/admin/member/adminMemberView.jsp" />
+	</definition>
+	
+	<definition name="AdminMemberModify" extends="AdminMain">
+		<put-attribute name="body" value="/admin/member/adminMemberModify.jsp" />
+	</definition>
+	
+	<!-- 관리자 항공 -->
 	<definition name="AdminAirList" extends="AdminMain">
 		<put-attribute name="body" value="/admin/item/adminAirList.jsp" />
 	</definition>
 	
+	<definition name="AdminAirWrite" extends="AdminMain">
+		<put-attribute name="body" value="/admin/item/adminAirWrite.jsp" />
+	</definition>
+	
+	<definition name="AdminAirView" extends="AdminMain">
+		<put-attribute name="body" value="/admin/item/adminAirView.jsp" />
+	</definition>
+	
+	<definition name="AdminAirModify" extends="AdminMain">
+		<put-attribute name="body" value="/admin/item/adminAirModify.jsp" />
+	</definition>
+	
+	<!-- 관리자 호텔 -->
 	<definition name="AdminHotelList" extends="AdminMain">
 		<put-attribute name="body" value="/admin/item/adminHotelList.jsp" />
 	</definition>
 	
+	<definition name="AdminHotelWrite" extends="AdminMain">
+		<put-attribute name="body" value="/admin/item/adminHotelWrite.jsp" />
+	</definition>
+	
+	<definition name="AdminHotelView" extends="AdminMain">
+		<put-attribute name="body" value="/admin/item/adminHotelView.jsp" />
+	</definition>
+	
+	<definition name="AdminHotelModify" extends="AdminMain">
+		<put-attribute name="body" value="/admin/item/adminHotelModify.jsp" />
+	</definition>
+	
+	<!-- 관리자 투어 -->
 	<definition name="AdminTourList" extends="AdminMain">
 		<put-attribute name="body" value="/admin/item/adminTourList.jsp" />
 	</definition>
+	
+	<definition name="AdminTourWrite" extends="AdminMain">
+		<put-attribute name="body" value="/admin/item/adminTourWrite.jsp" />
+	</definition>
+	
+	<definition name="AdminTourView" extends="AdminMain">
+		<put-attribute name="body" value="/admin/item/adminTourView.jsp" />
+	</definition>
+	
+	<definition name="AdminTourModify" extends="AdminMain">
+		<put-attribute name="body" value="/admin/item/adminTourModify.jsp" />
+	</definition>
+	
+	<!-- 관리자 공지사항 -->
 	
 	<definition name="AdminNoticeList" extends="AdminMain">
 		<put-attribute name="body" value="/admin/notice/adminNoticeList.jsp" />
@@ -80,6 +128,12 @@
 		<put-attribute name="body" value="/admin/notice/adminNoticeView.jsp" />
 	</definition> 
 	
+	<definition name="AdminNoticeModify" extends="AdminMain">
+		<put-attribute name="body" value="/admin/notice/adminNoticeModify.jsp" />
+	</definition> 
+	
+	
+	
 
 
 
@@ -88,28 +142,67 @@
 	</definition>
 	
 	<definition name="OrderList" extends="Main">
-		<put-attribute name="body" value="/order/OrderList.jsp" />
+		<put-attribute name="body" value="/order/orderList.jsp" />
 	</definition>
 	
-    <definition name="MyPageForm" extends="Main">
-		<put-attribute name="body" value="/mypage/MyPage.jsp" />
+	<definition name="ViewOrder" extends="Main">
+		<put-attribute name="body" value="/order/orderView.jsp" />
 	</definition>
 	
-	<definition name="DeleteMemberCheck" extends="Main">
+	<definition name="ModifyOrder" extends="Main">
+		<put-attribute name="body" value="/order/orderModify.jsp" />
+	</definition>
+	
+    <definition name="MyPage" extends="Main">
+		<put-attribute name="body" value="/member/myPage.jsp" />
+	</definition>
+	
+	<definition name="DeleteMember" extends="Main">
 		<put-attribute name="body" value="/member/DeleteMemberCheck.jsp" />
 	</definition>
 
+<!-- 로그인 -->
 	<definition name="Login" extends="Main">
 		<put-attribute name="body" value="/member/login.jsp" />
 	</definition>
 	
+	<definition name="LoginForm" extends="Main">
+		<put-attribute name="body" value="/member/loginForm.jsp" />
+	</definition>
+<!-- 아이디 찾기 -->	
+	<definition name="FindId" extends="Main">
+		<put-attribute name="body" value="/member/findId.jsp"/>
+	</definition>
+	
+	<definition name="FindIdForm" extends="Main">
+		<put-attribute name="body" value="/member/findIdForm.jsp"/>
+	</definition>
+<!-- 비밀번호 찾기 -->
+	<definition name="FindPw" extends="Main">
+		<put-attribute name="body" value="/member/findPw.jsp"/>
+	</definition>
+	
+	<definition name="FindPwForm" extends="Main">
+		<put-attribute name="body" value="/member/findPwForm.jsp"/>
+	</definition>
+<!-- 회원가입 -->	
 	<definition name="Join" extends="Main">
 		<put-attribute name="body" value="/member/join.jsp" />
 	</definition>
 	
-	<definition name="ConfirmedId" extends="Main">
+	<definition name="JoinForm" extends="Main">
+		<put-attribute name="body" value="/member/joinForm.jsp" />
+	</definition>
+	
+
+	<definition name="ModifyMember" extends="Main">
+		<put-attribute name="body" value="/member/modify.jsp" />
+	</definition>
+
+	<definition name="ConfirmId" extends="Main">
 		<put-attribute name="body" value="/member/idCheck.jsp" />
 	</definition>
+
 
 <!-- 
 	 로그인 폼
