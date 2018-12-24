@@ -3,28 +3,28 @@ package item.hotel;
 import java.util.Date;
 
 public class HotelVO{
-	private int no;            //ǰȣ
-	private String name;      //ǰ      
-	private int price;       //
-	private String content;  //
-	private String country;	 //
-	private String region;	//
-	private int readcount;  //ȸ
+	private int no;            //상품번호
+	private String name;      //상품명   
+	private int price;       //가격
+	private String content;  //내용
+	private String country;	 //국가
+	private String region;	//지역
+	private int readcount;  //조회수
 	private String image1; 
-	private String image2;  //̹1~3
+	private String image2;  //̹이미지1~3
 	private String image3;  
-	private Date reg_date;   //
-	private String tel;       //ȭȣ
-	private String checkin;    //üũ
-	private String checkout;   //üũƿ
-	private int maxnum; 	//ο
-	private int grade;	// 
+	private Date reg_date;   //등록일
+	private String tel;       //전화번호
+	private Date checkin;    //체크인
+	private Date checkout;   //체크아웃
+	private int maxnum; 	//인원수
+	private int grade;	// 별점
 	
 	private String hotelname;
 	private int number;
-	private Date inDay, outDay;
+	private String inDay, outDay;
 	
-	//ǰȣ
+	//상품번호
 	public int getNo() {
 		return no;
 	}
@@ -32,7 +32,7 @@ public class HotelVO{
 		this.no = no;
 	}
 	
-	//ǰ
+	//상품명
 	public String getName() {
 		return name;
 	}
@@ -40,7 +40,7 @@ public class HotelVO{
 		this.name = name;
 	}
 	
-	//
+	//가격
 	public int getPrice() {
 		return price;
 	}
@@ -48,7 +48,7 @@ public class HotelVO{
 		this.price = price;
 	}
 	
-	//
+	//내용
 	public String getContent() {
 		return content;
 	}
@@ -56,7 +56,7 @@ public class HotelVO{
 		this.content = content;
 	}
 	
-	//
+	//국가
 	public String getCountry() {
 		return country;
 	}
@@ -64,7 +64,7 @@ public class HotelVO{
 		this.country = country;
 	}
 	
-	//
+	//지역
 	public String getRegion() {
 		return region;
 	}
@@ -72,7 +72,7 @@ public class HotelVO{
 		this.region = region;
 	}
 	
-	//ȸ
+	//조호ㅣ수
 	public int getReadcount() {
 		return readcount;
 	}
@@ -80,7 +80,7 @@ public class HotelVO{
 		this.readcount = readcount;
 	}
 	
-	//̹1~3
+	//̹이미지1~3
 	public String getImage1() {
 		return image1;
 	}
@@ -100,7 +100,7 @@ public class HotelVO{
 		this.image3 = image3;
 	}
 	
-	//
+	//등록일
 	public Date getReg_date() {
 		return reg_date;
 	}
@@ -108,7 +108,7 @@ public class HotelVO{
 		this.reg_date = reg_date;
 	}
 	
-	//ȭȣ
+	//전화번호
 	public String getTel() {
 		return tel;
 	}
@@ -116,23 +116,23 @@ public class HotelVO{
 		this.tel = tel;
 	}
 	
-	//üũ
-	public String getCheckin() {
+	//체크인
+	public Date getCheckin() {
 		return checkin;
 	}
-	public void setCheckin(String checkin) {
+	public void setCheckin(Date checkin) {
 		this.checkin = checkin;
 	}
 	
-	//üũƿ
-	public String getCheckout() {
+	//체크아웃
+	public Date getCheckout() {
 		return checkout;
 	}
-	public void setCheckout(String checkout) {
+	public void setCheckout(Date checkout) {
 		this.checkout = checkout;
 	}
 	
-	//ο
+	//인원수
 	public int getMaxnum() {
 		return maxnum;
 	}
@@ -140,7 +140,7 @@ public class HotelVO{
 		this.maxnum = maxnum;
 	}
 	
-	//պ
+	//별점
 	public int getGrade() {
 		return grade;
 	}
@@ -149,27 +149,31 @@ public class HotelVO{
 	}
 	
 	
+	//검색....
 	public String getHotelname() {
 		return hotelname;
 	}
 	public void setHotelname(String hotelname) {
 		this.hotelname = hotelname;
 	}
-
-	// üũ�� , üũ�ƿ�
-	public Date getInDay() {
+	//인원수
+	public int getNumber() {
+		return number;
+	}
+	public void setNumber(int number) {
+		this.number = number;
+	}
+	// 체크인,아웃,
+	public String getInDay() {
 		return inDay;
 	}
-
-	public void setInDay(Date inDay) {
+	public void setInDay(String inDay) {
 		this.inDay = inDay;
 	}
-
-	public Date getOutDay() {
+	public String getOutDay() {
 		return outDay;
 	}
-
-	public void setOutDay(Date outDay) {
+	public void setOutDay(String outDay) {
 		this.outDay = outDay;
 	}
 	

@@ -50,6 +50,11 @@
 
 <!-- 검색로직 추가시작 -->
     <!-- 기본 -->	
+    <select id="selectAllHH" resultMap="boardhotel">
+			<include refid="select-allH" />
+			WHERE name like '%'||#hotelname#||'%' and maxnum >= #number#
+	</select>
+		
 	<select id="Search_Hotel" resultMap="boardhotel" parameterClass="hotel">
 		<include refid="select-allH" />
 		<include refid="select-search"/>
