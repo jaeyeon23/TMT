@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,11 +14,11 @@ function removeCheck() {
 
 	 if (confirm("정말 계정을 삭제하시겠습니까??") == true){    //확인
 
-	     document.removefrm.submit();
+	    location.href="DeleteMember.action";
 
 	 }else{   //취소
 
-	     return false;
+	    location.href="MyPage.action";
 
 	 }
 
@@ -44,19 +46,20 @@ function removeCheck() {
   </form>
   <tr>
     <td align="center" bgcolor="white" height="70">
-    <img width=60 height=60 ></td>
+    <img width=60 height=60 >${image }</td>
   </tr>
+  
  <tr>
-  <td align="left" bgcolor="white"height="40"><strong>이름</strong>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;홍길동</td>
+  <td align="left" bgcolor="white"height="40"><strong>이름</strong>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;${id }</td>
   </tr>
    <tr>
-  <td align="left" bgcolor="white"height="40"><strong>이메일</strong>&emsp;&emsp;&emsp;&emsp;&emsp;www.naver.com</td>
+  <td align="left" bgcolor="white"height="40"><strong>이메일</strong>&emsp;&emsp;&emsp;&emsp;&emsp;${email }</td>
   </tr>
    <tr>
-  <td align="left" bgcolor="white" height="40"><strong>연락처</strong>&emsp;&emsp;&emsp;&emsp;&emsp;132-456-789</td>
+  <td align="left" bgcolor="white" height="40"><strong>연락처</strong>&emsp;&emsp;&emsp;&emsp;&emsp;${tel }</td>
   </tr>
    <tr>
-  <td align="left" bgcolor="white" height="40"><strong>비밀번호</strong>&emsp;&emsp;&emsp;&emsp;&emsp;*******</td>
+  <td align="left" bgcolor="white" height="40"><strong>비밀번호</strong>&emsp;&emsp;&emsp;&emsp;&emsp;${password }</td>
   </tr>
    <tr>
   <td align="left" bgcolor="white" height="60"><strong>마켓팅수신동의</strong>&nbsp;&nbsp;&nbsp;e-mail:수신거부<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sms:수신거부</td>
@@ -65,7 +68,7 @@ function removeCheck() {
 </div>
 <br><br>
 <div align="center">
-<form action="DeleteMember.action" name="Mdel" method="post">
+<!-- <form action="DeleteMember.action" name="Mdel" method="post">-->
      <button type="submit" class="btn btn-primary" onclick="removeCheck()">계정삭제</button><br><br>
     
 </form></div>
