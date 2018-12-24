@@ -1,57 +1,43 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.HashMap"%>
+<link rel="stylesheet" href="/TMT/css/member/joinForm.css"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>IDì°¾ê¸°</title>
-<style>
+<script language="javascript">
+	function check() {
 
-.title{
-	font-size:30px;
-}
-.factors{
-	font-size:20px;
-}
-
-.result{
-	font-size:20px;
-}
-/* ì•„ì´ë”” ì°¾ê¸° ë²„íŠ¼ */
-.button{
-    background-color: #F6E3CE;
-    border: none;
-    color:#000000;
-    padding: 4px 0;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 2px;
-    cursor: pointer;
-    border-radius:5px;
-    height:70px;
-    font-size:20px;
-}
-.button:hover{
-	background-color: #F5D0A9;
-	text-decoration:none;color:#F3683D;
-}
-</style>
+		var frm = document.findId;
+		
+		if (frm.name.value == "") {
+			alert("ÀÌ¸§À» ÀÔ·ÂÇØÁÖ½Ê½Ã¿À.");
+			frm.name.focus();
+			return false;
+		}
+		if(frm.email.value==""){
+			alert("ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇØÁÖ½Ê½Ã¿À.");
+			frm.email.focus();
+			return false;
+		}
+	}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>IDÃ£±â</title>
 
 </head>
 <body>
 
-	<form action="FindId.action">
+<%-- 	<form action="FindId.action">
 		<br>
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td align="center" height="300">
 					<table border="0">
 						<tr>
-							<td colspan="100%" align="center" class="title">ì•„ì´ë”” ì°¾ê¸°</td>
+							<td colspan="100%" align="center" class="title">¾ÆÀÌµğ Ã£±â</td>
 						</tr>
 						<tr>
 							<td height="30"/>
@@ -61,7 +47,7 @@
 							<td height="5" colspan="2"></td>
 						</tr>
 						<tr>
-							<td width="110" class="factors">ì´ë¦„&nbsp;<br/><br/>ì´ë©”ì¼&nbsp;
+							<td width="110" class="factors">ÀÌ¸§&nbsp;<br/><br/>ÀÌ¸ŞÀÏ&nbsp;
 							</td>
 							<td><input type="text" name="name"><br><br/>
 							<input type="text" name="email"></td>
@@ -71,21 +57,21 @@
 						</tr>
 						<tr>
 							<td align="center">
-							<input type="submit" value="  ì•„ì´ë”” ì°¾ê¸°  " class="button">
+							<input type="submit" value="  ¾ÆÀÌµğ Ã£±â  " class="button">
 							</td>
 							<s:if test='%{resultClass.id != null}'>
 								<td class="result">RESULT&nbsp;:&nbsp;</td>
 								<td align="left" class="result"><br> <b>${resultClass.name}</b>
-									ë‹˜ì˜ IDëŠ” <b>${resultClass.id}</b>ì…ë‹ˆë‹¤.<br>&nbsp;</td>
+									´ÔÀÇ ID´Â <b>${resultClass.id}</b>ÀÔ´Ï´Ù.<br>&nbsp;</td>
 								<td align="middle">
-									<a href="LoginForm.action" class="button">&nbsp;&nbsp;ë¡œê·¸ì¸í¼ìœ¼ë¡œ&nbsp;&nbsp;</a>
+									<a href="LoginForm.action" class="button">&nbsp;&nbsp;·Î±×ÀÎÆûÀ¸·Î&nbsp;&nbsp;</a>
 								</td>
 							</s:if>
 							<s:else>
 								<td></td>
 								<td></td>
 								<td align="middle">
-									<a href="LoginForm.action" class="button">&nbsp;&nbsp;ë¡œê·¸ì¸í¼ìœ¼ë¡œ&nbsp;&nbsp;</a>
+									<a href="LoginForm.action" class="button">&nbsp;&nbsp;·Î±×ÀÎÆûÀ¸·Î&nbsp;&nbsp;</a>
 								</td>
 							</s:else>
 						</tr>
@@ -96,6 +82,67 @@
 				</td>
 			</tr>
 		</table>
-	</form>
+	</form> --%>
+	
+	
+<main class="member member-verify">
+	<div class="container-fluid content-wrap with-panel-title">
+		<div class="panel-title-wrapper">
+			<h1><center><div class="panel-title">¾ÆÀÌµğ Ã£±â</div></center></h1>
+		</div>
+		<div class="member-panel">
+			<div class="panel-body">
+				<form name="findId" action="FindId.action" role="form" onsubmit="return check()" data-validation="true" accept-charset="UTF-8" method="post" novalidate="novalidate" class="fv-form fv-form-bootstrap">
+					<button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;">
+					</button>
+					<input name="utf8" type="hidden" value="!">
+						<input type="hidden" name="authenticity_token" value="5ysdT7Us4SP04bVPqREEzraPcEoAO+mPIKPfvArAy5CJrTsl5aB/VpIelg5F67bm1YeWsoxJ3lu9Wii9SGsHRg==">
+							<div class="form-wrapper">
+								<div class="content-wrapper">
+									<div class="form-group">
+										<div class="content-title-box">
+											<div class="sub-title">
+												ÀÌ¸§
+											</div>
+										</div>
+											<div class="row">
+												<div class="col-xs-12">
+													<input class="form-control" name="name" placeholder="ÀÌ¸§" type="text">
+												</div>
+											</div>
+									</div>
+								</div>
+								<div class="content-wrapper">
+									<div class="form-group">
+										<div class="content-title-box">
+											<div class="sub-title">
+												ÀÌ¸ŞÀÏ
+											</div>
+										</div>
+											<div class="row">
+												<div class="col-xs-12">
+													<input class="form-control" name="email" placeholder="ÀÌ¸ŞÀÏ" type="email">
+												</div>
+											</div>
+									</div>
+								</div>
+								<div class="btn-wrap">
+									<center>
+										<button class="btn-new btn--type-primary btn--width-100" type="submit">¾ÆÀÌµğ Ã£±â</button><br>
+									</center>
+								</div>
+								<div class="panel-footer">
+									<div class="footer-title">
+										ÀÌÀü ÆäÀÌÁö·Î µ¹¾Æ°©´Ï´Ù!&nbsp;&nbsp;
+										<a href="LoginForm.action">·Î±×ÀÎ</a>
+									</div>
+								</div>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</main>
 </body>
 </html>

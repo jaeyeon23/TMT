@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN' 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
+	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 <sqlMap>
 <typeAlias alias="member" type="member.MemberVO"/>
 
@@ -53,7 +54,13 @@
   </select>
 
   <select id="FindPw" resultMap="memberRes">
-    SELECT * FROM MEMBER WHERE id=#id# AND EMAIL=#email# AND tel=#tel#
+    <include refid="select-all" />
+    WHERE NAME = #name# AND ID=#id# AND EMAIL=#email#
+  </select>
+  
+  <select id="Email" resultClass="java.lang.String"
+		parameterClass="member">
+  	SELECT email FROM member WHERE email = #email#
   </select>
  
  </sqlMap>

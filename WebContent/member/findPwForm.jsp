@@ -4,8 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>비밀번호 찾기 폼</title>
-
-<style type="text/css">
+<link rel="stylesheet" href="/TMT/css/member/joinForm.css"/>
+<%-- <style type="text/css">
 .button{
     background-color: #F6E3CE;
     border: none;
@@ -24,7 +24,7 @@
 	background-color: #F5D0A9;
 	text-decoration:none;color:#F3683D;
 }
-</style>
+</style> --%>
 
 <script language="javascript">
 	function check() {
@@ -41,11 +41,6 @@
 			frm.name.focus();
 			return false;
 		}
-		if (frm.tel.value == "") {
-			alert("핸드폰 번호를 입력해주십시오.");
-			frm.tel.focus();
-			return false;
-		}
 		if(frm.email.value==""){
 			alert("이메일을 입력해주십시오.");
 			frm.email.focus();
@@ -58,9 +53,8 @@
 
 </head>
 
-<center>
 	<body>
-		<h1>비밀번호 찾기</h1>
+<!-- 		<h1>비밀번호 찾기</h1>
 			<form name="findPw" action="FindPw.action" method="post" onsubmit="return check()">
 				<table>
 					<tr>
@@ -83,7 +77,79 @@
 		<input type="button" value="취소" class="button" onclick="location.href='LoginForm.action'" />
 		<br>
 		<br>
-		</form>
+		</form> -->
+
+<main class="member member-verify">
+	<div class="container-fluid content-wrap with-panel-title">
+		<div class="panel-title-wrapper">
+			<h1><center><div class="panel-title">비밀번호 찾기</div></center></h1>
+		</div>
+		<div class="member-panel">
+			<div class="panel-body">
+				<form name="findPw" action="FindPw.action" method="post" onsubmit="return check()" data-validation="true" accept-charset="UTF-8" method="post" novalidate="novalidate" class="fv-form fv-form-bootstrap">
+					<button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;">
+					</button>
+					<input name="utf8" type="hidden" value="!">
+						<input type="hidden" name="authenticity_token" value="5ysdT7Us4SP04bVPqREEzraPcEoAO+mPIKPfvArAy5CJrTsl5aB/VpIelg5F67bm1YeWsoxJ3lu9Wii9SGsHRg==">
+							<div class="form-wrapper">
+								<div class="content-wrapper">
+									<div class="form-group">
+										<div class="content-title-box">
+											<div class="sub-title">
+												아이디
+											</div>
+										</div>
+											<div class="row">
+												<div class="col-xs-12">
+													<input class="form-control" name="id" placeholder="아이디" type="text">
+												</div>
+											</div>
+									</div>
+								</div>
+								<div class="content-wrapper">
+									<div class="form-group">
+										<div class="content-title-box">
+											<div class="sub-title">
+												이름
+											</div>
+										</div>
+											<div class="row">
+												<div class="col-xs-12">
+													<input class="form-control" name="name" placeholder="이름" type="text">
+												</div>
+											</div>
+									</div>
+								</div>
+								<div class="content-wrapper">
+									<div class="form-group">
+										<div class="content-title-box">
+											<div class="sub-title">
+												이메일
+											</div>
+										</div>
+											<div class="row">
+												<div class="col-xs-12">
+													<input class="form-control" name="email" placeholder="이메일" type="email">
+												</div>
+											</div>
+									</div>
+								</div>
+								<div class="btn-wrap">
+								<center>
+									<button class="btn-new btn--type-primary btn--width-100" type="submit">비밀번호 찾기</button><br>
+								</center>
+								</div>
+								<div class="panel-footer">
+									<div class="footer-title">
+										이전 페이지로 돌아갑니다!&nbsp;&nbsp;
+										<a href="LoginForm.action">로그인</a>
+									</div>
+								</div>
+							</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
 	</body>
-</center>
 </html>
