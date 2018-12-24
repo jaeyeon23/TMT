@@ -96,13 +96,13 @@ function validation(userinput){
 				<div class="btn-wrap">
 					<a class="btn-new btn--type-outline btn--width-100 btn-sns" href="https://www.myrealtrip.com/users/auth/naver">
 						<img class="icon" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/naver-logo@2x-332865f7b796a02822378e0b61e6dcace93ae9a24abd810cd774a06b5fbcb0b5.png" width="18">
-							<span>³×ÀÌ¹ö ·Î±×ÀÎ</span>
+							<span>ë„¤ì´ë²„ ë¡œê·¸ì¸</span>
 					</a>
 				</div>
 			</div>
 			<div class="panel-line clearfix">
 				<hr class="divider">
-					<div class="or">¶Ç´Â</div>
+					<div class="or">ë˜ëŠ”</div>
 			</div>
 			<div class="panel-body">
 				<form role="form" data-validation="true" action="/users/sign_in" accept-charset="UTF-8" method="post" novalidate="novalidate" class="fv-form fv-form-bootstrap">
@@ -114,11 +114,11 @@ function validation(userinput){
 									<div class="content-wrapper">
 										<div class="form-group clearfix">
 											<div class="content-title-box">
-												<div class="sub-title">¾ÆÀÌµğ*</div>
+												<div class="sub-title">ì•„ì´ë””*</div>
 											</div>
 											<div class="row">
 												<div class="col-xs-12">
-														<input autocomplete="off" class="form-control" name="id" placeholder="¾ÆÀÌµğ" title="ÀÌ¸ŞÀÏ" type="¾ÆÀÌµğ">
+														<input autocomplete="off" class="form-control" name="id" placeholder="ì•„ì´ë””" title="ì´ë©”ì¼" type="ì•„ì´ë””">
 												</div>
 											</div>
 										</div>
@@ -126,11 +126,11 @@ function validation(userinput){
 									<div class="content-wrapper">
 										<div class="form-group">
 											<div class="content-title-box">
-												<div class="sub-title">ºñ¹Ğ¹øÈ£*</div>
+												<div class="sub-title">ë¹„ë°€ë²ˆí˜¸*</div>
 											</div>
 											<div class="row">
 												<div class="col-xs-12">
-													<input class="form-control" name="password" placeholder="ºñ¹Ğ¹øÈ£" title="ºñ¹Ğ¹øÈ£" type="password">
+													<input class="form-control" name="password" placeholder="ë¹„ë°€ë²ˆí˜¸" title="ë¹„ë°€ë²ˆí˜¸" type="password">
 												</div>
 											</div>
 										</div>
@@ -140,8 +140,8 @@ function validation(userinput){
 											<div class="row row-margin">
 												<div class="col-xs-6">
 													<div class="find-id">
-														<a href="FindIdForm.action">¾ÆÀÌµğ Ã£±â</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-														<a href="FindPwForm.action">ºñ¹Ğ¹øÈ£ Ã£±â</a>
+														<a href="FindIdForm.action">ì•„ì´ë”” ì°¾ê¸°</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+														<a href="FindPwForm.action">ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°</a>
 													</div>
 												</div>
 											</div>
@@ -151,7 +151,7 @@ function validation(userinput){
 						<div class="btn-wrap">
 						<center>
 							<button class="btn-new btn--type-primary btn--width-100" type="submit">
-								<span>·Î±×ÀÎ</span>
+								<span>ë¡œê·¸ì¸</span>
 							</button>
 						</center>
 						</div>
@@ -160,8 +160,8 @@ function validation(userinput){
 				</div>						
 					<div class="panel-footer">
 					<div class="footer-title">
-						¾ÆÁ÷ ¸¶ÀÌ¸®¾óÆ®¸³ È¸¿øÀÌ ¾Æ´Ï½Å°¡¿ä?
-						<a href="JoinForm.action">È¸¿ø°¡ÀÔ</a>
+						ì•„ì§ ë§ˆì´ë¦¬ì–¼íŠ¸ë¦½ íšŒì›ì´ ì•„ë‹ˆì‹ ê°€ìš”?&nbsp;
+						<a href="JoinForm.action">íšŒì›ê°€ì…</a>
 					</div>
 		</div>
 	</div>

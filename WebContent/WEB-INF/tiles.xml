@@ -194,7 +194,6 @@
 		<put-attribute name="body" value="/member/joinForm.jsp" />
 	</definition>
 	
-
 	<definition name="ModifyMember" extends="Main">
 		<put-attribute name="body" value="/member/modify.jsp" />
 	</definition>
@@ -203,6 +202,9 @@
 		<put-attribute name="body" value="/member/idCheck.jsp" />
 	</definition>
 
+	<definition name="EmailCheck" extends="Main">
+		<put-attribute name="body" value="/member/EmailCheck.jsp"/>
+	</definition>
 
 <!-- 
 	 로그인 폼

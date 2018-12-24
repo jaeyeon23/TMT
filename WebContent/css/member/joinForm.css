@@ -48,7 +48,7 @@ body, html {
     padding: 0;
 }
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "¸¼Àº °íµñ", Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½", Roboto, Helvetica, Arial, sans-serif;
 }
 html, body {
     background: #fff;
@@ -248,4 +248,19 @@ button[disabled], html input[disabled] {
 button{
 	font: inherit;
     color: inherit;
+}
+aaa{
+background-color:rgb(221,0,0);
+transition: all 0.1s ease-out;
+    border-radius: 2px;
+    border: 0;
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    height: 48px;
+    line-height: 46px;
+    padding: 0;
+    text-align: center;
+    width: 120px;
 }

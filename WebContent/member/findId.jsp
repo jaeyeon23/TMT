@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <link rel="stylesheet" href="/TMT/css/member/joinForm.css"/>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -13,7 +13,7 @@
 }
 </style>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 </head>
 
@@ -28,7 +28,7 @@
 				<table>
 				<s:iterator value="%{list}" status="stat">
 					<tr> 
-						<td>ID : <s:property value="list.get(#stat.index).id"/>
+						<td>아이디 : <s:property value="list.get(#stat.index).id"/>
 							&nbsp;</td>
 					</tr>
 				</s:iterator>

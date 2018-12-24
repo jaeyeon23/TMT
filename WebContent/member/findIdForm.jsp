@@ -7,6 +7,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script language="javascript">
+	function check() {
+
+		var frm = document.findId;
+		
+		if (frm.name.value == "") {
+			alert("이름을 입력해주십시오.");
+			frm.name.focus();
+			return false;
+		}
+		if(frm.email.value==""){
+			alert("이메일을 입력해주십시오.");
+			frm.email.focus();
+			return false;
+		}
+	}
+</script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>ID찾기</title>
 
@@ -75,7 +92,7 @@
 		</div>
 		<div class="member-panel">
 			<div class="panel-body">
-				<form action="FindId.action" role="form" data-validation="true" accept-charset="UTF-8" method="post" novalidate="novalidate" class="fv-form fv-form-bootstrap">
+				<form name="findId" action="FindId.action" role="form" onsubmit="return check()" data-validation="true" accept-charset="UTF-8" method="post" novalidate="novalidate" class="fv-form fv-form-bootstrap">
 					<button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;">
 					</button>
 					<input name="utf8" type="hidden" value="!">
@@ -110,9 +127,17 @@
 									</div>
 								</div>
 								<div class="btn-wrap">
-								<center><button class="btn-new btn--type-primary btn--width-100" type="submit">아이디 찾기</button></center>
+									<center>
+										<button class="btn-new btn--type-primary btn--width-100" type="submit">아이디 찾기</button><br>
+									</center>
 								</div>
-							</div>
+								<div class="panel-footer">
+									<div class="footer-title">
+										이전 페이지로 돌아갑니다!&nbsp;&nbsp;
+										<a href="LoginForm.action">로그인</a>
+									</div>
+								</div>
+						</div>
 					</form>
 
 				</div>

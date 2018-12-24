@@ -25,15 +25,15 @@
 			<result name="success" type="tiles">FindIdForm</result>
 		</action>
 <!-- 비밀번호 찾기 -->
-	<!-- 	<action name="FindPw" class="member.FindMemberPw">
-			<result name="success" type="tiles">ModifyPw</result>
+		<action name="FindPw" class="member.FindMemberPw">
+			<result name="success" type="tiles">FindPw</result>
 			<result name="error">/member/findPwError.jsp</result>
 		</action>
 		
 		<action name="FindPwForm" class="member.FindMemberPw" method="Form">
 			<result name="success" type="tiles">FindPwForm</result>
 		</action>		
-		
+<!-- 		
 		<action name="ModifyPwForm" class="member.FindMemberPw" method="ModifyPw">
 			<result name="success" type="tiles">ModifyPw</result>
 		</action> -->
@@ -48,6 +48,10 @@
 		
 		<action name="ConfirmId" class="member.JoinMemberIdChk">
 			<result>/member/idCheck.jsp</result>
+		</action>
+		
+		<action name="EmailCheck" class="member.JoinMember" method="Email">
+			<result type="tiles">EmailCheck</result>
 		</action>
 		
 	</package>

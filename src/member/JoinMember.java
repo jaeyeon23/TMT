@@ -34,6 +34,7 @@ public class JoinMember extends ActionSupport{
 	public static Reader reader;
 	private static SqlMapClient sqlMapper;
 	
+	private MemberVO mvo = new MemberVO();
 	private MemberVO paramClass;
 	private MemberVO resultClass;
 	
@@ -49,7 +50,7 @@ public class JoinMember extends ActionSupport{
 	private Date regdate;
 	
 	private String confirmidcheck;
-	//private String confirmemail;
+	private String confirmemail;
 	
 	private Map session;
 
@@ -90,12 +91,12 @@ public class JoinMember extends ActionSupport{
 
 
 	
-	/*public String confirmEmail()throws Exception{
+	public String Email()throws Exception{
 		HttpServletResponse response=ServletActionContext.getResponse();
 		
 		mvo.setEmail(email);
 		
-		confirmemail=(String)sqlMapper.queryForObject("confirmemail",mvo);
+		confirmemail=(String)sqlMapper.queryForObject("Email",mvo);
 		if(confirmemail!=null) {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out=response.getWriter();
@@ -120,21 +121,21 @@ public class JoinMember extends ActionSupport{
 
 		Authenticator auth = new Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("khtour8282@gmail.com", "");//발신자 이메일과 비밀번호 입력
+				return new PasswordAuthentication("khiclass@gmail.com", "");//발신자 이메일과 비밀번호 입력
 			}
 		};
 
 		Session session = Session.getDefaultInstance(props, auth);
 
 		MimeMessage message = new MimeMessage(session);
-		message.setSender(new InternetAddress("khtour8282@gmail.com"));
+		message.setSender(new InternetAddress("khiclass@gmail.com"));
 		message.setSubject("회원가입 이메일 인증 메일입니다.");
 
 		message.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
 		
 		//회원가입폼에서 입력한 정보를 노출되지않게 a태그로 발송
 		//여기를 누르면 해당 값이 가입로직으로 전달됨
-		String confirmUrl = "<a href='http://localhost:8080/khtour/JoinMember.action?email=" + email + "&id=" + id
+		String confirmUrl = "<a href='http://localhost:8080/khtour/JoinForm.action?email=" + email + "&id=" + id
 				+ "&password=" + password + "&name=" + name + "" + "&tel=" + tel + "&admin=5'>여기</a>를 누르시면 회원가입이 완료됩니다.";
 
 		Multipart mp = new MimeMultipart();
@@ -157,7 +158,7 @@ public class JoinMember extends ActionSupport{
 		return SUCCESS;
 		
 		
-	}*/
+	}
 
 	public int getNo() {
 		return no;
