@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
 
@@ -33,8 +34,8 @@ public class AdminHotelWrite extends ActionSupport{
 	private String image2;  
 	private String image3;
 	private String tel;       
-	private String checkin;  
-	private String checkout;
+	private Date checkin;  
+	private Date checkout;
 	private int maxnum; 
 	private int grade;
 	
@@ -200,16 +201,16 @@ public class AdminHotelWrite extends ActionSupport{
 	public void setUploadsContentType(List<String> uploadsContentType) {
 		this.uploadsContentType = uploadsContentType;
 	}
-	public String getCheckin() {
+	public Date getCheckin() {
 		return checkin;
 	}
-	public void setCheckin(String checkin) {
+	public void setCheckin(Date checkin) {
 		this.checkin = checkin;
 	}
-	public String getCheckout() {
+	public Date getCheckout() {
 		return checkout;
 	}
-	public void setCheckout(String checkout) {
+	public void setCheckout(Date checkout) {
 		this.checkout = checkout;
 	}
 	

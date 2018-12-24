@@ -15,6 +15,7 @@
 		
 		<action name="HotelList" class="item.hotel.HotelList">
 			<result name="success" type="tiles">HotelList</result>
+			<result name="input" type="tiles">HotelList</result>
 		</action>
 
 	</package>
