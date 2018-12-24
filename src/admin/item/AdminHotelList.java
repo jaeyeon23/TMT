@@ -27,7 +27,7 @@ public class AdminHotelList extends ActionSupport {
 	private int blockCount = 5; // �� �������� �Խù��� ��
 	private int blockPage = 5; // �� ȭ�鿡 ������ ������ ��
 	private String pagingHtml; // ����¡�� ������ HTML
-	private HotelpagingAction page; // ����¡ Ŭ����
+	private HotelPagingAction page; // ����¡ Ŭ����
 
 	// ������
 	public AdminHotelList() throws IOException {
@@ -44,7 +44,7 @@ public class AdminHotelList extends ActionSupport {
 		totalCount = Hotellist.size(); // ��ü �Խñ��� ��
 
 		// HotelpagingAction ��ü ����.
-		page = new HotelpagingAction(currentPage, totalCount, blockCount, blockPage);
+		page = new HotelPagingAction(currentPage, totalCount, blockCount, blockPage);
 		pagingHtml = page.getPagingHtml().toString();
 
 		// ���� ���������� ������ ������ ���� ��ȣ ����.
@@ -102,10 +102,10 @@ public class AdminHotelList extends ActionSupport {
 		this.pagingHtml = pagingHtml;
 	}
 
-	public HotelpagingAction getPage() {
+	public HotelPagingAction getPage() {
 		return page;
 	}
-	public void setPage(HotelpagingAction page) {
+	public void setPage(HotelPagingAction page) {
 		this.page = page;
 	}
 
