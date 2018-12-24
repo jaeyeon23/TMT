@@ -34,11 +34,12 @@ public class AdminHotelWrite extends ActionSupport{
 	private String image2;  
 	private String image3;
 	private String tel;       
-	private Date checkin;  
-	private Date checkout;
+	private String checkin;  
+	private String checkout;
 	private int maxnum; 
 	private int grade;
 	
+	private StringBuffer image;
 	
 	private List<File> uploads = new ArrayList<File>();
 	private List<String> uploadsFileName = new ArrayList<String>();
@@ -73,13 +74,25 @@ public class AdminHotelWrite extends ActionSupport{
 		paramClass.setCheckout(getCheckout());
 		paramClass.setMaxnum(getMaxnum());
 		paramClass.setGrade(0);
-		paramClass.setImage1(getUploadsFileName().get(0));
-		paramClass.setImage2(getUploadsFileName().get(1));
-		paramClass.setImage3(getUploadsFileName().get(2));
-		for(int i=0;i<uploads.size();i++) {
-			File destFile = new File(fileUploadPath + getUploadsFileName().get(i));
-			FileUtils.copyFile(getUploads().get(i), destFile);
+		
+
+		if(uploads !=null) {
+			image = new StringBuffer();
+			for(int i=0;i<uploads.size();i++) {
+				if(i==0) {
+					paramClass.setImage1(getUploadsFileName().get(i));
+				}
+				else if(i!=uploads.size()-1)
+					image.append(getUploadsFileName().get(i)).append(",");
+				else
+					image.append(getUploadsFileName().get(i));
 				
+				File destFile = new File(fileUploadPath + getUploadsFileName().get(i));
+				FileUtils.copyFile(getUploads().get(i), destFile);
+					
+			}
+			paramClass.setImage2(image.toString());
+			
 		}
 		sqlMapper.insert("insertHotel",paramClass);
 		
@@ -201,16 +214,16 @@ public class AdminHotelWrite extends ActionSupport{
 	public void setUploadsContentType(List<String> uploadsContentType) {
 		this.uploadsContentType = uploadsContentType;
 	}
-	public Date getCheckin() {
+	public String getCheckin() {
 		return checkin;
 	}
-	public void setCheckin(Date checkin) {
+	public void setCheckin(String checkin) {
 		this.checkin = checkin;
 	}
-	public Date getCheckout() {
+	public String getCheckout() {
 		return checkout;
 	}
-	public void setCheckout(Date checkout) {
+	public void setCheckout(String checkout) {
 		this.checkout = checkout;
 	}
 	

@@ -15,8 +15,8 @@ public class HotelVO{
 	private String image3;  
 	private Date reg_date;   //등록일
 	private String tel;       //전화번호
-	private Date checkin;    //체크인
-	private Date checkout;   //체크아웃
+	private String checkin;    //체크인
+	private String checkout;   //체크아웃
 	private int maxnum; 	//인원수
 	private int grade;	// 별점
 	
@@ -117,18 +117,18 @@ public class HotelVO{
 	}
 	
 	//체크인
-	public Date getCheckin() {
+	public String getCheckin() {
 		return checkin;
 	}
-	public void setCheckin(Date checkin) {
+	public void setCheckin(String checkin) {
 		this.checkin = checkin;
 	}
 	
 	//체크아웃
-	public Date getCheckout() {
+	public String getCheckout() {
 		return checkout;
 	}
-	public void setCheckout(Date checkout) {
+	public void setCheckout(String checkout) {
 		this.checkout = checkout;
 	}
 	
