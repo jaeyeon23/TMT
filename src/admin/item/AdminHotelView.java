@@ -2,6 +2,8 @@ package admin.item;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -16,6 +18,9 @@ public class AdminHotelView extends ActionSupport{
 	
 	private HotelVO paramClass;
 	private HotelVO resultClass;
+	private String path = "/TMT/upload/hotel/";
+
+	private List<String> imageList = new ArrayList<String>();
 	
 	private int currentPage;
 	
@@ -32,9 +37,12 @@ public class AdminHotelView extends ActionSupport{
 		paramClass = new HotelVO();
 		paramClass.setNo(getNo());
 		
-		
 		resultClass = (HotelVO)sqlMapper.queryForObject("selectOneH",getNo());
+	
+		String[] image  = resultClass.getImage2().split(",");
 		
+		for(String a : image)
+			imageList.add(path+a);
 		
 		return SUCCESS;
 	}
@@ -61,6 +69,12 @@ public class AdminHotelView extends ActionSupport{
 	}
 	public void setNo(int no) {
 		this.no = no;
+	}
+	public List<String> getImageList() {
+		return imageList;
+	}
+	public void setImageList(List<String> imageList) {
+		this.imageList = imageList;
 	}
 	
 	

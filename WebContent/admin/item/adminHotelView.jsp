@@ -30,9 +30,13 @@
 					
 						<div class="offer-container__inner-bar--wrapper">
 							<div class="offer-container__inner-bar--sub-wrapper">
-								<p class="offer-container__inner-bar--country"><s:property value="%{resultClass.country}"/> / <s:property value="%{resultClass.region}"/></p>
+								<p class="offer-container__inner-bar--country">
+									<s:property value="%{resultClass.country}"/> / <s:property value="%{resultClass.region}"/> 
+									&nbsp;&nbsp;&nbsp;&nbsp; TEL.<s:property value="%{resultClass.tel}"/>
+								</p>
 							</div>
 							<div class="starRating starRating--m starRating--blue starRating--">
+							<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
 							</div>
 						</div>	
 						
@@ -46,15 +50,13 @@
 						</div>
 						
 					</div>
-					<div class="offer-container__introduction--wrapper">
-						<img class="offer-container__introduction__image" src="%{resultClass.image2}" alt="introduction">
-					</div>
-					<div class="offer-container__introduction--wrapper">
-						<img class="offer-container__introduction__image" src="https://d2ur7st6jjikze.cloudfront.net/offer_descriptive_images/30582/7109_medium_1524639972.jpg?1524639972" alt="introduction">
-					</div>
-					<div class="offer-container__introduction--wrapper">
-						<img class="offer-container__introduction__image" src="https://d2ur7st6jjikze.cloudfront.net/offer_descriptive_images/30582/7109_medium_1524639972.jpg?1524639972" alt="introduction">
-					</div>
+					
+					<s:iterator value="imageList" status="stat">
+						<div class="offer-container__introduction--wrapper">
+							<img class="offer-container__introduction__image" src="<s:property value="imageList[#stat.index]"/>" alt="introduction">
+						</div>
+					</s:iterator>
+					
 					<div class="with-more " style="max-height: 250px;">
 						<div class="offer-container__service">
 							<p class="offer-container__service--content"><s:property value="%{resultClass.content}"/></p>
