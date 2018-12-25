@@ -44,7 +44,7 @@ public class AdminHotelWrite extends ActionSupport{
 	private List<File> uploads = new ArrayList<File>();
 	private List<String> uploadsFileName = new ArrayList<String>();
 	private List<String> uploadsContentType = new ArrayList<String>();
-	private String fileUploadPath = "/TMT/upload/hotel/"; 
+	private String fileUploadPath = "C:\\Java\\App\\TMT\\WebContent\\upload\\hotel\\"; 
 	
 	
 	public AdminHotelWrite() throws IOException {
@@ -87,7 +87,7 @@ public class AdminHotelWrite extends ActionSupport{
 				else
 					image.append(getUploadsFileName().get(i));
 				
-				File destFile = new File(fileUploadPath + getUploadsFileName().get(i)).getAbsoluteFile();
+				File destFile = new File(fileUploadPath + getUploadsFileName().get(i));
 				FileUtils.copyFile(getUploads().get(i), destFile);
 				
 				System.out.println(destFile.toString());
