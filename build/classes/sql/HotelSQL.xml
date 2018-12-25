@@ -44,7 +44,10 @@
 		</select>
 		
 		<select id="selectOneH" resultMap="boardhotel" parameterClass="int">
-			<include refid="select-allH" />
+			<!-- <include refid="select-allH" /> -->
+			select no,name,country,region,readcount,tel,grade,maxnum,
+			reg_date,image1,image2,image3,to_char(checkin,'yyyy-mm-dd') as checkin,
+			to_char( checkout,'yyyy-mm-dd' ) as checkout, price , content from hotel
 			<include refid="where-noH" />
 		</select>
 
