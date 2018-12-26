@@ -2,66 +2,69 @@ package item.hotel;
 
 public class HotelpagingAction {
 
-	private int currentPage;   // ÇöÀçÆäÀÌÁö
-	private int totalCount;	 // ÀüÃ¼ °Ô½Ã¹° ¼ö
-	private int totalPage;	 // ÀüÃ¼ ÆäÀÌÁö ¼ö
-	private int blockCount;	 // ÇÑ ÆäÀÌÁöÀÇ  °Ô½Ã¹°ÀÇ ¼ö
-	private int blockPage;	 // ÇÑ È­¸é¿¡ º¸¿©ÁÙ ÆäÀÌÁö ¼ö
-	private int startCount;	 // ÇÑ ÆäÀÌÁö¿¡¼­ º¸¿©ÁÙ °Ô½Ã±ÛÀÇ ½ÃÀÛ ¹øÈ£
-	private int endCount;	 // ÇÑ ÆäÀÌÁö¿¡¼­ º¸¿©ÁÙ °Ô½Ã±ÛÀÇ ³¡ ¹øÈ£
-	private int startPage;	 // ½ÃÀÛ ÆäÀÌÁö
-	private int endPage;	 // ¸¶Áö¸· ÆäÀÌÁö
+	private int currentPage;   // í˜„ì¬í˜ì´ì§€
+	private int totalCount;	 // ì „ì²´ ê²Œì‹œë¬¼ ìˆ˜
+	private int totalPage;	 // ì „ì²´ í˜ì´ì§€ ìˆ˜
+	private int blockCount;	 // í•œ í˜ì´ì§€ì˜  ê²Œì‹œë¬¼ì˜ ìˆ˜
+	private int blockPage;	 // í•œ í™”ë©´ì— ë³´ì—¬ì¤„ í˜ì´ì§€ ìˆ˜
+	private int startCount;	 // í•œ í˜ì´ì§€ì—ì„œ ë³´ì—¬ì¤„ ê²Œì‹œê¸€ì˜ ì‹œì‘ ë²ˆí˜¸
+	private int endCount;	 // í•œ í˜ì´ì§€ì—ì„œ ë³´ì—¬ì¤„ ê²Œì‹œê¸€ì˜ ë ë²ˆí˜¸
+	private int startPage;	 // ì‹œì‘ í˜ì´ì§€
+	private int endPage;	 // ë§ˆì§€ë§‰ í˜ì´ì§€
 
 	private StringBuffer pagingHtml;
+	
+	private String hotelname;
 
-	// ÆäÀÌÂ¡ »ı¼ºÀÚ
+	// ìƒì„±ì
 	public HotelpagingAction(int currentPage, int totalCount, int blockCount,
-			int blockPage) {
+			int blockPage, String hotelname) {
 
 		this.blockCount = blockCount;
 		this.blockPage = blockPage;
 		this.currentPage = currentPage;
 		this.totalCount = totalCount;
+		this.hotelname = hotelname;
 
-		// ÀüÃ¼ ÆäÀÌÁö ¼ö
+		//ì „ì²´ í˜ì´ì§€ ìˆ˜
 		totalPage = (int) Math.ceil((double) totalCount / blockCount);
 		if (totalPage == 0) {
 			totalPage = 1;
 		}
 
-		// ÇöÀç ÆäÀÌÁö°¡ ÀüÃ¼ ÆäÀÌÁö ¼öº¸´Ù Å©¸é ÀüÃ¼ ÆäÀÌÁö ¼ö·Î ¼³Á¤
+		// í˜„ì¬ í˜ì´ì§€ê°€ ì „ì²´ í˜ì´ì§€ ìˆ˜ë³´ë‹¤ í¬ë©´ ì „ì²´ í˜ì´ì§€ ìˆ˜ë¡œ ì„¤ì •
 		if (currentPage > totalPage) {
 			currentPage = totalPage;
 		}
 
-		// ÇöÀç ÆäÀÌÁöÀÇ Ã³À½°ú ¸¶Áö¸· ±ÛÀÇ ¹øÈ£ °¡Á®¿À±â.
+		//í˜„ì¬ í˜ì´ì§€ì˜ ì²˜ìŒê³¼ ë§ˆì§€ë§‰ ê¸€ì˜ ë²ˆí˜¸ ê°€ì ¸ì˜¤ê¸°
 		startCount = (currentPage - 1) * blockCount;
 		endCount = startCount + blockCount - 1;
 
-		// ½ÃÀÛ ÆäÀÌÁö¿Í ¸¶Áö¸· ÆäÀÌÁö °ª ±¸ÇÏ±â.
+		//ì‹œì‘ í˜ì´ì§€ì™€ ë§ˆì§€ë§‰ í˜ì´ì§€ ê°’ êµ¬í•˜ê¸°.
 		startPage = (int) ((currentPage - 1) / blockPage) * blockPage + 1;
 		endPage = startPage + blockPage - 1;
 
-		// ¸¶Áö¸· ÆäÀÌÁö°¡ ÀüÃ¼ ÆäÀÌÁö ¼öº¸´Ù Å©¸é ÀüÃ¼ ÆäÀÌÁö ¼ö·Î ¼³Á¤
+		//ë§ˆì§€ë§‰ í˜ì´ì§€ê°€ ì „ì²´ í˜ì´ì§€ ìˆ˜ë³´ë‹¤ í¬ë©´ ì „ì²´ í˜ì´ì§€ ìˆ˜ë¡œ ì„¤ì •
 		if (endPage > totalPage) {
 			endPage = totalPage;
 		}
 
-		// ÀÌÀü block ÆäÀÌÁö
+		// ì´ì „ block í˜ì´ì§€
 		pagingHtml = new StringBuffer();
 		
 		if (currentPage > blockPage) {
-
-			pagingHtml.append("<a href=HotelList.action?currentPage="
-
-					+ (startPage - 1) + ">");
-			pagingHtml.append("ÀÌÀü");
+			if(hotelname != "")
+				pagingHtml.append("<a href=HotelList.action?currentPage=" + (startPage - 1) + "&hotelname="+hotelname+">");
+			else
+				pagingHtml.append("<a href=HotelList.action?currentPage=" + (startPage - 1) + ">");
+			pagingHtml.append("ì´ì „");
 			pagingHtml.append("</a>");
 		}
 
 		pagingHtml.append("&nbsp;|&nbsp;");
 
-		//ÆäÀÌÁö ¹øÈ£.ÇöÀç ÆäÀÌÁö´Â »¡°£»öÀ¸·Î °­Á¶ÇÏ°í ¸µÅ©¸¦ Á¦°Å.
+		//í˜ì´ì§€ ë²ˆí˜¸.í˜„ì¬ í˜ì´ì§€ëŠ” ë¹¨ê°„ìƒ‰ìœ¼ë¡œ ê°•ì¡°í•˜ê³  ë§í¬ë¥¼ ì œê±°.
 		for (int i = startPage; i <= endPage; i++) {
 			if (i > totalPage) {
 				break;
@@ -71,11 +74,10 @@ public class HotelpagingAction {
 				pagingHtml.append(i);
 				pagingHtml.append("</font></b>");
 			} else {
-				pagingHtml
-
-						.append("&nbsp;<a href='HotelList.action?currentPage=");
-
+				pagingHtml.append("&nbsp;<a href='HotelList.action?currentPage=");
 				pagingHtml.append(i);
+				if(hotelname != "")
+					pagingHtml.append("&hotelname="+hotelname);
 				pagingHtml.append("'>");
 				pagingHtml.append(i);
 				pagingHtml.append("</a>");
@@ -86,13 +88,14 @@ public class HotelpagingAction {
 
 		pagingHtml.append("&nbsp;&nbsp;|&nbsp;&nbsp;");
 
-		// ´ÙÀ½ block ÆäÀÌÁö
+		//ë‹¤ìŒ block í˜ì´ì§€
 		if (totalPage - startPage >= blockPage) {
-
-			pagingHtml.append("<a href=HotelList.action?currentPage="
-
-					+ (endPage + 1) + ">");
-			pagingHtml.append("´ÙÀ½");
+			pagingHtml.append("&nbsp;<a href=HotelList.action?currentPage=");
+			pagingHtml.append((endPage+1));
+			if(hotelname != "")
+				pagingHtml.append("&hotelname="+hotelname);
+			pagingHtml.append("'>");
+			pagingHtml.append("ë‹¤ìŒ");
 			pagingHtml.append("</a>");
 		}
 	}
@@ -176,4 +179,13 @@ public class HotelpagingAction {
 	public void setPagingHtml(StringBuffer pagingHtml) {
 		this.pagingHtml = pagingHtml;
 	}
+	
+	public String getHotelname() {
+		return hotelname;
+	}
+	public void setHotelname(String hotelname) {
+		this.hotelname = hotelname;
+	}
 }
+
+

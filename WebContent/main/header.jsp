@@ -9,19 +9,7 @@
 	<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 	<link href="./css/bootstrap.css" rel="stylesheet">
 	<link href="./css/bootstrap-theme.css" rel="stylesheet">
-	<script src="./js/bootstrap.js" type="text/javascript"></script>
-	
-	<!-- 가격표 슬라이더 -->
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-    
-	<!-- 달력 -->
-	<link rel="stylesheet" href="./calendar/jquery-ui.min.css">
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="./calendar/jquery-ui.min.js"></script>
-	<script src="./calendar/datepicker-ko.js"></script>
-	
+	<script src="js/bootstrap.js" type="text/javascript"></script>
 	<style>
 		.menu_home{
 			border-bottom: 3px solid #51abf3!important;
@@ -117,7 +105,25 @@
 			border-color: dodgerBlue;
 			box-shadow: 0 0 8px 0 dodgerBlue;
 		}
-	</style>
+.ProfileNavItems {
+    height: 40px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+.ProfileNavItems__button:link, .ProfileNavItems__button:visited {
+    color: #666d75;
+    font-size:20px;
+}
+.ProfileNavItems__item:not(:last-child) {
+    margin-right: 32px;
+}
+.ProfileNavItems__button--outline:link, .ProfileNavItems__button--outline:visited {
+    color: #2b96ed;
+}
+
+</style>
 </head>
 <body>
 	<!-- header -->
@@ -133,11 +139,19 @@
 			</div>
 			<!-- headerTop_left -->
 			<!-- headerTop_right -->
-			<div class="headerTop_right">
-				<a href="#">로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<!-- headerTop_right_membership -->
-				<a href="#"><div class="headerTop_right_membership">회원가입</div></a>
-				<!-- headerTop_right_membership -->
+<!-- 			<div class="headerTop_right">
+				<a href="Login.action">로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				headerTop_right_membership
+				<a href="Join.action"><div class="headerTop_right_membership">회원가입</div></a>
+				headerTop_right_membership
+			</div> -->
+			<div class="ProfileNavItems ">
+				<div class="ProfileNavItems__item gtm-gnb-signin">
+					<a href="LoginForm.action " class="ProfileNavItems__button" >로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</div>
+				<div class="ProfileNavItems__item gtm-gnb-signup">
+					<a href="JoinForm.action" class="ProfileNavItems__button ProfileNavItems__button--outline" >회원가입</a>
+				</div>
 			</div>
 			<!-- headerTop_right -->
 		</div>
@@ -149,6 +163,7 @@
 			<li><div class="menu_tour"><a href="TourList.action">투어&티켓</a></div></li>
 			<li><div class="menu_air"><a href="AirList.action">항공권</a></div></li>
 			<li><div class="menu_hotel"><a href="HotelList.action">숙소</a></div></li>
+			<li><div class="menu_hotel"><a href="NoticeList.action">고객센터</a></div></li>
 		</ul>
 	</div>
 	<!-- menu -->

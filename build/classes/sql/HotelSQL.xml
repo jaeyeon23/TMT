@@ -2,7 +2,6 @@
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
 	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 <sqlMap>
-
 	<typeAlias alias="hotel" type="item.hotel.HotelVO" />
 	<!-- 리절트 맵 정의 -->
 	<resultMap id="boardhotel" class="hotel">
@@ -21,7 +20,7 @@
 		<result property="checkin" column="checkin" />
 		<result property="checkout" column="checkout" />
 		<result property="maxnum" column="maxnum" />
-		<!-- <result property="grade" column="grade" /> -->
+		<result property="grade" column="grade" /> 
 	</resultMap>
 	
 	<!-- 공통으로 사용할 select 절 정의 -->
@@ -33,7 +32,11 @@
 	 	<sql id="where-noH">
 			WHERE no = #no#
 		</sql>
-	
+		
+	    <sql id = "select-search">
+	        WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%')
+	    </sql>
+	    
 		<!-- select 쿼리문 정의 -->
 		<select id="selectAllH" resultMap="boardhotel">
 			<include refid="select-allH" />
@@ -41,10 +44,62 @@
 		</select>
 		
 		<select id="selectOneH" resultMap="boardhotel" parameterClass="int">
-			<include refid="select-allH" />
+			<!-- <include refid="select-allH" /> -->
+			select no,name,country,region,readcount,tel,grade,maxnum,
+			reg_date,image1,image2,image3,to_char(checkin,'yyyy-mm-dd') as checkin,
+			to_char( checkout,'yyyy-mm-dd' ) as checkout, price , content from hotel
 			<include refid="where-noH" />
 		</select>
+
+<!-- 검색로직 추가시작 -->
+    <!-- 기본 -->	
+    <select id="selectAllHH" resultMap="boardhotel">
+			<include refid="select-allH" />
+			WHERE name like '%'||#hotelname#||'%' and maxnum >= #number#
+	</select>
+		
+	<select id="Search_Hotel" resultMap="boardhotel" parameterClass="hotel">
+		<include refid="select-allH" />
+		<include refid="select-search"/>
+		<![CDATA[     
+		and checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number#
+		]]>
+	</select> 
+	
+    <!-- 인기순정렬 -->
+	<select id="Search_Hotel_read" parameterClass="string" resultMap="boardhotel">
+		<include refid="select-allH" />
+		<include refid="select-search"/>
+		<![CDATA[     
+		and checkin <= #checkin# and checkout >= #checkout# and maxnum >= #maxnum# order by readcount desc
+		]]>		
+	</select>
+	
+    <!-- 가격순정렬 -->
+	<select id="Search_Hotel_price" parameterClass="string" resultMap="boardhotel">
+		<include refid="select-allH" />
+		<include refid="select-search"/>
+		<![CDATA[     
+		and checkin <= #checkin# and checkout >= #checkout# and maxnum >= #maxnum# order by price asc
+		]]>		
+	</select>
+	
+    <!-- 별점순정렬 -->
+	<select id="Search_Hotel_date" parameterClass="string" resultMap="boardhotel">
+		<include refid="select-allH" />
+		<include refid="select-search"/>
+		<![CDATA[     
+		and checkin <= #checkin# and checkout >= #checkout# and maxnum >= #maxnum# order by grade desc
+		]]>		
+	</select>
+	
+	<insert id="insertHotel" parameterClass="hotel">
+		insert into hotel(no, name, price, content, country, region, readcount, image1, image2, image3, reg_date, tel, maxnum , checkin , checkout , grade ) 
+		values(seq_hotelnum.nextval, #name#, #price#, #content#, #country#, #region#, 0, #image1#, #image2#,#image3#, sysdate, #tel#,#maxnum#,#checkin#,#checkout#,#grade#)
+		
+	</insert>
 	
 
+<!-- 검색로직 끝 -->
 
 </sqlMap>

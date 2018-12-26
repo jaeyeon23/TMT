@@ -3,24 +3,37 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link href="../css/bootstrap.css" rel="stylesheet">
+<link href="../css/bootstrap-theme.css" rel="stylesheet">
+<script src="../js/bootstrap.js" type="text/javascript"></script>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>계정 삭제</title>
 </head>
 <body>
-<table width="960" cellspacing="0" cellpadding="0" border="0" align="center">
+<div style="padding:150px;"> 
+
+<table align="center">
 <tr>
 <td colspan=2>
 <p align="center">
 <form action="Main.action" method="post">
-
-<table align="center" border="1" width="380" cellpadding="0" cellspacing="0">
+ 
+<table class="table table-bordered"  align="center"  width="70%">
 	<tr>
-		<td align="center" colspan="2">
+		<th align="center" colspan="2" >
 			<font size="4"><b>회원 탈퇴</b></font>
+		</th>
+	</tr>
+	<tr>
+		<td align="center" width="200">
+		<font size="2">아이디</font></td>
+		<td>
+		<input type="hidden" name="id" value="<s:property value="#session.id"/>"/>
 		</td>
 	</tr>
 	<tr>
-		<td align="center" height="35" width="125">
+		<td align="center" width="200">
 		<font size="2">비밀번호</font></td>
 		<td>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -28,7 +41,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td align="center" colspan="2" height="35">
+		<td align="center" colspan="2">
 			<input type="submit" value="회원 탈퇴"/>
 			<input type="reset" value="취 소" />
 		</td>
@@ -38,6 +51,6 @@
 </td>
 </tr>
 </table>
-
+</div>
 </body>
 </html>

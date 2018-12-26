@@ -4,55 +4,96 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 import com.opensymphony.xwork2.ActionSupport;
+
+import item.hotel.*;
+
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient; 
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
-import item.hotel.HotelpagingAction;
 
 public class HotelList extends ActionSupport {
 
-	public static Reader reader; // ÆÄÀÏ ½ºÆ®¸²À» À§ÇÑ reader.
-	public static SqlMapClient sqlMapper; // SqlMapClient API¸¦ »ç¿ëÇÏ±â À§ÇÑ sqlMapper °´Ã¼.
+	public static Reader reader;	//íŒŒì¼ ìŠ¤íŠ¸ë¦¼ì„ ìœ„í•œ reader.
+	public static SqlMapClient sqlMapper;	//SqlMapClient APIë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•œ sqlMapper ê°ì²´.
 
 	private List<HotelVO> Hotellist = new ArrayList<HotelVO>();
+	private HotelVO hvo = new HotelVO();
 	
-	// private HotelVO hvo = new HotelVO();
+	private String hotelname;
+	private int number;
+	private String inDay, outDay;
+	
+	//	private int num = 0;
 
-	private int currentPage = 1; // ÇöÀç ÆäÀÌÁö
-	private int totalCount; // ÃÑ °Ô½Ã¹°ÀÇ ¼ö
-	private int blockCount = 10; // ÇÑ ÆäÀÌÁöÀÇ °Ô½Ã¹°ÀÇ ¼ö
-	private int blockPage = 5; // ÇÑ È­¸é¿¡ º¸¿©ÁÙ ÆäÀÌÁö ¼ö
-	private String pagingHtml; // ÆäÀÌÂ¡À» ±¸ÇöÇÑ HTML
-	private HotelpagingAction page; // ÆäÀÌÂ¡ Å¬·¡½º
+	private int currentPage = 1;	//í˜„ì¬ í˜ì´ì§€
+	private int totalCount; 		// ì´ ê²Œì‹œë¬¼ì˜ ìˆ˜
+	private int blockCount = 5;	// í•œ í˜ì´ì§€ì˜  ê²Œì‹œë¬¼ì˜ ìˆ˜
+	private int blockPage = 5; 	// í•œ í™”ë©´ì— ë³´ì—¬ì¤„ í˜ì´ì§€ ìˆ˜
+	private String pagingHtml; 	//í˜ì´ì§•ì„ êµ¬í˜„í•œ HTML
+	private HotelpagingAction page; 	// í˜ì´ì§• í´ë˜ìŠ¤
 
-	// »ı¼ºÀÚ
+
+	// ìƒì„±ì
 	public HotelList() throws IOException {
-		reader = Resources.getResourceAsReader("sqlMapConfig.xml"); // sqlMapConfig.xml ÆÄÀÏÀÇ ¼³Á¤³»¿ëÀ» °¡Á®¿Â´Ù.
-		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader); // sqlMapConfig.xmlÀÇ ³»¿ëÀ» Àû¿ëÇÑ sqlMapper °´Ã¼ »ı¼º.
+		reader = Resources.getResourceAsReader("sqlMapConfig.xml"); // sqlMapConfig.xml íŒŒì¼ì˜ ì„¤ì •ë‚´ìš©ì„ ê°€ì ¸ì˜¨ë‹¤.
+		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader); // sqlMapConfig.xmlì˜ ë‚´ìš©ì„ ì ìš©í•œ sqlMapper ê°ì²´ ìƒì„±.
 		reader.close();
 	}
 
-	// °Ô½ÃÆÇ ¸®½ºÆ® ¾×¼Ç
+	//ê²Œì‹œíŒ LIST ì•¡ì…˜
 	public String execute() throws Exception {
-		// ¸ğµç ±ÛÀ» °¡Á®¿Í È£ÅÚ ¸®½ºÆ®¿¡ ³ÖÀ½
+		
+		if(getHotelname() != null) {
+			return search();
+		}
+		// ëª¨ë“ ê¸€ì„ ê°€ì ¸ì™€ listì— ë„£ëŠ”ë‹¤
 		Hotellist = sqlMapper.queryForList("selectAllH");
 
-		totalCount = Hotellist.size(); // ÀüÃ¼ °Ô½Ã±ÛÀÇ ¼ö
+		totalCount = Hotellist.size(); // ì „ì²´ê¸€ ê°œìˆ˜ë¥¼ êµ¬í•œë‹¤.
 
-		// HotelpagingAction °´Ã¼ »ı¼º.
-		page = new HotelpagingAction(currentPage, totalCount, blockCount, blockPage);
+		// HotelpagingAction ê°ì²´ìƒì„±
+		page = new HotelpagingAction(currentPage, totalCount, blockCount, blockPage, "");
 		pagingHtml = page.getPagingHtml().toString();
 
-		// ÇöÀç ÆäÀÌÁö¿¡¼­ º¸¿©ÁÙ ¸¶Áö¸· ±ÛÀÇ ¹øÈ£ ¼³Á¤.
+		//í˜„ì¬ í˜ì´ì§€ì—ì„œ ë³´ì—¬ì¤„ ë§ˆì§€ë§‰ ê¸€ì˜ ë²ˆí˜¸ ì„¤ì •.
 		int lastCount = totalCount;
-		// lastCount¸¦ +1 ¹øÈ£·Î ¼³Á¤.
+		// lastCountï¿½ï¿½ +1 ë²ˆí˜¸ë¡œ ì„¤ì •
 		if (page.getEndCount() < totalCount)
 			lastCount = page.getEndCount() + 1;
 
-		// ÀüÃ¼ ¸®½ºÆ®¿¡¼­ ÇöÀç ÆäÀÌÁö¸¸Å­ÀÇ ¸®½ºÆ®¸¸ °¡Á®¿Â´Ù.
+		// ì „ì²´ ë¦¬ìŠ¤íŠ¸ì—ì„œ í˜„ì¬ í˜ì´ì§€ë§Œí¼ì˜ ë¦¬ìŠ¤íŠ¸ë§Œ ê°€ì ¸ì˜¨ë‹¤.
+		Hotellist = Hotellist.subList(page.getStartCount(), lastCount);
+
+		return SUCCESS;
+	}
+	
+	public String search() throws Exception{
+		
+		
+		// ê²€ìƒ‰ ë‚´ìš©ì—ë”°ë¥¸ ê¸€ì„ listë¥¼ ë„£ëŠ”ë‹¤
+		hvo.setHotelname(getHotelname());
+		hvo.setInDay(getInDay());
+		hvo.setOutDay(getOutDay());
+		hvo.setNumber(getNumber());
+		Hotellist = sqlMapper.queryForList("Search_Hotel", hvo);
+		
+		totalCount = Hotellist.size(); // ì „ì²´ ê¸€ì˜ ê°œìˆ˜
+
+		// HotelpagingAction ê°ì²´ìƒì„±
+		page = new HotelpagingAction(currentPage, totalCount, blockCount, blockPage, hotelname);
+		pagingHtml = page.getPagingHtml().toString();
+
+		// í˜„ì¬ í˜ì´ì§€ì—ì„œ ë³´ì—¬ì¤„ ë§ˆì§€ë§‰ ê¸€ì˜ ë²ˆí˜¸ ì„¤ì •.
+		int lastCount = totalCount;
+		// lastCountï¿½ï¿½ +1 ë²ˆí˜¸ë¡œ ì„¤ì •
+		if (page.getEndCount() < totalCount)
+			lastCount = page.getEndCount() + 1;
+
+		// ì „ì²´ ë¦¬ìŠ¤íŠ¸ì—ì„œ í˜„ì¬ í˜ì´ì§€ë§Œí¼ì˜ ë¦¬ìŠ¤íŠ¸ë§Œ ê°€ì ¸ì˜¨ë‹¤.
 		Hotellist = Hotellist.subList(page.getStartCount(), lastCount);
 
 		return SUCCESS;
@@ -107,7 +148,42 @@ public class HotelList extends ActionSupport {
 	public void setPage(HotelpagingAction page) {
 		this.page = page;
 	}
-
+	
+	/*ê²€ìƒ‰ */
+	//ìˆ™ì†Œ,ì§€ì—­,,,
+	public String getHotelname() {
+		return hotelname;
+	}
+	public void setHotelname(String hotelname) {
+		this.hotelname = hotelname;
+	}
+	//ì¸ì›ìˆ˜
+	public int getNumber() {
+		return number;
+	}
+	public void setNumber(int number) {
+		this.number = number;
+	}
+	//ì²´í¬ì¸,ì•„ì›ƒ
+	public String getInDay() {
+		return inDay;
+	}
+	public void setInDay(String inDay) {
+		this.inDay = inDay;
+	}
+	public String getOutDay() {
+		return outDay;
+	}
+	public void setOutDay(String outDay) {
+		this.outDay = outDay;
+	}
+	
+	public HotelVO getHvo() {
+		return hvo;
+	}
+	public void setHvo(HotelVO hvo) {
+		this.hvo = hvo;
+	}
 }
 	
 	

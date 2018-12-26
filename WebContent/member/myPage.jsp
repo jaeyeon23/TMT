@@ -1,15 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<!DOCTYPE html>
 <html>
 <head>
-<style>
-body{
-    background-color:#EFEFEF;
-}
+<link href="../css/bootstrap.css" rel="stylesheet">
+<link href="../css/bootstrap-theme.css" rel="stylesheet">
+<script src="../js/bootstrap.js" type="text/javascript"></script>
 
+<script>
+function removeCheck() {
 
-</style>
+	 if (confirm("정말 계정을 삭제하시겠습니까??") == true){    //확인
+
+	    location.href="DeleteMember.action";
+
+	 }else{   //취소
+
+	    location.href="MyPage.action";
+
+	 }
+
+	}
+</script>
+
+<meta charset="UTF-8">
 <title>마이페이지</title>
 </head>
 <body>
@@ -17,42 +33,44 @@ body{
 <h2>프로필 관리</h2>
 </div>
 <div class="mypage">
-<table width="80%" height="80%" width="40%" align="center" cellspacing="0" cellpadding="0"  >
 
+<table size="80%" height="80%" width="40%" align="center" cellspacing="0" cellpadding="0" border=1px solid="#444444;">
+
+
+<form action="ModifyMember.action" name="Modify" method="post" >
 <tr>
 <td align="right" bgcolor="white" height="20">
-  <input type="button" onclick="javascript:window.location='modify.jsp'" value="편집"/>
+<button type="submit"class="btn btn-default" align="right">편집</button>
   </td>
   </tr>
+  </form>
   <tr>
     <td align="center" bgcolor="white" height="70">
-    <img width=60 height=60></td>
+    <img width=60 height=60 >${image }</td>
   </tr>
+  
  <tr>
-  <td bgcolor="white"height="40">이름&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;홍길동</td>
+  <td align="left" bgcolor="white"height="40"><strong>이름</strong>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;${id }</td>
   </tr>
    <tr>
-  <td bgcolor="white"height="40">이메일&emsp;&emsp;&emsp;&emsp;&emsp;www.naver.com</td>
+  <td align="left" bgcolor="white"height="40"><strong>이메일</strong>&emsp;&emsp;&emsp;&emsp;&emsp;${email }</td>
   </tr>
    <tr>
-  <td bgcolor="white" height="40">연락처&emsp;&emsp;&emsp;&emsp;&emsp;132-456-789</td>
+  <td align="left" bgcolor="white" height="40"><strong>연락처</strong>&emsp;&emsp;&emsp;&emsp;&emsp;${tel }</td>
   </tr>
    <tr>
-  <td bgcolor="white" height="40">비밀번호&emsp;&emsp;&emsp;&emsp;&emsp;*******</td>
+  <td align="left" bgcolor="white" height="40"><strong>비밀번호</strong>&emsp;&emsp;&emsp;&emsp;&emsp;${password }</td>
   </tr>
    <tr>
-  <td bgcolor="white" height="60">마켓팅수신동의&nbsp;&nbsp;&nbsp;e-mail:수신거부<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sms:수신거부</td>
+  <td align="left" bgcolor="white" height="60"><strong>마켓팅수신동의</strong>&nbsp;&nbsp;&nbsp;e-mail:수신거부<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sms:수신거부</td>
   </tr>
 </table>
 </div>
-<form action="DeleteMemberCheck.jsp" name="Mdel" method="post">
- <table align="center">
-  <tr>
-   <td align="center">
-     <input type="submit" value="계정삭제" onclick="alert('계정을 삭제하시겠습니까?')">
-   </td>
-  </tr>
-</table>
-</form>
+<br><br>
+<div align="center">
+<!-- <form action="DeleteMember.action" name="Mdel" method="post">-->
+     <button type="submit" class="btn btn-primary" onclick="removeCheck()">계정삭제</button><br><br>
+    
+</form></div>
 </body>
 </html>
