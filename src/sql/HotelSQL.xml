@@ -42,9 +42,6 @@
 			<include refid="select-allH" />
 			ORDER BY NO DESC
 		</select>
-<<<<<<< HEAD
-
-=======
 		
 		<select id="selectOneH" resultMap="boardhotel" parameterClass="int">
 			<!-- <include refid="select-allH" /> -->
@@ -53,7 +50,7 @@
 			to_char( checkout,'yyyy-mm-dd' ) as checkout, price , content from hotel
 			<include refid="where-noH" />
 		</select>
->>>>>>> iydown
+
 
 <!-- 검색로직 추가시작 -->
     <!-- 지역검색 -->	
