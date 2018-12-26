@@ -1,0 +1,39 @@
+#tuor_body{
+   width: 1200px;
+   height: 1600px;
+   background-color: red;
+}
+#sideBar{
+   float: left;
+   width: 300px;
+   height: 1500px;
+   background-color: blue;
+   margin: 20px 12px;
+}
+#sideMenu{
+   float: right;
+   width: 200px;
+   height: 1500px;
+   background-color: pink;
+  
+}
+#tourList{
+	float: right;
+   width: 850px;
+   height: 1500px;
+   background-color: yellow;
+   margin: 20px 12px;
+}
+
+
+#contents li{
+	float: left;
+	margin: 20px 25px;
+	border:1px solid #BBBBBB;
+}
+#contents li:hover{
+	border:1px solid pink;
+}
+#contents dt{
+	margin: 0 25px;
+}

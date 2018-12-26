@@ -5,35 +5,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<style>
-#tuor_body{
-   width: 1200px;
-   height: 1600px;
-   background-color: red;
-}
-#sideBar{
-   float: left;
-   width: 300px;
-   height: 1500px;
-   background-color: blue;
-   margin: 20px 12px;
-}
-#sideMenu{
-   float: right;
-   width: 200px;
-   height: 1500px;
-   background-color: pink;
-  
-}
-#tourList{
-	float: right;
-   width: 850px;
-   height: 1500px;
-   background-color: yellow;
-   margin: 20px 12px;
-}
-</style>
-
+<link rel="stylesheet" href="/TMT/item/tour/tourcss.css" type="text/css">
+<style></style>
 </head>
 <body>
 	<div id=tuor_body>
@@ -58,11 +31,26 @@
 			</div>
 		</div>
 		<div id=tourList>
-		<form id="Tsearch">
-			<input type="text" size="60" name="tourname" placeholder=" 여행지,장소,상품을 검색해보세요"/>
-			
-		</form>
-		
+			<div id="contents">
+				<dl>
+					<dt>
+						<form id="Tsearch">
+							<input type="text" size="60" name="tourname" placeholder=" 여행지,장소,상품을 검색해보세요" />
+						</form>
+					</dt>
+					<dd>
+						<ul>
+							<li><img src="/TMT/images/noimage.jpg" width="300" height="250">
+								<h4>
+									<center>
+									상세설명이들어갈자리
+									</center>
+								</h4>
+							</li>
+						</ul>
+					</dd>
+				</dl>
+			</div>
 		</div>
 	</div>
 
