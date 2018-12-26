@@ -18,7 +18,7 @@
 <div align="right">
 <form action="ModifyOrder.action" name="mo" method="post">
 <button type="submit" class="btn btn-default">수정</button></div><br></form>
-
+<div>
  <table class="table">
 	<tr>
 		<td height="20" bgcolor="#EEDAFF"></td>
@@ -50,8 +50,7 @@
 			<tr>
 				<td height="2" bgcolor="#EEDAFF"></td>
 			</tr>
-		</table>
-		
+		</table></div>	
 
 </div>
 

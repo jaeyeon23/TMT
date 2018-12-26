@@ -1,7 +1,9 @@
 package basket;
 
+import java.util.Date;
+
 public class BasketVO {
-	
+
 	private int seq_no;
 	private String name;
 	private int price;
@@ -15,15 +17,19 @@ public class BasketVO {
 	private String day;
 	private String checkin;
 	private String checkout;
-	private String ad;
-	private String dd;
+	private Date ad;
+	private Date dd;
 	private String hai;
 	private int no;
-	private String seat;
+	private int seat;
+	private int seat_grade;
 	private String room;
 	private String people;
-	private String air;
+	private String arv;
+	private String dep;
+	private String air_company;
 	private int amount;
+	private int grade;
 	
 	public int getSeq_no() {
 		return seq_no;
@@ -103,16 +109,17 @@ public class BasketVO {
 	public void setCheckout(String checkout) {
 		this.checkout = checkout;
 	}
-	public String getAd() {
+	
+	public Date getAd() {
 		return ad;
 	}
-	public void setAd(String ad) {
+	public void setAd(Date ad) {
 		this.ad = ad;
 	}
-	public String getDd() {
+	public Date getDd() {
 		return dd;
 	}
-	public void setDd(String dd) {
+	public void setDd(Date dd) {
 		this.dd = dd;
 	}
 	public String getHai() {
@@ -127,11 +134,18 @@ public class BasketVO {
 	public void setNo(int no) {
 		this.no = no;
 	}
-	public String getSeat() {
+	
+	public int getSeat() {
 		return seat;
 	}
-	public void setSeat(String seat) {
+	public void setSeat(int seat) {
 		this.seat = seat;
+	}
+	public int getSeat_grade() {
+		return seat_grade;
+	}
+	public void setSeat_grade(int seat_grade) {
+		this.seat_grade = seat_grade;
 	}
 	public String getRoom() {
 		return room;
@@ -145,18 +159,39 @@ public class BasketVO {
 	public void setPeople(String people) {
 		this.people = people;
 	}
-	public String getAir() {
-		return air;
-	}
-	public void setAir(String air) {
-		this.air = air;
-	}
+
 	public int getAmount() {
 		return amount;
 	}
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
+	
+	public String getArv() {
+		return arv;
+	}
+	public void setArv(String arv) {
+		this.arv = arv;
+	}
+	public String getDep() {
+		return dep;
+	}
+	public void setDep(String dep) {
+		this.dep = dep;
+	}
+	public String getAir_company() {
+		return air_company;
+	}
+	public void setAir_company(String air_company) {
+		this.air_company = air_company;
+	}
+	public int getGrade() {
+		return grade;
+	}
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
+	
 	
 	
 }

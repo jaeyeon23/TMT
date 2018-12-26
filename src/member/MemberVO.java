@@ -13,6 +13,11 @@ public class MemberVO {
 	private int admin;
 	private String passport;
 	private Date regdate;
+	private String image1;
+	private String marketing1;
+	private String marketing2;
+	
+	
 	public int getNo() {
 		return no;
 	}
@@ -73,6 +78,25 @@ public class MemberVO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
+	public String getImage1() {
+		return image1;
+	}
+	public void setImage1(String image1) {
+		this.image1 = image1;
+	}
+	public String getMarketing1() {
+		return marketing1;
+	}
+	public void setMarketing1(String marketing1) {
+		this.marketing1 = marketing1;
+	}
+	public String getMarketing2() {
+		return marketing2;
+	}
+	public void setMarketing2(String marketing2) {
+		this.marketing2 = marketing2;
+	}
+	
 	
 	
 }
