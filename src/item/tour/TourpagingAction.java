@@ -2,63 +2,69 @@ package item.tour;
 
 public class TourpagingAction {
 
-	private int currentPage;   // 
-	private int totalCount;	 // ü Խù 
-	private int totalPage;	 // ü  
-	private int blockCount;	 //    Խù 
-	private int blockPage;	 //  ȭ鿡   
-	private int startCount;	 //    Խñ  ȣ
-	private int endCount;	 //    Խñ  ȣ
-	private int startPage;	 //  
-	private int endPage;	 //  
+	private int currentPage;   // 현재페이지
+	private int totalCount;	 // 전체 게시물 수
+	private int totalPage;	 // 전체 페이지 수
+	private int blockCount;	 // 한 페이지의  게시물의 수
+	private int blockPage;	 // 한 화면에 보여줄 페이지 수
+	private int startCount;	 // 한 페이지에서 보여줄 게시글의 시작 번호
+	private int endCount;	 // 한 페이지에서 보여줄 게시글의 끝 번호
+	private int startPage;	 // 시작 페이지
+	private int endPage;	 // 마지막 페이지
 
 	private StringBuffer pagingHtml;
 
-	// ¡ 
+	private String tourname;
+	
+	//생성자
 	public TourpagingAction(int currentPage, int totalCount, int blockCount,
-			int blockPage) {
+			int blockPage, String tourname) {
 		
 		this.blockCount = blockCount;
 		this.blockPage = blockPage;
 		this.currentPage = currentPage;
 		this.totalCount = totalCount;
+		this.tourname = tourname;
 
-		// ü  
+		// 전체페이지수  
 		totalPage = (int) Math.ceil((double) totalCount / blockCount);
 		if (totalPage == 0) {
 			totalPage = 1;
 		}
 
-		//   ü   ũ ü   
+		// 현재 페이지가 전체 페이지 수보다 크면 전체 페이지 수로 설정
 		if (currentPage > totalPage) {
 			currentPage = totalPage;
 		}
 
-		//   ó   ȣ .
+		// 현재 페이지의 처음과 마지막 글의 번호 가져오기
 		startCount = (currentPage - 1) * blockCount;
 		endCount = startCount + blockCount - 1;
 
-		//      ϱ.
+		// 시작 페이지와 마지막 페이지 값 구하기.
 		startPage = (int) ((currentPage - 1) / blockPage) * blockPage + 1;
 		endPage = startPage + blockPage - 1;
 
-		//   ü   ũ ü   
+		// 마지막 페이지가 전체 페이지 수보다 크면 전체 페이지 수로 설정
 		if (endPage > totalPage) {
 			endPage = totalPage;
 		}
 
-		//  block 
+		//  이전 block 
 		pagingHtml = new StringBuffer();
 		
 		if (currentPage > blockPage) {
-			pagingHtml.append("<a href=TourList.action?currentPage=" + (startPage - 1) + ">");
-			pagingHtml.append("");
+			if(tourname != "")
+				pagingHtml.append("<a href=TourList.action?currentPage=" + (startPage - 1) + "&tourname="+tourname+">");
+			else
+				pagingHtml.append("<a href=TourList.action?currentPage=" + (startPage - 1) + ">");
+			pagingHtml.append("이전");
 			pagingHtml.append("</a>");
 		}
 
 		pagingHtml.append("&nbsp;|&nbsp;");
 
-		// ȣ.   ϰ ũ .
+		//페이지 번호.현재 페이지는 빨간색으로 강조하고 링크를 제거.
 		for (int i = startPage; i <= endPage; i++) {
 			if (i > totalPage) {
 				break;
@@ -70,6 +76,8 @@ public class TourpagingAction {
 			} else {
 				pagingHtml.append("&nbsp;<a href='TourList.action?currentPage=");
 				pagingHtml.append(i);
+				if(tourname != "")
+					pagingHtml.append("&tourname="+tourname);
 				pagingHtml.append("'>");
 				pagingHtml.append(i);
 				pagingHtml.append("</a>");
@@ -80,10 +88,14 @@ public class TourpagingAction {
 
 		pagingHtml.append("&nbsp;&nbsp;|&nbsp;&nbsp;");
 
-		//  block 
+		// 다음 block 페이지
 		if (totalPage - startPage >= blockPage) {
-			pagingHtml.append("<a href=TourList.action?currentPage=" + (endPage + 1) + ">");
-			pagingHtml.append("");
+			pagingHtml.append("&nbsp;<a href=TourList.action?currentPage=");
+			pagingHtml.append((endPage+1));
+			if(tourname != "")
+				pagingHtml.append("&tourname="+tourname);
+			pagingHtml.append("'>");
+			pagingHtml.append("다음");
 			pagingHtml.append("</a>");
 		}
 	}
@@ -167,5 +179,13 @@ public class TourpagingAction {
 	public void setPagingHtml(StringBuffer pagingHtml) {
 		this.pagingHtml = pagingHtml;
 	}
+	
+	
+	public String getTourname() {
+		return tourname;
+	}
 
+	public void setTourname(String tourname) {
+		this.tourname = tourname;
+	}
 }

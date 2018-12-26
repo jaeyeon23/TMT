@@ -16,7 +16,7 @@
 		<result property="image2" column="image2" />
 		<result property="image3" column="image3" />
 		<result property="reg_date" column="reg_date" />
-		<result property="grade" column="grade" />
+		<result property="grade" column="grade" /> 
 	</resultMap>
 
 	<!-- 공통으로 사용할 select 절 정의 -->
@@ -28,18 +28,22 @@
 	<sql id="where-noT">
 		WHERE no = #no#
 	</sql>
+	
+	<sql id = "select-searchT">
+	        WHERE (name like '%'||#tourname#||'%' or country like '%'||#tourname#||'%' or region like '%'||#tourname#||'%')
+	</sql>
 
 	<!-- select 쿼리문 정의 -->
 	<select id="selectAllT" resultMap="boardtour">
 		<include refid="select-allT" />
 		ORDER BY NO DESC
 	</select>
-
-	<select id="selectOneT" resultMap="boardtour"
-		parameterClass="int">
+	
+	<select id="Search_Tour" resultMap="boardtour">
 		<include refid="select-allT" />
-		<include refid="where-noT" />
+		<include refid="select-searchT"/>
 	</select>
+
 	
 	<!-- 등록 -->
 	<insert id="insertTour" parameterClass="tour">
@@ -63,4 +67,24 @@
 		delete tour where no = #no#
 	</delete>
 	
+	<!-- 인기순 -->
+	<select id="Search_TourR" resultMap="boardtour">
+		<include refid="select-allT" />
+		<include refid="select-searchT"/>
+		order by readcount desc
+	</select>
+	<!-- 가격순 -->
+	<select id="Search_TourP" resultMap="boardtour">
+		<include refid="select-allT" />
+		<include refid="select-searchT"/>
+		order by price asc
+	</select>
+	<!-- 별점순 -->
+	<select id="Search_TourG" resultMap="boardtour">
+		<include refid="select-allT" />
+		<include refid="select-searchT"/>
+		order by grade desc
+	</select>
+
+
 </sqlMap>
