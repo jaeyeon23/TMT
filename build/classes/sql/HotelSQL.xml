@@ -93,12 +93,27 @@
 		]]>		
 	</select>
 	
+	<!-- 등록 -->
 	<insert id="insertHotel" parameterClass="hotel">
 		insert into hotel(no, name, price, content, country, region, readcount, main_image, content_image, image3, reg_date, tel, maxnum , checkin , checkout , grade ) 
 		values(seq_hotelnum.nextval, #name#, #price#, #content#, #country#, #region#, 0, #main_image#, #content_image#,#image3#, sysdate, #tel#,#maxnum#,#checkin#,#checkout#,#grade#)
-		
 	</insert>
 	
+	<!-- 조회수증가 -->
+	<update id="readHitHotel" parameterClass="int">
+		update hotel set readcount = readcount+1 where no=#no#
+	</update>
+	
+	<!-- 수정 -->
+	<update id="updateHotel" parameterClass="hotel">
+		update hotel set name=#name#,price=#price#,content=#content#,country=#country#,region=#region#,main_image=#main_image#,content_image=#content_image#,checkin=#checkin#,checkout=#checkout#
+		where no=#no#
+	</update>
+	
+	<!-- 삭제 -->
+	<delete id="deleteHotel" parameterClass="int">
+		delete hotel where no = #no#
+	</delete>
 
 <!-- 검색로직 끝 -->
 

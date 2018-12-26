@@ -25,13 +25,26 @@
 		<put-attribute name="body" value="/item/air/airList.jsp" />
 	</definition>
 	
+	
+	<!-- 투어 -->
     <definition name="TourList" extends="Main">
 		<put-attribute name="body" value="/item/tour/tourList.jsp" />
 	</definition> 
 	
+	<definition name="TourView" extends="Main">
+		<put-attribute name="body" value="/item/tour/tourView.jsp" />
+	</definition>
+	
+	
+	<!-- 호텔 -->
 	<definition name="HotelList" extends="Main">
 		<put-attribute name="body" value="/item/hotel/hotelList.jsp" />
 	</definition>
+	
+	<definition name="HotelView" extends="Main">
+		<put-attribute name="body" value="/item/hotel/hotelView.jsp" />
+	</definition>
+	
 
 
 
