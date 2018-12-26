@@ -39,7 +39,7 @@ public class AdminHotelView extends ActionSupport{
 		
 		resultClass = (HotelVO)sqlMapper.queryForObject("selectOneH",getNo());
 	
-		String[] image  = resultClass.getImage2().split(",");
+		String[] image  = resultClass.getContent().split(",");
 		
 		for(String a : image)
 			imageList.add(path+a);

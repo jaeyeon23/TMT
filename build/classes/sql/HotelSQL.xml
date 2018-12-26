@@ -12,8 +12,8 @@
 		<result property="country" column="country" />
 		<result property="region" column="region"/>
 		<result property="readcount" column="readcount"/>
-		<result property="image1" column="image1" />
-		<result property="image2" column="image2" />
+		<result property="main_image" column="main_image" />
+		<result property="content_image" column="content_image" />
 		<result property="image3" column="image3" />
 		<result property="reg_date" column="reg_date" />
 		<result property="tel" column="tel" />
@@ -46,7 +46,7 @@
 		<select id="selectOneH" resultMap="boardhotel" parameterClass="int">
 			<!-- <include refid="select-allH" /> -->
 			select no,name,country,region,readcount,tel,grade,maxnum,
-			reg_date,image1,image2,image3,to_char(checkin,'yyyy-mm-dd') as checkin,
+			reg_date,main_image,content_image,image3,to_char(checkin,'yyyy-mm-dd') as checkin,
 			to_char( checkout,'yyyy-mm-dd' ) as checkout, price , content from hotel
 			<include refid="where-noH" />
 		</select>
@@ -94,8 +94,8 @@
 	</select>
 	
 	<insert id="insertHotel" parameterClass="hotel">
-		insert into hotel(no, name, price, content, country, region, readcount, image1, image2, image3, reg_date, tel, maxnum , checkin , checkout , grade ) 
-		values(seq_hotelnum.nextval, #name#, #price#, #content#, #country#, #region#, 0, #image1#, #image2#,#image3#, sysdate, #tel#,#maxnum#,#checkin#,#checkout#,#grade#)
+		insert into hotel(no, name, price, content, country, region, readcount, main_image, content_image, image3, reg_date, tel, maxnum , checkin , checkout , grade ) 
+		values(seq_hotelnum.nextval, #name#, #price#, #content#, #country#, #region#, 0, #main_image#, #content_image#,#image3#, sysdate, #tel#,#maxnum#,#checkin#,#checkout#,#grade#)
 		
 	</insert>
 	
