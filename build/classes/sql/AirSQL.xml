@@ -54,9 +54,9 @@
 				seat>=#seat# and seat_grade=#seat_grade# order by dd asc
 	</select>
 	
-	<!-- 검색 테슽 -->
+	<!-- 검색 -->
 	<select id="listAir_search" resultMap="boardair" parameterClass="java.util.Map">
-		SELECT no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade, SUBSTR(TO_CHAR(DD,'YYYYMMDDHH24MISS'),9) as test 	
+		SELECT no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade, SUBSTR(TO_CHAR(DD,'YYYYMMDDHH24MISS'),9), SUBSTR(TO_CHAR(AD,'YYYYMMDDHH24MISS'),9)  	
 		from air WHERE arv=#arv# and ad>=#ad# 
 		and	seat>=#seat# and seat_grade=#seat_grade# 
 			
@@ -64,16 +64,20 @@
 			<!-- 출발시간 -->
 			<isNotNull prepend="and" removeFirstPrepend="true" open="(" close=")">
 				<isNotEmpty prepend="or" property="ckAD_1">
-					(ad between to_date(concat(#ad#, '00:00:00'), 'yyyy-MM-dd HH24:MI:SS') and to_date(concat(#ad#, '06:00:00'), 'yyyy-MM-dd HH24:MI:SS')) 
+					SUBSTR(TO_CHAR(AD,'YYYYMMDDHH24MISS'),9) between '000000' and '0600000' 
+					<!-- (ad between to_date(concat(#ad#, '00:00:00'), 'yyyy-MM-dd HH24:MI:SS') and to_date(concat(#ad#, '06:00:00'), 'yyyy-MM-dd HH24:MI:SS')) --> 
 				</isNotEmpty>
 				<isNotEmpty prepend="or" property="ckAD_2">
-					(ad between to_date(concat(#ad#, '06:00:00'), 'yyyy-MM-dd HH24:MI:SS') and to_date(concat(#ad#, '12:00:00'), 'yyyy-MM-dd HH24:MI:SS')) 
+					SUBSTR(TO_CHAR(AD,'YYYYMMDDHH24MISS'),9) between '060000' and '1200000' 
+					<!-- (ad between to_date(concat(#ad#, '06:00:00'), 'yyyy-MM-dd HH24:MI:SS') and to_date(concat(#ad#, '12:00:00'), 'yyyy-MM-dd HH24:MI:SS')) --> 
 				</isNotEmpty>
 				<isNotEmpty prepend="or" property="ckAD_3">
-					(ad between to_date(concat(#ad#, '12:00:00'), 'yyyy-MM-dd HH24:MI:SS') and to_date(concat(#ad#, '18:00:00'), 'yyyy-MM-dd HH24:MI:SS')) 
+					SUBSTR(TO_CHAR(AD,'YYYYMMDDHH24MISS'),9) between '120000' and '1800000' 
+					<!-- (ad between to_date(concat(#ad#, '12:00:00'), 'yyyy-MM-dd HH24:MI:SS') and to_date(concat(#ad#, '18:00:00'), 'yyyy-MM-dd HH24:MI:SS')) --> 
 				</isNotEmpty>
 				<isNotEmpty prepend="or" property="ckAD_4">
-					(ad between to_date(concat(#ad#, '18:00:00'), 'yyyy-MM-dd HH24:MI:SS') and to_date(concat(#ad#, '23:59:59'), 'yyyy-MM-dd HH24:MI:SS'))  
+					SUBSTR(TO_CHAR(AD,'YYYYMMDDHH24MISS'),9) between '180000' and '2400000' 
+					<!-- (ad between to_date(concat(#ad#, '18:00:00'), 'yyyy-MM-dd HH24:MI:SS') and to_date(concat(#ad#, '23:59:59'), 'yyyy-MM-dd HH24:MI:SS')) -->  
 				</isNotEmpty>
 			</isNotNull>
 				
@@ -106,12 +110,15 @@
 				</isNotEmpty>
 			</isNotNull>			
 		</dynamic>
-		
 	</select>
 	
-	<insert id="insertAir" parameterClass="air">
-		INSERT INTO air (no,arv,dep,price,content,image1,seat,seat_grade,ad,dd,air_company,grade) 
-		values(seq_airnum.nextval,#arv#,#dep#,#price#,#content#,#iamge1#,#seat#,#seat_grade#,sysdate,sysdate,#air_company#,#grade#)
-	</insert>
+	<!-- 구매내역 확인 -->
+	<update id="update_seat" parameterClass="air">
+		update air set seat=seat-#seat# where no=#no#
+	</update>
+	
+	<select id="airCheck" resultClass="air" parameterClass="int">
+		select * from air where no=#no#
+	</select>
 	
 </sqlMap>

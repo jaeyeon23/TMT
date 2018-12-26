@@ -24,10 +24,6 @@ public class AirList extends ActionSupport{
 	private List<AirVO> Airlist = new ArrayList<AirVO>();
 	private AirVO avo = new AirVO();
 	
-	
-	
-	
-	
 	/*변수 시작*/
 	private int no;
 	private String arv;	
@@ -81,7 +77,7 @@ public class AirList extends ActionSupport{
 			Airlist = null;
 		}else {
 			SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
-			Date to = transFormat.parse(getAd_str() + " 00:00:00");
+			Date to = transFormat.parse(getAd_str());
 				
 			avo.setAd(to);
 			avo.setArv(getArv());

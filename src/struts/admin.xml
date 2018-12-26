@@ -6,132 +6,26 @@
 <struts>
 	<package name="admin" extends="struts-default, tiles-default">
 	
-		<!-- 메인 -->
 		<action name="AdminMain" class="admin.main.AdminMain">
 			<result name="success" type="tiles">AdminMain</result>
 		</action>
 		
-		<!-- 항공 -->
 		<action name="AdminAirList" class="admin.item.AdminAirList">
 			<result type="tiles">AdminAirList</result>
 		</action>
 		
-		<action name="AdminAirWriteForm" class="admin.item.AdminAirWrite" method="form">
-			<result type="tiles">AdminAirWrite</result>
-		</action>
-		
-		<action name="AdminAirWrite" class="admin.item.AdminAirWrite">
-			<result type="redirect-action">AdminAirList</result>
-		</action>
-		<!-- 
-		<action name="AdminAirView" class="admin.item.AdminAirView">
-			<result type="tiles">AdminAirView</result>
-		</action>
-		
-		<action name="AdminAirModifyForm" class="admin.item.AdminAirMofidy" method="form">
-			<result type="tiles">AdminAirModify</result>
-		</action>
-		
-		<action name="AdminAirModify" class="admin.item.AdminAirMofidy">
-			<result type="redirect-action">AdminAirView${uri}</result>
-		</action>
-		
-		<action name="AdminAirDelete" class="admin.item.AdminAirDelete">
-			<result type="redirect-action">AdminAirList${uri}</result>
-		</action> -->
-		
-		
-		
-		<!-- 멤버 -->
 		<action name="AdminMemberList" class="admin.member.AdminMemberList">
 			<result type="tiles">AdminMemberList</result>
 		</action>
 		
-		<!-- <action name="AdminMemberView" class="admin.member.AdminMemberView">
-			<result type="tiles">AdminMemberView</result>
-		</action>
-		
-		<action name="AdminMemberModifyForm" class="admin.member.AdminMemberModify" method="form">
-			<result type="tiles">AdminMemberModify</result>
-		</action>
-		
-		<action name="AdminMemberModify" class="admin.member.AdminMemberModify">
-			<result type="tiles">AdminMemberView${uri}</result>
-		</action>
-		
-		<action name="AdminMemberDelete" class="admin.member.AdminMemberDelete">
-			<result type="tiles">AdminMemberList${uri}</result>
-		</action> -->
-		
-		
-		<!-- 호텔 -->
 		<action name="AdminHotelList" class="admin.item.AdminHotelList">
 			<result type="tiles">AdminHotelList</result>
 		</action>
 		
-		<action name="AdminHotelWriteForm" class="admin.item.AdminHotelWrite" method="form">
-			<result type="tiles">AdminHotelWrite</result>
-		</action>
-		
-		<action name="AdminHotelWrite" class="admin.item.AdminHotelWrite">
-			<result type="redirect-action">AdminHotelList</result>
-		</action>
-		
-		 <action name="AdminHotelView" class="admin.item.AdminHotelView">
-			<result type="tiles">AdminHotelView</result>
-		</action>
-		<!-- 
-		<action name="AdminHotelModifyForm" class="admin.item.AdminHotelModify" method="form">
-			<result type="tiles">AdminHotelModify</result>
-		</action>
-		
-		<action name="AdminHotelModify" class="admin.item.AdminHotelModify">
-			<result type="redirect-action">AdminHotelView${uri}</result>
-		</action>
-		
-		<action name="AdminHotelDelete" class="admin.item.AdminHotelDelete">
-			<result type="redirect-action">AdminHotelList${uri}</result>
-		</action>  -->
-		
-		<!-- 투어 -->
 		<action name="AdminTourList" class="admin.item.AdminTourList">
 			<result type="tiles">AdminTourList</result>
 		</action>
 		
-		<action name="AdminTourWriteForm" class="admin.item.AdminTourWrite" method="form">
-			<result type="tiles">AdminTourWrite</result>
-		</action>
-		
-		<action name="AdminTourWrite" class="admin.item.AdminTourWrite">
-			<result type="redirect-action">AdminTourList</result>
-		</action>
-		<!-- 
-		<action name="AdminTourView" class="admin.item.AdminTourView">
-			<result type="tiles">AdminTourView</result>
-		</action>
-		
-		<action name="AdminTourModifyForm" class="admin.item.AdminTourModify" method="form">
-			<result type="tiles">AdminTourModify</result>
-		</action>
-		
-		<action name="AdminTourModify" class="admin.item.AdminTourModify">
-			<result type="redirect-action">AdminTourView${url}</result>
-		</action>
-		
-		<action name="AdminTourDelete" class="admin.item.AdminTourDelete">
-			<result type="redirect-action">AdminTourList${url}</result>
-		</action> -->
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<!-- 공지사항 -->
 		<action name="AdminNoticeList" class="admin.notice.AdminNoticeList">
 			<result type="tiles">AdminNoticeList</result>
 		</action>
@@ -145,20 +39,20 @@
 		</action>
 		
 		<action name="AdminNoticeView" class="admin.notice.AdminNoticeView">
-			<result type="tiles">AdminNoticeView</result>
+			<result type="tiles">AdminNoticeList</result>
 		</action>
 		
-		<action name="AdminNoticeModifyForm" class="admin.notice.AdminNoticeModify" method="form">
-			<result type="tiles">AdminNoticeModify</result>
-		</action>
 		
-		<action name="AdminNoticeModify" class="admin.notice.AdminNoticeModify">
-			<result type="redirect-action">AdminNoticeView${uri}</result>
-		</action>
 		
-		<action name="AdminNoticeDelete" class="admin.notice.AdminNoticeDelete">
-			<result type="redirect-action">AdminNoticeList${uri}</result>
-		</action>
-	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	</package>
 </struts>

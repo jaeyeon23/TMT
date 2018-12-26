@@ -8,5 +8,9 @@
 		<action name="AirList" class="item.air.AirList">
 			<result name="success" type="tiles">AirList</result>
 		</action>
+		
+		<action name="AirCheck" class="item.air.AirCheck">
+			<result name="success" type="tiles">AirCheck</result>
+		</action>
 	</package>
 </struts>

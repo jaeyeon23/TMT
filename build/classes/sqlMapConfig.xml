@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sqlMapConfig PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"  
-	"http://ibatis.apache.org/dtd/sql-map-config-2.dtd">  <!-- 필수 -->
-<sqlMapConfig>  <!-- 필수 -->
-	<properties resource="/dbconnect.properties" /> <!-- 명시된 프로퍼티 에서 변수 값을 가져온다. -->
-	<settings useStatementNamespaces="true" /> <!-- 트랜잭션 관리 및 sqlMapClient 상세 제어 -->
 
+<!DOCTYPE sqlMapConfig PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+	<properties resource="/dbconnect.properties"/>
+	<settings useStatementNamespaces="true"/>
 		<transactionManager type="JDBC" commitRequired="false">
 			<dataSource type="SIMPLE">
 				<property name="JDBC.Driver" value="${driver}"/>
@@ -13,21 +13,23 @@
 				<property name="JDBC.Password" value="${password}"/>
 			</dataSource>
 		</transactionManager>
-		
-	<sqlMap resource="sql/adminSQL.xml"/>
-	<sqlMap resource="sql/noticeSQL.xml"/>
+	<sqlMap resource="/sql/adminSQL.xml"/>
+	<sqlMap resource="/sql/noticeSQL.xml"/>
 	
 	<!-- Air 리스트 xml -->
-	<!-- <sqlMap resource="sql/AirSQL.xml"/>  -->
+	<sqlMap resource="/sql/AirSQL.xml" />
+	
+	
+	
+	
 	
 	<!-- Hotel 리스트 xml -->
-	<sqlMap resource="sql/HotelSQL.xml"/>
+	<sqlMap resource="/sql/HotelSQL.xml" />
 	
-	<!-- Tour 리스트 xml -->
-	<sqlMap resource="sql/TourSQL.xml"/>
 	
-	<!-- xml 아래에 추가 .... -->
-	<sqlMap resource="sql/memberSQL.xml"/> 
-	  
+	
+	
+	
+
 	
 </sqlMapConfig>

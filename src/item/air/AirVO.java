@@ -5,17 +5,17 @@ import java.util.Date;
 public class AirVO {
 
 	private int no;
-	private String arv;	//ì¶œë°œì§€
-	private String dep;	//ë„ì°©ì§€
-	private int price;	//ê°€ê²©
-	private String content;	//ë‚´ìš©
-	private String image1;	//í•­ê³µì‚¬ ì´ë¯¸ì§€ ì¸ë„¤ì¼
-	private int seat;		//ì¢Œì„ ìˆ˜
-	private int seat_grade;	//ì¢Œì„ ë“±ê¸‰
-	private Date ad;		//ì¶œë°œì‹œê°„
-	private Date dd;		//ë„ì°©ì‹œê°„
-	private String air_company;		//í•­ê³µì‚¬
-	private int grade;		//ë³„ì 
+	private String arv;	//Ãâ¹ßÁö
+	private String dep;	//µµÂøÁö
+	private int price;	//°¡°İ
+	private String content;	//³»¿ë
+	private String image1;	//Ç×°ø»ç ÀÌ¹ÌÁö ½æ³×ÀÏ
+	private int seat;		//ÁÂ¼® ¼ö
+	private int seat_grade;	//ÁÂ¼® µî±Ş
+	private Date ad;		//Ãâ¹ß½Ã°£
+	private Date dd;		//µµÂø½Ã°£
+	private String air_company;		//Ç×°ø»ç
+	private int grade;		//º°Á¡
 	
 	public int getNo() {
 		return no;

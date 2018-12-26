@@ -9,28 +9,49 @@
 			<result name="success" type="tiles">Main</result>
 		</action>
 
+		<action name="AirList" class="item.air.AirList">
+			<result name="success" type="tiles">AirList</result>
+		</action>
+		
 		<action name="TourList" class="item.tour.TourList">
 			<result name="success" type="tiles">TourList</result>
-		</action> 
+		</action>
 		
 		<action name="HotelList" class="item.hotel.HotelList">
 			<result name="success" type="tiles">HotelList</result>
-			<result name="input" type="tiles">HotelList</result>
+		</action>
+		<action name="BasketList" class="basket.BasketList">
+			<result name="success" type="tiles">BasketList</result>
+		</action>
+		
+		<action name="OrderList" class="order.OrderList">
+			<result name="success" type="tiles">OrderList</result>
+		</action>
+		
+		<action name="MyPageForm" class="member.ServiceMember">
+			<result name="success" type="tiles">MyPageForm</result>
+		</action>
+		
+		<action name="DeleteMemberCheck" class="member.DeleteMember">
+			<result name="success" type="tiles">DeleteMember</result>
+		</action>
+		<action name="Login" class="member.LoginMember">
+			<result name="success" type="tiles">Login</result>
+		</action>
+		
+		<action name="Join" class="member.JoinMember">
+			<result name="success" type="tiles">Join</result>
+		</action>
+		
+		<action name="ConfirmId" class="member.JoinMemberIdChk">
+			<result name="success" type="tiles">ConfirmId</result>
 		</action>
 
 	</package>
-	<include file="/struts/admin.xml" />
-	
-	<!-- 공지사항 -->
-	<include file="/struts/notice.xml" />
+	<include file="struts/admin.xml" />
+	<include file="struts/notice.xml" />
 
 	<!-- 항공 -->
 	<include file="/struts/air.xml" />
-	
-	<!-- 멤버 -->
-	<include file="/struts/member.xml"/>
-	
-	<!-- 위시리스트&구매내역&마이페이지 -->
-	<include file="/struts/service.xml"/>
-	
+
 </struts>

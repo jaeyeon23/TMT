@@ -43,6 +43,8 @@
 
 ///
 $(function() {
-	$(".date1").datepicker();
+	$(".date1").datepicker({
+		minDate: 0
+	});
 });
 //]]>

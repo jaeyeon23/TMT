@@ -6,13 +6,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="../css/bootstrap.css" rel="stylesheet">
-<link href="../css/bootstrap-theme.css" rel="stylesheet">
-<script src="../js/bootstrap.js" type="text/javascript"></script>
 <meta charset="UTF-8">
 <title>나의 위시리스트</title>
-
-
 <script type="text/JavaScript">
 	var check = false;
 	function CheckAll() {
@@ -48,12 +43,11 @@
 <div class='wishlists-header-container'>
 <div class='wishlists-title-wrapper'>
 
-<div class='header-title'><h2><center>나의 위시리스트&nbsp;<img src="../images/heart.png" width="20" height="20"></center></h2>
+<div class='header-title'><h2><center>나의 위시리스트</center></h2></div>
 
 </div>
-</div>
 <div class='wishlists-header-divider'></div>
-<div class='wishlists-header-subtitle'><p class="np"><center>총 개의 상품</center></p></div>
+<div class='wishlists-header-subtitle'><center>총 개의 상품</center></div>
 </div>
 
 <div class='wishlists-cards-container'>
@@ -61,7 +55,7 @@
 <div class='select-wrapper' align="center" >
 
 
-<table class="table" size="80%" width="80%" align="center">
+<table size="80%" width="80%" align="center">
 <table width="80%" cellpadding="0" cellspacing="0">
 <tr width="80%">
 <td align=right>
@@ -78,13 +72,13 @@
 		<p align="center">
 		<input type="hidden" name="order" value="basket">
 	
-		<table class="table" width="80%" cellpadding="0" cellspacing="0">
-			<tr height=26 bgcolor="#FFDDDD">
+		<table width="80%" cellpadding="0" cellspacing="0">
+			<tr height=26 bgcolor="#FE642E">
 				<td height="3" colspan="7" align=left>
 				<input name="checkall" type="checkbox" 
 							onclick="javascript:CheckAll()"></td>
 			</tr>
-			<tr align="center">
+			<tr bgcolor="#F5D0A9" align="center">
 				<td width="10%"><font size="2">번호</font></td>
 				<td width="15%"><font size="2">사진</font></td>
 				<td width="55%"><font size="2">상품명</font></td>
@@ -94,7 +88,7 @@
 		
 			<tr align="center">
 			<td><font size="2"></font></td>
-			<td><font size="2"><img width=80 height=80></font></td>
+			<td><font size="2"><img width=50 height=50></font></td>
 			<td><font size="2"></font></td>
 			<td><font size="2">
 			</font></td>
@@ -130,9 +124,9 @@
 		
 		</table>
 		
-		<table class="table" width="80%" border="0" cellspacing="0" cellpadding="0">
+		<table width="80%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
-				<td height="2" bgcolor="#FFDDDD"></td>
+				<td height="2" bgcolor="#FE642E"></td>
 			</tr>
 		</table>
 		<br>

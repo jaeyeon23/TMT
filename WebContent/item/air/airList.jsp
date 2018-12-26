@@ -7,6 +7,7 @@
 <head>
 	<title>Insert title here</title>
 
+	<link href="./css/airList.css" rel="stylesheet" type="text/css">
 	<script src="./script/calendar.js" type="text/javascript"></script>
 	<script src="./script/slider_bar.js" type="text/javascript"></script>
 	<script type="text/javascript">
@@ -16,67 +17,177 @@
 			document.frm.submit();
 		}
 		
+		function modalclose_arv(val){
+			$('#arv').val(val);
+		}
+		
+		function modalclose_dep(val){
+			$('#dep').val(val);
+		}
+		
+		
+		function check(){
+
+			var forms = document.searchForm;
+			
+			if(forms.arv.value.length == 0){
+				alert("출발지를 입력하세요");
+				forms.arv.focus();
+				return false;
+			}
+			if(forms.dep.value.length == 0){
+				alert("도착지를 입력하세요");
+				forms.arv.focus();
+				return false;
+			}
+			if(forms.ad_str.value.length == 0){
+				alert("날짜를 입력하세요");
+				forms.arv.focus();
+				return false;
+			}
+		}
+		
 	</script>
 	
-	<style>
-		#air_header_search{
-			background-color: #d3ffce;
-			text-align: center;
-		}
-		
-		.air_array{
-			float:right;
-			margin-right:10%;
-		}
-		
-		.air_list{
-			width:100%;
-		}
-		
-		.air_left{
-		   	float: left;
-		   	width: 15%;
-		   	height: 550pt;
-		   	background-color: #ccccff;
-		   	font-size: 15pt;
-		   	margin-left:5%;
-		   	margin-right:5%;
-		   	padding-left:13pt;
-		   	padding-top:5pt;
-		}
-		   
-		.air_right{
-			padding-left:5%;
-		   	background-color: white;
-		   	height: 800pt;
-		   	margin-right:5%;
-		}
-	</style>
 </head>
 <body>
 	<div id="air_header">
 		<div id="air_header_search">
-			<form method="get">
+			<form method="get" name="searchForm" onsubmit="return check()">
 				<s:if test="arv != null">
-					<input type="text" name="arv" value='<s:property value="%{arv}"/>'>
+					<input type="text" id="arv" name="arv" readonly value="<s:property value='%{arv}'/>" data-toggle="modal" data-target="#modalTour_arv">
 				</s:if>
 				<s:else>
-					<input type="text" name="arv" placeholder="출발지">
+					<input type="text" id="arv" name="arv" readonly placeholder="출발지를 선택하세요" data-toggle="modal" data-target="#modalTour_arv">
 				</s:else>
+				<div class="modal fade" id="modalTour_arv" role="dialog" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+				        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        		<h4 class="modal-title" id="myModalLabel">
+				        			출발지
+			        			</h4>
+				      		</div>
+				      		<div class="modal-body">
+				        		<table class="table table-striped" style="width:100%;">
+				        			<tr>
+				        				<th colspan="5">
+				        					주요도시 바로 선택
+				        				</th>
+				        			</tr>	
+				        			<tr>
+				        				<th>
+				        					국내
+				        				</th>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="인천" onclick="modalclose_arv(value)" data-dismiss="modal">인천</button>
+				        				</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="김포" onclick="modalclose_arv(value)" data-dismiss="modal">김포</button>
+				        				</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="제주" onclick="modalclose_arv(value)" data-dismiss="modal">제주</button>
+				        				</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="부산" onclick="modalclose_arv(value)" data-dismiss="modal">부산</button>
+				        				</td>
+				        			</tr>
+				        			<tr>
+				        				<th>
+				        					일본
+				        				</th>
+				        				<td>
+											<button type="button" class="btn btn-link" value="도쿄" onclick="modalclose_arv(value)" data-dismiss="modal">도쿄</button>
+										</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="나고야" onclick="modalclose_arv(value)" data-dismiss="modal">나고야</button>
+				        				</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="후쿠오카" onclick="modalclose_arv(value)" data-dismiss="modal">후쿠오카</button>
+				        				</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="오키나와" onclick="modalclose_arv(value)" data-dismiss="modal">오키나와</button>
+				        				</td>
+				        			</tr>
+				        		</table>
+				      		</div>
+				      		<div class="modal-footer">
+				        		<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+				      		</div>
+			    		</div>
+					</div>
+				</div>
 				
 				<s:if test="dep != null">
-					<input type="text" name="dep" value='<s:property value="%{dep}"/>'>
+					<input type="text" id="dep" name="dep" readonly value="<s:property value='%{dep}'/>" data-toggle="modal" data-target="#modalTour_dep">
 				</s:if>
 				<s:else>
-					<input type="text" name="dep" placeholder="도착지">
+					<input type="text" id="dep" name="dep" readonly placeholder="도착지를 입력하세요" data-toggle="modal" data-target="#modalTour_dep">
 				</s:else>
-				
+				<div class="modal fade" id="modalTour_dep" role="dialog" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+				        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        		<h4 class="modal-title" id="myModalLabel">
+				        			도착지
+			        			</h4>
+				      		</div>
+				      		<div class="modal-body">
+				        		<table class="table table-striped" style="width:100%;">
+				        			<tr>
+				        				<th colspan="5">
+				        					주요도시 바로 선택
+				        				</th>
+				        			</tr>	
+				        			<tr>
+				        				<th>
+				        					국내
+				        				</th>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="인천" onclick="modalclose_dep(value)" data-dismiss="modal">인천</button>
+				        				</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="김포" onclick="modalclose_dep(value)" data-dismiss="modal">김포</button>
+				        				</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="제주" onclick="modalclose_dep(value)" data-dismiss="modal">제주</button>
+				        				</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="부산" onclick="modalclose_dep(value)" data-dismiss="modal">부산</button>
+				        				</td>
+				        			</tr>
+				        			<tr>
+				        				<th>
+				        					일본
+				        				</th>
+				        				<td>
+											<button type="button" class="btn btn-link" value="도쿄" onclick="modalclose_dep(value)" data-dismiss="modal">도쿄</button>
+										</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="나고야" onclick="modalclose_dep(value)" data-dismiss="modal">나고야</button>
+				        				</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="후쿠오카" onclick="modalclose_dep(value)" data-dismiss="modal">후쿠오카</button>
+				        				</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="오키나와" onclick="modalclose_dep(value)" data-dismiss="modal">오키나와</button>
+				        				</td>
+				        			</tr>
+				        		</table>
+				      		</div>
+				      		<div class="modal-footer">
+				        		<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+				      		</div>
+			    		</div>
+					</div>
+				</div>
 				<s:if test="ad_str != null">
 					<input type="text" name="ad_str" class="date1" size="12" readonly value='<s:property value="%{ad_str}"/>'/>
 				</s:if>
 				<s:else>
 					<input type="text" name="ad_str" class="date1" size="12" readonly placeholder="출발일"/>
-				<!-- <input type="text" name="dd" class="date1" size="12" readonly placeholder="도착일"/> -->
 				</s:else>
 				
 				인원
@@ -154,26 +265,28 @@
 				<input type="checkbox" name="air_company_asia" value="아시아나">&nbsp;&nbsp;아시아나<br>
 				<input type="checkbox" name="air_company_jin" value="진에어">&nbsp;&nbsp;진에어<br>
 				<br><br>
-				<strong>가격대</strong><br>
-				    <p>
-				        <input type="text" id="amount3" readonly style="width:100pt;border:0; color:#f6931f; font-weight:bold;">
-				    </p>
-				    <div id="slider" style="width:150pt;"></div>
 				    
 			    <!-- test -->
-			    
-			    <s:hidden name="arv" value="%{arv}"/>
-				<s:hidden name="dep" value="%{dep}"/>
-				<s:hidden name="seat" value="%{seat}"/>
-				<s:hidden name="ad_str" value="%{ad_str}"/>
-				<s:hidden name="seat_grade" value="%{seat_grade}"/>	
-			    <input type="submit" value="test">
+			    <s:if test="arv != null">
+				    <s:hidden name="arv" value="%{arv}"/>
+					<s:hidden name="dep" value="%{dep}"/>
+					<s:hidden name="seat" value="%{seat}"/>
+					<s:hidden name="ad_str" value="%{ad_str}"/>
+					<s:hidden name="seat_grade" value="%{seat_grade}"/>	
+				    <input type="submit" class="btn btn-info" value="세부 검색">
+			    </s:if>
+			    <s:else>
+			    	<input type="submit" class="btn btn-info" value="세부 검색" disabled>
+			    </s:else>
 			</form>
 		</div>
 		<div class="air_right">
 			<!-- 리스트 출력 -->
 			<table class="table table-hover" style="width:70%">
 				<tr>
+					<th>
+						상품 번호
+					</th>
 					<th>
 						항공사
 					</th>
@@ -201,21 +314,22 @@
 				<s:iterator value="Airlist" status="stat">
 				<tr>
 					<td>
+						<s:property value="no"/>
+					</td>	
+					<td>
 						<s:property value="air_company"/>
 					</td>
 					<td>
-						<%-- <s:property value="ad_time"/> --%>
 						<s:date name="ad" format="HH:mm" />
 					</td>
 					<td>
-						<%-- <s:property value="dd_time"/> --%>
 						<s:date name="dd" format="HH:mm" />
 					</td>
 					<td>
 						<s:property value="price"/>
 					</td>
 					<td>
-						<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal${stat.index }">
+						<button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#myModal${stat.index }">
   							상세보기
 						</button>
 						<div class="modal fade" id="myModal${stat.index }" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -228,7 +342,7 @@
 						        			</h4>
 						      		</div>
 						      		<div class="modal-body">
-						        		<table class="table table-hover" style="width:100%;">
+						        		<table id="list" class="table table-hover" style="width:100%;">
 						        			<tr>
 						        				<th>
 						        					인원
@@ -241,6 +355,9 @@
 						        				</th>
 						        				<th>
 						        					항공사
+						        				</th>
+						        				<th>
+						        					서비스 제공
 						        				</th>
 						        			</tr>
 						        			<tr>
@@ -256,12 +373,21 @@
 						        				<td>
 						        					<s:property value="air_company"/>
 						        				</td>
+						        				<td>
+						        					<s:property value="content"/>
+						        				</td>
 						        			</tr>
 						        		</table>
 						      		</div>
 						      		<div class="modal-footer">
-						        		<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-						        		<button type="button" class="btn btn-primary">예약</button>
+							      		<form action="AirCheck.action">
+							        		<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+							        		<button type="submit" class="btn btn-primary">
+							        			예약
+							        			<s:hidden name="no" value="%{no}"/>
+							        			<s:hidden name="seat" value="%{#parameters.seat}"/>
+							        		</button>
+							        	</form>
 						      		</div>
 					    		</div>
 							</div>
@@ -269,7 +395,6 @@
 					</td>
 				</tr>
 				</s:iterator>
-				
 			</table>
 		</div>
 	</div>
