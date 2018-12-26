@@ -1,28 +1,88 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
+<style>
+#tuor_body{
+   width: 1200px;
+   height: 1600px;
+   background-color: red;
+}
+#sideBar{
+   float: left;
+   width: 300px;
+   height: 1500px;
+   background-color: blue;
+   margin: 20px 12px;
+}
+#sideMenu{
+   float: right;
+   width: 200px;
+   height: 1500px;
+   background-color: pink;
+  
+}
+#tourList{
+	float: right;
+   width: 850px;
+   height: 1500px;
+   background-color: yellow;
+   margin: 20px 12px;
+}
+</style>
+
 </head>
 <body>
+	<div id=tuor_body>
+		<div id=sideBar>
+			<div id=sideMenu>
+				<h1>
+					<b>Áö¿ªº°</b>
+					<hr>
+				</h1>
+				
+					<li><a href="TourList.action" class="on">ÀüÃ¼</a></li>
+					<hr>
+					<li><a href="TourList.action?r=1" class="on">Áö¿ª1</a></li>
+					<hr>
+					<li><a href="TourList.action?r=2" class="on">Áö¿ª2</a></li>
+					<hr>
+					<li><a href="TourList.action?r=3" class="on">Áö¿ª3</a></li>
+					<hr>
+					<li><a href="TourList.action?r=4" class="on">Áö¿ª4</a></li>
+					<hr>
+				
+			</div>
+		</div>
+		<div id=tourList>
+		<form id="Tsearch">
+			<input type="text" size="60" name="tourname" placeholder=" ¿©ÇàÁö,Àå¼Ò,»óÇ°À» °Ë»öÇØº¸¼¼¿ä"/>
+			
+		</form>
+		
+		</div>
+	</div>
+
+	--Äõ¸®¿ë
 <div>
 	<div>
 	<table width="600" border="0" cellspacing="0" cellpadding="2">
 		<tr align="center" bgcolor="#F3F3F3">
-			<td width="50"><strong>ë²ˆí˜¸</strong></td>
-			<td width="350"><strong>ìƒí’ˆëª…</strong></td>
-			<td width="70"><strong>ê°€ê²©</strong></td>
-			<td width="80"><strong>ë‚´ìš©</strong></td>
-			<td width="50"><strong>êµ­ê°€</strong></td>
-			<td width="50"><strong>ì§€ì—­</strong></td>
-			<td width="50"><strong>ì¡°íšŒìˆ˜</strong></td>
-			<td width="50"><strong>ì´1</strong></td>
-			<td width="50"><strong>ì´2</strong></td>
-			<td width="50"><strong>ì´3</strong></td>
-			<td width="50"><strong>ë“±ë¡ì¼</strong></td>
-			<td width="50"><strong>í‰ê·  ë³„ì </strong></td>
+			<td width="50"><strong>¹øÈ£</strong></td>
+			<td width="350"><strong>»óÇ°¸í</strong></td>
+			<td width="70"><strong>°¡°İ</strong></td>
+			<td width="80"><strong>³»¿ë</strong></td>
+			<td width="50"><strong>±¹°¡</strong></td>
+			<td width="50"><strong>Áö¿ª</strong></td>
+			<td width="50"><strong>Á¶È¸¼ö</strong></td>
+			<td width="50"><strong>ÀÌ1</strong></td>
+			<td width="50"><strong>ÀÌ2</strong></td>
+			<td width="50"><strong>ÀÌ3</strong></td>
+			<td width="50"><strong>µî·ÏÀÏ</strong></td>
+			<td width="50"><strong>Æò±Õ º°Á¡</strong></td>
 		</tr>
 		
 
@@ -49,5 +109,28 @@
 	</table>
 	</div>
 	</div>
+	
+	
+	<!-- <div class="lnb" id="destLeftMenu">
+			<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+			<br /> <br /> <br /> <br /> <br />
+			<h1 class="bigTitle">
+				<b>Áö¿ªº°</b>
+			</h1>
+			<ul id="destSpotTypeList">
+				<br />
+				<br />
+				<br />
+				<li><a href="ListItem.action" class="on">ÀüÃ¼</a></li>
+				<li><a href="ListItem.action?r=1" class="on">¼­¿ï</a></li>
+				<li><a href="ListItem.action?r=2" class="on">ºÎ»ê</a></li>
+				<li><a href="ListItem.action?r=3" class="on">ÀüÁÖ</a></li>
+				<li><a href="ListItem.action?r=4" class="on">°æÁÖ</a></li>
+				<li><a href="ListItem.action?r=5" class="on">Á¦ÁÖ</a></li>
+				<li><a href="ListItem.action?r=6" class="on">°­¿ø</a></li>
+			</ul>
+			<br /> <br /> <br />
+
+		</div> -->
 </body>
 </html>

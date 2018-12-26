@@ -42,19 +42,15 @@
 			<include refid="select-allH" />
 			ORDER BY NO DESC
 		</select>
-		
-		<select id="selectOneH" resultMap="boardhotel" parameterClass="int">
-			<include refid="select-allH" />
-			<include refid="where-noH" />
-		</select>
+
 
 <!-- 검색로직 추가시작 -->
-    <!-- 기본 -->	
+    <!-- 지역검색 -->	
     <select id="selectAllHH" resultMap="boardhotel">
 			<include refid="select-allH" />
-			WHERE name like '%'||#hotelname#||'%' and maxnum >= #number#
+			WHERE COUNTRY = #hotelname#
 	</select>
-		
+	<!-- 검색 기본 -->	
 	<select id="Search_Hotel" resultMap="boardhotel" parameterClass="hotel">
 		<include refid="select-allH" />
 		<include refid="select-search"/>

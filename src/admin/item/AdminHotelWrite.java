@@ -34,8 +34,8 @@ public class AdminHotelWrite extends ActionSupport{
 	private String image2;  
 	private String image3;
 	private String tel;       
-	private Date checkin;  
-	private Date checkout;
+	private String checkin;  
+	private String checkout;
 	private int maxnum; 
 	private int grade;
 	
@@ -201,16 +201,16 @@ public class AdminHotelWrite extends ActionSupport{
 	public void setUploadsContentType(List<String> uploadsContentType) {
 		this.uploadsContentType = uploadsContentType;
 	}
-	public Date getCheckin() {
+	public String getCheckin() {
 		return checkin;
 	}
-	public void setCheckin(Date checkin) {
+	public void setCheckin(String checkin) {
 		this.checkin = checkin;
 	}
-	public Date getCheckout() {
+	public String getCheckout() {
 		return checkout;
 	}
-	public void setCheckout(Date checkout) {
+	public void setCheckout(String checkout) {
 		this.checkout = checkout;
 	}
 	

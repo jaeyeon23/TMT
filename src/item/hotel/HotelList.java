@@ -27,7 +27,7 @@ public class HotelList extends ActionSupport {
 	private int number;
 	private String inDay, outDay;
 	
-	//	private int num = 0;
+	private int num = 0;
 
 	private int currentPage = 1;	//현재 페이지
 	private int totalCount; 		// 총 게시물의 수
@@ -72,14 +72,25 @@ public class HotelList extends ActionSupport {
 	}
 	
 	public String search() throws Exception{
+		if(num == 1) {
+			hvo.setHotelname(getHotelname());
+			Hotellist = sqlMapper.queryForList("selectAllHH", hvo);
+		}else if(num == 2) {
+			hvo.setHotelname(getHotelname());
+			hvo.setInDay(getInDay());
+			hvo.setOutDay(getOutDay());
+			hvo.setNumber(getNumber());
+			Hotellist = sqlMapper.queryForList("Search_Hotel_read", hvo);	
+		}else{
+			// 검색 내용에따른 글을 list를 넣는다
+			hvo.setHotelname(getHotelname());
+			hvo.setInDay(getInDay());
+			hvo.setOutDay(getOutDay());
+			hvo.setNumber(getNumber());
+			Hotellist = sqlMapper.queryForList("Search_Hotel", hvo);			
+		}
 		
 		
-		// 검색 내용에따른 글을 list를 넣는다
-		hvo.setHotelname(getHotelname());
-		hvo.setInDay(getInDay());
-		hvo.setOutDay(getOutDay());
-		hvo.setNumber(getNumber());
-		Hotellist = sqlMapper.queryForList("Search_Hotel", hvo);
 		
 		totalCount = Hotellist.size(); // 전체 글의 개수
 
@@ -183,6 +194,13 @@ public class HotelList extends ActionSupport {
 	}
 	public void setHvo(HotelVO hvo) {
 		this.hvo = hvo;
+	}
+	
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
 	}
 }
 	

@@ -16,7 +16,7 @@
 		<result property="image2" column="image2" />
 		<result property="image3" column="image3" />
 		<result property="reg_date" column="reg_date" />
-		<result property="grade" column="grade" />
+		<result property="grade" column="grade" /> 
 	</resultMap>
 
 	<!-- 공통으로 사용할 select 절 정의 -->
@@ -28,22 +28,25 @@
 	<sql id="where-noT">
 		WHERE no = #no#
 	</sql>
+	
+	<sql id = "select-searchT">
+	        WHERE (name like '%'||#tourname#||'%' or country like '%'||#tourname#||'%' or region like '%'||#tourname#||'%')
+	</sql>
 
 	<!-- select 쿼리문 정의 -->
 	<select id="selectAllT" resultMap="boardtour">
 		<include refid="select-allT" />
 		ORDER BY NO DESC
 	</select>
-
-	<select id="selectOneT" resultMap="boardtour"
-		parameterClass="int">
-		<include refid="select-allT" />
-		<include refid="where-noT" />
-	</select>
 	
-	<insert id="insertTour" parameterClass="tour">
+	<select id="Search_Tour" resultMap="boardtour">
+		<include refid="select-allT" />
+		<include refid="select-searchT"/>
+	</select>
+
+	<!-- <insert id="insertTour" parameterClass="tour">
 			insert into tour(no, name, price, content, country, region, readcount, image1, image2, image3, reg_date, grade)
 			values(seq_tournum.nextval, #name#, #price#, #content#, #country#, #region#, 0, #image1#, #image2#, #image3#, sysdate, #grade#)	
-		</insert>
+		</insert> -->
 
 </sqlMap>
