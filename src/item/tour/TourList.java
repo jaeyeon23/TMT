@@ -25,13 +25,15 @@ public class TourList extends ActionSupport{
 	
 	private int currentPage = 1;	//현재 페이지
 	private int totalCount; 		// 총 게시물의 수
-	private int blockCount = 5;	// 한 페이지의  게시물의 수
+	private int blockCount = 6;	// 한 페이지의  게시물의 수
 	private int blockPage = 5; 	// 한 화면에 보여줄 페이지 수
 	private String pagingHtml; 	//페이징을 구현한 HTML
 	private TourpagingAction page; // 페이징 클래스
 	
 	private String tourname;
 	private TourVO tvo = new TourVO();
+	
+	private int num = 0;
 
 	// 생성자
 	public TourList() throws IOException {
@@ -69,9 +71,20 @@ public class TourList extends ActionSupport{
 	
 	
 	public String search2() throws Exception{
+		if(num ==1) {
+			tvo.setTourname(getTourname());
+			Tourlist = sqlMapper.queryForList("Search_TourR", tvo);
+		}else if(num ==2) {
+			tvo.setTourname(getTourname());
+			Tourlist = sqlMapper.queryForList("Search_TourP", tvo);
+		}else if(num ==3) {
+			tvo.setTourname(getTourname());
+			Tourlist = sqlMapper.queryForList("Search_TourG", tvo);
+		}else {
 		// 검색 내용에따른 글을 list를 넣는다
 		tvo.setTourname(getTourname());
 		Tourlist = sqlMapper.queryForList("Search_Tour", tvo);
+		}
 		
 		totalCount = Tourlist.size(); // 전체 글의 개수
 
@@ -155,6 +168,12 @@ public class TourList extends ActionSupport{
 	}
 	public void setTvo(TourVO tvo) {
 		this.tvo = tvo;
+	}
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
 	}
 
 }

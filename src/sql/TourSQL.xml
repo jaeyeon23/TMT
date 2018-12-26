@@ -43,6 +43,24 @@
 		<include refid="select-allT" />
 		<include refid="select-searchT"/>
 	</select>
+	<!-- 인기순 -->
+	<select id="Search_TourR" resultMap="boardtour">
+		<include refid="select-allT" />
+		<include refid="select-searchT"/>
+		order by readcount desc
+	</select>
+	<!-- 가격순 -->
+	<select id="Search_TourP" resultMap="boardtour">
+		<include refid="select-allT" />
+		<include refid="select-searchT"/>
+		order by price asc
+	</select>
+	<!-- 별점순 -->
+	<select id="Search_TourG" resultMap="boardtour">
+		<include refid="select-allT" />
+		<include refid="select-searchT"/>
+		order by grade desc
+	</select>
 
 	<!-- <insert id="insertTour" parameterClass="tour">
 			insert into tour(no, name, price, content, country, region, readcount, image1, image2, image3, reg_date, grade)

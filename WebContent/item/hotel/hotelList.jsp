@@ -98,7 +98,14 @@
 					</s:if>
 					<s:iterator value="Hotellist" status="stat">
 						<tr bgcolor="#FFFFFF" align="center">
-							<td width="300" height="250"><img src="/TMT/images/noimage.jpg" width="300" height="250"></td>
+							<td width="300" height="250">
+							     <s:if test="main_image != null">
+									<img src="/TMT/upload/hotel/<s:property value="%{main_image}" />" width="300" height="250">
+								</s:if> 
+								<s:else>
+									<img src="/TMT/images/noimage.jpg" width="300" height="250">
+								</s:else> 
+							</td>
 							<td colspan="3"><h2><s:property value="name" /></h2><s:property value="country" />&nbsp;|&nbsp;<s:property value="region" /></td>
 							<td colspan="2">\ <s:property value="price" /> 원 / 1박<br>최대 <s:property value="maxnum" /> 명</td>
 							<td><s:property value="grade" /></td>
