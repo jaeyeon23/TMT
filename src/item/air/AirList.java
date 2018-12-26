@@ -2,11 +2,10 @@ package item.air;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.net.URLEncoder;
+import java.nio.charset.Charset;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -59,13 +58,17 @@ public class AirList extends ActionSupport{
 	private String ckDD_4;			//24
 	
 	private String air_company_korea;		//대한항공
-	private String air_company_asia;		//대한항공
-	private String air_company_jin;		//대한항공
+	private String air_company_asia;		//아시아나
+	private String air_company_jin;		//진에어
 	
-	private String[] ckAD_search;
 	private Map map = new HashMap<>();
 	
 	public AirList() throws IOException{
+		/*sql에 한글을 보내기 위한 문장*/
+		Charset charset = Charset.forName("UTF-8");
+		Resources.setCharset(charset);
+
+
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
 		
 		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
@@ -78,8 +81,7 @@ public class AirList extends ActionSupport{
 			Airlist = null;
 		}else {
 			SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
-
-			Date to = transFormat.parse(getAd_str());
+			Date to = transFormat.parse(getAd_str() + " 00:00:00");
 				
 			avo.setAd(to);
 			avo.setArv(getArv());
@@ -89,7 +91,9 @@ public class AirList extends ActionSupport{
 			
 			
 			if(air_array == null) {
-				if(air_company_korea == null) {
+				if(ckAD_1 == null && ckAD_2 == null && ckAD_3 == null && ckAD_4 == null
+						&& ckDD_1 == null && ckDD_2 == null && ckDD_3 == null && ckDD_4 == null
+						&& air_company_asia == null && air_company_korea == null && air_company_jin == null) {
 					Airlist = sqlMapper.queryForList("listAir", avo);
 				}else {
 					makeSearch();
@@ -111,7 +115,6 @@ public class AirList extends ActionSupport{
 	}
 
 	private void makeSearch() throws IOException, SQLException{
-		System.out.println("makeSearch");
 		/*검색을 위한 map*/
 		map.put("ad", getAd_str());
 		map.put("arv", getArv());
@@ -120,41 +123,41 @@ public class AirList extends ActionSupport{
 		map.put("seat_grade", getSeat_grade());
 		
 		/*출발시간*/
-		if(ckAD_1 != null) {
+		if(ckAD_1 != null && ckAD_1.equals("06")) {
 			map.put("ckAD_1", ckAD_1);
 		}
-		if(ckAD_2 != null) {
+		if(ckAD_2 != null && ckAD_2.equals("12")) {
 			map.put("ckAD_2", ckAD_2);
 		}
-		if(ckAD_3 != null) {
+		if(ckAD_3 != null && ckAD_3.equals("18")) {
 			map.put("ckAD_3", ckAD_3);
 		}
-		if(ckAD_4 != null) {
+		if(ckAD_4 != null && ckAD_4.equals("24")) {
 			map.put("ckAD_4", ckAD_4);
 		}
 		
 		/*도착시간*/
-		if(ckDD_1 != null) {
+		if(ckDD_1 != null && ckDD_1.equals("06")) {
 			map.put("ckDD_1", ckDD_1);
 		}
-		if(ckDD_2 != null) {
+		if(ckDD_2 != null && ckDD_2.equals("12")) {
 			map.put("ckDD_2", ckDD_2);
 		}
-		if(ckDD_3 != null) {
+		if(ckDD_3 != null && ckDD_3.equals("18")) {
 			map.put("ckDD_3", ckDD_3);
 		}
-		if(ckDD_4 != null) {
+		if(ckDD_4 != null && ckDD_4.equals("24")) {
 			map.put("ckDD_4", ckDD_4);
 		}
 		
 		/*항공*/
-		if(air_company_korea != null) {
+		if(air_company_korea != null && air_company_korea.equals("대한항공")) {
 			map.put("air_company_korea", air_company_korea);
 		}
-		if(air_company_asia != null) {
+		if(air_company_asia != null && air_company_asia.equals("아시아나")) {
 			map.put("air_company_asia", air_company_asia);
 		}
-		if(air_company_jin != null) {
+		if(air_company_jin != null && air_company_jin.equals("진에어")) {
 			map.put("air_company_jin", air_company_jin);
 		}
 		

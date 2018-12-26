@@ -9,57 +9,13 @@
 
 	<script src="./script/calendar.js" type="text/javascript"></script>
 	<script src="./script/slider_bar.js" type="text/javascript"></script>
-
 	<script type="text/javascript">
 		
 		/* 정렬 */
-		function sm() {
+		function sort() {
 			document.frm.submit();
 		}
 		
-		/* 검색조건 */
-		$("#gg").change(function(){
-			var frm = document.Test;
-			
-			if(!($('.checkbox').is(':checked'))){
-				$("input[name=chAD_1]").val('Y');
-			}
-			
-			frm.submit();
-		})
-		
-		function choice() {
-
-			var frm = document.Test;
-	
-			if($('.checkbox').is(':checked')){
-	
-				$("input[name=ckAD_1]",frm).val();
-			}
-			else{
-				$("input[name=ckAD_1]",frm).val('N');
-			}
-	
-			frm.submit();
-		} 
-		
-		
-	/* 	$("#CHECK_YN").change(
-			function() {
-			// 체크박스 값에 따라 히든 값 변경
-            	if ( $("#CHECK_YN").is(":checked") ){
-				    $("YN").val('Y');
-			    } else {
-                	$("YN").val('N');
-			    }
-			}
-		); */
-		
-		/* $(document).ready(function(){
-			$('#myModal').click(function(){
-				
-			});			
-		}) */
 	</script>
 	
 	<style>
@@ -148,7 +104,7 @@
 	<!-- 정렬 -->
 	<div class="air_array">
 		<form name="frm">
-			<select name="air_array" class="form-control" onchange="sm()">
+			<select name="air_array" class="form-control" onchange="sort()">
 				<s:if test="air_array == null">
 					<option value="1">가격 낮은 순</option>	
 					<option value="2">가는 날 출발시간 빠른 순</option>
@@ -188,15 +144,15 @@
 				<input type="checkbox" name="ckAD_4" value="24">&nbsp;&nbsp;야간 18:00~24:00<br>
 				<br><br>
 				<strong>도착시간</strong><br>			
-				<input type="checkbox" name="ckDD_1" value="060000">&nbsp;&nbsp;새벽 00:00~06:00<br>
-				<input type="checkbox" name="ckDD_2" value="120000">&nbsp;&nbsp;오전 06:00~12:00<br>
-				<input type="checkbox" name="ckDD_3" value="180000">&nbsp;&nbsp;오후 12:00~18:00<br>
-				<input type="checkbox" name="ckDD_4" value="240000">&nbsp;&nbsp;야간 18:00~24:00<br>
+				<input type="checkbox" name="ckDD_1" value="06">&nbsp;&nbsp;새벽 00:00~06:00<br>
+				<input type="checkbox" name="ckDD_2" value="12">&nbsp;&nbsp;오전 06:00~12:00<br>
+				<input type="checkbox" name="ckDD_3" value="18">&nbsp;&nbsp;오후 12:00~18:00<br>
+				<input type="checkbox" name="ckDD_4" value="24">&nbsp;&nbsp;야간 18:00~24:00<br>
 				<br><br>
 				<strong>항공사</strong><br>
-				<input type="checkbox" name="air_company_korea" value="korea">&nbsp;&nbsp;대한항공<br>
-				<input type="checkbox" name="air_company_asia" value="asia">&nbsp;&nbsp;아시아나<br>
-				<input type="checkbox" name="air_company_jin" value="jin">&nbsp;&nbsp;진에어<br>
+				<input type="checkbox" name="air_company_korea" value="대한항공">&nbsp;&nbsp;대한항공<br>
+				<input type="checkbox" name="air_company_asia" value="아시아나">&nbsp;&nbsp;아시아나<br>
+				<input type="checkbox" name="air_company_jin" value="진에어">&nbsp;&nbsp;진에어<br>
 				<br><br>
 				<strong>가격대</strong><br>
 				    <p>
@@ -283,9 +239,9 @@
 						        				<th>
 						        					가격
 						        				</th>
-						        				<!-- <th>
-						        					운행 시간
-						        				</th> -->
+						        				<th>
+						        					항공사
+						        				</th>
 						        			</tr>
 						        			<tr>
 						        				<td>
@@ -299,7 +255,6 @@
 						        				</td>
 						        				<td>
 						        					<s:property value="air_company"/>
-						        					<%-- <s:date name="dd_time - ad_time" format="HH:mm" /> --%>
 						        				</td>
 						        			</tr>
 						        		</table>
