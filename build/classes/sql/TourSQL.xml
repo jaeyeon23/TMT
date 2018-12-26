@@ -43,7 +43,33 @@
 		<include refid="select-allT" />
 		<include refid="select-searchT"/>
 	</select>
-
+	
+	<select id="selectOneT" resultMap="boardhotel" parameterClass="int">
+		<include refid="select-allT"/>
+		<include refid="where-noT" />
+	</select>
+	
+	<!-- 인기순 -->
+	<select id="Search_TourR" resultMap="boardtour">
+		<include refid="select-allT" />
+		<include refid="select-searchT"/>
+		order by readcount desc
+	</select>
+	<!-- 가격순 -->
+	<select id="Search_TourP" resultMap="boardtour">
+		<include refid="select-allT" />
+		<include refid="select-searchT"/>
+		order by price asc
+	</select>
+	<!-- 별점순 -->
+	<select id="Search_TourG" resultMap="boardtour">
+		<include refid="select-allT" />
+		<include refid="select-searchT"/>
+		order by grade desc
+	</select>
+	
+	
+	
 	
 	<!-- 등록 -->
 	<insert id="insertTour" parameterClass="tour">
@@ -66,25 +92,5 @@
 	<delete id="deleteTour" parameterClass="int">
 		delete tour where no = #no#
 	</delete>
-	
-	<!-- 인기순 -->
-	<select id="Search_TourR" resultMap="boardtour">
-		<include refid="select-allT" />
-		<include refid="select-searchT"/>
-		order by readcount desc
-	</select>
-	<!-- 가격순 -->
-	<select id="Search_TourP" resultMap="boardtour">
-		<include refid="select-allT" />
-		<include refid="select-searchT"/>
-		order by price asc
-	</select>
-	<!-- 별점순 -->
-	<select id="Search_TourG" resultMap="boardtour">
-		<include refid="select-allT" />
-		<include refid="select-searchT"/>
-		order by grade desc
-	</select>
-
 
 </sqlMap>
