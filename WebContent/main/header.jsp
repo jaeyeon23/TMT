@@ -105,7 +105,25 @@
 			border-color: dodgerBlue;
 			box-shadow: 0 0 8px 0 dodgerBlue;
 		}
-	</style>
+.ProfileNavItems {
+    height: 40px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+.ProfileNavItems__button:link, .ProfileNavItems__button:visited {
+    color: #666d75;
+    font-size:20px;
+}
+.ProfileNavItems__item:not(:last-child) {
+    margin-right: 32px;
+}
+.ProfileNavItems__button--outline:link, .ProfileNavItems__button--outline:visited {
+    color: #2b96ed;
+}
+
+</style>
 </head>
 <body>
 	<!-- header -->
@@ -121,11 +139,19 @@
 			</div>
 			<!-- headerTop_left -->
 			<!-- headerTop_right -->
-			<div class="headerTop_right">
+<!-- 			<div class="headerTop_right">
 				<a href="Login.action">로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<!-- headerTop_right_membership -->
+				headerTop_right_membership
 				<a href="Join.action"><div class="headerTop_right_membership">회원가입</div></a>
-				<!-- headerTop_right_membership -->
+				headerTop_right_membership
+			</div> -->
+			<div class="ProfileNavItems ">
+				<div class="ProfileNavItems__item gtm-gnb-signin">
+					<a href="LoginForm.action " class="ProfileNavItems__button" >로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</div>
+				<div class="ProfileNavItems__item gtm-gnb-signup">
+					<a href="JoinForm.action" class="ProfileNavItems__button ProfileNavItems__button--outline" >회원가입</a>
+				</div>
 			</div>
 			<!-- headerTop_right -->
 		</div>

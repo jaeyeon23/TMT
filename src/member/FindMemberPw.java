@@ -20,7 +20,6 @@ public class FindMemberPw extends ActionSupport implements SessionAware {
 	private String id;
 	private String name;
 	private String email;
-	private int tel;
 	private String password;
 	
 	public static Reader reader;
@@ -46,18 +45,17 @@ public class FindMemberPw extends ActionSupport implements SessionAware {
 		paramClass.setId(getId());
 		paramClass.setName(getName());
 		paramClass.setEmail(getEmail());
-		paramClass.setTel(getTel());;
 		
-		resultClass=(MemberVO)sqlMapper.queryForObject("FindPw",paramClass);
+		list=sqlMapper.queryForList("FindPw",paramClass);
 		
-		if(resultClass!=null) {
+		if(list.size()>0) {
 			return SUCCESS;
 		}else {
 			return ERROR;
 		}
 	}
 	
-	public String ModifyPw() throws Exception {
+/*	public String ModifyPw() throws Exception {
 		
 		paramClass = new MemberVO();
 		
@@ -76,15 +74,7 @@ public class FindMemberPw extends ActionSupport implements SessionAware {
 		context.setSession(session); 
 		
 		return SUCCESS;
-	}
-
-	public int getTel() {
-		return tel;
-	}
-
-	public void setTel(int tel) {
-		this.tel = tel;
-	}
+	}*/
 
 	public String getPassword() {
 		return password;

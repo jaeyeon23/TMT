@@ -1,68 +1,90 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-<style>
-#hotelBox{
-   width: 1200px;
-   height: 1000px;
-   background-color: red;
-}
-.hotel_search_Box{
-    width: 1000px;
-    height:400px;
-    background-color: blue;
-	margin: 20px auto;
-}
-#search_h1 {
-	float: left;
-	width: 480px;
-	height: 350px;
-	background-color: pink;
-	margin: 20px 10px;
-}
-#search_h2 {
-	float: right;
-	width: 480px;
-	height: 350px;
-	background-color: pink;
-	margin: 20px 10px;
-}
-#hotel_list_Box{
-width: 1000px;
-height:550px;
-margin: 10px auto;
-background-color: green;
-}
-</style>
+    <!-- ´Ş·Â °ü·Ã-->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+	<!-- datepicker ÇÑ±¹¾î·Î -->
+	<script	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/datepicker-ko.js"></script>
+    <script language="JavaScript" src="/TMT/item/hotel/hotelscript.js"></script>
+	<!-- ´Ş·Â³¡ -->
+	<link rel="stylesheet" href="/TMT/item/hotel/hotelcss.css" type="text/css">
+	<style></style>
+	<script>
+	
+	</script>
 </head>
 <body>
 	<div id="hotelBox">
 		<div class="hotel_search_Box">
-			<div id="search_h1">ì²«ë²ˆì¬ ê²€ìƒ‰ë°©ë²•(ìƒí’ˆëª…orìˆ™ì†Œëª…,ë‚ ì§œ,ì¸ì›,ê°€ê²©)
-			<br/><center><input type="text" size="60" value=" ìˆ™ì†Œ ë˜ëŠ” ìƒí’ˆì„ ì…ë ¥í•´ì£¼ì„¸ìš”."/></center>
-			
+			<div id="search_h1">Ã¹¹øÀç °Ë»ö¹æ¹ı(»óÇ°¸íor¼÷¼Ò¸í,³¯Â¥,ÀÎ¿ø)
+			<form id="Hsearch" oninput = "result.value = 'ÀÎ¿ø ' + parseInt(num.value) + '¸í' ">
+				<center>
+					<input type="text" size="60" name="hotelname" placeholder=" ¼÷¼Ò ¶Ç´Â »óÇ°À» ÀÔ·ÂÇØÁÖ¼¼¿ä."/>
+					<input type="text" size="19"  name="inDay" id="inDay" placeholder="Ã¼Å©ÀÎ">
+       				 ~
+        			<input type="text" size="19" name="outDay" id="outDay" placeholder="Ã¼Å©¾Æ¿ô">
+					<br>
+					<table>
+							<tr>
+								<td id="view" height="32" width="150" align="center">
+									<output	name="result">ÀÎ¿ø 0¸í</output></td>
+								<td>
+								<input type="number" name="num" min=1 max=10 value="0">
+								</td>
+								<td>
+								<button>°Ë»ö</button>
+								</td>
+							</tr>
+						</table>
+					
+				</center>
+			</form>
 			</div>
-			<div id="search_h2">ë‘ë²ˆì§¸ ê²€ìƒ‰ë°©ë²•(êµ­ê°€,ì§€ì—­)</div>
+			<div id="search_h2">µÎ¹øÂ° °Ë»ö¹æ¹ı(±¹°¡,Áö¿ª)</div>
 		</div>
-		<div id="hotel_list_Box">í˜¸í…” ë¦¬ìŠ¤íŠ¸ê°€ ë³´ì—¬ì§€ëŠ”ê³³</div>
+		<div id="hotel_list_Box">
+			<div id="list_Box">
+				<table width="980" height="1350" border="0" cellspacing="1" cellpadding="2">
+					<tr bgcolor="#F3F3F3">
+						<td colspan="4" width = "680"> È£ÅÚ¸®½ºÆ®</td>
+						<td width = "100">[ÀÎ±â¼ø]</td>
+						<td width = "100">[°¡°İ¼ø]</td>
+						<td width = "100">[½Å±Ô¼ø]</td>
+					</tr>
+					<s:iterator value="Hotellist" status="stat">
+						<tr bgcolor="#FFFFFF" align="center">
+							<td width="300" height="250"><img src="/TMT/images/noimage.jpg" width="300" height="250"></td>
+							<td colspan="3"><h2><s:property value="name" /></h2><s:property value="country" />&nbsp;|&nbsp;<s:property value="region" /></td>
+							<td colspan="2">\ <s:property value="price" /> ¿ø / 1¹Ú<br>ÃÖ´ë <s:property value="maxnum" /> ¸í</td>
+							<td><s:property value="grade" /></td>
+						</tr>
+					</s:iterator>
+					<tr align="center">
+						<td colspan="7"><s:property value="pagingHtml" escape="false" /></td>
+					</tr>
+				</table>
+			</div>
+		</div>
 	</div>
 	<br/><br/><br/>
--------------------------------------ì¿¼ë¦¬ test----------------------------------
+-------------------------------------Äõ¸® test----------------------------------
 	<div>
 		<div>
 			<table width="600" border="0" cellspacing="0" cellpadding="2">
 				<tr align="center" bgcolor="#F3F3F3">
-					<td width="50"><strong>ë²ˆí˜¸</strong></td>
-					<td width="350"><strong>ìƒí’ˆëª…</strong></td>
-					<td width="70"><strong>ê°€ê²©</strong></td>
-					<td width="50"><strong>êµ­ê°€</strong></td>
-					<td width="50"><strong>ì§€ì—­</strong></td>
-					<td width="50"><strong>ì¸ì›ìˆ˜</strong></td>
-					<td width="50"><strong>í‰ê·  ë³„ì </strong></td>
+					<td width="50"><strong>¹øÈ£</strong></td>
+					<td width="350"><strong>»óÇ°¸í</strong></td>
+					<td width="70"><strong>°¡°İ</strong></td>
+					<td width="50"><strong>±¹°¡</strong></td>
+					<td width="50"><strong>Áö¿ª</strong></td>
+					<td width="50"><strong>ÀÎ¿ø¼ö</strong></td>
+					<td width="50"><strong>Æò±Õ º°Á¡</strong></td>
 				</tr>
 				<s:iterator value="Hotellist" status="stat">
 					<tr bgcolor="#FFFFFF" align="center">

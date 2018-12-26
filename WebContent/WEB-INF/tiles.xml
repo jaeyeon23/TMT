@@ -178,13 +178,13 @@
 		<put-attribute name="body" value="/member/findIdForm.jsp"/>
 	</definition>
 <!-- 비밀번호 찾기 -->
-	<definition name="FindPw" extends="Main">
+<!-- 	<definition name="FindPw" extends="Main">
 		<put-attribute name="body" value="/member/findPw.jsp"/>
 	</definition>
 	
 	<definition name="FindPwForm" extends="Main">
 		<put-attribute name="body" value="/member/findPwForm.jsp"/>
-	</definition>
+	</definition> -->
 <!-- 회원가입 -->	
 	<definition name="Join" extends="Main">
 		<put-attribute name="body" value="/member/join.jsp" />
@@ -194,7 +194,6 @@
 		<put-attribute name="body" value="/member/joinForm.jsp" />
 	</definition>
 	
-
 	<definition name="ModifyMember" extends="Main">
 		<put-attribute name="body" value="/member/modify.jsp" />
 	</definition>
@@ -203,6 +202,9 @@
 		<put-attribute name="body" value="/member/idCheck.jsp" />
 	</definition>
 
+	<definition name="EmailCheck" extends="Main">
+		<put-attribute name="body" value="/member/EmailCheck.jsp"/>
+	</definition>
 
 <!-- 
 	 로그인 폼

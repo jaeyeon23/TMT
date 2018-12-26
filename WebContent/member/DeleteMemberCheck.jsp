@@ -29,7 +29,7 @@
 		<td align="center" width="200">
 		<font size="2">아이디</font></td>
 		<td>
-		
+		<input type="hidden" name="id" value="<s:property value="#session.id"/>"/>
 		</td>
 	</tr>
 	<tr>

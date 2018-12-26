@@ -96,7 +96,7 @@
 	
 	<insert id="insertAir" parameterClass="air">
 		INSERT INTO air (no,arv,dep,price,content,image1,seat,seat_grade,ad,dd,air_company,grade) 
-		values(seq_airnum,#arv#,#dep#,#price#,#content#,#iamge1#,#seat#,#seat_grade#,sysdate,sysdate,#air_company#,#grade#)
+		values(seq_airnum.nextval,#arv#,#dep#,#price#,#content#,#iamge1#,#seat#,#seat_grade#,sysdate,sysdate,#air_company#,#grade#)
 	</insert>
 	
 </sqlMap>

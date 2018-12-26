@@ -17,12 +17,12 @@
 			<result name="success" type="tiles">HotelList</result>
 			<result name="input" type="tiles">HotelList</result>
 		</action>
-		
+
 	</package>
-	<include file="struts/admin.xml" />
+	<include file="/struts/admin.xml" />
 	
 	<!-- 공지사항 -->
-	<include file="struts/notice.xml" />
+	<include file="/struts/notice.xml" />
 
 	<!-- 항공 -->
 	<include file="/struts/air.xml" />

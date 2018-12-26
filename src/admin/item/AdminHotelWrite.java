@@ -39,6 +39,7 @@ public class AdminHotelWrite extends ActionSupport{
 	private int maxnum; 
 	private int grade;
 	
+	private StringBuffer image;
 	
 	private List<File> uploads = new ArrayList<File>();
 	private List<String> uploadsFileName = new ArrayList<String>();
@@ -73,13 +74,28 @@ public class AdminHotelWrite extends ActionSupport{
 		paramClass.setCheckout(getCheckout());
 		paramClass.setMaxnum(getMaxnum());
 		paramClass.setGrade(0);
-		paramClass.setImage1(getUploadsFileName().get(0));
-		paramClass.setImage2(getUploadsFileName().get(1));
-		paramClass.setImage3(getUploadsFileName().get(2));
-		for(int i=0;i<uploads.size();i++) {
-			File destFile = new File(fileUploadPath + getUploadsFileName().get(i));
-			FileUtils.copyFile(getUploads().get(i), destFile);
+		
+
+		if(uploads !=null) {
+			image = new StringBuffer();
+			for(int i=0;i<uploads.size();i++) {
+				if(i==0) {
+					paramClass.setImage1(getUploadsFileName().get(i));
+				}
+				else if(i!=uploads.size()-1)
+					image.append(getUploadsFileName().get(i)).append(",");
+				else
+					image.append(getUploadsFileName().get(i));
 				
+				File destFile = new File(fileUploadPath + getUploadsFileName().get(i));
+				FileUtils.copyFile(getUploads().get(i), destFile);
+				
+				System.out.println(destFile.toString());
+					
+			}
+			
+			paramClass.setImage2(image.toString());
+			
 		}
 		sqlMapper.insert("insertHotel",paramClass);
 		

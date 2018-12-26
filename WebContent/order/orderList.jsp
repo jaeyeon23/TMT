@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +37,7 @@
 			<tr >
 				<td height="3" colspan="7" align=left></td>
 			</tr>
-			
+			 
 			<table class="table" width="80%" cellpadding="0" cellspacing="0">
 			<tr height=26 bgcolor="#EEDAFF">
 				<td height="3" colspan="7" align=left></td></tr>
