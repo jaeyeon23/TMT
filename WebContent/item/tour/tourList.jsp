@@ -6,6 +6,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="/TMT/item/tour/tourcss.css" type="text/css">
+<script language="JavaScript" src="/TMT/item/tour/tourscript.js"></script>
 <style></style>
 </head>
 <body>
@@ -49,6 +50,7 @@
 					<dd>
 						<ul>
 						<s:iterator value="Tourlist" status="stat">
+							<a href="TourView.action?no=<s:property value="%{no}" />">
 							<div id="contents">
 							    <div id= imageT>
 								<s:if test="image1 != null">
@@ -82,10 +84,10 @@
 							    	</s:elseif>			
 							    	(0)	
 								</div>
-								
 							</div>
+							  </a>
 					    </s:iterator>
-					    
+					  
 						</ul>
 						
 					</dd>
@@ -93,5 +95,6 @@
 				<s:property value="pagingHtml" escape="false" />
 			</div>
 	</div>
+	
 </body>
 </html>

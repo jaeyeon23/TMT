@@ -26,10 +26,10 @@ public class HotelList extends ActionSupport {
 	private HotelVO hvo = new HotelVO();
 	
 	private String hotelname;
-	private int number;
+	private String number;
 	private String inDay, outDay;
 	
-	private int num = 0;
+	private int num = 0;           //검색구분을위한 변수 0= 검색x 1 = 지역검색, 2:인기순 ,3 =가격순 ,4= 별점순 
 
 	private int currentPage = 1;	//현재 페이지
 	private int totalCount; 		// 총 게시물의 수
@@ -75,19 +75,22 @@ public class HotelList extends ActionSupport {
 	}
 	
 	public String search() throws Exception{
+		
+		map.put("hotelname", getHotelname());
+		map.put("inDay", getInDay());
+		map.put("outDay", getOutDay());
+		map.put("number", getNumber());
+		
 		if(num == 1) {
 			hvo.setCountry(getHotelname());
 			Hotellist = sqlMapper.queryForList("selectAllHH", hvo);
+		}else if(num == 2) {
+			Hotellist = sqlMapper.queryForList("Search_Hotel_read", map);
+		}else if(num == 3) {
+			Hotellist = sqlMapper.queryForList("Search_Hotel_price", map);
+		}else if(num == 4) {
+			Hotellist = sqlMapper.queryForList("Search_Hotel_date", map);
 		}else{
-			map.put("hotelname", getHotelname());
-			map.put("inDay", getInDay());
-			map.put("outDay", getOutDay());
-			map.put("number", getNumber());
-			/*	// 검색 내용에따른 글을 list를 넣는다
-			hvo.setHotelname(getHotelname());
-			hvo.setCheckin(getInDay());
-			hvo.setCheckout(getOutDay());
-			hvo.setMaxnum(getNumber()); */
 			Hotellist = sqlMapper.queryForList("Search_Hotel",  map);		
 		}
 		
@@ -170,10 +173,10 @@ public class HotelList extends ActionSupport {
 		this.hotelname = hotelname;
 	}
 	//인원수
-	public int getNumber() {
+	public String getNumber() {
 		return number;
 	}
-	public void setNumber(int number) {
+	public void setNumber(String number) {
 		this.number = number;
 	}
 	//체크인,아웃

@@ -66,28 +66,43 @@
     <!-- 인기순정렬 -->
 	<select id="Search_Hotel_read" parameterClass="java.util.Map" resultMap="boardhotel">
 		<include refid="select-allH" />
-		<![CDATA[     
-		WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%')   
-		and checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# order by readcount desc
-		]]>		
+		WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%') 
+		<isEmpty property="inDay">
+		 	order by readcount desc	
+		</isEmpty>
+		<isNotEmpty prepend="and" property="inDay">
+		<![CDATA[  
+				checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# 	order by readcount desc	
+		]]>	 
+		</isNotEmpty>
 	</select>
 	
     <!-- 가격순정렬 -->
 	<select id="Search_Hotel_price" parameterClass="java.util.Map" resultMap="boardhotel">
 		<include refid="select-allH" />
-		<![CDATA[     
-		WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%') 
-		and checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# order by price asc
-		]]>		
+		WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%')
+		<isEmpty property="inDay">
+		 	order by price asc	
+		</isEmpty>
+		<isNotEmpty prepend="and" property="inDay">
+		<![CDATA[  
+				checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# 	order by price asc	
+		]]>	 
+		</isNotEmpty>
 	</select>
 	
     <!-- 별점순정렬 -->
 	<select id="Search_Hotel_date" parameterClass="java.util.Map" resultMap="boardhotel">
 		<include refid="select-allH" />
-		<![CDATA[     
-		WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%')    
-		and checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# order by grade desc
-		]]>		
+		WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%')   
+		<isEmpty property="inDay">
+		 	order by grade desc	
+		</isEmpty>
+		<isNotEmpty prepend="and" property="inDay">
+		<![CDATA[  
+				checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# 	order by grade desc	
+		]]>	 
+		</isNotEmpty>
 	</select>
 	
 	<!-- 등록 -->
