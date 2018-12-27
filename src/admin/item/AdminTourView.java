@@ -2,6 +2,8 @@ package admin.item;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -16,6 +18,9 @@ public class AdminTourView extends ActionSupport {
 	
 	private TourVO paramClass;
 	private TourVO resultClass;
+	private String path = "/TMT/upload/tour/";
+
+	private List<String> imageList = new ArrayList<String>();
 	
 	private int currentPage;
 	
@@ -30,12 +35,15 @@ public class AdminTourView extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		paramClass = new TourVO();
-		paramClass.setNo(getNo());
-		
 		
 		resultClass = (TourVO)sqlMapper.queryForObject("selectOneT",getNo());
 		
-		
+		if(resultClass.getImage2()!=null) {
+			String[] image  = resultClass.getImage2().split(",");
+			
+			for(String a : image)
+				imageList.add(path+a);
+		}
 		return SUCCESS;
 	}
 	public TourVO getParamClass() {
@@ -61,6 +69,12 @@ public class AdminTourView extends ActionSupport {
 	}
 	public void setNo(int no) {
 		this.no = no;
+	}
+	public List<String> getImageList() {
+		return imageList;
+	}
+	public void setImageList(List<String> imageList) {
+		this.imageList = imageList;
 	}
 	
 }

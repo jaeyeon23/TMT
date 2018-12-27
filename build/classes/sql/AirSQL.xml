@@ -22,25 +22,29 @@
 
 	<!-- 공통으로 사용할 select 정의 -->
 	<select id="select-allA" resultMap="boardair">
-		select * from air
+		select no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade  
+		from air
 	</select>	
 	
 	<!-- 일반 검색 -->
 	<select id="listAir" resultMap="boardair" parameterClass="air">
 		<!-- ad날짜만 계산 -->
-		SELECT * from air WHERE arv=#arv# and seat>=#seat# 
+		SELECT no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade  
+		from air WHERE arv=#arv# and seat>=#seat# 
 				and seat_grade=#seat_grade# and ad>=#ad#
 	</select>
 	
 	<!-- 가격 낮은 순 -->
 	<select id="listAir_lowprice" resultMap="boardair" parameterClass="air">
-		SELECT * from air WHERE arv=#arv# and ad>=#ad# and 
+		SELECT no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade  
+		from air WHERE arv=#arv# and ad>=#ad# and 
 				seat>=#seat# and seat_grade=#seat_grade# order by price asc
 	</select>
 	
 	<!-- 출발시간 빠른 순 -->
 	<select id="listAir_ad_time" resultMap="boardair" parameterClass="air">
-		SELECT * from air WHERE arv=#arv# and ad>=#ad# and 
+		SELECT no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade  
+		from air WHERE arv=#arv# and ad>=#ad# and 
 				seat>=#seat# and seat_grade=#seat_grade# order by ad asc
 	</select>
 
@@ -50,53 +54,71 @@
 				seat>=#seat# and seat_grade=#seat_grade# order by dd asc
 	</select>
 	
-	<!-- 검색 테슽 -->
+	<!-- 검색 -->
 	<select id="listAir_search" resultMap="boardair" parameterClass="java.util.Map">
-		SELECT * from air WHERE arv=#arv# and ad>=to_date(#ad#,'yyyy-MM-dd') and 
-				seat>=#seat# and seat_grade=#seat_grade#
-				<isEqual property="ckAD_1" compareValue="06">
-					 <!-- and ad between to_date('2019-02-01 08:00:00','yyyy-MM-dd HH24:MI:SS') and to_date('2019-02-01 09:00:00','yyyy-MM-dd HH24:MI:SS') -->
-					 and air_company='대한항공'
-				</isEqual>
-				<isEqual property="ckAD_2" compareValue="12">
+		SELECT no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade, SUBSTR(TO_CHAR(DD,'YYYYMMDDHH24MISS'),9), SUBSTR(TO_CHAR(AD,'YYYYMMDDHH24MISS'),9)  	
+		from air WHERE arv=#arv# and ad>=#ad# 
+		and	seat>=#seat# and seat_grade=#seat_grade# 
+			
+		<dynamic>
+			<!-- 출발시간 -->
+			<isNotNull prepend="and" removeFirstPrepend="true" open="(" close=")">
+				<isNotEmpty prepend="or" property="ckAD_1">
+					SUBSTR(TO_CHAR(AD,'YYYYMMDDHH24MISS'),9) between '000000' and '0600000' 
+					<!-- (ad between to_date(concat(#ad#, '00:00:00'), 'yyyy-MM-dd HH24:MI:SS') and to_date(concat(#ad#, '06:00:00'), 'yyyy-MM-dd HH24:MI:SS')) --> 
+				</isNotEmpty>
+				<isNotEmpty prepend="or" property="ckAD_2">
+					SUBSTR(TO_CHAR(AD,'YYYYMMDDHH24MISS'),9) between '060000' and '1200000' 
+					<!-- (ad between to_date(concat(#ad#, '06:00:00'), 'yyyy-MM-dd HH24:MI:SS') and to_date(concat(#ad#, '12:00:00'), 'yyyy-MM-dd HH24:MI:SS')) --> 
+				</isNotEmpty>
+				<isNotEmpty prepend="or" property="ckAD_3">
+					SUBSTR(TO_CHAR(AD,'YYYYMMDDHH24MISS'),9) between '120000' and '1800000' 
+					<!-- (ad between to_date(concat(#ad#, '12:00:00'), 'yyyy-MM-dd HH24:MI:SS') and to_date(concat(#ad#, '18:00:00'), 'yyyy-MM-dd HH24:MI:SS')) --> 
+				</isNotEmpty>
+				<isNotEmpty prepend="or" property="ckAD_4">
+					SUBSTR(TO_CHAR(AD,'YYYYMMDDHH24MISS'),9) between '180000' and '2400000' 
+					<!-- (ad between to_date(concat(#ad#, '18:00:00'), 'yyyy-MM-dd HH24:MI:SS') and to_date(concat(#ad#, '23:59:59'), 'yyyy-MM-dd HH24:MI:SS')) -->  
+				</isNotEmpty>
+			</isNotNull>
 				
-				</isEqual>
-				<isEqual property="ckAD_3" compareValue="18">
+			<!-- 도착시간 -->
+			<isNotNull prepend="and" removeFirstPrepend="true" open="(" close=")">
+				<isNotEmpty prepend="or" property="ckDD_1">
+					SUBSTR(TO_CHAR(DD,'YYYYMMDDHH24MISS'),9) between '000000' and '0600000' 
+				</isNotEmpty>
+				<isNotEmpty prepend="or" property="ckDD_2">
+					SUBSTR(TO_CHAR(DD,'YYYYMMDDHH24MISS'),9) between '060000' and '1200000' 
+				</isNotEmpty>
+				<isNotEmpty prepend="or" property="ckDD_3">
+					SUBSTR(TO_CHAR(DD,'YYYYMMDDHH24MISS'),9) between '120000' and '1800000' 
+				</isNotEmpty> 
+				<isNotEmpty prepend="or" property="ckDD_4">
+					SUBSTR(TO_CHAR(DD,'YYYYMMDDHH24MISS'),9) between '180000' and '2400000' 
+				</isNotEmpty> 
+			</isNotNull>
 				
-				</isEqual>
-				<isEqual property="ckAD_4" compareValue="24">
-				
-				</isEqual>
-				
-				<isEqual property="ckDD_1" compareValue="06">
-				
-				</isEqual>
-				<isEqual property="ckDD_1" compareValue="12">
-				
-				</isEqual>
-				<isEqual property="ckDD_1" compareValue="18">
-				
-				</isEqual>
-				<isEqual property="ckDD_1" compareValue="24">
-				
-				</isEqual>
-				
-				<isEqual property="air_company_korea" compareValue="korea">
-					and air_company='대한항공'
-				</isEqual>
-				<isEqual property="air_company_asia" compareValue="asia">
-					and air_company='아시아나'
-				</isEqual>
-				<isEqual property="air_company_jin" compareValue="jin">
-					and air_company='진에어'
-				</isEqual>
-				
-
+				<!-- 항공 -->
+			<isNotNull prepend="and" removeFirstPrepend="true" open="(" close=")">
+				<isNotEmpty prepend="or" property="air_company_korea">
+					air_company=#air_company_korea#
+				</isNotEmpty>
+				<isNotEmpty prepend="or" property="air_company_asia">
+					air_company=#air_company_asia#
+				</isNotEmpty>
+				<isNotEmpty prepend="or" property="air_company_jin">
+					air_company=#air_company_jin#
+				</isNotEmpty>
+			</isNotNull>			
+		</dynamic>
 	</select>
 	
-	<insert id="insertAir" parameterClass="air">
-		INSERT INTO air (no,arv,dep,price,content,image1,seat,seat_grade,ad,dd,air_company,grade) 
-		values(seq_airnum.nextval,#arv#,#dep#,#price#,#content#,#iamge1#,#seat#,#seat_grade#,sysdate,sysdate,#air_company#,#grade#)
-	</insert>
+	<!-- 구매내역 확인 -->
+	<update id="update_seat" parameterClass="air">
+		update air set seat=seat-#seat# where no=#no#
+	</update>
+	
+	<select id="airCheck" resultClass="air" parameterClass="int">
+		select * from air where no=#no#
+	</select>
 	
 </sqlMap>
