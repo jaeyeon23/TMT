@@ -1,16 +1,3 @@
 .classpath
 .settings/org.eclipse.wst.common.project.facet.core.xml
-WebContent/calendar/AUTHORS.txt
-WebContent/calendar/LICENSE.txt
-WebContent/calendar/external/jquery/jquery.js
-WebContent/calendar/index.html
-WebContent/calendar/jquery-ui.css
-WebContent/calendar/jquery-ui.js
-WebContent/calendar/jquery-ui.min.css
-WebContent/calendar/jquery-ui.min.js
-WebContent/calendar/jquery-ui.structure.css
-WebContent/calendar/jquery-ui.structure.min.css
-WebContent/calendar/jquery-ui.theme.css
-WebContent/calendar/jquery-ui.theme.min.css
-WebContent/calendar/package.json
 .project
