@@ -46,7 +46,7 @@
 			</form>
 			</div>
 			<div id="search_h2">두번째 검색방법(국가,지역)
-			  <div class="hc_m_content">
+			   <div class="hc_m_content">
 							<h3>
 								지역별 정렬
 							</h3>
@@ -85,7 +85,7 @@
 				<table width="980" height="1350" border="0" cellspacing="1" cellpadding="2">
 					<tr bgcolor="#F3F3F3">
 						<td colspan="4" width = "680" height="40" ><a href="HotelList.action">호텔리스트[전체보기]</a></td>
-						<td width = "100"><a href="HotelList.action?num=2&hotelname=<s:property value="hotelname"/>&inDay=<s:property value="inDay" />&outDay=<s:property value="outDay" />&number=<s:property value="number" />">[인기순]</a></td>
+						<td width = "100">[인기순]</td>
 						<td width = "100">[가격순]</td>
 						<td width = "100">[별점순]</td>
 					</tr>

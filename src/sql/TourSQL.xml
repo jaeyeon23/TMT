@@ -28,10 +28,6 @@
 	<sql id="where-noT">
 		WHERE no = #no#
 	</sql>
-	
-	<sql id = "select-searchT">
-	        WHERE (name like '%'||#tourname#||'%' or country like '%'||#tourname#||'%' or region like '%'||#tourname#||'%')
-	</sql>
 
 	<!-- select 쿼리문 정의 -->
 	<select id="selectAllT" resultMap="boardtour">
@@ -39,32 +35,32 @@
 		ORDER BY NO DESC
 	</select>
 	
-	<select id="Search_Tour" resultMap="boardtour">
+	<select id="Search_Tour" resultMap="boardtour" parameterClass="java.util.Map">
 		<include refid="select-allT" />
-		<include refid="select-searchT"/>
+		WHERE (name like '%'||#tourname#||'%' or country like '%'||#tourname#||'%' or region like '%'||#tourname#||'%')
 	</select>
 	<!-- 인기순 -->
-	<select id="Search_TourR" resultMap="boardtour">
+	<select id="Search_TourR" resultMap="boardtour" parameterClass="java.util.Map">
 		<include refid="select-allT" />
-		<include refid="select-searchT"/>
+		WHERE (name like '%'||#tourname#||'%' or country like '%'||#tourname#||'%' or region like '%'||#tourname#||'%')
 		order by readcount desc
 	</select>
 	<!-- 가격순 -->
-	<select id="Search_TourP" resultMap="boardtour">
+	<select id="Search_TourP" resultMap="boardtour" parameterClass="java.util.Map">
 		<include refid="select-allT" />
-		<include refid="select-searchT"/>
+		WHERE (name like '%'||#tourname#||'%' or country like '%'||#tourname#||'%' or region like '%'||#tourname#||'%')
 		order by price asc
 	</select>
 	<!-- 별점순 -->
-	<select id="Search_TourG" resultMap="boardtour">
+	<select id="Search_TourG" resultMap="boardtour" parameterClass="java.util.Map">
 		<include refid="select-allT" />
-		<include refid="select-searchT"/>
+		WHERE (name like '%'||#tourname#||'%' or country like '%'||#tourname#||'%' or region like '%'||#tourname#||'%')
 		order by grade desc
 	</select>
 
-	<!-- <insert id="insertTour" parameterClass="tour">
+	 <insert id="insertTour" parameterClass="tour">
 			insert into tour(no, name, price, content, country, region, readcount, image1, image2, image3, reg_date, grade)
 			values(seq_tournum.nextval, #name#, #price#, #content#, #country#, #region#, 0, #image1#, #image2#, #image3#, sysdate, #grade#)	
-		</insert> -->
+	</insert>
 
 </sqlMap>

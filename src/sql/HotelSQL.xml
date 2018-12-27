@@ -32,10 +32,6 @@
 	 	<sql id="where-noH">
 			WHERE no = #no#
 		</sql>
-		
-	    <sql id = "select-search">
-	        WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%')
-	    </sql>
 	    
 		<!-- select 쿼리문 정의 -->
 		<select id="selectAllH" resultMap="boardhotel">
@@ -56,41 +52,41 @@
     <!-- 지역검색 -->	
     <select id="selectAllHH" resultMap="boardhotel">
 			<include refid="select-allH" />
-			WHERE COUNTRY = #hotelname#
+			WHERE COUNTRY = #country#
 	</select>
 	<!-- 검색 기본 -->	
-	<select id="Search_Hotel" resultMap="boardhotel" parameterClass="hotel">
+	<select id="Search_Hotel" resultMap="boardhotel" parameterClass="java.util.Map">
 		<include refid="select-allH" />
-		<include refid="select-search"/>
 		<![CDATA[     
+		WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%')
 		and checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number#
 		]]>
 	</select> 
 	
     <!-- 인기순정렬 -->
-	<select id="Search_Hotel_read" parameterClass="string" resultMap="boardhotel">
+	<select id="Search_Hotel_read" parameterClass="java.util.Map" resultMap="boardhotel">
 		<include refid="select-allH" />
-		<include refid="select-search"/>
 		<![CDATA[     
-		and checkin <= #checkin# and checkout >= #checkout# and maxnum >= #maxnum# order by readcount desc
+		WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%')   
+		and checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# order by readcount desc
 		]]>		
 	</select>
 	
     <!-- 가격순정렬 -->
-	<select id="Search_Hotel_price" parameterClass="string" resultMap="boardhotel">
+	<select id="Search_Hotel_price" parameterClass="java.util.Map" resultMap="boardhotel">
 		<include refid="select-allH" />
-		<include refid="select-search"/>
 		<![CDATA[     
-		and checkin <= #checkin# and checkout >= #checkout# and maxnum >= #maxnum# order by price asc
+		WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%') 
+		and checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# order by price asc
 		]]>		
 	</select>
 	
     <!-- 별점순정렬 -->
-	<select id="Search_Hotel_date" parameterClass="string" resultMap="boardhotel">
+	<select id="Search_Hotel_date" parameterClass="java.util.Map" resultMap="boardhotel">
 		<include refid="select-allH" />
-		<include refid="select-search"/>
 		<![CDATA[     
-		and checkin <= #checkin# and checkout >= #checkout# and maxnum >= #maxnum# order by grade desc
+		WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%')    
+		and checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# order by grade desc
 		]]>		
 	</select>
 	
@@ -98,7 +94,7 @@
 		insert into hotel(no, name, price, content, country, region, readcount, main_image, content_image, image3, reg_date, tel, maxnum , checkin , checkout , grade ) 
 		values(seq_hotelnum.nextval, #name#, #price#, #content#, #country#, #region#, 0, #main_image#, #content_image#,#image3#, sysdate, #tel#,#maxnum#,#checkin#,#checkout#,#grade#)
 		
-	</insert>
+	</insert> 
 	
 
 <!-- 검색로직 끝 -->

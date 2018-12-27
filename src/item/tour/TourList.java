@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Date;
+import java.util.HashMap;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -34,6 +36,7 @@ public class TourList extends ActionSupport{
 	private TourVO tvo = new TourVO();
 	
 	private int num = 0;
+	private Map map = new HashMap<>();
 
 	// 생성자
 	public TourList() throws IOException {
@@ -72,18 +75,18 @@ public class TourList extends ActionSupport{
 	
 	public String search2() throws Exception{
 		if(num ==1) {
-			tvo.setTourname(getTourname());
-			Tourlist = sqlMapper.queryForList("Search_TourR", tvo);
+			map.put("tourname", getTourname());
+			Tourlist = sqlMapper.queryForList("Search_TourR", map);
 		}else if(num ==2) {
-			tvo.setTourname(getTourname());
-			Tourlist = sqlMapper.queryForList("Search_TourP", tvo);
+			map.put("tourname", getTourname());
+			Tourlist = sqlMapper.queryForList("Search_TourP", map);
 		}else if(num ==3) {
-			tvo.setTourname(getTourname());
-			Tourlist = sqlMapper.queryForList("Search_TourG", tvo);
+			map.put("tourname", getTourname());
+			Tourlist = sqlMapper.queryForList("Search_TourG", map);
 		}else {
 		// 검색 내용에따른 글을 list를 넣는다
-		tvo.setTourname(getTourname());
-		Tourlist = sqlMapper.queryForList("Search_Tour", tvo);
+		map.put("tourname", getTourname());
+		Tourlist = sqlMapper.queryForList("Search_Tour", map);
 		}
 		
 		totalCount = Tourlist.size(); // 전체 글의 개수

@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Date;
+import java.util.HashMap;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -36,6 +38,7 @@ public class HotelList extends ActionSupport {
 	private String pagingHtml; 	//페이징을 구현한 HTML
 	private HotelpagingAction page; 	// 페이징 클래스
 
+	private Map map = new HashMap<>();
 
 	// 생성자
 	public HotelList() throws IOException {
@@ -73,21 +76,19 @@ public class HotelList extends ActionSupport {
 	
 	public String search() throws Exception{
 		if(num == 1) {
-			hvo.setHotelname(getHotelname());
+			hvo.setCountry(getHotelname());
 			Hotellist = sqlMapper.queryForList("selectAllHH", hvo);
-		}else if(num == 2) {
-			hvo.setHotelname(getHotelname());
-			hvo.setInDay(getInDay());
-			hvo.setOutDay(getOutDay());
-			hvo.setNumber(getNumber());
-			Hotellist = sqlMapper.queryForList("Search_Hotel_read", hvo);	
 		}else{
-			// 검색 내용에따른 글을 list를 넣는다
+			map.put("hotelname", getHotelname());
+			map.put("inDay", getInDay());
+			map.put("outDay", getOutDay());
+			map.put("number", getNumber());
+			/*	// 검색 내용에따른 글을 list를 넣는다
 			hvo.setHotelname(getHotelname());
-			hvo.setInDay(getInDay());
-			hvo.setOutDay(getOutDay());
-			hvo.setNumber(getNumber());
-			Hotellist = sqlMapper.queryForList("Search_Hotel", hvo);			
+			hvo.setCheckin(getInDay());
+			hvo.setCheckout(getOutDay());
+			hvo.setMaxnum(getNumber()); */
+			Hotellist = sqlMapper.queryForList("Search_Hotel",  map);		
 		}
 		
 		
@@ -95,7 +96,7 @@ public class HotelList extends ActionSupport {
 		totalCount = Hotellist.size(); // 전체 글의 개수
 
 		// HotelpagingAction 객체생성
-		page = new HotelpagingAction(currentPage, totalCount, blockCount, blockPage, hotelname);
+		page = new HotelpagingAction(currentPage, totalCount, blockCount, blockPage, getHotelname());
 		pagingHtml = page.getPagingHtml().toString();
 
 		// 현재 페이지에서 보여줄 마지막 글의 번호 설정.
