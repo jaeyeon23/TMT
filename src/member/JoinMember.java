@@ -41,12 +41,11 @@ public class JoinMember extends ActionSupport{
 	private int no;
 	private String id;
 	private String password;
-	private String password2;
-	private String passport;
 	private String name;
 	private String email;
 	private int tel;
 	private int admin;
+	private String passport;
 	private Date regdate;
 	
 	private String confirmidcheck;
@@ -77,7 +76,6 @@ public class JoinMember extends ActionSupport{
 	    paramClass.setId(getId());
 	    paramClass.setName(getName());
 	    paramClass.setPassword(getPassword());
-	    paramClass.setPassword2(getPassword2());
 	    paramClass.setEmail(getEmail());
 	    paramClass.setTel(getTel());
 	    paramClass.setAdmin(getAdmin());
@@ -96,19 +94,26 @@ public class JoinMember extends ActionSupport{
 		
 		mvo.setEmail(email);
 		
+		//이메일이 중복인지 확인
 		confirmemail=(String)sqlMapper.queryForObject("Email",mvo);
+		
+		//해당 이메일이 있으면
 		if(confirmemail!=null) {
 			response.setContentType("text/html;charset=UTF-8");
+			
 			PrintWriter out=response.getWriter();
 			out.println("<script>");
 			out.println("alert('동일한 이메일이 존재합니다.');");
 			out.println("history.go(-1);");
 			out.println("</script>");
 			out.close();
+			
 			return LOGIN;
 		}
+		
 		//동일한 이메일이 없다면 회원가입인증용 메일 발송
 		Properties props = new Properties();
+		
 		props.setProperty("mail.transport.protocol", "smtp");
 		props.setProperty("mail.smtp.host", "smtp.gmail.com");
 		props.put("mail.smtp.auth", "true");
@@ -121,7 +126,7 @@ public class JoinMember extends ActionSupport{
 
 		Authenticator auth = new Authenticator() {
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("khiclass@gmail.com", "");//발신자 이메일과 비밀번호 입력
+				return new PasswordAuthentication("khiclass@gmail.com", "khacademy");//발신자 이메일과 비밀번호 입력
 			}
 		};
 
@@ -135,8 +140,8 @@ public class JoinMember extends ActionSupport{
 		
 		//회원가입폼에서 입력한 정보를 노출되지않게 a태그로 발송
 		//여기를 누르면 해당 값이 가입로직으로 전달됨
-		String confirmUrl = "<a href='http://localhost:8080/khtour/JoinForm.action?email=" + email + "&id=" + id
-				+ "&password=" + password + "&name=" + name + "" + "&tel=" + tel + "&admin=5'>여기</a>를 누르시면 회원가입이 완료됩니다.";
+		String confirmUrl = "<a href='http://localhost:8080/TMT/Join.action?email=" + email + "&id=" + id
+				+ "&password=" + password + "&name=" + name + "&tel=" + tel + "&passport=" + passport + "&admin=5'>여기</a>를 누르시면 회원가입이 완료됩니다.";
 
 		Multipart mp = new MimeMultipart();
 		MimeBodyPart mbp1 = new MimeBodyPart();
@@ -156,8 +161,6 @@ public class JoinMember extends ActionSupport{
 		Transport.send(message);
 
 		return SUCCESS;
-		
-		
 	}
 
 	public int getNo() {
@@ -182,13 +185,6 @@ public class JoinMember extends ActionSupport{
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public String getPassword2() {
-		return password2;
-	}
-
-	public void setPassword2(String password2) {
-		this.password2 = password2;
 	}
 
 	public String getPassport() {
@@ -286,10 +282,5 @@ public class JoinMember extends ActionSupport{
 	public void setSession(Map session) {
 		this.session = session;
 	}
-	
-	
-	
-	
-	
 }
 

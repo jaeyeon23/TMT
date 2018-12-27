@@ -37,7 +37,8 @@
 		<action name="ModifyPwForm" class="member.FindMemberPw" method="ModifyPw">
 			<result name="success" type="tiles">ModifyPw</result>
 		</action> -->
-<!-- 회원가입 -->				
+		
+		<!-- 회원가입 -->				
 		<action name="Join" class="member.JoinMember" method="Join">
 			<result name="success" type="tiles">Join</result>
 		</action>

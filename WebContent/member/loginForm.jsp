@@ -105,7 +105,7 @@ function validation(userinput){
 					<div class="or">또는</div>
 			</div>
 			<div class="panel-body">
-				<form role="form" data-validation="true" action="/users/sign_in" accept-charset="UTF-8" method="post" novalidate="novalidate" class="fv-form fv-form-bootstrap">
+				<form role="form" data-validation="true" action="Login.action" accept-charset="UTF-8" method="post" novalidate="novalidate" class="fv-form fv-form-bootstrap">
 					<button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;">
 					</button>
 						<input name="utf8" type="hidden" value="!">

@@ -21,6 +21,10 @@
 		<put-attribute name="footer" value="/main/footer.jsp" />
 	</definition>
 
+	<definition name="MainSearch" extends="Main">
+		<put-attribute name="body" value="/main/mainSearch.jsp" />
+	</definition>
+
 	<definition name="AirList" extends="Main">
 		<put-attribute name="body" value="/item/air/airList.jsp" />
 	</definition>

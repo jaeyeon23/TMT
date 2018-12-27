@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
+	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap>
+	<typeAlias alias="hotel" type="item.hotel.HotelVO" />
+	<typeAlias alias="tour" type="item.tour.TourVO" />
+	<typeAlias alias="air" type="item.air.AirVO" />
+	
+	<!-- Air 리절트 맵 정의 -->
+	<resultMap id="boardair" class="air">
+		<result property="no" column="no" />
+		<result property="arv" column="arv" />
+		<result property="dep" column="dep" />
+		<result property="price" column="price" />
+		<result property="content" column="content" />
+		<result property="image1" column="image1" />
+		<result property="seat" column="seat" />
+		<result property="seat_grade" column="seat_grade" />
+		<result property="ad" column="ad" />
+		<result property="dd" column="dd" />
+		<result property="air_company" column="air_company" />
+		<result property="grade" column="grade" />
+	</resultMap>
+	
+	
+	<select id="search_air" resultMap="boardair" parameterClass="java.lang.String">
+	select no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade, r  
+		from (select no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade, rownum r 
+			from (select no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade     
+				from air where arv like '%'||#searchbox#||'%' or dep like '%'||#searchbox#||'%') where rownum >= 1)
+	</select>	
+	<!---->
+</sqlMap>

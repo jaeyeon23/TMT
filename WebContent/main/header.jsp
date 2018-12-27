@@ -99,20 +99,20 @@
 	    	color: black;
 		}
 		
-		input[type=text]{
+	/* 	input[type=text]{
 			border: 2px solid #aaa;
 			border-radius: 4px;
 			margin: 8px	0;
 			outline: none;
 			padding: 10px;
 			box-sizing: border-box;
-			/* transitio; */
+			transitio;
 		}
 		
 		input[type=text]:focus{
 			border-color: dodgerBlue;
 			box-shadow: 0 0 8px 0 dodgerBlue;
-		}
+		} */
 .ProfileNavItems {
     height: 40px;
     display: -ms-flexbox;
@@ -141,7 +141,7 @@
 			<!-- headerTop_left -->
 			<div class="headerTop_left">
 				<a href="Main.action"> 
-					<img src="./images/logo.jpg" width="300px" alt="TMT" id="logo"> 
+					<img src="./images/logo3.png" width="300px" alt="TMT" id="logo"> 
 					<!-- 로고 및 로고이미지에  링크추가 -->
 				</a>
 			</div>
@@ -153,14 +153,6 @@
 				<a href="Join.action"><div class="headerTop_right_membership">회원가입</div></a>
 				headerTop_right_membership
 			</div> -->
-			<div class="ProfileNavItems ">
-				<div class="ProfileNavItems__item gtm-gnb-signin">
-					<a href="LoginForm.action " class="ProfileNavItems__button" >로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				</div>
-				<div class="ProfileNavItems__item gtm-gnb-signup">
-					<a href="JoinForm.action" class="ProfileNavItems__button ProfileNavItems__button--outline" >회원가입</a>
-				</div>
-			</div>
 			<!-- headerTop_right -->
 		</div>
 		<!-- headTop -->
