@@ -8,8 +8,6 @@
 	<title>Insert title here</title>
 
 	<link href="./css/airList.css" rel="stylesheet" type="text/css">
-	<script src="./script/calendar.js" type="text/javascript"></script>
-	<script src="./script/slider_bar.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		
 		/* 정렬 */
@@ -217,12 +215,7 @@
 	<div class="air_array">
 		<form name="frm">
 			<select name="air_array" class="form-control" onchange="sort()">
-				<s:if test="air_array == null">
-					<option value="1">가격 낮은 순</option>	
-					<option value="2">가는 날 출발시간 빠른 순</option>
-					<option value="3">가는 날 도착시간 빠른 순</option>
-				</s:if>
-				<s:if test="air_array == 1">
+				<s:if test="air_array == 1 || air_array == null">
 					<option value="1" selected>가격 낮은 순</option>	
 					<option value="2">가는 날 출발시간 빠른 순</option>
 					<option value="3">가는 날 도착시간 빠른 순</option>
