@@ -5,12 +5,10 @@
 <html>
 
 <head>
-	<!-- 슬라이더 -->
 	<link href="./css/common.css" rel="stylesheet" type="text/css">
     <link href="./css/basic_slider.css" rel="stylesheet" type="text/css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
    	<script src="./js/basic_slider_jquery.js"></script>
-   	<!-- 슬라이더 -->
 	<style>
 		input[type=text]{
 			width: 40%;

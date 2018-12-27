@@ -32,8 +32,7 @@ public class ViewNotice extends ActionSupport{
 	
 	@Override
 	public String execute() throws Exception {
-		paramClass = new NoticeVO();
-		paramClass.setNotice_no(getNotice_no());
+		
 		sqlMapper.update("readHitNotice",paramClass);
 		
 		resultClass = (NoticeVO)sqlMapper.queryForObject("noticeView",getNotice_no());

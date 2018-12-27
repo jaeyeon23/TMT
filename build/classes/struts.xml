@@ -33,4 +33,10 @@
 	<!-- 위시리스트&구매내역&마이페이지 -->
 	<include file="/struts/service.xml"/>
 	
+	<!-- 호텔 -->
+	<include file="/struts/hotel.xml"/>
+	
+	<!-- 투어 -->
+	<include file="/struts/tour.xml"/>
+	
 </struts>

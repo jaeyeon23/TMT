@@ -62,5 +62,12 @@
 		parameterClass="member">
   	SELECT email FROM member WHERE email = #email#
   </select>
+  
+  <!-- 관리자 -->
+  <!-- 멤버리스트 -->
+  <select id="memberList" resultMap="memberRes">
+  	select * from member
+  	order by regdate desc
+  </select>
  
  </sqlMap>

@@ -9,6 +9,9 @@
 <body>
 	<center>
 		<table width="1550">
+			<form name="fr">
+				<input type="hidden" name="sess_id" value="<s:property value='%{#session.id}'/>"/>
+			</form>
 			<tr>
 				<td height="150" width="1550">
 					<tiles:insertAttribute name="header"/>

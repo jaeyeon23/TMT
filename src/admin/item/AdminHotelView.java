@@ -35,15 +35,15 @@ public class AdminHotelView extends ActionSupport{
 	@Override
 	public String execute() throws Exception {
 		paramClass = new HotelVO();
-		paramClass.setNo(getNo());
-		
+	
 		resultClass = (HotelVO)sqlMapper.queryForObject("selectOneH",getNo());
 	
-		String[] image  = resultClass.getImage2().split(",");
-		
-		for(String a : image)
-			imageList.add(path+a);
-		
+		if(resultClass.getContent_image()!=null) {
+			String[] image  = resultClass.getContent_image().split(",");
+			
+			for(String a : image)
+				imageList.add(path+a);
+		}
 		return SUCCESS;
 	}
 	public HotelVO getParamClass() {

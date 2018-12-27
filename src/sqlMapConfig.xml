@@ -18,7 +18,7 @@
 	<sqlMap resource="sql/noticeSQL.xml"/>
 	
 	<!-- Air 리스트 xml -->
-	<!-- <sqlMap resource="sql/AirSQL.xml"/>  -->
+	<sqlMap resource="sql/AirSQL.xml"/>
 	
 	<!-- Hotel 리스트 xml -->
 	<sqlMap resource="sql/HotelSQL.xml"/>
