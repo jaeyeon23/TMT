@@ -29,8 +29,8 @@
 	<tr>
 		<td align="center" width="200">
 		<font size="2">아이디</font></td>
-		<td>
-		${id}
+		<td align="center">
+		<s:property value="resultClass.id"/>
 		</td>
 	</tr>
 	<tr>
@@ -43,8 +43,9 @@
 	</tr>
 	<tr>
 		<td align="center" colspan="2">
-			<input type="submit" value="회원 탈퇴"/>
-			<input type="reset" value="취 소" />
+			<button type="submit" alt="탈퇴되셨습니다.">회원탈퇴</button>
+			
+			<button type="reset" onclick=history.go(-1)>취소</button>
 		</td>
 	</tr>				
 </table>

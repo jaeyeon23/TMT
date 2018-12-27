@@ -16,6 +16,7 @@ public class MemberVO {
 	private String image1;
 	private String marketing1;
 	private String marketing2;
+	private String newpassword;
 	
 	
 	public int getNo() {
@@ -96,6 +97,14 @@ public class MemberVO {
 	public void setMarketing2(String marketing2) {
 		this.marketing2 = marketing2;
 	}
+	public String getNewpassword() {
+		return newpassword;
+	}
+	public void setNewpassword(String newpassword) {
+		this.newpassword = newpassword;
+	}
+	
+
 	
 	
 	
