@@ -40,7 +40,7 @@
 		WHERE (name like '%'||#tourname#||'%' or country like '%'||#tourname#||'%' or region like '%'||#tourname#||'%')
 	</select>
 	
-	<select id="selectOneT" resultMap="boardhotel" parameterClass="int">
+	<select id="selectOneT" resultMap="boardtour" parameterClass="int">
 		<include refid="select-allT"/>
 		<include refid="where-noT" />
 	</select>

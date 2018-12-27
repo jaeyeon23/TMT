@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
+	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap>
+	<typeAlias alias="hotelC" type="item.hotel.HotelComVO" />
+	<!-- 리절트 맵 정의 -->
+	<resultMap id="hotelCRes" class="hotelC">
+		<result property="c_no" column="c_no" />
+		<result property="hotel_no" column="hotel_no" />
+		<result property="c_id" column="c_id" />
+		<result property="c_reg_date" column="c_reg_date" />
+		<result property="c_content" column="c_content" />
+		<result property="c_grade" column="c_grade"/>
+		<result property="c_ref" column="c_ref"/>
+		<result property="c_re_step" column="c_re_step" />
+		<result property="c_re_level" column="c_re_level" />
+		
+	</resultMap>
+
+	
+
+</sqlMap>
