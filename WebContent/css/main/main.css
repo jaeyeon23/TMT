@@ -1,0 +1,15 @@
+		input[type=text]{
+			width: 40%;
+			font-size: 20pt;
+		}
+		
+		.search_background{
+			size: 100%;	
+			background-image:url(https://d2ur7st6jjikze.cloudfront.net/cms/244_original_1525399192.jpg?1525399192);
+			width: 100%;
+        	height: 608px;
+		}
+		
+		.searchbox{
+			
+		}

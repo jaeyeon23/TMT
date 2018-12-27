@@ -5,29 +5,13 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="/TMT/css/main/main.css"/>
 	<!-- 슬라이더 -->
 	<link href="./css/common.css" rel="stylesheet" type="text/css">
     <link href="./css/basic_slider.css" rel="stylesheet" type="text/css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
    	<script src="./js/basic_slider_jquery.js"></script>
    	<!-- 슬라이더 -->
-	<style>
-		input[type=text]{
-			width: 40%;
-			font-size: 20pt;
-		}
-		
-		.search_background{
-			size: 100%;	
-			background-image:url(https://d2ur7st6jjikze.cloudfront.net/cms/244_original_1525399192.jpg?1525399192);
-			width: 100%;
-        	height: 608px;
-		}
-		
-		.searchbox{
-			
-		}
-	</style>
 </head>
 
 <body>

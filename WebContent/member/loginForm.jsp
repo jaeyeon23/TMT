@@ -105,7 +105,7 @@ function validation(userinput){
 					<div class="or">또는</div>
 			</div>
 			<div class="panel-body">
-				<form role="form" data-validation="true" action="/users/sign_in" accept-charset="UTF-8" method="post" novalidate="novalidate" class="fv-form fv-form-bootstrap">
+				<form role="form" data-validation="true" action="Login.action" accept-charset="UTF-8" method="post" novalidate="novalidate" class="fv-form fv-form-bootstrap">
 					<button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;">
 					</button>
 						<input name="utf8" type="hidden" value="!">
@@ -160,7 +160,7 @@ function validation(userinput){
 				</div>						
 					<div class="panel-footer">
 					<div class="footer-title">
-						아직 마이리얼트립 회원이 아니신가요?&nbsp;
+						아직 TMT의 회원이 아니신가요?&nbsp;
 						<a href="JoinForm.action">회원가입</a>
 					</div>
 		</div>
