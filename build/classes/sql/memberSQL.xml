@@ -29,9 +29,15 @@
 	WHERE NO = #no#
 </sql>
 
-<select id="selectOne" resultMap="memberRes" parameterClass="String">
+<select id="selectOne" resultMap="memberRes" parameterClass="member">
    <include refid="select-all"/>
    <include refid="where-Id"/>
+</select>
+
+<select id="loginChk" resultMap="memberRes">
+   <include refid="select-all"/>
+   <include refid="where-Id"/>
+   and password=#password#
 </select>
 
 <insert id="JoinMember" parameterClass="member">

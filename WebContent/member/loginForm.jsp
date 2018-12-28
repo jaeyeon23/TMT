@@ -160,7 +160,7 @@ function validation(userinput){
 				</div>						
 					<div class="panel-footer">
 					<div class="footer-title">
-						아직 마이리얼트립 회원이 아니신가요?&nbsp;
+						아직 TMT의 회원이 아니신가요?&nbsp;
 						<a href="JoinForm.action">회원가입</a>
 					</div>
 		</div>

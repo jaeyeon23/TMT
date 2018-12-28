@@ -25,15 +25,9 @@ public class LoginMember extends ActionSupport implements SessionAware{
 	private MemberVO resultClass;
 	private MemberVO paramClass;
 
-
-	private int no;
 	private String id;
-	private String password;
-	private String password2;
-	private String passport;
 	private String name;
-	private String email;
-	private int tel;
+	private String password;
 	private int admin;
 	private Date regdate;
 	
@@ -46,59 +40,87 @@ public class LoginMember extends ActionSupport implements SessionAware{
 		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
 		reader.close();
 	}
-/*	public String execute() throws Exception {
+	public String execute() throws Exception {
 		return SUCCESS;
 	}
-	*/
+	
 	public String Form() throws Exception {
 		return SUCCESS;
 	}
 		
-	public String execute() throws Exception {
+	public String Login() throws Exception {
 		
 		paramClass = new MemberVO();
 
 		paramClass.setId(getId());
 		paramClass.setPassword(getPassword());
 		
-		resultClass = (MemberVO) sqlMapper.queryForObject("selectOne", getId());
+		resultClass = (MemberVO) sqlMapper.queryForObject("loginChk", getId());
+		
+		if(resultClass != null){
+
+			resultClass = (MemberVO) sqlMapper.queryForObject("selectOne",paramClass);
+
+	        session.put("session_id", resultClass.getId());
+	        session.put("session_admin",resultClass.getAdmin());
+	        session.put("session_name", resultClass.getName());
+
+			return SUCCESS;
+		}
+		
+/*		if(resultClass != null){
+			if(resultClass.getAdmin()==0){
+				return LOGIN;
+			}
+			resultClass = (MemberVO) sqlMapper.queryForObject("selectOne",paramClass);
+
+	        session.put("session_id", resultClass.getId());
+	        session.put("session_password", resultClass.getPassword());
+
+			return SUCCESS;
+		}*/
+/*		resultClass = (MemberVO) sqlMapper.queryForObject("selectOne", getId());
 
 	    if (resultClass != null) { // 아이디가 있으면 
 	      if (resultClass.getPassword().equals(getPassword())) { // 비밀번호 일치
 	        
+	    	ActionContext context = ActionContext.getContext();
 	    	  // 로그인 성공 . 세션 설정
+	    	session=context.getSession();
 	        session.put("id", resultClass.getId());
 	        session.put("password", resultClass.getPassword());
 	        session.put("admin", resultClass.getAdmin());
 	        
-	        System.out.println(session.get("admin"));
-	        System.out.println(session.get("id"));
+	        context.setSession(session);
+	        
+	        if(resultClass.getAdmin()==0) {
+	        	return LOGIN;
+	        }
 	        
 	        return SUCCESS;
 	      }
-	    }
+	    }*/
 	    return ERROR;
-		
-		//return SUCCESS;
+
 	}
 	
 	//로그아웃
 	 public String logout() throws Exception {
-			
-			if (session.get("id") != null) {
-				session.remove("id");
-				session.remove("password");
-				session.remove("admin");				
-			}
-			
-			return SUCCESS;
+		if(session.get("session_id")!=null) {
+			session.remove("session_id");
+			session.remove("session_name");
+			session.remove("session_admin");
 		}
-		
-	public void setSession(Map arg0) {
-		// TODO Auto-generated method stub
-		
+		return SUCCESS;
 	}
 
+	public Map getSession() {
+		return session;
+	}
+	public void setSession(Map session) {
+		this.session = session;
+	}
+	
 	public MemberVO getResultClass() {
 		return resultClass;
 	}
@@ -115,14 +137,6 @@ public class LoginMember extends ActionSupport implements SessionAware{
 		this.paramClass = paramClass;
 	}
 	
-	public int getNo() {
-		return no;
-	}
-
-	public void setNo(int no) {
-		this.no = no;
-	}
-
 	public String getId() {
 		return id;
 	}
@@ -135,48 +149,14 @@ public class LoginMember extends ActionSupport implements SessionAware{
 		return password;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getPassword2() {
-		return password2;
-	}
-
-	public void setPassword2(String password2) {
-		this.password2 = password2;
-	}
-
-	public String getPassport() {
-		return passport;
-	}
-
-	public void setPassport(String passport) {
-		this.passport = passport;
-	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public int getTel() {
-		return tel;
-	}
-
-	public void setTel(int tel) {
-		this.tel = tel;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public int getAdmin() {
@@ -217,11 +197,7 @@ public class LoginMember extends ActionSupport implements SessionAware{
 
 	public static void setSqlMapper(SqlMapClient sqlMapper) {
 		LoginMember.sqlMapper = sqlMapper;
-	}
-	public Map getSession() {
-		return session;
-	}
-	
+	}	
 	
 
 	

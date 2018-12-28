@@ -3,10 +3,11 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.HashMap"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<link rel="stylesheet" href="/TMT/css/member/joinForm.css"/>
+<!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/TMT/css/member/joinForm.css"/>
+<meta charset="UTF-8">
 <script type="text/javascript">
 function check(){
 	
@@ -77,17 +78,17 @@ function openConfirmId(){
 	}
 	open(url,"confirmid","toolbar=no,location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
 }
-/* function openConfirmEmail(){
-	var url="EmailCheck.action?email="+document.join.email.value;
-	var f=document.join;
+function openConfirmEmail(){
+	var url="ConfirmEmail.action";
+/* 	var f=document.join;
 
-	if(f.email.value==""){
+	if(f.passport.value==""){
 		alert("이메일을 입력해주세요.");
-		f.email.focus();
+		f.passport.focus();
 		return false;
-	}
+	} */
 	open(url,"confirmemail","toolbar=no,location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
-} */
+}
 function chkBox(bool){
 	var obj=document.getElementsByName("join");
 	for(var i=0;i<obj.length;i++)
@@ -202,19 +203,6 @@ function chkBox(bool){
 						</div>
 					</div>
 				</div>
-<!-- 				<div class="content-wrapper">
-					<div class="form-group">
-						<div class="content-title-box">
-							<label class="sub-title" for="pwd">이메일</label>
-						</div>
-						<div class="row">
-							<div class="col-xs-12">
-								<input autocomplete="off" class="form-control" name="email" placeholder="ID@example.com" title="이메일" type="email">
-								<input type="button" name="emailChk" value="메일 인증" onclick="openConfirmEmail()" class="button">
-							</div>
-						</div>
-					</div>
-				</div> -->
 				<div class="content-wrapper">
 					<div class="form-group">
 						<div class="content-title-box">

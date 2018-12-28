@@ -17,12 +17,11 @@
 <tr>
 <td>
 <br>
- 
 <div align="center">
-<font>환영합니다.<br>
-<a href="javascript:window.location='./Main.action'">메인으로 가기</a>
+환영합니다.<br>
+<a href="javascript:window.location='/Main.action'">메인으로 가기</a>
 <s:if test='%{session.admin.equals(0)}'>
-<a href="javascript:window.location='./AdminMain.action'">관리자 페이지로 가기</a>
+<a href="javascript:window.location='/AdminMain.action'">관리자 페이지로 가기</a>
 </s:if>
 </div>
 </td>

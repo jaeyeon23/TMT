@@ -41,11 +41,11 @@ public class JoinMember extends ActionSupport{
 	private int no;
 	private String id;
 	private String password;
+	private String passport;
 	private String name;
 	private String email;
 	private int tel;
 	private int admin;
-	private String passport;
 	private Date regdate;
 	
 	private String confirmidcheck;
@@ -86,34 +86,27 @@ public class JoinMember extends ActionSupport{
 		return SUCCESS;
 	}
 	
+	public String Email() throws Exception {//회원가입 이메일 인증
+		HttpServletResponse response = ServletActionContext.getResponse();
 
-
-	
-	public String Email()throws Exception{
-		HttpServletResponse response=ServletActionContext.getResponse();
-		
 		mvo.setEmail(email);
-		
-		//이메일이 중복인지 확인
-		confirmemail=(String)sqlMapper.queryForObject("Email",mvo);
-		
-		//해당 이메일이 있으면
-		if(confirmemail!=null) {
-			response.setContentType("text/html;charset=UTF-8");
-			
-			PrintWriter out=response.getWriter();
+
+		//회원가입 정보 입력시 입력한 이메일과 동일한 이메일이 데이터베이스에 존재하는지 확인
+		confirmemail = (String) sqlMapper.queryForObject("Email", mvo);
+
+		if (confirmemail != null) {//동일한 이메일이 존재한다면 가입불가
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('동일한 이메일이 존재합니다.');");
 			out.println("history.go(-1);");
 			out.println("</script>");
 			out.close();
-			
 			return LOGIN;
 		}
 		
 		//동일한 이메일이 없다면 회원가입인증용 메일 발송
 		Properties props = new Properties();
-		
 		props.setProperty("mail.transport.protocol", "smtp");
 		props.setProperty("mail.smtp.host", "smtp.gmail.com");
 		props.put("mail.smtp.auth", "true");
@@ -141,7 +134,7 @@ public class JoinMember extends ActionSupport{
 		//회원가입폼에서 입력한 정보를 노출되지않게 a태그로 발송
 		//여기를 누르면 해당 값이 가입로직으로 전달됨
 		String confirmUrl = "<a href='http://localhost:8080/TMT/Join.action?email=" + email + "&id=" + id
-				+ "&password=" + password + "&name=" + name + "&tel=" + tel + "&passport=" + passport + "&admin=5'>여기</a>를 누르시면 회원가입이 완료됩니다.";
+				+ "&password=" + password + "&name=" + name + "" + "&tel=" + tel + "&passport=" + passport + "&admin=5'>여기</a>를 누르시면 회원가입이 완료됩니다.";
 
 		Multipart mp = new MimeMultipart();
 		MimeBodyPart mbp1 = new MimeBodyPart();
@@ -162,6 +155,36 @@ public class JoinMember extends ActionSupport{
 
 		return SUCCESS;
 	}
+
+	
+	public MemberVO getMvo() {
+		return mvo;
+	}
+
+	public void setMvo(MemberVO mvo) {
+		this.mvo = mvo;
+	}
+
+	public String getConfirmidcheck() {
+		return confirmidcheck;
+	}
+
+	public void setConfirmidcheck(String confirmidcheck) {
+		this.confirmidcheck = confirmidcheck;
+	}
+
+	public String getConfirmemail() {
+		return confirmemail;
+	}
+
+	public void setConfirmemail(String confirmemail) {
+		this.confirmemail = confirmemail;
+	}
+
+	public String emailform() throws Exception{
+		return SUCCESS;
+	}
+
 
 	public int getNo() {
 		return no;
@@ -282,5 +305,10 @@ public class JoinMember extends ActionSupport{
 	public void setSession(Map session) {
 		this.session = session;
 	}
+	
+	
+	
+	
+	
 }
 
