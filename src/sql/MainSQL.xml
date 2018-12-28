@@ -24,10 +24,15 @@
 	
 	
 	<select id="search_air" resultMap="boardair" parameterClass="java.lang.String">
-	select no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade, r  
-		from (select no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade, rownum r 
-			from (select no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade     
-				from air where arv like '%'||#searchbox#||'%' or dep like '%'||#searchbox#||'%') where rownum >= 1)
+	<!-- 부등호가 문자열이라는 것을 의미하기 위한 CDATA -->
+	<!--[CDATA[]]--> 
+	select no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade, r 
+		from (select no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade, rownum r  
+			from (select no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade 
+				from air 
+				<isNotEmpty>
+					where arv like '%'||#searchbox#||'%' or dep like '%'||#searchbox#||'%' 
+				</isNotEmpty>
+				)  <!--[CDATA[where rownum >= 1]]-->) <!--[CDATA[where r <= 5]]--> 
 	</select>	
-	<!---->
 </sqlMap>

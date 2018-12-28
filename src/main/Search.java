@@ -32,7 +32,7 @@ public class Search extends ActionSupport{
 	
 	@Override
 	public String execute() throws Exception {
-		Airlist = sqlMapper.queryForList("search_air", getSearchbox());
+		Airlist = sqlMapper.queryForList("search_air", searchbox);
 		
 		return SUCCESS;
 	}
@@ -43,6 +43,14 @@ public class Search extends ActionSupport{
 
 	public void setSearchbox(String searchbox) {
 		this.searchbox = searchbox;
+	}
+
+	public List<AirVO> getAirlist() {
+		return Airlist;
+	}
+
+	public void setAirlist(List<AirVO> airlist) {
+		Airlist = airlist;
 	}
 	
 }

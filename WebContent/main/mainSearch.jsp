@@ -18,6 +18,7 @@
 		<s:iterator value="Airlist" status="stat">
 			test : <s:property value="dep"/>
 		</s:iterator>
+		
 	</div>
 	
 	<div>
