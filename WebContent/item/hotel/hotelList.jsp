@@ -13,75 +13,65 @@
 	<script	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/datepicker-ko.js"></script>
     <script language="JavaScript" src="/TMT/item/hotel/hotelscript2.js"></script>
 	<!-- 달력끝 -->
-	<link rel="stylesheet" href="/TMT/item/hotel/hotelcss.css" type="text/css">
+	<link rel="stylesheet" href="/TMT/item/hotel/hotel.css" type="text/css">
 	<style></style>
 	<script>
 	
 	</script>
 </head>
 <body>
-	<div id="hotelBox">
-		<div class="hotel_search_Box">
-			<div id="search_h1">호텔검색
-			<form id="Hsearch" name="HsearchForm" oninput = "result.value = '인원 ' + parseInt(number.value) + '명' " onsubmit="return check()">
-				<center>
-					<input type="text" size="40" name="hotelname" placeholder=" 나라/지역 혹은 호텔명을 입력해주세요."/>
-					<input type="text" size="19"  name="inDay" id="inDay" readonly placeholder="체크인">
-       				 ~
-        			<input type="text" size="19" name="outDay" id="outDay" readonly placeholder="체크아웃"> 
-					<br>
-					<table>
-							<tr>
-								<td id="view" height="40" width="150" align="center">
-									<output	name="result">인원 0명</output></td>
-								<td>
-								<input type="number" name="number" min=1 max=10 value="0">
-								</td>
-								<td>
-								<input type="submit" value="검색">
-								</td>
-							</tr>
-						</table>
-				</center>
-			</form>
+   <div id = "allbox">
+		<div id="box1">
+			<div id="subbox1"><font size="4" color="white">호텔검색</font>
+			    <div id ="search_h3">
+					<form id="Hsearch" name="HsearchForm"
+						oninput="result.value = '인원 ' + parseInt(number.value) + '명' "
+						onsubmit="return check()">
+						<center>
+						    <b>목적지</b>
+							<input type="text" size="28" name="hotelname"
+								placeholder=" 나라/지역 혹은 호텔명" />
+							<p>
+							 <b>체크인</b><br>
+							 <input type="text" size="22" name="inDay" id="inDay" readonly placeholder="체크인">
+							 <br><b>체크아웃</b><br>
+							<input type="text" size="22" name="outDay" id="outDay" readonly
+								placeholder="체크아웃"> <br>
+							<table>
+								<tr>
+									<td id="view" height="40" width="150" align="center"><output
+											name="result">인원 0명</output></td>
+									<td><input type="number" name="number" min=1 max=10
+										value="0"></td>
+									<td><input type="submit" value="검색"></td>
+								</tr>
+							</table>
+						</center>
+					</form>
+				</div>
 			</div>
-			<div id="search_h2">지역검색
-			   <div class="hc_m_content">
-							<h3>
-								지역별 정렬
-							</h3>
-							<ul>
-								<li>
-										<a href="HotelList.action?num=1&hotelname=일본"
-											data-ceid="placelanding_relatedplace">일본</a>
-									
-								</li>
-								<li>
-									
-										<a href="HotelList.action?num=1&hotelname=미국"
-											data-ceid="placelanding_relatedplace">미국</a>
-								
-								</li>
-								<li>
-								
-										<a href="HotelList.action?num=1&hotelname=한국"
-											data-ceid="placelanding_relatedplace">한국</a>
-									
-								</li>
-								<li>
-									
-										<a href="HotelList.action?num=1&hotelname=중국"
-											data-ceid="placelanding_relatedplace">중국</a>
-									
-								</li>
-							</ul>
-						</div>
-			
-			
+			<div id="subbox2">
+				<font size="4" color="white">지역검색</font>
+				<div id="search_h4">
+					<div class="hc_m_content">
+						<h3>지역별 정렬</h3>
+						<ul>
+							<li><a href="HotelList.action?num=1&hotelname=일본"
+								data-ceid="placelanding_relatedplace">일본</a></li>
+							<li><a href="HotelList.action?num=1&hotelname=미국"
+								data-ceid="placelanding_relatedplace">미국</a></li>
+							<li><a href="HotelList.action?num=1&hotelname=한국"
+								data-ceid="placelanding_relatedplace">한국</a></li>
+							<li><a href="HotelList.action?num=1&hotelname=중국"
+								data-ceid="placelanding_relatedplace">중국</a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
+		
 		</div>
-		<div id="hotel_list_Box">
-			<div id="list_Box">
+		<div id = "box2">
+		   <div id="list_Box">
 				<table width="980" height="1350" border="0" cellspacing="1" cellpadding="2">
 					<tr bgcolor="#F3F3F3">
 						<td colspan="4" width = "680" height="40" ><a href="HotelList.action">호텔리스트[전체보기]</a></td>
@@ -97,6 +87,7 @@
 						</tr>
 					</s:if>
 					<s:iterator value="Hotellist" status="stat">
+					    <a href="HotelView.action?no=<s:property value="%{no}" />">
 						<tr bgcolor="#FFFFFF" align="center">
 							<td width="300" height="250">
 							     <s:if test="main_image != null">
@@ -110,6 +101,7 @@
 							<td colspan="2"><s:property value="price" /> 원 / 1박<br>최대 <s:property value="maxnum" /> 명</td>
 							<td><s:property value="grade" /></td>
 						</tr>
+						</a>
 					</s:iterator>
 					<tr align="center">
 						<td colspan="7"><s:property value="pagingHtml" escape="false" /></td>
@@ -117,7 +109,7 @@
 				</table>
 			</div>
 		</div>
+		</div>
 	</div>
-
 </body>
 </html>

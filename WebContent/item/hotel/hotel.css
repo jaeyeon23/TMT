@@ -10,12 +10,32 @@
 	background-color: yellow;
 	margin: 20px 12px;
 }
-#subbox1{
-	 background-color:red;
+#box2{
+	float: right;
+   width:65%;
+   height: 1500px;
+   background-color: white;
+   margin: 20px 12px;
+   
 }
+
 #subbox1{
+	 background-color:#1b5ac2;
+	 margin: 20px auto;
+	 width: 280px;
+	 height: 400px;
+}
+#subbox2{
 	 background-color:blue;
+	 margin: 20px auto;
+	width: 280px;
+	height: 400px;
 }
+#search_h3{
+	background-color:white;
+}
+
+------------------
 
 #Hsearch input[type="number"]{
 	width: 15px;
