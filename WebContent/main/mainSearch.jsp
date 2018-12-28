@@ -7,22 +7,43 @@
 <head>
 </head>
 <body>
-	<input type="text" name="searchbox" value="${param.searchbox }"/>
-	
+	<form>
+		<input type="text" name="searchbox" value="${param.searchbox }"/>
+	</form>
 	<div>
-		투어&티켓
+		<h4>투어&티켓</h4>
+		<s:if test="Tourlist.size() == 0">
+			검색값에 대한 투어&티켓이 없습니다
+		</s:if>
+		<s:else>
+			<s:iterator value="Tourlist" status="stat_tour">
+				test : <s:property value="region"/>
+			</s:iterator>
+		</s:else>
 	</div>
 	
 	<div>
-		항공권
-		<s:iterator value="Airlist" status="stat">
-			test : <s:property value="dep"/>
-		</s:iterator>
+		<h4>항공권</h4>
+		<s:if test="Airlist.size() == 0">
+			검색값에 대한 항공권이 없습니다
+		</s:if>
+		<s:else>
+			<s:iterator value="Airlist" status="stat_air">
+				test : <s:property value="dep"/>
+			</s:iterator>
+		</s:else>
+	</div>
 		
-	</div>
-	
 	<div>
-		호텔
+		<h4>호텔</h4>
+		<s:if test="Hotellist.size() == 0">
+			검색값에 대한 호텔이 없습니다
+		</s:if>
+		<s:else>
+			<s:iterator value="Hotellist" status="stat_hotel">
+				test : <s:property value="region"/>
+			</s:iterator>
+		</s:else>
 	</div>
 </body>
 </html>
