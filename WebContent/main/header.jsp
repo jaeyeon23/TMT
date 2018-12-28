@@ -136,7 +136,16 @@
 </style>
 
 	<link rel="stylesheet" href="/TMT/css/main/header.css"/>
+<<<<<<< HEAD
 
+=======
+	<!-- 달력 -->
+   <link rel="stylesheet" href="./calendar/jquery-ui.min.css">
+   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+   <script src="./calendar/jquery-ui.min.js"></script>
+   <script src="./calendar/datepicker-ko.js"></script>
+   <script src="./script/calendar.js" type="text/javascript"></script>
+>>>>>>> origin/주영_
 </head>
 <body>
 	<!-- header -->

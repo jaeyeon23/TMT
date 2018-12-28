@@ -28,8 +28,9 @@ import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.interceptor.SessionAware;
 
-public class JoinMember extends ActionSupport{
+public class JoinMember extends ActionSupport implements SessionAware{
 	
 	public static Reader reader;
 	private static SqlMapClient sqlMapper;
