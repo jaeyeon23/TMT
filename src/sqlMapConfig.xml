@@ -31,6 +31,9 @@
 	
 	<!-- Basket 리스트 xml -->
 	<sqlMap resource="sql/BasketSQL.xml"/>
+	
+	<!-- Order 리스트 xml -->
+	<sqlMap resource="sql/OrderSQL.xml"/>
 	  
 	
 </sqlMapConfig>

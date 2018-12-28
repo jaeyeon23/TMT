@@ -38,8 +38,8 @@ public class ServiceMember extends ActionSupport{
   
 	@Override
 	public String execute() throws Exception {
-		resultClass = (MemberVO) sqlMapper.queryForObject("selectOne",getId());
-		
+		mvo.setId(id);
+		resultClass = (MemberVO) sqlMapper.queryForObject("selectOne",mvo);		
 		
 		
 		
