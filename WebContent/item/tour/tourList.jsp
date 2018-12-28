@@ -6,7 +6,7 @@
 <html>
 <head>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<link rel="stylesheet" href="/TMT/item/tour/tourcss.css" type="text/css">
+<link rel="stylesheet" href="/TMT/item/tour/t.css" type="text/css">
 <script>
 $(function() 
 {
