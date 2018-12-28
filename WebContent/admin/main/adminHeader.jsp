@@ -6,8 +6,9 @@
 <html>
 <head>
 	<title>Insert title here</title>
-	<link href="./css/bootstrap.css" rel="stylesheet">
-	<link href="./css/bootstrap-theme.css" rel="stylesheet">
+	<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.css" rel="stylesheet">
 	<script src="js/bootstrap.js" type="text/javascript"></script>
 	<style>
 		.menu_home{

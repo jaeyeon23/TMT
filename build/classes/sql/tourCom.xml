@@ -17,13 +17,19 @@
 	</resultMap>
 
 	<select id="tourCList" resultMap="tourCRes" parameterClass="Map">
-		
+		<!-- select tour_no,c_no,c_id,to_char(c_reg_date,'yyyy-mm-dd HH:mi')as c_reg_date ,c_content,c_grade,c_ref,c_re_step,c_re_level from tourcomment
+		where tour_no=#tour_no# order by c_ref desc , c_re_step asc -->
 		<![CDATA[ select tour_no,c_no,c_id,c_reg_date,c_content,c_grade,c_ref,c_re_step,c_re_level, r from 
 		(select tour_no,c_no,c_id,c_reg_date,c_content,c_grade,c_ref,c_re_step,c_re_level,rownum r from 
 		(select tour_no,c_no,c_id,to_char(c_reg_date,'yyyy-mm-dd HH:mi')as c_reg_date ,c_content,c_grade,c_ref,c_re_step,c_re_level from tourcomment
 		where tour_no=#tour_no# order by c_ref desc , c_re_step asc)
 		
-		order by c_ref desc , c_re_step asc) where r > =#r1# and r < #r2#]]> 
+		order by c_ref desc , c_re_step asc) where r > =#r1# and r < #r2#]]>  
+	</select>
+	
+	<select id="tourCCount" resultClass="int" parameterClass="int">
+		select count(*) from tourcomment where tour_no = #tour_no#
+		
 	</select>
 	
 	<insert id="insertTourC" parameterClass="tourC">
@@ -31,6 +37,13 @@
 		values (#tour_no#,seq_tourcom.nextval,#c_id#,sysdate,#c_content#,#c_grade#,seq_tourcom.currval,0,0)
 	</insert>
 	
-
+	<insert id="insertTourCR" parameterClass="tourC">
+		insert into tourcomment(tour_no,c_no,c_id,c_reg_date,c_content,c_grade,c_ref,c_re_step,c_re_level) 
+		values (#tour_no#,seq_tourcom.nextval,#c_id#,sysdate,#c_content#,#c_grade#,#c_ref#,#c_re_step#,#c_re_level#)
+	</insert>
+	
+	<update id="replyStepTC" parameterClass="tourC">
+		<![CDATA[update tourcomment set c_re_step=c_re_step+1 where c_ref=#c_ref# and c_re_step >#c_re_step#]]>
+	</update>
 
 </sqlMap>

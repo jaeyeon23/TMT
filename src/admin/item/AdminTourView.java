@@ -33,9 +33,16 @@ public class AdminTourView extends ActionSupport {
 	private TourComVO cParam;
 	private TourComVO cResult;
 	private List<TourComVO> cList = new ArrayList<TourComVO>();
-	private int currentPageC;
+	
 	private int c_no;
 	private Map page = new HashMap();
+	private int currentPageC = 1;
+	private int totalCount;
+	private int blockCount=3;
+	private int blockPage = 5;
+	private String pagingHtml;
+	private TourComPaging cPage;
+	
 	private int r1;
 	private int r2;
 	
@@ -49,14 +56,24 @@ public class AdminTourView extends ActionSupport {
 	public String execute() throws Exception {
 		paramClass = new TourVO();
 		
+		totalCount = (Integer)sqlMapper.queryForObject("tourCCount",getNo());
+		cPage = new TourComPaging(getNo(),currentPageC, totalCount, blockCount, blockPage);
+		
+		
 		resultClass = (TourVO)sqlMapper.queryForObject("selectOneT",getNo());
+		pagingHtml = cPage.getPagingHtml().toString();
 		
+		r1= cPage.getStartCount();
+		r2= cPage.getEndCount();
 		
-		r1=1;
-		r2=5;
+		int lastCount = totalCount;
+		
+		if (cPage.getEndCount() < totalCount)
+			lastCount = cPage.getEndCount() + 1;
+		
 		page.put("tour_no", getNo());
 		page.put("r1", r1);
-		page.put("r2", r2);
+		page.put("r2", lastCount);
 		
 		cList = sqlMapper.queryForList("tourCList",page);
 		
@@ -127,6 +144,42 @@ public class AdminTourView extends ActionSupport {
 	}
 	public void setC_no(int c_no) {
 		this.c_no = c_no;
+	}
+	public Map getPage() {
+		return page;
+	}
+	public void setPage(Map page) {
+		this.page = page;
+	}
+	public int getTotalCount() {
+		return totalCount;
+	}
+	public void setTotalCount(int totalCount) {
+		this.totalCount = totalCount;
+	}
+	public int getBlockCount() {
+		return blockCount;
+	}
+	public void setBlockCount(int blockCount) {
+		this.blockCount = blockCount;
+	}
+	public int getBlockPage() {
+		return blockPage;
+	}
+	public void setBlockPage(int blockPage) {
+		this.blockPage = blockPage;
+	}
+	public String getPagingHtml() {
+		return pagingHtml;
+	}
+	public void setPagingHtml(String pagingHtml) {
+		this.pagingHtml = pagingHtml;
+	}
+	public TourComPaging getcPage() {
+		return cPage;
+	}
+	public void setcPage(TourComPaging cPage) {
+		this.cPage = cPage;
 	}
 	
 }

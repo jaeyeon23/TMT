@@ -11,20 +11,23 @@
 <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application_template-5da62e3a802820a73815ac9769d004d04db514aa47276f57320c206cc043d2ac.css" />
 <!-- <link rel="stylesheet" media="all" href="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/application-14458f281f80aa09eab886cb439c5f5e9efe0517ecab85511c1da4725b552f6a.css" /> -->
 <link rel="stylesheet" media="screen" href="https://d2yoing0loi5gh.cloudfront.net/webpack/application.df77c9f5145a673a2605.css" />
+
+
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/bootstrap-theme.css" rel="stylesheet">
-<script src="js/bootstrap.js" type="text/javascript"></script>
-<%-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> --%>
-<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
 <script>
-$(function(){
-	$(".f").hide();
-	$("#ff").click(function(){
-		/* if($(this).next().css("display")=="none")
-			$(".subb").slideUp("fast"); */
-		 $(".f").slideToggle("fast"); 
-	})
-})
+$(function() 
+		{
+			$(".subb").hide();
+			$("div.sideMenu").click(function() 
+			{
+				if($(this).next().css("display")=="none")
+					$(".subb").slideUp("fast");
+				 $(this).next().slideToggle("fast"); 
+			})
+		})
 
 </script>
 
@@ -114,7 +117,7 @@ $(function(){
 							<div class="form-group">
 								<input class="form-control input-sm" name="c_id" type="text" placeholder="아이디" style="width:30%;">
 								<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>
-								<input type="submit" value="작성" class="btn btn-default btn-xs">
+								<input class="btn btn-default" type="submit" value="작성">
 								<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
 								<input type="hidden" name="tour_no" value="<s:property value="no"/>">
 								<input type="hidden" name="currentPageC" value="<s:property value="currentPageC"/>">
@@ -133,16 +136,20 @@ $(function(){
 								<p class="offer-review__list--purpose"><s:property value="c_reg_date"/></p>
 								<p class="offer-review__list--message">
 									<div class="with-more " style="max-height: 100px;"><s:property value="c_content"/></div>
-									<input type="button" id="ff" value="답글">
+									<div class="sideMenu"><button type="button" class="btn btn-default btn-xs">답글</button></div>
 									
-									<div class="f">
+									<div class="subb">
 										<form action="TourComment.action"> <!-- method="post" -->
 											<div class="form-group">
 												<input class="form-control input-sm" name="c_id" type="text" placeholder="아이디" style="width:30%;">
 												<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>
 												<input type="submit" value="작성" class="btn btn-default btn-xs">
 												<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
+												<input type="hidden" name="c_no" value="<s:property value="c_no"/>">
 												<input type="hidden" name="tour_no" value="<s:property value="no"/>">
+												<input type="hidden" name="c_ref" value="<s:property value="c_ref"/>">
+												<input type="hidden" name="c_re_step" value="<s:property value="c_re_step"/>">
+												<input type="hidden" name="c_re_level" value="<s:property value="c_re_level"/>">
 												<input type="hidden" name="currentPageC" value="<s:property value="currentPageC"/>">
 											</div>
 										</form>
@@ -164,51 +171,8 @@ $(function(){
 					</div>
 				</div><!-- review -->
 				
-				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-      <h4 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
-      <h4 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-</div>
-				
+				<s:property value="pagingHtml" escape="false"/>
+	
 			</div><!-- offerDetail-->
 		</div>
 	</div>

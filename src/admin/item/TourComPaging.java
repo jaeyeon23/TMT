@@ -15,7 +15,7 @@ public class TourComPaging {
 	private StringBuffer cPagingHtml;
 
 	// 페이징 생성자
-	public TourComPaging(int currentPage, int totalCount, int blockCount,
+	public TourComPaging(int no,int currentPage, int totalCount, int blockCount,
 			int blockPage) {
 
 		this.blockCount = blockCount;
@@ -35,7 +35,7 @@ public class TourComPaging {
 		}
 
 		// 현재 페이지의 처음과 마지막 글의 번호 가져오기.
-		startCount = (currentPage - 1) * blockCount;
+		startCount = (currentPage - 1) * blockCount != 0? (currentPage - 1) * blockCount : 1;
 		endCount = startCount + blockCount - 1;
 
 		// 시작 페이지와 마지막 페이지 값 구하기.
@@ -50,7 +50,8 @@ public class TourComPaging {
 		// 이전 block 페이지
 		cPagingHtml = new StringBuffer();
 		if (currentPage > blockPage) {
-			cPagingHtml.append("<a href=AdminTourList.action?currentPage="
+			cPagingHtml.append("<a href=AdminTourView.action?no=").append(no)
+			.append("&currentPageC="
 					+ (startPage - 1) + ">");
 			cPagingHtml.append("이전");
 			cPagingHtml.append("</a>");
@@ -69,7 +70,8 @@ public class TourComPaging {
 				cPagingHtml.append("</font></b>");
 			} else {
 				cPagingHtml
-						.append("&nbsp;<a href='AdminTourList.action?currentPage=");
+						.append("&nbsp;<a href='AdminTourView.action?no=").append(no)
+								.append("&currentPageC=");
 				cPagingHtml.append(i);
 				cPagingHtml.append("'>");
 				cPagingHtml.append(i);
@@ -83,7 +85,8 @@ public class TourComPaging {
 
 		// 다음 block 페이지
 		if (totalPage - startPage >= blockPage) {
-			cPagingHtml.append("<a href=AdminTourList.action?currentPage="
+			cPagingHtml.append("<a href=AdminTourView.action?no=").append(no)
+			.append("&currentPageC="
 					+ (endPage + 1) + ">");
 			cPagingHtml.append("다음");
 			cPagingHtml.append("</a>");
