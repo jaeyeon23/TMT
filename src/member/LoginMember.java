@@ -25,13 +25,9 @@ public class LoginMember extends ActionSupport implements SessionAware{
 	private MemberVO resultClass;
 	private MemberVO paramClass;
 
-	private int no;
 	private String id;
-	private String password;
-	private String passport;
 	private String name;
-	private String email;
-	private int tel;
+	private String password;
 	private int admin;
 	private Date regdate;
 	
@@ -62,6 +58,17 @@ public class LoginMember extends ActionSupport implements SessionAware{
 		resultClass = (MemberVO) sqlMapper.queryForObject("loginChk", getId());
 		
 		if(resultClass != null){
+
+			resultClass = (MemberVO) sqlMapper.queryForObject("selectOne",paramClass);
+
+	        session.put("session_id", resultClass.getId());
+	        session.put("session_admin",resultClass.getAdmin());
+	        session.put("session_name", resultClass.getName());
+
+			return SUCCESS;
+		}
+		
+/*		if(resultClass != null){
 			if(resultClass.getAdmin()==0){
 				return LOGIN;
 			}
@@ -71,7 +78,7 @@ public class LoginMember extends ActionSupport implements SessionAware{
 	        session.put("session_password", resultClass.getPassword());
 
 			return SUCCESS;
-		}
+		}*/
 /*		resultClass = (MemberVO) sqlMapper.queryForObject("selectOne", getId());
 
 	    if (resultClass != null) { // 아이디가 있으면 
@@ -99,19 +106,13 @@ public class LoginMember extends ActionSupport implements SessionAware{
 	
 	//로그아웃
 	 public String logout() throws Exception {
-		ActionContext context = ActionContext.getContext();
-		Map<String, String> session = (Map<String, String>) context.getSession();
-
-		session.remove("id");
-		session.remove("password");
-		session.remove("admin");
-
-		context.setSession(session);
-
-		return SUCCESS;
+		if(session.get("session_id")!=null) {
+			session.remove("session_id");
+			session.remove("session_name");
+			session.remove("session_admin");
 		}
-		
-
+		return SUCCESS;
+	}
 
 	public Map getSession() {
 		return session;
@@ -136,14 +137,6 @@ public class LoginMember extends ActionSupport implements SessionAware{
 		this.paramClass = paramClass;
 	}
 	
-	public int getNo() {
-		return no;
-	}
-
-	public void setNo(int no) {
-		this.no = no;
-	}
-
 	public String getId() {
 		return id;
 	}
@@ -156,41 +149,14 @@ public class LoginMember extends ActionSupport implements SessionAware{
 		return password;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-
-	public String getPassport() {
-		return passport;
-	}
-
-	public void setPassport(String passport) {
-		this.passport = passport;
-	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public int getTel() {
-		return tel;
-	}
-
-	public void setTel(int tel) {
-		this.tel = tel;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public int getAdmin() {
