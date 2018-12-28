@@ -108,12 +108,12 @@ function getThumbnailPrivew(html, $target) {
 											</colgroup>
 											<tbody>
 											  
-											<input type="hidden" name="id" value="<s:property value="#session.id"/>"/>
+											<input type="hidden" name="id" value="<s:property value="resultClass.id"/>"/>
 												<tr>
 													<th scope="row">아이디</th>
 													<td height="30">
 														<div class="form-group">
-															<span><s:property value="#session.id"/></span>
+															<span><s:property value="resultClass.id"/></span>
 														</div>
 													</td>
 												</tr>
@@ -143,7 +143,7 @@ function getThumbnailPrivew(html, $target) {
 													<th scope="row">이름</th>
 													<td height="30">
 														<div class="item">
-														<s:property value="name"/>
+														<s:property value="resultClass.name"/>
 														</div>
 													</td>
 												</tr>
@@ -162,7 +162,7 @@ function getThumbnailPrivew(html, $target) {
 																
 																<input type="text"
 																name="email2" id="subemail_host" class="i_text"
-																style="width: 100px; height:30px;" value="${email2}"/> 
+																style="width: 100px; height:30px;" value="${email}"/> 
 																
 																<select name="emailHost" id="emailHost"
 																style="width: 85px; height: 20px">

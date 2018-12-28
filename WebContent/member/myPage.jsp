@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
     
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,11 +32,12 @@ function removeCheck() {
 </head>
 <body>
 <div>
-<h2>프로필 관리</h2>
+<h2><!--<input type=image src="./images/mypage.jpg" width="130" height="130" onclick="MyPage.action">-->프로필관리</h2>
 </div>
 <div class="mypage">
 
-<table size="80%" height="80%" width="40%" align="center" cellspacing="0" cellpadding="0" border=1px solid="#444444;">
+<table class="table table-bordered" >
+
 
 
 <form action="ModifyMember.action" name="Modify" method="post" >
@@ -46,29 +49,29 @@ function removeCheck() {
   </form>
   <tr>
     <td align="center" bgcolor="white" height="70">
-    <img width=60 height=60 >${image }</td>
+  <!--   <img width=60 height=60 >${image }--></td>
   </tr>
   
  <tr>
-  <td align="left" bgcolor="white"height="40"><strong>이름</strong>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;${id }</td>
+  <td align="left" bgcolor="white"height="40"><strong>이름</strong>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<s:property value="resultClass.name"/></td>
   </tr>
    <tr>
-  <td align="left" bgcolor="white"height="40"><strong>이메일</strong>&emsp;&emsp;&emsp;&emsp;&emsp;${email }</td>
+  <td align="left" bgcolor="white"height="40"><strong>이메일</strong>&emsp;&emsp;&emsp;&emsp;&emsp;<s:property value="resultClass.email"/></td>
   </tr>
    <tr>
-  <td align="left" bgcolor="white" height="40"><strong>연락처</strong>&emsp;&emsp;&emsp;&emsp;&emsp;${tel }</td>
+  <td align="left" bgcolor="white" height="40"><strong>연락처</strong>&emsp;&emsp;&emsp;&emsp;&emsp;<s:property value="resultClass.tel"/></td>
   </tr>
    <tr>
-  <td align="left" bgcolor="white" height="40"><strong>비밀번호</strong>&emsp;&emsp;&emsp;&emsp;&emsp;${password }</td>
+  <td align="left" bgcolor="white" height="40"><strong>비밀번호</strong>&emsp;&emsp;&emsp;&emsp;&emsp;<s:property value="resultClass.password"/></td>
   </tr>
    <tr>
-  <td align="left" bgcolor="white" height="60"><strong>마켓팅수신동의</strong>&nbsp;&nbsp;&nbsp;e-mail:수신거부<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;sms:수신거부</td>
+  <td align="left" bgcolor="white" height="60"><strong>마켓팅수신동의</strong>&nbsp;&nbsp;&nbsp;<s:property value="resultClass.marketing1"/><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<s:property value="resultClass.marketing2"/></td>
   </tr>
 </table>
 </div>
 <br><br>
 <div align="center">
-<!-- <form action="DeleteMember.action" name="Mdel" method="post">-->
+ <form action="DeleteMember.action" name="Mdel" method="post">
      <button type="submit" class="btn btn-primary" onclick="removeCheck()">계정삭제</button><br><br>
     
 </form></div>
