@@ -3,11 +3,10 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.HashMap"%>
-<link rel="stylesheet" href="/TMT/css/member/joinForm.css"/>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
+<link rel="stylesheet" href="/TMT/css/member/joinForm.css"/>
 <script type="text/javascript">
 function check(){
 	
@@ -29,7 +28,7 @@ function check(){
 	}
 	if (f.password.value != f.password2.value) {
 		alert("비빌번호를 재입력 해주세요.");
-		f.password2.select();
+		f.password2.focus();
 		return false;
 	}
 	if (f.name.value == "") {
@@ -78,17 +77,17 @@ function openConfirmId(){
 	}
 	open(url,"confirmid","toolbar=no,location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
 }
-function openConfirmEmail(){
+/* function openConfirmEmail(){
 	var url="EmailCheck.action?email="+document.join.email.value;
 	var f=document.join;
 
-	if(f.passport.value==""){
+	if(f.email.value==""){
 		alert("이메일을 입력해주세요.");
-		f.passport.focus();
+		f.email.focus();
 		return false;
 	}
 	open(url,"confirmemail","toolbar=no,location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
-}
+} */
 function chkBox(bool){
 	var obj=document.getElementsByName("join");
 	for(var i=0;i<obj.length;i++)
@@ -101,7 +100,7 @@ function chkBox(bool){
 <body>
 <main class="member member-signup">
 <div class="container-fluid content-wrap">
-<form name="join" action="Join.action" method="post" onsubmit="return check()" class="fv-form fv-form-bootstrap">
+<form name="join" action="EmailCheck.action" method="post" onsubmit="return check()" class="fv-form fv-form-bootstrap">
 	<div class="member-panel">	
 		<div class="panel-button">
 			<div class="btn-wrap">
@@ -198,7 +197,7 @@ function chkBox(bool){
 						<div class="row">
 							<div class="col-xs-12">
 								<input autocomplete="off" class="form-control" name="email" placeholder="ID@example.com" title="이메일" type="email">
-								<input type="button" name="emailChk" value="메일 인증" onclick="openConfirmEmail()" class="button">
+								<!-- <input type="button" name="emailChk" value="메일 인증" onclick="openConfirmEmail()" class="button"> -->
 							</div>
 						</div>
 					</div>

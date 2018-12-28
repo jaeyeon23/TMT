@@ -27,27 +27,6 @@ public class ServiceMember extends ActionSupport{
 		return SUCCESS;
 	}
 	
-	public String modifyMember() throws Exception {
-		mvo.setId(id);
-
-		if(password2 != null || password2 != ""){
-			mvo.setPassword2(password2);
-		}
-		
-		email=email+"@"+email2;
-		mvo.setEmail(email);
-		mvo.setTel(tel);
-
-		
-		sqlMapper.update("updateMember", mvo);
-	
-
-		
-		
-
-		return SUCCESS;
-	}
-
 	public Reader getReader() {
 		return reader;
 	}
