@@ -5,30 +5,45 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <link rel="stylesheet" href="/TMT/item/tour/tourcss.css" type="text/css">
-<script language="JavaScript" src="/TMT/item/tour/tourscript.js"></script>
+<script>
+$(function() 
+{
+	$(".subb").hide();
+	$("div.sideMenu").click(function() 
+	{
+		if($(this).next().css("display")=="none")
+			$(".subb").slideUp("fast");
+		 $(this).next().slideToggle("fast"); 
+	})
+})
+</script>
 <style></style>
 </head>
 <body>
 	<div id=tuor_body>
-		<div id=sideBar>
-			<div id=sideMenu>
-				<h1>
-					<b>지역별</b>
-					<hr>
-				</h1>
-				
-					<li><a href="TourList.action" class="on">전체</a></li>
-					<hr>
-					<li><a href="TourList.action?tourname=한국" class="on">한국</a></li>
-					<hr>
-					<li><a href="TourList.action?tourname=미국" class="on">미국</a></li>
-					<hr>
-					<li><a href="TourList.action?tourname=중국" class="on">중국</a></li>
-					<hr>
-					<li><a href="TourList.action?tourname=" class="on">지역4</a></li>
-					<hr>
-				
+		<div id="tuor_side">
+			<div id=side>
+			     <b>CATEGORY</b>
+			     <hr color="#8C8C8C" size="4">
+				<div><a href="TourList.action" class="on"><font color="#1b5ac2"><b>전체</b></font></a></div>
+				<hr>
+				<div class="sideMenu"><b>한국</b></div>
+				<ul class="subb">
+					<li><a href="TourList.action?tourname=제주도" class="on">제주도</a></li>
+				</ul>
+				<hr>
+				<div class="sideMenu"><b>중국</b></div>
+				<ul class="subb">
+					<li><a href="TourList.action?tourname=상하이" class="on">상하이</a></li>
+				</ul>
+				<hr>
+				<div class="sideMenu"><b>미국</b></div>
+				<ul class="subb">
+					<li><a href="TourList.action?tourname=워싱턴" class="on">워싱턴</a></li>
+				</ul>
+				<hr>
 			</div>
 		</div>
 		<div id=tourList>
@@ -85,14 +100,14 @@
 							    	(0)	
 								</div>
 							</div>
-							  </a>
-					    </s:iterator>
-					  
+							</a>
+					  	  </s:iterator>
+					     <center><s:property value="pagingHtml" escape="false" /></center>
 						</ul>
 						
 					</dd>
 				</dl>
-				<s:property value="pagingHtml" escape="false" />
+				
 			</div>
 	</div>
 	
