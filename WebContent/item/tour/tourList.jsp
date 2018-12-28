@@ -17,6 +17,7 @@ $(function()
 			$(".subb").slideUp("fast");
 		 $(this).next().slideToggle("fast"); 
 	})
+	
 })
 </script>
 <style></style>
@@ -26,7 +27,7 @@ $(function()
 		<div id="tuor_side">
 			<div id=side>
 			     <b>CATEGORY</b>
-			     <hr color="#8C8C8C" size="4">
+			     <hr>
 				<div><a href="TourList.action" class="on"><font color="#1b5ac2"><b>전체</b></font></a></div>
 				<hr>
 				<div class="sideMenu"><b>한국</b></div>
@@ -49,6 +50,9 @@ $(function()
 		<div id=tourList>
 				<dl>
 					<dt>
+					    <br>
+					    <b>전체</b>
+					    <hr>
 						<form id="Tsearch">
 						<div id = "search_bar">
 							<input type="text" name="tourname" placeholder=" 여행지,장소,상품을 검색해보세요"/> 
@@ -58,8 +62,18 @@ $(function()
 						<a href="TourList.action?num=1&tourname=<s:property value="tourname" />">[인기순]</a> 
 							<a href="TourList.action?num=2&tourname=<s:property value="tourname" />">[가격순]</a>
 							<a href="TourList.action?num=3&tourname=<s:property value="tourname" />">[별점순]</a>
-						
-					</dt>
+						test
+						<hr>
+					<div id=search_test>
+					    <div class="search_2"><b>TEST</b></div>
+						<div class="subtest">
+							<a href="#">제주도</a><br>
+							<a href="#">제주도</a><br>
+							<a href="#">제주도</a><br>
+						</div>
+					</div>
+
+				</dt>
 
 				<br>
 					<dd>
