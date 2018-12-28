@@ -34,8 +34,8 @@ public class InsertBasket {
 		bvo.setContent(hvo.getContent());
 		bvo.setCountry(hvo.getCountry());
 		bvo.setRegion(hvo.getRegion());
-		bvo.setImage1(hvo.getImage1());
-		bvo.setImage2(hvo.getImage2());
+		bvo.setImage1(hvo.getMain_image());
+		bvo.setImage2(hvo.getContent_image());
 		bvo.setImage3(hvo.getImage3());
 		bvo.setCheckin(hvo.getCheckin());
 		bvo.setCheckout(hvo.getCheckout());
