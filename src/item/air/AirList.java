@@ -1,6 +1,9 @@
 package item.air;
 
 import java.io.IOException;
+
+import org.apache.struts2.interceptor.SessionAware;
+
 import java.io.Reader;
 import java.net.URLEncoder;
 import java.sql.SQLException;
@@ -11,23 +14,22 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import member.MemberVO;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.interceptor.SessionAware;
 
-public class AirList extends ActionSupport{
+
+public class AirList extends ActionSupport implements SessionAware{
 
 	public static Reader reader; 
 	public static SqlMapClient sqlMapper; 
 										
 	private List<AirVO> Airlist = new ArrayList<AirVO>();
 	private AirVO avo = new AirVO();
-	
-	
-	
-	
 	
 	/*변수 시작*/
 	private int no;
@@ -65,6 +67,8 @@ public class AirList extends ActionSupport{
 	private String[] ckAD_search;
 	private Map map = new HashMap<>();
 	
+	private Map session;
+	
 	public AirList() throws IOException{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
 		
@@ -74,6 +78,8 @@ public class AirList extends ActionSupport{
 	
 	@Override
 	public String execute() throws Exception {
+		
+		if(session.get("session_id")!=null) {
 		if(arv == null) {
 			Airlist = null;
 		}else {
@@ -108,6 +114,8 @@ public class AirList extends ActionSupport{
 		}
 		
 		return SUCCESS;
+		}
+		return ERROR;
 	}
 
 	private void makeSearch() throws IOException, SQLException{
@@ -161,6 +169,8 @@ public class AirList extends ActionSupport{
 		Airlist = sqlMapper.queryForList("listAir_search", map);
 	}
 	
+	
+
 	public int getNo() {
 		return no;
 	}
@@ -376,4 +386,14 @@ public class AirList extends ActionSupport{
 	public void setAir_company_jin(String air_company_jin) {
 		this.air_company_jin = air_company_jin;
 	}
+
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
+	}
+	
+	
 }

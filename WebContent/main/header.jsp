@@ -12,6 +12,12 @@
 	<link href="./css/bootstrap-theme.css" rel="stylesheet">
 	<script src="js/bootstrap.js" type="text/javascript"></script>
 	<link rel="stylesheet" href="/TMT/css/main/header.css"/>
+	<!-- 달력 -->
+   <link rel="stylesheet" href="./calendar/jquery-ui.min.css">
+   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+   <script src="./calendar/jquery-ui.min.js"></script>
+   <script src="./calendar/datepicker-ko.js"></script>
+   <script src="./script/calendar.js" type="text/javascript"></script>
 </head>
 <body>
 	<!-- header -->

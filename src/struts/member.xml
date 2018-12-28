@@ -7,14 +7,11 @@
 	<package name="member" extends="struts-default, tiles-default">
 		
 <!-- 로그인 -->		
-<!-- 		<action name="Login" class="member.LoginMember">
-			<result name="success" type="tiles">Login</result>
-			<result name="error">/member/loginError.jsp</result>
-		</action>	 -->	
+
 		<action name="Login" class="member.LoginMember" method="Login">
 			<result name="success" type="tiles">Main</result>
 			<result name="error">/member/loginError.jsp</result>
-			<result name="login" type="tiles">Main</result>
+			<result name="login" type="chain">Main</result>
 		</action>
 		
 		<action name="LoginForm" class="member.LoginMember" method="Form">
@@ -22,7 +19,7 @@
 		</action>
 		
 		<action name="Logout" class="member.LoginMember" method="logout">
-			<result name="success" type="tiles">Main</result>
+			<result name="success" type="chain">Main</result>
 		</action>
 <!-- 아이디 찾기 -->		
 		<action name="FindId" class="member.FindMemberId">

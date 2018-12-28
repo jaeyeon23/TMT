@@ -1,11 +1,13 @@
 package member;
 
 import java.io.Reader;
+import java.util.Map;
 
+import org.apache.struts2.interceptor.SessionAware;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ServiceMember extends ActionSupport{
+public class ServiceMember extends ActionSupport implements SessionAware{
 	
 	private Reader reader;
 	private SqlMapClient sqlMapper;
@@ -21,7 +23,8 @@ public class ServiceMember extends ActionSupport{
 	private String email2;
 	private int tel;
 	
-  
+	private Map session;
+	
 	@Override
 	public String execute() throws Exception {
 		return SUCCESS;
@@ -31,20 +34,16 @@ public class ServiceMember extends ActionSupport{
 		mvo.setId(id);
 
 		if(password2 != null || password2 != ""){
-			mvo.setPassword2(password2);
+			mvo.setPassword(password);
 		}
 		
-		email=email+"@"+email2;
+		/*email=email+"@"+email2;*/
 		mvo.setEmail(email);
 		mvo.setTel(tel);
 
 		
 		sqlMapper.update("updateMember", mvo);
 	
-
-		
-		
-
 		return SUCCESS;
 	}
 
@@ -127,6 +126,14 @@ public class ServiceMember extends ActionSupport{
 
 	public void setTel(int tel) {
 		this.tel = tel;
+	}
+
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
 	}
 	
 	

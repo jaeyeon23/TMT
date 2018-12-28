@@ -67,39 +67,7 @@ public class LoginMember extends ActionSupport implements SessionAware{
 
 			return SUCCESS;
 		}
-		
-/*		if(resultClass != null){
-			if(resultClass.getAdmin()==0){
-				return LOGIN;
-			}
-			resultClass = (MemberVO) sqlMapper.queryForObject("selectOne",paramClass);
 
-	        session.put("session_id", resultClass.getId());
-	        session.put("session_password", resultClass.getPassword());
-
-			return SUCCESS;
-		}*/
-/*		resultClass = (MemberVO) sqlMapper.queryForObject("selectOne", getId());
-
-	    if (resultClass != null) { // 아이디가 있으면 
-	      if (resultClass.getPassword().equals(getPassword())) { // 비밀번호 일치
-	        
-	    	ActionContext context = ActionContext.getContext();
-	    	  // 로그인 성공 . 세션 설정
-	    	session=context.getSession();
-	        session.put("id", resultClass.getId());
-	        session.put("password", resultClass.getPassword());
-	        session.put("admin", resultClass.getAdmin());
-	        
-	        context.setSession(session);
-	        
-	        if(resultClass.getAdmin()==0) {
-	        	return LOGIN;
-	        }
-	        
-	        return SUCCESS;
-	      }
-	    }*/
 	    return ERROR;
 
 	}

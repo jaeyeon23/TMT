@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.ibatis.common.resources.Resources;
@@ -11,13 +12,14 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
 import item.tour.TourpagingAction;
-
-public class TourList extends ActionSupport{
+import org.apache.struts2.interceptor.SessionAware;
+public class TourList extends ActionSupport implements SessionAware{
 	
 	public static Reader reader; //  Ʈ  reader.
 	public static SqlMapClient sqlMapper; // SqlMapClient API ϱ  sqlMapper ü.
 
 	private List<TourVO> Tourlist = new ArrayList<TourVO>();
+	private Map session;
 	
 	private int currentPage = 1; //  
 	private int totalCount; //  Խù 
@@ -105,9 +107,16 @@ public class TourList extends ActionSupport{
 	public void setPage(TourpagingAction page) {
 		this.page = page;
 	}
+
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
+	}
 	
 }
-
 
 
 
