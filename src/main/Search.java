@@ -11,6 +11,8 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
 import item.air.AirVO;
+import item.hotel.HotelVO;
+import item.tour.TourVO;
 
 public class Search extends ActionSupport{
 
@@ -19,7 +21,12 @@ public class Search extends ActionSupport{
 	
 	/*air*/
 	private List<AirVO> Airlist = new ArrayList<AirVO>();
-	private AirVO avo = new AirVO();
+	
+	/*hotel*/
+	private List<HotelVO> Hotellist = new ArrayList<>();
+	
+	/*tour*/
+	private List<TourVO> Tourlist = new ArrayList<>();
 	
 	private String searchbox;
 	
@@ -33,6 +40,8 @@ public class Search extends ActionSupport{
 	@Override
 	public String execute() throws Exception {
 		Airlist = sqlMapper.queryForList("search_air", searchbox);
+		Hotellist = sqlMapper.queryForList("search_hotel", searchbox);
+		Tourlist = sqlMapper.queryForList("search_tour", searchbox);
 		
 		return SUCCESS;
 	}
@@ -51,6 +60,22 @@ public class Search extends ActionSupport{
 
 	public void setAirlist(List<AirVO> airlist) {
 		Airlist = airlist;
+	}
+
+	public List<HotelVO> getHotellist() {
+		return Hotellist;
+	}
+
+	public void setHotellist(List<HotelVO> hotellist) {
+		Hotellist = hotellist;
+	}
+
+	public List<TourVO> getTourlist() {
+		return Tourlist;
+	}
+
+	public void setTourlist(List<TourVO> tourlist) {
+		Tourlist = tourlist;
 	}
 	
 }
