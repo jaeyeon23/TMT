@@ -14,6 +14,18 @@
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/bootstrap-theme.css" rel="stylesheet">
 <script src="js/bootstrap.js" type="text/javascript"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script>
+$(function(){
+	$(".f").hide();
+	$("#ff").click(function(){
+		/* if($(this).next().css("display")=="none")
+			$(".subb").slideUp("fast"); */
+		 $(".f").slideToggle("fast"); 
+	})
+})
+
+</script>
 
 </head>
 <body>
@@ -97,16 +109,14 @@
 					</div>
 					
 					<div class="offer-review__detail-info">
-						<form class="form-horizontal" action="TourComment.action"> <!-- method="post" -->
+						<form action="TourComment.action"> <!-- method="post" -->
 							<div class="form-group">
-								<div class="row">
-		  							<input class="form-control input-sm" name="c_id" type="text" placeholder="아이디" style="width:30%;">
-									<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>
-									<input type="submit" value="작성" class="btn btn-default btn-xs">
-									<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
-									<input type="hidden" name="tour_no" value="<s:property value="no"/>">
-									<input type="hidden" name="currentPageC" value="<s:property value="currentPageC"/>">
-								</div>
+								<input class="form-control input-sm" name="c_id" type="text" placeholder="아이디" style="width:30%;">
+								<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>
+								<input type="submit" value="작성" class="btn btn-default btn-xs">
+								<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
+								<input type="hidden" name="tour_no" value="<s:property value="no"/>">
+								<input type="hidden" name="currentPageC" value="<s:property value="currentPageC"/>">
 							</div>
 						</form>
 					</div>
@@ -122,6 +132,20 @@
 								<p class="offer-review__list--purpose"><s:property value="c_reg_date"/></p>
 								<p class="offer-review__list--message">
 									<div class="with-more " style="max-height: 100px;"><s:property value="c_content"/></div>
+									<input type="button" id="ff" value="답글">
+									
+									<div class="f">
+										<form action="TourComment.action"> <!-- method="post" -->
+											<div class="form-group">
+												<input class="form-control input-sm" name="c_id" type="text" placeholder="아이디" style="width:30%;">
+												<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>
+												<input type="submit" value="작성" class="btn btn-default btn-xs">
+												<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
+												<input type="hidden" name="tour_no" value="<s:property value="no"/>">
+												<input type="hidden" name="currentPageC" value="<s:property value="currentPageC"/>">
+											</div>
+										</form>
+									</div>
 								</p>
 							</div>
 							</s:if>
