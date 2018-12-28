@@ -35,6 +35,24 @@
 	background-color:white;
 }
 
+div.sideMenu {
+	height: 35px;
+	cursor: pointer;     /* 마우스 커서..*/
+}
+
+.subb li a {
+	text-decoration: none;
+	display: block;
+	font-size: 15px;
+	line-height: 30px;
+}
+div.sideMenu:hover {
+	color: #1b5ac2
+}
+.subb li a:hover {
+	color: #1b5ac2
+}
+
 ------------------
 
 #Hsearch input[type="number"]{

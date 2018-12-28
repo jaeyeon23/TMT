@@ -21,6 +21,7 @@
 		<result property="checkout" column="checkout" />
 		<result property="maxnum" column="maxnum" />
 		<result property="grade" column="grade" /> 
+		<result property="room" column="room" /> 
 	</resultMap>
 	
 	<!-- 공통으로 사용할 select 절 정의 -->
@@ -52,14 +53,14 @@
     <!-- 지역검색 -->	
     <select id="selectAllHH" resultMap="boardhotel">
 			<include refid="select-allH" />
-			WHERE COUNTRY = #country#
+			WHERE REGION = #region#
 	</select>
 	<!-- 검색 기본 -->	
 	<select id="Search_Hotel" resultMap="boardhotel" parameterClass="java.util.Map">
 		<include refid="select-allH" />
 		<![CDATA[     
 		WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%')
-		and checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number#
+		and checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# and room >= #roomnum#
 		]]>
 	</select> 
 	
@@ -72,7 +73,7 @@
 		</isEmpty>
 		<isNotEmpty prepend="and" property="inDay">
 		<![CDATA[  
-				checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# 	order by readcount desc	
+				checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# and room >= #roomnum# order by readcount desc	
 		]]>	 
 		</isNotEmpty>
 	</select>
@@ -86,7 +87,7 @@
 		</isEmpty>
 		<isNotEmpty prepend="and" property="inDay">
 		<![CDATA[  
-				checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# 	order by price asc	
+				checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# and room >= #roomnum# order by price asc	
 		]]>	 
 		</isNotEmpty>
 	</select>
@@ -100,7 +101,7 @@
 		</isEmpty>
 		<isNotEmpty prepend="and" property="inDay">
 		<![CDATA[  
-				checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# 	order by grade desc	
+				checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# and room >= #roomnum# order by grade desc	
 		]]>	 
 		</isNotEmpty>
 	</select>
