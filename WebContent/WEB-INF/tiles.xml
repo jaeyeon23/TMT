@@ -21,6 +21,10 @@
 		<put-attribute name="footer" value="/main/footer.jsp" />
 	</definition>
 
+	<definition name="MainSearch" extends="Main">
+		<put-attribute name="body" value="/main/mainSearch.jsp" />
+	</definition>
+
 	<definition name="AirList" extends="Main">
 		<put-attribute name="body" value="/item/air/airList.jsp" />
 	</definition>
@@ -158,6 +162,10 @@
 		<put-attribute name="body" value="/basket/basketList.jsp" />
 	</definition>
 	
+	<definition name="DeleteBasket" extends="Main">
+		<put-attribute name="body" value="/basket/basketList.jsp" />
+	</definition>
+	
 	<definition name="OrderList" extends="Main">
 		<put-attribute name="body" value="/order/orderList.jsp" />
 	</definition>
@@ -186,6 +194,10 @@
 	<definition name="LoginForm" extends="Main">
 		<put-attribute name="body" value="/member/loginForm.jsp" />
 	</definition>
+<!-- 로그아웃 -->	
+	<definition name="Logout" extends="Main">
+		<put-attribute name="body" value="/member/logoutForm.jsp"/>
+	</definition>
 <!-- 아이디 찾기 -->	
 	<definition name="FindId" extends="Main">
 		<put-attribute name="body" value="/member/findId.jsp"/>
@@ -195,13 +207,13 @@
 		<put-attribute name="body" value="/member/findIdForm.jsp"/>
 	</definition>
 <!-- 비밀번호 찾기 -->
-<!-- 	<definition name="FindPw" extends="Main">
+	<definition name="FindPw" extends="Main">
 		<put-attribute name="body" value="/member/findPw.jsp"/>
 	</definition>
 	
 	<definition name="FindPwForm" extends="Main">
 		<put-attribute name="body" value="/member/findPwForm.jsp"/>
-	</definition> -->
+	</definition>
 <!-- 회원가입 -->	
 	<definition name="Join" extends="Main">
 		<put-attribute name="body" value="/member/join.jsp" />
@@ -214,13 +226,13 @@
 	<definition name="ModifyMember" extends="Main">
 		<put-attribute name="body" value="/member/modify.jsp" />
 	</definition>
-
+<!-- 아이디 중복확인 -->
 	<definition name="ConfirmId" extends="Main">
 		<put-attribute name="body" value="/member/idCheck.jsp" />
 	</definition>
-
-	<definition name="EmailCheck" extends="Main">
-		<put-attribute name="body" value="/member/EmailCheck.jsp"/>
+<!-- 이메일 인증 -->
+	<definition name="Email" extends="Main">
+		<put-attribute name="body" value="/member/EmailCheck.jsp" />
 	</definition>
 
 </tiles-definitions>

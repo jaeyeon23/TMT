@@ -21,76 +21,124 @@
 	<div class="resp-container">
 		<div class="resp-container--row ">
 			<div class="OfferDetail">
-			
-				<div class="offer-container__main">
-				
-					<div class="offer-container__title"><s:property value="%{resultClass.name}"/></div>
+				<div class="offer-container">
+					<div class="offer-container__main">
 					
-					<div class="offer-container__inner-bar" id="offer">
-					
-						<div class="offer-container__inner-bar--wrapper">
-							<div class="offer-container__inner-bar--sub-wrapper">
-								<p class="offer-container__inner-bar--country">
-									<s:property value="%{resultClass.country}"/> / <s:property value="%{resultClass.region}"/> 
-									
+						<div class="offer-container__title"><s:property value="%{resultClass.name}"/></div>
+						
+						<div class="offer-container__inner-bar" id="offer">
+						
+							<div class="offer-container__inner-bar--wrapper">
+								<div class="offer-container__inner-bar--sub-wrapper">
+									<p class="offer-container__inner-bar--country">
+										<s:property value="%{resultClass.country}"/> / <s:property value="%{resultClass.region}"/> 
+										
+									</p>
+								</div>
+								<div class="starRating starRating--m starRating--blue starRating--">
+								<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
+								</div>
+							</div>	
+							
+							
+							<div class="offer-container__inner-bar__price">
+								<p class="offer-container__inner-bar__price--content">
+									<p class="offer-container__inner-bar__price--main">
+										
+									</p>	
 								</p>
 							</div>
-							<div class="starRating starRating--m starRating--blue starRating--">
-							<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
-							</div>
-						</div>	
-						
-						
-						<div class="offer-container__inner-bar__price">
-							<p class="offer-container__inner-bar__price--content">
-								<p class="offer-container__inner-bar__price--main">
-									
-								</p>	
-							</p>
+							
 						</div>
 						
-					</div>
+						<s:iterator value="imageList" status="stat">
+							<div class="offer-container__introduction--wrapper">
+								<img class="offer-container__introduction__image" src="<s:property value="imageList[#stat.index]"/>" alt="introduction">
+								<s:property value="imageList[#stat.index]"/>
+							</div>
+						</s:iterator>
+						
+						<div class="with-more " style="max-height: 250px;">
+							<div class="offer-container__service">
+								<p class="offer-container__service--content"><s:property value="%{resultClass.content}"/></p>
+							</div>
+						</div>
+					</div><!-- main -->
 					
-					<s:iterator value="imageList" status="stat">
-						<div class="offer-container__introduction--wrapper">
-							<img class="offer-container__introduction__image" src="<s:property value="imageList[#stat.index]"/>" alt="introduction">
-							<s:property value="imageList[#stat.index]"/>
-						</div>
-					</s:iterator>
-					
-					<div class="with-more " style="max-height: 250px;">
-						<div class="offer-container__service">
-							<p class="offer-container__service--content"><s:property value="%{resultClass.content}"/></p>
-						</div>
-					</div>
-				</div><!-- main -->
-				
-				<div data-margin-top="80" class="offer__side selector" style="">
-					<div class="offer__side__main-box">
-						<div class="offer__side__main-box--body">
-							<div class="offer__side__main-box__price">	
-								<p class="offer__side__main-box__price--main"><s:property value="%{resultClass.price}"/>
-									<span class="offer__side__main-box__price--won">원</span>
-								</p>
-							</div>
-							<div class="offer__side__main-box__share-wrapper " role="button" tabindex="-1">
-								<img class="offer__side__main-box__share-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjNDk1MDU2IiBzdHJva2Utd2lkdGg9IjEuMjUiPgogICAgICAgIDxjaXJjbGUgY3g9IjYuMjIyIiBjeT0iMTIiIHI9IjIuMjIyIi8+CiAgICAgICAgPGNpcmNsZSBjeD0iMTcuNDQ0IiBjeT0iNi4yMjIiIHI9IjIuMjIyIi8+CiAgICAgICAgPHBhdGggc3Ryb2tlLWxpbmVjYXA9InNxdWFyZSIgZD0iTTE0LjUgNy41bC01LjYxMSAyLjgzMyIvPgogICAgICAgIDxjaXJjbGUgY3g9IjE3LjQ0NCIgY3k9IjE3Ljc3OCIgcj0iMi4yMjIiIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDAgMzUuNTU2KSIvPgogICAgICAgIDxwYXRoIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiIGQ9Ik0xNC41IDE2LjVsLTUuNjExLTIuODMzIi8+CiAgICA8L2c+Cjwvc3ZnPgo=" alt="share-icon" role="button" tabindex="-1">
-									<div class="Popover  right-reverse "></div>
-							</div>
-							<a href="AdminTourModifyForm.action?no=<s:property value="no"/>">
-								<button type="button" class="app-button app-button__type--primary app-button__size--l">수정</button>
-							</a>
-							<div class="offer__side__main-box__instant">
-								<div class="wish-button">
-									<button type="button" class="app-button app-button__type--outline app-button__size--m" onclick="javascript:location.href='AdminTourDelete.action?no=<s:property value="no"/>'">
-										<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTEyLjEwNSAxOS41ODZsNy4wMTItNy4wMTJhNC41ODMgNC41ODMgMCAxIDAtNi40ODItNi40ODJsLS41My41My0uNTMtLjUzYTQuNTgzIDQuNTgzIDAgMCAwLTYuNDgzIDYuNDgybDcuMDEzIDcuMDEyeiIvPgo8L3N2Zz4K" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;">삭제<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTEyLjEwNSAxOS41ODZsNy4wMTItNy4wMTJhNC41ODMgNC41ODMgMCAxIDAtNi40ODItNi40ODJsLS41My41My0uNTMtLjUzYTQuNTgzIDQuNTgzIDAgMCAwLTYuNDgzIDYuNDgybDcuMDEzIDcuMDEyeiIvPgo8L3N2Zz4K" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;"></button>
+					<div data-margin-top="80" class="offer__side selector" style="position:fixed; margin-top:250pt;">
+						<div class="offer__side__main-box">
+							<div class="offer__side__main-box--body">
+								<div class="offer__side__main-box__price">	
+									<p class="offer__side__main-box__price--main"><s:property value="%{resultClass.price}"/>
+										<span class="offer__side__main-box__price--won">원</span>
+									</p>
+								</div>
+								<div class="offer__side__main-box__share-wrapper " role="button" tabindex="-1">
+									<img class="offer__side__main-box__share-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjNDk1MDU2IiBzdHJva2Utd2lkdGg9IjEuMjUiPgogICAgICAgIDxjaXJjbGUgY3g9IjYuMjIyIiBjeT0iMTIiIHI9IjIuMjIyIi8+CiAgICAgICAgPGNpcmNsZSBjeD0iMTcuNDQ0IiBjeT0iNi4yMjIiIHI9IjIuMjIyIi8+CiAgICAgICAgPHBhdGggc3Ryb2tlLWxpbmVjYXA9InNxdWFyZSIgZD0iTTE0LjUgNy41bC01LjYxMSAyLjgzMyIvPgogICAgICAgIDxjaXJjbGUgY3g9IjE3LjQ0NCIgY3k9IjE3Ljc3OCIgcj0iMi4yMjIiIHRyYW5zZm9ybT0ibWF0cml4KDEgMCAwIC0xIDAgMzUuNTU2KSIvPgogICAgICAgIDxwYXRoIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiIGQ9Ik0xNC41IDE2LjVsLTUuNjExLTIuODMzIi8+CiAgICA8L2c+Cjwvc3ZnPgo=" alt="share-icon" role="button" tabindex="-1">
+										<div class="Popover  right-reverse "></div>
+								</div>
+								<a href="AdminTourModifyForm.action?no=<s:property value="no"/>">
+									<button type="button" class="app-button app-button__type--primary app-button__size--l">수정</button>
+								</a>
+								<div class="offer__side__main-box__instant">
+									<div class="wish-button">
+										<button type="button" class="app-button app-button__type--outline app-button__size--m" onclick="javascript:location.href='AdminTourDelete.action?no=<s:property value="no"/>'">
+											<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTEyLjEwNSAxOS41ODZsNy4wMTItNy4wMTJhNC41ODMgNC41ODMgMCAxIDAtNi40ODItNi40ODJsLS41My41My0uNTMtLjUzYTQuNTgzIDQuNTgzIDAgMCAwLTYuNDgzIDYuNDgybDcuMDEzIDcuMDEyeiIvPgo8L3N2Zz4K" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;">삭제<img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSIjQ0VENERBIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTEyLjEwNSAxOS41ODZsNy4wMTItNy4wMTJhNC41ODMgNC41ODMgMCAxIDAtNi40ODItNi40ODJsLS41My41My0uNTMtLjUzYTQuNTgzIDQuNTgzIDAgMCAwLTYuNDgzIDYuNDgybDcuMDEzIDcuMDEyeiIvPgo8L3N2Zz4K" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;"></button>
+									</div>
 								</div>
 							</div>
 						</div>
+					</div><!-- side -->
+				</div><!-- offer container-->
+				<hr>
+				<div class="offer-review" id="review">
+					<div class="offer-review__header">
+						<h4 class="offer-review__header__title">문의<span>168</span></h4>
 					</div>
-				</div><!-- side -->
-				
-			</div><!-- offer-->
+					
+					<div class="offer-review__detail-info">
+						<form class="form-horizontal" action="TourComment.action"> <!-- method="post" -->
+							<div class="form-group">
+								<div class="row">
+		  							<input class="form-control input-sm" name="c_id" type="text" placeholder="아이디" style="width:30%;">
+									<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>
+									<input type="submit" value="작성" class="btn btn-default btn-xs">
+									<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
+									<input type="hidden" name="tour_no" value="<s:property value="no"/>">
+									<input type="hidden" name="currentPageC" value="<s:property value="currentPageC"/>">
+								</div>
+							</div>
+						</form>
+					</div>
+					
+					<div class="clear"></div>
+					<hr>
+					<div class="offer-review__list">
+						<s:iterator value="cList" status="stat">
+							<s:if test="c_re_step < 1">
+							<div class="offer-review__list--content">
+								<div class="starRating starRating--m starRating--blue starRating--"></div>
+								<p class="offer-review__list--writer"><s:property value="c_id"/><p>
+								<p class="offer-review__list--purpose"><s:property value="c_reg_date"/></p>
+								<p class="offer-review__list--message">
+									<div class="with-more " style="max-height: 100px;"><s:property value="c_content"/></div>
+								</p>
+							</div>
+							</s:if>
+							<!-- 답글 -->
+							<s:else>
+							<div class="offer-review__reply">
+								<img class="offer-review__reply--icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDEwIDEwIj4KICAgIDxwYXRoIGZpbGw9IiNDRUQ0REEiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTIgOGg4djJIMFYwaDJ2OHoiLz4KPC9zdmc+Cg==" alt="reply">
+								<p class="offer-review__reply--guide"><s:property value="c_id"/></p>
+								<p class="offer-review__reply--message"><s:property value="c_content"/></p>
+							</div>
+							</s:else>
+							<hr>
+						</s:iterator>
+						<!-- <div class="offer-review--more" style=""><button type="button" class="app-button app-button__type--outline app-button__size--m">후기 더 보기</button></div> -->
+					</div>
+				</div><!-- review -->
+			</div><!-- offerDetail-->
 		</div>
 	</div>
 

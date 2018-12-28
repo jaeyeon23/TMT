@@ -17,6 +17,9 @@
 	<sqlMap resource="sql/adminSQL.xml"/>
 	<sqlMap resource="sql/noticeSQL.xml"/>
 	
+	<!-- Main xml -->
+	<sqlMap resource="sql/MainSQL.xml"/>
+	
 	<!-- Air 리스트 xml -->
 	<sqlMap resource="sql/AirSQL.xml"/>
 	
@@ -27,7 +30,17 @@
 	<sqlMap resource="sql/TourSQL.xml"/>
 	
 	<!-- xml 아래에 추가 .... -->
-	<sqlMap resource="sql/memberSQL.xml"/> 
-	  
+
+	<sqlMap resource="sql/memberSQL.xml"/>
+	
+	<!-- 댓글 -->
+	<sqlMap resource="sql/tourCom.xml"/> 
+	
+	<sqlMap resource="/sql/hotelCom.xml"/> 
+
+	
+	<!-- Basket 리스트 xml -->
+	<sqlMap resource="sql/BasketSQL.xml"/>
+
 	
 </sqlMapConfig>

@@ -15,9 +15,10 @@ import item.hotel.*;
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient; 
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
+import org.apache.struts2.interceptor.SessionAware;
 
 
-public class HotelList extends ActionSupport {
+public class HotelList extends ActionSupport implements SessionAware{
 
 	public static Reader reader;	//파일 스트림을 위한 reader.
 	public static SqlMapClient sqlMapper;	//SqlMapClient API를 사용하기 위한 sqlMapper 객체.
@@ -38,7 +39,11 @@ public class HotelList extends ActionSupport {
 	private String pagingHtml; 	//페이징을 구현한 HTML
 	private HotelpagingAction page; 	// 페이징 클래스
 
+
 	private Map map = new HashMap<>();
+
+	private Map session;
+
 
 	// 생성자
 	public HotelList() throws IOException {
@@ -199,6 +204,7 @@ public class HotelList extends ActionSupport {
 	public void setHvo(HotelVO hvo) {
 		this.hvo = hvo;
 	}
+
 	
 	public int getNum() {
 		return num;
@@ -206,6 +212,14 @@ public class HotelList extends ActionSupport {
 	public void setNum(int num) {
 		this.num = num;
 	}
-}
+
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
+	}
 	
+}
 	

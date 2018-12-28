@@ -1,0 +1,19 @@
+    	#footer {
+    		text-align:center;
+            width: auto;
+            clear: both;
+            height: 200px;
+            background-color: gray;
+            color: white;
+        }
+        
+        .iconLink {
+            text-decoration: none;
+            color: white;
+            transition: 1.0s ease;
+            font-size: 30pt;
+        }
+
+        .iconLink:hover {
+            color: blue;
+        }

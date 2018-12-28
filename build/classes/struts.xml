@@ -8,6 +8,10 @@
 		<action name="Main" class="main.Main">
 			<result name="success" type="tiles">Main</result>
 		</action>
+		
+		<action name="MainSearch" class="main.Search">
+			<result name="success" type="tiles">MainSearch</result>
+		</action>
 
 		<action name="TourList" class="item.tour.TourList">
 			<result name="success" type="tiles">TourList</result>

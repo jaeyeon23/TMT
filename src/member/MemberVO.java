@@ -6,13 +6,18 @@ public class MemberVO {
 	private int no;
 	private String id;
 	private String password;
-	private String password2;
 	private String name;
 	private String email;
 	private int tel;
 	private int admin;
 	private String passport;
 	private Date regdate;
+	private String image1;
+	private String marketing1;
+	private String marketing2;
+	private String newpassword;
+	
+	
 	public int getNo() {
 		return no;
 	}
@@ -30,12 +35,6 @@ public class MemberVO {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public String getPassword2() {
-		return password2;
-	}
-	public void setPassword2(String password2) {
-		this.password2 = password2;
 	}
 	public String getName() {
 		return name;
@@ -73,6 +72,33 @@ public class MemberVO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
+	public String getImage1() {
+		return image1;
+	}
+	public void setImage1(String image1) {
+		this.image1 = image1;
+	}
+	public String getMarketing1() {
+		return marketing1;
+	}
+	public void setMarketing1(String marketing1) {
+		this.marketing1 = marketing1;
+	}
+	public String getMarketing2() {
+		return marketing2;
+	}
+	public void setMarketing2(String marketing2) {
+		this.marketing2 = marketing2;
+	}
+	public String getNewpassword() {
+		return newpassword;
+	}
+	public void setNewpassword(String newpassword) {
+		this.newpassword = newpassword;
+	}
+	
+
+	
 	
 	
 }

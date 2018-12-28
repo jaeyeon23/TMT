@@ -6,27 +6,7 @@
 <head>
 	<title>Insert title here</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
-    <style>
-    	#footer {
-    		text-align:center;
-            width: auto;
-            clear: both;
-            height: 200px;
-            background-color: gray;
-            color: white;
-        }
-        
-        .iconLink {
-            text-decoration: none;
-            color: white;
-            transition: 1.0s ease;
-            font-size: 30pt;
-        }
-
-        .iconLink:hover {
-            color: blue;
-        }
-    </style>
+    <link rel="stylesheet" href="/TMT/css/main/footer.css"/>
 </head>
 <body>
 	<div id="footer">

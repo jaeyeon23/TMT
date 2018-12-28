@@ -79,7 +79,7 @@
 <body>
 
 <div class="main">
-<div class='header-title'><h2><center>예약내역 변경</center></h2></div><br><br>
+<div class='header-title'><h3><center>예약내역 변경</center></h3></div><br><br>
 
 <div align="right">
  <table class="table">
@@ -110,6 +110,8 @@
 			   <th align="center"><font size="2"><strong>입국일</strong></font><br>
 			   <input type="text" class="date1" size="14"/></th>
 			 </tr>
+			
+			   
 
 
 </table>
@@ -121,11 +123,11 @@
 <p align="center">
 	<form action="ViewOrder.action" name="ov" method="post">	
 
-  <button type="reset" class="btn btn-default">취소하기</button>
+  <button type="reset" class="btn btn-default" onclick=history.go(-1); >취소하기</button>
   <button type="submit" class="btn btn-primary">저장하기</button>
-  
+  </form>	
 </p>
-	</form>	
+	
 
 </div>
 

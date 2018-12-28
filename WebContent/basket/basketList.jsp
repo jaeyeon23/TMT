@@ -48,12 +48,12 @@
 <div class='wishlists-header-container'>
 <div class='wishlists-title-wrapper'>
 
-<div class='header-title'><h2><center>나의 위시리스트&nbsp;<img src="../images/heart.png" width="20" height="20"></center></h2>
+<div class='header-title'><h2><center>나의 위시리스트&nbsp;<img src="./images/heart.png" width="20" height="20"></center></h2>
 
 </div>
 </div>
 <div class='wishlists-header-divider'></div>
-<div class='wishlists-header-subtitle'><p class="np"><center>총 개의 상품</center></p></div>
+<div class='wishlists-header-subtitle'><p class="np"><center>총${amount }개의 상품</center></p></div>
 </div>
 
 <div class='wishlists-cards-container'>
@@ -62,16 +62,7 @@
 
 
 <table class="table" size="80%" width="80%" align="center">
-<table width="80%" cellpadding="0" cellspacing="0">
-<tr width="80%">
-<td align=right>
-  <select>
-    <option value="도시">도시별로 보기</option>
-   <option value="상품">상품 리스트로 보기</option>
-  </select>
-  </td>
-</tr>
-</table>
+
 
 	<tr>
 		<td colspan=2>
@@ -90,20 +81,36 @@
 				<td width="55%"><font size="2">상품명</font></td>
 				<td width="10%"><font size="2">수량</font></td>
 				<td width="10%"><font size="2">가격</font></td>
+				
 			</tr>
-		
+			
+				
 			<tr align="center">
+			
 			<td><font size="2"></font></td>
-			<td><font size="2"><img width=80 height=80></font></td>
-			<td><font size="2"></font></td>
+			<td><font size="2">${image1 }</font></td>
+			<td><font size="2">
+			<s:if test="blist.size()>0">
+			<input type="submit" name="submit" value="선택삭제">
+			</s:if>
+			
+			<s:else>
+			<br>
+				<img src="./images/wishlist_empty.jpg" width="40" height="40"><br><br>위시리스트에 담긴 상품이 없습니다.<br>TMT와 즐거운 여행을 계획해보세요. 
+			
+			</s:else>
+	
+			</font></td>
+			
 			<td><font size="2">
 			</font></td>
 			<td><font size="2"></font></td>
 			<td><font size="2">
 			</font></td>
+
 			</tr>
 					
-		<form action="BasketDelete.action" name="Bdel" method="post" onsubmit="return check()">
+		<form action="DeleteBasket.action" name="Bdel" method="post" onsubmit="return check()">
 			<%-- <s:hidden name="id" value="${#session.id }"/> --%>
 			<s:iterator value="blist" status="stat">
 			 <li class="list">
@@ -117,24 +124,17 @@
 			  </ul>
 			  </li>
 			  </s:iterator>	
-		
-			
-			
-			<tr class="btn_wrap">
-			<s:if test="blist.size()>0">
-			<td colspan="7" align="center">
-				<font size="2">위시리스트에 담긴 상품이 없습니다.<br>Thankyou My Tour와 즐거운 여행을 계획해보세요. </font>
-			</td>
-			</tr>
-		</s:if>
-		
+
 		</table>
+		
 		
 		<table class="table" width="80%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td height="2" bgcolor="#FFDDDD"></td>
 			</tr>
 		</table>
+		
+			
 		<br>
 		
 		

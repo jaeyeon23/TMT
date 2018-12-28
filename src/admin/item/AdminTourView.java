@@ -3,13 +3,16 @@ package admin.item;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
+import item.tour.TourComVO;
 import item.tour.TourVO;
 
 public class AdminTourView extends ActionSupport {
@@ -26,6 +29,16 @@ public class AdminTourView extends ActionSupport {
 	
 	private int no;
 	
+	/*댓글*/
+	private TourComVO cParam;
+	private TourComVO cResult;
+	private List<TourComVO> cList = new ArrayList<TourComVO>();
+	private int currentPageC;
+	private int c_no;
+	private Map page = new HashMap();
+	private int r1;
+	private int r2;
+	
 	public AdminTourView() throws IOException{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
 		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
@@ -37,6 +50,15 @@ public class AdminTourView extends ActionSupport {
 		paramClass = new TourVO();
 		
 		resultClass = (TourVO)sqlMapper.queryForObject("selectOneT",getNo());
+		
+		
+		r1=1;
+		r2=5;
+		page.put("tour_no", getNo());
+		page.put("r1", r1);
+		page.put("r2", r2);
+		
+		cList = sqlMapper.queryForList("tourCList",page);
 		
 		if(resultClass.getImage2()!=null) {
 			String[] image  = resultClass.getImage2().split(",");
@@ -75,6 +97,36 @@ public class AdminTourView extends ActionSupport {
 	}
 	public void setImageList(List<String> imageList) {
 		this.imageList = imageList;
+	}
+	public TourComVO getcParam() {
+		return cParam;
+	}
+	public void setcParam(TourComVO cParam) {
+		this.cParam = cParam;
+	}
+	public TourComVO getcResult() {
+		return cResult;
+	}
+	public void setcResult(TourComVO cResult) {
+		this.cResult = cResult;
+	}
+	public List<TourComVO> getcList() {
+		return cList;
+	}
+	public void setcList(List<TourComVO> cList) {
+		this.cList = cList;
+	}
+	public int getCurrentPageC() {
+		return currentPageC;
+	}
+	public void setCurrentPageC(int currentPageC) {
+		this.currentPageC = currentPageC;
+	}
+	public int getC_no() {
+		return c_no;
+	}
+	public void setC_no(int c_no) {
+		this.c_no = c_no;
 	}
 	
 }
