@@ -34,3 +34,22 @@ $(function() {
 		}
 	});
 });
+
+function check(){
+	if(document.HsearchForm.hotelname.value==""){
+	  alert("나라/지역 혹은 호텔명을 입력해주세요.");
+	  document.HsearchForm.hotelname.focus();
+	  return false;
+	}
+	if(document.HsearchForm.inDay.value==""){
+	  alert("체크인날짜를 선택해주세요.");
+	  document.HsearchForm.inDay.focus();
+	  return false;
+	}
+
+	if(document.HsearchForm.outDay.value==""){
+	  alert("체크아웃 날짜를 선택해주세요");
+	  document.HsearchForm.outDay.focus();
+	  return false;
+	}
+} 
