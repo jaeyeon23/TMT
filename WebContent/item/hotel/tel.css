@@ -1,3 +1,60 @@
+#allbox{
+   width: 1400px;
+   height: 1600px;
+   background-color:#D5D5D5;
+}
+#box1{
+	float: left;
+	width: 21%;
+	height: 1000px;
+	background-color: yellow;
+	margin: 20px 12px;
+}
+#box2{
+	float: right;
+   width:65%;
+   height: 1500px;
+   background-color: white;
+   margin: 20px 12px;
+   
+}
+
+#subbox1{
+	 background-color:#1b5ac2;
+	 margin: 20px auto;
+	 width: 280px;
+	 height: 400px;
+}
+#subbox2{
+	 background-color:blue;
+	 margin: 20px auto;
+	width: 280px;
+	height: 400px;
+}
+#search_h3{
+	background-color:white;
+}
+
+div.sideMenu {
+	height: 35px;
+	cursor: pointer;     /* 마우스 커서..*/
+}
+
+.subb li a {
+	text-decoration: none;
+	display: block;
+	font-size: 15px;
+	line-height: 30px;
+}
+div.sideMenu:hover {
+	color: #1b5ac2
+}
+.subb li a:hover {
+	color: #1b5ac2
+}
+
+------------------
+
 #Hsearch input[type="number"]{
 	width: 15px;
 	height : 20px;

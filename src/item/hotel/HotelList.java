@@ -15,9 +15,10 @@ import item.hotel.*;
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient; 
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
+import org.apache.struts2.interceptor.SessionAware;
 
 
-public class HotelList extends ActionSupport {
+public class HotelList extends ActionSupport implements SessionAware{
 
 	public static Reader reader;	//파일 스트림을 위한 reader.
 	public static SqlMapClient sqlMapper;	//SqlMapClient API를 사용하기 위한 sqlMapper 객체.
@@ -25,9 +26,10 @@ public class HotelList extends ActionSupport {
 	private List<HotelVO> Hotellist = new ArrayList<HotelVO>();
 	private HotelVO hvo = new HotelVO();
 	
-	private String hotelname;
-	private String number;
-	private String inDay, outDay;
+	private String hotelname;  //검색키워드
+	private String number;     //인원수
+	private String inDay, outDay;  //체크인 체크아웃
+	private String roomnum;       //방개수
 	
 	private int num = 0;           //검색구분을위한 변수 0= 검색x 1 = 지역검색, 2:인기순 ,3 =가격순 ,4= 별점순 
 
@@ -38,7 +40,11 @@ public class HotelList extends ActionSupport {
 	private String pagingHtml; 	//페이징을 구현한 HTML
 	private HotelpagingAction page; 	// 페이징 클래스
 
+
 	private Map map = new HashMap<>();
+
+	private Map session;
+
 
 	// 생성자
 	public HotelList() throws IOException {
@@ -80,9 +86,10 @@ public class HotelList extends ActionSupport {
 		map.put("inDay", getInDay());
 		map.put("outDay", getOutDay());
 		map.put("number", getNumber());
+		map.put("roomnum", getRoomnum());
 		
 		if(num == 1) {
-			hvo.setCountry(getHotelname());
+			hvo.setRegion(getHotelname());
 			Hotellist = sqlMapper.queryForList("selectAllHH", hvo);
 		}else if(num == 2) {
 			Hotellist = sqlMapper.queryForList("Search_Hotel_read", map);
@@ -199,13 +206,27 @@ public class HotelList extends ActionSupport {
 	public void setHvo(HotelVO hvo) {
 		this.hvo = hvo;
 	}
-	
+
+	public String getRoomnum() {
+		return roomnum;
+	}
+	public void setRoomnum(String roomnum) {
+		this.roomnum = roomnum;
+	}
 	public int getNum() {
 		return num;
 	}
 	public void setNum(int num) {
 		this.num = num;
 	}
-}
+
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
+	}
 	
+}
 	

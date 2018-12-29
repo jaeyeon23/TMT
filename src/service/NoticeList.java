@@ -4,14 +4,16 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.interceptor.SessionAware;
 
 
-public class NoticeList extends ActionSupport {
+public class NoticeList extends ActionSupport implements SessionAware{
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 	
@@ -23,7 +25,7 @@ public class NoticeList extends ActionSupport {
 	private PagingAction page;
 	
 	private List<NoticeVO> list = new ArrayList<NoticeVO>();
-	
+	private Map session;
 	
 	public NoticeList() throws IOException{
 	      
@@ -107,5 +109,14 @@ public class NoticeList extends ActionSupport {
 	public void setList(List<NoticeVO> list) {
 		this.list = list;
 	}
+
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
+	}
+	
 	
 }
