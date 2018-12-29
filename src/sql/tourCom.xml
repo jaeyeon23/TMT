@@ -24,12 +24,11 @@
 		(select tour_no,c_no,c_id,to_char(c_reg_date,'yyyy-mm-dd HH:mi')as c_reg_date ,c_content,c_grade,c_ref,c_re_step,c_re_level from tourcomment
 		where tour_no=#tour_no# order by c_ref desc , c_re_step asc)
 		
-		order by c_ref desc , c_re_step asc) where r > =#r1# and r < #r2#]]>  
+		order by c_ref desc , c_re_step asc) where r >= #r1# and r <= #r2#]]>  
 	</select>
 	
 	<select id="tourCCount" resultClass="int" parameterClass="int">
 		select count(*) from tourcomment where tour_no = #tour_no#
-		
 	</select>
 	
 	<insert id="insertTourC" parameterClass="tourC">
