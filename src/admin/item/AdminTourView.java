@@ -43,9 +43,6 @@ public class AdminTourView extends ActionSupport {
 	private String pagingHtml;
 	private TourComPaging cPage;
 	
-	private int r1;
-	private int r2;
-	
 	public AdminTourView() throws IOException{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
 		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
@@ -55,16 +52,19 @@ public class AdminTourView extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		paramClass = new TourVO();
+		/*상세보기*/
+		resultClass = (TourVO)sqlMapper.queryForObject("selectOneT",getNo());
 		
+		if(resultClass.getImage2()!=null) {
+			String[] image  = resultClass.getImage2().split(",");
+			
+			for(String a : image)
+				imageList.add(path+a);//상세보기
+		}
+		/*댓글*/
 		totalCount = (Integer)sqlMapper.queryForObject("tourCCount",getNo());
 		cPage = new TourComPaging(getNo(),currentPageC, totalCount, blockCount, blockPage);
-		
-		
-		resultClass = (TourVO)sqlMapper.queryForObject("selectOneT",getNo());
 		pagingHtml = cPage.getPagingHtml().toString();
-		
-		r1= cPage.getStartCount();
-		r2= cPage.getEndCount();
 		
 		int lastCount = totalCount;
 		
@@ -72,17 +72,12 @@ public class AdminTourView extends ActionSupport {
 			lastCount = cPage.getEndCount() + 1;
 		
 		page.put("tour_no", getNo());
-		page.put("r1", r1);
+		page.put("r1", cPage.getStartCount());
 		page.put("r2", lastCount);
 		
-		cList = sqlMapper.queryForList("tourCList",page);
+		cList = sqlMapper.queryForList("tourCList",page);//댓끝
 		
-		if(resultClass.getImage2()!=null) {
-			String[] image  = resultClass.getImage2().split(",");
-			
-			for(String a : image)
-				imageList.add(path+a);
-		}
+		
 		return SUCCESS;
 	}
 	public TourVO getParamClass() {
