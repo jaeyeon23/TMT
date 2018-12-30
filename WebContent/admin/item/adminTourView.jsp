@@ -173,12 +173,12 @@ $(function()
 						<!-- <div class="offer-review--more" style=""><button type="button" class="app-button app-button__type--outline app-button__size--m">후기 더 보기</button></div> -->
 					</div>
 					<!-- /reviewList -->
-					<div align="center"><s:property value="pagingHtml" escape="false"/></div>
+					
 				</div>
 				<!-- /review -->
 			</div>
-			<!-- /
-			offerDetail-->
+			<div align="center"><s:property value="pagingHtml" escape="false"/></div>
+			<!-- /offerDetail-->
 		</div>
 	</div>
 </body>

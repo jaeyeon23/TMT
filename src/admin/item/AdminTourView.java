@@ -63,7 +63,7 @@ public class AdminTourView extends ActionSupport {
 		}
 		/*댓글*/
 		totalCount = (Integer)sqlMapper.queryForObject("tourCCount",getNo());
-		cPage = new TourComPaging(getNo(),currentPageC, totalCount, blockCount, blockPage);
+		cPage = new TourComPaging(getNo(),getCurrentPage(),currentPageC, totalCount, blockCount, blockPage);
 		pagingHtml = cPage.getPagingHtml().toString();
 		
 		int lastCount = totalCount;
@@ -176,5 +176,4 @@ public class AdminTourView extends ActionSupport {
 	public void setcPage(TourComPaging cPage) {
 		this.cPage = cPage;
 	}
-	
 }
