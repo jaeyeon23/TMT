@@ -49,7 +49,7 @@ public class HotelComPaging {
 
 		
 		cPagingHtml = new StringBuffer()
-		.append("<nav><ul class='pagination'>");
+		.append("<nav><ul class='pagination pagination-sm'>");
 		
 		// 이전 block 페이지
 		if(currentPageC > blockPage) {
