@@ -1,4 +1,4 @@
-package admin.item;
+package item.hotel;
 
 public class HotelComPaging {
 
@@ -53,8 +53,9 @@ public class HotelComPaging {
 		
 		// 이전 block 페이지
 		if(currentPageC > blockPage) {
-			cPagingHtml.append("<li>")
-			.append("<a href=AdminHotelView.action?no=")
+			cPagingHtml
+			.append("<li>")
+			.append("<a href=HotelView.action?no=")
 			.append(no)
 			.append("&currentPage=")
 			.append(currentPage)
@@ -68,11 +69,13 @@ public class HotelComPaging {
 				break;
 			}
 			if (i == currentPageC) {
-				cPagingHtml.append("<li class='active'><a>")
+				cPagingHtml
+				.append("<li class='active'><a>")
 				.append(i)
 				.append("</a></li>");
 			} else {
-				cPagingHtml.append("<li><a href='AdminHotelView.action?no=")
+				cPagingHtml
+				.append("<li><a href='HotelView.action?no=")
 				.append(no)
 				.append("&currentPage=")
 				.append(currentPage)
@@ -85,8 +88,9 @@ public class HotelComPaging {
 		}
 		//다음 block 페이지
 		if (totalPage - startPage >= blockPage) {
-			cPagingHtml.append("<li>")
-			.append("<a href=AdminHotelView.action?no=")
+			cPagingHtml
+			.append("<li>")
+			.append("<a href=HotelView.action?no=")
 			.append(no)
 			.append("&currentPage=")
 			.append(currentPage)

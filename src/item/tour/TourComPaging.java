@@ -1,6 +1,6 @@
-package admin.item;
+package item.tour;
 
-public class HotelComPaging {
+public class TourComPaging {
 
 	private int currentPageC;   // 현재페이지
 	private int totalCount;	 // 전체 게시물 수
@@ -15,7 +15,7 @@ public class HotelComPaging {
 	private StringBuffer cPagingHtml;
 
 	// 페이징 생성자
-	public HotelComPaging(int no,int currentPage,int currentPageC, int totalCount, int blockCount,
+	public TourComPaging(int no,int currentPage,int currentPageC, int totalCount, int blockCount,
 			int blockPage) {
 
 		this.blockCount = blockCount;
@@ -37,7 +37,7 @@ public class HotelComPaging {
 		// 현재 페이지의 처음과 마지막 글의 번호 가져오기.
 		endCount = currentPageC * blockCount;
 		startCount = endCount - (blockCount - 1);
-
+		
 		// 시작 페이지와 마지막 페이지 값 구하기.
 		startPage = (int) ((currentPageC - 1) / blockPage) * blockPage + 1;
 		endPage = startPage + blockPage - 1;
@@ -54,7 +54,7 @@ public class HotelComPaging {
 		// 이전 block 페이지
 		if(currentPageC > blockPage) {
 			cPagingHtml.append("<li>")
-			.append("<a href=AdminHotelView.action?no=")
+			.append("<a href=TourView.action?no=")
 			.append(no)
 			.append("&currentPage=")
 			.append(currentPage)
@@ -72,7 +72,7 @@ public class HotelComPaging {
 				.append(i)
 				.append("</a></li>");
 			} else {
-				cPagingHtml.append("<li><a href='AdminHotelView.action?no=")
+				cPagingHtml.append("<li><a href='TourView.action?no=")
 				.append(no)
 				.append("&currentPage=")
 				.append(currentPage)
@@ -86,7 +86,7 @@ public class HotelComPaging {
 		//다음 block 페이지
 		if (totalPage - startPage >= blockPage) {
 			cPagingHtml.append("<li>")
-			.append("<a href=AdminHotelView.action?no=")
+			.append("<a href=TourView.action?no=")
 			.append(no)
 			.append("&currentPage=")
 			.append(currentPage)

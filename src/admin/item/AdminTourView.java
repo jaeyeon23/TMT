@@ -66,14 +66,9 @@ public class AdminTourView extends ActionSupport {
 		cPage = new TourComPaging(getNo(),getCurrentPage(),currentPageC, totalCount, blockCount, blockPage);
 		pagingHtml = cPage.getPagingHtml().toString();
 		
-		int lastCount = totalCount;
-		
-		if (cPage.getEndCount() < totalCount)
-			lastCount = cPage.getEndCount() + 1;
-		
 		page.put("tour_no", getNo());
 		page.put("r1", cPage.getStartCount());
-		page.put("r2", lastCount);
+		page.put("r2", cPage.getEndCount());
 		
 		cList = sqlMapper.queryForList("tourCList",page);//댓끝
 		

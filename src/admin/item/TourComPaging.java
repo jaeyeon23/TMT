@@ -35,8 +35,8 @@ public class TourComPaging {
 		}
 
 		// 현재 페이지의 처음과 마지막 글의 번호 가져오기.
-		startCount = (currentPageC - 1) * blockCount != 0? (currentPageC - 1) * blockCount : 1;
-		endCount = startCount + blockCount - 1;
+		endCount = currentPageC * blockCount;
+		startCount = endCount - (blockCount - 1);
 
 		// 시작 페이지와 마지막 페이지 값 구하기.
 		startPage = (int) ((currentPageC - 1) / blockPage) * blockPage + 1;

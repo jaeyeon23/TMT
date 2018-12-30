@@ -116,7 +116,7 @@ $(function()
 						<h4 class="offer-review__header__title">문의<span>168</span></h4>
 					</div>
 					<div class="offer-review__detail-info">
-						<form action="TourComment.action"> <!-- method="post" -->
+						<form action="AdminTourComment.action"> <!-- method="post" -->
 							<div class="form-group">
 								<input class="form-control input-sm" name="c_id" type="text" placeholder="아이디" style="width:30%;">
 								<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>
@@ -140,9 +140,9 @@ $(function()
 								<p class="offer-review__list--purpose"><s:property value="c_reg_date"/></p>
 								<p class="offer-review__list--message">
 								<div class="with-more " style="max-height: 100px;"><s:property value="c_content"/></div>
-								<div class="sideMenu"><button type="button" class="btn btn-default btn-xs">답글</button></div>
+								<div class="sideMenu" align="right"><button type="button" class="btn btn-default btn-xs">답글</button></div>
 								<div class="subb">
-									<form action="TourComment.action"> <!-- method="post" -->
+									<form action="AdminTourComment.action"> <!-- method="post" -->
 										<div class="form-group">
 											<input class="form-control input-sm" name="c_id" type="text" placeholder="아이디" style="width:30%;">
 											<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>

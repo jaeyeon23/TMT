@@ -10,7 +10,7 @@
 		</action>
 		
 		<action name="TourComment" class="item.tour.TourComment">
-			<result type="redirect-action">AdminTourView${uri}</result>
+			<result type="redirect-action">TourView${uri}</result>
 		</action>
 		
 		

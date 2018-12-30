@@ -50,6 +50,7 @@ $(function()
 								<div class="offer__side__main-box__price">	
 									<p class="offer__side__main-box__price--main"><s:property value="%{resultClass.price}"/>
 										<span class="offer__side__main-box__price--won">원</span>
+										<span class="offer__side__main-box__price--infoRight">/ 남은방:<s:property value="%{resultClass.room}"/></span>
 									</p>
 								</div>
 								<div class="offer__side__main-box__share-wrapper " role="button" tabindex="-1">
@@ -118,7 +119,7 @@ $(function()
 						<h4 class="offer-review__header__title">문의<span>168</span></h4>
 					</div>
 					<div class="offer-review__detail-info">
-						<form action="HotelComment.action"> <!-- method="post" -->
+						<form action="AdminHotelComment.action"> <!-- method="post" -->
 							<div class="form-group">
 								<input class="form-control input-sm" name="c_id" type="text" placeholder="아이디" style="width:30%;">
 								<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>
@@ -142,9 +143,9 @@ $(function()
 								<p class="offer-review__list--purpose"><s:property value="c_reg_date"/></p>
 								<p class="offer-review__list--message">
 								<div class="with-more " style="max-height: 100px;"><s:property value="c_content"/></div>
-								<div class="sideMenu"><button type="button" class="btn btn-default btn-xs">답글</button></div>
+								<div class="sideMenu" align="right"><button type="button" class="btn btn-default btn-xs">답글</button></div>
 								<div class="subb">
-									<form action="HotelComment.action"> <!-- method="post" -->
+									<form action="AdminHotelComment.action"> <!-- method="post" -->
 										<div class="form-group">
 											<input class="form-control input-sm" name="c_id" type="text" placeholder="아이디" style="width:30%;">
 											<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>

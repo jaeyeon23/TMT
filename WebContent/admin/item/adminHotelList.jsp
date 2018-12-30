@@ -1,69 +1,141 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <!-- ´Ş·Â °ü·Ã-->
+    <!-- ë‹¬ë ¥ ê´€ë ¨-->
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-	<!-- datepicker ÇÑ±¹¾î·Î -->
+	<!-- datepicker í•œêµ­ì–´ë¡œ -->
 	<script	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/datepicker-ko.js"></script>
-    <script language="JavaScript" src="/TMT/item/hotel/hotelscript.js"></script>
-	<!-- ´Ş·Â³¡ -->
-	<link rel="stylesheet" href="/TMT/item/hotel/hotelcss.css" type="text/css">
+    <script language="JavaScript" src="/TMT/item/hotel/hotelscript2.js"></script>
+	<!-- ë‹¬ë ¥ë -->
+	<link rel="stylesheet" href="/TMT/item/hotel/tel.css" type="text/css">
 	<style></style>
 	<script>
-	
+		$(function() {
+			$(".subb").hide();
+			$("div.sideMenu").click(function() {
+				if ($(this).next().css("display") == "none")
+					$(".subb").slideUp("fast");
+				$(this).next().slideToggle("fast");
+			})
+		})
 	</script>
 </head>
 <body>
-	<div id="hotelBox">
-		<div class="hotel_search_Box">
-			<div id="search_h1">Ã¹¹øÀç °Ë»ö¹æ¹ı(»óÇ°¸íor¼÷¼Ò¸í,³¯Â¥,ÀÎ¿ø)
-			<form id="Hsearch" oninput = "result.value = 'ÀÎ¿ø ' + parseInt(num.value) + '¸í' ">
-				<center>
-					<input type="text" size="60" name="hotelname" placeholder=" ¼÷¼Ò ¶Ç´Â »óÇ°À» ÀÔ·ÂÇØÁÖ¼¼¿ä."/>
-					<input type="text" size="19"  name="inDay" id="inDay" placeholder="Ã¼Å©ÀÎ">
-       				 ~
-        			<input type="text" size="19" name="outDay" id="outDay" placeholder="Ã¼Å©¾Æ¿ô">
-					<br>
-					<table>
-							<tr>
-								<td id="view" height="32" width="150" align="center">
-									<output	name="result">ÀÎ¿ø 0¸í</output></td>
-								<td>
-								<input type="number" name="num" min=1 max=10 value="0">
-								</td>
-								<td>
-								<button>°Ë»ö</button>
-								</td>
-							</tr>
-						</table>
-					
-				</center>
-			</form>
+   <div id = "allbox">
+		<div id="box1">
+			<div id="subbox1"><font size="4" color="white">í˜¸í…”ê²€ìƒ‰</font>
+			    <div id ="search_h3">
+					<form id="Hsearch" name="HsearchForm"
+						oninput="result.value = 'ì¸ì› ' + parseInt(number.value) + 'ëª…'; result2.value = 'ê°ì‹¤ ' + parseInt(roomnum.value) + 'ê°œ' "
+						onsubmit="return check()">
+						<center>
+						    <b>ëª©ì ì§€</b>
+							<input type="text" size="28" name="hotelname"
+								placeholder=" ë‚˜ë¼/ì§€ì—­ í˜¹ì€ í˜¸í…”ëª…" />
+							<p>
+							 <b>ì²´í¬ì¸</b><br>
+							 <input type="text" size="22" name="inDay" id="inDay" readonly placeholder="ì²´í¬ì¸">
+							 <br><b>ì²´í¬ì•„ì›ƒ</b><br>
+							<input type="text" size="22" name="outDay" id="outDay" readonly
+								placeholder="ì²´í¬ì•„ì›ƒ"> <br>
+							<table>
+								<tr>
+									<td id="view" height="40" width="150" align="center"><output
+											name="result">ì¸ì› 0ëª…</output></td>
+									<td><input type="number" name="number" min=1 max=10
+										value="0"></td>
+										<br>
+									<td id="view" height="40" width="150" align="center"><output
+											name="result2">ê°ì‹¤0ê°œ</output></td>
+									<td><input type="number" name="roomnum" min=1 max=10
+										value="0"></td>
+									<td><input type="submit" value="ê²€ìƒ‰"></td>
+								</tr>
+							</table>
+						</center>
+					</form>
+				</div>
 			</div>
-			<div id="search_h2">µÎ¹øÂ° °Ë»ö¹æ¹ı(±¹°¡,Áö¿ª)</div>
+			<div id="subbox2">
+				<font size="4" color="white">ì§€ì—­ê²€ìƒ‰</font>
+				<hr>
+				<div id="search_h4">
+					<div id=side>
+						<div>
+							<a href="HotelList.action" class="on"><font color="#1b5ac2"><b>ì „ì²´</b></font></a>
+						</div>
+						<hr>
+						<div class="sideMenu">
+							<b>í•œêµ­</b>
+						</div>
+						<ul class="subb">
+							<li><a href="HotelList.action?num=1&hotelname=ì œì£¼ë„">ì œì£¼ë„</a></li>
+						</ul>
+						<hr>
+						<div class="sideMenu">
+							<b>ì¤‘êµ­</b>
+						</div>
+						<ul class="subb">
+							<li><a href="HotelList.action?num=1&hotelname=ìƒí•˜ì´" class="on">ìƒí•˜ì´</a></li>
+						</ul>
+						<hr>
+						<div class="sideMenu">
+							<b>ë¯¸êµ­</b>
+						</div>
+						<ul class="subb">
+							<li><a href="HotelList.action?num=1&hotelname=í•˜ë…¸ì´" class="on">í•˜ë…¸ì´</a></li>
+						</ul>
+						<hr>
+						<div class="sideMenu">
+							<b>ì¼ë³¸</b>
+						</div>
+						<ul class="subb">
+							<li><a href="HotelList.action?num=1&hotelname=ì˜¤ì‚¬ì¹´">ì˜¤ì‚¬ì¹´</a></li>
+						</ul>
+						<hr>
+                         </div>
+					</div>
+			</div>  <!--  subbox2ëë‚˜ëŠ”ê³³  -->
+
 		</div>
-		<div id="hotel_list_Box">
-			<div id="list_Box">
+		<div id = "box2">
+		   <div id="list_Box">
 				<table width="980" height="1350" border="0" cellspacing="1" cellpadding="2">
 					<tr bgcolor="#F3F3F3">
-						<td colspan="4" width = "680"> È£ÅÚ¸®½ºÆ®</td>
-						<td width = "100">[ÀÎ±â¼ø]</td>
-						<td width = "100">[°¡°İ¼ø]</td>
-						<td width = "100">[½Å±Ô¼ø]</td>
+						<td colspan="4" width = "680" height="40" ><a href="HotelList.action">í˜¸í…”ë¦¬ìŠ¤íŠ¸[ì „ì²´ë³´ê¸°]</a></td>
+						<td width = "100"><a href="HotelList.action?num=2&hotelname=<s:property value="%{hotelname}" />&inDay=<s:property value="%{inDay}" />&outDay=<s:property value="%{outDay}" />&number=<s:property value="%{number}" /> ">[ì¸ê¸°ìˆœ]</a></td>
+						<td width = "100"><a href="HotelList.action?num=3&hotelname=<s:property value="%{hotelname}" />&inDay=<s:property value="%{inDay}"/>&outDay=<s:property value="%{outDay}" />&number=<s:property value="%{number}" /> ">[ê°€ê²©ìˆœ]</a></td>
+						<td width = "100"><a href="HotelList.action?num=4&hotelname=<s:property value="%{hotelname}" />&inDay=<s:property value="%{inDay}" />&outDay=<s:property value="%{outDay}" />&number=<s:property value="%{number}" /> ">[ë³„ì ìˆœ]</a></td>
 					</tr>
-					<s:iterator value="Hotellist" status="stat">
-						<tr bgcolor="#FFFFFF" align="center">
-							<td width="300" height="250"><img src="/TMT/images/noimage.jpg" width="300" height="250"></td>
-							<td colspan="3"><h2><s:property value="name" /></h2><s:property value="country" />&nbsp;|&nbsp;<s:property value="region" /></td>
-							<td colspan="2">\ <s:property value="price" /> ¿ø / 1¹Ú<br>ÃÖ´ë <s:property value="maxnum" /> ¸í</td>
-							<td><s:property value="grade" /></td>
+					<s:if test="Hotellist.size() <= 0">
+						<tr>
+							<td colspan=7>
+								<center>ê²€ìƒ‰ ë‚´ì—­ì´ ì—†ìŠµë‹ˆë‹¤.</center>
+							</td>
 						</tr>
+					</s:if>
+					<s:iterator value="Hotellist" status="stat">
+					    <a href="HotelView.action?no=<s:property value="%{no}" />">
+						<tr bgcolor="#FFFFFF" align="center">
+							<td width="300" height="250">
+							     <s:if test="main_image != null">
+									<img src="/TMT/upload/hotel/<s:property value="%{main_image}" />" width="300" height="250">
+								</s:if> 
+								<s:else>
+									<img src="/TMT/images/noimage.jpg" width="300" height="250">
+								</s:else> 
+							</td>
+							<td colspan="3"><h2><s:property value="name" /></h2><s:property value="country" />&nbsp;|&nbsp;<s:property value="region" /></td>
+							<td colspan="2"><s:property value="price" /> ì› / 1ë°•<br>ìµœëŒ€ <s:property value="maxnum" /> ëª…</td>
+							<td>ì”ì—¬ê°ì‹¤<s:property value="room" />ê°œ</td>
+						</tr>
+						</a>
 					</s:iterator>
 					<tr align="center">
 						<td colspan="7"><s:property value="pagingHtml" escape="false" /></td>
@@ -71,38 +143,6 @@
 				</table>
 			</div>
 		</div>
-	</div>
-	<br/><br/><br/>
--------------------------------------Äõ¸® test----------------------------------
-	<div>
-		<div>
-			<table width="600" border="0" cellspacing="0" cellpadding="2">
-				<tr align="center" bgcolor="#F3F3F3">
-					<td width="50"><strong>¹øÈ£</strong></td>
-					<td width="350"><strong>»óÇ°¸í</strong></td>
-					<td width="70"><strong>°¡°İ</strong></td>
-					<td width="50"><strong>±¹°¡</strong></td>
-					<td width="50"><strong>Áö¿ª</strong></td>
-					<td width="50"><strong>ÀÎ¿ø¼ö</strong></td>
-					<td width="50"><strong>Æò±Õ º°Á¡</strong></td>
-				</tr>
-				<s:iterator value="Hotellist" status="stat">
-					<tr bgcolor="#FFFFFF" align="center">
-						<td><s:property value="no" /></td>
-						<td><s:property value="name" /></td>
-						<td><s:property value="price" /></td>
-						<td><s:property value="country" /></td>
-						<td><s:property value="region" /></td>
-						<td><s:property value="reg_date" /></td>
-						<td><s:property value="maxnum" /></td>
-						<td><s:property value="grade" /></td>
-					</tr>
-				</s:iterator>
-				<tr align="center">
-					<td colspan="5"><s:property value="pagingHtml" escape="false" /></td>
-				</tr>
-
-			</table>
 		</div>
 	</div>
 </body>

@@ -44,7 +44,7 @@
 			<!-- <include refid="select-allH" /> -->
 			select no,name,country,region,readcount,tel,grade,maxnum,
 			reg_date,main_image,content_image,image3,to_char(checkin,'yyyy-mm-dd') as checkin,
-			to_char( checkout,'yyyy-mm-dd' ) as checkout, price , content from hotel
+			to_char( checkout,'yyyy-mm-dd' ) as checkout, price , content ,room from hotel
 			<include refid="where-noH" />
 		</select>
 
@@ -108,8 +108,8 @@
 	
 	<!-- 등록 -->
 	<insert id="insertHotel" parameterClass="hotel">
-		insert into hotel(no, name, price, content, country, region, readcount,main_image, content_image, image3, reg_date, tel, maxnum , checkin , checkout , grade ) 
-		values(seq_hotelnum.nextval, #name#, #price#, #content#, #country#, #region#, 0, #main_image#, #content_image#,#image3#, sysdate, #tel#,#maxnum#,#checkin#,#checkout#,#grade#)
+		insert into hotel(no, name, price, content, country, region, readcount,main_image, content_image, image3, reg_date, tel, maxnum , checkin , checkout , grade ,room) 
+		values(seq_hotelnum.nextval, #name#, #price#, #content#, #country#, #region#, 0, #main_image#, #content_image#,#image3#, sysdate, #tel#,#maxnum#,#checkin#,#checkout#,#grade#,#room#)
 	</insert> 
 
 	
@@ -120,7 +120,7 @@
 	
 	<!-- 수정 -->
 	<update id="updateHotel" parameterClass="hotel">
-		update hotel set name=#name#,price=#price#,content=#content#,country=#country#,region=#region#,main_image=#main_image#,content_image=#content_image#,checkin=#checkin#,checkout=#checkout#
+		update hotel set name=#name#,price=#price#,content=#content#,country=#country#,region=#region#,main_image=#main_image#,content_image=#content_image#,checkin=#checkin#,checkout=#checkout#,room=#room#
 		where no=#no#
 	</update>
 	
