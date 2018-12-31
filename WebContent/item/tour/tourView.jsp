@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,6 +57,7 @@ $(function()
 									<img class="offer__side__main-box__share-icon" src="/TMT/images/admin/share.svg" alt="share-icon" role="button" tabindex="-1">
 										<div class="Popover  right-reverse "></div>
 								</div>
+								<s:if test="%{session.session_id!=null}">
 								<a href="AddOrder.action?seq_no=<s:property value="no"/>">
 									<button type="button" class="app-button app-button__type--primary app-button__size--l">예약하기</button>
 								</a>
@@ -65,6 +67,13 @@ $(function()
 											<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;">위시리스트<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;"></button>
 									</div>
 								</div>
+								</s:if>
+								<s:else>
+								<div>로그인 하셔야 예약이 가능합니다</div>
+			                     <a href="LoginForm.action">
+			                        <button type="button" class="app-button app-button__type--primary app-button__size--l">로그인하기</button>
+			                     </a>
+								</s:else>
 							</div>
 						</div>
 					</div>
@@ -168,4 +177,4 @@ $(function()
 </body>
 </html>
 
-		
+      

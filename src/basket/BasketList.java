@@ -6,12 +6,14 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.Map;
+import org.apache.struts2.interceptor.SessionAware;
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class BasketList extends ActionSupport{
+public class BasketList extends ActionSupport implements SessionAware{
 	
 	private Reader reader;
 	private SqlMapClient sqlMapper;
@@ -27,6 +29,8 @@ public class BasketList extends ActionSupport{
 	private int blockPage = 5; 
 	private String pagingHtml; 
 	private BasketpagingAction page; 
+	
+	private Map session;
 
 	public BasketList() throws IOException {
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -145,6 +149,14 @@ public class BasketList extends ActionSupport{
 
 	public void setPage(BasketpagingAction page) {
 		this.page = page;
+	}
+
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
 	}
 	
 	

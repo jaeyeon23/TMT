@@ -82,7 +82,7 @@ public class AirList extends ActionSupport implements SessionAware{
 	@Override
 	public String execute() throws Exception {
 		
-		if(session.get("session_id")!=null) {
+		/*if(session.get("session_id")!=null) {*/
 		if(arv == null) {
 			Airlist = null;
 		}else {
@@ -118,8 +118,8 @@ public class AirList extends ActionSupport implements SessionAware{
 		}
 		
 		return SUCCESS;
-		}
-		return ERROR;
+		/*}
+		return ERROR;*/
 	}
 
 	private void makeSearch() throws IOException, SQLException{

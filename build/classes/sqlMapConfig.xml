@@ -29,6 +29,9 @@
 	<!-- Tour 리스트 xml -->
 	<sqlMap resource="sql/TourSQL.xml"/>
 	
+	<!-- Order 리스트 xml -->
+	<sqlMap resource="sql/OrderSQL.xml"/>
+	
 	<!-- xml 아래에 추가 .... -->
 
 	<sqlMap resource="sql/memberSQL.xml"/>
@@ -42,9 +45,6 @@
 	<!-- Basket 리스트 xml -->
 	<sqlMap resource="sql/BasketSQL.xml"/>
 
-	
-	<!-- Order 리스트 xml -->
-	<sqlMap resource="sql/OrderSQL.xml"/>
 
 	
 </sqlMapConfig>

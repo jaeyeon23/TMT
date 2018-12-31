@@ -6,8 +6,8 @@
 <struts>
 	<package name="air" extends="struts-default, tiles-default">
 		<action name="AirList" class="item.air.AirList">
-			<result name="success" type="tiles">AirList</result>
-			<result name="error" type="tiles">LoginForm</result>
+			<result name="success" type="tiles">AirList</result><!-- 
+			<result name="error" type="tiles">LoginForm</result> -->
 		</action>
 		
 		<action name="AirCheck" class="item.air.AirCheck">

@@ -7,18 +7,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
-import item.hotel.HotelComVO;
-import item.hotel.HotelVO;
-
-public class HotelView extends ActionSupport{
+public class HotelView extends ActionSupport implements SessionAware{
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
-	
+	private Map session;
 	private HotelVO paramClass;
 	private HotelVO resultClass;
 	private String path = "/TMT/upload/hotel/";
@@ -172,5 +171,12 @@ public class HotelView extends ActionSupport{
 	}
 	public void setPagingHtml(String pagingHtml) {
 		this.pagingHtml = pagingHtml;
-	}	
+	}
+	public Map getSession() {
+	      return session;
+	   }
+
+	public void setSession(Map session) {
+	      this.session = session;
+	   }
 }

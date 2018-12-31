@@ -2,18 +2,22 @@ package item.hotel;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class HotelComment extends ActionSupport{
+public class HotelComment extends ActionSupport implements SessionAware
+{
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 	private HotelComVO cParam;
 	private HotelComVO cResult;
-	
+	private Map session;
 	private int currentPage;
 	private int currentPageC;
 	
@@ -142,4 +146,11 @@ public class HotelComment extends ActionSupport{
 	public void setC_re_level(int c_re_level) {
 		this.c_re_level = c_re_level;
 	}
+	public Map getSession() {
+	      return session;
+	   }
+
+	public void setSession(Map session) {
+	      this.session = session;
+	   }
 }

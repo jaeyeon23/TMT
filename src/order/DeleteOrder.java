@@ -2,6 +2,9 @@ package order;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -10,11 +13,11 @@ import com.opensymphony.xwork2.ActionSupport;
 
 
 
-public class DeleteOrder extends ActionSupport{
+public class DeleteOrder extends ActionSupport implements SessionAware{
 	
 	private static Reader reader;
 	private static SqlMapClient sqlMapper;
-
+	private Map session;
 	OrderVO ovo = new OrderVO();
 
 	private String id;
@@ -81,7 +84,13 @@ public class DeleteOrder extends ActionSupport{
 	public void setDeleteCheck(int[] deleteCheck) {
 		this.deleteCheck = deleteCheck;
 	}
-	
+	public Map getSession() {
+	      return session;
+	   }
+
+	public void setSession(Map session) {
+	      this.session = session;
+	   }
 	
 
 }

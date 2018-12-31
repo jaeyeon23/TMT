@@ -1,21 +1,21 @@
 package order;
 
-import com.opensymphony.xwork2.ActionSupport;
+import java.io.IOException;
+import java.io.Reader;
+import java.util.Map;
 
-import item.tour.TourVO;
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
+import com.opensymphony.xwork2.ActionSupport;
 
-import java.io.Reader;
-import java.io.IOException;
-
-public class ViewOrder extends ActionSupport {
+public class ViewOrder extends ActionSupport implements SessionAware {
 	
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
-
+	private Map session;
 	private OrderVO paramClass = new OrderVO(); //�Ķ���͸� ������ ��ü
 	private OrderVO resultClass = new OrderVO(); //���� ��� ���� ������ ��ü
 
@@ -101,7 +101,13 @@ public class ViewOrder extends ActionSupport {
 		this.no = no;
 	}
 	
-	
+	public Map getSession() {
+	      return session;
+	   }
+
+	public void setSession(Map session) {
+	      this.session = session;
+	   }
 
 
 }

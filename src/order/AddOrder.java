@@ -1,13 +1,17 @@
 package order;
 
 
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
 import item.air.AirVO;
 import item.hotel.HotelVO;
 import item.tour.TourVO;
 
-public class AddOrder {
+public class AddOrder implements SessionAware{
 	OrderVO ovo = new OrderVO();
-
+	private Map session;
 	TourVO tvo = new TourVO();
 	HotelVO hvo = new HotelVO();
 	AirVO avo = new AirVO();
@@ -49,6 +53,12 @@ public class AddOrder {
 
 		return ovo;
 	}
+	public Map getSession() {
+	      return session;
+	   }
 
+	public void setSession(Map session) {
+	      this.session = session;
+	   }
 
 }

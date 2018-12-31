@@ -390,6 +390,8 @@
 						        		</table>
 						      		</div>
 						      		<div class="modal-footer">
+						      		
+						      		<s:if test="%{session.session_id!=null}">
 							      		<form action="AirCheck.action">
 							        		<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 							        		<button type="submit" class="btn btn-primary">
@@ -398,6 +400,15 @@
 							        			<s:hidden name="seat" value="%{#parameters.seat}"/>
 							        		</button>
 							        	</form>
+							        </s:if>
+							        
+						      		<s:elseif test="%{session.session_id==null}">
+										<div>로그인 하셔야 예약이 가능합니다</div><br>
+                     						<a href="LoginForm.action">
+                        						<button type="button" class="btn btn-primary">로그인</button>
+                     						</a>
+						      		</s:elseif>
+						      		
 						      		</div>
 					    		</div>
 							</div>
