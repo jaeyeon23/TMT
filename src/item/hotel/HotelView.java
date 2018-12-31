@@ -9,8 +9,10 @@ import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.Map;
+import org.apache.struts2.interceptor.SessionAware;
 
-public class HotelView extends ActionSupport{
+public class HotelView extends ActionSupport implements SessionAware{
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 	
@@ -23,6 +25,7 @@ public class HotelView extends ActionSupport{
 	private int currentPage;
 	
 	private int no;
+	private Map session;
 	
 	public HotelView() throws IOException{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -78,6 +81,12 @@ public class HotelView extends ActionSupport{
 	}
 	public void setNo(int no) {
 		this.no = no;
+	}
+	public Map getSession() {
+		return session;
+	}
+	public void setSession(Map session) {
+		this.session = session;
 	}
 	
 	

@@ -8,8 +8,10 @@ import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.Map;
+import org.apache.struts2.interceptor.SessionAware;
 
-public class AirCheck extends ActionSupport {
+public class AirCheck extends ActionSupport implements SessionAware {
 
 	
 	public static Reader reader;
@@ -21,8 +23,10 @@ public class AirCheck extends ActionSupport {
 	private int no;
 	private int seat;	
 	
+	private Map session;
+	
 	public AirCheck() throws IOException {
-		/*sql¿¡ ÇÑ±ÛÀ» º¸³»±â À§ÇÑ ¹®Àå*/
+		/*sqlï¿½ï¿½ ï¿½Ñ±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½*/
 		Charset charset = Charset.forName("UTF-8");
 		Resources.setCharset(charset);
 
@@ -74,4 +78,13 @@ public class AirCheck extends ActionSupport {
 	public void setResult(AirVO result) {
 		this.result = result;
 	}
+
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
+	}
+	
 }

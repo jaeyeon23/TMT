@@ -6,16 +6,19 @@ public class OrderVO {
 	private int no;
 	private int seq_no;
 	private String name;
-	private String price;
+	private int price;
 	private Date day;
 	private String country;
 	private String region;
-	private String image;
+	private String image1;
 	private String checkin;
 	private String checkout;
 	private Date ad;
 	private Date dd;
 	private String id;
+	private String arv;
+	private String dep;
+	private int type;
 	
 	
 	public int getNo() {
@@ -36,10 +39,11 @@ public class OrderVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPrice() {
+	
+	public int getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 	public Date getDay() {
@@ -60,11 +64,12 @@ public class OrderVO {
 	public void setRegion(String region) {
 		this.region = region;
 	}
-	public String getImage() {
-		return image;
+	
+	public String getImage1() {
+		return image1;
 	}
-	public void setImage(String image) {
-		this.image = image;
+	public void setImage1(String image1) {
+		this.image1 = image1;
 	}
 	public String getCheckin() {
 		return checkin;
@@ -96,6 +101,26 @@ public class OrderVO {
 	public void setId(String id) {
 		this.id = id;
 	}
+	public String getArv() {
+		return arv;
+	}
+	public void setArv(String arv) {
+		this.arv = arv;
+	}
+	public String getDep() {
+		return dep;
+	}
+	public void setDep(String dep) {
+		this.dep = dep;
+	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
+	}
+	
+	
 
 	
 	

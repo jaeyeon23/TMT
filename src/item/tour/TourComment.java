@@ -7,8 +7,10 @@ import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.Map;
+import org.apache.struts2.interceptor.SessionAware;
 
-public class TourComment extends ActionSupport{
+public class TourComment extends ActionSupport implements SessionAware{
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 	private TourComVO cParam;
@@ -26,6 +28,8 @@ public class TourComment extends ActionSupport{
 	private int c_re_step;
 	private int c_re_level;
 	private String uri;	
+	
+	private Map session;
 	
 	public TourComment()throws IOException{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -58,8 +62,12 @@ public class TourComment extends ActionSupport{
 		return SUCCESS;
 	}
 
-
-
+	public Map getSession() {
+		return session;
+	}
+	public void setSession(Map session) {
+		this.session = session;
+	}
 	public String getUri() {
 		return uri;
 	}

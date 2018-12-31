@@ -1,6 +1,8 @@
 package item.tour;
 
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.interceptor.SessionAware;
+
 
 import item.tour.TourVO;
 
@@ -11,9 +13,10 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.io.IOException;
 
-public class TourView extends ActionSupport {
+public class TourView extends ActionSupport implements SessionAware{
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 	
@@ -26,6 +29,8 @@ public class TourView extends ActionSupport {
 	private int currentPage;
 	
 	private int no;
+	
+	private Map session;
 	
 	public TourView() throws IOException{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -90,6 +95,12 @@ public class TourView extends ActionSupport {
 	}
 	public void setImageList(List<String> imageList) {
 		this.imageList = imageList;
+	}
+	public Map getSession() {
+		return session;
+	}
+	public void setSession(Map session) {
+		this.session = session;
 	}
 	
 

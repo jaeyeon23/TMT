@@ -28,6 +28,8 @@ public class LoginMember extends ActionSupport implements SessionAware{
 	private String id;
 	private String name;
 	private String password;
+	private String email;
+	private int tel;
 	private int admin;
 	private Date regdate;
 	
@@ -54,7 +56,7 @@ public class LoginMember extends ActionSupport implements SessionAware{
 
 		paramClass.setId(getId());
 		paramClass.setPassword(getPassword());
-		
+
 		resultClass = (MemberVO) sqlMapper.queryForObject("loginChk", getId());
 		
 		if(resultClass != null){
@@ -64,6 +66,9 @@ public class LoginMember extends ActionSupport implements SessionAware{
 	        session.put("session_id", resultClass.getId());
 	        session.put("session_admin",resultClass.getAdmin());
 	        session.put("session_name", resultClass.getName());
+	        session.put("session_email", resultClass.getEmail());
+	        session.put("session_password", resultClass.getPassword());
+	        session.put("session_tel", resultClass.getTel());
 
 			return SUCCESS;
 		}
@@ -82,9 +87,36 @@ public class LoginMember extends ActionSupport implements SessionAware{
 		return SUCCESS;
 	}
 
+	 
+
+	public String getPassword() {
+		return password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public int getTel() {
+		return tel;
+	}
+	
+	public void setTel(int tel) {
+		this.tel = tel;
+	}
+	
 	public Map getSession() {
 		return session;
 	}
+	
 	public void setSession(Map session) {
 		this.session = session;
 	}
@@ -112,19 +144,13 @@ public class LoginMember extends ActionSupport implements SessionAware{
 	public void setId(String id) {
 		this.id = id;
 	}
-
-	public String getPassword() {
-		return password;
-	}
-
+	
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
-	}
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public int getAdmin() {
