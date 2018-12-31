@@ -52,26 +52,24 @@ public class ModifyOrder extends ActionSupport implements SessionAware{
 	@Override
 	public String execute() throws Exception {
 		
-		oparamClass = new OrderVO();
-		oresultClass = new OrderVO();
+		ovo.setId(id);		
+		oresultClass = (OrderVO) sqlMapper.queryForObject("selectOneo", ovo);
 		
-		oresultClass = (OrderVO) sqlMapper.queryForObject("selectOne", getId());
-		
-		oparamClass.setNo(getNo());
-		oparamClass.setName(getName());
-		oparamClass.setArv(getArv());
-		oparamClass.setDep(getDep());
-		oparamClass.setImage1(getImage1());
-		oparamClass.setPrice(getPrice());
-		oparamClass.setDay(getDay());
-		oparamClass.setDd(getDd());
-		oparamClass.setCheckin(getCheckin());
-		oparamClass.setCheckout(getCheckout());
-		oparamClass.setRegion(getRegion());
-		oparamClass.setCountry(getCountry());
+		ovo.setNo(getNo());
+		ovo.setName(getName());
+		ovo.setArv(getArv());
+		ovo.setDep(getDep());
+		ovo.setImage1(getImage1());
+		ovo.setPrice(getPrice());
+		ovo.setDay(getDay());
+		ovo.setDd(getDd());
+		ovo.setCheckin(getCheckin());
+		ovo.setCheckout(getCheckout());
+		ovo.setRegion(getRegion());
+		ovo.setCountry(getCountry());
 		
 		
-		sqlMapper.update("ModifyOrder", oparamClass);
+		sqlMapper.update("ModifyOrder", ovo);
 		
 		return SUCCESS;
 	}

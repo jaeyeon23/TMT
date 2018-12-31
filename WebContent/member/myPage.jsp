@@ -26,73 +26,7 @@ function removeCheck() {
 <body>
 
 <div>
-<h2>마이페이지<img src="./images/mypage.jpg" width="60" height="60"></h2>
-
-
-<%-- <div>
-<h2><!--<input type=image src="./images/mypage.jpg" width="130" height="130" onclick="MyPage.action">-->프로필관리</h2>
-
-</div>
-<div class="mypage">
-
-<table class="table table-bordered"  width ="200" height="300" align = "center">
-
-
-
-<form action="ModifyMember.action" name="Modify" method="post" >
-<tr>
-<td align="right">
-<button type="submit"class="btn btn-default" align="right">편집</button>
-  </td>
-  </tr>
-  </form>
-  <tr>
-    <td align="center"  height="70">
-  <!--   <img width=60 height=60 >${image }--></td>
-  </tr>
-  
- <tr>
-
-  <td align="left" ><strong>이름</strong>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<s:property value="resultClass.name"/></td>
-  </tr>
-   <tr>
-  <td align="left"><strong>이메일</strong>&emsp;&emsp;&emsp;&emsp;&emsp;<s:property value="resultClass.email"/></td>
-  </tr>
-   <tr>
-  <td align="left" ><strong>연락처</strong>&emsp;&emsp;&emsp;&emsp;&emsp;<s:property value="resultClass.tel"/></td>
-  </tr>
-   <tr>
-  <td align="left" ><strong>비밀번호</strong>&emsp;&emsp;&emsp;&emsp;&emsp;<s:property value="resultClass.password"/></td>
-  </tr>
-   <tr>
-  <td align="left"><strong>마켓팅수신동의</strong>&nbsp;&nbsp;&nbsp;<s:property value="resultClass.marketing1"/><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<s:property value="resultClass.marketing2"/></td>
-
-  <td align="left" bgcolor="white"height="40"><strong>이름</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<s:property value="%{session.session_id}"/></td>
-  </tr>
-   <tr>
-  <td align="left" bgcolor="white"height="40"><strong>이메일</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<s:property value="%{session.session_email}"/></td>
-  </tr>
-   <tr>
-  <td align="left" bgcolor="white" height="40"><strong>연락처</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<s:property value="%{resultClass.tel}"/></td>
-  </tr>
-   <tr>
-  <td align="left" bgcolor="white" height="40"><strong>비밀번호</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<s:property value="%{session.session_password}"/></td>
-  </tr>
-   <tr>
-  <td align="left" bgcolor="white" height="60"><strong>마켓팅수신동의</strong>&nbsp;&nbsp;&nbsp;<s:property value="resultClass.marketing1"/><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<s:property value="resultClass.marketing2"/></td>
-
-  </tr>
-</table>
-</div>
-<br><br>
-<div align="center">
- <form action="DeleteMember.action" name="Mdel" method="post">
-     <button type="submit" class="btn btn-primary" onclick="removeCheck()">계정삭제</button><br><br>
-    
-</form></div>
- --%>
-<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-
+<h2>마이페이지</h2>
 
 <main class="member-box box mode-readonly clearfix">
 	<center>

@@ -158,12 +158,6 @@ function getThumbnailPrivew(html, $target) {
 																name="email" id="subemail_id" class="i_text"
 																style="width: 100px; height:30px;"  value="${email}"/> 
 																
-																@ 
-																
-																<input type="text"
-																name="email2" id="subemail_host" class="i_text"
-																style="width: 100px; height:30px;" value="${email}"/> 
-																
 																<select name="emailHost" id="emailHost"
 																style="width: 85px; height: 20px">
 																<option value="">-직접입력-</option>
