@@ -19,10 +19,7 @@ public class HotelVO{
 	private String checkout;   //체크아웃
 	private int maxnum; 	//인원수
 	private int grade;	// 별점
-	
-	private String hotelname;
-	private int number;
-	private String inDay, outDay;
+	private int room; 
 	
 	//상품번호
 	public int getNo() {
@@ -149,33 +146,13 @@ public class HotelVO{
 		this.grade = grade;
 	}
 	
-	
-	//검색....
-	public String getHotelname() {
-		return hotelname;
+	//객실수
+	public int getRoom() {
+		return room;
 	}
-	public void setHotelname(String hotelname) {
-		this.hotelname = hotelname;
+
+	public void setRoom(int room) {
+		this.room = room;
 	}
-	//인원수
-	public int getNumber() {
-		return number;
-	}
-	public void setNumber(int number) {
-		this.number = number;
-	}
-	// 체크인,아웃,
-	public String getInDay() {
-		return inDay;
-	}
-	public void setInDay(String inDay) {
-		this.inDay = inDay;
-	}
-	public String getOutDay() {
-		return outDay;
-	}
-	public void setOutDay(String outDay) {
-		this.outDay = outDay;
-	}
-	
+
 }

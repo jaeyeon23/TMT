@@ -53,7 +53,7 @@
 </div>
 </div>
 <div class='wishlists-header-divider'></div>
-<div class='wishlists-header-subtitle'><p class="np"><center>총${amount }개의 상품</center></p></div>
+<div class='wishlists-header-subtitle'><p class="np"><center>총<s:property value="amount"/>개의 상품</center></p></div>
 </div>
 
 <div class='wishlists-cards-container'>
@@ -87,9 +87,9 @@
 				
 			<tr align="center">
 			
-			<td><font size="2"></font></td>
-			<td><font size="2">${image1 }</font></td>
-			<td><font size="2">
+			<td><s:property value="no"/></td>
+			<td><s:property value="image1"/></td>
+			<td>
 			<s:if test="blist.size()>0">
 			<input type="submit" name="submit" value="선택삭제">
 			</s:if>
@@ -98,15 +98,13 @@
 			<br>
 				<img src="./images/wishlist_empty.jpg" width="40" height="40"><br><br>위시리스트에 담긴 상품이 없습니다.<br>TMT와 즐거운 여행을 계획해보세요. 
 			
-			</s:else>
-	
-			</font></td>
+			</s:else></td>
+			<td><s:property value="name"/>
+			</td>
+			<td><s:property value="amount"/>
+			</td>
+			<td><s:property value="price"/></td>
 			
-			<td><font size="2">
-			</font></td>
-			<td><font size="2"></font></td>
-			<td><font size="2">
-			</font></td>
 
 			</tr>
 					

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
+	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
+<sqlMap>
+	<typeAlias alias="hotel" type="item.hotel.HotelVO" />
+	<typeAlias alias="tour" type="item.tour.TourVO" />
+	<typeAlias alias="air" type="item.air.AirVO" />
+	
+	<!-- Air 리절트 맵 정의 -->
+	<resultMap id="boardair" class="air">
+		<result property="no" column="no" />
+		<result property="arv" column="arv" />
+		<result property="dep" column="dep" />
+		<result property="price" column="price" />
+		<result property="content" column="content" />
+		<result property="image1" column="image1" />
+		<result property="seat" column="seat" />
+		<result property="seat_grade" column="seat_grade" />
+		<result property="ad" column="ad" />
+		<result property="dd" column="dd" />
+		<result property="air_company" column="air_company" />
+		<result property="grade" column="grade" />
+	</resultMap>
+	
+	<!-- Hotel 리절트 맵 정의 -->
+	<resultMap id="boardhotel" class="hotel">
+		<result property="no" column="no" />
+		<result property="name" column="name" />
+		<result property="price" column="price" />
+		<result property="content" column="content" />
+		<result property="country" column="country" />
+		<result property="region" column="region"/>
+		<result property="readcount" column="readcount"/>
+		<result property="main_image" column="main_image" />
+		<result property="content_image" column="content_image" />
+		<result property="image3" column="image3" />
+		<result property="reg_date" column="reg_date" />
+		<result property="tel" column="tel" />
+		<result property="checkin" column="checkin" />
+		<result property="checkout" column="checkout" />
+		<result property="maxnum" column="maxnum" />
+		<result property="grade" column="grade" /> 
+	</resultMap>
+	
+	<!-- Tour 리절트 맵 정의 -->
+	<resultMap id="boardtour" class="tour">
+		<result property="no" column="no" />
+		<result property="name" column="name" />
+		<result property="price" column="price" />
+		<result property="content" column="content" />
+		<result property="country" column="country" />
+		<result property="region" column="region"/>
+		<result property="readcount" column="readcount"/>
+		<result property="image1" column="image1" />
+		<result property="image2" column="image2" />
+		<result property="image3" column="image3" />
+		<result property="reg_date" column="reg_date" />
+		<result property="grade" column="grade" /> 
+	</resultMap>
+	
+	
+	<select id="search_air" resultMap="boardair" parameterClass="java.lang.String">
+		select no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade, r 
+			from (select no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade, rownum r  
+				from (select no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade 
+					from air 
+					<isNotEmpty>
+						where arv like '%'||#searchbox#||'%' or dep like '%'||#searchbox#||'%' 
+					</isNotEmpty>
+					) <![CDATA[where rownum >= 1]]>) <![CDATA[where r <= 2]]>
+	</select>	
+	
+	<select id="search_hotel" resultMap="boardhotel" parameterClass="java.lang.String">
+		select no, name, price, content, country, region, readcount, main_image, content_image, image3, reg_date, tel, checkin, checkout, maxnum, grade, r 
+			from (select no, name, price, content, country, region, readcount, main_image, content_image, image3, reg_date, tel, checkin, checkout, maxnum, grade, rownum r 
+				from (select no, name, price, content, country, region, readcount, main_image, content_image, image3, reg_date, tel, checkin, checkout, maxnum, grade 
+					from hotel
+					<isNotEmpty>
+						where region like '%'||#searchbox#||'%' 
+					</isNotEmpty>
+					) <![CDATA[where rownum >= 1]]>) <![CDATA[where r <= 4]]>
+	</select>
+	
+	<select id="search_tour" resultMap="boardtour" parameterClass="java.lang.String">
+		select no, name, price, content, country, region, readcount, image1, image2, image3, reg_date, grade, r 
+			from (select no, name, price, content, country, region, readcount, image1, image2, image3, reg_date, grade, rownum r 
+				from (select no, name, price, content, country, region, readcount, image1, image2, image3, reg_date, grade
+					from tour
+					<isNotEmpty>
+						where region like '%'||#searchbox#||'%'  
+					</isNotEmpty>
+					) <![CDATA[where rownum >= 1]]>) <![CDATA[where r <= 4]]>
+	</select>
+</sqlMap>

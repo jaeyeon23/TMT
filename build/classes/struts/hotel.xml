@@ -9,7 +9,9 @@
 			<result type="tiles">HotelView</result>
 		</action>
 	
-
+		<action name="HotelComment" class="item.hotel.HotelComment">
+			<result type="redirect-action">HotelView${uri}</result>
+		</action>
 
 
 

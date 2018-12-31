@@ -14,16 +14,19 @@ public class TourPagingAction {
 
 	private StringBuffer pagingHtml;
 
-	// 페이징 생성자
+	private String tourname;
+	
+	//생성자
 	public TourPagingAction(int currentPage, int totalCount, int blockCount,
-			int blockPage) {
-
+			int blockPage, String tourname) {
+		
 		this.blockCount = blockCount;
 		this.blockPage = blockPage;
 		this.currentPage = currentPage;
 		this.totalCount = totalCount;
+		this.tourname = tourname;
 
-		// 전체 페이지 수
+		// 전체페이지수  
 		totalPage = (int) Math.ceil((double) totalCount / blockCount);
 		if (totalPage == 0) {
 			totalPage = 1;
@@ -34,7 +37,7 @@ public class TourPagingAction {
 			currentPage = totalPage;
 		}
 
-		// 현재 페이지의 처음과 마지막 글의 번호 가져오기.
+		// 현재 페이지의 처음과 마지막 글의 번호 가져오기
 		startCount = (currentPage - 1) * blockCount;
 		endCount = startCount + blockCount - 1;
 
@@ -47,11 +50,14 @@ public class TourPagingAction {
 			endPage = totalPage;
 		}
 
-		// 이전 block 페이지
+		//  이전 block 
 		pagingHtml = new StringBuffer();
+		
 		if (currentPage > blockPage) {
-			pagingHtml.append("<a href=AdminTourList.action?currentPage="
-					+ (startPage - 1) + ">");
+			if(tourname != "")
+				pagingHtml.append("<a href=AdminTourList.action?currentPage=" + (startPage - 1) + "&tourname="+tourname+">");
+			else
+				pagingHtml.append("<a href=AdminTourList.action?currentPage=" + (startPage - 1) + ">");
 			pagingHtml.append("이전");
 			pagingHtml.append("</a>");
 		}
@@ -68,9 +74,10 @@ public class TourPagingAction {
 				pagingHtml.append(i);
 				pagingHtml.append("</font></b>");
 			} else {
-				pagingHtml
-						.append("&nbsp;<a href='AdminTourList.action?currentPage=");
+				pagingHtml.append("&nbsp;<a href='AdminTourList.action?currentPage=");
 				pagingHtml.append(i);
+				if(tourname != "")
+					pagingHtml.append("&tourname="+tourname);
 				pagingHtml.append("'>");
 				pagingHtml.append(i);
 				pagingHtml.append("</a>");
@@ -83,8 +90,11 @@ public class TourPagingAction {
 
 		// 다음 block 페이지
 		if (totalPage - startPage >= blockPage) {
-			pagingHtml.append("<a href=AdminTourList.action?currentPage="
-					+ (endPage + 1) + ">");
+			pagingHtml.append("&nbsp;<a href=AdminTourList.action?currentPage=");
+			pagingHtml.append((endPage+1));
+			if(tourname != "")
+				pagingHtml.append("&tourname="+tourname);
+			pagingHtml.append("'>");
 			pagingHtml.append("다음");
 			pagingHtml.append("</a>");
 		}
@@ -168,5 +178,14 @@ public class TourPagingAction {
 
 	public void setPagingHtml(StringBuffer pagingHtml) {
 		this.pagingHtml = pagingHtml;
+	}
+	
+	
+	public String getTourname() {
+		return tourname;
+	}
+
+	public void setTourname(String tourname) {
+		this.tourname = tourname;
 	}
 }

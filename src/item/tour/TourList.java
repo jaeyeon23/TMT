@@ -4,7 +4,11 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 import java.util.Date;
+import java.util.HashMap;
+
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -16,12 +20,17 @@ import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient; 
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
-public class TourList extends ActionSupport{
+
+import item.tour.TourpagingAction;
+import org.apache.struts2.interceptor.SessionAware;
+public class TourList extends ActionSupport implements SessionAware{
+
 	
 	public static Reader reader;	//파일 스트림을 위한 reader.
 	public static SqlMapClient sqlMapper;	//SqlMapClient API를 사용하기 위한 sqlMapper 객체.
 
 	private List<TourVO> Tourlist = new ArrayList<TourVO>();
+	private Map session;
 	
 	private int currentPage = 1;	//현재 페이지
 	private int totalCount; 		// 총 게시물의 수
@@ -34,6 +43,7 @@ public class TourList extends ActionSupport{
 	private TourVO tvo = new TourVO();
 	
 	private int num = 0;
+	private Map map = new HashMap<>();
 
 	// 생성자
 	public TourList() throws IOException {
@@ -72,18 +82,18 @@ public class TourList extends ActionSupport{
 	
 	public String search2() throws Exception{
 		if(num ==1) {
-			tvo.setTourname(getTourname());
-			Tourlist = sqlMapper.queryForList("Search_TourR", tvo);
+			map.put("tourname", getTourname());
+			Tourlist = sqlMapper.queryForList("Search_TourR", map);
 		}else if(num ==2) {
-			tvo.setTourname(getTourname());
-			Tourlist = sqlMapper.queryForList("Search_TourP", tvo);
+			map.put("tourname", getTourname());
+			Tourlist = sqlMapper.queryForList("Search_TourP", map);
 		}else if(num ==3) {
-			tvo.setTourname(getTourname());
-			Tourlist = sqlMapper.queryForList("Search_TourG", tvo);
+			map.put("tourname", getTourname());
+			Tourlist = sqlMapper.queryForList("Search_TourG", map);
 		}else {
 		// 검색 내용에따른 글을 list를 넣는다
-		tvo.setTourname(getTourname());
-		Tourlist = sqlMapper.queryForList("Search_Tour", tvo);
+		map.put("tourname", getTourname());
+		Tourlist = sqlMapper.queryForList("Search_Tour", map);
 		}
 		
 		totalCount = Tourlist.size(); // 전체 글의 개수
@@ -154,6 +164,14 @@ public class TourList extends ActionSupport{
 	public void setPage(TourpagingAction page) {
 		this.page = page;
 	}
+
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
+	}
 	
 	// 검색
 	public String getTourname() {
@@ -177,7 +195,6 @@ public class TourList extends ActionSupport{
 	}
 
 }
-
 
 
 

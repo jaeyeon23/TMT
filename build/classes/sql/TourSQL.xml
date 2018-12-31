@@ -28,10 +28,6 @@
 	<sql id="where-noT">
 		WHERE no = #no#
 	</sql>
-	
-	<sql id = "select-searchT">
-	        WHERE (name like '%'||#tourname#||'%' or country like '%'||#tourname#||'%' or region like '%'||#tourname#||'%')
-	</sql>
 
 	<!-- select 쿼리문 정의 -->
 	<select id="selectAllT" resultMap="boardtour">
@@ -39,37 +35,34 @@
 		ORDER BY NO DESC
 	</select>
 	
-	<select id="Search_Tour" resultMap="boardtour">
+	<select id="Search_Tour" resultMap="boardtour" parameterClass="java.util.Map">
 		<include refid="select-allT" />
-		<include refid="select-searchT"/>
+		WHERE (name like '%'||#tourname#||'%' or country like '%'||#tourname#||'%' or region like '%'||#tourname#||'%')
 	</select>
 	
-	<select id="selectOneT" resultMap="boardhotel" parameterClass="int">
+	<select id="selectOneT" resultMap="boardtour" parameterClass="int">
 		<include refid="select-allT"/>
 		<include refid="where-noT" />
 	</select>
 	
 	<!-- 인기순 -->
-	<select id="Search_TourR" resultMap="boardtour">
+	<select id="Search_TourR" resultMap="boardtour" parameterClass="java.util.Map">
 		<include refid="select-allT" />
-		<include refid="select-searchT"/>
+		WHERE (name like '%'||#tourname#||'%' or country like '%'||#tourname#||'%' or region like '%'||#tourname#||'%')
 		order by readcount desc
 	</select>
 	<!-- 가격순 -->
-	<select id="Search_TourP" resultMap="boardtour">
+	<select id="Search_TourP" resultMap="boardtour" parameterClass="java.util.Map">
 		<include refid="select-allT" />
-		<include refid="select-searchT"/>
+		WHERE (name like '%'||#tourname#||'%' or country like '%'||#tourname#||'%' or region like '%'||#tourname#||'%')
 		order by price asc
 	</select>
 	<!-- 별점순 -->
-	<select id="Search_TourG" resultMap="boardtour">
+	<select id="Search_TourG" resultMap="boardtour" parameterClass="java.util.Map">
 		<include refid="select-allT" />
-		<include refid="select-searchT"/>
+		WHERE (name like '%'||#tourname#||'%' or country like '%'||#tourname#||'%' or region like '%'||#tourname#||'%')
 		order by grade desc
 	</select>
-	
-	
-	
 	
 	<!-- 등록 -->
 	<insert id="insertTour" parameterClass="tour">
@@ -92,5 +85,16 @@
 	<delete id="deleteTour" parameterClass="int">
 		delete tour where no = #no#
 	</delete>
-
+	
+	
+	<!-- 메인에서 사용할 내용 -->
+	<select id="Main_Tour" resultMap="boardtour" parameterClass="java.lang.String">
+	select no, name, price, content, country, region, readcount, image1, image2, image3, reg_date, grade, r 
+		from(select no, name, price, content, country, region, readcount, image1, image2, image3, reg_date, grade, rownum r 
+			from(SELECT * FROM TOUR 
+			<isNotNull>
+				where region=#region# order by readcount desc
+			</isNotNull>
+			) where rownum <![CDATA[>=1]]>) where r <![CDATA[<=5]]>
+	</select>
 </sqlMap>

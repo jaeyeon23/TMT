@@ -16,8 +16,6 @@ public class TourVO {
 	private Date reg_date;   //등록일
 	private int grade;	//별점
 	
-	private String tourname;
-	
 	//상품번호
 	public int getNo() {
 		return no;
@@ -109,14 +107,6 @@ public class TourVO {
 	public void setGrade(int grade) {
 		this.grade = grade;
 	}
-	
-	
-	//검색
-	public String getTourname() {
-		return tourname;
-	}
-	public void setTourname(String tourname) {
-		this.tourname = tourname;
-	}
+
 
 }

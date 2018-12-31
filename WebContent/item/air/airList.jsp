@@ -214,28 +214,37 @@
 	<!-- 정렬 -->
 	<div class="air_array">
 		<form name="frm">
-			<select name="air_array" class="form-control" onchange="sort()">
-				<s:if test="air_array == 1 || air_array == null">
+			<s:if test="arv != null">
+				<select name="air_array" class="form-control" onchange="sort()">
+					<s:if test="air_array == 1 || air_array == null">
+						<option value="1" selected>가격 낮은 순</option>	
+						<option value="2">가는 날 출발시간 빠른 순</option>
+						<option value="3">가는 날 도착시간 빠른 순</option>
+					</s:if>
+					<s:if test="air_array == 2">
+						<option value="1">가격 낮은 순</option>	
+						<option value="2" selected>가는 날 출발시간 빠른 순</option>
+						<option value="3">가는 날 도착시간 빠른 순</option>
+					</s:if>
+					<s:if test="air_array == 3">
+						<option value="1">가격 낮은 순</option>	
+						<option value="2">가는 날 출발시간 빠른 순</option>
+						<option value="3" selected>가는 날 도착시간 빠른 순</option>
+					</s:if>
+					<s:hidden name="arv" value="%{arv}"/>
+					<s:hidden name="dep" value="%{dep}"/>
+					<s:hidden name="seat" value="%{seat}"/>
+					<s:hidden name="ad_str" value="%{ad_str}"/>
+					<s:hidden name="seat_grade" value="%{seat_grade}"/>	
+				</select>
+			</s:if>
+			<s:else>
+				<select name="air_array" class="form-control" onchange="sort()" disabled>
 					<option value="1" selected>가격 낮은 순</option>	
 					<option value="2">가는 날 출발시간 빠른 순</option>
 					<option value="3">가는 날 도착시간 빠른 순</option>
-				</s:if>
-				<s:if test="air_array == 2">
-					<option value="1">가격 낮은 순</option>	
-					<option value="2" selected>가는 날 출발시간 빠른 순</option>
-					<option value="3">가는 날 도착시간 빠른 순</option>
-				</s:if>
-				<s:if test="air_array == 3">
-					<option value="1">가격 낮은 순</option>	
-					<option value="2">가는 날 출발시간 빠른 순</option>
-					<option value="3" selected>가는 날 도착시간 빠른 순</option>
-				</s:if>
-				<s:hidden name="arv" value="%{arv}"/>
-				<s:hidden name="dep" value="%{dep}"/>
-				<s:hidden name="seat" value="%{seat}"/>
-				<s:hidden name="ad_str" value="%{ad_str}"/>
-				<s:hidden name="seat_grade" value="%{seat_grade}"/>	
-			</select>
+				</select>
+			</s:else>
 		</form>
 		<br><br>
 	</div>
@@ -301,6 +310,13 @@
 				<tr>
 					<td colspan=5>
 						<center>항공권을 검색해 주세요</center>
+					</td>
+				</tr>
+				</s:if>
+				<s:if test="Airlist.size() == 0">
+				<tr>
+					<td colspan=5>
+						<center>해당 항공권이 존재하지 않습니다</center>
 					</td>
 				</tr>
 				</s:if>
@@ -374,6 +390,8 @@
 						        		</table>
 						      		</div>
 						      		<div class="modal-footer">
+						      		
+						      		<s:if test="%{session.session_id!=null}">
 							      		<form action="AirCheck.action">
 							        		<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 							        		<button type="submit" class="btn btn-primary">
@@ -382,6 +400,15 @@
 							        			<s:hidden name="seat" value="%{#parameters.seat}"/>
 							        		</button>
 							        	</form>
+							        </s:if>
+							        
+						      		<s:elseif test="%{session.session_id==null}">
+										<div>로그인 하셔야 예약이 가능합니다</div><br>
+                     						<a href="LoginForm.action">
+                        						<button type="button" class="btn btn-primary">로그인</button>
+                     						</a>
+						      		</s:elseif>
+						      		
 						      		</div>
 					    		</div>
 							</div>

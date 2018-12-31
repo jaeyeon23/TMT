@@ -1,6 +1,8 @@
 package service;
+import java.util.Map;
+import org.apache.struts2.interceptor.SessionAware;
 
-public class PagingAction {
+public class PagingAction implements SessionAware{
 
 	private int currentPage;  
 	private int totalCount;	  
@@ -14,6 +16,7 @@ public class PagingAction {
 
 	private StringBuffer pagingHtml;
 
+	private Map session;
 
 	public PagingAction(int currentPage, int totalCount, int blockCount,
 			int blockPage) {
@@ -169,4 +172,13 @@ public class PagingAction {
 	public void setPagingHtml(StringBuffer pagingHtml) {
 		this.pagingHtml = pagingHtml;
 	}
+
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
+	}
+	
 }

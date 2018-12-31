@@ -1,15 +1,21 @@
 package member;
 
+import java.io.IOException;
 import java.io.Reader;
+import java.util.Map;
 
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
+import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ServiceMember extends ActionSupport{
+public class ServiceMember extends ActionSupport implements SessionAware{
 	
 	private Reader reader;
 	private SqlMapClient sqlMapper;
-
+	private Map session;
 	private MemberVO mvo = new MemberVO();
 
 	private String id;
@@ -18,35 +24,32 @@ public class ServiceMember extends ActionSupport{
 
 	private String name;
 	private String email;
-	private String email2;
 	private int tel;
+	private String marketing1;
+	private String marketing2;
+	
+	private MemberVO paramClass= new MemberVO();
+	private MemberVO resultClass = new MemberVO();
+	
+	public ServiceMember() throws IOException {
+		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
+		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
+		reader.close();
+	}
+
 	
   
 	@Override
 	public String execute() throws Exception {
-		return SUCCESS;
-	}
-	
-	public String modifyMember() throws Exception {
 		mvo.setId(id);
-
-		if(password2 != null || password2 != ""){
-			mvo.setPassword2(password2);
-		}
-		
-		email=email+"@"+email2;
-		mvo.setEmail(email);
-		mvo.setTel(tel);
-
-		
-		sqlMapper.update("updateMember", mvo);
-	
-
+		resultClass = (MemberVO) sqlMapper.queryForObject("selectOne",mvo);		
 		
 		
-
+		
+		
 		return SUCCESS;
 	}
+	
 
 	public Reader getReader() {
 		return reader;
@@ -113,13 +116,6 @@ public class ServiceMember extends ActionSupport{
 		this.email = email;
 	}
 
-	public String getEmail2() {
-		return email2;
-	}
-
-	public void setEmail2(String email2) {
-		this.email2 = email2;
-	}
 
 	public int getTel() {
 		return tel;
@@ -128,6 +124,62 @@ public class ServiceMember extends ActionSupport{
 	public void setTel(int tel) {
 		this.tel = tel;
 	}
+
+
+
+	public String getMarketing1() {
+		return marketing1;
+	}
+
+
+
+	public void setMarketing1(String marketing1) {
+		this.marketing1 = marketing1;
+	}
+
+
+
+	public String getMarketing2() {
+		return marketing2;
+	}
+
+
+
+	public void setMarketing2(String marketing2) {
+		this.marketing2 = marketing2;
+	}
+
+
+
+	public MemberVO getParamClass() {
+		return paramClass;
+	}
+
+
+
+	public void setParamClass(MemberVO paramClass) {
+		this.paramClass = paramClass;
+	}
+
+
+
+	public MemberVO getResultClass() {
+		return resultClass;
+	}
+
+
+
+	public void setResultClass(MemberVO resultClass) {
+		this.resultClass = resultClass;
+	}
+	 public Map getSession() {
+	      return session;
+	   }
+
+	   public void setSession(Map session) {
+	      this.session = session;
+	   }
+	
 	
 	
 }

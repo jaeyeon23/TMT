@@ -152,6 +152,14 @@
 										<td><input type="text" name="region"></td>
 									</tr>
 									<tr>
+										<td>
+											<p align="center">
+												<font size="2">방갯수</font>
+											</p>
+										</td>
+										<td><input type="text" name="room"></td>
+									</tr>
+									<tr>
 										<td width="196">
 											<p align="center">
 												<font size="2">제품정보</font>

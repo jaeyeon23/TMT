@@ -38,6 +38,7 @@ public class AdminHotelWrite extends ActionSupport{
 	private String checkout;
 	private int maxnum; 
 	private int grade;
+	private int room;
 	
 	private StringBuffer image;
 	
@@ -74,7 +75,7 @@ public class AdminHotelWrite extends ActionSupport{
 		paramClass.setCheckout(getCheckout());
 		paramClass.setMaxnum(getMaxnum());
 		paramClass.setGrade(0);
-		
+		paramClass.setRoom(getRoom());
 
 		if(uploads !=null) {
 			image = new StringBuffer();
@@ -105,6 +106,12 @@ public class AdminHotelWrite extends ActionSupport{
 	
 	
 	
+	public int getRoom() {
+		return room;
+	}
+	public void setRoom(int room) {
+		this.room = room;
+	}
 	public HotelVO getParamClass() {
 		return paramClass;
 	}
