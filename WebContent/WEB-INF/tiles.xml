@@ -53,6 +53,14 @@
 		<put-attribute name="body" value="/item/hotel/hotelView.jsp" />
 	</definition>
 	
+	<definition name="HotelCheck" extends="Main">
+		<put-attribute name="body" value="/item/hotel/hotelCheck.jsp" />
+	</definition>
+	
+	<definition name="HotelSuccess" extends="Main">
+		<put-attribute name="body" value="/item/hotel/hotelSuccess.jsp" />
+	</definition>
+	
 
 
 

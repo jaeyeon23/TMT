@@ -50,6 +50,7 @@
 
 
 <!-- 검색로직 추가시작 -->
+ 
     <!-- 지역검색 -->	
     <select id="selectAllHH" resultMap="boardhotel">
 			<include refid="select-allH" />
@@ -112,6 +113,10 @@
 		values(seq_hotelnum.nextval, #name#, #price#, #content#, #country#, #region#, 0, #main_image#, #content_image#,#image3#, sysdate, #tel#,#maxnum#,#checkin#,#checkout#,#grade#,#room#)
 	</insert> 
 
+	<!-- 객실 수량 감소 -->
+	<update id="roomHotel" parameterClass="java.util.Map">
+		update hotel set room = room - #roomnum# where no=#no#
+	</update>
 	
 	<!-- 조회수증가 -->
 	<update id="readHitHotel" parameterClass="int">
