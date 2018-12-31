@@ -29,7 +29,7 @@
 	WHERE NO = #no#
 </sql>
 
-<select id="selectOne" resultMap="memberRes" parameterClass="member">
+<select id="selectOne" resultMap="memberRes" parameterClass="String">
    <include refid="select-all"/>
    <include refid="where-Id"/>
 </select>
@@ -45,7 +45,7 @@
     VALUES (SEQ_NO.NEXTVAL,#id#,#password#,#name#,#email#,#tel#,#regdate#,#passport#,1)
 </insert>
 
-<select id="ChkId" resultMap="memberRes" parameterClass="String">
+<select id="ChkId" resultMap="memberRes" parameterClass="member">
 	<include refid="select-all"/>
 	WHERE ID = #id#
 </select>

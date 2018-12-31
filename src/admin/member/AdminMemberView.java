@@ -19,7 +19,7 @@ public class AdminMemberView extends ActionSupport{
 	
 	private int currentPage;
 	
-	private int id;
+	private String id;
 	
 	public AdminMemberView() throws IOException{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -53,10 +53,10 @@ public class AdminMemberView extends ActionSupport{
 	public void setCurrentPage(int currentPage) {
 		this.currentPage = currentPage;
 	}
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	
