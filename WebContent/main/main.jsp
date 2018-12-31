@@ -26,10 +26,11 @@
 		}
 		
 		.search_background{
-			size: 100%;	
 			background-image:url(https://d2ur7st6jjikze.cloudfront.net/cms/246_original_1525399121.jpg?1525399121);
+			background-repeat:no-repeat;
+			background-position:center;
 			width: 100%;
-        	height: 608px;
+        	height: none;
 		}
 		
 	 	.searchbox_text {
@@ -61,7 +62,40 @@
 		}
 	</style>
 	
-
+	
+	
+	<style>
+	#searchTour_list{
+		width:100%;
+		height:500px;
+	}
+	#contentT{
+		background-color: white;
+	 	margin: 0 12px;
+	}
+	#contents img{
+		border-radius: 15px 15px 0 0;
+		padding: 1px 1px 1px 1px;
+		width:220px; 
+		height:180px;
+	}
+	#contents{
+		float: left;
+		margin: 20px 10px;
+		border:1px solid #BBBBBB;
+		border-radius: 15px;
+		height:300px;
+		align-content: center;
+	}
+	#contents:hover{
+		border:1px solid #1b5ac2;
+	}
+	#contents dt{
+		margin: 0 25px;
+	}
+	
+	</style>
+	        	
     <link rel="stylesheet" href="/TMT/css/main/main.css"/>
 	<!-- 슬라이더 -->
 	<link href="./css/common.css" rel="stylesheet" type="text/css">
@@ -76,7 +110,7 @@
     <div id=wrap>
         <center>
         	<form action="MainSearch.action">
-	        	<div class='search_background'>
+	        	<div class="search_background">
 	        		<div class="searchbox_text">
 	        			전 세계 17,500개가 넘는<br>투어&amp;티켓을 만나보세요.<br>
 	        			<input type="text" name="searchbox" class="searchbox" placeholder="지역을 검색하세요">
@@ -84,7 +118,142 @@
 	        	</div>
         	</form>
         	
-        	<!-- Test -->
+        	
+        	<div style="margin:100pt 110pt;">
+	        	<h4 align="left" style="margin-left:80pt;"><strong>지금 인기있는 여행지</strong></h4>
+	        	<br>
+	        	
+	        	<!-- test -->
+	        	<div class="tabbable"> <!-- 왼쪽과 오른쪽 탭에만 필요 -->
+					<ul class="nav nav-tabs">
+				    	<li class="active"><a href="#tab1" data-toggle="tab">제주도</a></li>
+				    	<li><a href="#tab2" data-toggle="tab">상하이</a></li>
+				    	<li><a href="#tab3" data-toggle="tab">워싱턴</a></li>
+				  	</ul>
+				  	<div class="tab-content">
+				    	<div class="tab-pane active" id="tab1">
+				      		<s:iterator value="Tourlist_Jeju" status="stat">
+				        		<a href="TourView.action?no=<s:property value="%{no}" />">
+									<div id="contents">
+									    <div id= imageT>
+										<s:if test="image1 != null">
+											<img src="/TMT/upload/tour/<s:property value="%{image1}" />">
+										</s:if> 
+										<s:else>
+											<img src="/TMT/images/noimage.jpg">
+										</s:else>
+										</div>
+										<div id= contentT>
+										<h4>
+											[<s:property value="region" />]<s:property value="name" /></h4>
+											<font color="orange" size = "5"><b><s:property value="price" />원</b></font> / 1인<br>
+											<s:if test="grade == 0">
+											<font color=#BDBDBD>★★★★★</font>
+									    	</s:if> 
+									    	<s:elseif test ="grade == 1">
+									    		<font color="red">★</font><font color="#BDBDBD">★★★★</font>
+									    	</s:elseif>	
+									    	<s:elseif test ="grade == 2">
+									    		<font color="red">★★</font><font color="#BDBDBD">★★★</font>
+									    	</s:elseif>	
+									    	<s:elseif test ="grade == 3">
+									    		<font color="red">★★★</font><font color="#BDBDBD">★★</font>
+									    	</s:elseif>	
+									    	<s:elseif test ="grade == 4">
+									    		<font color="red">★★★★</font><font color="#BDBDBD">★★★★★</font>
+									    	</s:elseif>					
+									    	<s:elseif test ="grade == 5">
+									    		<font color="red">★★★★★</font>
+									    	</s:elseif>			
+										</div>
+									</div>
+								</a>
+			        		</s:iterator>
+				    	</div>
+				    	<div class="tab-pane" id="tab2">
+				      		<s:iterator value="Tourlist_Sanghai" status="stat">
+				        		<a href="TourView.action?no=<s:property value="%{no}" />">
+									<div id="contents">
+									    <div id= imageT>
+										<s:if test="image1 != null">
+											<img src="/TMT/upload/tour/<s:property value="%{image1}" />">
+										</s:if> 
+										<s:else>
+											<img src="/TMT/images/noimage.jpg">
+										</s:else>
+										</div>
+										<div id= contentT>
+										<h4>
+											[<s:property value="region" />]<s:property value="name" /></h4>
+											<font color="orange" size = "5"><b><s:property value="price" />원</b></font> / 1인<br>
+											<s:if test="grade == 0">
+											<font color=#BDBDBD>★★★★★</font>
+									    	</s:if> 
+									    	<s:elseif test ="grade == 1">
+									    		<font color="red">★</font><font color="#BDBDBD">★★★★</font>
+									    	</s:elseif>	
+									    	<s:elseif test ="grade == 2">
+									    		<font color="red">★★</font><font color="#BDBDBD">★★★</font>
+									    	</s:elseif>	
+									    	<s:elseif test ="grade == 3">
+									    		<font color="red">★★★</font><font color="#BDBDBD">★★</font>
+									    	</s:elseif>	
+									    	<s:elseif test ="grade == 4">
+									    		<font color="red">★★★★</font><font color="#BDBDBD">★★★★★</font>
+									    	</s:elseif>					
+									    	<s:elseif test ="grade == 5">
+									    		<font color="red">★★★★★</font>
+									    	</s:elseif>			
+										</div>
+									</div>
+								</a>
+			        		</s:iterator>
+				    	</div>
+				    	<div class="tab-pane" id="tab3">
+				      		<s:iterator value="Tourlist_Washington" status="stat">
+				        		<a href="TourView.action?no=<s:property value="%{no}" />">
+									<div id="contents">
+									    <div id= imageT>
+										<s:if test="image1 != null">
+											<img src="/TMT/upload/tour/<s:property value="%{image1}" />">
+										</s:if> 
+										<s:else>
+											<img src="/TMT/images/noimage.jpg">
+										</s:else>
+										</div>
+										<div id= contentT>
+										<h4>
+											[<s:property value="region" />]<s:property value="name" /></h4>
+											<font color="orange" size = "5"><b><s:property value="price" />원</b></font> / 1인<br>
+											<s:if test="grade == 0">
+											<font color=#BDBDBD>★★★★★</font>
+									    	</s:if> 
+									    	<s:elseif test ="grade == 1">
+									    		<font color="red">★</font><font color="#BDBDBD">★★★★</font>
+									    	</s:elseif>	
+									    	<s:elseif test ="grade == 2">
+									    		<font color="red">★★</font><font color="#BDBDBD">★★★</font>
+									    	</s:elseif>	
+									    	<s:elseif test ="grade == 3">
+									    		<font color="red">★★★</font><font color="#BDBDBD">★★</font>
+									    	</s:elseif>	
+									    	<s:elseif test ="grade == 4">
+									    		<font color="red">★★★★</font><font color="#BDBDBD">★★★★★</font>
+									    	</s:elseif>					
+									    	<s:elseif test ="grade == 5">
+									    		<font color="red">★★★★★</font>
+									    	</s:elseif>			
+										</div>
+									</div>
+								</a>
+			        		</s:iterator>
+				    	</div>
+				  	</div>
+				</div>
+        		
+        		
+        	</div>
+     <%--    	<!-- Test -->
         	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 				<!-- Indicators -->
 			  	<ol class="carousel-indicators">
@@ -140,7 +309,8 @@
         	
         	<div>
         		숙소
-        	</div>
+        	</div> --%>
+        	
         </center>
     </div>
 </body>
