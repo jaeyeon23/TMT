@@ -30,17 +30,17 @@
 			<!-- headerTop_left -->
 			<div class="headerTop_left">
 				<a href="Main.action"> 
+				<br><br><br><br>
 					<img src="./images/logo3.png" width="300px" alt="TMT" id="logo"> 
 					<!-- 로고 및 로고이미지에  링크추가 -->
 				</a>
 			</div>
 
 			<!--   회원로그인 후           -->
-
 			<s:if test='%{session.session_id!=null}'>
-			
 			<p align="right" style="margin-right:30px;"><s:property value="session.session_name"/>님이 로그인 하셨습니다.</p><br>
 			<div class="ProfileNavItems " style="margin-right:30px;">
+
 				<div class="ProfileNavItems__item gtm-gnb-signin">
 					<a href="InsertBasket.action" class="ProfileNavItems__button" >위시리스트</a>&nbsp;
 				</div>
