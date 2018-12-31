@@ -109,6 +109,68 @@
 				        					<button type="button" class="btn btn-link" value="오키나와" onclick="modalclose_arv(value)" data-dismiss="modal">오키나와</button>
 				        				</td>
 				        			</tr>
+				        			<tr>
+				        				<th rowspan="2">
+				        					중국
+				        				</th>
+				        				<td>
+											<button type="button" class="btn btn-link" value="북경" onclick="modalclose_arv(value)" data-dismiss="modal">북경</button>
+										</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="상해" onclick="modalclose_arv(value)" data-dismiss="modal">상해</button>
+				        				</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="대련" onclick="modalclose_arv(value)" data-dismiss="modal">대련</button>
+				        				</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="위해" onclick="modalclose_arv(value)" data-dismiss="modal">위해</button>
+				        				</td>
+				        			</tr>
+				        			<tr>
+				        				<td>
+											<button type="button" class="btn btn-link" value="홍콩" onclick="modalclose_arv(value)" data-dismiss="modal">홍콩</button>
+										</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="대만" onclick="modalclose_arv(value)" data-dismiss="modal">대만</button>
+				        				</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="다낭" onclick="modalclose_arv(value)" data-dismiss="modal">다낭</button>
+				        				</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="방콕" onclick="modalclose_arv(value)" data-dismiss="modal">방콕</button>
+				        				</td>
+				        			</tr>
+				        			<tr>
+				        				<th rowspan="2">
+				        					미주
+				        				</th>
+				        				<td>
+											<button type="button" class="btn btn-link" value="로스앤젤레스" onclick="modalclose_arv(value)" data-dismiss="modal">로스앤젤레스</button>
+										</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="라스베가스" onclick="modalclose_arv(value)" data-dismiss="modal">라스베가스</button>
+				        				</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="뉴욕" onclick="modalclose_arv(value)" data-dismiss="modal">뉴욕</button>
+				        				</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="샌프란시스코" onclick="modalclose_arv(value)" data-dismiss="modal">샌프란시스코</button>
+				        				</td>
+				        			</tr>
+				        			<tr>
+				        				<td>
+											<button type="button" class="btn btn-link" value="하와이" onclick="modalclose_arv(value)" data-dismiss="modal">하와이</button>
+										</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="밴쿠버" onclick="modalclose_arv(value)" data-dismiss="modal">밴쿠버</button>
+				        				</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="토론토" onclick="modalclose_arv(value)" data-dismiss="modal">토론토</button>
+				        				</td>
+				        				<td>
+				        					<button type="button" class="btn btn-link" value="몬트리올" onclick="modalclose_arv(value)" data-dismiss="modal">몬트리올</button>
+				        				</td>
+				        			</tr>
 				        		</table>
 				      		</div>
 				      		<div class="modal-footer">
