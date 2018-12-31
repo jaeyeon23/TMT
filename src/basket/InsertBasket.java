@@ -4,8 +4,12 @@ package basket;
 import item.air.AirVO;
 import item.hotel.HotelVO;
 import item.tour.TourVO;
+import java.util.Map;
+import org.apache.struts2.interceptor.SessionAware;
 
-public class InsertBasket {
+public class InsertBasket implements SessionAware{
+	
+	private Map session;
 	BasketVO bvo = new BasketVO();
 
 	TourVO tvo = new TourVO();
@@ -34,8 +38,8 @@ public class InsertBasket {
 		bvo.setContent(hvo.getContent());
 		bvo.setCountry(hvo.getCountry());
 		bvo.setRegion(hvo.getRegion());
-		bvo.setImage1(hvo.getImage1());
-		bvo.setImage2(hvo.getImage2());
+/*		bvo.setImage1(hvo.getImage1());
+		bvo.setImage2(hvo.getImage2());*/
 		bvo.setImage3(hvo.getImage3());
 		bvo.setCheckin(hvo.getCheckin());
 		bvo.setCheckout(hvo.getCheckout());
@@ -58,6 +62,14 @@ public class InsertBasket {
 		bvo.setAir_company(avo.getAir_company());
 
 		return bvo;
+	}
+
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
 	}
 
 

@@ -2,17 +2,20 @@ package member;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ServiceMember extends ActionSupport{
+public class ServiceMember extends ActionSupport implements SessionAware{
 	
 	private Reader reader;
 	private SqlMapClient sqlMapper;
-
+	private Map session;
 	private MemberVO mvo = new MemberVO();
 
 	private String id;
@@ -184,7 +187,13 @@ public class ServiceMember extends ActionSupport{
 	public void setResultClass(MemberVO resultClass) {
 		this.resultClass = resultClass;
 	}
-	
+	 public Map getSession() {
+	      return session;
+	   }
+
+	   public void setSession(Map session) {
+	      this.session = session;
+	   }
 	
 	
 	

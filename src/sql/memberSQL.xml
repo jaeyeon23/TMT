@@ -8,7 +8,6 @@
 <result property="no" column="no"/>
 <result property="id" column="id"/>
 <result property="password" column="password"/>
-<!-- <result property="password2" column="password2"/>-->
 <result property="name" column="name"/>
 <result property="email" column="email"/>
 <result property="tel" column="tel"/>
@@ -36,12 +35,18 @@
    <include refid="where-Id"/>
 </select>
 
+<select id="loginChk" resultMap="memberRes">
+   <include refid="select-all"/>
+   <include refid="where-Id"/>
+   and password=#password#
+</select>
+
 <insert id="JoinMember" parameterClass="member">
-    INSERT INTO MEMBER (NO,ID,PASSWORD,PASSWORD2,NAME,EMAIL,TEL,REGDATE,PASSPORT,ADMIN)
-    VALUES (SEQ_NO.NEXTVAL,#id#,#password#,#password2#,#name#,#email#,#tel#,#regdate#,#passport#,1)
+    INSERT INTO MEMBER (NO,ID,PASSWORD,NAME,EMAIL,TEL,REGDATE,PASSPORT,ADMIN)
+    VALUES (SEQ_NO.NEXTVAL,#id#,#password#,#name#,#email#,#tel#,#regdate#,#passport#,1)
 </insert>
 
-<select id="ChkId" resultMap="memberRes" parameterClass="String">
+<select id="ChkId" resultMap="memberRes" parameterClass="member">
 	<include refid="select-all"/>
 	WHERE ID = #id#
 </select>
@@ -68,9 +73,18 @@
   	SELECT email FROM member WHERE email = #email#
   </select>
   
+
+  <!-- 관리자 -->
+  <!-- 멤버리스트 -->
+  <select id="memberList" resultMap="memberRes">
+  	select * from member
+  	order by regdate desc
+  </select>
+
   <!-- 회원삭제 -->
   <delete id="deleteMember" parameterClass="member">
 		delete from member where no = #no#
 	</delete>
+
  
  </sqlMap>

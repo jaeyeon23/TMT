@@ -30,14 +30,15 @@ public class AdminHotelWrite extends ActionSupport{
 	private String content;  
 	private String country;	
 	private String region;	
-	private String image1; 
-	private String image2;  
+	private String main_image; 
+	private String content_image;  
 	private String image3;
 	private String tel;       
 	private String checkin;  
 	private String checkout;
 	private int maxnum; 
 	private int grade;
+	private int room;
 	
 	private StringBuffer image;
 	
@@ -74,13 +75,13 @@ public class AdminHotelWrite extends ActionSupport{
 		paramClass.setCheckout(getCheckout());
 		paramClass.setMaxnum(getMaxnum());
 		paramClass.setGrade(0);
-		
+		paramClass.setRoom(getRoom());
 
 		if(uploads !=null) {
 			image = new StringBuffer();
 			for(int i=0;i<uploads.size();i++) {
 				if(i==0) {
-					paramClass.setImage1(getUploadsFileName().get(i));
+					paramClass.setMain_image(getUploadsFileName().get(i));
 				}
 				else if(i!=uploads.size()-1)
 					image.append(getUploadsFileName().get(i)).append(",");
@@ -94,7 +95,7 @@ public class AdminHotelWrite extends ActionSupport{
 					
 			}
 			
-			paramClass.setImage2(image.toString());
+			paramClass.setContent_image(image.toString());
 			
 		}
 		sqlMapper.insert("insertHotel",paramClass);
@@ -105,6 +106,12 @@ public class AdminHotelWrite extends ActionSupport{
 	
 	
 	
+	public int getRoom() {
+		return room;
+	}
+	public void setRoom(int room) {
+		this.room = room;
+	}
 	public HotelVO getParamClass() {
 		return paramClass;
 	}
@@ -154,17 +161,18 @@ public class AdminHotelWrite extends ActionSupport{
 		this.region = region;
 	}
 	
-	public String getImage1() {
-		return image1;
+	
+	public String getMain_image() {
+		return main_image;
 	}
-	public void setImage1(String image1) {
-		this.image1 = image1;
+	public void setMain_image(String main_image) {
+		this.main_image = main_image;
 	}
-	public String getImage2() {
-		return image2;
+	public String getContent_image() {
+		return content_image;
 	}
-	public void setImage2(String image2) {
-		this.image2 = image2;
+	public void setContent_image(String content_image) {
+		this.content_image = content_image;
 	}
 	public String getImage3() {
 		return image3;

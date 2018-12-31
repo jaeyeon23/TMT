@@ -8,6 +8,10 @@
 		<action name="Main" class="main.Main">
 			<result name="success" type="tiles">Main</result>
 		</action>
+		
+		<action name="MainSearch" class="main.Search">
+			<result name="success" type="tiles">MainSearch</result>
+		</action>
 
 		<action name="TourList" class="item.tour.TourList">
 			<result name="success" type="tiles">TourList</result>
@@ -32,5 +36,11 @@
 	
 	<!-- 위시리스트&구매내역&마이페이지 -->
 	<include file="/struts/service.xml"/>
+	
+	<!-- 호텔 -->
+	<include file="/struts/hotel.xml"/>
+	
+	<!-- 투어 -->
+	<include file="/struts/tour.xml"/>
 	
 </struts>

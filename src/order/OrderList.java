@@ -1,20 +1,23 @@
 package order;
 
-import com.opensymphony.xwork2.ActionSupport;
+import java.io.IOException;
+import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
+import com.opensymphony.xwork2.ActionSupport;
 
-import java.util.*;
-import java.io.Reader;
-import java.io.IOException;
-import order.OrderpagingAction;
-
-public class OrderList extends ActionSupport{
+public class OrderList extends ActionSupport implements SessionAware{
 	
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
-	
+	private Map session;
 	private List<OrderVO> olist = new ArrayList<OrderVO>();
 	
 	private int currentPage = 1;
@@ -141,7 +144,13 @@ public class OrderList extends ActionSupport{
 	public void setPage(OrderpagingAction page) {
 		this.page = page;
 	}
-	
+	 public Map getSession() {
+      return session;
+   }
+
+   public void setSession(Map session) {
+      this.session = session;
+   }
 	
 
 }

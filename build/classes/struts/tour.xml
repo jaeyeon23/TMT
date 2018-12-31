@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+	
+<struts>
+	<package name="tour" extends="struts-default, tiles-default">
+		<action name="TourView" class="item.tour.TourView">
+			<result type="tiles">TourView</result>
+		</action>
+		
+		<action name="TourComment" class="item.tour.TourComment">
+			<result type="redirect-action">TourView${uri}</result>
+		</action>
+		
+		
+		
+		
+		
+		
+		
+	</package>
+</struts>

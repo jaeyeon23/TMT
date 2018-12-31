@@ -10,8 +10,8 @@ public class HotelVO{
 	private String country;	 //국가
 	private String region;	//지역
 	private int readcount;  //조회수
-	private String image1; 
-	private String image2;  //̹이미지1~3
+	private String main_image; 
+	private String content_image;  //̹이미지1~3
 	private String image3;  
 	private Date reg_date;   //등록일
 	private String tel;       //전화번호
@@ -19,10 +19,7 @@ public class HotelVO{
 	private String checkout;   //체크아웃
 	private int maxnum; 	//인원수
 	private int grade;	// 별점
-	
-	private String hotelname;
-	private int number;
-	private String inDay, outDay;
+	private int room; 
 	
 	//상품번호
 	public int getNo() {
@@ -81,20 +78,21 @@ public class HotelVO{
 	}
 	
 	//̹이미지1~3
-	public String getImage1() {
-		return image1;
-	}
-	public void setImage1(String image1) {
-		this.image1 = image1;
-	}
-	public String getImage2() {
-		return image2;
-	}
-	public void setImage2(String image2) {
-		this.image2 = image2;
-	}
+	
 	public String getImage3() {
 		return image3;
+	}
+	public String getMain_image() {
+		return main_image;
+	}
+	public void setMain_image(String main_image) {
+		this.main_image = main_image;
+	}
+	public String getContent_image() {
+		return content_image;
+	}
+	public void setContent_image(String content_image) {
+		this.content_image = content_image;
 	}
 	public void setImage3(String image3) {
 		this.image3 = image3;
@@ -148,33 +146,13 @@ public class HotelVO{
 		this.grade = grade;
 	}
 	
-	
-	//검색....
-	public String getHotelname() {
-		return hotelname;
+	//객실수
+	public int getRoom() {
+		return room;
 	}
-	public void setHotelname(String hotelname) {
-		this.hotelname = hotelname;
+
+	public void setRoom(int room) {
+		this.room = room;
 	}
-	//인원수
-	public int getNumber() {
-		return number;
-	}
-	public void setNumber(int number) {
-		this.number = number;
-	}
-	// 체크인,아웃,
-	public String getInDay() {
-		return inDay;
-	}
-	public void setInDay(String inDay) {
-		this.inDay = inDay;
-	}
-	public String getOutDay() {
-		return outDay;
-	}
-	public void setOutDay(String outDay) {
-		this.outDay = outDay;
-	}
-	
+
 }

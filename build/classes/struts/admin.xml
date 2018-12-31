@@ -47,7 +47,7 @@
 			<result type="tiles">AdminMemberList</result>
 		</action>
 		
-		<!-- <action name="AdminMemberView" class="admin.member.AdminMemberView">
+		<action name="AdminMemberView" class="admin.member.AdminMemberView">
 			<result type="tiles">AdminMemberView</result>
 		</action>
 		
@@ -61,7 +61,7 @@
 		
 		<action name="AdminMemberDelete" class="admin.member.AdminMemberDelete">
 			<result type="tiles">AdminMemberList${uri}</result>
-		</action> -->
+		</action> 
 		
 		
 		<!-- 호텔 -->
@@ -80,7 +80,7 @@
 		 <action name="AdminHotelView" class="admin.item.AdminHotelView">
 			<result type="tiles">AdminHotelView</result>
 		</action>
-		<!-- 
+		
 		<action name="AdminHotelModifyForm" class="admin.item.AdminHotelModify" method="form">
 			<result type="tiles">AdminHotelModify</result>
 		</action>
@@ -91,7 +91,10 @@
 		
 		<action name="AdminHotelDelete" class="admin.item.AdminHotelDelete">
 			<result type="redirect-action">AdminHotelList${uri}</result>
-		</action>  -->
+		</action>  
+		<action name="AdminHotelComment" class="item.hotel.HotelComment">
+			<result type="redirect-action">AdminHotelView${uri}</result>
+		</action>
 		
 		<!-- 투어 -->
 		<action name="AdminTourList" class="admin.item.AdminTourList">
@@ -105,7 +108,7 @@
 		<action name="AdminTourWrite" class="admin.item.AdminTourWrite">
 			<result type="redirect-action">AdminTourList</result>
 		</action>
-		<!-- 
+		
 		<action name="AdminTourView" class="admin.item.AdminTourView">
 			<result type="tiles">AdminTourView</result>
 		</action>
@@ -115,22 +118,17 @@
 		</action>
 		
 		<action name="AdminTourModify" class="admin.item.AdminTourModify">
-			<result type="redirect-action">AdminTourView${url}</result>
+			<result type="redirect-action">AdminTourView${uri}</result>
 		</action>
 		
 		<action name="AdminTourDelete" class="admin.item.AdminTourDelete">
 			<result type="redirect-action">AdminTourList${url}</result>
-		</action> -->
+		</action> 
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		<action name="AdminTourComment" class="item.tour.TourComment">
+			<result type="redirect-action">AdminTourView${uri}</result>
+		</action>
+	
 		<!-- 공지사항 -->
 		<action name="AdminNoticeList" class="admin.notice.AdminNoticeList">
 			<result type="tiles">AdminNoticeList</result>
@@ -159,6 +157,8 @@
 		<action name="AdminNoticeDelete" class="admin.notice.AdminNoticeDelete">
 			<result type="redirect-action">AdminNoticeList${uri}</result>
 		</action>
+		
+		
 	
 	</package>
 </struts>

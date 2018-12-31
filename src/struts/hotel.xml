@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+	
+<struts>
+	<package name="hotel" extends="struts-default, tiles-default">
+		<action name="HotelView" class="item.hotel.HotelView">
+			<result type="tiles">HotelView</result>
+		</action>
+	
+		<action name="HotelComment" class="item.hotel.HotelComment">
+			<result type="redirect-action">HotelView${uri}</result>
+		</action>
+
+
+
+
+
+
+
+	</package>
+</struts>

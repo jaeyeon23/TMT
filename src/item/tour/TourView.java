@@ -1,97 +1,182 @@
 package item.tour;
 
-import com.opensymphony.xwork2.ActionSupport;
+import java.io.IOException;
+import java.io.Reader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-import item.tour.TourVO;
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
+import com.opensymphony.xwork2.ActionSupport;
 
-import java.io.Reader;
-import java.io.IOException;
-
-public class TourView extends ActionSupport {
+public class TourView extends ActionSupport implements SessionAware{
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
+	private Map session;
+	private TourVO paramClass;
+	private TourVO resultClass;
+	private String path = "/TMT/upload/tour/";
 
-	private TourVO paramClass = new TourVO(); //∆ƒ∂ÛπÃ≈Õ∏¶ ¿˙¿Â«“ ∞¥√º
-	private TourVO resultClass = new TourVO(); //ƒı∏Æ ∞·∞˙ ∞™¿ª ¿˙¿Â«“ ∞¥√º
-
+	private List<String> imageList = new ArrayList<String>();
+	
 	private int currentPage;
-
+	
 	private int no;
-
-	private String contentDisposition;
-	private long contentLength;
-
-	// ª˝º∫¿⁄
-	public TourView() throws IOException {
-		reader = Resources.getResourceAsReader("sqlMapConfig.xml"); // sqlMapConfig.xml ∆ƒ¿œ¿« º≥¡§≥ªøÎ¿ª ∞°¡Æø¬¥Ÿ.
-		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader); // sqlMapConfig.xml¿« ≥ªøÎ¿ª ¿˚øÎ«— sqlMapper ∞¥√º ª˝º∫.
+	
+	/*ÎåìÍ∏Ä*/
+	private TourComVO cParam;
+	private TourComVO cResult;
+	private List<TourComVO> cList = new ArrayList<TourComVO>();
+	
+	private int c_no;
+	private Map page = new HashMap();
+	private int currentPageC = 1;
+	private int totalCount;
+	private int blockCount=3;
+	private int blockPage = 5;
+	private String pagingHtml;
+	private TourComPaging cPage;
+	
+	public TourView() throws IOException{
+		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
+		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
 		reader.close();
+	
 	}
-
-	// ªÛºº∫∏±‚
+	@Override
 	public String execute() throws Exception {
-		// «ÿ¥Á ±€¿« ¡∂»∏ºˆ +1.
-		paramClass.setNo(getNo());
-		sqlMapper.update("updateReadHit", paramClass);
-
-		// «ÿ¥Á π¯»£¿« ±€¿ª ∞°¡Æø¬¥Ÿ.
-		resultClass = (TourVO) sqlMapper.queryForObject("selectOneT", getNo());
-
+		paramClass = new TourVO();
+		/*ÏÉÅÏÑ∏Î≥¥Í∏∞*/
+		resultClass = (TourVO)sqlMapper.queryForObject("selectOneT",getNo());
+		
+		if(resultClass.getImage2()!=null) {
+			String[] image  = resultClass.getImage2().split(",");
+			
+			for(String a : image)
+				imageList.add(path+a);//ÏÉÅÏÑ∏Î≥¥Í∏∞
+		}
+		/*ÎåìÍ∏Ä*/
+		totalCount = (Integer)sqlMapper.queryForObject("tourCCount",getNo());
+		System.out.println(totalCount);
+		cPage = new TourComPaging(getNo(),getCurrentPage(),currentPageC, totalCount, blockCount, blockPage);
+		pagingHtml = cPage.getPagingHtml().toString();
+		
+		
+		page.put("tour_no", getNo());
+		page.put("r1", cPage.getStartCount());
+		page.put("r2", cPage.getEndCount());
+		
+		cList = sqlMapper.queryForList("tourCList",page);//ÎåìÎÅù
+		
+		
 		return SUCCESS;
 	}
-
-
-
 	public TourVO getParamClass() {
 		return paramClass;
 	}
-
 	public void setParamClass(TourVO paramClass) {
 		this.paramClass = paramClass;
 	}
-
 	public TourVO getResultClass() {
 		return resultClass;
 	}
-
 	public void setResultClass(TourVO resultClass) {
 		this.resultClass = resultClass;
 	}
-
-	public int getNo() {
-		return no;
-	}
-
-	public void setNo(int no) {
-		this.no = no;
-	}
-
-	public String getContentDisposition() {
-		return contentDisposition;
-	}
-
-	public void setContentDisposition(String contentDisposition) {
-		this.contentDisposition = contentDisposition;
-	}
-
-	public long getContentLength() {
-		return contentLength;
-	}
-
-	public void setContentLength(long contentLength) {
-		this.contentLength = contentLength;
-	}
-
 	public int getCurrentPage() {
 		return currentPage;
 	}
-
 	public void setCurrentPage(int currentPage) {
 		this.currentPage = currentPage;
 	}
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
+	}
+	public List<String> getImageList() {
+		return imageList;
+	}
+	public void setImageList(List<String> imageList) {
+		this.imageList = imageList;
+	}
+	public TourComVO getcParam() {
+		return cParam;
+	}
+	public void setcParam(TourComVO cParam) {
+		this.cParam = cParam;
+	}
+	public TourComVO getcResult() {
+		return cResult;
+	}
+	public void setcResult(TourComVO cResult) {
+		this.cResult = cResult;
+	}
+	public List<TourComVO> getcList() {
+		return cList;
+	}
+	public void setcList(List<TourComVO> cList) {
+		this.cList = cList;
+	}
+	public int getCurrentPageC() {
+		return currentPageC;
+	}
+	public void setCurrentPageC(int currentPageC) {
+		this.currentPageC = currentPageC;
+	}
+	public int getC_no() {
+		return c_no;
+	}
+	public void setC_no(int c_no) {
+		this.c_no = c_no;
+	}
+	public Map getPage() {
+		return page;
+	}
+	public void setPage(Map page) {
+		this.page = page;
+	}
+	public int getTotalCount() {
+		return totalCount;
+	}
+	public void setTotalCount(int totalCount) {
+		this.totalCount = totalCount;
+	}
+	public int getBlockCount() {
+		return blockCount;
+	}
+	public void setBlockCount(int blockCount) {
+		this.blockCount = blockCount;
+	}
+	public int getBlockPage() {
+		return blockPage;
+	}
+	public void setBlockPage(int blockPage) {
+		this.blockPage = blockPage;
+	}
+	public String getPagingHtml() {
+		return pagingHtml;
+	}
+	public void setPagingHtml(String pagingHtml) {
+		this.pagingHtml = pagingHtml;
+	}
+	public TourComPaging getcPage() {
+		return cPage;
+	}
+	public void setcPage(TourComPaging cPage) {
+		this.cPage = cPage;
+	}
+	public Map getSession() {
+	      return session;
+	   }
 
+	public void setSession(Map session) {
+	      this.session = session;
+	   }
 }

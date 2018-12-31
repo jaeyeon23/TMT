@@ -1,21 +1,22 @@
 package order;
 
+import java.io.IOException;
 import java.io.Reader;
+import java.util.Date;
+import java.util.Map;
 
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
+import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
-import com.ibatis.sqlmap.client.SqlMapClientBuilder;
-
-import java.io.IOException;
-
-import com.ibatis.common.resources.*;
-import java.util.Date;
-
-public class ModifyOrder extends ActionSupport {
+public class ModifyOrder extends ActionSupport implements SessionAware{
 	
 	private Reader reader;
 	private SqlMapClient sqlMapper;
+	private Map session;
 	
 	private OrderVO oparamClass;
 	private OrderVO oresultClass;
@@ -281,7 +282,13 @@ public class ModifyOrder extends ActionSupport {
 	public void setType(int type) {
 		this.type = type;
 	}
-	
+	public Map getSession() {
+	      return session;
+	   }
+
+	public void setSession(Map session) {
+	      this.session = session;
+	   }
 	
 	
 

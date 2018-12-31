@@ -12,8 +12,8 @@
 		<result property="country" column="country" />
 		<result property="region" column="region"/>
 		<result property="readcount" column="readcount"/>
-		<result property="image1" column="image1" />
-		<result property="image2" column="image2" />
+		<result property="main_image" column="main_image" />
+		<result property="content_image" column="content_image" />
 		<result property="image3" column="image3" />
 		<result property="reg_date" column="reg_date" />
 		<result property="tel" column="tel" />
@@ -21,6 +21,7 @@
 		<result property="checkout" column="checkout" />
 		<result property="maxnum" column="maxnum" />
 		<result property="grade" column="grade" /> 
+		<result property="room" column="room" /> 
 	</resultMap>
 	
 	<!-- 공통으로 사용할 select 절 정의 -->
@@ -32,10 +33,6 @@
 	 	<sql id="where-noH">
 			WHERE no = #no#
 		</sql>
-		
-	    <sql id = "select-search">
-	        WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%')
-	    </sql>
 	    
 		<!-- select 쿼리문 정의 -->
 		<select id="selectAllH" resultMap="boardhotel">
@@ -46,59 +43,91 @@
 		<select id="selectOneH" resultMap="boardhotel" parameterClass="int">
 			<!-- <include refid="select-allH" /> -->
 			select no,name,country,region,readcount,tel,grade,maxnum,
-			reg_date,image1,image2,image3,to_char(checkin,'yyyy-mm-dd') as checkin,
-			to_char( checkout,'yyyy-mm-dd' ) as checkout, price , content from hotel
+			reg_date,main_image,content_image,image3,to_char(checkin,'yyyy-mm-dd') as checkin,
+			to_char( checkout,'yyyy-mm-dd' ) as checkout, price , content ,room from hotel
 			<include refid="where-noH" />
 		</select>
 
+
 <!-- 검색로직 추가시작 -->
-    <!-- 기본 -->	
+    <!-- 지역검색 -->	
     <select id="selectAllHH" resultMap="boardhotel">
 			<include refid="select-allH" />
-			WHERE name like '%'||#hotelname#||'%' and maxnum >= #number#
+			WHERE REGION = #region#
 	</select>
-		
-	<select id="Search_Hotel" resultMap="boardhotel" parameterClass="hotel">
+	<!-- 검색 기본 -->	
+	<select id="Search_Hotel" resultMap="boardhotel" parameterClass="java.util.Map">
 		<include refid="select-allH" />
-		<include refid="select-search"/>
 		<![CDATA[     
-		and checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number#
+		WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%')
+		and checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# and room >= #roomnum#
 		]]>
 	</select> 
 	
     <!-- 인기순정렬 -->
-	<select id="Search_Hotel_read" parameterClass="string" resultMap="boardhotel">
+	<select id="Search_Hotel_read" parameterClass="java.util.Map" resultMap="boardhotel">
 		<include refid="select-allH" />
-		<include refid="select-search"/>
-		<![CDATA[     
-		and checkin <= #checkin# and checkout >= #checkout# and maxnum >= #maxnum# order by readcount desc
-		]]>		
+		WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%') 
+		<isEmpty property="inDay">
+		 	order by readcount desc	
+		</isEmpty>
+		<isNotEmpty prepend="and" property="inDay">
+		<![CDATA[  
+				checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# and room >= #roomnum# order by readcount desc	
+		]]>	 
+		</isNotEmpty>
 	</select>
 	
     <!-- 가격순정렬 -->
-	<select id="Search_Hotel_price" parameterClass="string" resultMap="boardhotel">
+	<select id="Search_Hotel_price" parameterClass="java.util.Map" resultMap="boardhotel">
 		<include refid="select-allH" />
-		<include refid="select-search"/>
-		<![CDATA[     
-		and checkin <= #checkin# and checkout >= #checkout# and maxnum >= #maxnum# order by price asc
-		]]>		
+		WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%')
+		<isEmpty property="inDay">
+		 	order by price asc	
+		</isEmpty>
+		<isNotEmpty prepend="and" property="inDay">
+		<![CDATA[  
+				checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# and room >= #roomnum# order by price asc	
+		]]>	 
+		</isNotEmpty>
 	</select>
 	
     <!-- 별점순정렬 -->
-	<select id="Search_Hotel_date" parameterClass="string" resultMap="boardhotel">
+	<select id="Search_Hotel_date" parameterClass="java.util.Map" resultMap="boardhotel">
 		<include refid="select-allH" />
-		<include refid="select-search"/>
-		<![CDATA[     
-		and checkin <= #checkin# and checkout >= #checkout# and maxnum >= #maxnum# order by grade desc
-		]]>		
+		WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%')   
+		<isEmpty property="inDay">
+		 	order by grade desc	
+		</isEmpty>
+		<isNotEmpty prepend="and" property="inDay">
+		<![CDATA[  
+				checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# and room >= #roomnum# order by grade desc	
+		]]>	 
+		</isNotEmpty>
 	</select>
 	
+	<!-- 등록 -->
 	<insert id="insertHotel" parameterClass="hotel">
-		insert into hotel(no, name, price, content, country, region, readcount, image1, image2, image3, reg_date, tel, maxnum , checkin , checkout , grade ) 
-		values(seq_hotelnum.nextval, #name#, #price#, #content#, #country#, #region#, 0, #image1#, #image2#,#image3#, sysdate, #tel#,#maxnum#,#checkin#,#checkout#,#grade#)
-		
-	</insert>
+		insert into hotel(no, name, price, content, country, region, readcount,main_image, content_image, image3, reg_date, tel, maxnum , checkin , checkout , grade ,room) 
+		values(seq_hotelnum.nextval, #name#, #price#, #content#, #country#, #region#, 0, #main_image#, #content_image#,#image3#, sysdate, #tel#,#maxnum#,#checkin#,#checkout#,#grade#,#room#)
+	</insert> 
+
 	
+	<!-- 조회수증가 -->
+	<update id="readHitHotel" parameterClass="int">
+		update hotel set readcount = readcount+1 where no=#no#
+	</update>
+	
+	<!-- 수정 -->
+	<update id="updateHotel" parameterClass="hotel">
+		update hotel set name=#name#,price=#price#,content=#content#,country=#country#,region=#region#,main_image=#main_image#,content_image=#content_image#,checkin=#checkin#,checkout=#checkout#,room=#room#
+		where no=#no#
+	</update>
+	
+	<!-- 삭제 -->
+	<delete id="deleteHotel" parameterClass="int">
+		delete hotel where no = #no#
+	</delete>
 
 <!-- 검색로직 끝 -->
 

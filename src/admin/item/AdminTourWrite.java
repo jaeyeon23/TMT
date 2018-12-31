@@ -23,17 +23,19 @@ public class AdminTourWrite extends ActionSupport{
 	private TourVO paramClass; 
 	private TourVO resultClass;
 	
-	private int no;            //��ǰ��ȣ
-	private String name;      //��ǰ��      
-	private int price;       //����
-	private String content;  //����
-	private String country;	 //����
-	private String region;	//����
+	private int no;            
+	private String name;        
+	private int price;       
+	private String content; 
+	private String country;	
+	private String region;	
 	private String image1; 
-	private String image2;  //�̹���1~3
+	private String image2;  
 	private String image3;  
-	private Date reg_date;   //�����
-	private int grade;	//��� ����
+	private Date reg_date;   
+	private int grade;	
+	
+	private StringBuffer image;
 	
 	private List<File> uploads = new ArrayList<File>();
 	private List<String> uploadsFileName = new ArrayList<String>();
@@ -59,13 +61,27 @@ public class AdminTourWrite extends ActionSupport{
 		paramClass.setCountry(getCountry());
 		paramClass.setRegion(getRegion());
 		paramClass.setGrade(0);
-		paramClass.setImage1(getUploadsFileName().get(0));
-		paramClass.setImage2(getUploadsFileName().get(1));
-		paramClass.setImage3(getUploadsFileName().get(2));
-		for(int i=0;i<uploads.size();i++) {
-			File destFile = new File(fileUploadPath + getUploadsFileName().get(i));
-			FileUtils.copyFile(getUploads().get(i), destFile);
+		
+		if(uploads !=null) {
+			image = new StringBuffer();
+			for(int i=0;i<uploads.size();i++) {
+				if(i==0) {
+					paramClass.setImage1(getUploadsFileName().get(i));
+				}
+				else if(i!=uploads.size()-1)
+					image.append(getUploadsFileName().get(i)).append(",");
+				else
+					image.append(getUploadsFileName().get(i));
 				
+				File destFile = new File(fileUploadPath + getUploadsFileName().get(i));
+				FileUtils.copyFile(getUploads().get(i), destFile);
+				
+				System.out.println(destFile.toString());
+					
+			}
+			
+			paramClass.setImage2(image.toString());
+			
 		}
 		sqlMapper.insert("insertTour",paramClass);
 		

@@ -3,21 +3,20 @@ package item.tour;
 import java.util.Date;
 
 public class TourVO {
-	private int no;            //»óÇ°¹øÈ£
-	private String name;      //»óÇ°¸í      
-	private int price;       //°¡°İ
-	private String content;  //³»¿ë
-	private String country;	 //±¹°¡
-	private String region;	//Áö¿ª
-	private int readcount;  //Á¶È¸¼ö
+	private int no;            //ìƒí’ˆë²ˆí˜¸
+	private String name;      //ìƒí’ˆëª…    
+	private int price;       //ê°€ê²©
+	private String content;  //ë‚´ìš©
+	private String country;	 //êµ­ê°€
+	private String region;	//ì§€ì—­
+	private int readcount;  //ì¡°íšŒìˆ˜
 	private String image1; 
-	private String image2;  //ÀÌ¹ÌÁö1~3
+	private String image2;  //ì´ë¯¸ì§€1~3
 	private String image3;  
-	private Date reg_date;   //µî·ÏÀÏ
-	private int grade;	//Æò±Õ º°Á¡
+	private Date reg_date;   //ë“±ë¡ì¼
+	private int grade;	//ë³„ì 
 	
-	
-	//»óÇ°¹øÈ£
+	//ìƒí’ˆë²ˆí˜¸
 	public int getNo() {
 		return no;
 	}
@@ -25,7 +24,7 @@ public class TourVO {
 		this.no = no;
 	}
 	
-	//»óÇ°¸í
+	//ìƒí’ˆëª…
 	public String getName() {
 		return name;
 	}
@@ -33,7 +32,7 @@ public class TourVO {
 		this.name = name;
 	}
 	
-	//°¡°İ
+	//ê°€êµ‘
 	public int getPrice() {
 		return price;
 	}
@@ -41,7 +40,7 @@ public class TourVO {
 		this.price = price;
 	}
 	
-	//³»¿ë
+	//ë‚´ìš©
 	public String getContent() {
 		return content;
 	}
@@ -49,7 +48,7 @@ public class TourVO {
 		this.content = content;
 	}
 	
-	//±¹°¡
+	//êµ­ê°€
 	public String getCountry() {
 		return country;
 	}
@@ -57,7 +56,7 @@ public class TourVO {
 		this.country = country;
 	}
 	
-	//Áö¿ª
+	//ì§€ì—­
 	public String getRegion() {
 		return region;
 	}
@@ -65,7 +64,7 @@ public class TourVO {
 		this.region = region;
 	}
 	
-	//Á¶È¸¼ö
+	//ì¡°íšŒìˆ˜
 	public int getReadcount() {
 		return readcount;
 	}
@@ -73,7 +72,7 @@ public class TourVO {
 		this.readcount = readcount;
 	}
 	
-	//ÀÌ¹ÌÁö1~3
+	//ì´ë¯¸ì§€1~3
 	public String getImage1() {
 		return image1;
 	}
@@ -93,7 +92,7 @@ public class TourVO {
 		this.image3 = image3;
 	}
 	
-	//µî·ÏÀÏ
+	//ë“±ë¡ì¼
 	public Date getReg_date() {
 		return reg_date;
 	}
@@ -101,12 +100,13 @@ public class TourVO {
 		this.reg_date = reg_date;
 	}
 	
-	//Æò±Õº°Á¡
+	//ë³„ì 
 	public int getGrade() {
 		return grade;
 	}
 	public void setGrade(int grade) {
 		this.grade = grade;
 	}
+
 
 }

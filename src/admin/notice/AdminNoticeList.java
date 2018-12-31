@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -11,7 +12,6 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
 import service.NoticeVO;
-
 public class AdminNoticeList extends ActionSupport{
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
@@ -24,6 +24,7 @@ public class AdminNoticeList extends ActionSupport{
 	private PagingAction page;
 	
 	private List<NoticeVO> list = new ArrayList<NoticeVO>();
+	private Map session;
 	
 	public AdminNoticeList() throws IOException{
 	      
@@ -108,6 +109,6 @@ public class AdminNoticeList extends ActionSupport{
 	public void setList(List<NoticeVO> list) {
 		this.list = list;
 	}
-	
+
 	
 }
