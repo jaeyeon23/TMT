@@ -9,9 +9,9 @@
 <!-- 로그인 -->		
 
 		<action name="Login" class="member.LoginMember" method="Login">
-			<result name="success" type="tiles">Main</result>
+			<!-- <result name="success" type="redirect-action">Main</result> --> 
 			<result name="error">/member/loginError.jsp</result>
-			<result name="login" type="chain">Main</result>
+			<result name="success" type="chain">Main</result> 
 		</action>
 		
 		<action name="LoginForm" class="member.LoginMember" method="Form">

@@ -28,8 +28,9 @@ public class AdminMemberView extends ActionSupport{
 	
 	}
 	public String execute() throws Exception {
-	
-		resultClass = (MemberVO)sqlMapper.queryForObject("selectOne",getId());
+		paramClass = new MemberVO();
+		paramClass.setId(getId());
+		resultClass = (MemberVO)sqlMapper.queryForObject("selectOne",paramClass);
 	
 		
 		return SUCCESS;

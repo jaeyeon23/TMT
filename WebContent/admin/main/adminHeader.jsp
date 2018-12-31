@@ -218,6 +218,7 @@
 			<li><div class="menu_air"><a href="AdminAirList.action">항공권관리</a></div></li>
 			<li><div class="menu_hotel"><a href="AdminHotelList.action">숙소관리</a></div></li>
 			<li><div class="menu_hotel"><a href="AdminNoticeList.action">고객센터관리</a></div></li>
+			<li><div class="menu_hotel"><a href="AdminOrderList.action">주문내역관리</a></div></li>
 		</ul>
 	</div>
 	<!-- menu -->
