@@ -29,7 +29,7 @@
 	WHERE NO = #no#
 </sql>
 
-<select id="selectOne" resultMap="memberRes" parameterClass="String">
+<select id="selectOne" resultMap="memberRes" parameterClass="member">
    <include refid="select-all"/>
    <include refid="where-Id"/>
 </select>

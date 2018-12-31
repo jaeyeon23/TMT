@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -93,27 +96,42 @@
 <table class="table" width="80%" cellpadding="0" cellspacing="0">
 			
 			<tr align="left">
-			   <td align="center"><font size="2"><img width=250 height=200></font></td>
+			    <th align="center"><font size="2"><strong>사진</strong></font></th>
 			   <th align="center"><font size="2"><strong>주문번호</strong></font></th>
 			   <th align="center"><font size="2"><strong>상품명</strong></font></th>
+			   <th align="center"><font size="2"><strong>출발지</strong></font></th>
+			   <th align="center"><font size="2"><strong>도착지</strong></font></th>
 			   <th align="center"><font size="2"><strong>가격</strong></font></th>
 			   <th align="center"><font size="2"><strong>출발일</strong></font><br>
-
-			   <input type="text" class="date1" size="14"/></th>
-			   
 			   <th align="center"><font size="2"><strong>국가</strong></font></th>
 			   <th align="center"><font size="2"><strong>지역</strong></font></th>
 			   <th align="center"><font size="2"><strong>체크인</strong></font></th>
 			   <th align="center"><font size="2"><strong>체크아웃</strong></font></th>
 			   <th align="center"><font size="2"><strong>출발일</strong></font><br>
-			   <input type="text" class="date1" size="14"/></th>
 			   <th align="center"><font size="2"><strong>입국일</strong></font><br>
-			   <input type="text" class="date1" size="14"/></th>
+		
 			 </tr>
-			
+		
+		 
+			 <tr align="left">
+			 <td align="center"><s:property value="oresultClass.image1"/></td>
+			   <td align="center"><s:property value="oresultClass.no"/></td>
+			   <td align="center"><s:property value="oresultClass.name"/></td>
+			  <td align="center"><s:property value="oresultClass.arv"/></td>
+			   <td align="center"><s:property value="oresultClass.dep"/></td>
+			   <td align="center"><s:property value="oresultClass.price"/></td>
+			   <td align="center"><s:property value="oresultClass.day"/></td>
+			   <td align="center"><s:property value="oresultClass.region"/></td>
+			   <td align="center"><s:property value="oresultClass.country"/></td>
+			   <td align="center"><s:property value="oresultClass.checkin"/></td>
+			   <td align="center"><s:property value="oresultClass.checkout"/></td>
+			   <td align="center"><s:property value="oresultClass.ad"/></td>
+			   <td align="center"><s:property value="oresultClass.dd"/></td>
 			   
-
-
+			
+			   </tr>
+		
+			
 </table>
 	<table class="table">
 			<tr>

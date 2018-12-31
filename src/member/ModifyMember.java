@@ -4,11 +4,11 @@ import java.io.Reader;
 
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.opensymphony.xwork2.ActionSupport;
-import com.ibatis.sqlmap.client.SqlMapClient;
+
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
-import java.io.File;
+
 import java.io.IOException;
-import org.apache.commons.io.FileUtils;
+
 import com.ibatis.common.resources.*;
 
 public class ModifyMember extends ActionSupport{
