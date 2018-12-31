@@ -63,7 +63,7 @@ $(function()
 							<s:if test="%{session.session_id==null}">
 							            <center>로그인시 예약 가능합니다.
 										<a href="LoginForm.action">
-                        					<button type="button">로그인</button>
+                        					 <button type="button" class="app-button app-button__type--primary app-button__size--l">로그인</button>
                      					</a>
                      					</center>
 						    </s:if>	
