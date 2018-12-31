@@ -54,11 +54,11 @@
 					<s:property value="email"/>
 				</td>
 				<td>
-					<button type="button" class="btn btn-primary btn" 
+					<button type="button" class="btn btn-default btn-sm" 
 					onclick="javascript:location.href='AdminMemberModifyForm.action?no=<s:property value="no"/>&currentPage=<s:property value="currentPage"/>'">
  							수정
 					</button>
-					<button type="button" class="btn btn-primary btn" 
+					<button type="button" class="btn btn-default btn-sm" 
 					onclick="javascript:location.href='AdminMemberDelete.action?no=<s:property value="no"/>&currentPage=<s:property value="currentPage"/>'">
  							삭제
 					</button>

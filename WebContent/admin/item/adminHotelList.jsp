@@ -115,7 +115,9 @@
 		     	   &nbsp; |&nbsp; 
 		     	   <a href="AdminHotelList.action?num=3&hotelname=<s:property value="%{hotelname}" />&inDay=<s:property value="%{inDay}"/>&outDay=<s:property value="%{outDay}" />&number=<s:property value="%{number}" />&roomnum=<s:property value="%{roomnum}" /> "> 가격 낮은순</a>
 		     	   &nbsp; | &nbsp;
-		     	   <a href="AdminHotelList.action?num=4&hotelname=<s:property value="%{hotelname}" />&inDay=<s:property value="%{inDay}" />&outDay=<s:property value="%{outDay}" />&number=<s:property value="%{number}" />&roomnum=<s:property value="%{roomnum}" /> ">별점순</a></font>
+		     	   <a href="AdminHotelList.action?num=4&hotelname=<s:property value="%{hotelname}" />&inDay=<s:property value="%{inDay}" />&outDay=<s:property value="%{outDay}" />&number=<s:property value="%{number}" />&roomnum=<s:property value="%{roomnum}" /> ">별점순</a>
+		     	    &nbsp; | &nbsp;
+		     	   <a href="AdminHotelWriteForm.action">등록</a></font>
 		        </div>
 				<s:if test="AdminHotellist.size() <= 0">
 					<br><br>

@@ -207,6 +207,8 @@
 					<option value="1">비즈니스</option>
 				</select>
 				<input type="submit" class="btn btn-primary" value="검색">
+				<button type="button" class="btn btn-primary btn" 
+						onclick="javascript:location.href='AdminAirWriteForm.action'">등록</button>
 			</form>
 		</div>
 	</div>
