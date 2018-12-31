@@ -51,13 +51,11 @@
 </select>
 
  <update id="ModifyMember" parameterClass="member">
-   UPDATE MEMBER SET PASSWORD=#password#, EMAIL=#email#, TEL=#tel#, MARKETING1=#marketing1#, MARKETING2=#marketing2#
+   UPDATE MEMBER SET NAME=#name#, PASSWORD=#password#, EMAIL=#email#, TEL=#tel#, MARKETING1=#marketing1#, MARKETING2=#marketing2# 
    <include refid="where-Id" />
  </update>
  
- 
-
-   <select id="FindID" resultMap="memberRes">
+   <select id="FindID" resultMap="memberRes">'1'
     <include refid="select-all" />
     WHERE NAME = #name# AND EMAIL=#email#
   </select>

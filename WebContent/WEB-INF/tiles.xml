@@ -222,8 +222,8 @@
 	<definition name="JoinForm" extends="Main">
 		<put-attribute name="body" value="/member/joinForm.jsp" />
 	</definition>
-	
-	<definition name="ModifyMember" extends="Main">
+<!-- 회원정보수정 -->	
+	<definition name="ModifyMemberForm" extends="Main">
 		<put-attribute name="body" value="/member/modify.jsp" />
 	</definition>
 <!-- 아이디 중복확인 -->
