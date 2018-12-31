@@ -12,22 +12,15 @@
 	<link href="./css/bootstrap-theme.css" rel="stylesheet">
 	<script src="js/bootstrap.js" type="text/javascript"></script>
 
-	
 	<!-- 달력 -->
 	<link rel="stylesheet" href="./calendar/jquery-ui.min.css">
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="./calendar/jquery-ui.min.js"></script>
 	<script src="./calendar/datepicker-ko.js"></script>
 	<script src="./script/calendar.js" type="text/javascript"></script>
-	
+
 	<link rel="stylesheet" href="/TMT/css/main/header.css"/>
 
-	<!-- 달력 -->
-   <link rel="stylesheet" href="./calendar/jquery-ui.min.css">
-   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-   <script src="./calendar/jquery-ui.min.js"></script>
-   <script src="./calendar/datepicker-ko.js"></script>
-   <script src="./script/calendar.js" type="text/javascript"></script>
 </head>
 <body>
 	<!-- header -->
@@ -41,11 +34,13 @@
 					<!-- 로고 및 로고이미지에  링크추가 -->
 				</a>
 			</div>
-<!--   회원로그인 후           -->
+
+			<!--   회원로그인 후           -->
+
 			<s:if test='%{session.session_id!=null}'>
 			
-			<p align="right"><s:property value="session.session_name"/>님이 로그인 하셨습니다.</p><br>
-			<div class="ProfileNavItems ">
+			<p align="right" style="margin-right:30px;"><s:property value="session.session_name"/>님이 로그인 하셨습니다.</p><br>
+			<div class="ProfileNavItems " style="margin-right:30px;">
 				<div class="ProfileNavItems__item gtm-gnb-signin">
 					<a href="InsertBasket.action" class="ProfileNavItems__button" >위시리스트</a>&nbsp;
 				</div>
@@ -60,18 +55,21 @@
 				</div>
 			</div>
 			</s:if>
-<!--  관리자 로그인           -->			
+			
+			<!--  관리자 로그인           -->			
 			<s:elseif test='%{session.session_admin=="0"}'>
-			<div class="ProfileNavItems ">
+			<div class="ProfileNavItems " style="margin-right:30px;">
 				<div class="ProfileNavItems__item gtm-gnb-signup">
 					관리자&nbsp;
 					<a href="Logout.action" class="ProfileNavItems__button ProfileNavItems__button--outline" >로그아웃</a>
 				</div>
 			</div>
 			</s:elseif>
-<!--  로그인 전               -->			
+
+			<!--  로그인 전      -->			
+
 			<s:else>
-			<div class="ProfileNavItems ">
+			<div class="ProfileNavItems " style="margin-right:30px;">
 				<div class="ProfileNavItems__item gtm-gnb-signin">
 					<a href="LoginForm.action " class="ProfileNavItems__button" >로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
@@ -80,8 +78,6 @@
 				</div>
 			</div>
 			</s:else>
-
-			<!-- headerTop_right -->
 		</div>
 		<!-- headTop -->
 	<!-- menu -->

@@ -21,7 +21,11 @@
 		document.search_T.submit();
 	}
 </script>
-<style></style>
+<style>
+	#tuor_body{
+		margin-left:120px;
+	}
+</style>
 </head>
 <body>
 	<div id=tuor_body>
@@ -147,7 +151,6 @@
 
 				</dd>
 			</dl>
-
 		</div>
 	</div>
 	

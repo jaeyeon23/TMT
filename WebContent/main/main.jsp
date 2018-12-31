@@ -7,6 +7,7 @@
 <head>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
 	<style>
 		input[type=text]{
 			border: 2px solid #aaa;
@@ -31,21 +32,22 @@
 			background-position:center;
 			width: 100%;
         	height: none;
+        	padding-top:100px;
 		}
 		
 	 	.searchbox_text {
-	 		margin:150pt auto;
+	 		margin:100px -200px;
 		    color: #fff;
 		    font-size: 40px;
 		    font-weight: 700;
 		    letter-spacing: -.5px;
 		    line-height: 1.25;
-		    position: absolute;
 		    text-align: center;
 		    text-shadow: 0 3px 8px rgba(73,80,86,0.2), 0 1px 1px rgba(0,0,0,0.5);
 		    top: 240px;
 		    width: 100%;
 		    z-index: 10;
+		    
 		}
 		
 		.searchbox{
@@ -101,8 +103,6 @@
 	<link href="./css/common.css" rel="stylesheet" type="text/css">
     <link href="./css/basic_slider.css" rel="stylesheet" type="text/css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-   	<script src="./js/basic_slider_jquery.js"></script>
-   	<!-- 슬라이더 -->
 
 </head>
 
