@@ -5,6 +5,9 @@ import java.io.Reader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -13,17 +16,18 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import item.tour.TourVO;
 
-public class Main extends ActionSupport{
+public class Main extends ActionSupport implements SessionAware{
 
 	public static Reader reader; 
 	public static SqlMapClient sqlMapper; 
+	private Map session;
 	
 	private String region;
 	private List<TourVO> Tourlist_Jeju = new ArrayList<>();
 	private List<TourVO> Tourlist_Sanghai = new ArrayList<>();
 	private List<TourVO> Tourlist_Washington = new ArrayList<>();
 	
-	public Main() throws IOException {
+	public Main() throws IOException{
 		/*sql에 한글을 보내기 위한 문장*/
 		Charset charset = Charset.forName("UTF-8");
 		Resources.setCharset(charset);
@@ -71,6 +75,14 @@ public class Main extends ActionSupport{
 
 	public void setTourlist_Washington(List<TourVO> tourlist_Washington) {
 		Tourlist_Washington = tourlist_Washington;
+	}
+
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
 	}
 
 

@@ -11,18 +11,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class AirList extends ActionSupport{
+public class AirList extends ActionSupport implements SessionAware{
 
 	public static Reader reader; 
 	public static SqlMapClient sqlMapper; 
-										
+	private Map session;
+	
 	private List<AirVO> Airlist = new ArrayList<AirVO>();
 	private AirVO avo = new AirVO();
+	
 	
 	/*변수 시작*/
 	private int no;
@@ -374,5 +378,13 @@ public class AirList extends ActionSupport{
 
 	public void setAir_company_jin(String air_company_jin) {
 		this.air_company_jin = air_company_jin;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
+	}
+
+	public Map getSession() {
+		return session;
 	}
 }

@@ -11,10 +11,13 @@
 			<result name="success" type="tiles">Login</result>
 			<result name="error">/member/loginError.jsp</result>
 		</action>	 -->	
-		<action name="Login" class="member.LoginMember" method="Login">
+		
+	<!-- 	<action name="Login" class="member.LoginMember" method="Login">
 			<result name="success" type="tiles">Main</result>
+			<result type="redirect-action">
+				<param name="actionName">Main</param>
+			</result>
 			<result name="error">/member/loginError.jsp</result>
-			<result name="login" type="tiles">Main</result>
 		</action>
 		
 		<action name="LoginForm" class="member.LoginMember" method="Form">
@@ -23,8 +26,34 @@
 		
 		<action name="Logout" class="member.LoginMember" method="logout">
 			<result name="success" type="tiles">Main</result>
+			<result type="redirect-action">
+				<param name="actionName">Main</param>
+			</result>
 		</action>
-<!-- 아이디 찾기 -->		
+		 -->
+		
+		
+		<action name="Login" class="member.LoginMember" method="Login">
+	       <result name="error">/member/loginError.jsp</result>
+	     	<result type="redirect-action">
+				<param name="actionName">Main</param>
+		 	</result>
+	    </action>
+	      
+	    <action name="LoginForm" class="member.LoginMember" method="Form">
+	       <result name="success" type="tiles">LoginForm</result>
+	    </action>
+	      
+	    <action name="Logout" class="member.LoginMember" method="logout">
+	      	<result type="redirect-action">
+				<param name="actionName">Main</param>
+		 	</result>
+	    </action>
+		
+		
+		
+		
+		<!-- 아이디 찾기 -->		
 		<action name="FindId" class="member.FindMemberId">
 			<result name="success" type="tiles">FindId</result>
 			<result name="error">/member/findIdError.jsp</result>
