@@ -50,6 +50,7 @@
 
 
 <!-- 검색로직 추가시작 -->
+ 
     <!-- 지역검색 -->	
     <select id="selectAllHH" resultMap="boardhotel">
 			<include refid="select-allH" />
@@ -113,8 +114,8 @@
 	</insert> 
 
 	<!-- 객실 수량 감소 -->
-	<update id="roomHotel" parameterClass="int">
-		update hotel set room = room - 1 where no=#no#
+	<update id="roomHotel" parameterClass="java.util.Map">
+		update hotel set room = room - #roomnum# where no=#no#
 	</update>
 	
 	<!-- 조회수증가 -->

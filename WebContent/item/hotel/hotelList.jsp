@@ -136,7 +136,7 @@
 					     <font size="5" color="#1b5ac2"><b><s:property value="name" /></b></font><br>
 					    <font color="#1b5ac2"> &nbsp;<s:property value="country" />&nbsp;|&nbsp;<s:property value="region" /></font><br><br>
 						 <div id= "list_hotel_content_2">
-							  <s:if test="room == 0">
+							  <s:if test="room == 0 || checkout <= date()">
 						    			<img src="/TMT/images/watch.png" width="20" height="20"><font color="#e30413"><b>안타깝네요! 마지막 객실이 모두 예약되었습니다.</b></font><br>
 						    			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;해당 호텔은 저희 사이트상 잔여 객실이 없습니다. 다른 호텔을 이용해주세요!
 					      	  </s:if>
@@ -152,7 +152,7 @@
 								 	</div>
 						         	<div id = "content_2">
 						 				<font size="4" color="orange"><b><s:property value="price" />원</b></font> / 1박<br>
-						 				<button class="bnt_2" onclick="location.href='HotelView.action?no=<s:property value="%{no}" />'">상세보기</button>
+						 				<button class="bnt_2" onclick="location.href='HotelView.action?no=<s:property value="%{no}" />&currentPage=<s:property value="%{currentPage}"/>'">상세보기</button>
 						 			 </div>
 						 	 </s:else>	
 						</div>		
