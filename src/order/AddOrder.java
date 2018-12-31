@@ -30,7 +30,7 @@ public class AddOrder {
 		ovo.setPrice(hvo.getPrice());
 		ovo.setCountry(hvo.getCountry());
 		ovo.setRegion(hvo.getRegion());
-		ovo.setImage1(hvo.getImage1());
+		ovo.setImage1(hvo.getMain_image());
 		ovo.setCheckin(hvo.getCheckin());
 		ovo.setCheckout(hvo.getCheckout());
 		

@@ -13,7 +13,6 @@
   	<filter>
 		<filter-name>Tour</filter-name>
 		<filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
-		
 	</filter>
 
 	<filter-mapping>
