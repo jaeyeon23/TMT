@@ -18,19 +18,11 @@
 <div align="right">
 <form action="ModifyOrder.action" name="mo" method="post">
 <button type="submit" class="btn btn-default">수정</button></div><br></form>
-<div>
- <table class="table">
-	<tr>
-		<td height="20" bgcolor="#EEDAFF"></td>
-		
-	</tr>
-	
- </table>
- 
+
 <table class="table" width="80%" cellpadding="0" cellspacing="0">
 			
-			<tr align="left">
-			   <td align="center"><font size="2"><img width=250 height=200></font></td>
+			<tr align="left" bgcolor="#EEDAFF">
+			   <td align="center"><font size="2"><strong>사진</strong></font></td>
 			   <th align="center"><font size="2"><strong>주문번호</strong></font></th>
 			   <th align="center"><font size="2"><strong>상품명</strong></font></th>
 			   <th align="center"><font size="2"><strong>가격</strong></font></th>
@@ -42,6 +34,20 @@
 			   <th align="center"><font size="2"><strong>출발일</strong></font></th>
 			   <th align="center"><font size="2"><strong>입국일</strong></font></th>
 			 </tr>
+			 
+		    <tr align="left">
+			   <td align="center"><s:property value="%{session.session_image1}" /></td>
+			   <td align="center"><s:property value="%{session.session_seq_no}" /></td>
+			   <td align="center"><s:property value="%{session.session_name}" /></td>
+			   <td align="center"><s:property value="%{session.session_price}" /></td>
+			   <td align="center"><s:property value="%{session.session_day}" /></td>
+			   <td align="center"><s:property value="%{session.session_region}" /></td>
+			   <td align="center"><s:property value="%{session.session_country}" /></td>
+			   <td align="center"><s:property value="%{session.session_checkin}" /></td>
+			   <td align="center"><s:property value="%{session.session_checkout}" /></td>
+			   <td align="center"><s:property value="%{session.session_ad}" /></td>
+			   <td align="center"><s:property value="%{session.session_dd}" /></td>
+			 </tr>
 			   
 		
 
@@ -51,8 +57,6 @@
 				<td height="2" bgcolor="#EEDAFF"></td>
 			</tr>
 		</table></div>	
-
-</div>
 
 </body>
 </html>

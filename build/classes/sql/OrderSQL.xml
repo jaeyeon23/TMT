@@ -23,7 +23,6 @@
 		<result property="ad" column="ad" />
 		<result property="dd" column="dd" />
 		<result property="type" column="type" />
-
 	</resultMap>
 	
 <sql id="select-allo">
@@ -38,7 +37,7 @@
 	WHERE NO = #no#
 </sql>
 
-<select id="selectOneo" resultMap="orderRes" parameterClass="String">
+<select id="selectOneo" resultMap="orderRes" parameterClass="ordervo">
    <include refid="select-allo"/>
    <include refid="where-Ido"/>
 </select>

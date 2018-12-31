@@ -13,13 +13,16 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
+import basket.BasketVO;
+
 public class OrderList extends ActionSupport implements SessionAware{
 	
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 	private Map session;
+	private OrderVO ovo = new OrderVO();
 	private List<OrderVO> olist = new ArrayList<OrderVO>();
-	
+	private String id;
 	private int currentPage = 1;
 	private int totalCount;
 	private int blockCount = 10;
@@ -37,8 +40,8 @@ public class OrderList extends ActionSupport implements SessionAware{
 	
 	@Override
 	public String execute() throws Exception {
-		
-		olist = sqlMapper.queryForList("selectOneo");
+		ovo.setId(id);
+		olist = sqlMapper.queryForList("selectOneo",ovo);
 		
 		totalCount = olist.size();
 		page = new OrderpagingAction(currentPage,totalCount,blockCount,blockPage);
@@ -151,6 +154,27 @@ public class OrderList extends ActionSupport implements SessionAware{
    public void setSession(Map session) {
       this.session = session;
    }
+
+
+public OrderVO getOvo() {
+	return ovo;
+}
+
+
+public void setOvo(OrderVO ovo) {
+	this.ovo = ovo;
+}
+
+
+public String getId() {
+	return id;
+}
+
+
+public void setId(String id) {
+	this.id = id;
+}
+   
 	
 
 }

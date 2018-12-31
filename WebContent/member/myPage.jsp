@@ -36,6 +36,7 @@ function removeCheck() {
 					<img alt="여행자 사진" class="img-circle" src="https://d2ur7st6jjikze.cloudfront.net/profile_images/1387626/1387626_medium_1541323024.png?1541323024" width="80">
 				</div>
 
+
 				<div class="text-md setting hide-on-mobile">
 					<img alt="프로필 관리" class="icon item-inline" height="11px" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/traveler/reservation/ic_setting@2x-832c08d9d38f208502f94e8d35e78a320024fc5f61630f2eba7801845e1eda78.png" width="11px">
 						<a href="/traveler/account">프로필 관리</a>
@@ -69,6 +70,11 @@ function removeCheck() {
 			</div>
 		</div>
 	</div>
+
+<div>
+<h2>마이페이지</h2>
+
+
 <main class="member-box box mode-readonly clearfix">
 	<center>
 		<div class="member-container with-edit-btn">
