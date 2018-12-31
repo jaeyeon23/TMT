@@ -7,8 +7,11 @@ import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.Map;
+import org.apache.struts2.interceptor.SessionAware;
 
-public class DeleteBasket extends ActionSupport {
+
+public class DeleteBasket extends ActionSupport implements SessionAware{
 	
 	private static Reader reader;
 	private static SqlMapClient sqlMapper;
@@ -18,6 +21,8 @@ public class DeleteBasket extends ActionSupport {
 	private String id;
 	private int[] deleteCheck;
 
+	private Map session;
+	
 	public DeleteBasket() throws IOException {
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
 		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
@@ -78,6 +83,14 @@ public class DeleteBasket extends ActionSupport {
 
 	public static void setReader(Reader reader) {
 		DeleteBasket.reader = reader;
+	}
+
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
 	}
 
 }

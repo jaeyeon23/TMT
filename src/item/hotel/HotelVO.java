@@ -19,6 +19,7 @@ public class HotelVO{
 	private String checkout;   //체크아웃
 	private int maxnum; 	//인원수
 	private int grade;	// 별점
+	private int room; 
 	
 	//상품번호
 	public int getNo() {
@@ -145,5 +146,13 @@ public class HotelVO{
 		this.grade = grade;
 	}
 	
-	
+	//객실수
+	public int getRoom() {
+		return room;
+	}
+
+	public void setRoom(int room) {
+		this.room = room;
+	}
+
 }

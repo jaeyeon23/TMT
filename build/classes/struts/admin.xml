@@ -92,6 +92,9 @@
 		<action name="AdminHotelDelete" class="admin.item.AdminHotelDelete">
 			<result type="redirect-action">AdminHotelList${uri}</result>
 		</action>  
+		<action name="AdminHotelComment" class="item.hotel.HotelComment">
+			<result type="redirect-action">AdminHotelView${uri}</result>
+		</action>
 		
 		<!-- 투어 -->
 		<action name="AdminTourList" class="admin.item.AdminTourList">
@@ -121,6 +124,10 @@
 		<action name="AdminTourDelete" class="admin.item.AdminTourDelete">
 			<result type="redirect-action">AdminTourList${url}</result>
 		</action> 
+		
+		<action name="AdminTourComment" class="item.tour.TourComment">
+			<result type="redirect-action">AdminTourView${uri}</result>
+		</action>
 	
 		<!-- 공지사항 -->
 		<action name="AdminNoticeList" class="admin.notice.AdminNoticeList">
@@ -150,6 +157,8 @@
 		<action name="AdminNoticeDelete" class="admin.notice.AdminNoticeDelete">
 			<result type="redirect-action">AdminNoticeList${uri}</result>
 		</action>
+		
+		
 	
 	</package>
 </struts>

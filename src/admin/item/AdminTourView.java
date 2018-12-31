@@ -33,11 +33,15 @@ public class AdminTourView extends ActionSupport {
 	private TourComVO cParam;
 	private TourComVO cResult;
 	private List<TourComVO> cList = new ArrayList<TourComVO>();
-	private int currentPageC;
+	
 	private int c_no;
 	private Map page = new HashMap();
-	private int r1;
-	private int r2;
+	private int currentPageC = 1;
+	private int totalCount;
+	private int blockCount=3;
+	private int blockPage = 5;
+	private String pagingHtml;
+	private TourComPaging cPage;
 	
 	public AdminTourView() throws IOException{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -48,24 +52,27 @@ public class AdminTourView extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		paramClass = new TourVO();
-		
+		/*상세보기*/
 		resultClass = (TourVO)sqlMapper.queryForObject("selectOneT",getNo());
-		
-		
-		r1=1;
-		r2=5;
-		page.put("tour_no", getNo());
-		page.put("r1", r1);
-		page.put("r2", r2);
-		
-		cList = sqlMapper.queryForList("tourCList",page);
 		
 		if(resultClass.getImage2()!=null) {
 			String[] image  = resultClass.getImage2().split(",");
 			
 			for(String a : image)
-				imageList.add(path+a);
+				imageList.add(path+a);//상세보기
 		}
+		/*댓글*/
+		totalCount = (Integer)sqlMapper.queryForObject("tourCCount",getNo());
+		cPage = new TourComPaging(getNo(),getCurrentPage(),currentPageC, totalCount, blockCount, blockPage);
+		pagingHtml = cPage.getPagingHtml().toString();
+		
+		page.put("tour_no", getNo());
+		page.put("r1", cPage.getStartCount());
+		page.put("r2", cPage.getEndCount());
+		
+		cList = sqlMapper.queryForList("tourCList",page);//댓끝
+		
+		
 		return SUCCESS;
 	}
 	public TourVO getParamClass() {
@@ -128,5 +135,40 @@ public class AdminTourView extends ActionSupport {
 	public void setC_no(int c_no) {
 		this.c_no = c_no;
 	}
-	
+	public Map getPage() {
+		return page;
+	}
+	public void setPage(Map page) {
+		this.page = page;
+	}
+	public int getTotalCount() {
+		return totalCount;
+	}
+	public void setTotalCount(int totalCount) {
+		this.totalCount = totalCount;
+	}
+	public int getBlockCount() {
+		return blockCount;
+	}
+	public void setBlockCount(int blockCount) {
+		this.blockCount = blockCount;
+	}
+	public int getBlockPage() {
+		return blockPage;
+	}
+	public void setBlockPage(int blockPage) {
+		this.blockPage = blockPage;
+	}
+	public String getPagingHtml() {
+		return pagingHtml;
+	}
+	public void setPagingHtml(String pagingHtml) {
+		this.pagingHtml = pagingHtml;
+	}
+	public TourComPaging getcPage() {
+		return cPage;
+	}
+	public void setcPage(TourComPaging cPage) {
+		this.cPage = cPage;
+	}
 }

@@ -7,8 +7,10 @@ import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.Map;
+import org.apache.struts2.interceptor.SessionAware;
 
-public class TourComment extends ActionSupport{
+public class TourComment extends ActionSupport implements SessionAware{
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 	private TourComVO cParam;
@@ -27,6 +29,8 @@ public class TourComment extends ActionSupport{
 	private int c_re_level;
 	private String uri;	
 	
+	private Map session;
+	
 	public TourComment()throws IOException{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
 		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
@@ -34,32 +38,36 @@ public class TourComment extends ActionSupport{
 	}
 	public String execute()throws Exception{
 		cParam = new TourComVO();
-		cResult = new TourComVO();
-		if(c_ref == 0) {
+	
+		cParam.setC_id(getC_id());
+		cParam.setC_content(getC_content());
+		cParam.setTour_no(getTour_no());
+		
+		if(getC_ref() == 0) {
 			cParam.setC_re_level(0);
 			cParam.setC_re_step(0);
+			sqlMapper.insert("insertTourC",cParam);
 		}
 		else {
 			cParam.setC_ref(getC_ref());
 			cParam.setC_re_step(getC_re_step());
-			sqlMapper.update("updateReplyStep",cParam);
-			cParam.setC_re_step(getC_re_step());
-			cParam.setC_re_level(getC_re_level());
-			
+			sqlMapper.update("replyStepTC",cParam);
+			cParam.setC_re_step(getC_re_step()+1);
+			cParam.setC_re_level(getC_re_level()+1);
+			sqlMapper.insert("insertTourCR",cParam);
 		}
-			cParam.setC_id(getC_id());
-			cParam.setC_content(getC_content());
-			cParam.setC_no(getC_no());
-			cParam.setTour_no(getTour_no());
-			
 		
-		sqlMapper.insert("insertTourC",cParam);
+		
 		setUri("?no="+getTour_no()+"&currentPage="+getCurrentPage());
 		return SUCCESS;
 	}
 
-
-
+	public Map getSession() {
+		return session;
+	}
+	public void setSession(Map session) {
+		this.session = session;
+	}
 	public String getUri() {
 		return uri;
 	}

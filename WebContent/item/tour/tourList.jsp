@@ -94,7 +94,7 @@
 				<dd>
 					<ul>
 						<s:iterator value="Tourlist" status="stat">
-							<a href="TourView.action?no=<s:property value="%{no}" />">
+							<a href="TourView.action?no=<s:property value="%{no}" />&currentPage=<s:property value="%{currentPage}"/>">
 								<div id="contents">
 									<div id=imageT>
 										<s:if test="image1 != null">

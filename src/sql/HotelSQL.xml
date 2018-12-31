@@ -21,6 +21,7 @@
 		<result property="checkout" column="checkout" />
 		<result property="maxnum" column="maxnum" />
 		<result property="grade" column="grade" /> 
+		<result property="room" column="room" /> 
 	</resultMap>
 	
 	<!-- 공통으로 사용할 select 절 정의 -->
@@ -43,7 +44,7 @@
 			<!-- <include refid="select-allH" /> -->
 			select no,name,country,region,readcount,tel,grade,maxnum,
 			reg_date,main_image,content_image,image3,to_char(checkin,'yyyy-mm-dd') as checkin,
-			to_char( checkout,'yyyy-mm-dd' ) as checkout, price , content from hotel
+			to_char( checkout,'yyyy-mm-dd' ) as checkout, price , content ,room from hotel
 			<include refid="where-noH" />
 		</select>
 
@@ -52,14 +53,14 @@
     <!-- 지역검색 -->	
     <select id="selectAllHH" resultMap="boardhotel">
 			<include refid="select-allH" />
-			WHERE COUNTRY = #country#
+			WHERE REGION = #region#
 	</select>
 	<!-- 검색 기본 -->	
 	<select id="Search_Hotel" resultMap="boardhotel" parameterClass="java.util.Map">
 		<include refid="select-allH" />
 		<![CDATA[     
 		WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%')
-		and checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number#
+		and checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# and room >= #roomnum#
 		]]>
 	</select> 
 	
@@ -72,7 +73,7 @@
 		</isEmpty>
 		<isNotEmpty prepend="and" property="inDay">
 		<![CDATA[  
-				checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# 	order by readcount desc	
+				checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# and room >= #roomnum# order by readcount desc	
 		]]>	 
 		</isNotEmpty>
 	</select>
@@ -86,7 +87,7 @@
 		</isEmpty>
 		<isNotEmpty prepend="and" property="inDay">
 		<![CDATA[  
-				checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# 	order by price asc	
+				checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# and room >= #roomnum# order by price asc	
 		]]>	 
 		</isNotEmpty>
 	</select>
@@ -100,15 +101,15 @@
 		</isEmpty>
 		<isNotEmpty prepend="and" property="inDay">
 		<![CDATA[  
-				checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# 	order by grade desc	
+				checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# and room >= #roomnum# order by grade desc	
 		]]>	 
 		</isNotEmpty>
 	</select>
 	
 	<!-- 등록 -->
 	<insert id="insertHotel" parameterClass="hotel">
-		insert into hotel(no, name, price, content, country, region, readcount,main_image, content_image, image3, reg_date, tel, maxnum , checkin , checkout , grade ) 
-		values(seq_hotelnum.nextval, #name#, #price#, #content#, #country#, #region#, 0, #main_image#, #content_image#,#image3#, sysdate, #tel#,#maxnum#,#checkin#,#checkout#,#grade#)
+		insert into hotel(no, name, price, content, country, region, readcount,main_image, content_image, image3, reg_date, tel, maxnum , checkin , checkout , grade ,room) 
+		values(seq_hotelnum.nextval, #name#, #price#, #content#, #country#, #region#, 0, #main_image#, #content_image#,#image3#, sysdate, #tel#,#maxnum#,#checkin#,#checkout#,#grade#,#room#)
 	</insert> 
 
 	
@@ -119,7 +120,7 @@
 	
 	<!-- 수정 -->
 	<update id="updateHotel" parameterClass="hotel">
-		update hotel set name=#name#,price=#price#,content=#content#,country=#country#,region=#region#,main_image=#main_image#,content_image=#content_image#,checkin=#checkin#,checkout=#checkout#
+		update hotel set name=#name#,price=#price#,content=#content#,country=#country#,region=#region#,main_image=#main_image#,content_image=#content_image#,checkin=#checkin#,checkout=#checkout#,room=#room#
 		where no=#no#
 	</update>
 	

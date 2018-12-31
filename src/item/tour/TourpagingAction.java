@@ -1,6 +1,7 @@
 package item.tour;
 
-public class TourpagingAction {
+
+public class TourpagingAction{
 
 	private int currentPage;   // 현재페이지
 	private int totalCount;	 // 전체 게시물 수
@@ -15,7 +16,7 @@ public class TourpagingAction {
 	private StringBuffer pagingHtml;
 
 	private String tourname;
-	
+
 	//생성자
 	public TourpagingAction(int currentPage, int totalCount, int blockCount,
 			int blockPage, String tourname) {
@@ -188,4 +189,6 @@ public class TourpagingAction {
 	public void setTourname(String tourname) {
 		this.tourname = tourname;
 	}
+
+	
 }

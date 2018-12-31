@@ -26,9 +26,10 @@ public class HotelList extends ActionSupport implements SessionAware{
 	private List<HotelVO> Hotellist = new ArrayList<HotelVO>();
 	private HotelVO hvo = new HotelVO();
 	
-	private String hotelname;
-	private String number;
-	private String inDay, outDay;
+	private String hotelname;  //검색키워드
+	private String number;     //인원수
+	private String inDay, outDay;  //체크인 체크아웃
+	private String roomnum;       //방개수
 	
 	private int num = 0;           //검색구분을위한 변수 0= 검색x 1 = 지역검색, 2:인기순 ,3 =가격순 ,4= 별점순 
 
@@ -85,9 +86,10 @@ public class HotelList extends ActionSupport implements SessionAware{
 		map.put("inDay", getInDay());
 		map.put("outDay", getOutDay());
 		map.put("number", getNumber());
+		map.put("roomnum", getRoomnum());
 		
 		if(num == 1) {
-			hvo.setCountry(getHotelname());
+			hvo.setRegion(getHotelname());
 			Hotellist = sqlMapper.queryForList("selectAllHH", hvo);
 		}else if(num == 2) {
 			Hotellist = sqlMapper.queryForList("Search_Hotel_read", map);
@@ -205,7 +207,12 @@ public class HotelList extends ActionSupport implements SessionAware{
 		this.hvo = hvo;
 	}
 
-	
+	public String getRoomnum() {
+		return roomnum;
+	}
+	public void setRoomnum(String roomnum) {
+		this.roomnum = roomnum;
+	}
 	public int getNum() {
 		return num;
 	}

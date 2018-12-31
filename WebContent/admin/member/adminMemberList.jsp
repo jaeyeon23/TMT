@@ -69,7 +69,7 @@ function fnPrevDept(){
 </script>
 
 
-	<table class="table table-hover" style="width:100%" border="1">
+	<table class="table table-hover" style="width:100%">
 	
 		<tbody>
 		<tr align="center">
