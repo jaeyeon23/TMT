@@ -23,9 +23,6 @@
 		 	</result>
 	    </action>
 		
-		
-		
-		
 		<!-- 아이디 찾기 -->		
 		<action name="FindId" class="member.FindMemberId">
 			<result name="success" type="tiles">FindId</result>
