@@ -60,7 +60,7 @@
    <include refid="where-Id" />
  </update>
  
-   <select id="FindID" resultMap="memberRes">'1'
+   <select id="FindID" resultMap="memberRes"><!-- ? -->
     <include refid="select-all" />
     WHERE NAME = #name# AND EMAIL=#email#
   </select>
