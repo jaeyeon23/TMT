@@ -42,7 +42,16 @@ public class AdminMemberList extends ActionSupport{
 	@Override
 	public String execute() throws Exception {
 		if(getSearch()!=null) {
-			searchch.put("searchh", searchh);
+			for(String a : searchh) {
+				if(a.equals("id"))
+					searchch.put("id", a);
+				if(a.equals("name"))
+					searchch.put("name", a);
+				if(a.equals("email"))
+					searchch.put("email", a);
+				if(a.equals("passport"))
+					searchch.put("passport", a);
+			}
 			searchch.put("search", search);
 			list = sqlMapper.queryForList("searchMember",searchch);
 		}

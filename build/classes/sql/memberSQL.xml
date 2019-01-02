@@ -91,7 +91,23 @@
 	<!-- 회원검색 -->
 	<select id="searchMember" parameterClass="Map" resultMap="memberRes">
 		select * from member
-		where <iterate open="(" close=")" property="searchh" conjunction=" or ">#searchh[]# = #search#</iterate>
+		
+		<dynamic  prepend="where">
+			<isNotNull prepend="and" removeFirstPrepend="true" open="(" close=")">
+				<isNotEmpty prepend="or" property="id">
+					id like '%'||#search#||'%'
+				</isNotEmpty>
+				<isNotEmpty prepend="or" property="name">
+					name like '%'||#search#||'%'
+				</isNotEmpty>
+				<isNotEmpty prepend="or" property="email">
+					email like '%'||#search#||'%'
+				</isNotEmpty>
+				<isNotEmpty prepend="or" property="passport">
+					passport like '%'||#search#||'%'
+				</isNotEmpty>
+			</isNotNull>
+		</dynamic>
 	</select>
  
  </sqlMap>
