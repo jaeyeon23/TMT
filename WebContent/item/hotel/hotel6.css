@@ -1,0 +1,184 @@
+#allbox{  /* 바디전체 틀 */
+   width: 1200px;
+   height: 1600px;
+  /*  background-color:#D5D5D5; */
+}
+#box1{   /* 왼쪽 검색박스들 */
+	float: left;
+	width: 24%;
+	height: 1000px;
+	/* background-color: yellow; */
+	margin: 20px 12px;
+}
+#box2{  /* 리스트박스 틀 */
+   float: right;
+   width:72%;
+   height: 1450px;
+  /*  background-color: red; */
+   margin: 20px 12px;
+   
+}
+
+#subbox1{ /* 호텔검색 */
+	 background-color:#1b5ac2;
+	 margin: 20px auto;
+	 width: 280px;
+	 height: 480px;
+	 border-radius: 5px 5px 5px 5px ;
+}
+#sub_h{
+	line-height: 48px; /*  줄간격 */
+	text-indent: 13px; /* 들여쓰기 */
+}
+#search_h3{
+	margin: 0 auto;
+	width: 265px;
+	background-color:white;
+}
+#search_h3 input[type="text"]{
+	 margin: 0 10px;
+}
+
+#subbox2{ /* 지역검색 */
+	background-color:#5CD1E5;
+	margin: 20px auto;
+	width: 280px;
+	height: 380px;
+	border-radius: 5px 5px 5px 5px ;
+}
+#search_h4{
+	text-indent: 13px; /* 들여쓰기 */
+	margin: 0 auto;
+	width: 265px;
+	background-color:white;
+}
+
+#Hsearch select{
+	width:120px;
+	height: 43px;
+	display:inline;
+	text-align: center;
+	margin-left: 7px;
+	border:2px solid #BBBBBB;
+}
+
+input[type="submit"]{
+	width:100px;
+	height: 35px;
+	margin: 20px 80px;
+	border-radius: 5px 5px 5px 5px ;
+	border: 1px solid #1b5ac2;
+	color:#1b5ac2;
+	background-color: white;
+}
+input[type="submit"]:hover{
+	color: white;
+	background-color: #1b5ac2;
+}
+
+div.sideMenu {
+	height: 35px;
+	cursor: pointer;     /* 마우스 커서..*/
+}
+
+.subb li a {
+	text-decoration: none;
+	display: block;
+	font-size: 15px;
+	line-height: 30px;  /* 줄간격 */
+}
+div.sideMenu:hover {
+	color: #1b5ac2
+}
+.subb li a:hover {
+	color: #1b5ac2
+}
+
+#search_h3 output{   /* 인원선택 */
+	background-color: white;
+	border-radius: 7px 7px 7px 7px ;
+	border:1px solid #BBBBBB;
+	width: 80px;
+	height: 40px;
+	margin: 0 10px;
+}
+
+img.ui-datepicker-trigger {
+	margin-left: -5px;
+	vertical-align: middle; 
+	cursor: pointer;
+	width: 35px;
+	height: 40px;
+}
+
+#list_Box{  /* 리스트박스 틀 안에틀 */
+	width: 98%;
+	height: 1420px;
+	margin: 20px auto;
+	/* background-color: gold; */
+}
+
+#range{ /* 리스트정렬 */
+	line-height: 48px; /*  줄간격 */
+	text-indent: 15px; /* 들여쓰기 */
+	height: 50px;
+	border-radius: 3px 3px 3px 3px ;
+	border:1px solid #1b5ac2;
+}
+
+#list_hotel{
+	margin: 20px 0;
+	border-radius: 3px 3px 3px 3px ;
+	border:1px solid #BBBBBB;
+	height: 245px;
+}
+#list_hotel:hover{
+	
+	border:1px solid #1b5ac2;
+
+}
+
+#list_hotel_image{
+	float: left;
+	margin: 20px 20px;
+}
+
+#list_hotel_content{ /* 리스트정보 전체틀 */
+	float: left;
+	width: 65%;
+	margin: 20px 10px;
+	/* border:2px solid #BBBBBB; */
+}
+#list_hotel_content_2{ /* 룸정보와 객실정보...등 공간 */
+	float: left;
+	width: 95%;
+	margin: 20px 15px;
+	/* border:1px solid #BBBBBB; */
+}
+
+#content_1{
+	float: left;
+}
+#content_2{
+	float: right;
+}
+
+#content_2 button{
+	background-color: white; 
+	padding: 8px 20px;
+	border: 1px solid #1b5ac2;
+	color:#1b5ac2;
+	text-align: center;
+	border-radius: 5px 5px 5px 5px ;
+}
+#content_2 button:hover{
+	background-color: #1b5ac2; 
+	color:white;
+}
+
+
+
+
+
+
+

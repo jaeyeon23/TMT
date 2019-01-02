@@ -23,23 +23,18 @@
 		<action name="AdminAirWrite" class="admin.item.AdminAirWrite">
 			<result type="redirect-action">AdminAirList</result>
 		</action>
-		<!-- 
-		<action name="AdminAirView" class="admin.item.AdminAirView">
-			<result type="tiles">AdminAirView</result>
-		</action>
 		
-		<action name="AdminAirModifyForm" class="admin.item.AdminAirMofidy" method="form">
+		<action name="AdminAirModifyForm" class="admin.item.AdminAirModify" method="form">
 			<result type="tiles">AdminAirModify</result>
 		</action>
 		
-		<action name="AdminAirModify" class="admin.item.AdminAirMofidy">
-			<result type="redirect-action">AdminAirView${uri}</result>
+		<action name="AdminAirModify" class="admin.item.AdminAirModify">
+			<result type="redirect-action">AdminAirList${uri}</result>
 		</action>
 		
 		<action name="AdminAirDelete" class="admin.item.AdminAirDelete">
 			<result type="redirect-action">AdminAirList${uri}</result>
-		</action> -->
-		
+		</action> 
 		
 		
 		<!-- 멤버 -->
@@ -158,7 +153,18 @@
 			<result type="redirect-action">AdminNoticeList${uri}</result>
 		</action>
 		
+		<!-- 주문내역 -->
+		<action name="AdminOrderList" class="admin.order.AdminOrderList">
+			<result type="tiles">AdminOrderList</result>
+		</action>
 		
-	
+		<action name="AdminOrderView" class="admin.order.AdminOrderView">
+			<result type="tiles">AdminOrderView</result>
+		</action>
+		
+		<action name="AdminOrderDelete" class="admin.order.AdminOrderDelete">
+			<result type="redirect-action">AdminOrderList${param}</result>
+		</action>
+		
 	</package>
 </struts>

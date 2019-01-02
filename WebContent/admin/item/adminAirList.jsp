@@ -207,6 +207,8 @@
 					<option value="1">비즈니스</option>
 				</select>
 				<input type="submit" class="btn btn-primary" value="검색">
+				<button type="button" class="btn btn-primary btn" 
+						onclick="javascript:location.href='AdminAirWriteForm.action'">등록</button>
 			</form>
 		</div>
 	</div>
@@ -294,16 +296,10 @@
 						요금
 					</th>
 					<th>
-						예약
+						수정/삭제
 					</th>
 				</tr>
-				<s:if test="Airlist == null">
-				<tr>
-					<td colspan=5>
-						<center>항공권을 검색해 주세요</center>
-					</td>
-				</tr>
-				</s:if>
+				
 				
 				<s:iterator value="Airlist" status="stat">
 				<tr>
@@ -323,69 +319,14 @@
 						<s:property value="price"/>
 					</td>
 					<td>
-						<button type="button" class="btn btn-primary btn" data-toggle="modal" data-target="#myModal${stat.index }">
-  							상세보기
+						<button type="button" class="btn btn-primary btn" 
+						onclick="javascript:location.href='AdminAirModifyForm.action?no=<s:property value="no"/>&currentPage=<s:property value="currentPage"/>'">
+  							수정
 						</button>
-						<div class="modal fade" id="myModal${stat.index }" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-						        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						        			<h4 class="modal-title" id="myModalLabel">
-						        				<s:property value="arv"/>&nbsp;<span class="glyphicon glyphicon-arrow-right"></span>&nbsp;<s:property value="dep"/>
-						        			</h4>
-						      		</div>
-						      		<div class="modal-body">
-						        		<table id="list" class="table table-hover" style="width:100%;">
-						        			<tr>
-						        				<th>
-						        					인원
-						        				</th>
-						        				<th>
-						        					남은 좌석 수
-						        				</th>
-						        				<th>
-						        					가격
-						        				</th>
-						        				<th>
-						        					항공사
-						        				</th>
-						        				<th>
-						        					서비스 제공
-						        				</th>
-						        			</tr>
-						        			<tr>
-						        				<td>
-													<s:property value="#parameters.seat" />명
-												</td>
-						        				<td>
-						        					<s:property value="seat"/>좌석
-						        				</td>
-						        				<td>
-						        					${price * param.seat}원
-						        				</td>
-						        				<td>
-						        					<s:property value="air_company"/>
-						        				</td>
-						        				<td>
-						        					<s:property value="content"/>
-						        				</td>
-						        			</tr>
-						        		</table>
-						      		</div>
-						      		<div class="modal-footer">
-							      		<form action="AirCheck.action">
-							        		<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-							        		<button type="submit" class="btn btn-primary">
-							        			예약
-							        			<s:hidden name="no" value="%{no}"/>
-							        			<s:hidden name="seat" value="%{#parameters.seat}"/>
-							        		</button>
-							        	</form>
-						      		</div>
-					    		</div>
-							</div>
-						</div>
+						<button type="button" class="btn btn-primary btn" 
+						onclick="javascript:location.href='AdminAirDelete.action?no=<s:property value="no"/>&currentPage=<s:property value="currentPage"/>'">
+  							삭제
+						</button>
 					</td>
 				</tr>
 				</s:iterator>

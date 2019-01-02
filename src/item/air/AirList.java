@@ -1,9 +1,6 @@
 package item.air;
 
 import java.io.IOException;
-
-import org.apache.struts2.interceptor.SessionAware;
-
 import java.io.Reader;
 import java.nio.charset.Charset;
 import java.sql.SQLException;
@@ -13,22 +10,23 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import member.MemberVO;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
-import org.apache.struts2.interceptor.SessionAware;
-
 
 public class AirList extends ActionSupport implements SessionAware{
 
 	public static Reader reader; 
 	public static SqlMapClient sqlMapper; 
-										
+	private Map session;
+	
 	private List<AirVO> Airlist = new ArrayList<AirVO>();
 	private AirVO avo = new AirVO();
+	
 	
 	/*변수 시작*/
 	private int no;
@@ -65,8 +63,6 @@ public class AirList extends ActionSupport implements SessionAware{
 	
 	private Map map = new HashMap<>();
 	
-	private Map session;
-	
 	public AirList() throws IOException{
 		/*sql에 한글을 보내기 위한 문장*/
 		Charset charset = Charset.forName("UTF-8");
@@ -81,8 +77,6 @@ public class AirList extends ActionSupport implements SessionAware{
 	
 	@Override
 	public String execute() throws Exception {
-		
-		/*if(session.get("session_id")!=null) {*/
 		if(arv == null) {
 			Airlist = null;
 		}else {
@@ -118,8 +112,6 @@ public class AirList extends ActionSupport implements SessionAware{
 		}
 		
 		return SUCCESS;
-		/*}
-		return ERROR;*/
 	}
 
 	private void makeSearch() throws IOException, SQLException{
@@ -172,8 +164,6 @@ public class AirList extends ActionSupport implements SessionAware{
 		Airlist = sqlMapper.queryForList("listAir_search", map);
 	}
 	
-	
-
 	public int getNo() {
 		return no;
 	}
@@ -390,13 +380,11 @@ public class AirList extends ActionSupport implements SessionAware{
 		this.air_company_jin = air_company_jin;
 	}
 
-	public Map getSession() {
-		return session;
-	}
-
 	public void setSession(Map session) {
 		this.session = session;
 	}
-	
-	
+
+	public Map getSession() {
+		return session;
+	}
 }

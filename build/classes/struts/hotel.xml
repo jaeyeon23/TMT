@@ -12,9 +12,14 @@
 		<action name="HotelComment" class="item.hotel.HotelComment">
 			<result type="redirect-action">HotelView${uri}</result>
 		</action>
-
-
-
+		
+		<action name="HotelCheck" class="item.hotel.HotelCheck">
+			<result name="success" type="tiles">HotelCheck</result>
+		</action>
+		
+		<action name="HotelSuccess" class="item.hotel.HotelSuccess">
+			<result name="success" type="tiles">HotelSuccess</result>
+		</action>
 
 
 

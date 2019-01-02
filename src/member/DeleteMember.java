@@ -1,6 +1,7 @@
 package member;
 
 import java.io.IOException;
+import org.apache.struts2.interceptor.SessionAware;
 import java.io.Reader;
 
 import com.ibatis.common.resources.Resources;
@@ -8,13 +9,13 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class DeleteMember extends ActionSupport{
+import java.util.Map;
+public class DeleteMember extends ActionSupport implements SessionAware{
 	
 	private Reader reader;
 	private SqlMapClient sqlMapper;
-
-	private MemberVO mvo = new MemberVO();
 	
+	private Map session;
 	private String id;
 	private int no;
 	
@@ -30,11 +31,11 @@ public class DeleteMember extends ActionSupport{
 	@Override
 	public String execute() throws Exception {
 		
+		paramClass.setId((String) session.get("session_id"));
 		resultClass = (MemberVO) sqlMapper.queryForObject("selectOne",getId());
 		// 삭제할 항목 설정.
 		paramClass.setNo(getNo());
-		
-						
+								
 		// 삭제 쿼리 수행.
 		sqlMapper.delete("deleteMember", paramClass);
 
@@ -57,15 +58,7 @@ public class DeleteMember extends ActionSupport{
 	public void setSqlMapper(SqlMapClient sqlMapper) {
 		this.sqlMapper = sqlMapper;
 	}
-
-	public MemberVO getMvo() {
-		return mvo;
-	}
-
-	public void setMvo(MemberVO mvo) {
-		this.mvo = mvo;
-	}
-
+	
 	public String getId() {
 		return id;
 	}
@@ -97,6 +90,14 @@ public class DeleteMember extends ActionSupport{
 
 	public void setNo(int no) {
 		this.no = no;
+	}
+
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
 	}
 	
 	

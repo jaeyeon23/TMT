@@ -3,6 +3,7 @@ package admin.item;
 import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
@@ -22,6 +23,7 @@ public class AdminAirWrite extends ActionSupport{
 	private AirVO paramClass; 
 	private AirVO resultClass; 
 	
+	private int currentPage;
 	private int no;
 	private String arv;	
 	private String dep;	
@@ -30,18 +32,18 @@ public class AdminAirWrite extends ActionSupport{
 	private String image1;	
 	private int seat;		
 	private int seat_grade;	
-	private Date ad;		
-	private Date dd;		
-	private Date ad_time;		
-	private Date dd_time;		
+	private String ad;		
+	private String dd;		
 	private String air_company;		
 	private int grade;		
 	
 	
 	private File upload ;
-	private String uploadsFileName; 
-	private String uploadsContentType ;
-	private String fileUploadPath = "C:\\Java\\App\\TMT\\WebContent\\upload\\hotel\\"; 
+	private String uploadFileName; 
+	private String uploadContentType ;
+	private String fileUploadPath = "C:\\Java\\App\\TMT\\WebContent\\upload\\air\\"; 
+	
+
 	
 	public AdminAirWrite() throws IOException {
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml"); 
@@ -54,6 +56,8 @@ public class AdminAirWrite extends ActionSupport{
 
 	}
 public String execute() throws Exception {
+		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		
 		paramClass = new AirVO();
 		paramClass.setArv(getArv());
 		paramClass.setPrice(getPrice());
@@ -61,13 +65,14 @@ public String execute() throws Exception {
 		paramClass.setContent(getContent());
 		paramClass.setSeat(getSeat());
 		paramClass.setSeat_grade(getSeat_grade());
-		paramClass.setAd(getAd());
-		paramClass.setDd(getDd());
+		paramClass.setAd(transFormat.parse(getAd()));
+		paramClass.setDd(transFormat.parse(getAd()));
+		paramClass.setAir_company(getAir_company());
 		paramClass.setGrade(0);
-		paramClass.setImage1(getUploadsFileName());
+		paramClass.setImage1(getUploadFileName());
 		
 		
-			File destFile = new File(fileUploadPath + getUploadsFileName());
+			File destFile = new File(fileUploadPath + getUploadFileName());
 			FileUtils.copyFile(getUpload(), destFile);
 				
 		
@@ -136,30 +141,19 @@ public int getSeat_grade() {
 public void setSeat_grade(int seat_grade) {
 	this.seat_grade = seat_grade;
 }
-public Date getAd() {
+public String getAd() {
 	return ad;
 }
-public void setAd(Date ad) {
+public void setAd(String ad) {
 	this.ad = ad;
 }
-public Date getDd() {
+public String getDd() {
 	return dd;
 }
-public void setDd(Date dd) {
+public void setDd(String dd) {
 	this.dd = dd;
 }
-public Date getAd_time() {
-	return ad_time;
-}
-public void setAd_time(Date ad_time) {
-	this.ad_time = ad_time;
-}
-public Date getDd_time() {
-	return dd_time;
-}
-public void setDd_time(Date dd_time) {
-	this.dd_time = dd_time;
-}
+
 public String getAir_company() {
 	return air_company;
 }
@@ -179,17 +173,17 @@ public File getUpload() {
 public void setUpload(File upload) {
 	this.upload = upload;
 }
-public String getUploadsFileName() {
-	return uploadsFileName;
+public String getUploadFileName() {
+	return uploadFileName;
 }
-public void setUploadsFileName(String uploadsFileName) {
-	this.uploadsFileName = uploadsFileName;
+public void setUploadFileName(String uploadFileName) {
+	this.uploadFileName = uploadFileName;
 }
-public String getUploadsContentType() {
-	return uploadsContentType;
+public String getUploadContentType() {
+	return uploadContentType;
 }
-public void setUploadsContentType(String uploadsContentType) {
-	this.uploadsContentType = uploadsContentType;
+public void setUploadContentType(String uploadContentType) {
+	this.uploadContentType = uploadContentType;
 }
 public String getFileUploadPath() {
 	return fileUploadPath;
@@ -197,6 +191,11 @@ public String getFileUploadPath() {
 public void setFileUploadPath(String fileUploadPath) {
 	this.fileUploadPath = fileUploadPath;
 }
-	
+public int getCurrentPage() {
+	return currentPage;
+}
+public void setCurrentPage(int currentPage) {
+	this.currentPage = currentPage;
+}
 	
 }
