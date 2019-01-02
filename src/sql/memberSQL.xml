@@ -76,17 +76,22 @@
   </select>
   
 
-  <!-- 관리자 -->
-  <!-- 멤버리스트 -->
-  <select id="memberList" resultMap="memberRes">
-  	select * from member
-  	order by regdate desc
-  </select>
+  	<!-- 관리자 -->
+  	<!-- 멤버리스트 -->
+  	<select id="memberList" resultMap="memberRes">
+  		select * from member
+  		order by regdate desc
+ 	 </select>
 
-  <!-- 회원삭제 -->
-  <delete id="deleteMember" parameterClass="member">
+  	<!-- 회원삭제 -->
+  	<delete id="deleteMember" parameterClass="member">
 		delete from member where no = #no#
 	</delete>
-
+	
+	<!-- 회원검색 -->
+	<select id="searchMember" parameterClass="Map" resultMap="memberRes">
+		select * from member
+		where <iterate open="(" close=")" property="searchh" conjunction=" or ">#searchh[]# = #search#</iterate>
+	</select>
  
  </sqlMap>

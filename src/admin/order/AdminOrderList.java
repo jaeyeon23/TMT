@@ -47,14 +47,48 @@ public class AdminOrderList extends ActionSupport{
 
 		return SUCCESS;
 	}
-
-
-
-
-
-
-
-
-
-
+	
+	
+	public int getCurrentPage() {
+		return currentPage;
+	}
+	public void setCurrentPage(int currentPage) {
+		this.currentPage = currentPage;
+	}
+	public int getTotalCount() {
+		return totalCount;
+	}
+	public void setTotalCount(int totalCount) {
+		this.totalCount = totalCount;
+	}
+	public int getBlockCount() {
+		return blockCount;
+	}
+	public void setBlockCount(int blockCount) {
+		this.blockCount = blockCount;
+	}
+	public int getBlockPage() {
+		return blockPage;
+	}
+	public void setBlockPage(int blockPage) {
+		this.blockPage = blockPage;
+	}
+	public String getPagingHtml() {
+		return pagingHtml;
+	}
+	public void setPagingHtml(String pagingHtml) {
+		this.pagingHtml = pagingHtml;
+	}
+	public OrderPaging getPage() {
+		return page;
+	}
+	public void setPage(OrderPaging page) {
+		this.page = page;
+	}
+	public List<OrderVO> getList() {
+		return list;
+	}
+	public void setList(List<OrderVO> list) {
+		this.list = list;
+	}
 }
