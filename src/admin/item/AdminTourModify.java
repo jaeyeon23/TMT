@@ -31,8 +31,8 @@ public class AdminTourModify extends ActionSupport{
 	private String content; 
 	private String country;	
 	private String region;	
-	private String image1; 
-	private String image2;  
+	private String main_image; 
+	private String content_image;  
 	private String image3;  
 	
 	private StringBuffer image;
@@ -74,10 +74,10 @@ public class AdminTourModify extends ActionSupport{
 		
 		if(uploads !=null) {
 			image = new StringBuffer();
-			if(resultClass.getImage1()!=null)
-				old_image.add(resultClass.getImage1());
-			if(resultClass.getImage2()!=null) {
-				old_content = resultClass.getImage2().split(",");
+			if(resultClass.getMain_image()!=null)
+				old_image.add(resultClass.getMain_image());
+			if(resultClass.getContent_image()!=null) {
+				old_content = resultClass.getContent_image().split(",");
 				for(int i=0;i<old_content.length;i++)
 					old_image.add(old_content[i]);
 			}
@@ -89,7 +89,7 @@ public class AdminTourModify extends ActionSupport{
 			for(int i=0;i<uploads.size();i++) {
 				
 				if(i==0) {
-					resultClass.setImage1(getUploadsFileName().get(i));
+					resultClass.setMain_image(getUploadsFileName().get(i));
 				}
 				else if(i!=uploads.size()-1)
 					image.append(getUploadsFileName().get(i)).append(",");
@@ -103,7 +103,7 @@ public class AdminTourModify extends ActionSupport{
 					
 			}
 			
-			resultClass.setImage2(image.toString());
+			resultClass.setContent_image(image.toString());
 			
 		}
 		sqlMapper.update("updateTour",resultClass);
@@ -196,20 +196,20 @@ public class AdminTourModify extends ActionSupport{
 		this.region = region;
 	}
 
-	public String getImage1() {
-		return image1;
+	public String getMain_image() {
+		return main_image;
 	}
 
-	public void setImage1(String image1) {
-		this.image1 = image1;
+	public void setMain_image(String main_image) {
+		this.main_image = main_image;
 	}
 
-	public String getImage2() {
-		return image2;
+	public String getContent_image() {
+		return content_image;
 	}
 
-	public void setImage2(String image2) {
-		this.image2 = image2;
+	public void setContent_image(String content_image) {
+		this.content_image = content_image;
 	}
 
 	public String getImage3() {

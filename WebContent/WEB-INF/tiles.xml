@@ -206,7 +206,7 @@
 		<put-attribute name="body" value="/member/myPage.jsp" />
 	</definition>
 	
-	<definition name="DeleteMember" extends="Main">
+	<definition name="DeleteMemberForm" extends="Main">
 		<put-attribute name="body" value="/member/DeleteMemberCheck.jsp" />
 	</definition>
 

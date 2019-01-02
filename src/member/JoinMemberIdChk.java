@@ -41,23 +41,6 @@ public class JoinMemberIdChk extends ActionSupport{
 	
 		return SUCCESS;
 	}
-/*	public String execute() throws Exception {
-		
-		resultClass = new MemberVO();
-		
-		if(getId() != null) {
-			resultClass = (MemberVO) sqlMapper.queryForObject("idCheck",getId());
-		}
-		
-		if(resultClass == null) {
-			chkId = 0;
-		}else {
-			chkId = 1;
-		}
-	
-		return SUCCESS;
-	}
-*/
 
 	public MemberVO getResultClass() {
 		return resultClass;

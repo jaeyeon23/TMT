@@ -51,8 +51,8 @@
 		<result property="country" column="country" />
 		<result property="region" column="region"/>
 		<result property="readcount" column="readcount"/>
-		<result property="image1" column="image1" />
-		<result property="image2" column="image2" />
+		<result property="main_image" column="main_image" />
+		<result property="content_image" column="content_image" />
 		<result property="image3" column="image3" />
 		<result property="reg_date" column="reg_date" />
 		<result property="grade" column="grade" /> 
@@ -82,9 +82,9 @@
 	</select>
 	
 	<select id="search_tour" resultMap="boardtour" parameterClass="java.lang.String">
-		select no, name, price, content, country, region, readcount, image1, image2, image3, reg_date, grade, r 
-			from (select no, name, price, content, country, region, readcount, image1, image2, image3, reg_date, grade, rownum r 
-				from (select no, name, price, content, country, region, readcount, image1, image2, image3, reg_date, grade
+		select no, name, price, content, country, region, readcount, main_image, content_image, image3, reg_date, grade, r 
+			from (select no, name, price, content, country, region, readcount, main_image, content_image, image3, reg_date, grade, rownum r 
+				from (select no, name, price, content, country, region, readcount, main_image, content_image, image3, reg_date, grade
 					from tour
 					<isNotEmpty>
 						where region like '%'||#searchbox#||'%'  

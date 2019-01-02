@@ -5,7 +5,8 @@
 	
 <struts>
 	<package name="member" extends="struts-default, tiles-default">
-		<!-- 로그인 -->		
+	
+<!-- 로그인 -->		
 		<action name="Login" class="member.LoginMember" method="Login">
 	       <result name="error">/member/loginError.jsp</result>
 	     	<result type="redirect-action">
@@ -13,7 +14,7 @@
 		 	</result>
 	    </action>
 	      
-	    <action name="LoginForm" class="member.LoginMember" method="Form">
+	    <action name="LoginForm" class="member.LoginMember">
 	       <result name="success" type="tiles">LoginForm</result>
 	    </action>
 	      
@@ -23,7 +24,7 @@
 		 	</result>
 	    </action>
 		
-		<!-- 아이디 찾기 -->		
+<!-- 아이디 찾기 -->		
 		<action name="FindId" class="member.FindMemberId">
 			<result name="success" type="tiles">FindId</result>
 			<result name="error">/member/findIdError.jsp</result>
@@ -32,7 +33,8 @@
 		<action name="FindIdForm" class="member.FindMemberId" method="Form">
 			<result name="success" type="tiles">FindIdForm</result>
 		</action>
-		<!-- 비밀번호 찾기 -->
+
+<!-- 비밀번호 찾기 -->
 		<action name="FindPw" class="member.FindMemberPw">
 			<result name="success" type="tiles">FindPw</result>
 			<result name="error">/member/findPwError.jsp</result>
@@ -41,7 +43,8 @@
 		<action name="FindPwForm" class="member.FindMemberPw" method="Form">
 			<result name="success" type="tiles">FindPwForm</result>
 		</action>		
-		<!-- 회원가입 -->				
+
+<!-- 회원가입 -->				
 		<action name="Join" class="member.JoinMember" method="Join">
 			<result name="success" type="tiles">Join</result>
 		</action>
@@ -56,6 +59,31 @@
 		
 		<action name="EmailCheck" class="member.JoinMember" method="Email">
 			<result type="tiles">Email</result>
+		</action>
+		
+<!-- 마이페이지 -->
+		<action name="MyPage" class="member.ServiceMember">
+			<result name="success" type="tiles">MyPage</result>
+		</action>
+
+		<action name="DeleteMemberForm" class="member.DeleteMember">
+			<result name="success" type="tiles">DeleteMemberForm</result>
+		</action>
+		
+		<action name="DeleteMember" class="member.DeleteMember" method="Delete">
+			<result type="redirect-action">
+				<param name="actionName">Main</param>
+			</result>
+		</action>
+		
+		<action name="ModifyMemberForm" class="member.ModifyMember">
+			<result name="success" type="tiles">ModifyMemberForm</result>
+		</action>
+		
+		<action name="ModifyMember" class="member.ModifyMember" method="Update">
+			<result type="redirect-action">
+				<param name="actionName">MyPage</param>
+			</result>
 		</action>
 		
 	</package>

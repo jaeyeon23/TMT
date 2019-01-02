@@ -22,7 +22,7 @@ public class AddOrder implements SessionAware{
 		ovo.setPrice(tvo.getPrice());
 		ovo.setCountry(tvo.getCountry());
 		ovo.setRegion(tvo.getRegion());
-		ovo.setImage1(tvo.getImage1());
+		ovo.setImage1(tvo.getMain_image());
 	
 		return ovo;
 

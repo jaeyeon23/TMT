@@ -77,17 +77,7 @@ function openConfirmId(){
 	}
 	open(url,"confirmid","toolbar=no,location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
 }
-function openConfirmEmail(){
-	var url="ConfirmEmail.action";
-/* 	var f=document.join;
 
-	if(f.passport.value==""){
-		alert("이메일을 입력해주세요.");
-		f.passport.focus();
-		return false;
-	} */
-	open(url,"confirmemail","toolbar=no,location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
-}
 function chkBox(bool){
 	var obj=document.getElementsByName("join");
 	for(var i=0;i<obj.length;i++)

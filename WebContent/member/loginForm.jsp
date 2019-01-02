@@ -37,7 +37,7 @@ function validation(userinput){
 											</div>
 											<div class="row">
 												<div class="col-xs-12">
-														<input autocomplete="off" class="form-control" name="id" placeholder="아이디" title="이메일" type="아이디">
+														<input class="form-control" name="id" placeholder="아이디" title="이메일" >
 												</div>
 											</div>
 										</div>
