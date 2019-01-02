@@ -9,35 +9,15 @@
 		<action name="BasketList" class="basket.BasketList">
 			<result name="success" type="tiles">BasketList</result>
 		</action>
+	
+		<action name="BasketInsert" class="basket.InsertBasket">
+			<result name="success" type="tiles">BasketInsert</result>
+		</action>
 		
 		<action name="OrderList" class="order.OrderList">
 			<result name="success" type="tiles">OrderList</result>
 		</action>
-		
-		<action name="MyPage" class="member.ServiceMember">
-			<result name="success" type="tiles">MyPage</result>
-		</action>
-
-		<action name="DeleteMemberForm" class="member.DeleteMember">
-			<result name="success" type="tiles">DeleteMemberForm</result>
-		</action>
-		
-		<action name="DeleteMember" class="member.DeleteMember" method="Delete">
-			<result type="redirect-action">
-				<param name="actionName">Main</param>
-			</result>
-		</action>
-		
-		<action name="ModifyMemberForm" class="member.ModifyMember">
-			<result name="success" type="tiles">ModifyMemberForm</result>
-		</action>
-		
-		<action name="ModifyMember" class="member.ModifyMember" method="Update">
-			<result type="redirect-action">
-				<param name="actionName">MyPage</param>
-			</result>
-		</action>
-		
+				
 		<action name="ViewOrder" class="order.ViewOrder">
 			<result name="success" type="tiles">ViewOrder</result>
 		</action>

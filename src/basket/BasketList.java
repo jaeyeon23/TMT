@@ -22,6 +22,7 @@ public class BasketList extends ActionSupport implements SessionAware{
 	private BasketVO bvo = new BasketVO();
 	
 	private String id;
+	private int amount;
 	
 	private int currentPage = 1; 
 	private int totalCount; 
@@ -158,6 +159,16 @@ public class BasketList extends ActionSupport implements SessionAware{
 	public void setSession(Map session) {
 		this.session = session;
 	}
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+	
+	
 	
 	
 

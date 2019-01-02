@@ -3,11 +3,10 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.HashMap"%>
-<link rel="stylesheet" href="/TMT/css/member/joinForm.css"/>
-<!DOCTYPE html>
+<!DOCTYPE link PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8">
+<link rel="stylesheet" href="/TMT/css/member/joinForm.css"/>
 <script type="text/javascript">
 function check(){
 	
@@ -78,17 +77,7 @@ function openConfirmId(){
 	}
 	open(url,"confirmid","toolbar=no,location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
 }
-function openConfirmEmail(){
-	var url="ConfirmEmail.action";
-/* 	var f=document.join;
 
-	if(f.passport.value==""){
-		alert("이메일을 입력해주세요.");
-		f.passport.focus();
-		return false;
-	} */
-	open(url,"confirmemail","toolbar=no,location=no, status=no, menubar=no, scrollbars=yes, resizable=no, width=410, height=400");
-}
 function chkBox(bool){
 	var obj=document.getElementsByName("join");
 	for(var i=0;i<obj.length;i++)
@@ -103,18 +92,6 @@ function chkBox(bool){
 <div class="container-fluid content-wrap">
 <form name="join" action="EmailCheck.action" method="post" onsubmit="return check()" class="fv-form fv-form-bootstrap">
 	<div class="member-panel">	
-		<div class="panel-button">
-			<div class="btn-wrap">
-				<a class="btn-new btn--type-outline btn--width-100 btn-sns" data-gtm-action="네이버로 회원가입" data-gtm-category="회원가입" href="https://www.myrealtrip.com/users/auth/naver">
-					<img class="icon" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/naver-logo@2x-332865f7b796a02822378e0b61e6dcace93ae9a24abd810cd774a06b5fbcb0b5.png" width="18">
-					<span>네이버 가입</span>
-				</a>
-			</div>
-		</div>
-		<div class="panel-line clearfix">
-			<hr class="divider">
-			<div class="or">또는</div>
-		</div>
 		<div class="panel-body">
 			<div class="form-wrapper">
 				<div class="content-wrapper">

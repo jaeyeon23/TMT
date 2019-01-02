@@ -23,18 +23,6 @@ function validation(userinput){
 <main class="member">
 	<div class="container-fluid content-wrap">
 		<div class="member-panel">
-			<div class="panel-button">
-				<div class="btn-wrap">
-					<a class="btn-new btn--type-outline btn--width-100 btn-sns" href="https://www.myrealtrip.com/users/auth/naver">
-						<img class="icon" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/naver-logo@2x-332865f7b796a02822378e0b61e6dcace93ae9a24abd810cd774a06b5fbcb0b5.png" width="18">
-							<span>네이버 로그인</span>
-					</a>
-				</div>
-			</div>
-			<div class="panel-line clearfix">
-				<hr class="divider">
-					<div class="or">또는</div>
-			</div>
 			<div class="panel-body">
 				<form role="form" data-validation="true" action="Login.action" accept-charset="UTF-8" method="post" novalidate="novalidate" class="fv-form fv-form-bootstrap">
 					<button type="submit" class="fv-hidden-submit" style="display: none; width: 0px; height: 0px;">
@@ -49,7 +37,7 @@ function validation(userinput){
 											</div>
 											<div class="row">
 												<div class="col-xs-12">
-														<input autocomplete="off" class="form-control" name="id" placeholder="아이디" title="이메일" type="아이디">
+														<input class="form-control" name="id" placeholder="아이디" title="이메일" >
 												</div>
 											</div>
 										</div>

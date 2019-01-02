@@ -53,6 +53,14 @@
 		<put-attribute name="body" value="/item/hotel/hotelView.jsp" />
 	</definition>
 	
+	<definition name="HotelCheck" extends="Main">
+		<put-attribute name="body" value="/item/hotel/hotelCheck.jsp" />
+	</definition>
+	
+	<definition name="HotelSuccess" extends="Main">
+		<put-attribute name="body" value="/item/hotel/hotelSuccess.jsp" />
+	</definition>
+	
 
 
 
@@ -153,8 +161,16 @@
 		<put-attribute name="body" value="/admin/notice/adminNoticeModify.jsp" />
 	</definition> 
 	
+	<!-- 관리자 주문내역 -->
 	
+	<definition name="AdminOrderList" extends="AdminMain">
+		<put-attribute name="body" value="/admin/order/adminOrderList.jsp" />
+	</definition> 
 	
+	<definition name="AdminOrderView" extends="AdminMain">
+		<put-attribute name="body" value="/admin/order/adminOrderView.jsp" />
+	</definition>  
+
 
 
 

@@ -19,6 +19,7 @@ public class ServiceMember extends ActionSupport implements SessionAware{
 	
 	private String id;
 	private String password;
+	private String image1;
 	private String name;
 	private String email;
 	private int tel;
@@ -43,7 +44,12 @@ public class ServiceMember extends ActionSupport implements SessionAware{
 			
 		return SUCCESS;
 	}
-
+	public String getImage1() {
+		return image1;
+	}
+	public void setImage1(String image1) {
+		this.image1 = image1;
+	}
 	public Reader getReader() {
 		return reader;
 	}

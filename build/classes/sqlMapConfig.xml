@@ -41,9 +41,10 @@
 	
 	<sqlMap resource="/sql/hotelCom.xml"/> 
 
-	
 	<!-- Basket 리스트 xml -->
 	<sqlMap resource="sql/BasketSQL.xml"/>
+	
+	<sqlMap resource="sql/adminOrderSQL.xml"/>
 
 
 	

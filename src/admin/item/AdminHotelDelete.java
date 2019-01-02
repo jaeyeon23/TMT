@@ -57,6 +57,7 @@ public class AdminHotelDelete extends ActionSupport{
 		}
 		
 		uri = "?currnetPage="+getCurrentPage();
+		sqlMapper.delete("deleteHotelC",getNo());
 		sqlMapper.delete("deleteHotel",getNo());
 		
 		return SUCCESS;

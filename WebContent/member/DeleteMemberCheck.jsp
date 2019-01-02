@@ -16,7 +16,7 @@
 			<tr>
 				<td colspan=2>
 					<p align="center">
-					<form action="Main.action" method="post">
+					<form action="DeleteMember.action" method="post">
 
 						<table class="table table-bordered" align="center" width="70%">
 							<tr>

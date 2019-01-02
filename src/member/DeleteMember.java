@@ -20,13 +20,7 @@ public class DeleteMember extends ActionSupport implements SessionAware{
 	private Map session;
 	
 	private String id;
-	private int no;
-	private String name;
 	private String password;
-	private String passport;
-	private String email;
-	private int tel;
-	private String marketing1;
 
 	private MemberVO paramClass= new MemberVO();
 	private MemberVO resultClass = new MemberVO();
@@ -46,7 +40,10 @@ public class DeleteMember extends ActionSupport implements SessionAware{
 		paramClass.setId((String) session.get("session_id"));
 
 		sqlMapper.delete("deleteMember", paramClass);
-/*		resultClass = (MemberVO) sqlMapper.queryForObject("deleteMember",paramClass);*/
+		
+		session.remove("session_id");
+		session.remove("session_admin");
+		
 		return SUCCESS;
 	}
 
@@ -90,28 +87,12 @@ public class DeleteMember extends ActionSupport implements SessionAware{
 		this.resultClass = resultClass;
 	}
 
-	public int getNo() {
-		return no;
-	}
-
-	public void setNo(int no) {
-		this.no = no;
-	}
-
 	public Map getSession() {
 		return session;
 	}
 
 	public void setSession(Map session) {
 		this.session = session;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getPassword() {
@@ -121,40 +102,5 @@ public class DeleteMember extends ActionSupport implements SessionAware{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public int getTel() {
-		return tel;
-	}
-
-	public void setTel(int tel) {
-		this.tel = tel;
-	}
-
-	public String getMarketing1() {
-		return marketing1;
-	}
-
-	public void setMarketing1(String marketing1) {
-		this.marketing1 = marketing1;
-	}
-
-	public String getPassport() {
-		return passport;
-	}
-
-	public void setPassport(String passport) {
-		this.passport = passport;
-	}
-	
-	
-	
 
 }
