@@ -3,74 +3,73 @@
 'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 
 <sqlMap>
-
-	<typeAlias alias="ordervo" type="order.OrderVO" />
-
-	<resultMap id="orderRes" class="ordervo">
+	<typeAlias alias="order_hotel" type="order.Order_Hotel" />
+	<typeAlias alias="order_tour" type="order.Order_Tour" />
+	
+	<resultMap id="order_hotleRes" class="order_hotel">
 		<result property="no" column="no" />
-		<result property="seq_no" column="seq_no" />
 		<result property="name" column="name" />
-		<result property="arv" column="arv" />
-		<result property="dep" column="dep" />
 		<result property="price" column="price" />
+		<result property="content" column="content" />
 		<result property="country" column="country" />
 		<result property="region" column="region" />
 		<result property="image1" column="image1" />
-		<result property="id" column="id" />
-		<result property="day" column="day" />
+		<result property="tel" column="tel" />
 		<result property="checkin" column="checkin" />
 		<result property="checkout" column="checkout" />
-		<result property="ad" column="ad" />
-		<result property="dd" column="dd" />
-		<result property="type" column="type" />
+		<result property="people" column="people" />
+		<result property="room" column="room" /> 
+		<result property="id" column="id" />
+	</resultMap>
+	
+	<resultMap id="order_tourRes" class="order_tour">
+		<result property="no" column="no" />
+		<result property="name" column="name" />
+		<result property="price" column="price" />
+		<result property="content" column="content" />
+		<result property="country" column="country" />
+		<result property="region" column="region" />
+		<result property="image1" column="image1" />
+		<result property="amount" column="amount" />
+		<result property="id" column="id" />
 	</resultMap>
 	
 <sql id="select-allo">
-	SELECT * FROM ORDERVO
+	SELECT * FROM ORDER_HOTEL
 </sql>
-
-<sql id="where-Ido">
-	WHERE ID = #id#
-</sql>
-
-<sql id="where-Noo">
-	WHERE NO = #no#
-</sql>
-
-<select id="selectOneo" resultMap="orderRes" parameterClass="ordervo">
-   <include refid="select-allo"/>
-   <include refid="where-Ido"/>
-</select>
-
-
-	<!-- 구매한 상품을 구매내역 테이블에 저장 -->
-	<insert id="putorder" parameterClass="ordervo">
-		INSERT INTO ordervo
-		(no, seq_no, name, price, country, region, id,
-		 image1, day, checkin, checkout, arv, dep,
-		ad, dd, type)
-		VALUES (seq_ordervo.NEXTVAL, #seq_no#, #name#, #price#, #country#,
-		#region#, #id#, #image1#, 
-		#day#, #checkin#, #checkout#, #arv#, #dep#, #ad#, #dd#, #type#)
+	
+	<!-- 구매한 호텔 상품을 구매내역 테이블에 저장 -->
+	<insert id="putorder_H" parameterClass="java.util.Map">
+		INSERT INTO order_hotel
+		(no, name, price, content, country, region, image1, tel, checkin,
+		 checkout, people, room, id)
+		VALUES (#no#, #name#, #price#,#content#, #country#, #region#, #image1#, #tel#, #checkin#,
+		 #checkout#, #maxnum#, #room#, #id#)
+	</insert>
+	
+	<insert id="putorder_T" parameterClass="java.util.Map">
+		INSERT INTO order_tour
+		(no, name, price, content, country, region, image1, amount, id)
+		VALUES (#no#, #name#, #price#,#content#, #country#, #region#, #image1#, #amount#, #id#)
 	</insert>
 
 
-	<!-- 세션 id값에 해당하는 구매내역 테이블의 정보를 가져온다. -->
+<!-- 	세션 id값에 해당하는 구매내역 테이블의 정보를 가져온다.
 	<select id="selectorder" resultMap="orderRes" parameterClass="ordervo">
 		SELECT * FROM ordervo WHERE id = #id#
 	</select>
 	
 	
-		<!-- 구매내역  삭제 -->
+		구매내역  삭제
 	<delete id="deleteorder" parameterClass="ordervo">
 		DELETE FROM ordervo WHERE no = #no# and id = #id#
 	</delete>
 	
-	<!-- 구매내역 날짜 수정 -->
+	구매내역 날짜 수정
 	<update id="ModifyOrder" parameterClass="ordervo">
 	  UPDATE ordervo SET day=#day#, checkin=#checkin#, checkout=#checkout#, ad=#ad#, dd=#dd#
 	  <include refid="where-Ido" />
-	</update>
+	</update> -->
 	
 	
 

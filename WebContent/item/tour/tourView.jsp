@@ -58,9 +58,15 @@ $(function()
 										<div class="Popover  right-reverse "></div>
 								</div>
 								<s:if test="%{session.session_id!=null}">
-								<a href="AddOrder.action?seq_no=<s:property value="no"/>">
-									<button type="button" class="app-button app-button__type--primary app-button__size--l">예약하기</button>
-								</a>
+									<form action="TourCheck.action">
+										<s:hidden name="no" value="%{no}" />
+										<s:hidden name="name" value="%{resultClass.name}" />
+										<s:hidden name="price" value="%{resultClass.price}" />  <!-- 가격 -->
+										<s:hidden name="country" value="%{resultClass.country}" />  <!-- 국가 -->
+										<s:hidden name="region" value="%{resultClass.region}" />  <!-- 지역 -->
+							
+										<input type="submit" class="app-button app-button__type--primary app-button__size--l" value="예약 하기">
+									</form>
 								<div class="offer__side__main-box__instant">
 									<div class="wish-button">
 										<button type="button" class="app-button app-button__type--outline app-button__size--m" onclick="javascript:location.href='InsertBasket.action?seq_no=<s:property value="no"/>'">

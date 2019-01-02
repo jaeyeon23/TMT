@@ -1,4 +1,4 @@
-package item.hotel;
+package item.tour;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -9,8 +9,6 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
-import item.air.AirVO;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -18,27 +16,24 @@ import java.util.List;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
-public class HotelCheck extends ActionSupport implements SessionAware {
-
+public class TourSuccess extends ActionSupport implements SessionAware {
+	
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
-	
-	private String number;     //인원수
-	private String inDay, outDay;  //체크인 체크아웃
-	private String roomnum;       //방개수
-	
-	private int no;            //상품번호
-	private String name;      //상품명   
-	private int price;       //가격
-	private String content;  //내용
-	private String image1; 
-	private String country;	 //국가
-	private String region;	//지역
-	private String tel;       //전화번호
-	
+	private Map map = new HashMap<>();
 	private Map session;
 	
-	public HotelCheck() throws IOException {
+	private int seq_no;            //상품 번호
+	private String name;      //상품명    
+	private int price;       //가격
+	private String country;	 //국가
+	private String region;	//지역
+	private String image1; 
+	private String id;
+	private int type;
+	
+	
+	public TourSuccess() throws IOException {
 		Charset charset = Charset.forName("UTF-8");
 		Resources.setCharset(charset);
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -48,51 +43,36 @@ public class HotelCheck extends ActionSupport implements SessionAware {
 	
 	@Override
 	public String execute() throws Exception {
+		
+		map.put("seq_no", getSeq_no());
+		map.put("name", getName());
+		map.put("price", getPrice());
+		map.put("country", getCountry());
+		map.put("region", getRegion());
+		map.put("image1", getImage1());
+		map.put("id", getId());
+		map.put("type", getType());
+		
+		sqlMapper.insert("putorder_T", map);
 		return SUCCESS;
 	}
-
 	
+	
+	public Map getSession() {
+		return session;
+	}
 
-		//인원수
-		public String getNumber() {
-			return number;
+	public void setSession(Map session) {
+		this.session = session;
+	}
+	
+	
+	//상품번호
+		public int getSeq_no() {
+			return seq_no;
 		}
-		public void setNumber(String number) {
-			this.number = number;
-		}
-		//체크인,아웃
-		public String getInDay() {
-			return inDay;
-		}
-		public void setInDay(String inDay) {
-			this.inDay = inDay;
-		}
-		public String getOutDay() {
-			return outDay;
-		}
-		public void setOutDay(String outDay) {
-			this.outDay = outDay;
-		}
-		public String getRoomnum() {
-			return roomnum;
-		}
-		public void setRoomnum(String roomnum) {
-			this.roomnum = roomnum;
-		}
-
-		public Map getSession() {
-		      return session;
-		}
-		public void setSession(Map session) {
-		      this.session = session;
-		}
-		
-		//상품번호
-		public int getNo() {
-			return no;
-		}
-		public void setNo(int no) {
-			this.no = no;
+		public void setSeq_no(int seq_no) {
+			this.seq_no = seq_no;
 		}
 		
 		//상품명
@@ -103,20 +83,12 @@ public class HotelCheck extends ActionSupport implements SessionAware {
 			this.name = name;
 		}
 		
-		//가격
+		//가굑
 		public int getPrice() {
 			return price;
 		}
 		public void setPrice(int price) {
 			this.price = price;
-		}
-		
-		//내용
-		public String getContent() {
-			return content;
-		}
-		public void setContent(String content) {
-			this.content = content;
 		}
 		
 		//국가
@@ -134,8 +106,9 @@ public class HotelCheck extends ActionSupport implements SessionAware {
 		public void setRegion(String region) {
 			this.region = region;
 		}
+
 		
-		//̹이미지1~3
+		//이미지
 		public String getImage1() {
 			return image1;
 		}
@@ -143,13 +116,22 @@ public class HotelCheck extends ActionSupport implements SessionAware {
 			this.image1 = image1;
 		}
 		
-		//전화번호
-		public String getTel() {
-			return tel;
+		public String getId() {
+			return id;
 		}
-		public void setTel(String tel) {
-			this.tel = tel;
+		public void setId(String id) {
+			this.id = id;
 		}
 		
+		public int getType() {
+			return type;
+		}
+		public void setType(int type) {
+			this.type = type;
+		}
 	
+
 }
+
+
+
