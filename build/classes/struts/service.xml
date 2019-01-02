@@ -43,6 +43,10 @@
 		<action name="DeleteBasket" class="basket.DeleteBasket">
 			<result name="success" type="tiles">DeleteBasket</result>
 		</action>
+		
+		<action name="InsertBasket" class="basket.InsertBasket">
+			<result name="success" type="tiles">BasketList</result>
+		</action>
 
 	</package>
 </struts>

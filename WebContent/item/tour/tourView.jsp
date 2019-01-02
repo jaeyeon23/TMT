@@ -7,9 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" media="screen" href="css/admin/view1.css" />
-<link rel="stylesheet" media="all" href="css/admin/view2.css" />
-<link rel="stylesheet" media="screen" href="css/admin/view3.css" />
+<link rel="stylesheet" href="css/admin/view1.css" />
+<link rel="stylesheet" href="css/admin/view2.css" />
+<link rel="stylesheet" href="css/admin/view3.css" />
 
 
 <link href="css/bootstrap.css" rel="stylesheet">
@@ -28,8 +28,6 @@ $(function()
 				 $(this).next().slideToggle("fast"); 
 			})
 		})
-
-		
 </script>
 <style>
 .sidebar {
@@ -69,8 +67,20 @@ $(function()
 									</form>
 								<div class="offer__side__main-box__instant">
 									<div class="wish-button">
-										<button type="button" class="app-button app-button__type--outline app-button__size--m" onclick="javascript:location.href='InsertBasket.action?seq_no=<s:property value="no"/>'">
-											<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;">위시리스트<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;"></button>
+										<form action="InsertBasket.action" method="post">
+											<button type="submit" class="app-button app-button__type--outline app-button__size--m">
+												<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;">위시리스트<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;"></button>
+											<%-- <button type="button" class="app-button app-button__type--outline app-button__size--m" onclick="javascript:location.href='InsertBasket.action?seq_no=<s:property value="no"/>'">
+												<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;">위시리스트<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;"></button> --%>
+												<s:hidden name="no" value="%{resultClass.no}"/>
+												<s:hidden name="name" value="%{resultClass.name}"/>
+												<s:hidden name="price" value="%{resultClass.price}"/>
+												<s:hidden name="country" value="%{resultClass.country}"/>
+												<s:hidden name="region" value="%{resultClass.region}"/>
+												<s:hidden name="image1" value="%{resultClass.main_image}"/>
+												<s:hidden name="id" value="%{session.session_id}"/>
+												<s:hidden name="type" value="0"/>
+										</form>
 									</div>
 								</div>
 								</s:if>

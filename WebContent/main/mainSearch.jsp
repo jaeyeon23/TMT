@@ -6,6 +6,23 @@
 <html>
 <head>
 	<link href="./css/mainSearch.css" rel="stylesheet" type="text/css">
+	<style>
+		input[type=text]{
+			border: 2px solid #aaa;
+			border-radius: 4px;
+			margin: 8px	0;
+			outline: none;
+			padding: 10px;
+			box-sizing: border-box;
+			transitio;
+			font-size:20pt;
+		}
+		
+		input[type=text]:focus{
+			border-color: dodgerBlue;
+			box-shadow: 0 0 8px 0 dodgerBlue;
+		}
+	</style>
 </head>
 <body>
 	<div id="mainSearch_body">
@@ -72,7 +89,23 @@
 			<s:else>
 				<div id="searchHotel_list">
 					<s:iterator value="Hotellist" status="stat_hotel">
-						test : <s:property value="region"/>
+						<a href="HotelView.action?no=<s:property value='%{no}' />">
+							<div id="contents">
+							    <div id= imageT>
+								<s:if test="image1 != null">
+									<img src="/TMT/upload/tour/<s:property value="%{image1}" />">
+								</s:if> 
+								<s:else>
+									<img src="/TMT/images/noimage.jpg">
+								</s:else>
+								</div>
+								<div id= contentT>
+								<h4>
+									[<s:property value="region" />]<s:property value="name" /></h4>
+									<font color="orange" size = "5"><b><s:property value="price" />원</b></font> / 1인<br>
+								</div>
+							</div>
+						</a>
 					</s:iterator>
 				</div>
 			</s:else>

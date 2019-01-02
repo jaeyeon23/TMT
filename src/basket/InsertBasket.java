@@ -55,10 +55,11 @@ public class InsertBasket  extends ActionSupport implements SessionAware{
 	
 	@Override
 	public String execute() throws Exception {
-		bvo.setId(id);
-		resultClass = (BasketVO) sqlMapper.queryForObject("putbasket",bvo);		
-		
-		
+		/*bvo.setId(id);
+		resultClass = (BasketVO) sqlMapper.queryForObject("putbasket",bvo);		*/
+		System.out.println("test : " + id);
+		System.out.println("test : " + country);
+	
 		
 		
 		return SUCCESS;
