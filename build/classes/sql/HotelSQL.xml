@@ -115,7 +115,7 @@
 
 	<!-- 객실 수량 감소 -->
 	<update id="roomHotel" parameterClass="java.util.Map">
-		update hotel set room = room - #roomnum# where no=#seq_no#
+		update hotel set room = room - #room# where no=#no#
 	</update>
 	
 	<!-- 조회수증가 -->

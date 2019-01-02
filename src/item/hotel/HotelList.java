@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -39,6 +40,12 @@ public class HotelList extends ActionSupport implements SessionAware{
 	private int blockPage = 5; 	// 한 화면에 보여줄 페이지 수
 	private String pagingHtml; 	//페이징을 구현한 HTML
 	private HotelpagingAction page; 	// 페이징 클래스
+	
+	 Date date = new Date(); 
+	 SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd"); 
+	 private String nowDate = simpleDate.format(date);
+
+
 
 
 	private Map map = new HashMap<>();
@@ -81,13 +88,11 @@ public class HotelList extends ActionSupport implements SessionAware{
 	}
 	
 	public String search() throws Exception{
-		
 		map.put("hotelname", getHotelname());
 		map.put("inDay", getInDay());
 		map.put("outDay", getOutDay());
 		map.put("number", getNumber());
 		map.put("roomnum", getRoomnum());
-		
 		if(num == 1) {
 			hvo.setRegion(getHotelname());
 			Hotellist = sqlMapper.queryForList("selectAllHH", hvo);
@@ -121,6 +126,14 @@ public class HotelList extends ActionSupport implements SessionAware{
 		return SUCCESS;
 	}
 	
+	
+	public String getNowDate() {
+		return nowDate;
+	}
+	public void setNowDate(String nowDate) {
+		this.nowDate = nowDate;
+	}
+
 	public List<HotelVO> getHotellist() {
 		return Hotellist;
 	}

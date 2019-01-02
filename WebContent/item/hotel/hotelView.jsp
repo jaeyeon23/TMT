@@ -71,8 +71,11 @@ $(function()
 							<s:hidden name="no" value="%{no}" />
 							<s:hidden name="name" value="%{resultClass.name}" />
 							<s:hidden name="price" value="%{resultClass.price}" />  <!-- 가격 -->
+							<s:hidden name="content" value="%{resultClass.content}" />
 							<s:hidden name="country" value="%{resultClass.country}" />  <!-- 국가 -->
 							<s:hidden name="region" value="%{resultClass.region}" />  <!-- 지역 -->
+							<s:hidden name="image1" value="%{resultClass.main_image}" />  <!-- 이미지 -->
+							<s:hidden name="tel" value="%{resultClass.tel}" />  <!-- 전화번호 -->
 							
 							
 						   	 <b>&nbsp;&nbsp;체크인</b><br>

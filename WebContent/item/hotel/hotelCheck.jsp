@@ -71,19 +71,21 @@
 		<td colspan="2">
 		    <button type="button" onclick="location.href='javascript:history.go(-1)'" class="btn btn-primary">취소</button>
 			<form action="HotelSuccess.action">
-			<s:hidden name="roomnum" value="%{roomnum}" />
-			<s:hidden name="seq_no" value="%{no}" />  <!-- 상품번호  -->
+			<s:hidden name="no" value="%{no}" />  <!-- 상품번호  -->
 			<s:hidden name="name" value="%{name}" />  <!-- 상품명 -->
 			<s:hidden name="price" value="%{price}" />  <!-- 가격 -->
+			<s:hidden name="content" value="%{content}" />  <!-- 국가 -->
 			<s:hidden name="country" value="%{country}" />  <!-- 국가 -->
 			<s:hidden name="region" value="%{region}" />  <!-- 지역 -->
+			<s:hidden name="image1" value="%{image1}" />
+			<s:hidden name="tel" value="%{tel}" />
 			<s:hidden name="checkin" value="%{inDay}" />  <!-- 체크인 -->
 			<s:hidden name="checkout" value="%{outDay}" />  <!-- 체크아웃 -->
+			<s:hidden name="maxnum" value="%{number}" />
+			<s:hidden name="room" value="%{roomnum}" />
 			<s:hidden name="id" value="%{session.session_id}" />  <!-- 아이디 -->
-			<s:hidden name="type" value="2" />  <!-- 구분 -->
 			<input type="submit" value= "예약완료">
-		<%-- 	<button type="button" onclick="location.href='HotelSuccess.action?no=<s:property value="no"/>&roomnum=<s:property value="roomnum"/>'" class="btn btn-primary">예약완료</button>
-		 --%>    </form>
+		 </form>
 		</td>
 	</tr>
 </table>

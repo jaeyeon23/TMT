@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <!-- 달력 관련 -->
+    <!-- 달력 관련-->
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
@@ -136,7 +136,7 @@
 					     <font size="5" color="#1b5ac2"><b><s:property value="name" /></b></font><br>
 					    <font color="#1b5ac2"> &nbsp;<s:property value="country" />&nbsp;|&nbsp;<s:property value="region" /></font><br><br>
 						 <div id= "list_hotel_content_2">
-							  <s:if test="room == 0 || checkout <= date()">
+							  <s:if test="room == 0 || checkout <= nowDate">
 						    			<img src="/TMT/images/watch.png" width="20" height="20"><font color="#e30413"><b>안타깝네요! 마지막 객실이 모두 예약되었습니다.</b></font><br>
 						    			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;해당 호텔은 저희 사이트상 잔여 객실이 없습니다. 다른 호텔을 이용해주세요!
 					      	  </s:if>
