@@ -41,13 +41,13 @@
 			<p align="right" style="margin-right:30px;"><s:property value="session.session_name"/>님이 로그인 하셨습니다.</p><br>
 			<div class="ProfileNavItems " style="margin-right:30px;">
 
-				<div class="ProfileNavItems__item gtm-gnb-signin">
+				<div class="ProfileNavItems__item gtm-gnb-signin" style="padding-right:20px;">
 					<a href="InsertBasket.action" class="ProfileNavItems__button" >위시리스트</a>&nbsp;
 				</div>
-				<div class="ProfileNavItems__item gtm-gnb-signup">
+				<div class="ProfileNavItems__item gtm-gnb-signup" style="padding-right:20px;">
 					<a href="OrderList.action" class="ProfileNavItems__button" >예약내역</a>&nbsp;
 				</div>
-				<div class="ProfileNavItems__item gtm-gnb-signin">
+				<div class="ProfileNavItems__item gtm-gnb-signin" style="padding-right:20px;">
 					<a href="MyPage.action" class="ProfileNavItems__button" >마이페이지</a>&nbsp;&nbsp;
 				</div>
 				<div class="ProfileNavItems__item gtm-gnb-signup">
@@ -59,7 +59,7 @@
 			<!--  관리자 로그인           -->			
 			<s:elseif test='%{session.session_admin=="0"}'>
 			<div class="ProfileNavItems " style="margin-right:30px;">
-				<div class="ProfileNavItems__item gtm-gnb-signup">
+				<div class="ProfileNavItems__item gtm-gnb-signup" style="padding-right:20px;">
 					관리자&nbsp;
 					<a href="Logout.action" class="ProfileNavItems__button ProfileNavItems__button--outline" >로그아웃</a>
 				</div>
@@ -70,7 +70,7 @@
 
 			<s:else>
 			<div class="ProfileNavItems " style="margin-right:30px;">
-				<div class="ProfileNavItems__item gtm-gnb-signin">
+				<div class="ProfileNavItems__item gtm-gnb-signin" style="padding-right:20px;">
 					<a href="LoginForm.action " class="ProfileNavItems__button" >로그인</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="ProfileNavItems__item gtm-gnb-signup">
@@ -80,7 +80,6 @@
 			</s:else>
 		</div>
 		<!-- headTop -->
-	<!-- menu -->
 	<div class="menu">
 		<ul>
 			<li><div class="menu_home"><a href="Main.action">홈</a></div></li>
