@@ -46,19 +46,21 @@
     VALUES (SEQ_NO.NEXTVAL,#id#,#password#,#name#,#email#,#tel#,#regdate#,#passport#,1)
 </insert>
 
-<select id="ChkId" resultMap="memberRes" parameterClass="member">
+<select id="ChkId" resultMap="memberRes" parameterClass="String">
 	<include refid="select-all"/>
 	WHERE ID = #id#
 </select>
 
- <update id="ModifyMember" parameterClass="member">
+ <update id="ModifyMember" parameterClass="member"><!-- ㅎㅎ -->
+<!-- <<<<<<< HEAD -->
+   UPDATE MEMBER SET NAME=#name#, PASSWORD=#password#, EMAIL=#email#, TEL=#tel#, MARKETING1=#marketing1#, MARKETING2=#marketing2# 
+<!-- =======
    UPDATE MEMBER SET PASSWORD=#password#, EMAIL=#email#, TEL=#tel#, MARKETING1=#marketing1#, MARKETING2=#marketing2# IMAGE1=#image1#
+>>>>>>> tt -->
    <include refid="where-Id" />
  </update>
  
- 
-
-   <select id="FindID" resultMap="memberRes">
+   <select id="FindID" resultMap="memberRes"><!-- ? -->
     <include refid="select-all" />
     WHERE NAME = #name# AND EMAIL=#email#
   </select>

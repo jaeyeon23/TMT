@@ -66,10 +66,6 @@ public class LoginMember extends ActionSupport implements SessionAware{
 	        session.put("session_id", resultClass.getId());
 	        session.put("session_admin",resultClass.getAdmin());
 	        session.put("session_name", resultClass.getName());
-	        session.put("session_email", resultClass.getEmail());
-	        session.put("session_password", resultClass.getPassword());
-	        session.put("session_tel", resultClass.getTel());
-
 			return SUCCESS;
 		}
 

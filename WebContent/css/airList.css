@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 #air_header_search {
-	background-color: #d3ffce;
+	background-color: #8fc2f5;
 	text-align: center;
 }
 
@@ -18,7 +18,7 @@
 	float: left;
 	width: 15%;
 	height: 550pt;
-	background-color: #ccccff;
+/* 	background-color: #ccccff; */
 	font-size: 15pt;
 	margin-left: 5%;
 	margin-right: 5%;

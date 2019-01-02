@@ -60,11 +60,8 @@ public class AdminHotelWrite extends ActionSupport{
 	}
 	
 	public String execute() throws Exception {
-		
-		
-		
-		
 		paramClass = new HotelVO();
+		
 		paramClass.setName(getName());
 		paramClass.setPrice(getPrice());
 		paramClass.setCheckin(getCheckin());

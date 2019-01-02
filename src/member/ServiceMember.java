@@ -16,13 +16,10 @@ public class ServiceMember extends ActionSupport implements SessionAware{
 	private Reader reader;
 	private SqlMapClient sqlMapper;
 	private Map session;
-	private MemberVO mvo = new MemberVO();
-
+	
 	private String id;
 	private String password;
-	private String password2;
 	private String image1;
-
 	private String name;
 	private String email;
 	private int tel;
@@ -38,34 +35,20 @@ public class ServiceMember extends ActionSupport implements SessionAware{
 		reader.close();
 	}
 
-	
-  
 	@Override
 	public String execute() throws Exception {
-		mvo.setId(id);
-		resultClass = (MemberVO) sqlMapper.queryForObject("selectOne",mvo);		
 		
-		
-		
-		
+		paramClass.setId((String) session.get("session_id"));
+		resultClass = (MemberVO) sqlMapper.queryForObject("selectOne",paramClass);		
+			
 		return SUCCESS;
 	}
-	
-	
-	
-
 	public String getImage1() {
 		return image1;
 	}
-
-
-
 	public void setImage1(String image1) {
 		this.image1 = image1;
 	}
-
-
-
 	public Reader getReader() {
 		return reader;
 	}
@@ -82,14 +65,6 @@ public class ServiceMember extends ActionSupport implements SessionAware{
 		this.sqlMapper = sqlMapper;
 	}
 
-	public MemberVO getMvo() {
-		return mvo;
-	}
-
-	public void setMvo(MemberVO mvo) {
-		this.mvo = mvo;
-	}
-
 	public String getId() {
 		return id;
 	}
@@ -104,15 +79,6 @@ public class ServiceMember extends ActionSupport implements SessionAware{
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	
-
-	public String getPassword2() {
-		return password2;
-	}
-
-	public void setPassword2(String password2) {
-		this.password2 = password2;
 	}
 
 	public String getName() {
@@ -140,61 +106,44 @@ public class ServiceMember extends ActionSupport implements SessionAware{
 		this.tel = tel;
 	}
 
-
-
 	public String getMarketing1() {
 		return marketing1;
 	}
-
-
 
 	public void setMarketing1(String marketing1) {
 		this.marketing1 = marketing1;
 	}
 
-
-
 	public String getMarketing2() {
 		return marketing2;
 	}
-
-
 
 	public void setMarketing2(String marketing2) {
 		this.marketing2 = marketing2;
 	}
 
-
-
 	public MemberVO getParamClass() {
 		return paramClass;
 	}
-
-
 
 	public void setParamClass(MemberVO paramClass) {
 		this.paramClass = paramClass;
 	}
 
-
-
 	public MemberVO getResultClass() {
 		return resultClass;
 	}
 
-
-
 	public void setResultClass(MemberVO resultClass) {
 		this.resultClass = resultClass;
 	}
-	 public Map getSession() {
+	
+	public Map getSession() {
 	      return session;
 	   }
 
-	   public void setSession(Map session) {
-	      this.session = session;
-	   }
-	
-	
-	
+	public void setSession(Map session) {
+	     this.session = session;
+   	}
+		
 }

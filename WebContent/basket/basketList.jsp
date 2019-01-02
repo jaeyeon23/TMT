@@ -48,12 +48,12 @@
 <div class='wishlists-header-container'>
 <div class='wishlists-title-wrapper'>
 
-<div class='header-title'><h2><center>나의 위시리스트&nbsp;<img src="./images/heart.png" width="20" height="20"></center></h2>
+<div class='header-title'><h2><center><s:property value="session.session_id"/>의 위시리스트&nbsp;<img src="./images/heart.png" width="20" height="20"></center></h2>
 
 </div>
 </div>
 <div class='wishlists-header-divider'></div>
-<div class='wishlists-header-subtitle'><p class="np"><center>총<s:property value=""/>개의 상품</center></p></div>
+<div class='wishlists-header-subtitle'><p class="np"><center>총<s:property value="totalCount"/>개의 상품</center></p></div>
 </div>
 
 <div class='wishlists-cards-container'>
@@ -61,7 +61,7 @@
 <div class='select-wrapper' align="center" >
 
 
-<table class="table" size="80%" width="80%" align="center">
+<table class="table" size="100%" align="center">
 
 
 	<tr>
@@ -69,7 +69,7 @@
 		<p align="center">
 		<input type="hidden" name="order" value="basket">
 	
-		<table class="table" width="80%" cellpadding="0" cellspacing="0">
+		<table class="table" size="50%" cellpadding="0" cellspacing="0">
 			<tr height=26 bgcolor="#FFDDDD">
 				<td align=left>
 				<input name="checkall" type="checkbox" 
@@ -78,24 +78,28 @@
 				<th width="10%"><font size="2">번호</font></th>
 				<th width="35%"><font size="2">사진</font></th>
 				<th width="30%"><font size="2">상품명</font></th>
-				<th width="10%"><font size="2">수량</font></th>
+				<th width="10%"><font size="2">국가</font></th>
+				<th width="10%"><font size="2">지역</font></th>
 				<th width="10%"><font size="2">가격</font></th>
 				
 			</tr>
 			
-	  <s:iterator value="blist" status="stat">
-           <tr align="center">
-         <td></td>
+	  <s:iterator value="bhlist" status="stat">
+           <tr>
+         <td align="left"><input type="checkBox" class="checkbox" id="del_id" name="deleteCheck" value="<s:property value="no"/>"
+             onclick="chkBox(this.checked)"></td>
          <td><s:property value="no"/></td>
            <td><s:property value="image1"/></td>
           <td><s:property value="name"/>
          </td>
-         <td><s:property value="amount"/>
+         <td><s:property value="country"/>
+         </td>
+         <td><s:property value="region"/>
          </td>
          <td><s:property value="price"/></td>
          </tr>
 </s:iterator>
-     <s:if test="blist.size()<=0">
+     <s:if test="bhlist.size()<=0">
       <tr align="center">
          <td colspan="6">
          <br>
@@ -104,42 +108,95 @@
       </tr>
            </s:if>
 			
-					
-	 <!--  <form action="DeleteBasket.action" name="Bdel" method="post" onsubmit="return check()">
-         <%-- <s:hidden name="id" value="${#session.id }"/> --%>
-     
-           <ul>
-             <li><input type="checkBox" class="checkbox" id="del_id" name="deleteCheck" value="<s:property value="no"/>"
-             onclick="chkBox(this.checked)"></li>
-             <li><img src="" alt=""></li>
-             <li><s:property value="name" /></li>
-             <li><s:property value="price"/>원</li>
-             <li><s:property value="amount"/>개</li>
-           </ul>
-           
-             <s:if test="blist.size()>0">
-         <input type="submit" name="submit" value="선택삭제">
-         </s:if>
-
-			--> 
-
 		</table>
 
-		<table class="table" width="80%" border="0" cellspacing="0" cellpadding="0">
+		<table class="table" size="50%" cellspacing="0" cellpadding="0">
 			<tr>
 				<td height="2" bgcolor="#FFDDDD"></td>
 			</tr>
 		</table>
 		
+		 <form action="DeleteBasket.action" name="Bdel" method="post" onsubmit="return check()">
+             <s:elseif test="bhlist.size()>0">
+         <input type="submit" name="submit"  value="선택삭제">
+         </s:elseif>
+         
+         
+         
+         
+         
+		<table class="table" size="100%" align="center">
+
+
+	<tr>
+		<td colspan=2>
+		<p align="center">
+		<input type="hidden" name="order" value="basket">
+	
+		<table class="table" size="50%" cellpadding="0" cellspacing="0">
+			<tr height=26 bgcolor="#FFDDDD">
+				<td align=left>
+				<input name="checkall" type="checkbox" 
+							onclick="javascript:CheckAll()"></td>
 			
+				<th width="10%"><font size="2">번호</font></th>
+				<th width="35%"><font size="2">사진</font></th>
+				<th width="30%"><font size="2">상품명</font></th>
+				<th width="10%"><font size="2">국가</font></th>
+				<th width="10%"><font size="2">지역</font></th>
+				<th width="10%"><font size="2">가격</font></th>
+				
+			</tr>
+			
+	  <s:iterator value="btlist" status="stat">
+           <tr>
+         <td align="left"><input type="checkBox" class="checkbox" id="del_id" name="deleteCheck" value="<s:property value="no"/>"
+             onclick="chkBox(this.checked)"></td>
+         <td><s:property value="no"/></td>
+           <td><s:property value="image1"/></td>
+          <td><s:property value="name"/>
+         </td>
+         <td><s:property value="country"/>
+         </td>
+         <td><s:property value="region"/>
+         </td>
+         <td><s:property value="price"/></td>
+         </tr>
+</s:iterator>
+     <s:if test="btlist.size()<=0">
+      <tr align="center">
+         <td colspan="6">
+         <br>
+            <img src="./images/wishlist_empty.jpg" width="40" height="40"><br><br>위시리스트에 담긴 상품이 없습니다.<br>TMT와 즐거운 여행을 계획해보세요. 
+         </td>
+      </tr>
+           </s:if>
+			
+		</table>
+
+		<table class="table" size="50%" cellspacing="0" cellpadding="0">
+			<tr>
+				<td height="2" bgcolor="#FFDDDD"></td>
+			</tr>
+		</table>
+		
+		 <form action="DeleteBasket.action" name="Bdel" method="post" onsubmit="return check()">
+             <s:elseif test="btlist.size()>0">
+         <input type="submit" name="submit"  value="선택삭제">
+         </s:elseif>
+         
+	
 		<br>
 		
 		
 		</form>
-	
-		</p>
-		</td>
-	</tr>
+
+	 <tr align="center">
+      <td colspan="6">
+      <s:property value="pagingHtml" escape="false"/>
+      </td>
+   </tr> 
+
 </table>
 
 </div>

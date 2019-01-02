@@ -105,6 +105,8 @@ article, aside, footer, header, hgroup, main, nav, section {
     padding-bottom: 20px;
 }
 .member-container.with-edit-btn {
+	
+        background-color: #f5f6f7;
 }
 .member-box .member-container {
     font-size: 14px;
@@ -165,9 +167,95 @@ div {
     font-size: 14px;
     padding: 50px 40px 40px;
     position: relative;
+    
 }
 .traveler-body .text-clickable-container {
     margin-top: 25px;
     text-align: center;
 }
+.traveler-container .sidebar-heading {
+    color: #495056;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 17px;
+}
+.traveler-sidebar {
+    color: #343a40;
+    display: inline-block;
+    float: left;
+    margin-right: 20px;
+    width: 250px;
+}
+.traveler-sidebar .box {
+    margin-bottom: 0;
+}
 
+.traveler-container .box {
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 0 #e9ecef;
+    margin-bottom: 10px;
+}
+.box.profile-container {
+    border-bottom: 1px solid #e9ecef;
+    height: 250px;
+    padding: 42px 10px 30px;
+    text-align: center;
+ 	background-color: #f5f6f7;
+}
+.traveler-container {
+    margin: 0 auto;
+    padding: 50px 0 102px;
+    position: relative;
+    width: 880px;
+}
+.clearfix {
+    overflow: hidden;
+}
+main.traveler {
+
+}
+main {
+    position: relative;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+.box.promotion-container {
+    padding: 13px 20px;
+    background-color: #f5f6f7;
+}
+.traveler-container .extra-button {
+    position: absolute;
+    right: 0;
+    top: auto;
+}
+input:not([type="checkbox"]):not([type="radio"]), button, textarea, select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+.member-box .text-content {
+    background-color: #fff;
+    font-weight: 500;
+    height: 40px;
+    margin-top: 0;
+    padding: 0 20px;
+}
+input.form-control {
+    background-color: #fff;
+    border: solid 1px #ced4da;
+    height: 30px;
+    width: 250px;
+}
+.form-control {
+    -webkit-appearance: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: -webkit-box-shadow .25s linear, border .25s linear, color .25s linear, background-color .25s linear;
+    -o-transition: box-shadow .25s linear, border .25s linear, color .25s linear, background-color .25s linear;
+    transition: box-shadow .25s linear, border .25s linear, color .25s linear, background-color .25s linear;
+    -moz-appearance: none;
+}

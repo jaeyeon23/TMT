@@ -9,7 +9,7 @@
 	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 	<!-- datepicker 한국어로 -->
 	<script	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/datepicker-ko.js"></script>
-    <script language="JavaScript" src="/TMT/item/hotel/hotelscript.js"></script>
+    <script language="JavaScript" src="/TMT/item/hotel/hotelscript2.js"></script>
 	<!-- 달력끝 -->
 	<link rel="stylesheet" href="/TMT/item/hotel/hotelcss.css" type="text/css">
 	

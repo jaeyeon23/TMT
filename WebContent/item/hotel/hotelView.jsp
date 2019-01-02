@@ -1,21 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<!-- 달력 관련-->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+	<!-- datepicker 한국어로 -->
+	<script	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/datepicker-ko.js"></script>
+    <script language="JavaScript" src="/TMT/item/hotel/hotelscript3.js"></script>
+<!-- 달력끝 -->
 <link rel="stylesheet" media="screen" href="css/admin/view1.css" />
 <link rel="stylesheet" media="all" href="css/admin/view2.css" />
 <link rel="stylesheet" media="screen" href="css/admin/view3.css" />
-
-
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/bootstrap-theme.css" rel="stylesheet">
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-
+<link rel="stylesheet" href="/TMT/item/hotel/views.css" type="text/css">
 <script>
 $(function() 
 		{
@@ -26,9 +29,7 @@ $(function()
 					$(".subb").slideUp("fast");
 				 $(this).next().slideToggle("fast"); 
 			})
-		})
-
-		
+		})		
 </script>
 <style>
 .sidebar {
@@ -57,15 +58,55 @@ $(function()
 									<img class="offer__side__main-box__share-icon" src="/TMT/images/admin/share.svg" alt="share-icon" role="button" tabindex="-1">
 										<div class="Popover  right-reverse "></div>
 								</div>
-								<a href="AddOrder.action?seq_no=<s:property value="no"/>">
-									<button type="button" class="app-button app-button__type--primary app-button__size--l">예약하기</button>
-								</a>
-								<div class="offer__side__main-box__instant">
-									<div class="wish-button">
-										<button type="button" class="app-button app-button__type--outline app-button__size--m" onclick="javascript:location.href='InsertBasket.action?seq_no=<s:property value="no"/>'">
-											<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;">위시리스트<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;"></button>
-									</div>
-								</div>
+								
+							<div id = "check_all">	
+							<s:if test="%{session.session_id==null}">
+							            <center>로그인시 예약 가능합니다.
+										<a href="LoginForm.action">
+                        					 <button type="button" class="app-button app-button__type--primary app-button__size--l">로그인</button>
+                     					</a>
+                     					</center>
+						    </s:if>	
+						    <s:else>						
+							<form id="Hsearch" name="HsearchForm" action="HotelCheck.action">
+							<s:hidden name="no" value="%{no}" />
+							<s:hidden name="name" value="%{resultClass.name}" />
+						   	 <b>&nbsp;&nbsp;체크인</b><br>
+							 <input type="text" size="20" name="inDay" id="inDay" readonly placeholder="체크인">
+							<b>&nbsp;&nbsp;체크아웃</b><br>
+							<input type="text" size="20" name="outDay" id="outDay" readonly
+								placeholder="체크아웃"> <br>
+							<b>&nbsp;&nbsp;인원 및 객실</b><br>
+							<select name="number" class="form-control">
+							<option value="1">1명</option>
+							<option value="2">2명</option>
+							<option value="3">3명</option>
+							<option value="4">4명</option>
+							<option value="5">5명</option>
+							<option value="6">6명</option>
+							<option value="7">7명</option>
+							<option value="8">8명</option>
+							<option value="9">9명</option>
+							<option value="9">10명</option>
+							</select> 
+							<select name="roomnum" class="form-control">
+							<option value="1">1개</option>
+							<option value="2">2개</option>
+							<option value="3">3개</option>
+							<option value="4">4개</option>
+							<option value="5">5개</option>
+							</select> 	
+							<br><br>
+							
+							<center>
+							<button type="button" >
+							<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;">위시리스트<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;"></button>
+							<input type="submit" class="app-button app-button__type--primary app-button__size--l" value="예약 하기">
+							</center>
+							</form>
+							</s:else>
+							</div>
+							
 							</div>
 						</div>
 					</div>
@@ -90,6 +131,7 @@ $(function()
 							</div>	
 							<div class="offer-container__inner-bar__price">
 								<p class="offer-container__inner-bar__price--content">
+								    <center>예약가능일</center>
 									<p class="offer-container__inner-bar__price--main">
 										<s:property value="%{resultClass.checkin}"/> ~ <s:property value="%{resultClass.checkout}"/>
 									</p>	

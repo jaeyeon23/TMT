@@ -63,6 +63,8 @@
 					<form name="search_T">
 						<div id="ggg">
 						<b>전체</b>
+							<button type="button" class="btn btn-default btn" 
+						onclick="javascript:location.href='AdminTourWriteForm.action'">등록</button>
 							<select name="num" onchange="searchT_check()">
 								<s:if test="num == 1 ">
 									<option value="1" selected>인기순</option>

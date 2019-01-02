@@ -5,23 +5,25 @@
 	
 <struts>
 	<package name="member" extends="struts-default, tiles-default">
-		
-<!-- 로그인 -->		
-
+		<!-- 로그인 -->		
 		<action name="Login" class="member.LoginMember" method="Login">
-			<result name="success" type="tiles">Main</result>
-			<result name="error">/member/loginError.jsp</result>
-			<result name="login" type="chain">Main</result>
-		</action>
+	       <result name="error">/member/loginError.jsp</result>
+	     	<result type="redirect-action">
+				<param name="actionName">Main</param>
+		 	</result>
+	    </action>
+	      
+	    <action name="LoginForm" class="member.LoginMember" method="Form">
+	       <result name="success" type="tiles">LoginForm</result>
+	    </action>
+	      
+	    <action name="Logout" class="member.LoginMember" method="logout">
+	      	<result type="redirect-action">
+				<param name="actionName">Main</param>
+		 	</result>
+	    </action>
 		
-		<action name="LoginForm" class="member.LoginMember" method="Form">
-			<result name="success" type="tiles">LoginForm</result>
-		</action>
-		
-		<action name="Logout" class="member.LoginMember" method="logout">
-			<result name="success" type="chain">Main</result>
-		</action>
-<!-- 아이디 찾기 -->		
+		<!-- 아이디 찾기 -->		
 		<action name="FindId" class="member.FindMemberId">
 			<result name="success" type="tiles">FindId</result>
 			<result name="error">/member/findIdError.jsp</result>
@@ -30,7 +32,7 @@
 		<action name="FindIdForm" class="member.FindMemberId" method="Form">
 			<result name="success" type="tiles">FindIdForm</result>
 		</action>
-<!-- 비밀번호 찾기 -->
+		<!-- 비밀번호 찾기 -->
 		<action name="FindPw" class="member.FindMemberPw">
 			<result name="success" type="tiles">FindPw</result>
 			<result name="error">/member/findPwError.jsp</result>
@@ -39,7 +41,7 @@
 		<action name="FindPwForm" class="member.FindMemberPw" method="Form">
 			<result name="success" type="tiles">FindPwForm</result>
 		</action>		
-<!-- 회원가입 -->				
+		<!-- 회원가입 -->				
 		<action name="Join" class="member.JoinMember" method="Join">
 			<result name="success" type="tiles">Join</result>
 		</action>

@@ -14,7 +14,10 @@ import item.air.AirVO;
 import item.hotel.HotelVO;
 import item.tour.TourVO;
 
-public class Search extends ActionSupport{
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+public class Search extends ActionSupport implements SessionAware{
 
 	public static Reader reader; 
 	public static SqlMapClient sqlMapper; 
@@ -29,6 +32,8 @@ public class Search extends ActionSupport{
 	private List<TourVO> Tourlist = new ArrayList<>();
 	
 	private String searchbox;
+	
+	private Map session;
 	
 	public Search() throws IOException {
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -76,6 +81,14 @@ public class Search extends ActionSupport{
 
 	public void setTourlist(List<TourVO> tourlist) {
 		Tourlist = tourlist;
+	}
+
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
 	}
 	
 }

@@ -43,5 +43,10 @@
 	<update id="replyStepTC" parameterClass="tourC">
 		<![CDATA[update tourcomment set c_re_step=c_re_step+1 where c_ref=#c_ref# and c_re_step >#c_re_step#]]>
 	</update>
+	
+	<delete id="deleteTourC" parameterClass="int">
+		delete tourcomment
+		where tour_no=#tour_no#
+	</delete>
 
 </sqlMap>

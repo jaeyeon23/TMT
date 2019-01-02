@@ -57,6 +57,7 @@ public class AdminTourDelete extends ActionSupport{
 		}
 		
 		uri = "?currnetPage="+getCurrentPage();
+		sqlMapper.delete("deleteTourC",getNo());
 		sqlMapper.delete("deleteTour",getNo());
 		
 		return SUCCESS;
