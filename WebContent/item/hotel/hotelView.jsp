@@ -61,16 +61,20 @@ $(function()
 								
 							<div id = "check_all">	
 							<s:if test="%{session.session_id==null}">
-							            <center>로그인시 예약 가능합니다.
+							            <div>로그인 하셔야 예약이 가능합니다</div>
 										<a href="LoginForm.action">
-                        					<button type="button">로그인</button>
-                     					</a>
-                     					</center>
+			                     		  <button type="button" class="app-button app-button__type--primary app-button__size--l">로그인하기</button>
+			                   			</a>
 						    </s:if>	
 						    <s:else>						
 							<form id="Hsearch" name="HsearchForm" action="HotelCheck.action">
 							<s:hidden name="no" value="%{no}" />
 							<s:hidden name="name" value="%{resultClass.name}" />
+							<s:hidden name="price" value="%{resultClass.price}" />  <!-- 가격 -->
+							<s:hidden name="country" value="%{resultClass.country}" />  <!-- 국가 -->
+							<s:hidden name="region" value="%{resultClass.region}" />  <!-- 지역 -->
+							
+							
 						   	 <b>&nbsp;&nbsp;체크인</b><br>
 							 <input type="text" size="20" name="inDay" id="inDay" readonly placeholder="체크인">
 							<b>&nbsp;&nbsp;체크아웃</b><br>

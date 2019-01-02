@@ -54,6 +54,23 @@
 		#region#, #id#, #image1#, 
 		#day#, #checkin#, #checkout#, #arv#, #dep#, #ad#, #dd#, #type#)
 	</insert>
+	
+	<!-- 구매한 호텔 상품을 구매내역 테이블에 저장 -->
+	<insert id="putorder_H" parameterClass="java.util.Map">
+		INSERT INTO ordervo
+		(no, seq_no, name, price, country, region, id,
+		 checkin, checkout, type)
+		VALUES (seq_ordervo.NEXTVAL, #seq_no#, #name#, #price#, #country#,
+		#region#, #id#, #checkin#, #checkout#, #type#)
+	</insert>
+	
+	<!-- 구매한 투어 상품을 구매내역 테이블에 저장 -->
+	<insert id="putorder_T" parameterClass="java.util.Map">
+		INSERT INTO ordervo
+		(no, seq_no, name, price, country, region, id, type)
+		VALUES (seq_ordervo.NEXTVAL, #seq_no#, #name#, #price#, #country#,
+		#region#, #id#, #type#)
+	</insert>
 
 
 	<!-- 세션 id값에 해당하는 구매내역 테이블의 정보를 가져온다. -->

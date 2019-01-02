@@ -13,7 +13,13 @@
 			<result type="redirect-action">TourView${uri}</result>
 		</action>
 		
+		<action name="TourCheck" class="item.tour.TourCheck">
+			<result name="success" type="tiles">TourCheck</result>
+		</action>
 		
+		<action name="TourSuccess" class="item.tour.TourSuccess">
+			<result name="success" type="tiles">TourSuccess</result>
+		</action>
 		
 		
 		

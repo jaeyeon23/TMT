@@ -9,8 +9,6 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
-import item.air.AirVO;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,12 +29,12 @@ public class HotelCheck extends ActionSupport implements SessionAware {
 	private int no;
 	private String name;
 	private List<HotelVO> Hotellist = new ArrayList<HotelVO>();
-	
+	private String country;	 //국가
+	private String region;	//지역
 	
 	private Map map = new HashMap<>();
 	private Map session;
-	
-	
+	private int price;       //가격
 	
 	public HotelCheck() throws IOException {
 		Charset charset = Charset.forName("UTF-8");
@@ -48,12 +46,6 @@ public class HotelCheck extends ActionSupport implements SessionAware {
 	
 	@Override
 	public String execute() throws Exception {
-		
-		/*map.put("no", getNo());
-		map.put("roomnum", getRoomnum());
-
-
-		sqlMapper.update("roomHotel", map);*/
 		return SUCCESS;
 	}
 
@@ -64,6 +56,14 @@ public class HotelCheck extends ActionSupport implements SessionAware {
 	public void setHotellist(List<HotelVO> hotellist) {
 		Hotellist = hotellist;
 	}
+	
+	//가격
+			public int getPrice() {
+				return price;
+			}
+			public void setPrice(int price) {
+				this.price = price;
+			}
 	
 	//상품명
 		public String getName() {
@@ -120,10 +120,30 @@ public class HotelCheck extends ActionSupport implements SessionAware {
 			this.roomnum = roomnum;
 		}
 
-		@Override
-		public void setSession(Map arg0) {
-			// TODO Auto-generated method stub
-			
-		}
+		public Map getSession() {
+		      return session;
+		   }
+
+		public void setSession(Map session) {
+		      this.session = session;
+		   }
+		
+		//국가
+				public String getCountry() {
+					return country;
+				}
+				public void setCountry(String country) {
+					this.country = country;
+				}
+				
+				//지역
+				public String getRegion() {
+					return region;
+				}
+				public void setRegion(String region) {
+					this.region = region;
+				}
+		
+
 	
 }
