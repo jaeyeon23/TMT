@@ -42,5 +42,10 @@
 	<update id="replyStepHC" parameterClass="hotelC">
 		<![CDATA[update hotelcomment set c_re_step=c_re_step+1 where c_ref=#c_ref# and c_re_step >#c_re_step#]]>
 	</update>
+	
+	<delete id="deleteHotelC" parameterClass="int">
+		delete hotelcomment
+		where hotel_no=#hotel_no#
+	</delete>
 
 </sqlMap>

@@ -8,6 +8,45 @@
 	<typeAlias alias="adminHotel" type="item.hotel.HotelVO" />
 	<typeAlias alias="adminNotice" type="service.NoticeVO" />
 	
+	<resultMap id="airRes" class="adminAir">
+		<result property="no" column="no" />
+		<result property="arv" column="arv" />
+		<result property="dep" column="dep" />
+		<result property="price" column="price" />
+		<result property="content" column="content" />
+		<result property="image1" column="image1" />
+		<result property="seat" column="seat" />
+		<result property="seat_grade" column="seat_grade" />
+		<result property="ad" column="ad" />
+		<result property="dd" column="dd" />
+		<result property="air_company" column="air_company" />
+		<result property="grade" column="grade" />
+	</resultMap>
 	
+	<select id="airList" resultMap="airRes">
+		select * from air
+		order by no desc
+	</select>
+	
+	<select id="airOne" resultMap="airRes" parameterClass="int">
+		select * from air	
+		where no = #no#
+	</select>
+	
+	<insert id="insertAir" parameterClass="adminAir">
+		insert into air (no,arv,dep,price,content,image1,seat,seat_grade,ad,dd,air_company,grade)
+		values(SEQ_AIRNUM.NEXTVAL, #arv#,#dep#,#price#,#content#,#image1#,#seat#,#seat_grade#,#ad#,#dd#,#air_company#,#grade#)
+	</insert>
+	
+	<update id="updateAir" parameterClass="adminAir">
+		update air set arv=#arv#,dep=#dep#,content=#content#,image1=#image1#,seat=#seat#,seat_grade=#seat_grade#
+		,ad=#ad#,dd=#dd#,air_company=#air_company#
+		where no = #no#
+	</update>
+	
+	<delete id="deleteAir" parameterClass="int">
+		delete air
+		where no = #no#
+	</delete>
 	
 </sqlMap>

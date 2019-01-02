@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 main {
     position: relative;
 }
@@ -48,7 +50,7 @@ body, html {
     padding: 0;
 }
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "���� ���", Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "占쏙옙占쏙옙 占쏙옙占�", Roboto, Helvetica, Arial, sans-serif;
 }
 html, body {
     background: #fff;
@@ -210,7 +212,7 @@ html {
     padding: 0;
     text-align: center;
     width: 120px;
-}
+} 
 input:not([type="checkbox"]):not([type="radio"]), button, textarea, select {
     -webkit-appearance: none;
     -moz-appearance: none;

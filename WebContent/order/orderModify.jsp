@@ -82,20 +82,17 @@
 <body>
 
 <div class="main">
-<div class='header-title'><h3><center>예약내역 변경</center></h3></div><br><br>
+<div class='header-title'><h2><center>예약내역 변경</center></h2></div><br><br>
 
 <div align="right">
- <table class="table">
-	<tr>
-		<td height="20" bgcolor="#EEDAFF"></td>
-		
-	</tr>
-	
- </table>
+
  
 <table class="table" width="80%" cellpadding="0" cellspacing="0">
-			
-			<tr align="left">
+
+
+	<tr bgcolor="#EEDAFF">
+		
+
 			    <th align="center"><font size="2"><strong>사진</strong></font></th>
 			   <th align="center"><font size="2"><strong>주문번호</strong></font></th>
 			   <th align="center"><font size="2"><strong>상품명</strong></font></th>
@@ -114,19 +111,19 @@
 		
 		 
 			 <tr align="left">
-			 <td align="center"><s:property value="oresultClass.image1"/></td>
-			   <td align="center"><s:property value="oresultClass.no"/></td>
-			   <td align="center"><s:property value="oresultClass.name"/></td>
-			  <td align="center"><s:property value="oresultClass.arv"/></td>
-			   <td align="center"><s:property value="oresultClass.dep"/></td>
-			   <td align="center"><s:property value="oresultClass.price"/></td>
-			   <td align="center"><s:property value="oresultClass.day"/></td>
-			   <td align="center"><s:property value="oresultClass.region"/></td>
-			   <td align="center"><s:property value="oresultClass.country"/></td>
-			   <td align="center"><s:property value="oresultClass.checkin"/></td>
-			   <td align="center"><s:property value="oresultClass.checkout"/></td>
-			   <td align="center"><s:property value="oresultClass.ad"/></td>
-			   <td align="center"><s:property value="oresultClass.dd"/></td>
+			 <td align="center"><s:property value="%{session.session_image1}"/></td>
+			   <td align="center"><s:property value="%{session.session_no}"/></td>
+			   <td align="center"><s:property value="%{session.session_name}"/></td>
+			  <td align="center"><s:property value="%{session.session_arv}"/></td>
+			   <td align="center"><s:property value="%{session.session_dep}"/></td>
+			   <td align="center"><s:property value="%{session.session_price}"/></td>
+			   <td align="center"><s:property value="%{session.session_day}"/></td>
+			   <td align="center"><s:property value="%{session.session_region}"/></td>
+			   <td align="center"><s:property value="%{session.session_country}"/></td>
+			   <td align="center"><s:property value="%{session.session_checkin}"/></td>
+			   <td align="center"><s:property value="%{session.session_checkout}"/></td>
+			   <td align="center"><s:property value="%{session.session_ad}"/></td>
+			   <td align="center"><s:property value="%{session.session_dd}"/></td>
 			   
 			
 			   </tr>

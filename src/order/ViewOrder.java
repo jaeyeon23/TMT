@@ -11,6 +11,8 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
+import basket.BasketVO;
+
 public class ViewOrder extends ActionSupport implements SessionAware {
 	
 	public static Reader reader;
@@ -18,7 +20,7 @@ public class ViewOrder extends ActionSupport implements SessionAware {
 	private Map session;
 	private OrderVO paramClass = new OrderVO(); //�Ķ���͸� ������ ��ü
 	private OrderVO resultClass = new OrderVO(); //���� ��� ���� ������ ��ü
-
+	private OrderVO ovo = new OrderVO();
 	private int currentPage;
 
 	private int no;
@@ -33,10 +35,8 @@ public class ViewOrder extends ActionSupport implements SessionAware {
 	@Override
 	public String execute() throws Exception {
 		
-		paramClass.setNo(getNo());
-		sqlMapper.update("updateReadHit", paramClass);
-		
-		resultClass = (OrderVO) sqlMapper.queryForObject("selectOne", getNo());
+		ovo.setNo(no);
+		resultClass = (OrderVO) sqlMapper.queryForObject("selectOneo", ovo);
 		
 		return SUCCESS;
 	}
