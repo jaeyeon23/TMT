@@ -27,7 +27,7 @@ public class BasketVO {
 	private String people;
 	private String arv;
 	private String dep;
-	private String air_company;
+
 	private int amount;
 	private int grade;
 	
@@ -179,12 +179,7 @@ public class BasketVO {
 	public void setDep(String dep) {
 		this.dep = dep;
 	}
-	public String getAir_company() {
-		return air_company;
-	}
-	public void setAir_company(String air_company) {
-		this.air_company = air_company;
-	}
+
 	public int getGrade() {
 		return grade;
 	}

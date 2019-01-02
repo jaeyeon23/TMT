@@ -13,16 +13,25 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class BasketList extends ActionSupport implements SessionAware{
+public class BasketHList extends ActionSupport implements SessionAware{
 	
 	private Reader reader;
 	private SqlMapClient sqlMapper;
 
-	private List<BasketVO> blist = new ArrayList<BasketVO>();
-	private BasketVO bvo = new BasketVO();
+	private List<BasketHVO> bhlist = new ArrayList<BasketHVO>();
+	private BasketHVO hvo = new BasketHVO();
+	
+	private List<BasketTVO> btlist = new ArrayList<BasketTVO>();
+	private BasketTVO tvo = new BasketTVO();
 	
 	private String id;
-	private int amount;
+    private int no;
+	private String image1;
+	private String name;
+	private int price;
+	private String country;
+	private String region;
+
 	
 	private int currentPage = 1; 
 	private int totalCount; 
@@ -31,9 +40,16 @@ public class BasketList extends ActionSupport implements SessionAware{
 	private String pagingHtml; 
 	private BasketpagingAction page; 
 	
+	private int currentPage2 = 1; 
+	private int totalCount2; 
+	private int blockCount2 = 10; 
+	private int blockPage2 = 5; 
+	private String pagingHtml2; 
+	//private BasketpagingAction2 page2; 
+	
 	private Map session;
 
-	public BasketList() throws IOException {
+	public BasketHList() throws IOException {
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
 		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
 		reader.close();
@@ -42,11 +58,11 @@ public class BasketList extends ActionSupport implements SessionAware{
 	@Override
 	public String execute() throws Exception {
 		
-		bvo.setId(id);
+		  hvo.setId((String) session.get("session_id"));
+	   
+		bhlist = sqlMapper.queryForList("selecthbasket", hvo);
 
-		blist = sqlMapper.queryForList("selectbasket", bvo);
-
-		totalCount = blist.size();
+		totalCount = bhlist.size();
 
 		if (currentPage == 0) {
 			currentPage = 1;
@@ -59,8 +75,29 @@ public class BasketList extends ActionSupport implements SessionAware{
 		if (page.getEndCount() < totalCount)
 			lastCount = page.getEndCount() + 1;
 
-		blist = blist.subList(page.getStartCount(), lastCount);
+		bhlist = bhlist.subList(page.getStartCount(), lastCount);
 		
+		
+/*
+		  tvo.setId((String) session.get("session_id"));
+		   
+			btlist = sqlMapper.queryForList("selecthbasket", tvo);
+
+			totalCount = btlist.size();
+
+			if (currentPage2 == 0) {
+				currentPage2 = 1;
+			}
+			page2 = new BasketpagingAction(currentPage, totalCount, blockCount, blockPage);
+			pagingHtml2 = page2.getPagingHtml2().toString();
+
+			int lastCount2 = totalCount2;
+
+			if (page.getEndCount() < totalCount)
+				lastCount = page.getEndCount() + 1;
+
+			btlist = btlist.subList(page.getStartCount(), lastCount);
+		*/
 		return SUCCESS;
 	}
 
@@ -80,20 +117,23 @@ public class BasketList extends ActionSupport implements SessionAware{
 		this.sqlMapper = sqlMapper;
 	}
 
-	public List<BasketVO> getBlist() {
-		return blist;
+	
+
+	
+	public List<BasketHVO> getBhlist() {
+		return bhlist;
 	}
 
-	public void setBlist(List<BasketVO> blist) {
-		this.blist = blist;
+	public void setBhlist(List<BasketHVO> bhlist) {
+		this.bhlist = bhlist;
 	}
 
-	public BasketVO getBvo() {
-		return bvo;
+	public BasketHVO gethvo() {
+		return hvo;
 	}
 
-	public void setBvo(BasketVO bvo) {
-		this.bvo = bvo;
+	public void sethvo(BasketHVO hvo) {
+		this.hvo = hvo;
 	}
 
 	public String getId() {
@@ -160,13 +200,55 @@ public class BasketList extends ActionSupport implements SessionAware{
 		this.session = session;
 	}
 
-	public int getAmount() {
-		return amount;
+
+	public String getImage1() {
+		return image1;
 	}
 
-	public void setAmount(int amount) {
-		this.amount = amount;
+	public void setImage1(String image1) {
+		this.image1 = image1;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getRegion() {
+		return region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
+	}
+	
 	
 	
 	

@@ -6,7 +6,7 @@
 <struts>
 	<package name="service" extends="struts-default, tiles-default">
 		
-		<action name="BasketList" class="basket.BasketList">
+		<action name="BasketList" class="basket.BasketHList">
 			<result name="success" type="tiles">BasketList</result>
 		</action>
 		

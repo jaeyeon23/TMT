@@ -7,6 +7,9 @@ import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
+
+import member.MemberVO;
+
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -20,6 +23,9 @@ public class DeleteBasket extends ActionSupport implements SessionAware{
 
 	private String id;
 	private int[] deleteCheck;
+	
+	private BasketVO paramClass= new BasketVO();
+	private BasketVO resultClass = new BasketVO();
 
 	private Map session;
 	
@@ -31,13 +37,14 @@ public class DeleteBasket extends ActionSupport implements SessionAware{
 
 	public String execute() throws Exception {
 
-		bvo.setId(getId());
+		bvo.setId((String) session.get("session_id"));
+		//resultClass = (BasketVO) sqlMapper.queryForObject("deletebasket",paramClass);		
 		
 
 		if (deleteCheck != null) {
 			for (int i = 0; i < deleteCheck.length; i++) {
 				bvo.setNo(deleteCheck[i]);
-				sqlMapper.delete("deletebasket", bvo);
+				resultClass = (BasketVO) sqlMapper.queryForObject("deletebasket",bvo);	
 			}
 
 		}
