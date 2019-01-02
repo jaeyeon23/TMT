@@ -30,7 +30,7 @@
 		<result property="seat" column="seat" />
 		<result property="room" column="room" />
 		<result property="people" column="people" />
-		<result property="air_company" column="air_company" />
+
 	</resultMap>
 
 
@@ -39,11 +39,11 @@
 		INSERT INTO basket
 		(no, seq_no, name, price, content, country, region, id,
 		 image1,image2, image3, day, checkin, checkout,
-		ad, dd, hai, seat, grade, room, people, air_company)
+		ad, dd, hai, seat, grade, room, people)
 		VALUES (seq_basketvo.NEXTVAL, #seq_no#, #name#, #price#, #content#, #country#,
 		#region#, #id#, #image1#, #image2#, #image3#,
 		#day#, #checkin#, #checkout#, #ad#, #dd#,
-		#hai#, #seat#, #grade#, #room#, #people#, #air_company#)
+		#hai#, #seat#, #grade#, #room#, #people#, )
 	</insert>
 
 

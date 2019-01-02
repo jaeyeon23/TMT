@@ -36,17 +36,17 @@
 			 </tr>
 			 
 		    <tr align="left">
-			   <td align="center"><s:property value="%{session.session_image1}" /></td>
-			   <td align="center"><s:property value="%{session.session_seq_no}" /></td>
-			   <td align="center"><s:property value="%{session.session_name}" /></td>
-			   <td align="center"><s:property value="%{session.session_price}" /></td>
-			   <td align="center"><s:property value="%{session.session_day}" /></td>
-			   <td align="center"><s:property value="%{session.session_region}" /></td>
-			   <td align="center"><s:property value="%{session.session_country}" /></td>
-			   <td align="center"><s:property value="%{session.session_checkin}" /></td>
-			   <td align="center"><s:property value="%{session.session_checkout}" /></td>
-			   <td align="center"><s:property value="%{session.session_ad}" /></td>
-			   <td align="center"><s:property value="%{session.session_dd}" /></td>
+			   <td align="center"><s:property value="image1" /></td>
+			   <td align="center"><s:property value="seq_no" /></td>
+			   <td align="center"><s:property value="name" /></td>
+			   <td align="center"><s:property value="price" /></td>
+			   <td align="center"><s:property value="day" /></td>
+			   <td align="center"><s:property value="region" /></td>
+			   <td align="center"><s:property value="country" /></td>
+			   <td align="center"><s:property value="checkin" /></td>
+			   <td align="center"><s:property value="checkout" /></td>
+			   <td align="center"><s:property value="ad" /></td>
+			   <td align="center"><s:property value="dd" /></td>
 			 </tr>
 			   
 		

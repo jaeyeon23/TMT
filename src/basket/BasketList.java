@@ -22,7 +22,12 @@ public class BasketList extends ActionSupport implements SessionAware{
 	private BasketVO bvo = new BasketVO();
 	
 	private String id;
+    private int no;
+	private String image1;
+	private String name;
 	private int amount;
+	private int price;
+
 	
 	private int currentPage = 1; 
 	private int totalCount; 
@@ -42,7 +47,13 @@ public class BasketList extends ActionSupport implements SessionAware{
 	@Override
 	public String execute() throws Exception {
 		
-		bvo.setId(id);
+		  bvo.setId(id);
+	      bvo.setPrice(price);
+	      bvo.setAmount(amount);
+	      bvo.setName(name);
+	      bvo.setNo(no);
+	      bvo.setImage1(image1);
+	      
 
 		blist = sqlMapper.queryForList("selectbasket", bvo);
 
@@ -166,6 +177,39 @@ public class BasketList extends ActionSupport implements SessionAware{
 
 	public void setAmount(int amount) {
 		this.amount = amount;
+	}
+
+
+	public String getImage1() {
+		return image1;
+	}
+
+	public void setImage1(String image1) {
+		this.image1 = image1;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
 	}
 	
 	

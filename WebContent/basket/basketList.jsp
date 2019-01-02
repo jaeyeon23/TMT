@@ -53,7 +53,7 @@
 </div>
 </div>
 <div class='wishlists-header-divider'></div>
-<div class='wishlists-header-subtitle'><p class="np"><center>총<s:property value="%{session.session_totalCount}"/>개의 상품</center></p></div>
+<div class='wishlists-header-subtitle'><p class="np"><center>총<s:property value=""/>개의 상품</center></p></div>
 </div>
 
 <div class='wishlists-cards-container'>
@@ -71,7 +71,7 @@
 	
 		<table class="table" width="80%" cellpadding="0" cellspacing="0">
 			<tr height=26 bgcolor="#FFDDDD">
-				<td height="3" colspan="7" align=left>
+				<td align=left>
 				<input name="checkall" type="checkbox" 
 							onclick="javascript:CheckAll()"></td>
 			
@@ -83,28 +83,46 @@
 				
 			</tr>
 			
+	  <s:iterator value="blist" status="stat">
+           <tr align="center">
+         <td></td>
+         <td><s:property value="no"/></td>
+           <td><s:property value="image1"/></td>
+          <td><s:property value="name"/>
+         </td>
+         <td><s:property value="amount"/>
+         </td>
+         <td><s:property value="price"/></td>
+         </tr>
+</s:iterator>
+     <s:if test="blist.size()<=0">
+      <tr align="center">
+         <td colspan="6">
+         <br>
+            <img src="./images/wishlist_empty.jpg" width="40" height="40"><br><br>위시리스트에 담긴 상품이 없습니다.<br>TMT와 즐거운 여행을 계획해보세요. 
+         </td>
+      </tr>
+           </s:if>
+			
 					
-		<form action="DeleteBasket.action" name="Bdel" method="post" onsubmit="return check()">
-			<s:hidden name="id" value="%{#session.session_id }"/>
-			<s:iterator value="blist" status="stat">
-			 <td class="list">
-			  <tr align="center">
-			    <td><input type="checkBox" class="checkbox" id="del_id" name="deleteCheck" value="<s:property value="%{session.session_no}"/>"
-			    onclick="chkBox(this.checked)"></td>
-			    <td><img src="" alt=""></td>
-			    <td><s:property value="%{session.session_name}" /></td>
-			    <s:if test="blist.size()==null"> <br>
-				<img src="./images/wishlist_empty.jpg" width="40" height="40"><br><br>위시리스트에 담긴 상품이 없습니다.<br>TMT와 즐거운 여행을 계획해보세요.</s:if> 
-			    <td><s:property value="%{session.session_amount}"/>개</td>
-			    <td><s:property value="%{session.session_price}"/>원</td>
-			  </tr>
-			  </td>
-			 
-			  
-			  <s:if test="blist.size()>0">
-			<input type="submit" name="submit" value="선택삭제">
-			</s:if>	
-		 </s:iterator>	
+	 <!--  <form action="DeleteBasket.action" name="Bdel" method="post" onsubmit="return check()">
+         <%-- <s:hidden name="id" value="${#session.id }"/> --%>
+     
+           <ul>
+             <li><input type="checkBox" class="checkbox" id="del_id" name="deleteCheck" value="<s:property value="no"/>"
+             onclick="chkBox(this.checked)"></li>
+             <li><img src="" alt=""></li>
+             <li><s:property value="name" /></li>
+             <li><s:property value="price"/>원</li>
+             <li><s:property value="amount"/>개</li>
+           </ul>
+           
+             <s:if test="blist.size()>0">
+         <input type="submit" name="submit" value="선택삭제">
+         </s:if>
+
+			--> 
+
 		</table>
 
 		<table class="table" width="80%" border="0" cellspacing="0" cellpadding="0">
