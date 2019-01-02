@@ -18,12 +18,11 @@ public class ModifyMember extends ActionSupport implements SessionAware{
 	private MemberVO paramClass;
 	private MemberVO resultClass;
 
-	private MemberVO mvo = new MemberVO();
-
 	private int no;
 	private String id;
 	private String name;
 	private String password;
+	private String passport;
 	private String email;
 	private int tel;
 	private String marketing1;
@@ -53,6 +52,7 @@ public class ModifyMember extends ActionSupport implements SessionAware{
 		paramClass.setEmail(getEmail());
 		paramClass.setTel(getTel());
 		paramClass.setPassword(getPassword());
+		paramClass.setPassport(getPassport());
 		paramClass.setMarketing1(getMarketing1());
 		
 		sqlMapper.update("ModifyMember", paramClass);
@@ -90,14 +90,6 @@ public class ModifyMember extends ActionSupport implements SessionAware{
 
 	public void setResultClass(MemberVO resultClass) {
 		this.resultClass = resultClass;
-	}
-
-	public MemberVO getMvo() {
-		return mvo;
-	}
-
-	public void setMvo(MemberVO mvo) {
-		this.mvo = mvo;
 	}
 
 	public String getName() {
@@ -178,6 +170,14 @@ public class ModifyMember extends ActionSupport implements SessionAware{
 
 	public void setSession(Map session) {
 		this.session = session;
+	}
+
+	public String getPassport() {
+		return passport;
+	}
+
+	public void setPassport(String passport) {
+		this.passport = passport;
 	}
 
 

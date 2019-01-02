@@ -18,8 +18,14 @@
 			<result name="success" type="tiles">MyPage</result>
 		</action>
 
-		<action name="DeleteMember" class="member.DeleteMember">
-			<result name="success" type="tiles">DeleteMember</result>
+		<action name="DeleteMemberForm" class="member.DeleteMember">
+			<result name="success" type="tiles">DeleteMemberForm</result>
+		</action>
+		
+		<action name="DeleteMember" class="member.DeleteMember" method="Delete">
+			<result type="redirect-action">
+				<param name="actionName">Main</param>
+			</result>
 		</action>
 		
 		<action name="ModifyMemberForm" class="member.ModifyMember">

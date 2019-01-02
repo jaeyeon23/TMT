@@ -13,7 +13,7 @@
 <script>
 function removeCheck() {
 	 if (confirm("정말 계정을 삭제하시겠습니까??") == true){    //확인
-	    location.href="DeleteMember.action";
+	    location.href="DeleteMemberForm.action";
 	 }else{   //취소
 	    location.href="MyPage.action";
 	 }
@@ -103,6 +103,12 @@ function removeCheck() {
 							</div>
 					</div>
 					<div class="form-group">
+						<div class="title text-middle">여권번호</div>
+							<div class="input-wrapper text-middle">
+								<s:property value="%{resultClass.passport}"/>
+							</div>
+					</div>
+					<div class="form-group">
 						<div class="title text-middle">마케팅 수신동의</div>
 							<div class="input-wrapper text-middle">
 								<s:property value="%{resultClass.marketing1}"/>
@@ -114,7 +120,7 @@ function removeCheck() {
 	<br>
 	<div class="text-clickable-container hide-on-mobile">
 		<div class="text text-sm" >
-			<button onclick="removeCheck()"class="btn-new btn--type-primary btn--width-100">계정 삭제하기</button>
+			<button onclick="removeCheck()" class="btn-new btn--type-primary btn--width-100">계정 삭제하기</button>
 		</div>
 	</div>
 </center>

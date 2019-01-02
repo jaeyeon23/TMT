@@ -102,6 +102,13 @@ function modifyCheck() {
 					</div>
 				</div>
 				<div class="form-group">
+					<div class="title text-middle">여권번호</div>
+					<div class="input-wrapper text-middle">
+						<input class="form-control text-content" name="passport" 
+							type="text" placeholder="변경할 여권번호를 입력하세요">
+					</div>
+				</div>
+				<div class="form-group">
 					<div class="title text-middle">마켓팅 수신동의</div>
 						<div class="input-wrapper text-middle">
 							<input type="radio" name="marketing1" id="inlineRadio1" value="true"> 수신 

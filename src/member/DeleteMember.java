@@ -1,6 +1,7 @@
 package member;
 
 import java.io.IOException;
+
 import org.apache.struts2.interceptor.SessionAware;
 import java.io.Reader;
 
@@ -10,15 +11,23 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.util.Map;
+
 public class DeleteMember extends ActionSupport implements SessionAware{
 	
 	private Reader reader;
 	private SqlMapClient sqlMapper;
 	
 	private Map session;
+	
 	private String id;
 	private int no;
-	
+	private String name;
+	private String password;
+	private String passport;
+	private String email;
+	private int tel;
+	private String marketing1;
+
 	private MemberVO paramClass= new MemberVO();
 	private MemberVO resultClass = new MemberVO();
 	
@@ -27,19 +36,17 @@ public class DeleteMember extends ActionSupport implements SessionAware{
 		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
 		reader.close();
 	}
-	
-	@Override
-	public String execute() throws Exception {
+
+	public String execute() throws Exception{
+		return SUCCESS;
+	}
+
+	public String Delete() throws Exception {
 		
 		paramClass.setId((String) session.get("session_id"));
-		resultClass = (MemberVO) sqlMapper.queryForObject("selectOne",getId());
-		// 삭제할 항목 설정.
-		paramClass.setNo(getNo());
-								
-		// 삭제 쿼리 수행.
-		sqlMapper.delete("deleteMember", paramClass);
 
-		
+		sqlMapper.delete("deleteMember", paramClass);
+/*		resultClass = (MemberVO) sqlMapper.queryForObject("deleteMember",paramClass);*/
 		return SUCCESS;
 	}
 
@@ -83,7 +90,6 @@ public class DeleteMember extends ActionSupport implements SessionAware{
 		this.resultClass = resultClass;
 	}
 
-
 	public int getNo() {
 		return no;
 	}
@@ -98,6 +104,54 @@ public class DeleteMember extends ActionSupport implements SessionAware{
 
 	public void setSession(Map session) {
 		this.session = session;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getTel() {
+		return tel;
+	}
+
+	public void setTel(int tel) {
+		this.tel = tel;
+	}
+
+	public String getMarketing1() {
+		return marketing1;
+	}
+
+	public void setMarketing1(String marketing1) {
+		this.marketing1 = marketing1;
+	}
+
+	public String getPassport() {
+		return passport;
+	}
+
+	public void setPassport(String passport) {
+		this.passport = passport;
 	}
 	
 	
