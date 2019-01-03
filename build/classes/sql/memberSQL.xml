@@ -41,9 +41,9 @@
 	</select>
 
 	<insert id="JoinMember" parameterClass="member">
-		INSERT INTO MEMBER (NO,ID,PASSWORD,NAME,EMAIL,TEL,REGDATE,PASSPORT,ADMIN)
+		INSERT INTO MEMBER (NO,ID,PASSWORD,NAME,EMAIL,TEL,REGDATE,PASSPORT,ADMIN,MARKETING1,MARKETING2)
 		VALUES
-		(SEQ_NO.NEXTVAL,#id#,#password#,#name#,#email#,#tel#,#regdate#,#passport#,0)
+		(SEQ_NO.NEXTVAL,#id#,#password#,#name#,#email#,#tel#,#regdate#,#passport#,0,#marketing1#,#marketing2#)
 	</insert>
 
 	<update id="ModifyMember" parameterClass="member">
