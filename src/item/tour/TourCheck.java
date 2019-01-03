@@ -28,7 +28,8 @@ public class TourCheck extends ActionSupport implements SessionAware  {
 	private String country;	 //국가
 	private String region;	//지역
 	private String image1; 
-	
+	private String content;  //내용
+	private int amount;
 	
 	public TourCheck() throws IOException {
 		Charset charset = Charset.forName("UTF-8");
@@ -101,6 +102,23 @@ public class TourCheck extends ActionSupport implements SessionAware  {
 				this.image1 = image1;
 			}
 			
+			
+			//수량
+			public int getAmount() {
+				return amount;
+			}
+
+			public void setAmount(int amount) {
+				this.amount = amount;
+			}
+			
+			//내용
+			public String getContent() {
+				return content;
+			}
+			public void setContent(String content) {
+				this.content = content;
+			}
 
 }
 

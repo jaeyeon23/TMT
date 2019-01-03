@@ -32,7 +32,7 @@
 			가격
 		</th>
 		<td>
-			<s:property value="%{price}"/>
+			<s:property value="%{price * roomnum}"/>
 		</td>
 	</tr>
 	<tr>

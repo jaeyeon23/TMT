@@ -20,6 +20,7 @@
 		<result property="people" column="people" />
 		<result property="room" column="room" /> 
 		<result property="id" column="id" />
+		<result property="reg_date" column="reg_date" />
 	</resultMap>
 	
 	<resultMap id="order_tourRes" class="order_tour">
@@ -32,6 +33,7 @@
 		<result property="image1" column="image1" />
 		<result property="amount" column="amount" />
 		<result property="id" column="id" />
+		<result property="reg_date" column="reg_date" />
 	</resultMap>
 	
 <sql id="select-allo">
@@ -42,15 +44,15 @@
 	<insert id="putorder_H" parameterClass="java.util.Map">
 		INSERT INTO order_hotel
 		(no, name, price, content, country, region, image1, tel, checkin,
-		 checkout, people, room, id)
-		VALUES (#no#, #name#, #price#,#content#, #country#, #region#, #image1#, #tel#, #checkin#,
-		 #checkout#, #maxnum#, #room#, #id#)
+		 checkout, people, room, id, reg_date)
+		VALUES (#no#, #name#, #price#*#room#,#content#, #country#, #region#, #image1#, #tel#, #checkin#,
+		 #checkout#, #maxnum#, #room#, #id#, #reg_date#)
 	</insert>
 	
 	<insert id="putorder_T" parameterClass="java.util.Map">
 		INSERT INTO order_tour
-		(no, name, price, content, country, region, image1, amount, id)
-		VALUES (#no#, #name#, #price#,#content#, #country#, #region#, #image1#, #amount#, #id#)
+		(no, name, price, content, country, region, image1, amount, id, reg_date)
+		VALUES (#no#, #name#, #price#*#amount# ,#content#, #country#, #region#, #image1#, #amount#, #id#, #reg_date#)
 	</insert>
 
 

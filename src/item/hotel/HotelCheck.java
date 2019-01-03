@@ -25,7 +25,7 @@ public class HotelCheck extends ActionSupport implements SessionAware {
 	
 	private String number;     //인원수
 	private String inDay, outDay;  //체크인 체크아웃
-	private String roomnum;       //방개수
+	private int roomnum;       //방개수
 	
 	private int no;            //상품번호
 	private String name;      //상품명   
@@ -35,6 +35,7 @@ public class HotelCheck extends ActionSupport implements SessionAware {
 	private String country;	 //국가
 	private String region;	//지역
 	private String tel;       //전화번호
+
 	
 	private Map session;
 	
@@ -50,8 +51,6 @@ public class HotelCheck extends ActionSupport implements SessionAware {
 	public String execute() throws Exception {
 		return SUCCESS;
 	}
-
-	
 
 		//인원수
 		public String getNumber() {
@@ -73,10 +72,10 @@ public class HotelCheck extends ActionSupport implements SessionAware {
 		public void setOutDay(String outDay) {
 			this.outDay = outDay;
 		}
-		public String getRoomnum() {
+		public int getRoomnum() {
 			return roomnum;
 		}
-		public void setRoomnum(String roomnum) {
+		public void setRoomnum(int roomnum) {
 			this.roomnum = roomnum;
 		}
 

@@ -76,6 +76,11 @@
 		update tour set readcount = readcount+1 where no=#no#
 	</update>
 	
+	<!-- 상품 수량 감소 -->
+	<update id="amountTour" parameterClass="java.util.Map">
+		update tour set amount = amount - #amount# where no=#no#
+	</update>
+	
 	<!-- 수정 -->
 	<update id="updateTour" parameterClass="tour">
 		update tour set name=#name#,price=#price#,content=#content#,country=#country#,region=#region#,main_image=#main_image#,content_image=#content_image#,
