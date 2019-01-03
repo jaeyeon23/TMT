@@ -20,8 +20,11 @@ public class DeleteBasket extends ActionSupport implements SessionAware{
    BasketTVO tvo = new BasketTVO();
 
    private String id;
+   private int no;
+   
    private int[] deleteCheck;
    private int[] deleteCheck2;
+ 
 
    private Map session;
    
@@ -30,35 +33,39 @@ public class DeleteBasket extends ActionSupport implements SessionAware{
       sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
       reader.close();
    }
-
-   public String execute() throws Exception {
-       //호텔
-      hvo.setId(getId());
-      
-
-      if (deleteCheck != null) {
-         for (int i = 0; i < deleteCheck.length; i++) {
-            hvo.setNo(deleteCheck[i]);
-            sqlMapper.delete("deletehbasket", hvo);
-         }
-
-      }
    
-      
-   //투어
-      tvo.setId(getId());
-      
+   public String execute() throws Exception {
 
-      if (deleteCheck2 != null) {
-         for (int i = 0; i < deleteCheck2.length; i++) {
-            tvo.setNo(deleteCheck2[i]);
-            sqlMapper.delete("deletebasket", tvo);
-         }
 
-      }
+		return SUCCESS;
+	}
+	
+	public String Delete() throws Exception {
+		 hvo.setId(getId());
+	      
 
-      return SUCCESS;
-   }
+	      if (deleteCheck != null) {
+	         for (int i = 0; i < deleteCheck.length; i++) {
+	            hvo.setNo(deleteCheck[i]);
+	            sqlMapper.delete("deletehbasket", hvo);
+	         }
+
+	      }
+	   
+	      
+	   //투어
+	      tvo.setId(getId());
+	      
+
+	      if (deleteCheck2 != null) {
+	         for (int i = 0; i < deleteCheck2.length; i++) {
+	            tvo.setNo(deleteCheck2[i]);
+	            sqlMapper.delete("deletetbasket", tvo);
+	         }
+
+	      }
+	      return SUCCESS;
+	}
 
    public static Reader getReader() {
       return reader;
@@ -131,6 +138,17 @@ public class DeleteBasket extends ActionSupport implements SessionAware{
    public void setDeleteCheck2(int[] deleteCheck2) {
       this.deleteCheck2 = deleteCheck2;
    }
+
+   public int getNo() {
+	  return no;
+   }
+
+   public void setNo(int no) {
+	 this.no = no;
+   }
+
+ 
+
    
    
 

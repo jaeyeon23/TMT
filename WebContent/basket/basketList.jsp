@@ -29,9 +29,8 @@
          }
       }
    }
-</script>
-<!--  -->
-<script type="text/javascript">
+   </script> 
+ <script type="text/JavaScript">
    function check() {
 
       if (frm.deleteCheck.checked == false) {
@@ -39,7 +38,44 @@
          return false;
       }
    }
-</script>
+  </script>
+  
+  <script type="text/JavaScript">
+   var check2 = false;
+   function CheckAll2() {
+      var chk2 = document.getElementsByName("deleteCheck2");
+      if (check2 == false) {
+         check2 = true;
+         for (var i = 0; i < chk2.length; i++) {
+            chk2[i].checked = false;
+         }
+      } else {
+         check2 = false;
+         for (var i = 0; i < chk2.length; i++) {
+            chk2[i].checked = true;
+         }
+      }
+   }
+   </script>
+   <script type="text/JavaScript">
+   function check2() {
+
+	      if (frm2.deleteCheck2.checked == false) {
+	         alert("체크박스를 선택해주세요");
+	         return false;
+	      }
+	   }
+   </script>
+ 
+<!-- 
+<script>
+function chkBox(){
+	if(frm.deleteCheck.checked == true){
+		
+	}
+}
+</script>-->
+
 </head>
 <body>
 
@@ -58,11 +94,11 @@
 
 <div class='wishlists-cards-container'>
 
-<div style="float:left;width:50%;"  >
+<div>
 <h4>HOTEL</h4><br>
 hotel&nbsp;<s:property value="totalCount"/>개의 상품
 <table class="table"  align="center">
-
+ <form action="DeleteBasket.action" name="frm" method="post"onsubmit="return check()">
 
    <tr>
       <td colspan=2>
@@ -83,10 +119,11 @@ hotel&nbsp;<s:property value="totalCount"/>개의 상품
             <td width="10%"><font size="2">가격</font></td>
             
          </tr>
+   
     <s:iterator value="bhlist" status="stat">
        <tr align="center">
          <td align="left"><input type="checkBox" class="checkbox" id="del_id" name="deleteCheck" value="<s:property value="no"/>"
-             onclick="chkBox(this.checked)"></td>
+             onclick="chk(this.checked)"></td>
          <td><s:property value="no"/></td>
            <td><s:property value="image1"/></td>
           <td><s:property value="name"/>
@@ -115,12 +152,12 @@ hotel&nbsp;<s:property value="totalCount"/>개의 상품
             <td height="2" bgcolor="#FFDDDD"></td>
          </tr>
       </table>
-      <form action="DeleteBasket.action" name="Bdel" method="post" onsubmit="return check()">
+
       <s:if test="bhlist.size()>0">
          <input type="submit" name="submit" value="선택삭제">
          </s:if>
       <br>
-      </form>
+</form>
    <tr align="center">
       <td colspan="7">
       <s:property value="pagingHtml" escape="false"/>
@@ -129,13 +166,13 @@ hotel&nbsp;<s:property value="totalCount"/>개의 상품
 </table>
 </div>
 
-<div style="float:left;width:50%;"  >
+<div>
 <h4>TOUR</h4><br>
-tour<s:property value="totalCount2"/>개의 상품
+tour&nbsp;<s:property value="totalCount2"/>개의 상품
 <table class="table"   align="center">
+ <form action="DeleteBasket.action" name="frm2" method="post"onsubmit="return check()">
 
-
-   <tr align="center">
+   <tr>
       <td colspan=2>
       <p align="center">
       <input type="hidden" name="order" value="basket">
@@ -143,8 +180,8 @@ tour<s:property value="totalCount2"/>개의 상품
       <table class="table"  cellpadding="0" cellspacing="0">
          <tr height=26 bgcolor="#FFDDDD">
             <td  align=left>
-            <input name="checkall" type="checkbox" 
-                     onclick="javascript:CheckAll()"></td>
+            <input name="checkall2" type="checkbox" 
+                     onclick="javascript:CheckAll2()"></td>
          
             <td width="10%"><font size="2">번호</font></td>
             <td width="15%"><font size="2">사진</font></td>
@@ -155,9 +192,9 @@ tour<s:property value="totalCount2"/>개의 상품
             
          </tr>
     <s:iterator value="btlist" status="stat">
-       <tr align="center">
-         <td align="left"><input type="checkBox" class="checkbox" id="del_id" name="deleteCheck" value="<s:property value="no"/>"
-             onclick="chkBox(this.checked)"></td>
+       <tr>
+         <td align="left"><input type="checkBox" class="checkbox" id="del_id2" name="deleteCheck2" value="<s:property value="no"/>"
+             onclick="chk2(this.checked)"></td>
          <td><s:property value="no"/></td>
            <td><s:property value="image1"/></td>
           <td><s:property value="name"/>
@@ -186,12 +223,12 @@ tour<s:property value="totalCount2"/>개의 상품
             <td height="2" bgcolor="#FFDDDD"></td>
          </tr>
       </table>
-      <form action="DeleteBasket.action" name="Bdel" method="post" onsubmit="return check()">
+
       <s:if test="btlist.size()>0">
-         <input type="submit" name="submit" value="선택삭제">
+         <input type="submit" name="submit"  value="선택삭제" >
          </s:if> 
       <br>
-      </form>
+</form>
    <tr align="center">
       <td colspan="7">
       <s:property value="pagingHtml2" escape="false"/>
