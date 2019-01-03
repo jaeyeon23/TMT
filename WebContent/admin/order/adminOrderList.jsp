@@ -129,13 +129,11 @@
 			<th width="5%"><font size="2">번호</font></th>
 			<th width="10%"><font size="2">사진</font></th>
 			<th width="7%"><font size="2">아이디</font></th>
-			<th width="20%"><font size="2">상품명</font></th>
-			
-			<th width="10%"><font size="2">전화번호</font></th>
-			<th width="10%"><font size="2">체크인</font></th>
-			<th width="10%"><font size="2">체크아웃</font></th>
 			<th width="5%"><font size="2">인원</font></th>
-			<th width="5%"><font size="2">잔여객실</font></th>
+			<th width="5%"><font size="2">도착지</font></th>
+			<th width="5%"><font size="2">출발지</font></th>
+			<th width="5%"><font size="2">도착일</font></th>
+			<th width="5%"><font size="2">출발일</font></th>
 			<th width="7%"><font size="2">가격</font></th>
 		</tr>
 		<s:iterator value="list" status="stat">
@@ -147,17 +145,13 @@
 		<tr bgcolor="#FFFFFF" >
 			<td><input type="checkbox" name="no" value="no"></td>
 			<td><s:property value="no"/></td>
-			<td><img src="/TMT/upload/hotel/<s:property value="image1"/>"></td>
+			<td><img src="/TMT/upload/air/<s:property value="image1"/>"></td>
 			<td><s:property value="id"/></td>
-			<td align="left">
-				<s:a href="%{viewURL}"><s:property value="name"/></s:a>
-			</td>
-			
-			<td><s:property value="tel"/></td>
-			<td><s:property value="checkin"/></td>
-			<td><s:property value="checkout"/></td>
 			<td align="center"><s:property value="people"/></td>
-			<td align="center"><s:property value="room"/></td>
+			<td align="center"><s:property value="dep"/></td>
+			<td align="center"><s:property value="arv"/></td>
+			<td align="center"><s:property value="ad"/></td>
+			<td align="center"><s:property value="dd"/></td>
 			<td><s:property value="price"/></td>
 		</tr>
 		</s:iterator>
