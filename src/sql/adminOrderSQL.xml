@@ -48,12 +48,12 @@
 		<result property="content" column="content" />
 		<result property="air_company" column="air_company" />
 		<result property="people" column="people" />
-		<result property="grade" column="grade" />
+		
 		<result property="reg_date" column="reg_date" />
 	</resultMap> 
 	
 	<select id="orderHList" resultMap="orderHRes">
-		select no,substr(name,0,7) as name,price,country,region,image1,id,tel,to_char(checkin,'yyyy-mm-dd') as checkin,to_char(checkout,'yyyy-mm-dd') as checkout,
+		select no,substr(name,0,7) as name,price,country,region,image1,id,tel,to_date(checkin,'yyyy-mm-dd') as checkin,to_char(checkout,'yyyy-mm-dd') as checkout,
 		content,people,room from order_hotel
 		order by reg_date desc
 	</select>
@@ -75,8 +75,8 @@
 	</select>
 	
 	<select id="orderAList" resultMap="orderARes">
-		select no,price,arv,dep,content,image1,people,seat_grade,to_char(ad,'yyyy-mm-dd hh24:mi') as ad,
-		to_char(dd,'yyyy-mm-dd hh24:mi') as dd,air_company,id,reg_date
+		select no,price,arv,dep,content,image1,people,seat_grade,ad,
+		dd,air_company,id,reg_date
 		from order_air
 		order by reg_date desc
 	</select>

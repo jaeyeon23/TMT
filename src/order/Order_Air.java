@@ -15,7 +15,7 @@ public class Order_Air {
 	private Date ad;
 	private Date dd;
 	private String air_company;
-	private int grade;
+
 	private String id;
 	private Date reg_date;
 	
@@ -85,12 +85,7 @@ public class Order_Air {
 	public void setAir_company(String air_company) {
 		this.air_company = air_company;
 	}
-	public int getGrade() {
-		return grade;
-	}
-	public void setGrade(int grade) {
-		this.grade = grade;
-	}
+	
 	public String getId() {
 		return id;
 	}
