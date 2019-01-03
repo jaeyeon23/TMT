@@ -100,8 +100,6 @@ public class AdminTourModify extends ActionSupport implements SessionAware {
 				
 				File destFile = new File(fileUploadPath + getUploadsFileName().get(i));
 				FileUtils.copyFile(getUploads().get(i), destFile);
-				
-				System.out.println(destFile.toString());
 					
 			}
 			

@@ -164,7 +164,6 @@ $(function()
 							<s:iterator value="imageList" status="stat">
 								<div class="offer-container__introduction--wrapper">
 									<img class="offer-container__introduction__image" src="<s:property value="imageList[#stat.index]"/>" alt="introduction">
-									<s:property value="imageList[#stat.index]"/>
 								</div>
 							</s:iterator>
 						<div class="with-more " style="max-height: 250px;">

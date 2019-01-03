@@ -172,11 +172,25 @@
 										<td><s:file label="제품 메인이미지1" name="uploads"><s:property value="main" /></s:file></td>
 									</tr>
 									<tr>
-										
-										<td><s:file label="제품이미지1" name="uploads"><s:property value="content1" /></s:file></td>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
 									</tr>
 									<tr>
-										<td><s:file label="제품이미지2" name="uploads"><s:property value="content2" /></s:file></td>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
 									</tr>
 									
 								</table>
