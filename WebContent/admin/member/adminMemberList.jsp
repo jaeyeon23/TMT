@@ -49,16 +49,9 @@
 <body>
 
 <div class="resp-container--row ">
-	<div class='select-wrapper' align="center">
-		<div align="right">
-			<select>
-				<option value="투어">투어&티켓</option>
-				<option value="숙소">숙소</option>
-				<option value="숙소">항공</option>
-			</select>
-		</div>
-	</div>
-	<table class="table" border="1" width="100%" cellpadding="0" cellspacing="0">
+	<hr>
+	<br>
+	<table class="table" border="0" width="100%" cellpadding="0" cellspacing="0">
 	    <tr height=26>
 			<th width="5%"><font size="2">번호</font></th>
 			<th width="6%"><font size="2">사진</font></th>
@@ -75,7 +68,7 @@
 				<s:property value="no"/>
 			</td>	
 			<td>
-				<s:property value="image1"/>
+				<img src="/TMT/upload/member/<s:property value="image1"/>"/>
 			</td>	
 			<td>
 				<s:property value="id"/>

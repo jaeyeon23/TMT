@@ -113,7 +113,7 @@ $(function()
 				<div class="offer-review" id="review">
 					<!-- reviewWrite -->
 					<div class="offer-review__header">
-						<h4 class="offer-review__header__title">문의<span>168</span></h4>
+						<h4 class="offer-review__header__title">문의<span><s:property value="%{totalCount}"/></span></h4>
 					</div>
 					<div class="offer-review__detail-info">
 						<form action="AdminTourComment.action"> <!-- method="post" -->
