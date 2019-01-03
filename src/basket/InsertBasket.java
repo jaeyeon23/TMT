@@ -1,6 +1,9 @@
 package basket;
 
 import com.opensymphony.xwork2.ActionSupport;
+
+import member.MemberVO;
+
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
@@ -25,7 +28,7 @@ public class InsertBasket extends ActionSupport implements SessionAware {
 	
 	private List<BasketHVO> bhlist = new ArrayList<BasketHVO>();
 	private BasketHVO hvo = new BasketHVO();
-
+	
 	private int no;
 	private String name;
 	private int price;
@@ -44,9 +47,7 @@ public class InsertBasket extends ActionSupport implements SessionAware {
 	@Override
 	public String execute() throws Exception {
 
-		if (type == "0") {// 투어&티켓
-
-			
+		if (type.equals("0")) {// 투어&티켓
 			
 			tvo.setId(getId());
 			tvo.setName(getName());
@@ -58,25 +59,29 @@ public class InsertBasket extends ActionSupport implements SessionAware {
 			
 			sqlMapper.insert("insertbaskettour", tvo);
 			
+			/*btlist = sqlMapper.queryForList("selbaskettour", getId());*/
+			
 
 			return SUCCESS;
 			
-		} else if (type == "1") {// 숙소
+		} else if (type.equals("2")) {// 숙소
 
-			hvo.setId(id);
-			hvo.setName(name);
-			hvo.setNo(no);
-			hvo.setCountry(country);
-			hvo.setRegion(region);
-			hvo.setPrice(price);
-			hvo.setImage1(image1);
+			hvo.setId(getId());
+			hvo.setName(getName());
+			hvo.setNo(getNo());
+			hvo.setCountry(getCountry());
+			hvo.setRegion(getRegion());
+			hvo.setPrice(getPrice());
+			hvo.setImage1(getImage1());
 			
-			bhlist = (List<BasketHVO>) sqlMapper.queryForObject("insertbaskethotel", hvo);
+			sqlMapper.insert("insertbaskethotel", hvo);
+			
+			/*bhlist = sqlMapper.queryForList("selbaskethotel", getId());*/
 
 			return SUCCESS;
 		}
 
-		return ERROR;
+		return SUCCESS;
 
 	}
 

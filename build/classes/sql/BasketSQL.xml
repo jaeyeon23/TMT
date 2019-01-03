@@ -4,13 +4,23 @@
 
 <sqlMap>
 
-	<typeAlias alias="basket" type="basket.BasketTVO" />
-
-	<resultMap id="basketRes" class="basket">
+	<typeAlias alias="baskettour" type="basket.BasketTVO" />
+	<typeAlias alias="baskethotel" type="basket.BasketHVO" />
+	
+	<resultMap id="basketRestour" class="baskettour">
 		<result property="no" column="no" />
 		<result property="name" column="name" />
 		<result property="price" column="price" />
-		<result property="content" column="content" />
+		<result property="country" column="country" />
+		<result property="region" column="region" />
+		<result property="image1" column="image1" />
+		<result property="id" column="id" />
+	</resultMap>
+	
+	<resultMap id="basketReshotel" class="baskethotel">
+		<result property="no" column="no" />
+		<result property="name" column="name" />
+		<result property="price" column="price" />
 		<result property="country" column="country" />
 		<result property="region" column="region" />
 		<result property="image1" column="image1" />
@@ -18,43 +28,32 @@
 	</resultMap>
 
 
-	<!-- 가져온 상품의 정보를 장바구니 테이블에 저장 -->
-	<insert id="insertbaskettour" parameterClass="basket">
-		INSERT INTO BASKET_TOUR
-		(no, name, price, content, country, region,
-		id,
-		image1)
+<!-- 가져온 상품의 정보를 장바구니 테이블에 저장 -->
+	<insert id="insertbaskettour" parameterClass="baskettour">
+		INSERT INTO BASKET_TOUR VALUES 
+		(#no#, #name#, #price#, #country#, #region#,
+		#image1#, #id#)
 		<!-- WHERE ID=#id# -->
 	</insert>
 
-<!-- 	<insert id="insertbaskethotel" parameterClass="basket">
-		INSERT INTO BASKET_HOTEL
-		(no, name, price, content, country, region,
-		id,
-		image1)
-		WHERE ID=#id#
-	</insert> -->
-	
-<!-- 장바구니에 담기 -->	
-	<select id="selbaskettour" resultMap="basketRes" parameterClass="string">
+<!-- 장바구니에 담기 -->
+	<select id="selbaskettour" resultMap="basketRestour"
+		parameterClass="java.lang.String">
 		SELECT* FROM BASKET_TOUR
-		WHERE ID=#id#
 	</select>
 
+<!-- 가져온 상품의 정보를 장바구니 테이블에 저장 -->
+	<insert id="insertbaskethotel" parameterClass="baskethotel">
+		INSERT INTO BASKET_HOTEL VALUES 
+		(#no#, #name#, #price#, #country#, #region#,
+		#image1#, #id#)
+		<!-- WHERE ID=#id# -->
+	</insert>
 
-	<!-- 세션 id값에 해당하는 장바구니 테이블의 정보를 가져온다. -->
-	<select id="selectbasket" resultMap="basketRes"
-		parameterClass="basket">
-		SELECT * FROM basket WHERE id = #id#
+<!-- 장바구니에 담기 -->
+	<select id="selbaskethotel" resultMap="basketReshotel"
+		parameterClass="java.lang.String">
+		SELECT* FROM BASKET_HOTEL
 	</select>
-
-
-	<!-- 장바구니 체크박스 선택 삭제 -->
-	<delete id="deletebasket" parameterClass="basket">
-		DELETE FROM basket
-		WHERE no = #no# and id = #id#
-	</delete>
-
-
 
 </sqlMap>
