@@ -75,7 +75,7 @@
 		</div>
 	</div>
 <div id="tourList">
-<s:if test="cc==h">
+<s:if test='%{cc=="h"}'>
 	<h2>호텔</h2>
 	<table class="table" border="0" width="100%" cellpadding="0" cellspacing="0">
 	    <tr height=26>
@@ -119,7 +119,7 @@
 		</s:iterator>
 	</table>
 </s:if>
-<%-- <s:elseif test="cc==a">
+<s:elseif test='%{cc=="a"}'>
 <h2>항공</h2>
 	<table class="table" border="0" width="100%" cellpadding="0" cellspacing="0">
 	    <tr height=26>
@@ -162,7 +162,7 @@
 		</tr>
 		</s:iterator>
 	</table>
-</s:elseif> --%>
+</s:elseif>
 <s:else>
 <h2>투어</h2>
 	<table class="table" border="0" width="100%" cellpadding="0" cellspacing="0">

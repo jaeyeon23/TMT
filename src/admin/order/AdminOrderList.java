@@ -26,7 +26,7 @@ public class AdminOrderList extends ActionSupport{
 	private String pagingHtml;
 	private OrderPaging page;
 	private String c;
-	
+	private String cc;
 	
 	private List list = new ArrayList();
 	public AdminOrderList() throws IOException{
@@ -36,7 +36,7 @@ public class AdminOrderList extends ActionSupport{
 	      reader.close();
 	}
 	public String execute() throws Exception {
-		String cc = getC();
+		cc = getC();
 		
 		if(cc==null || cc.equals("h")) {
 			list = sqlMapper.queryForList("orderHList");
@@ -62,6 +62,12 @@ public class AdminOrderList extends ActionSupport{
 	
 	
 	
+	public String getCc() {
+		return cc;
+	}
+	public void setCc(String cc) {
+		this.cc = cc;
+	}
 	public String getC() {
 		return c;
 	}
