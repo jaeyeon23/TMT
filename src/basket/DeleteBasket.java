@@ -41,6 +41,8 @@ public class DeleteBasket extends ActionSupport implements SessionAware{
 	}
 	
 	public String Delete() throws Exception {
+		//System.out.println(id);
+		
 		 hvo.setId(getId());
 	      
 

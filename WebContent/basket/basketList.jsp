@@ -37,6 +37,7 @@
          alert("체크박스를 선택해주세요");
          return false;
       }
+      else 
    }
   </script>
   
@@ -67,14 +68,7 @@
 	   }
    </script>
  
-<!-- 
-<script>
-function chkBox(){
-	if(frm.deleteCheck.checked == true){
-		
-	}
-}
-</script>-->
+
 
 </head>
 <body>
@@ -99,7 +93,7 @@ function chkBox(){
 hotel&nbsp;<s:property value="totalCount"/>개의 상품
 <table class="table"  align="center">
  <form action="DeleteBasket.action" name="frm" method="post"onsubmit="return check()">
-
+	<input type="hidden" name="id" value="<s:property value="%{session.session_id}"/>"/>
    <tr>
       <td colspan=2>
       <p align="center">
@@ -120,7 +114,7 @@ hotel&nbsp;<s:property value="totalCount"/>개의 상품
             
          </tr>
    
-    <s:iterator value="bhlist" status="stat">
+    <s:iterator value="bhlist" status="stat">    	
        <tr align="center">
          <td align="left"><input type="checkBox" class="checkbox" id="del_id" name="deleteCheck" value="<s:property value="no"/>"
              onclick="chk(this.checked)"></td>
@@ -158,11 +152,14 @@ hotel&nbsp;<s:property value="totalCount"/>개의 상품
          </s:if>
       <br>
 </form>
+
    <tr align="center">
       <td colspan="7">
+
       <s:property value="pagingHtml" escape="false"/>
       </td>
    </tr> 
+
 </table>
 </div>
 
@@ -171,7 +168,7 @@ hotel&nbsp;<s:property value="totalCount"/>개의 상품
 tour&nbsp;<s:property value="totalCount2"/>개의 상품
 <table class="table"   align="center">
  <form action="DeleteBasket.action" name="frm2" method="post"onsubmit="return check()">
-
+	<input type="hidden" name="id" value="<s:property value="%{session.session_id}"/>"/>
    <tr>
       <td colspan=2>
       <p align="center">
@@ -231,9 +228,11 @@ tour&nbsp;<s:property value="totalCount2"/>개의 상품
 </form>
    <tr align="center">
       <td colspan="7">
+
       <s:property value="pagingHtml2" escape="false"/>
       </td>
-   </tr> 
+   </tr>
+
 </table>
 </div>
 </div>
