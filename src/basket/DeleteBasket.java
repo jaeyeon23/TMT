@@ -7,97 +7,131 @@ import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
-
-import member.MemberVO;
-
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 
 
 public class DeleteBasket extends ActionSupport implements SessionAware{
-	
-	private static Reader reader;
-	private static SqlMapClient sqlMapper;
+   
+   private static Reader reader;
+   private static SqlMapClient sqlMapper;
 
-	BasketVO bvo = new BasketVO();
+   BasketHVO hvo = new BasketHVO();
+   BasketTVO tvo = new BasketTVO();
 
-	private String id;
-	private int[] deleteCheck;
-	
-	private BasketVO paramClass= new BasketVO();
-	private BasketVO resultClass = new BasketVO();
+   private String id;
+   private int[] deleteCheck;
+   private int[] deleteCheck2;
 
-	private Map session;
-	
-	public DeleteBasket() throws IOException {
-		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
-		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
-		reader.close();
-	}
+   private Map session;
+   
+   public DeleteBasket() throws IOException {
+      reader = Resources.getResourceAsReader("sqlMapConfig.xml");
+      sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
+      reader.close();
+   }
 
-	public String execute() throws Exception {
+   public String execute() throws Exception {
+       //호텔
+      hvo.setId(getId());
+      
 
-		bvo.setId((String) session.get("session_id"));
-		//resultClass = (BasketVO) sqlMapper.queryForObject("deletebasket",paramClass);		
-		
+      if (deleteCheck != null) {
+         for (int i = 0; i < deleteCheck.length; i++) {
+            hvo.setNo(deleteCheck[i]);
+            sqlMapper.delete("deletehbasket", hvo);
+         }
 
-		if (deleteCheck != null) {
-			for (int i = 0; i < deleteCheck.length; i++) {
-				bvo.setNo(deleteCheck[i]);
-				resultClass = (BasketVO) sqlMapper.queryForObject("deletebasket",bvo);	
-			}
+      }
+   
+      
+   //투어
+      tvo.setId(getId());
+      
 
-		}
+      if (deleteCheck2 != null) {
+         for (int i = 0; i < deleteCheck2.length; i++) {
+            tvo.setNo(deleteCheck2[i]);
+            sqlMapper.delete("deletebasket", tvo);
+         }
 
-		return SUCCESS;
-	}
+      }
 
-	public static Reader getReader() {
-		return reader;
-	}
+      return SUCCESS;
+   }
 
-	public static SqlMapClient getSqlMapper() {
-		return sqlMapper;
-	}
+   public static Reader getReader() {
+      return reader;
+   }
 
-	public static void setSqlMapper(SqlMapClient sqlMapper) {
-		DeleteBasket.sqlMapper = sqlMapper;
-	}
+   public static SqlMapClient getSqlMapper() {
+      return sqlMapper;
+   }
 
-	public BasketVO getBvo() {
-		return bvo;
-	}
+   public static void setSqlMapper(SqlMapClient sqlMapper) {
+      DeleteBasket.sqlMapper = sqlMapper;
+   }
 
-	public void setBvo(BasketVO bvo) {
-		this.bvo = bvo;
-	}
+   public BasketHVO gethvo() {
+      return hvo;
+   }
 
-	public String getId() {
-		return id;
-	}
+   public void sethvo(BasketHVO hvo) {
+      this.hvo = hvo;
+   }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+   public String getId() {
+      return id;
+   }
 
-	public int[] getDeleteCheck() {
-		return deleteCheck;
-	}
+   public void setId(String id) {
+      this.id = id;
+   }
 
-	public void setDeleteCheck(int[] deleteCheck) {
-		this.deleteCheck = deleteCheck;
-	}
+   public int[] getDeleteCheck() {
+      return deleteCheck;
+   }
 
-	public static void setReader(Reader reader) {
-		DeleteBasket.reader = reader;
-	}
+   public void setDeleteCheck(int[] deleteCheck) {
+      this.deleteCheck = deleteCheck;
+   }
 
-	public Map getSession() {
-		return session;
-	}
+   public static void setReader(Reader reader) {
+      DeleteBasket.reader = reader;
+   }
 
-	public void setSession(Map session) {
-		this.session = session;
-	}
+   public Map getSession() {
+      return session;
+   }
+
+   public void setSession(Map session) {
+      this.session = session;
+   }
+
+   public BasketHVO getHvo() {
+      return hvo;
+   }
+
+   public void setHvo(BasketHVO hvo) {
+      this.hvo = hvo;
+   }
+
+   public BasketTVO getTvo() {
+      return tvo;
+   }
+
+   public void setTvo(BasketTVO tvo) {
+      this.tvo = tvo;
+   }
+
+   public int[] getDeleteCheck2() {
+      return deleteCheck2;
+   }
+
+   public void setDeleteCheck2(int[] deleteCheck2) {
+      this.deleteCheck2 = deleteCheck2;
+   }
+   
+   
 
 }
