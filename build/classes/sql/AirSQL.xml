@@ -65,19 +65,15 @@
 			<isNotNull prepend="and" removeFirstPrepend="true" open="(" close=")">
 				<isNotEmpty prepend="or" property="ckAD_1">
 					SUBSTR(TO_CHAR(AD,'YYYYMMDDHH24MISS'),9) between '000000' and '0600000' 
-					<!-- (ad between to_date(concat(#ad#, '00:00:00'), 'yyyy-MM-dd HH24:MI:SS') and to_date(concat(#ad#, '06:00:00'), 'yyyy-MM-dd HH24:MI:SS')) --> 
 				</isNotEmpty>
 				<isNotEmpty prepend="or" property="ckAD_2">
 					SUBSTR(TO_CHAR(AD,'YYYYMMDDHH24MISS'),9) between '060000' and '1200000' 
-					<!-- (ad between to_date(concat(#ad#, '06:00:00'), 'yyyy-MM-dd HH24:MI:SS') and to_date(concat(#ad#, '12:00:00'), 'yyyy-MM-dd HH24:MI:SS')) --> 
 				</isNotEmpty>
 				<isNotEmpty prepend="or" property="ckAD_3">
 					SUBSTR(TO_CHAR(AD,'YYYYMMDDHH24MISS'),9) between '120000' and '1800000' 
-					<!-- (ad between to_date(concat(#ad#, '12:00:00'), 'yyyy-MM-dd HH24:MI:SS') and to_date(concat(#ad#, '18:00:00'), 'yyyy-MM-dd HH24:MI:SS')) --> 
 				</isNotEmpty>
 				<isNotEmpty prepend="or" property="ckAD_4">
 					SUBSTR(TO_CHAR(AD,'YYYYMMDDHH24MISS'),9) between '180000' and '2400000' 
-					<!-- (ad between to_date(concat(#ad#, '18:00:00'), 'yyyy-MM-dd HH24:MI:SS') and to_date(concat(#ad#, '23:59:59'), 'yyyy-MM-dd HH24:MI:SS')) -->  
 				</isNotEmpty>
 			</isNotNull>
 				
