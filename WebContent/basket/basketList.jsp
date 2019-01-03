@@ -189,7 +189,7 @@ tour<s:property value="totalCount2"/>개의 상품
       <form action="DeleteBasket.action" name="Bdel" method="post" onsubmit="return check()">
       <s:if test="btlist.size()>0">
          <input type="submit" name="submit" value="선택삭제">
-         </s:if>
+         </s:if> 
       <br>
       </form>
    <tr align="center">
