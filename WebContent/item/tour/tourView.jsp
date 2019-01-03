@@ -34,12 +34,6 @@ $(function()
   position: sticky;
   top: 80px;
 }
-#Hsearch2 input[type="submit"]{
-   width:100%;
-   margin-top:30px;
-   height: 40px;
-
-}
 </style>
 </head>
 <body>
@@ -53,8 +47,7 @@ $(function()
 							<div class="offer__side__main-box--body">
 								<div class="offer__side__main-box__price">	
 									<p class="offer__side__main-box__price--main"><s:property value="%{resultClass.price}"/>
-										<span class="offer__side__main-box__price--won">원 (1개)</span>
-										<span class="offer__side__main-box__price--infoRight">/ 남은 수량:<s:property value="%{resultClass.amount}"/></span>
+										<span class="offer__side__main-box__price--won">원</span>
 									</p>
 								</div>
 								<div class="offer__side__main-box__share-wrapper " role="button" tabindex="-1">
@@ -62,27 +55,12 @@ $(function()
 										<div class="Popover  right-reverse "></div>
 								</div>
 								<s:if test="%{session.session_id!=null}">
-									<form action="TourCheck.action" id="Hsearch2">
-										<select name="amount" class="form-control">
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
-											<option value="5">5</option>
-											<option value="6">6</option>
-											<option value="7">7</option>
-											<option value="8">8</option>
-											<option value="9">9</option>
-											<option value="9">10</option>
-										</select>
-										<s:hidden name="no" value="%{resultClass.no}" />
+									<form action="TourCheck.action">
+										<s:hidden name="no" value="%{no}" />
 										<s:hidden name="name" value="%{resultClass.name}" />
 										<s:hidden name="price" value="%{resultClass.price}" />  <!-- 가격 -->
-										<s:hidden name="content" value="%{resultClass.content}" />  <!-- 내용 -->
 										<s:hidden name="country" value="%{resultClass.country}" />  <!-- 국가 -->
 										<s:hidden name="region" value="%{resultClass.region}" />  <!-- 지역 -->
-										<s:hidden name="image1" value="%{resultClass.main_image}" />  <!-- 지역 -->
-										<s:hidden name="id" value="%{session.session_id}" />  <!-- 지역 -->
 							
 										<input type="submit" class="app-button app-button__type--primary app-button__size--l" value="예약 하기">
 									</form>
