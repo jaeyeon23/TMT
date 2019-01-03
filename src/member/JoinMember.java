@@ -48,6 +48,8 @@ public class JoinMember extends ActionSupport implements SessionAware{
 	private int tel;
 	private int admin;
 	private Date regdate;
+	private String marketing1;
+	private String marketing2;
 	
 	private String confirmidcheck;
 	private String confirmemail;
@@ -82,6 +84,8 @@ public class JoinMember extends ActionSupport implements SessionAware{
 	    paramClass.setAdmin(getAdmin());
 	    paramClass.setPassport(getPassport());
 	    paramClass.setRegdate(today.getTime());
+	    paramClass.setMarketing1(getMarketing1());
+	    paramClass.setMarketing2(getMarketing2());
 	    sqlMapper.insert("JoinMember", paramClass);
 
 		return SUCCESS;
@@ -135,7 +139,7 @@ public class JoinMember extends ActionSupport implements SessionAware{
 		//회원가입폼에서 입력한 정보를 노출되지않게 a태그로 발송
 		//여기를 누르면 해당 값이 가입로직으로 전달됨
 		String confirmUrl = "<a href='http://localhost:8080/TMT/Join.action?email=" + email + "&id=" + id
-				+ "&password=" + password + "&name=" + name + "" + "&tel=" + tel + "&passport=" + passport + "&admin=5'>여기</a>를 누르시면 회원가입이 완료됩니다.";
+				+ "&password=" + password + "&name=" + name + "" + "&tel=" + tel + "&passport=" + passport +"&marketing1="+marketing1+"&marketing2="+marketing2+ "&admin=5'>여기</a>를 누르시면 회원가입이 완료됩니다.";
 
 		Multipart mp = new MimeMultipart();
 		MimeBodyPart mbp1 = new MimeBodyPart();
@@ -305,6 +309,22 @@ public class JoinMember extends ActionSupport implements SessionAware{
 
 	public void setSession(Map session) {
 		this.session = session;
+	}
+
+	public String getMarketing1() {
+		return marketing1;
+	}
+
+	public void setMarketing1(String marketing1) {
+		this.marketing1 = marketing1;
+	}
+
+	public String getMarketing2() {
+		return marketing2;
+	}
+
+	public void setMarketing2(String marketing2) {
+		this.marketing2 = marketing2;
 	}
 	
 	
