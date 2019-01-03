@@ -9,11 +9,20 @@
 		<action name="BasketList" class="basket.BasketList">
 			<result name="success" type="tiles">BasketList</result>
 		</action>
-	
-		<action name="BasketInsert" class="basket.InsertBasket">
-			<result name="success" type="tiles">BasketInsert</result>
+		
+		<action name="InsertBasket" class="basket.InsertBasket">
+			<result type="redirect-action">
+		   		<param name="actionName">BasketList</param>
+		   	</result>
 		</action>
 		
+		<action name="DeleteBasket" class="basket.DeleteBasket" method="Delete">
+		   	<result type="redirect-action">
+		   		<param name="actionName">BasketList</param>
+		   	</result>
+		</action>
+
+
 		<action name="OrderList" class="order.OrderList">
 			<result name="success" type="tiles">OrderList</result>
 		</action>
@@ -27,15 +36,5 @@
 		</action>
 		
 		
-		<action name="InsertBasket" class="basket.InsertBasket">
-			<result name="success" type="tiles">BasketList</result>
-		</action>
-		
-		<action name="DeleteBasket" class="basket.DeleteBasket" method="Delete">
-		   	<result type="redirect-action">
-		   	<param name="actionName">BasketList</param>
-		   	</result>
-		</action>
-
 	</package>
 </struts>

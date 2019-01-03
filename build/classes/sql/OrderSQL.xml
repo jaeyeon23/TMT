@@ -5,6 +5,7 @@
 <sqlMap>
 	<typeAlias alias="order_hotel" type="order.Order_Hotel" />
 	<typeAlias alias="order_tour" type="order.Order_Tour" />
+	<typeAlias alias="order_air" type="order.Order_Air" />
 	
 	<resultMap id="order_hotleRes" class="order_hotel">
 		<result property="no" column="no" />
@@ -53,6 +54,12 @@
 		INSERT INTO order_tour
 		(no, name, price, content, country, region, image1, amount, id, reg_date)
 		VALUES (#no#, #name#, #price#*#amount# ,#content#, #country#, #region#, #image1#, #amount#, #id#, #reg_date#)
+	</insert>
+	
+	<insert id="putorder_A" parameterClass="order_air">
+		INSERT INTO order_air
+		(no, arv, dep, price, content, image1, people, seat_grade, ad, dd, air_company, id, reg_date)
+		VALUES (#no#, #arv#, #dep#, #price#, #content#, #image1#, #people#, #seat_grade#, #ad#, #dd#, #air_company#, #id#, sysdate)
 	</insert>
 
 
