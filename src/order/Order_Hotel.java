@@ -18,9 +18,12 @@ public class Order_Hotel {
 	private int people; 	//인원수
 	private int room; 
 	private String id;
+
 	private String reg_date; 	// 구매시간
+
 	
 	
+
 	public String getId() {
 		return id;
 	}

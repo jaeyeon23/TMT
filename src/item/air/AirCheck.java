@@ -3,13 +3,17 @@ package item.air;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.charset.Charset;
+import java.util.Date;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
-import java.util.Map;
-import org.apache.struts2.interceptor.SessionAware;
+
+import order.Order_Air;
 
 public class AirCheck extends ActionSupport implements SessionAware {
 
@@ -19,14 +23,28 @@ public class AirCheck extends ActionSupport implements SessionAware {
 
 	private AirVO avo = new AirVO();
 	private AirVO result = new AirVO();
+	private Order_Air oa = new Order_Air();
 	
 	private int no;
 	private int seat;	
 	
+	
+	/*order_air vo*/
+	private String arv;
+	private String dep;
+	private int price;
+	private String content;
+	private String image1;
+	private int people;
+	private int seat_grade;
+	private Date ad;
+	private Date dd;
+	private String air_company;
+	private int grade;
+	private String id;
 	private Map session;
 	
 	public AirCheck() throws IOException {
-		/*sql�� �ѱ��� ������ ���� ����*/
 		Charset charset = Charset.forName("UTF-8");
 		Resources.setCharset(charset);
 
@@ -43,6 +61,21 @@ public class AirCheck extends ActionSupport implements SessionAware {
 		
 		sqlMapper.insert("update_seat", avo);
 		result = (AirVO) sqlMapper.queryForObject("airCheck", getNo());
+
+		oa.setNo(result.getNo());
+		oa.setArv(result.getArv());
+		oa.setDep(result.getDep());
+		oa.setPrice(result.getPrice());
+		oa.setContent(result.getContent());
+		oa.setImage1(result.getImage1());
+		oa.setPeople(getSeat());
+		oa.setSeat_grade(result.getSeat_grade());
+		oa.setAd(result.getAd());
+		oa.setDd(result.getDd());
+		oa.setAir_company(result.getAir_company());
+		oa.setId(getId());
+		
+		sqlMapper.insert("putorder_A", oa);
 		
 		return SUCCESS;
 	}
@@ -85,6 +118,110 @@ public class AirCheck extends ActionSupport implements SessionAware {
 
 	public void setSession(Map session) {
 		this.session = session;
+	}
+
+	public Order_Air getOa() {
+		return oa;
+	}
+
+	public void setOa(Order_Air oa) {
+		this.oa = oa;
+	}
+
+	public String getArv() {
+		return arv;
+	}
+
+	public void setArv(String arv) {
+		this.arv = arv;
+	}
+
+	public String getDep() {
+		return dep;
+	}
+
+	public void setDep(String dep) {
+		this.dep = dep;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getImage1() {
+		return image1;
+	}
+
+	public void setImage1(String image1) {
+		this.image1 = image1;
+	}
+
+	public int getPeople() {
+		return people;
+	}
+
+	public void setPeople(int people) {
+		this.people = people;
+	}
+
+	public int getSeat_grade() {
+		return seat_grade;
+	}
+
+	public void setSeat_grade(int seat_grade) {
+		this.seat_grade = seat_grade;
+	}
+
+	public Date getAd() {
+		return ad;
+	}
+
+	public void setAd(Date ad) {
+		this.ad = ad;
+	}
+
+	public Date getDd() {
+		return dd;
+	}
+
+	public void setDd(Date dd) {
+		this.dd = dd;
+	}
+
+	public String getAir_company() {
+		return air_company;
+	}
+
+	public void setAir_company(String air_company) {
+		this.air_company = air_company;
+	}
+
+	public int getGrade() {
+		return grade;
+	}
+
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 	
 }

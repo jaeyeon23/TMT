@@ -3,31 +3,73 @@
 	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 <sqlMap>
 
-	<typeAlias alias="order" type="order.OrderVO" />
-
-	<resultMap id="orderRes" class="order">
+	<typeAlias alias="orderH" type="order.Order_Hotel" />
+	<typeAlias alias="orderA" type="order.Order_Air"/>
+	<typeAlias alias="orderT" type="order.Order_Tour" />
+	
+	<resultMap id="orderTRes" class="orderT">
 		<result property="no" column="no" />
-		<result property="seq_no" column="seq_no" />
 		<result property="name" column="name" />
-		<result property="arv" column="arv" />
-		<result property="dep" column="dep" />
 		<result property="price" column="price" />
 		<result property="country" column="country" />
 		<result property="region" column="region" />
 		<result property="image1" column="image1" />
 		<result property="id" column="id" />
-		<result property="day" column="day" />
+		<result property="content" column="content" />
+		<result property="amount" column="amount" />
+	</resultMap>
+
+	<resultMap id="orderHRes" class="orderH">
+		<result property="no" column="no" />
+		<result property="name" column="name" />
+		<result property="price" column="price" />
+		<result property="country" column="country" />
+		<result property="region" column="region" />
+		<result property="image1" column="image1" />
+		<result property="id" column="id" />
+		<result property="tel" column="tel" />
 		<result property="checkin" column="checkin" />
 		<result property="checkout" column="checkout" />
-		<result property="ad" column="ad" />
-		<result property="dd" column="dd" />
-		<result property="type" column="type" />
+		<result property="content" column="content" />
+		<result property="people" column="people" />
+		<result property="room" column="room" />
 	</resultMap>
 	
-	<select id="orderList" resultMap="orderRes">
-		select * from ordervo
+	<!-- <resultMap id="orderARes" class="orderA">
+		<result property="no" column="no" />
+		<result property="price" column="price" />
+		<result property="country" column="country" />
+		<result property="region" column="region" />
+		<result property="image1" column="image1" />
+		<result property="id" column="id" />
+		<result property="tel" column="tel" />
+		<result property="checkin" column="checkin" />
+		<result property="checkout" column="checkout" />
+		<result property="content" column="content" />
+		<result property="people" column="people" />
+		<result property="room" column="room" />
+	</resultMap> -->
+	
+	<select id="orderHList" resultMap="orderHRes">
+		select no,substr(name,0,7) as name,price,country,region,image1,id,tel,to_char(checkin,'yyyy-mm-dd') as checkin,to_char(checkout,'yyyy-mm-dd') as checkout,
+		content,people,room from order_hotel
 		order by no desc
 	</select>
 	
+	<select id="orderHView" resultMap="orderHRes">
+		select * from order_hotel
+		where no = #no#
+	</select>
+	
+	<select id="orderTList" resultMap="orderTRes">
+		select no,substr(name,0,7) as name,price,country,region,image1,id,
+		content from order_tour
+		order by no desc
+	</select>
+	
+	<select id="orderTView" resultMap="orderTRes">
+		select * from order_tour
+		where no = #no#
+	</select>
 	
 </sqlMap>

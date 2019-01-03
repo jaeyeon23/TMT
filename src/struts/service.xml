@@ -6,7 +6,7 @@
 <struts>
 	<package name="service" extends="struts-default, tiles-default">
 		
-		<action name="BasketList" class="basket.BasketHList">
+		<action name="BasketList" class="basket.BasketList">
 			<result name="success" type="tiles">BasketList</result>
 		</action>
 	
@@ -26,12 +26,15 @@
 			<result name="success" type="tiles">ModifyOrder</result>
 		</action>
 		
-		<action name="DeleteBasket" class="basket.DeleteBasket">
-			<result name="success" type="tiles">DeleteBasket</result>
-		</action>
 		
 		<action name="InsertBasket" class="basket.InsertBasket">
 			<result name="success" type="tiles">BasketList</result>
+		</action>
+		
+		<action name="DeleteBasket" class="basket.DeleteBasket" method="Delete">
+		   	<result type="redirect-action">
+		   	<param name="actionName">BasketList</param>
+		   	</result>
 		</action>
 
 	</package>

@@ -116,14 +116,14 @@ $(function()
 							<form action="InsertBasket.action" method="get">
 							<button type="submit" >
 								<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;">위시리스트<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;">
-								<%-- <s:hidden name="no" value="%{resultClass.no}"/>
+								<s:hidden name="no" value="%{resultClass.no}"/>
 								<s:hidden name="name" value="%{resultClass.name}"/>
 								<s:hidden name="price" value="%{resultClass.price}"/>
 								<s:hidden name="country" value="%{resultClass.country}"/>
 								<s:hidden name="region" value="%{resultClass.region}"/>
 								<s:hidden name="image1" value="%{resultClass.main_image}"/><!-- <s:hidden name="image1" value="%{resultClass.image1}"/> -->
 								<s:hidden name="id" value="%{session.session_id}"/>
-								<s:hidden name="type" value="2"/> --%>
+								<s:hidden name="type" value="2"/>
 							</button>
 							</form>
 							</center>

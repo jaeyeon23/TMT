@@ -186,10 +186,6 @@
 		<put-attribute name="body" value="/basket/basketList.jsp" />
 	</definition>
 	
-	<definition name="DeleteBasket" extends="Main">
-		<put-attribute name="body" value="/basket/basketList.jsp" />
-	</definition>
-	
 	<definition name="OrderList" extends="Main">
 		<put-attribute name="body" value="/order/orderList.jsp" />
 	</definition>

@@ -2,7 +2,7 @@ package order;
 
 import java.util.Date;
 
-public class OrderAVO {
+public class Order_Air {
 	
 	private int no;
 	private String arv;
@@ -17,6 +17,8 @@ public class OrderAVO {
 	private String air_company;
 	private int grade;
 	private String id;
+	private Date reg_date;
+	
 	public int getNo() {
 		return no;
 	}
@@ -94,6 +96,12 @@ public class OrderAVO {
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public Date getReg_date() {
+		return reg_date;
+	}
+	public void setReg_date(Date reg_date) {
+		this.reg_date = reg_date;
 	}
 	
 	

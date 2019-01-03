@@ -11,7 +11,9 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
 import admin.order.OrderPaging;
-import order.OrderVO;
+import order.Order_Hotel;
+import order.Order_Air;
+import order.Order_Tour;
 
 public class AdminOrderList extends ActionSupport{
 	public static Reader reader;
@@ -23,9 +25,10 @@ public class AdminOrderList extends ActionSupport{
 	private int blockPage = 5;
 	private String pagingHtml;
 	private OrderPaging page;
+	private String c;
 	
-	private List<OrderVO> list = new ArrayList<OrderVO>();
 	
+	private List list = new ArrayList();
 	public AdminOrderList() throws IOException{
 	      
 	      reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -33,7 +36,15 @@ public class AdminOrderList extends ActionSupport{
 	      reader.close();
 	}
 	public String execute() throws Exception {
-		list = sqlMapper.queryForList("orderList");
+		String cc = getC();
+		
+		if(cc==null || cc.equals("h")) {
+			list = sqlMapper.queryForList("orderHList");
+		}else if(cc.equals("a")) {
+			list = sqlMapper.queryForList("orderAList");
+		}else {
+			list = sqlMapper.queryForList("orderTList"); 
+		}
 		
 		totalCount = list.size(); 
 		page = new OrderPaging(currentPage, totalCount, blockCount, blockPage);
@@ -49,6 +60,14 @@ public class AdminOrderList extends ActionSupport{
 	}
 	
 	
+	
+	
+	public String getC() {
+		return c;
+	}
+	public void setC(String c) {
+		this.c = c;
+	}
 	public int getCurrentPage() {
 		return currentPage;
 	}
@@ -85,10 +104,10 @@ public class AdminOrderList extends ActionSupport{
 	public void setPage(OrderPaging page) {
 		this.page = page;
 	}
-	public List<OrderVO> getList() {
+	public List getList() {
 		return list;
 	}
-	public void setList(List<OrderVO> list) {
+	public void setList(List list) {
 		this.list = list;
 	}
 }

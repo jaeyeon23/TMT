@@ -648,6 +648,7 @@
 														예약
 														<s:hidden name="no" value="%{no}" />
 														<s:hidden name="seat" value="%{#parameters.seat}" />
+														<s:hidden name="id" value="%{session.session_id}"/>
 													</button>
 												</form>
 											</s:if>

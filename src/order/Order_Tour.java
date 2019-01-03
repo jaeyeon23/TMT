@@ -15,7 +15,7 @@ public class Order_Tour {
 	private int amount; 	//상품개수
 	private String reg_date; 	// 구매시간
 	private String id;
-	
+	private Date reg_date;
 	
 	public String getId() {
 		return id;
@@ -103,6 +103,14 @@ public class Order_Tour {
 	}
 
 	public void setReg_date(String reg_date) {
+		this.reg_date = reg_date;
+	}
+
+	public Date getReg_date() {
+		return reg_date;
+	}
+
+	public void setReg_date(Date reg_date) {
 		this.reg_date = reg_date;
 	}
 

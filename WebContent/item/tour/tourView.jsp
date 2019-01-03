@@ -66,7 +66,7 @@ $(function()
 									</form>
 								<div class="offer__side__main-box__instant">
 									<div class="wish-button">
-										<form action="InsertBasket.action" method="post">
+										<form action="InsertBasket.action" method="get">
 											<button type="submit" class="app-button app-button__type--outline app-button__size--m">
 												<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;">위시리스트<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;"></button>
 											<%-- <button type="button" class="app-button app-button__type--outline app-button__size--m" onclick="javascript:location.href='InsertBasket.action?seq_no=<s:property value="no"/>'">
