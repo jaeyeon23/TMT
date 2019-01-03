@@ -16,7 +16,7 @@ public class MemberPaging {
 
 	// 페이징 생성자
 	public MemberPaging(int currentPage, int totalCount, int blockCount,
-			int blockPage,String search) {
+			int blockPage,String search,String[] searchh) {
 
 		this.blockCount = blockCount;
 		this.blockPage = blockPage;
@@ -51,11 +51,16 @@ public class MemberPaging {
 		pagingHtml = new StringBuffer();
 		if (currentPage > blockPage) {
 			pagingHtml.append("<a href=AdminMemberList.action?currentPage=")
-			.append(startPage - 1)
-			.append("&search=")
-			.append(search)
-			
-			.append(">")
+			.append(startPage - 1);
+			if(search!=null) {
+				pagingHtml.append("&search=")
+				.append(search);
+				for(String a : searchh) {
+					pagingHtml.append("&searchh=")
+					.append(a);
+				}
+			}
+			pagingHtml.append(">")
 			.append("이전")
 			.append("</a>");
 		}
@@ -74,11 +79,16 @@ public class MemberPaging {
 			} else {
 				pagingHtml
 						.append("&nbsp;<a href='AdminMemberList.action?currentPage=");
-				pagingHtml.append(i)
-				.append("&search=")
-				.append(search)
-				
-				.append(">")
+				pagingHtml.append(i);
+				if(search!=null) {
+					pagingHtml.append("&search=")
+					.append(search);
+					for(String a : searchh) {
+						pagingHtml.append("&searchh=")
+						.append(a);
+					}
+				}
+				pagingHtml.append("'>")
 				.append(i)
 				.append("</a>");
 			}
@@ -91,11 +101,16 @@ public class MemberPaging {
 		// 다음 block 페이지
 		if (totalPage - startPage >= blockPage) {
 			pagingHtml.append("<a href=AdminMemberList.action?currentPage=")
-			.append(endPage + 1)
-			.append("&search=")
-			.append(search)
-
-			.append(">")
+			.append(endPage + 1);
+			if(search!=null) {
+				pagingHtml.append("&search=")
+				.append(search);
+				for(String a : searchh) {
+					pagingHtml.append("&searchh=")
+					.append(a);
+				}
+			}
+			pagingHtml.append(">")
 			.append("다음")
 			.append("</a>");
 		}
