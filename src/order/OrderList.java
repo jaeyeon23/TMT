@@ -40,8 +40,8 @@ public class OrderList extends ActionSupport implements SessionAware{
 	
 	@Override
 	public String execute() throws Exception {
-		ovo.setId(id);
-		olist = sqlMapper.queryForList("selectOneo",ovo);
+/*		ovo.setId(id);*/
+/*		olist = sqlMapper.queryForList("selectOneo",ovo);*/
 		
 		totalCount = olist.size();
 		page = new OrderpagingAction(currentPage,totalCount,blockCount,blockPage);

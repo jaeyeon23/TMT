@@ -61,9 +61,9 @@ public class BasketList extends ActionSupport implements SessionAware{
    public String execute() throws Exception {
    
       //호텔
-        hvo.setId((String) session.get("session_id"));
+      hvo.setId((String) session.get("session_id"));
          
-         bhlist = sqlMapper.queryForList("selecthbasket", hvo);
+      bhlist = sqlMapper.queryForList("selecthbasket", hvo);
          
 
       totalCount = bhlist.size();
