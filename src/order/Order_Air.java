@@ -2,7 +2,7 @@ package order;
 
 import java.util.Date;
 
-public class OrderAVO {
+public class Order_Air {
 	
 	private int no;
 	private String arv;
