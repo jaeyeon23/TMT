@@ -13,7 +13,7 @@
 <script>
 function removeCheck() {
 	 if (confirm("정말 계정을 삭제하시겠습니까??") == true){    //확인
-	    location.href="DeleteMember.action";
+	    location.href="DeleteMemberForm.action";
 	 }else{   //취소
 	    location.href="MyPage.action";
 	 }
@@ -35,7 +35,6 @@ function removeCheck() {
 				<div class="profile">
 					<img alt="여행자 사진" class="img-circle" src="https://d2ur7st6jjikze.cloudfront.net/profile_images/1387626/1387626_medium_1541323024.png?1541323024" width="80">
 				</div>
-
 
 				<div class="text-md setting hide-on-mobile">
 					<img alt="프로필 관리" class="icon item-inline" height="11px" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/traveler/reservation/ic_setting@2x-832c08d9d38f208502f94e8d35e78a320024fc5f61630f2eba7801845e1eda78.png" width="11px">
@@ -70,11 +69,6 @@ function removeCheck() {
 			</div>
 		</div>
 	</div>
-
-<div>
-<h2>마이페이지</h2>
-
-
 <main class="member-box box mode-readonly clearfix">
 	<center>
 		<div class="member-container with-edit-btn">
@@ -109,6 +103,12 @@ function removeCheck() {
 							</div>
 					</div>
 					<div class="form-group">
+						<div class="title text-middle">여권번호</div>
+							<div class="input-wrapper text-middle">
+								<s:property value="%{resultClass.passport}"/>
+							</div>
+					</div>
+					<div class="form-group">
 						<div class="title text-middle">마케팅 수신동의</div>
 							<div class="input-wrapper text-middle">
 								<s:property value="%{resultClass.marketing1}"/>
@@ -120,7 +120,7 @@ function removeCheck() {
 	<br>
 	<div class="text-clickable-container hide-on-mobile">
 		<div class="text text-sm" >
-			<button onclick="removeCheck()"class="btn-new btn--type-primary btn--width-100">계정 삭제하기</button>
+			<button onclick="removeCheck()" class="btn-new btn--type-primary btn--width-100">계정 삭제하기</button>
 		</div>
 	</div>
 </center>

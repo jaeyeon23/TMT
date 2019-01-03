@@ -55,8 +55,8 @@ public class AdminTourView extends ActionSupport {
 		/*상세보기*/
 		resultClass = (TourVO)sqlMapper.queryForObject("selectOneT",getNo());
 		
-		if(resultClass.getImage2()!=null) {
-			String[] image  = resultClass.getImage2().split(",");
+		if(resultClass.getContent_image()!=null) {
+			String[] image  = resultClass.getContent_image().split(",");
 			
 			for(String a : image)
 				imageList.add(path+a);//상세보기

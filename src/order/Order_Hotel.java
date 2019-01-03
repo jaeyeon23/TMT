@@ -1,29 +1,9 @@
-package item.hotel;
+package order;
 
-import java.io.IOException;
-import java.io.Reader;
-import java.nio.charset.Charset;
-
-import com.ibatis.common.resources.Resources;
-import com.ibatis.sqlmap.client.SqlMapClient;
-import com.ibatis.sqlmap.client.SqlMapClientBuilder;
-import com.opensymphony.xwork2.ActionSupport;
-
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import org.apache.struts2.interceptor.SessionAware;
 
-public class HotelSuccess extends ActionSupport implements SessionAware {
-
-	public static Reader reader;
-	public static SqlMapClient sqlMapper;
-	
-	private Map map = new HashMap<>();
-	private Map session;
-	private String id;
+public class Order_Hotel {
 	
 	private int no;            //상품번호
 	private String name;      //상품명   
@@ -35,40 +15,10 @@ public class HotelSuccess extends ActionSupport implements SessionAware {
 	private String tel;       //전화번호
 	private String checkin;    //체크인
 	private String checkout;   //체크아웃
-	private int maxnum; 	//인원수
+	private int people; 	//인원수
 	private int room; 
+	private String id;
 	
-	
-	public HotelSuccess() throws IOException {
-		Charset charset = Charset.forName("UTF-8");
-		Resources.setCharset(charset);
-		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
-		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
-		reader.close();
-	}
-	
-	@Override
-	public String execute() throws Exception {
-		
-		map.put("no", getNo());
-		map.put("name", getName());
-		map.put("price", getPrice());
-		map.put("content", getContent());
-		map.put("country", getCountry());
-		map.put("region", getRegion());
-		map.put("tel", getTel());
-		map.put("image1", getImage1());
-		map.put("checkin", getCheckin());
-		map.put("checkout", getCheckout());
-		map.put("id", getId());
-		map.put("maxnum", getMaxnum());
-		map.put("room", getRoom());
-		
-		sqlMapper.update("roomHotel", map);
-		sqlMapper.insert("putorder_H", map);
-		return SUCCESS;
-	}
-		
 	
 	public String getId() {
 		return id;
@@ -76,14 +26,6 @@ public class HotelSuccess extends ActionSupport implements SessionAware {
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public Map getSession() {
-		return session;
-	}
-
-	public void setSession(Map session) {
-		this.session = session;
 	}
 
 	// 상품번호
@@ -177,12 +119,12 @@ public class HotelSuccess extends ActionSupport implements SessionAware {
 	}
 
 	// 인원수
-	public int getMaxnum() {
-		return maxnum;
+	public int getPeople() {
+		return people;
 	}
 
-	public void setMaxnum(int maxnum) {
-		this.maxnum = maxnum;
+	public void setPeople(int people) {
+		this.people = people;
 	}
 
 	// 객실수

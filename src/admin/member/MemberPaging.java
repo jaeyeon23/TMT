@@ -16,7 +16,7 @@ public class MemberPaging {
 
 	// 페이징 생성자
 	public MemberPaging(int currentPage, int totalCount, int blockCount,
-			int blockPage) {
+			int blockPage,String search,String[] searchh) {
 
 		this.blockCount = blockCount;
 		this.blockPage = blockPage;
@@ -50,10 +50,19 @@ public class MemberPaging {
 		// 이전 block 페이지
 		pagingHtml = new StringBuffer();
 		if (currentPage > blockPage) {
-			pagingHtml.append("<a href=AdminMemberList.action?currentPage="
-					+ (startPage - 1) + ">");
-			pagingHtml.append("이전");
-			pagingHtml.append("</a>");
+			pagingHtml.append("<a href=AdminMemberList.action?currentPage=")
+			.append(startPage - 1);
+			if(search!=null) {
+				pagingHtml.append("&search=")
+				.append(search);
+				for(String a : searchh) {
+					pagingHtml.append("&searchh=")
+					.append(a);
+				}
+			}
+			pagingHtml.append(">")
+			.append("이전")
+			.append("</a>");
 		}
 
 		pagingHtml.append("&nbsp;|&nbsp;");
@@ -71,9 +80,17 @@ public class MemberPaging {
 				pagingHtml
 						.append("&nbsp;<a href='AdminMemberList.action?currentPage=");
 				pagingHtml.append(i);
-				pagingHtml.append("'>");
-				pagingHtml.append(i);
-				pagingHtml.append("</a>");
+				if(search!=null) {
+					pagingHtml.append("&search=")
+					.append(search);
+					for(String a : searchh) {
+						pagingHtml.append("&searchh=")
+						.append(a);
+					}
+				}
+				pagingHtml.append("'>")
+				.append(i)
+				.append("</a>");
 			}
 
 			pagingHtml.append("&nbsp;");
@@ -83,10 +100,19 @@ public class MemberPaging {
 
 		// 다음 block 페이지
 		if (totalPage - startPage >= blockPage) {
-			pagingHtml.append("<a href=AdminMemberList.action?currentPage="
-					+ (endPage + 1) + ">");
-			pagingHtml.append("다음");
-			pagingHtml.append("</a>");
+			pagingHtml.append("<a href=AdminMemberList.action?currentPage=")
+			.append(endPage + 1);
+			if(search!=null) {
+				pagingHtml.append("&search=")
+				.append(search);
+				for(String a : searchh) {
+					pagingHtml.append("&searchh=")
+					.append(a);
+				}
+			}
+			pagingHtml.append(">")
+			.append("다음")
+			.append("</a>");
 		}
 	}
 

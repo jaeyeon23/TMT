@@ -2,91 +2,112 @@
 <!DOCTYPE sqlMap PUBLIC '-//ibatis.apache.org//DTD Sql Map 2.0//EN'
 	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 <sqlMap>
-<typeAlias alias="member" type="member.MemberVO"/>
+	<typeAlias alias="member" type="member.MemberVO" />
 
-<resultMap id="memberRes" class="member">
-<result property="no" column="no"/>
-<result property="id" column="id"/>
-<result property="password" column="password"/>
-<result property="name" column="name"/>
-<result property="email" column="email"/>
-<result property="tel" column="tel"/>
-<result property="regdate" column="regdate"/>
-<result property="passport" column="passport"/>
-<result property="marketing1" column="marketing1"/>
-<result property="marketing2" column="marketing2"/>
-<result property="image1" column="image1"/>
-</resultMap>
+	<resultMap id="memberRes" class="member">
+		<result property="no" column="no" />
+		<result property="id" column="id" />
+		<result property="password" column="password" />
+		<result property="name" column="name" />
+		<result property="email" column="email" />
+		<result property="tel" column="tel" />
+		<result property="regdate" column="regdate" />
+		<result property="passport" column="passport" />
+		<result property="marketing1" column="marketing1" />
+		<result property="marketing2" column="marketing2" />
+	</resultMap>
 
-<sql id="select-all">
-	SELECT * FROM MEMBER
-</sql>
+	<sql id="select-all">
+		SELECT * FROM MEMBER
+	</sql>
 
-<sql id="where-Id">
-	WHERE ID = #id#
-</sql>
+	<sql id="where-Id">
+		WHERE ID = #id#
+	</sql>
 
-<sql id="where-No">
-	WHERE NO = #no#
-</sql>
+	<sql id="where-No">
+		WHERE NO = #no#
+	</sql>
 
-<select id="selectOne" resultMap="memberRes" parameterClass="member">
-   <include refid="select-all"/>
-   <include refid="where-Id"/>
-</select>
-
-<select id="loginChk" resultMap="memberRes">
-   <include refid="select-all"/>
-   <include refid="where-Id"/>
-   and password=#password#
-</select>
-
-<insert id="JoinMember" parameterClass="member">
-    INSERT INTO MEMBER (NO,ID,PASSWORD,NAME,EMAIL,TEL,REGDATE,PASSPORT,ADMIN)
-    VALUES (SEQ_NO.NEXTVAL,#id#,#password#,#name#,#email#,#tel#,#regdate#,#passport#,1)
-</insert>
-
-<select id="ChkId" resultMap="memberRes" parameterClass="String">
-	<include refid="select-all"/>
-	WHERE ID = #id#
-</select>
-
- <update id="ModifyMember" parameterClass="member"><!-- ㅎㅎ -->
-<!-- <<<<<<< HEAD -->
-   UPDATE MEMBER SET NAME=#name#, PASSWORD=#password#, EMAIL=#email#, TEL=#tel#, MARKETING1=#marketing1#, MARKETING2=#marketing2# 
-<!-- =======
-   UPDATE MEMBER SET PASSWORD=#password#, EMAIL=#email#, TEL=#tel#, MARKETING1=#marketing1#, MARKETING2=#marketing2# IMAGE1=#image1#
->>>>>>> tt -->
-   <include refid="where-Id" />
- </update>
- 
-   <select id="FindID" resultMap="memberRes"><!-- ? -->
-    <include refid="select-all" />
-    WHERE NAME = #name# AND EMAIL=#email#
-  </select>
-
-  <select id="FindPw" resultMap="memberRes">
-    <include refid="select-all" />
-    WHERE NAME = #name# AND ID=#id# AND EMAIL=#email#
-  </select>
-  
-  <select id="Email" resultClass="java.lang.String"
+	<select id="selectOne" resultMap="memberRes"
 		parameterClass="member">
-  	SELECT email FROM member WHERE email = #email#
-  </select>
-  
+		<include refid="select-all" />
+		<include refid="where-Id" />
+	</select>
 
-  <!-- 관리자 -->
-  <!-- 멤버리스트 -->
-  <select id="memberList" resultMap="memberRes">
-  	select * from member
-  	order by regdate desc
-  </select>
+	<select id="loginChk" resultMap="memberRes">
+		<include refid="select-all" />
+		<include refid="where-Id" />
+	</select>
 
-  <!-- 회원삭제 -->
-  <delete id="deleteMember" parameterClass="member">
-		delete from member where no = #no#
+	<insert id="JoinMember" parameterClass="member">
+		INSERT INTO MEMBER (NO,ID,PASSWORD,NAME,EMAIL,TEL,REGDATE,PASSPORT,ADMIN)
+		VALUES
+		(SEQ_NO.NEXTVAL,#id#,#password#,#name#,#email#,#tel#,#regdate#,#passport#,0)
+	</insert>
+
+	<update id="ModifyMember" parameterClass="member">
+		UPDATE MEMBER SET NAME=#name#, PASSWORD=#password#,
+		PASSPORT=#passport#, EMAIL=#email#, TEL=#tel#,
+		MARKETING1=#marketing1#, MARKETING2=#marketing2#
+		<include refid="where-Id" />
+	</update>
+
+	<delete id="deleteMember" parameterClass="member">
+		DELETE FROM MEMBER 
+		<include refid="where-Id" />
 	</delete>
 
+	<select id="ChkId" resultMap="memberRes">
+		<include refid="select-all" />
+		WHERE ID = #id#
+	</select>
+		
+	<select id="FindID" resultMap="memberRes">
+		<include refid="select-all" />
+		WHERE NAME = #name# AND EMAIL=#email#
+	</select>
+
+	<select id="FindPw" resultMap="memberRes">
+		<include refid="select-all" />
+		WHERE NAME = #name# AND ID=#id# AND EMAIL=#email#
+	</select>
+
+	<select id="Email" resultClass="java.lang.String"
+		parameterClass="member">
+		SELECT email FROM member WHERE email = #email#
+	</select>
+
+
+
+  	<!-- 관리자 -->
+  	<!-- 멤버리스트 -->
+  	<select id="memberList" resultMap="memberRes">
+  		select * from member
+  		order by regdate desc
+ 	 </select>
+
+	
+	<!-- 회원검색 -->
+	<select id="searchMember" parameterClass="Map" resultMap="memberRes">
+		select * from member
+		
+		<dynamic  prepend="where">
+			<isNotNull prepend="and" removeFirstPrepend="true" open="(" close=")">
+				<isNotEmpty prepend="or" property="id">
+					id like '%'||#search#||'%'
+				</isNotEmpty>
+				<isNotEmpty prepend="or" property="name">
+					name like '%'||#search#||'%'
+				</isNotEmpty>
+				<isNotEmpty prepend="or" property="email">
+					email like '%'||#search#||'%'
+				</isNotEmpty>
+				<isNotEmpty prepend="or" property="passport">
+					passport like '%'||#search#||'%'
+				</isNotEmpty>
+			</isNotNull>
+		</dynamic>
+	</select>
  
  </sqlMap>

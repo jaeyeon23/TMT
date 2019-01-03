@@ -66,7 +66,7 @@ public class AdminTourWrite extends ActionSupport{
 			image = new StringBuffer();
 			for(int i=0;i<uploads.size();i++) {
 				if(i==0) {
-					paramClass.setImage1(getUploadsFileName().get(i));
+					paramClass.setMain_image(getUploadsFileName().get(i));
 				}
 				else if(i!=uploads.size()-1)
 					image.append(getUploadsFileName().get(i)).append(",");
@@ -80,7 +80,7 @@ public class AdminTourWrite extends ActionSupport{
 					
 			}
 			
-			paramClass.setImage2(image.toString());
+			paramClass.setContent_image(image.toString());
 			
 		}
 		sqlMapper.insert("insertTour",paramClass);

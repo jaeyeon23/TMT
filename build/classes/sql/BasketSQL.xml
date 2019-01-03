@@ -4,6 +4,7 @@
 
 <sqlMap>
 
+<<<<<<< HEAD
    <typeAlias alias="basket_hotel" type="basket.BasketHVO" />
 
    <resultMap id="basketRes" class="basket_hotel">
@@ -56,5 +57,59 @@
    </delete>
    
    
+=======
+	<typeAlias alias="basket" type="basket.BasketTVO" />
+
+	<resultMap id="basketRes" class="basket">
+		<result property="no" column="no" />
+		<result property="name" column="name" />
+		<result property="price" column="price" />
+		<result property="content" column="content" />
+		<result property="country" column="country" />
+		<result property="region" column="region" />
+		<result property="image1" column="image1" />
+		<result property="id" column="id" />
+	</resultMap>
+
+
+	<!-- 가져온 상품의 정보를 장바구니 테이블에 저장 -->
+	<insert id="insertbaskettour" parameterClass="basket">
+		INSERT INTO BASKET_TOUR
+		(no, name, price, content, country, region,
+		id,
+		image1)
+		<!-- WHERE ID=#id# -->
+	</insert>
+
+<!-- 	<insert id="insertbaskethotel" parameterClass="basket">
+		INSERT INTO BASKET_HOTEL
+		(no, name, price, content, country, region,
+		id,
+		image1)
+		WHERE ID=#id#
+	</insert> -->
+	
+<!-- 장바구니에 담기 -->	
+	<select id="selbaskettour" resultMap="basketRes" parameterClass="string">
+		SELECT* FROM BASKET_TOUR
+		WHERE ID=#id#
+	</select>
+
+
+	<!-- 세션 id값에 해당하는 장바구니 테이블의 정보를 가져온다. -->
+	<select id="selectbasket" resultMap="basketRes"
+		parameterClass="basket">
+		SELECT * FROM basket WHERE id = #id#
+	</select>
+
+
+	<!-- 장바구니 체크박스 선택 삭제 -->
+	<delete id="deletebasket" parameterClass="basket">
+		DELETE FROM basket
+		WHERE no = #no# and id = #id#
+	</delete>
+
+
+>>>>>>> kkk
 
 </sqlMap>

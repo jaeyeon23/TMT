@@ -43,6 +43,14 @@
 		<put-attribute name="body" value="/item/tour/tourView.jsp" />
 	</definition>
 	
+	<definition name="TourCheck" extends="Main">
+		<put-attribute name="body" value="/item/tour/tourCheck.jsp" />
+	</definition>
+	
+	<definition name="TourSuccess" extends="Main">
+		<put-attribute name="body" value="/item/tour/tourSuccess.jsp" />
+	</definition>
+	
 	
 	<!-- 호텔 -->
 	<definition name="HotelList" extends="Main">
@@ -198,7 +206,7 @@
 		<put-attribute name="body" value="/member/myPage.jsp" />
 	</definition>
 	
-	<definition name="DeleteMember" extends="Main">
+	<definition name="DeleteMemberForm" extends="Main">
 		<put-attribute name="body" value="/member/DeleteMemberCheck.jsp" />
 	</definition>
 

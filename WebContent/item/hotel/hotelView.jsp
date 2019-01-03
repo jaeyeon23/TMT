@@ -61,16 +61,23 @@ $(function()
 								
 							<div id = "check_all">	
 							<s:if test="%{session.session_id==null}">
-							            <center>로그인시 예약 가능합니다.
+							            <div>로그인 하셔야 예약이 가능합니다</div>
 										<a href="LoginForm.action">
-                        					 <button type="button" class="app-button app-button__type--primary app-button__size--l">로그인</button>
-                     					</a>
-                     					</center>
+			                     		  <button type="button" class="app-button app-button__type--primary app-button__size--l">로그인하기</button>
+			                   			</a>
 						    </s:if>	
 						    <s:else>						
 							<form id="Hsearch" name="HsearchForm" action="HotelCheck.action">
 							<s:hidden name="no" value="%{no}" />
 							<s:hidden name="name" value="%{resultClass.name}" />
+							<s:hidden name="price" value="%{resultClass.price}" />  <!-- 가격 -->
+							<s:hidden name="content" value="%{resultClass.content}" />
+							<s:hidden name="country" value="%{resultClass.country}" />  <!-- 국가 -->
+							<s:hidden name="region" value="%{resultClass.region}" />  <!-- 지역 -->
+							<s:hidden name="image1" value="%{resultClass.main_image}" />  <!-- 이미지 -->
+							<s:hidden name="tel" value="%{resultClass.tel}" />  <!-- 전화번호 -->
+							
+							
 						   	 <b>&nbsp;&nbsp;체크인</b><br>
 							 <input type="text" size="20" name="inDay" id="inDay" readonly placeholder="체크인">
 							<b>&nbsp;&nbsp;체크아웃</b><br>
@@ -99,11 +106,22 @@ $(function()
 							<br><br>
 							
 							<center>
-							<button type="button" >
-							<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;">위시리스트<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;"></button>
 							<input type="submit" class="app-button app-button__type--primary app-button__size--l" value="예약 하기">
-							</center>
 							</form>
+							<form action="InsertBasket.action" method="get">
+							<button type="submit" >
+								<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;">위시리스트<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;">
+								<%-- <s:hidden name="no" value="%{resultClass.no}"/>
+								<s:hidden name="name" value="%{resultClass.name}"/>
+								<s:hidden name="price" value="%{resultClass.price}"/>
+								<s:hidden name="country" value="%{resultClass.country}"/>
+								<s:hidden name="region" value="%{resultClass.region}"/>
+								<s:hidden name="image1" value="%{resultClass.main_image}"/><!-- <s:hidden name="image1" value="%{resultClass.image1}"/> -->
+								<s:hidden name="id" value="%{session.session_id}"/>
+								<s:hidden name="type" value="2"/> --%>
+							</button>
+							</form>
+							</center>
 							</s:else>
 							</div>
 							

@@ -3,7 +3,9 @@ package admin.member;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -18,13 +20,17 @@ public class AdminMemberList extends ActionSupport{
 	
 	private int currentPage = 1;
 	private int totalCount;
-	private int blockCount=9;
+	private int blockCount=1;
 	private int blockPage = 5;
 	private String pagingHtml;
 	private MemberPaging page;
 	
 	private List<MemberVO> list = new ArrayList<MemberVO>();
 	
+	/*검색*/
+	private String search;
+	private String[] searchh;
+	private Map searchch = new HashMap();;
 	
 	public AdminMemberList() throws IOException{
 	      
@@ -35,10 +41,25 @@ public class AdminMemberList extends ActionSupport{
 	
 	@Override
 	public String execute() throws Exception {
-		list = sqlMapper.queryForList("memberList");
-		
+		if(getSearch()!=null) {
+			for(String a : searchh) {
+				if(a.equals("id"))
+					searchch.put("id", a);
+				if(a.equals("name"))
+					searchch.put("name", a);
+				if(a.equals("email"))
+					searchch.put("email", a);
+				if(a.equals("passport"))
+					searchch.put("passport", a);
+			}
+			searchch.put("search", search);
+			list = sqlMapper.queryForList("searchMember",searchch);
+		}
+		else {
+			list = sqlMapper.queryForList("memberList");
+		}
 		totalCount = list.size(); 
-		page = new MemberPaging(currentPage, totalCount, blockCount, blockPage);
+		page = new MemberPaging(currentPage, totalCount, blockCount, blockPage , getSearch(),getSearchh());
 		pagingHtml = page.getPagingHtml().toString();
 		
 		int lastCount = totalCount;
@@ -104,6 +125,22 @@ public class AdminMemberList extends ActionSupport{
 
 	public void setList(List<MemberVO> list) {
 		this.list = list;
+	}
+
+	public String getSearch() {
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
+	}
+
+	public String[] getSearchh() {
+		return searchh;
+	}
+
+	public void setSearchh(String[] searchh) {
+		this.searchh = searchh;
 	}
 	
 	

@@ -43,10 +43,10 @@ public class AdminTourDelete extends ActionSupport{
 		
 		resultClass = (TourVO)sqlMapper.queryForObject("selectOneT",getNo());
 		
-		if(resultClass.getImage1()!=null)
-			old_image.add(resultClass.getImage1());
-		if(resultClass.getImage2()!=null) {
-			old_content = resultClass.getImage2().split(",");
+		if(resultClass.getMain_image()!=null)
+			old_image.add(resultClass.getMain_image());
+		if(resultClass.getContent_image()!=null) {
+			old_content = resultClass.getContent_image().split(",");
 			for(int i=0;i<old_content.length;i++)
 				old_image.add(old_content[i]);
 		}

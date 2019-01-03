@@ -23,6 +23,7 @@ public class ServiceMember extends ActionSupport implements SessionAware{
 	private String name;
 	private String email;
 	private int tel;
+	private String passport;
 	private String marketing1;
 	private String marketing2;
 	
@@ -97,7 +98,6 @@ public class ServiceMember extends ActionSupport implements SessionAware{
 		this.email = email;
 	}
 
-
 	public int getTel() {
 		return tel;
 	}
@@ -145,5 +145,13 @@ public class ServiceMember extends ActionSupport implements SessionAware{
 	public void setSession(Map session) {
 	     this.session = session;
    	}
+
+	public String getPassport() {
+		return passport;
+	}
+
+	public void setPassport(String passport) {
+		this.passport = passport;
+	}
 		
 }

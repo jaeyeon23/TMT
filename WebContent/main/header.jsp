@@ -38,9 +38,8 @@
 
 			<!--   회원로그인 후           -->
 			<s:if test='%{session.session_id!=null}'>
-			<p align="right" style="margin-right:30px;"><s:property value="session.session_name"/>님이 로그인 하셨습니다.</p><br>
+			<p align="right" style="margin-right:30px;"><s:property value="session.session_id"/>님이 로그인 하셨습니다.</p><br>
 			<div class="ProfileNavItems " style="margin-right:30px;">
-
 				<div class="ProfileNavItems__item gtm-gnb-signin">
 					<a href="InsertBasket.action" class="ProfileNavItems__button" >위시리스트</a>&nbsp;
 				</div>
@@ -52,12 +51,12 @@
 				</div>
 				<div class="ProfileNavItems__item gtm-gnb-signup">
 					<a href="Logout.action" class="ProfileNavItems__button ProfileNavItems__button--outline" >로그아웃</a>
-				</div>
+				</div>			
 			</div>
 			</s:if>
 			
 			<!--  관리자 로그인           -->			
-			<s:elseif test='%{session.session_admin=="0"}'>
+			<s:elseif test='%{session.session_admin=="1"}'>
 			<div class="ProfileNavItems " style="margin-right:30px;">
 				<div class="ProfileNavItems__item gtm-gnb-signup">
 					관리자&nbsp;

@@ -10,11 +10,12 @@ public class TourVO {
 	private String country;	 //국가
 	private String region;	//지역
 	private int readcount;  //조회수
-	private String image1; 
-	private String image2;  //이미지1~3
+	private String main_image; 
+	private String content_image;  //̹이미지1~3
 	private String image3;  
 	private Date reg_date;   //등록일
 	private int grade;	//별점
+	private int amount;
 	
 	//상품번호
 	public int getNo() {
@@ -73,17 +74,17 @@ public class TourVO {
 	}
 	
 	//이미지1~3
-	public String getImage1() {
-		return image1;
+	public String getMain_image() {
+		return main_image;
 	}
-	public void setImage1(String image1) {
-		this.image1 = image1;
+	public void setMain_image(String main_image) {
+		this.main_image = main_image;
 	}
-	public String getImage2() {
-		return image2;
+	public String getContent_image() {
+		return content_image;
 	}
-	public void setImage2(String image2) {
-		this.image2 = image2;
+	public void setContent_image(String content_image) {
+		this.content_image = content_image;
 	}
 	public String getImage3() {
 		return image3;
@@ -107,6 +108,14 @@ public class TourVO {
 	public void setGrade(int grade) {
 		this.grade = grade;
 	}
+	
+	//수량
+	public int getAmount() {
+		return amount;
+	}
 
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
 
 }

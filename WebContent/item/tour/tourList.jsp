@@ -101,8 +101,8 @@
 							<a href="TourView.action?no=<s:property value="%{no}" />&currentPage=<s:property value="%{currentPage}"/>">
 								<div id="contents">
 									<div id=imageT>
-										<s:if test="image1 != null">
-											<img src="/TMT/upload/tour/<s:property value="%{image1}" />">
+										<s:if test="main_image != null">
+											<img src="/TMT/upload/tour/<s:property value="%{main_image}" />">
 										</s:if>
 										<s:else>
 											<img src="/TMT/images/noimage.jpg">
