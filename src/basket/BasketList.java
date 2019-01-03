@@ -46,7 +46,7 @@ public class BasketList extends ActionSupport implements SessionAware{
    private int blockCount2 = 10; 
    private int blockPage2 = 5; 
    private String pagingHtml2; 
-   //private BasketpagingAction2 page2; 
+   private BasketpagingAction2 page2; 
 
    
    private Map session;
@@ -92,7 +92,7 @@ public class BasketList extends ActionSupport implements SessionAware{
          if (currentPage2 == 0) {
             currentPage2 = 1;
          }
-        /* page2 = new BasketpagingAction2(currentPage2, totalCount2, blockCount2, blockPage2);
+         page2 = new BasketpagingAction2(currentPage2, totalCount2, blockCount2, blockPage2);
          pagingHtml2 = page2.getPagingHtml2().toString();
 
          int lastCount2 = totalCount2;
@@ -100,7 +100,7 @@ public class BasketList extends ActionSupport implements SessionAware{
          if (page2.getEndCount2() < totalCount2)
             lastCount2 = page2.getEndCount2() + 1;
 
-         btlist = btlist.subList(page2.getStartCount2(), lastCount2);*/
+         btlist = btlist.subList(page2.getStartCount2(), lastCount2);
          
       
       return SUCCESS;
@@ -317,14 +317,14 @@ public class BasketList extends ActionSupport implements SessionAware{
       this.pagingHtml2 = pagingHtml2;
    }
 
-/*   public BasketpagingAction2 getPage2() {
+   public BasketpagingAction2 getPage2() {
       return page2;
    }
 
    public void setPage2(BasketpagingAction2 page2) {
       this.page2 = page2;
    }
-   */
+   
    
 
    
