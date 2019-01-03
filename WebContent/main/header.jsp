@@ -35,9 +35,19 @@
 					<!-- 로고 및 로고이미지에  링크추가 -->
 				</a>
 			</div>
+			
+			<!--  관리자 로그인           -->			
+			<s:if test='%{session.session_admin==1}'>
+			<div class="ProfileNavItems " style="margin-right:30px;">
+				<div class="ProfileNavItems__item gtm-gnb-signup" style="margin-right:20px;">
+					관리자&nbsp;
+					<a href="Logout.action" class="ProfileNavItems__button ProfileNavItems__button--outline" >로그아웃</a>
+				</div>
+			</div>
+			</s:if>
 
 			<!--   회원로그인 후           -->
-			<s:if test='%{session.session_id!=null}'>
+			<s:elseif test='%{session.session_id!=null}'>
 			<p align="right" style="margin-right:30px;"><s:property value="session.session_id"/>님이 로그인 하셨습니다.</p><br>
 			<div class="ProfileNavItems " style="margin-right:30px;">
 				<div class="ProfileNavItems__item gtm-gnb-signin" style="margin-right:20px;">
@@ -53,20 +63,9 @@
 					<a href="Logout.action" class="ProfileNavItems__button ProfileNavItems__button--outline" >로그아웃</a>
 				</div>			
 			</div>
-			</s:if>
-			
-			<!--  관리자 로그인           -->			
-			<s:elseif test='%{session.session_admin=="1"}'>
-			<div class="ProfileNavItems " style="margin-right:30px;">
-				<div class="ProfileNavItems__item gtm-gnb-signup" style="margin-right:20px;">
-					관리자&nbsp;
-					<a href="Logout.action" class="ProfileNavItems__button ProfileNavItems__button--outline" >로그아웃</a>
-				</div>
-			</div>
 			</s:elseif>
-
+			
 			<!--  로그인 전      -->			
-
 			<s:else>
 			<div class="ProfileNavItems " style="margin-right:30px;">
 				<div class="ProfileNavItems__item gtm-gnb-signin" style="margin-right:20px;">
@@ -79,7 +78,22 @@
 			</s:else>
 		</div>
 		<!-- headTop -->
+		
 	<!-- menu -->
+	<s:if test='%{session.session_admin==1}'><!-- 관리자메뉴 -->
+	<div class="menu">
+		<ul>
+			<li><div class="menu_hotel"><a href="AdminMemberList.action">멤버관리</a></div></li>
+			<li><div class="menu_tour"><a href="AdminTourList.action">투어&티켓관리</a></div></li>
+			<li><div class="menu_air"><a href="AdminAirList.action">항공권관리</a></div></li>
+			<li><div class="menu_hotel"><a href="AdminHotelList.action">숙소관리</a></div></li>
+			<li><div class="menu_hotel"><a href="AdminNoticeList.action">고객센터관리</a></div></li>
+			<li><div class="menu_hotel"><a href="AdminOrderList.action">주문내역관리</a></div></li>
+		</ul>
+	</div>
+	</s:if>
+	
+	<s:else><!-- 일반 -->
 	<div class="menu">
 		<ul>
 			<li><div class="menu_home"><a href="Main.action">홈</a></div></li>
@@ -90,6 +104,8 @@
 		</ul>
 	</div>
 	<!-- menu -->
+	</s:else>
+	
 	</div>
 	<!-- header -->
 </body>

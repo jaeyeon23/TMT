@@ -5,9 +5,10 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Date;
+import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -16,9 +17,10 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import item.hotel.HotelVO;
 
-public class AdminHotelWrite extends ActionSupport{
+public class AdminHotelWrite extends ActionSupport implements SessionAware {
 	public static Reader reader;
 	public static SqlMapClient sqlMapper; 
+	private Map session;
 	
 	private HotelVO paramClass; 
 	private HotelVO resultClass;
@@ -234,6 +236,13 @@ public class AdminHotelWrite extends ActionSupport{
 	public void setCheckout(String checkout) {
 		this.checkout = checkout;
 	}
-	
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
+	}
+
 	
 }

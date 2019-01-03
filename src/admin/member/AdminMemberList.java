@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
@@ -14,9 +16,10 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import member.MemberVO;
 
-public class AdminMemberList extends ActionSupport{
+public class AdminMemberList extends ActionSupport implements SessionAware {
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
+	private Map session;
 	
 	private int currentPage = 1;
 	private int totalCount;
@@ -142,6 +145,13 @@ public class AdminMemberList extends ActionSupport{
 	public void setSearchh(String[] searchh) {
 		this.searchh = searchh;
 	}
-	
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
+	}
+
 	
 }

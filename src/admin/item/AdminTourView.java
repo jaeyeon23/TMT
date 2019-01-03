@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
@@ -15,9 +17,10 @@ import com.opensymphony.xwork2.ActionSupport;
 import item.tour.TourComVO;
 import item.tour.TourVO;
 
-public class AdminTourView extends ActionSupport {
+public class AdminTourView extends ActionSupport implements SessionAware {
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
+	private Map session;
 	
 	private TourVO paramClass;
 	private TourVO resultClass;
@@ -171,4 +174,13 @@ public class AdminTourView extends ActionSupport {
 	public void setcPage(TourComPaging cPage) {
 		this.cPage = cPage;
 	}
+
+	public Map getSession() {
+		return session;
+	}
+	
+	public void setSession(Map session) {
+		this.session = session;
+	}
+
 }

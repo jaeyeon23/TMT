@@ -4,9 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -16,9 +17,11 @@ import com.opensymphony.xwork2.ActionSupport;
 import item.air.AirVO;
 
 
-public class AdminAirModify extends ActionSupport{
+public class AdminAirModify extends ActionSupport implements SessionAware {
 	public static Reader reader;
 	public static SqlMapClient sqlMapper; 
+	
+	private Map session;
 	
 	private AirVO paramClass; 
 	private AirVO resultClass; 
@@ -209,6 +212,13 @@ public String getUri() {
 public void setUri(String uri) {
 	this.uri = uri;
 }
-	
+public Map getSession() {
+	return session;
+}
+
+public void setSession(Map session) {
+	this.session = session;
+}
+
 	
 }

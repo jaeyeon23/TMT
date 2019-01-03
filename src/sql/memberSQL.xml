@@ -15,6 +15,7 @@
 		<result property="passport" column="passport" />
 		<result property="marketing1" column="marketing1" />
 		<result property="marketing2" column="marketing2" />
+		<result property="admin" column="admin"/>
 	</resultMap>
 
 	<sql id="select-all">

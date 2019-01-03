@@ -5,11 +5,6 @@
 	
 <struts>
 	<package name="admin" extends="struts-default, tiles-default">
-	
-		<!-- 메인 -->
-		<action name="AdminMain" class="admin.main.AdminMain">
-			<result name="success" type="tiles">AdminMain</result>
-		</action>
 		
 		<!-- 항공 -->
 		<action name="AdminAirList" class="admin.item.AdminAirList">

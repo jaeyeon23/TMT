@@ -6,15 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
 import service.NoticeVO;
-public class AdminNoticeList extends ActionSupport{
+public class AdminNoticeList extends ActionSupport implements SessionAware {
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
+	
 	
 	private int currentPage = 1;
 	private int totalCount;
@@ -108,6 +111,13 @@ public class AdminNoticeList extends ActionSupport{
 
 	public void setList(List<NoticeVO> list) {
 		this.list = list;
+	}
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
 	}
 
 	

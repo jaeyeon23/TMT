@@ -5,8 +5,10 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -14,11 +16,11 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
 import item.hotel.HotelVO;
-import item.tour.TourVO;
 
-public class AdminHotelModify extends ActionSupport{
+public class AdminHotelModify extends ActionSupport implements SessionAware {
 	public static Reader reader;
 	public static SqlMapClient sqlMapper; 
+	private Map session;
 	
 	private HotelVO paramClass; 
 	private HotelVO resultClass;
@@ -268,5 +270,13 @@ public class AdminHotelModify extends ActionSupport{
 	public void setCurrentPage(int currentPage) {
 		this.currentPage = currentPage;
 	}
+
+	public Map getSession() {
+		return session;
+	}
 	
+	public void setSession(Map session) {
+		this.session = session;
+}
+
 }
