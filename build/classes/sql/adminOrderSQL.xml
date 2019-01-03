@@ -3,7 +3,7 @@
 	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 <sqlMap>
 
-	<typeAlias alias="order" type="order.OrderVO" />
+	<!-- <typeAlias alias="order" type="order.OrderVO" />
 
 	<resultMap id="orderRes" class="order">
 		<result property="no" column="no" />
@@ -28,6 +28,6 @@
 		select * from ordervo
 		order by no desc
 	</select>
-	
+	 -->
 	
 </sqlMap>

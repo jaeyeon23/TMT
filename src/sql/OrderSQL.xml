@@ -5,7 +5,8 @@
 <sqlMap>
 	<typeAlias alias="order_hotel" type="order.Order_Hotel" />
 	<typeAlias alias="order_tour" type="order.Order_Tour" />
-	
+	<typeAlias alias="order_air" type="order.Order_Air" />
+<!-- 	
 	<resultMap id="order_hotleRes" class="order_hotel">
 		<result property="no" column="no" />
 		<result property="name" column="name" />
@@ -34,6 +35,21 @@
 		<result property="id" column="id" />
 	</resultMap>
 	
+	<resultMap id="order_airRes" class="order_air">
+		<result property="no" column="no" />
+		<result property="arv" column="arv"/>
+		<result property="dep" column="dep"/>
+		<result property="price" column="price" />
+		<result property="content" column="content" />
+		<result property="image1" column="image1" />
+		<result property="people" column="people" />
+		<result property="seat_grade" column="seat_grade" />
+		<result property="ad" column="ad" />
+		<result property="dd" column="dd" />
+		<result property="air_company" column="air_company" />
+		<result property="id" column="id" />
+	</resultMap> -->
+	
 <sql id="select-allo">
 	SELECT * FROM ORDER_HOTEL
 </sql>
@@ -42,16 +58,23 @@
 	<insert id="putorder_H" parameterClass="java.util.Map">
 		INSERT INTO order_hotel
 		(no, name, price, content, country, region, image1, tel, checkin,
-		 checkout, people, room, id)
+		 checkout, people, room, id, reg_date)
 		VALUES (#no#, #name#, #price#,#content#, #country#, #region#, #image1#, #tel#, #checkin#,
-		 #checkout#, #maxnum#, #room#, #id#)
+		 #checkout#, #maxnum#, #room#, #id#, sysdate)
 	</insert>
 	
 	<insert id="putorder_T" parameterClass="java.util.Map">
 		INSERT INTO order_tour
-		(no, name, price, content, country, region, image1, amount, id)
-		VALUES (#no#, #name#, #price#,#content#, #country#, #region#, #image1#, #amount#, #id#)
+		(no, name, price, content, country, region, image1, amount, id, reg_date)
+		VALUES (#no#, #name#, #price#,#content#, #country#, #region#, #image1#, #amount#, #id#, sysdate)
 	</insert>
+	
+	<insert id="putorder_A" parameterClass="order_air">
+		INSERT INTO order_air
+		(no, arv, dep, price, content, image1, people, seat_grade, ad, dd, air_company, id, reg_date)
+		VALUES (#no#, #arv#, #dep#, #price#, #content#, #image1#, #people#, #seat_grade#, #ad#, #dd#, #air_company#, #id#, sysdate)
+	</insert>
+	
 
 
 <!-- 	세션 id값에 해당하는 구매내역 테이블의 정보를 가져온다.
