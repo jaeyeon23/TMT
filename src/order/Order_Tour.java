@@ -13,6 +13,7 @@ public class Order_Tour {
 	private String country;	 //국가
 	private String region;	//지역
 	private int amount; 	//상품개수
+	private String reg_date; 	// 구매시간
 	private String id;
 	
 	
@@ -95,6 +96,14 @@ public class Order_Tour {
 
 	public void setAmount(int amount) {
 		this.amount = amount;
+	}
+	
+	public String getReg_date() {
+		return reg_date;
+	}
+
+	public void setReg_date(String reg_date) {
+		this.reg_date = reg_date;
 	}
 
 }

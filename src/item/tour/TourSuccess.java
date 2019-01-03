@@ -23,14 +23,17 @@ public class TourSuccess extends ActionSupport implements SessionAware {
 	private Map map = new HashMap<>();
 	private Map session;
 	
-	private int seq_no;            //상품 번호
+	private int no;            //상품 번호
 	private String name;      //상품명    
 	private int price;       //가격
+	private String content;  //내용
 	private String country;	 //국가
 	private String region;	//지역
 	private String image1; 
+	private int amount;
 	private String id;
-	private int type;
+	
+    Date date = new Date();
 	
 	
 	public TourSuccess() throws IOException {
@@ -44,15 +47,18 @@ public class TourSuccess extends ActionSupport implements SessionAware {
 	@Override
 	public String execute() throws Exception {
 		
-		map.put("seq_no", getSeq_no());
+		map.put("no", getNo());
 		map.put("name", getName());
 		map.put("price", getPrice());
+		map.put("content", getContent());
 		map.put("country", getCountry());
 		map.put("region", getRegion());
 		map.put("image1", getImage1());
+		map.put("amount", getAmount());
 		map.put("id", getId());
-		map.put("type", getType());
+		map.put("reg_date", date);
 		
+		sqlMapper.update("amountTour", map);
 		sqlMapper.insert("putorder_T", map);
 		return SUCCESS;
 	}
@@ -68,11 +74,11 @@ public class TourSuccess extends ActionSupport implements SessionAware {
 	
 	
 	//상품번호
-		public int getSeq_no() {
-			return seq_no;
+		public int getNo() {
+			return no;
 		}
-		public void setSeq_no(int seq_no) {
-			this.seq_no = seq_no;
+		public void setNo(int no) {
+			this.no = no;
 		}
 		
 		//상품명
@@ -122,12 +128,22 @@ public class TourSuccess extends ActionSupport implements SessionAware {
 		public void setId(String id) {
 			this.id = id;
 		}
-		
-		public int getType() {
-			return type;
+
+		//수량
+		public int getAmount() {
+			return amount;
 		}
-		public void setType(int type) {
-			this.type = type;
+
+		public void setAmount(int amount) {
+			this.amount = amount;
+		}
+		
+		//내용
+		public String getContent() {
+			return content;
+		}
+		public void setContent(String content) {
+			this.content = content;
 		}
 	
 

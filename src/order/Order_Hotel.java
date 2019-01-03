@@ -18,17 +18,11 @@ public class Order_Hotel {
 	private int people; 	//인원수
 	private int room; 
 	private String id;
-	private Date reg_date;
-	
-	
-	
-	public Date getReg_date() {
-		return reg_date;
-	}
 
-	public void setReg_date(Date reg_date) {
-		this.reg_date = reg_date;
-	}
+	private String reg_date; 	// 구매시간
+
+	
+	
 
 	public String getId() {
 		return id;
@@ -144,6 +138,14 @@ public class Order_Hotel {
 
 	public void setRoom(int room) {
 		this.room = room;
+	}
+	
+	public String getReg_date() {
+		return reg_date;
+	}
+
+	public void setReg_date(String reg_date) {
+		this.reg_date = reg_date;
 	}
 
 }

@@ -38,6 +38,7 @@ public class HotelSuccess extends ActionSupport implements SessionAware {
 	private int maxnum; 	//인원수
 	private int room; 
 	
+	Date date = new Date();
 	
 	public HotelSuccess() throws IOException {
 		Charset charset = Charset.forName("UTF-8");
@@ -63,6 +64,7 @@ public class HotelSuccess extends ActionSupport implements SessionAware {
 		map.put("id", getId());
 		map.put("maxnum", getMaxnum());
 		map.put("room", getRoom());
+		map.put("reg_date", date);
 		
 		sqlMapper.update("roomHotel", map);
 		sqlMapper.insert("putorder_H", map);

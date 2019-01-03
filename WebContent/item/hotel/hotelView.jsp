@@ -37,6 +37,11 @@ $(function()
   position: sticky;
   top: 80px;
 }
+
+#Hsearch input[type="submit"]{
+    outline: none;
+
+}
 </style>
 </head>
 <body>
@@ -50,7 +55,7 @@ $(function()
 							<div class="offer__side__main-box--body">
 								<div class="offer__side__main-box__price">	
 									<p class="offer__side__main-box__price--main"><s:property value="%{resultClass.price}"/>
-										<span class="offer__side__main-box__price--won">원</span>
+										<span class="offer__side__main-box__price--won">원(1박)</span>
 										<span class="offer__side__main-box__price--infoRight">/ 남은방:<s:property value="%{resultClass.room}"/></span>
 									</p>
 								</div>
