@@ -163,12 +163,12 @@ $(function()
 					<div class="offer-review__detail-info">
 						<form action="TourComment.action"> <!-- method="post" -->
 							<div class="form-group">
-								<input class="form-control input-sm" name="c_id" type="text" placeholder="아이디" style="width:30%;">
 								<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>
 								<input class="btn btn-default" type="submit" value="작성">
 								<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
 								<input type="hidden" name="tour_no" value="<s:property value="no"/>">
 								<input type="hidden" name="currentPageC" value="<s:property value="currentPageC"/>">
+								<input type="hidden" name="c_id" value="<s:property value="%{session.session_id}"/>">
 							</div>
 						</form>
 					</div>
@@ -185,7 +185,16 @@ $(function()
 								<p class="offer-review__list--purpose"><s:property value="c_reg_date"/></p>
 								<p class="offer-review__list--message">
 								<div class="with-more " style="max-height: 100px;"><s:property value="c_content"/></div>
-								
+								<s:if test="%{session.session_id==c_id}">
+								<div align="right">
+									<form action="TourCDelete.action">
+										<input class="btn btn-default btn-xs" type="submit" value="삭제">
+										<input type="hidden" name="no" value="<s:property value="tour_no"/>">
+										<input type="hidden" name="c_ref" value="<s:property value="c_ref"/>">
+										<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
+									</form>
+								</div>
+								</s:if>
 								</p>
 							</div>
 							</s:if>

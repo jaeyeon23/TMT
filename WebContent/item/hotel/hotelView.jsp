@@ -44,10 +44,12 @@ $(function()
 }
 </style>
 </head>
+
 <body>
 	<div class="resp-container">
 		<div class="resp-container--row ">
 			<div class="OfferDetail">
+				<s:if test="%{resultClass.room != 0 || resultClass.checkout > nowDate}">
 				<!-- side -->
 				<div class="sidebar">
 					<div data-margin-top="80" class="offer__side selector" style="">
@@ -134,6 +136,7 @@ $(function()
 						</div>
 					</div>
 				</div>
+				</s:if>
 				<!-- /side -->
 				<!-- offer container-->
 				<div class="offer-container">
@@ -148,6 +151,7 @@ $(function()
 										&nbsp;&nbsp;&nbsp;&nbsp; TEL.<s:property value="%{resultClass.tel}"/> 
 									</p>
 								</div>
+								<s:if test="%{resultClass.room != 0 || resultClass.checkout > nowDate}">
 								<div class="starRating starRating--m starRating--blue starRating--">
 								<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
 								</div>
@@ -172,8 +176,10 @@ $(function()
 							</div>
 						</div>
 					</div>
+					</s:if>
 					<!-- /main -->
 				</div>
+				
 				<!-- /offer container-->
 				<hr>
 				<!-- review -->
@@ -185,12 +191,12 @@ $(function()
 					<div class="offer-review__detail-info">
 						<form action="HotelComment.action"> <!-- method="post" -->
 							<div class="form-group">
-								<input class="form-control input-sm" name="c_id" type="text" placeholder="아이디" style="width:30%;">
 								<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>
 								<input class="btn btn-default" type="submit" value="작성">
 								<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
 								<input type="hidden" name="hotel_no" value="<s:property value="no"/>">
 								<input type="hidden" name="currentPageC" value="<s:property value="currentPageC"/>">
+								<input type="hidden" name="c_id" value="<s:property value="%{session.session_id}"/>">
 							</div>
 						</form>
 					</div>
@@ -207,6 +213,16 @@ $(function()
 								<p class="offer-review__list--purpose"><s:property value="c_reg_date"/></p>
 								<p class="offer-review__list--message">
 								<div class="with-more " style="max-height: 100px;"><s:property value="c_content"/></div>
+								<s:if test="%{session.session_id==c_id}">
+								<div align="right">
+									<form action="HotelCDelete.action">
+										<input class="btn btn-default btn-xs" type="submit" value="삭제">
+										<input type="hidden" name="no" value="<s:property value="hotel_no"/>">
+										<input type="hidden" name="c_ref" value="<s:property value="c_ref"/>">
+										<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
+									</form>
+								</div>
+								</s:if>
 								</p>
 							</div>
 							</s:if>

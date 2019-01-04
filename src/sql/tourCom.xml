@@ -48,5 +48,10 @@
 		delete tourcomment
 		where tour_no=#tour_no#
 	</delete>
+	
+	<delete id="deleteTourCOne" parameterClass="int">
+		delete tourcomment 
+		where c_ref=#c_ref#
+	</delete>
 
 </sqlMap>

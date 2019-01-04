@@ -17,6 +17,8 @@
 		<result property="id" column="id" />
 		<result property="content" column="content" />
 		<result property="amount" column="amount" />
+		<result property="seq_no" column="seq_no"/>
+		
 	</resultMap>
 
 	<resultMap id="orderHRes" class="orderH">
@@ -33,6 +35,7 @@
 		<result property="content" column="content" />
 		<result property="people" column="people" />
 		<result property="room" column="room" />
+		<result property="seq_no" column="seq_no"/>
 	</resultMap>
 	
 	 <resultMap id="orderARes" class="orderA">
@@ -48,41 +51,57 @@
 		<result property="content" column="content" />
 		<result property="air_company" column="air_company" />
 		<result property="people" column="people" />
-		
+		<result property="seq_no" column="seq_no"/>
 		<result property="reg_date" column="reg_date" />
 	</resultMap> 
 	
 	<select id="orderHList" resultMap="orderHRes">
-		select no,substr(name,0,7) as name,price,country,region,image1,id,tel,to_date(checkin,'yyyy-mm-dd') as checkin,to_char(checkout,'yyyy-mm-dd') as checkout,
+		select seq_no,no,substr(name,0,7) as name,price,country,region,image1,id,tel,to_char(checkin,'yyyy-mm-dd') as checkin,to_char(checkout,'yyyy-mm-dd') as checkout,
 		content,people,room from order_hotel
 		order by reg_date desc
 	</select>
 	
-	<select id="orderHView" resultMap="orderHRes">
+	<select id="orderHView" resultMap="orderHRes" parameterClass="int">
 		select * from order_hotel
-		where no = #no#
+		where seq_no=#seq_no#
 	</select>
 	
 	<select id="orderTList" resultMap="orderTRes">
 		select no,substr(name,0,7) as name,price,country,region,image1,id,amount,
-		content from order_tour
+		content,seq_no from order_tour
 		order by reg_date desc
 	</select>
 	
-	<select id="orderTView" resultMap="orderTRes">
+	<select id="orderTView" resultMap="orderTRes" parameterClass="int">
 		select * from order_tour
-		where no = #no#
+		where seq_no=#seq_no#
 	</select>
 	
 	<select id="orderAList" resultMap="orderARes">
-		select no,price,arv,dep,content,image1,people,seat_grade,ad,
+		select seq_no,no,price,arv,dep,content,image1,people,seat_grade,ad,
 		dd,air_company,id,reg_date
 		from order_air
 		order by reg_date desc
 	</select>
 	
-	<select id="orderAView" resultMap="orderARes">
+	<select id="orderAView" resultMap="orderARes" parameterClass="int">
 		select * from order_air
-		where no = #no#
+		where seq_no=#seq_no#
 	</select>
+	
+	<select id="orderHSearch" resultMap="orderHRes" parameterClass="String">
+		select * from order_hotel
+		where id like '%'||#id#||'%'
+	</select>
+	
+	<select id="orderTSearch" resultMap="orderTRes" parameterClass="String">
+		select * from order_tour
+		where id like '%'||#id#||'%'
+	</select> 
+	
+	<select id="orderASearch" resultMap="orderARes" parameterClass="String">
+		select * from order_air
+		where id like '%'||#id#||'%'
+	</select> 
+	 
 </sqlMap>

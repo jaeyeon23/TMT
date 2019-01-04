@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
+import member.MemberVO;
 
 public class TourCheck extends ActionSupport implements SessionAware  {
 	
@@ -30,6 +31,9 @@ public class TourCheck extends ActionSupport implements SessionAware  {
 	private String image1; 
 	private String content;  //내용
 	private int amount;
+	private String id;
+	
+	private List<MemberVO> Lists = new ArrayList<MemberVO>();
 	
 	public TourCheck() throws IOException {
 		Charset charset = Charset.forName("UTF-8");
@@ -41,7 +45,18 @@ public class TourCheck extends ActionSupport implements SessionAware  {
 	
 	@Override
 	public String execute() throws Exception {
+		map.put("id", getId());
+		Lists = sqlMapper.queryForList("selectOne_TT", map);
+	
 		return SUCCESS;
+	}
+	
+	public List<MemberVO> getTourlist() {
+		return Lists;
+	}
+
+	public void setTourlist(List<MemberVO> list) {
+		this.Lists = list;
 	}
 	
 	
@@ -118,6 +133,12 @@ public class TourCheck extends ActionSupport implements SessionAware  {
 			}
 			public void setContent(String content) {
 				this.content = content;
+			}
+			public String getId() {
+				return id;
+			}
+			public void setId(String id) {
+				this.id = id;
 			}
 
 }

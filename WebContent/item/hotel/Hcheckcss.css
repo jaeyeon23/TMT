@@ -1,0 +1,34 @@
+#alls{
+	background-color: red;
+	width: 85%;
+	height: 1000px ;
+	margin-left: 7%;
+}
+
+#tops{
+	width: 90%;
+	background-color: pink;
+	height: 70px ;
+	margin-left: 5%;
+	
+}
+#contents{
+	background-color: green;
+	width: 90%;
+	height:880px ;
+	margin-top: 2%;
+	margin-left: 5%;
+}
+#coutents_left{
+	background-color: orange;
+	width: 67%;
+	height:880px ;
+	float: left;
+}
+
+#coutents_right{
+	background-color: blue;
+	width: 32%;
+	height:880px ;
+	float: right;
+}

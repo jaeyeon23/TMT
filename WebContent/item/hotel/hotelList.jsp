@@ -139,6 +139,9 @@
 							  <s:if test="room == 0 || checkout <= nowDate">
 						    			<img src="/TMT/images/watch.png" width="20" height="20"><font color="#e30413"><b>안타깝네요! 마지막 객실이 모두 예약되었습니다.</b></font><br>
 						    			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;해당 호텔은 저희 사이트상 잔여 객실이 없습니다. 다른 호텔을 이용해주세요!
+						    			<div id = "content_2">
+						 				<button class="bnt_2" onclick="location.href='HotelView.action?no=<s:property value="%{no}" />&currentPage=<s:property value="%{currentPage}"/>'">문의보기</button>
+						 			 </div>
 					      	  </s:if>
 						 	  <s:else>
 						     	    <div id = "content_1">

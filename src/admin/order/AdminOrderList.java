@@ -20,12 +20,13 @@ public class AdminOrderList extends ActionSupport implements SessionAware {
 	
 	private int currentPage = 1;
 	private int totalCount;
-	private int blockCount=9;
+	private int blockCount=7;
 	private int blockPage = 5;
 	private String pagingHtml;
 	private OrderPaging page;
 	private String c;
 	private String cc;
+	private String search;
 	
 	private List list = new ArrayList();
 	public AdminOrderList() throws IOException{
@@ -37,16 +38,25 @@ public class AdminOrderList extends ActionSupport implements SessionAware {
 	public String execute() throws Exception {
 		cc = getC();
 		
-		if(cc==null || cc.equals("h")) {
-			list = sqlMapper.queryForList("orderHList");
+		if(cc==null || cc.equals("t") || cc.equals("")) {
+			if(search==null)
+				list = sqlMapper.queryForList("orderTList");
+			else
+				list = sqlMapper.queryForList("orderTSearch",getSearch());
 		}else if(cc.equals("a")) {
-			list = sqlMapper.queryForList("orderAList");
+			if(search==null)
+				list = sqlMapper.queryForList("orderAList");
+			else
+				list = sqlMapper.queryForList("orderASearch",getSearch());
 		}else {
-			list = sqlMapper.queryForList("orderTList"); 
+			if(search==null)
+				list = sqlMapper.queryForList("orderHList");
+			else
+				list = sqlMapper.queryForList("orderHSearch",getSearch());
 		}
 		
 		totalCount = list.size(); 
-		page = new OrderPaging(currentPage, totalCount, blockCount, blockPage);
+		page = new OrderPaging(currentPage, totalCount, blockCount, blockPage,getC(),getSearch());
 		pagingHtml = page.getPagingHtml().toString();
 		
 		int lastCount = totalCount;
@@ -61,6 +71,12 @@ public class AdminOrderList extends ActionSupport implements SessionAware {
 	
 	
 	
+	public String getSearch() {
+		return search;
+	}
+	public void setSearch(String search) {
+		this.search = search;
+	}
 	public String getCc() {
 		return cc;
 	}

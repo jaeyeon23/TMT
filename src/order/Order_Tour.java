@@ -3,7 +3,7 @@ package order;
 import java.util.Date;
 import java.util.Map;
 
-public class Order_Tour {
+public class Order_Tour extends OrderVO{
 	
 	private int no;            //상품번호
 	private String name;      //상품명   

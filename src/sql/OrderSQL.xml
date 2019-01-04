@@ -22,7 +22,9 @@
 		<result property="room" column="room" /> 
 		<result property="id" column="id" />
 		<result property="reg_date" column="reg_date" />
+		<result property="seq_no" column="seq_no"/>
 	</resultMap>
+	
 	
 	<resultMap id="order_tourRes" class="order_tour">
 		<result property="no" column="no" />
@@ -35,6 +37,7 @@
 		<result property="amount" column="amount" />
 		<result property="id" column="id" />
 		<result property="reg_date" column="reg_date" />
+		<result property="seq_no" column="seq_no"/>
 	</resultMap>
 	
 	<resultMap id="order_airRes" class="order_air">
@@ -51,6 +54,7 @@
 		<result property="seat_grade" column="seat_grade" />
 		<result property="ad" column="ad" />
 		<result property="dd" column="dd" />
+		<result property="seq_no" column="seq_no"/>
 	</resultMap>
 	
 <sql id="select-allo">
@@ -60,22 +64,22 @@
 	<!-- 구매한 호텔 상품을 구매내역 테이블에 저장 -->
 	<insert id="putorder_H" parameterClass="java.util.Map">
 		INSERT INTO order_hotel
-		(no, name, price, content, country, region, image1, tel, checkin,
+		(seq_no,no, name, price, content, country, region, image1, tel, checkin,
 		 checkout, people, room, id, reg_date)
-		VALUES (#no#, #name#, #price#*#room#,#content#, #country#, #region#, #image1#, #tel#, #checkin#,
+		VALUES (SEQ_NO.NEXTVAL, #no#, #name#, #price#*#room#,#content#, #country#, #region#, #image1#, #tel#, #checkin#,
 		 #checkout#, #maxnum#, #room#, #id#, #reg_date#)
 	</insert>
 	
 	<insert id="putorder_T" parameterClass="java.util.Map">
 		INSERT INTO order_tour
-		(no, name, price, content, country, region, image1, amount, id, reg_date)
-		VALUES (#no#, #name#, #price#*#amount# ,#content#, #country#, #region#, #image1#, #amount#, #id#, #reg_date#)
+		(seq_no,no, name, price, content, country, region, image1, amount, id, reg_date)
+		VALUES (SEQ_NO.NEXTVAL, #no#, #name#, #price#*#amount# ,#content#, #country#, #region#, #image1#, #amount#, #id#, #reg_date#)
 	</insert>
 	
 	<insert id="putorder_A" parameterClass="order_air">
 		INSERT INTO order_air
-		(no, arv, dep, price, content, image1, people, seat_grade, ad, dd, air_company, id, reg_date)
-		VALUES (#no#, #arv#, #dep#, #price#, #content#, #image1#, #people#, #seat_grade#, #ad#, #dd#, #air_company#, #id#, sysdate)
+		(seq_no,no, arv, dep, price, content, image1, people, seat_grade, ad, dd, air_company, id, reg_date)
+		VALUES (SEQ_NO.NEXTVAL, #no#, #arv#, #dep#, #price#, #content#, #image1#, #people#, #seat_grade#, #ad#, #dd#, #air_company#, #id#, sysdate)
 	</insert>
 	
 	<!-- OrderList Hotel  -->
@@ -93,26 +97,49 @@
 	   SELECT  arv,dep,price,air_company,image1 FROM order_air WHERE id = #id#
 	</select>
 	
-	<!-- OrderView  -->
 
-
-<!-- 	세션 id값에 해당하는 구매내역 테이블의 정보를 가져온다.
-	<select id="selectorder" resultMap="orderRes" parameterClass="ordervo">
-		SELECT * FROM ordervo WHERE id = #id#
-	</select>
 	
-	
-		구매내역  삭제
-	<delete id="deleteorder" parameterClass="ordervo">
-		DELETE FROM ordervo WHERE no = #no# and id = #id#
-	</delete>
-	
-	구매내역 날짜 수정
-	<update id="ModifyOrder" parameterClass="ordervo">
-	  UPDATE ordervo SET day=#day#, checkin=#checkin#, checkout=#checkout#, ad=#ad#, dd=#dd#
-	  <include refid="where-Ido" />
-	</update> -->
-	
+	<!-- Delete OrderHotel -->
+	 <delete id="deleteHorder" parameterClass="order_hotel">
+      DELETE FROM order_hotel WHERE id = #id# 
+   </delete>
+   
+   <!-- Delete Order Tour -->
+    <delete id="deleteTorder" parameterClass="order_tour">
+      DELETE FROM order_tour WHERE id = #id# 
+   </delete>
+   
+   <!-- Delete Order Air -->
+    <delete id="deleteAorder" parameterClass="order_air">
+      DELETE FROM order_air WHERE id = #id# 
+   </delete>
+   
+   <!-- Order_HOTEL 상세보기 -->
+   <select id="selectH_view" resultClass="order_hotel" parameterClass="order_hotel">
+     SELECT id, no, name, price, content,country,region,image1,checkin,checkout,tel,people,room FROM order_hotel WHERE id = #id#
+   </select>
+   
+   <!-- Order_Tour 상세보기 -->
+   <select id="selectT_view" resultClass="order_tour" parameterClass="order_tour">
+     SELECT id, no, name, price, content, country, region,image1, amount FROM order_tour WHERE id = #id#
+   </select>
+   
+   <!-- Order Air 상세보기 -->
+   <select id="selectA_view" resultClass="order_air" parameterClass="order_air">
+    SELECT id,no,arv,dep,content,price,air_company,people,seat_grade,ad,dd FROM order_air WHERE id = #id#
+   </select>
+   
+   <!-- Order_Hotel 수정 -->
+   <update id="update_orderH" parameterClass="order_hotel">
+		update order_hotel set checkin=#checkin#,checkout=#checkout#,people=#people#
+		where id=#id#
+	</update>
+   
+   <!-- Order_Air 수정 -->
+   <update id="update_orderA" parameterClass="order_air">
+		update order_air set 
+		where id=#id#
+	</update>
 	
 
 </sqlMap>

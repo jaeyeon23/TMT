@@ -13,6 +13,10 @@
 			<result type="redirect-action">HotelView${uri}</result>
 		</action>
 		
+		<action name="HotelCDelete" class="item.hotel.HotelComDelete">
+			<result type="redirect-action">HotelView${param}</result>
+		</action>
+		
 		<action name="HotelCheck" class="item.hotel.HotelCheck">
 			<result name="success" type="tiles">HotelCheck</result>
 		</action>
