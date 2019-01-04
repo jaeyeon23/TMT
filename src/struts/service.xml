@@ -16,12 +16,11 @@
 		   	</result>
 		</action>
 		
-		<action name="DeleteBasket" class="basket.DeleteBasket" method="Delete">
-		   	<result type="redirect-action">
+		<action name="DeleteBasket" class="basket.DeleteBasket">
+		   	<result type="redirect-action" name="success">
 		   		<param name="actionName">BasketList</param>
 		   	</result>
 		</action>
-
 
 		<action name="OrderList" class="order.OrderList">
 			<result name="success" type="tiles">OrderList</result>

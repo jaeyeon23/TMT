@@ -611,8 +611,7 @@
 											</h4>
 										</div>
 										<div class="modal-body">
-											<table id="list" class="table table-hover"
-												style="width: 100%;">
+											<table id="list" class="table table-hover" style="width: 100%;">
 												<tr>
 													<th>인원</th>
 													<th>남은 좌석 수</th>
@@ -629,16 +628,6 @@
 												</tr>
 											</table>
 										</div>
-									<%-- 	<div class="modal-footer">
-							      		<form action="AirCheck.action">
-							        		<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-							        		<button type="submit" class="btn btn-primary">
-							        			예약
-							        			<s:hidden name="no" value="%{no}"/>
-							        			<s:hidden name="seat" value="%{#parameters.seat}"/>
-							        		</button>
-							        	</form>
-						      		</div> --%>
 
 										<div class="modal-footer">
 											<s:if test="%{session.session_id!=null}">
