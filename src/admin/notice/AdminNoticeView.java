@@ -2,6 +2,9 @@ package admin.notice;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -10,9 +13,10 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import service.NoticeVO;
 
-public class AdminNoticeView extends ActionSupport {
+public class AdminNoticeView extends ActionSupport implements SessionAware  {
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
+	private Map session;
 	
 	private NoticeVO paramClass;
 	private NoticeVO resultClass;
@@ -58,6 +62,13 @@ public class AdminNoticeView extends ActionSupport {
 	}
 	public void setNotice_no(int notice_no) {
 		this.notice_no = notice_no;
+	}
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
 	}
 	
 	

@@ -9,7 +9,7 @@
 	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 	<!-- datepicker 한국어로 -->
 	<script	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/datepicker-ko.js"></script>
-    <script language="JavaScript" src="/TMT/item/hotel/hotelscript.js"></script>
+    <script language="JavaScript" src="/TMT/item/hotel/hotelscript2.js"></script>
 	<!-- 달력끝 -->
 	<link rel="stylesheet" href="/TMT/item/hotel/hotelcss.css" type="text/css">
 	
@@ -116,11 +116,25 @@
 										<td><s:file label="제품 메인이미지1" name="uploads"><s:property value="main" /></s:file></td>
 									</tr>
 									<tr>
-										
-										<td><s:file label="제품이미지1" name="uploads"><s:property value="content1" /></s:file></td>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
 									</tr>
 									<tr>
-										<td><s:file label="제품이미지2" name="uploads"><s:property value="content2" /></s:file></td>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
 									</tr>
 									
 								</table>

@@ -4,7 +4,7 @@
 <sqlMap>
 
 	<typeAlias alias="orderH" type="order.Order_Hotel" />
-	<typeAlias alias="orderA" type="order.Order_Air"/>
+	<typeAlias alias="orderA" type="order.Order_Air" />
 	<typeAlias alias="orderT" type="order.Order_Tour" />
 	
 	<resultMap id="orderTRes" class="orderT">
@@ -35,25 +35,27 @@
 		<result property="room" column="room" />
 	</resultMap>
 	
-	<!-- <resultMap id="orderARes" class="orderA">
+	 <resultMap id="orderARes" class="orderA">
 		<result property="no" column="no" />
 		<result property="price" column="price" />
-		<result property="country" column="country" />
-		<result property="region" column="region" />
+		<result property="arv" column="arv" />
+		<result property="dep" column="dep" />
 		<result property="image1" column="image1" />
 		<result property="id" column="id" />
-		<result property="tel" column="tel" />
-		<result property="checkin" column="checkin" />
-		<result property="checkout" column="checkout" />
+		<result property="seat_grade" column="seat_grade" />
+		<result property="ad" column="ad" />
+		<result property="dd" column="dd" />
 		<result property="content" column="content" />
+		<result property="air_company" column="air_company" />
 		<result property="people" column="people" />
-		<result property="room" column="room" />
-	</resultMap> -->
+		
+		<result property="reg_date" column="reg_date" />
+	</resultMap> 
 	
 	<select id="orderHList" resultMap="orderHRes">
-		select no,substr(name,0,7) as name,price,country,region,image1,id,tel,to_char(checkin,'yyyy-mm-dd') as checkin,to_char(checkout,'yyyy-mm-dd') as checkout,
+		select no,substr(name,0,7) as name,price,country,region,image1,id,tel,to_date(checkin,'yyyy-mm-dd') as checkin,to_char(checkout,'yyyy-mm-dd') as checkout,
 		content,people,room from order_hotel
-		order by no desc
+		order by reg_date desc
 	</select>
 	
 	<select id="orderHView" resultMap="orderHRes">
@@ -62,9 +64,9 @@
 	</select>
 	
 	<select id="orderTList" resultMap="orderTRes">
-		select no,substr(name,0,7) as name,price,country,region,image1,id,
+		select no,substr(name,0,7) as name,price,country,region,image1,id,amount,
 		content from order_tour
-		order by no desc
+		order by reg_date desc
 	</select>
 	
 	<select id="orderTView" resultMap="orderTRes">
@@ -72,4 +74,15 @@
 		where no = #no#
 	</select>
 	
+	<select id="orderAList" resultMap="orderARes">
+		select no,price,arv,dep,content,image1,people,seat_grade,ad,
+		dd,air_company,id,reg_date
+		from order_air
+		order by reg_date desc
+	</select>
+	
+	<select id="orderAView" resultMap="orderARes">
+		select * from order_air
+		where no = #no#
+	</select>
 </sqlMap>

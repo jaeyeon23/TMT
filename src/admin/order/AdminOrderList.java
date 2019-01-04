@@ -4,20 +4,19 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
-import admin.order.OrderPaging;
-import order.Order_Hotel;
-import order.Order_Air;
-import order.Order_Tour;
-
-public class AdminOrderList extends ActionSupport{
+public class AdminOrderList extends ActionSupport implements SessionAware {
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
+	private Map session;
 	
 	private int currentPage = 1;
 	private int totalCount;
@@ -26,7 +25,7 @@ public class AdminOrderList extends ActionSupport{
 	private String pagingHtml;
 	private OrderPaging page;
 	private String c;
-	
+	private String cc;
 	
 	private List list = new ArrayList();
 	public AdminOrderList() throws IOException{
@@ -36,7 +35,7 @@ public class AdminOrderList extends ActionSupport{
 	      reader.close();
 	}
 	public String execute() throws Exception {
-		String cc = getC();
+		cc = getC();
 		
 		if(cc==null || cc.equals("h")) {
 			list = sqlMapper.queryForList("orderHList");
@@ -62,6 +61,12 @@ public class AdminOrderList extends ActionSupport{
 	
 	
 	
+	public String getCc() {
+		return cc;
+	}
+	public void setCc(String cc) {
+		this.cc = cc;
+	}
 	public String getC() {
 		return c;
 	}
@@ -110,4 +115,13 @@ public class AdminOrderList extends ActionSupport{
 	public void setList(List list) {
 		this.list = list;
 	}
+
+public Map getSession() {
+	return session;
+}
+
+public void setSession(Map session) {
+	this.session = session;
+}
+
 }

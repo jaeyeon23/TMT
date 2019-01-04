@@ -62,7 +62,6 @@ public class TourView extends ActionSupport implements SessionAware{
 		}
 		/*댓글*/
 		totalCount = (Integer)sqlMapper.queryForObject("tourCCount",getNo());
-		System.out.println(totalCount);
 		cPage = new TourComPaging(getNo(),getCurrentPage(),currentPageC, totalCount, blockCount, blockPage);
 		pagingHtml = cPage.getPagingHtml().toString();
 		

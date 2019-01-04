@@ -2,7 +2,9 @@ package admin.notice;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.util.Calendar;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -11,9 +13,10 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import service.NoticeVO;
 
-public class AdminNoticeModify extends ActionSupport {
+public class AdminNoticeModify extends ActionSupport implements SessionAware {
 	public static Reader reader; //파일 스트림을 위한 reader.
 	public static SqlMapClient sqlMapper; //SqlMapClient API를 사용하기 위한 sqlMapper 객체
+	private Map session;
 	
 	private NoticeVO paramClass; //파라미터를 저장할 객체 (객체를 전달하기 위해)
 	private NoticeVO resultClass; //쿼리 결과 값을 저장할 객체 (처리된 결과를 받기 위해)
@@ -97,4 +100,12 @@ public class AdminNoticeModify extends ActionSupport {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	public Map getSession() {
+		return session;
+	}
+
+	public void setSession(Map session) {
+		this.session = session;
+	}
+	
 }

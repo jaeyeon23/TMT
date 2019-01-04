@@ -13,13 +13,25 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
-import basket.BasketVO;
+import basket.BasketHVO;
+import basket.BasketTVO;
+
+
 
 public class OrderList extends ActionSupport implements SessionAware{
 	
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 	private Map session;
+	
+
+   private List<Order_Hotel> ohlist = new ArrayList<Order_Hotel>();
+   private Order_Hotel hvo = new Order_Hotel();
+	      
+   private List<Order_Tour> otlist = new ArrayList<Order_Tour>();
+   private Order_Tour tvo = new Order_Tour();
+   
+   
 	private OrderVO ovo = new OrderVO();
 	private List<OrderVO> olist = new ArrayList<OrderVO>();
 	private String id;
@@ -40,8 +52,8 @@ public class OrderList extends ActionSupport implements SessionAware{
 	
 	@Override
 	public String execute() throws Exception {
-		ovo.setId(id);
-		olist = sqlMapper.queryForList("selectOneo",ovo);
+/*		ovo.setId(id);*/
+/*		olist = sqlMapper.queryForList("selectOneo",ovo);*/
 		
 		totalCount = olist.size();
 		page = new OrderpagingAction(currentPage,totalCount,blockCount,blockPage);

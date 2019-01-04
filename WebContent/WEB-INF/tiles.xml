@@ -81,101 +81,95 @@
 		<put-attribute name="body" value="/service/noticeView.jsp" />
 	</definition>
 	
-	<!-- 관리자메인 -->
-	 <definition name="AdminMain" extends="Main">
-		<put-attribute name="header" value="/admin/main/adminHeader.jsp" />
-		<put-attribute name="body" value="/admin/main/adminMain.jsp" />
-	</definition>
-	
 	<!-- 관리자 멤버 -->
-	<definition name="AdminMemberList" extends="AdminMain">
+	<definition name="AdminMemberList" extends="Main">
 		<put-attribute name="body" value="/admin/member/adminMemberList.jsp" />
 	</definition>
 	
-	<definition name="AdminMemberView" extends="AdminMain">
+	<definition name="AdminMemberView" extends="Main">
 		<put-attribute name="body" value="/admin/member/adminMemberView.jsp" />
 	</definition>
 	
-	<definition name="AdminMemberModify" extends="AdminMain">
+	<definition name="AdminMemberModify" extends="Main">
 		<put-attribute name="body" value="/admin/member/adminMemberModify.jsp" />
 	</definition>
 	
 	<!-- 관리자 항공 -->
-	<definition name="AdminAirList" extends="AdminMain">
+	<definition name="AdminAirList" extends="Main">
 		<put-attribute name="body" value="/admin/item/adminAirList.jsp" />
 	</definition>
 	
-	<definition name="AdminAirWrite" extends="AdminMain">
+	<definition name="AdminAirWrite" extends="Main">
 		<put-attribute name="body" value="/admin/item/adminAirWrite.jsp" />
 	</definition>
 	
-	<definition name="AdminAirView" extends="AdminMain">
+	<definition name="AdminAirView" extends="Main">
 		<put-attribute name="body" value="/admin/item/adminAirView.jsp" />
 	</definition>
 	
-	<definition name="AdminAirModify" extends="AdminMain">
+	<definition name="AdminAirModify" extends="Main">
 		<put-attribute name="body" value="/admin/item/adminAirModify.jsp" />
 	</definition>
 	
 	<!-- 관리자 호텔 -->
-	<definition name="AdminHotelList" extends="AdminMain">
+	<definition name="AdminHotelList" extends="Main">
 		<put-attribute name="body" value="/admin/item/adminHotelList.jsp" />
 	</definition>
 	
-	<definition name="AdminHotelWrite" extends="AdminMain">
+	<definition name="AdminHotelWrite" extends="Main">
 		<put-attribute name="body" value="/admin/item/adminHotelWrite.jsp" />
 	</definition>
 	
-	<definition name="AdminHotelView" extends="AdminMain">
+	<definition name="AdminHotelView" extends="Main">
 		<put-attribute name="body" value="/admin/item/adminHotelView.jsp" />
 	</definition>
 	
-	<definition name="AdminHotelModify" extends="AdminMain">
+	<definition name="AdminHotelModify" extends="Main">
 		<put-attribute name="body" value="/admin/item/adminHotelModify.jsp" />
 	</definition>
 	
 	<!-- 관리자 투어 -->
-	<definition name="AdminTourList" extends="AdminMain">
+	<definition name="AdminTourList" extends="Main">
 		<put-attribute name="body" value="/admin/item/adminTourList.jsp" />
 	</definition>
 	
-	<definition name="AdminTourWrite" extends="AdminMain">
+	<definition name="AdminTourWrite" extends="Main">
 		<put-attribute name="body" value="/admin/item/adminTourWrite.jsp" />
 	</definition>
 	
-	<definition name="AdminTourView" extends="AdminMain">
+	<definition name="AdminTourView" extends="Main">
 		<put-attribute name="body" value="/admin/item/adminTourView.jsp" />
 	</definition>
 	
-	<definition name="AdminTourModify" extends="AdminMain">
+	<definition name="AdminTourModify" extends="Main">
 		<put-attribute name="body" value="/admin/item/adminTourModify.jsp" />
 	</definition>
 	
 	<!-- 관리자 공지사항 -->
 	
-	<definition name="AdminNoticeList" extends="AdminMain">
+	<definition name="AdminNoticeList" extends="Main">
 		<put-attribute name="body" value="/admin/notice/adminNoticeList.jsp" />
 	</definition> 
 	
-	<definition name="AdminNoticeWrite" extends="AdminMain">
+	<definition name="AdminNoticeWrite" extends="Main">
 		<put-attribute name="body" value="/admin/notice/adminNoticeWrite.jsp" />
 	</definition> 
 	
-	<definition name="AdminNoticeView" extends="AdminMain">
+	<definition name="AdminNoticeView" extends="Main">
 		<put-attribute name="body" value="/admin/notice/adminNoticeView.jsp" />
 	</definition> 
 	
-	<definition name="AdminNoticeModify" extends="AdminMain">
+	<definition name="AdminNoticeModify" extends="Main">
 		<put-attribute name="body" value="/admin/notice/adminNoticeModify.jsp" />
 	</definition> 
 	
 	<!-- 관리자 주문내역 -->
 	
-	<definition name="AdminOrderList" extends="AdminMain">
+	<definition name="AdminOrderList" extends="Main">
 		<put-attribute name="body" value="/admin/order/adminOrderList.jsp" />
 	</definition> 
 	
-	<definition name="AdminOrderView" extends="AdminMain">
+	<definition name="AdminOrderView" extends="Main">
 		<put-attribute name="body" value="/admin/order/adminOrderView.jsp" />
 	</definition>  
 

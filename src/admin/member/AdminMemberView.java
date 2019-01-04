@@ -2,6 +2,9 @@ package admin.member;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
@@ -10,9 +13,10 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import member.MemberVO;
 
-public class AdminMemberView extends ActionSupport{
+public class AdminMemberView extends ActionSupport implements SessionAware {
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
+	private Map session;
 	
 	private MemberVO paramClass;
 	private MemberVO resultClass;
@@ -60,5 +64,13 @@ public class AdminMemberView extends ActionSupport{
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
+public Map getSession() {
+	return session;
+}
+
+public void setSession(Map session) {
+	this.session = session;
+}
+
 }

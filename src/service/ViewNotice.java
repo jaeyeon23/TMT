@@ -2,15 +2,19 @@ package service;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ViewNotice extends ActionSupport{
+public class ViewNotice extends ActionSupport implements SessionAware {
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
+	private Map session;
 	
 	private NoticeVO paramClass;
 	private NoticeVO resultClass;
@@ -25,11 +29,6 @@ public class ViewNotice extends ActionSupport{
 		reader.close();
 	}
 	
-	
-	
-	
-	
-	
 	@Override
 	public String execute() throws Exception {
 		
@@ -40,11 +39,6 @@ public class ViewNotice extends ActionSupport{
 		
 		return SUCCESS;
 	}
-
-
-
-
-
 
 	public NoticeVO getParamClass() {
 		return paramClass;
@@ -77,6 +71,14 @@ public class ViewNotice extends ActionSupport{
 	public void setNotice_no(int notice_no) {
 		this.notice_no = notice_no;
 	}
-	
+
+public Map getSession() {
+	return session;
+}
+
+public void setSession(Map session) {
+	this.session = session;
+}
+
 	
 }
