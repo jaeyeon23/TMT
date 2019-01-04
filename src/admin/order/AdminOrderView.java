@@ -24,10 +24,9 @@ public class AdminOrderView extends ActionSupport implements SessionAware {
 	
 	private String c;
 	private int currnetPage;
-	private int no;
+	private int seq_no;
 	private String id;
 	OrderVO resultClass;
-	private Map type = new HashMap();
 	
 	public AdminOrderView() throws IOException{
 	     reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -38,14 +37,13 @@ public class AdminOrderView extends ActionSupport implements SessionAware {
 	@Override
 	public String execute() throws Exception {
 		String cc = getC();
-		type.put("no", getNo());
-		type.put("id", getId());
+		;
 		if(cc==null||cc.equals("h")) {
-			resultClass = (Order_Hotel)sqlMapper.queryForObject("orderHView",type);
+			resultClass = (Order_Hotel)sqlMapper.queryForObject("orderHView",getSeq_no());
 		}else if(cc.equals("a")) {
-			resultClass = (Order_Air)sqlMapper.queryForObject("orderAView",type);
+			resultClass = (Order_Air)sqlMapper.queryForObject("orderAView",getSeq_no());
 		}else {
-			resultClass = (Order_Tour)sqlMapper.queryForObject("orderTView",type);
+			resultClass = (Order_Tour)sqlMapper.queryForObject("orderTView",getSeq_no());
 		}
 		
 		return SUCCESS;
@@ -96,12 +94,12 @@ public class AdminOrderView extends ActionSupport implements SessionAware {
 		this.currnetPage = currnetPage;
 	}
 
-	public int getNo() {
-		return no;
+	public int getSeq_no() {
+		return seq_no;
 	}
 
-	public void setNo(int no) {
-		this.no = no;
+	public void setSeq_no(int seq_no) {
+		this.seq_no = seq_no;
 	}
 	
 

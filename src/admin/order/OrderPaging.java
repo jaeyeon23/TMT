@@ -16,7 +16,7 @@ public class OrderPaging {
 
 	// 페이징 생성자
 	public OrderPaging(int currentPage, int totalCount, int blockCount,
-			int blockPage,String c) {
+			int blockPage,String c,String search) {
 
 		this.blockCount = blockCount;
 		this.blockPage = blockPage;
@@ -56,6 +56,11 @@ public class OrderPaging {
 				pagingHtml.append("&c=")
 				.append(c);
 			}
+			if(search!=null) {
+				pagingHtml.append("&search=")
+				.append(search);
+			}
+				
 			pagingHtml.append(">")
 			.append("이전")
 			.append("</a>");
@@ -80,6 +85,10 @@ public class OrderPaging {
 					pagingHtml.append("&c=")
 					.append(c);
 				}
+				if(search!=null) {
+					pagingHtml.append("&search=")
+					.append(search);
+				}
 				pagingHtml.append("'>")
 				.append(i)
 				.append("</a>");
@@ -97,6 +106,10 @@ public class OrderPaging {
 			if(c!=null) {
 				pagingHtml.append("&c=")
 				.append(c);
+			}
+			if(search!=null) {
+				pagingHtml.append("&search=")
+				.append(search);
 			}
 			pagingHtml.append(">")
 			.append("다음")

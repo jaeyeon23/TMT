@@ -26,6 +26,7 @@ public class AdminOrderList extends ActionSupport implements SessionAware {
 	private OrderPaging page;
 	private String c;
 	private String cc;
+	private String search;
 	
 	private List list = new ArrayList();
 	public AdminOrderList() throws IOException{
@@ -38,15 +39,24 @@ public class AdminOrderList extends ActionSupport implements SessionAware {
 		cc = getC();
 		
 		if(cc==null || cc.equals("h")) {
-			list = sqlMapper.queryForList("orderHList");
+			if(getSearch()!=null)
+				list = sqlMapper.queryForList("orderHSearch",getSearch());
+			else
+				list = sqlMapper.queryForList("orderHList");
 		}else if(cc.equals("a")) {
-			list = sqlMapper.queryForList("orderAList");
+			if(getSearch()!=null)
+				list = sqlMapper.queryForList("orderASearch",getSearch());
+			else
+				list = sqlMapper.queryForList("orderAList");
 		}else {
-			list = sqlMapper.queryForList("orderTList"); 
+			if(getSearch()!=null)
+				list = sqlMapper.queryForList("orderTSearch",getSearch());
+			else
+				list = sqlMapper.queryForList("orderTList");
 		}
 		
 		totalCount = list.size(); 
-		page = new OrderPaging(currentPage, totalCount, blockCount, blockPage,getC());
+		page = new OrderPaging(currentPage, totalCount, blockCount, blockPage,getC(),getSearch());
 		pagingHtml = page.getPagingHtml().toString();
 		
 		int lastCount = totalCount;
@@ -61,6 +71,12 @@ public class AdminOrderList extends ActionSupport implements SessionAware {
 	
 	
 	
+	public String getSearch() {
+		return search;
+	}
+	public void setSearch(String search) {
+		this.search = search;
+	}
 	public String getCc() {
 		return cc;
 	}

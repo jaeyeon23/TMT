@@ -23,6 +23,10 @@
 		<a href="AdminOrderList.action?c=a">항공</a> &nbsp;&nbsp;  &nbsp;&nbsp;
 		<a href="AdminOrderList.action?c=h">호텔</a>
 	</div>
+<s:if test="%{totalCount == 0}">
+예약내역이 없습니다
+</s:if>
+<s:else>
 <s:if test='%{cc=="h"}'>
 	<h2>호텔</h2>
 	
@@ -56,11 +60,10 @@
 			<td><s:property value="price"/></td>
 			<td>
 				<form action="AdminOrderView.action">
-					<input type="hidden" name="no" value="<s:property value="no"/>">
-					<input type="hidden" name="id" value="<s:property value="id"/>">
+					<input type="hidden" name="seq_no" value="<s:property value="seq_no"/>">
 					<input type="hidden" name="c" value="<s:property value="c"/>">
 					<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
-					<input type="hidden" name="reg_date" value="<s:property value="reg_date"/>">
+					
 					<input type="submit" value="상세보기">
 				</form>
 			</td>
@@ -97,11 +100,10 @@
 			<td><s:property value="price"/></td>
 			<td>
 				<form action="AdminOrderView.action">
-					<input type="hidden" name="no" value="<s:property value="no"/>">
+					<input type="hidden" name="seq_no" value="<s:property value="seq_no"/>">
 					<input type="hidden" name="c" value="<s:property value="c"/>">
-					<input type="hidden" name="id" value="<s:property value="id"/>">
 					<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
-					<input type="hidden" name="reg_date" value="<s:property value="reg_date"/>">
+					
 					<input type="submit" value="상세보기">
 				</form>
 			</td>
@@ -129,9 +131,8 @@
 			<td><s:property value="price"/></td>
 			<td>
 				<form action="AdminOrderView.action">
-					<input type="hidden" name="no" value="<s:property value="no"/>">
+					<input type="hidden" name="seq_no" value="<s:property value="seq_no"/>">
 					<input type="hidden" name="c" value="<s:property value="c"/>">
-					<input type="hidden" name="id" value="<s:property value="id"/>">
 					<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
 					<input type="submit" value="상세보기">
 				</form>
@@ -140,10 +141,12 @@
 		</s:iterator>
 	</table>
 </s:else>
+</s:else>
 	<div align="center"><s:property value="pagingHtml" escape="false"/></div>
 	<div id="search" align="center">
 		<form>
 			<input type="text" name="search">
+			<input type="hidden" name="c" value="<s:property value="c"/>">
 			<input type="submit" value="검색">
 		</form>
 	</div>	
