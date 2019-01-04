@@ -10,7 +10,7 @@
 		<action name="Login" class="member.LoginMember" method="Login">
 	       <result name="error">/member/loginError.jsp</result>
 	     	<result type="redirect-action">
-				<param name="actionName">Main</param>
+				<param name="actionName">${url2}</param>
 		 	</result>
 	    </action>
 	      

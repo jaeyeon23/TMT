@@ -75,6 +75,7 @@ function validation(userinput){
 						</center>
 						</div>
 					</div>
+					<input type="hidden" name="url" value="${header.referer}">
 				</form>
 				</div>						
 					<div class="panel-footer">
