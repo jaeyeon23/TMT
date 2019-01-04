@@ -38,21 +38,21 @@ public class AdminOrderList extends ActionSupport implements SessionAware {
 	public String execute() throws Exception {
 		cc = getC();
 		
-		if(cc==null || cc.equals("h")) {
-			if(getSearch()!=null)
-				list = sqlMapper.queryForList("orderHSearch",getSearch());
-			else
-				list = sqlMapper.queryForList("orderHList");
-		}else if(cc.equals("a")) {
-			if(getSearch()!=null)
-				list = sqlMapper.queryForList("orderASearch",getSearch());
-			else
-				list = sqlMapper.queryForList("orderAList");
-		}else {
-			if(getSearch()!=null)
-				list = sqlMapper.queryForList("orderTSearch",getSearch());
-			else
+		if(cc==null || cc.equals("t") || cc.equals("")) {
+			if(search==null)
 				list = sqlMapper.queryForList("orderTList");
+			else
+				list = sqlMapper.queryForList("orderTSearch",getSearch());
+		}else if(cc.equals("a")) {
+			if(search==null)
+				list = sqlMapper.queryForList("orderAList");
+			else
+				list = sqlMapper.queryForList("orderASearch",getSearch());
+		}else {
+			if(search==null)
+				list = sqlMapper.queryForList("orderHList");
+			else
+				list = sqlMapper.queryForList("orderHSearch",getSearch());
 		}
 		
 		totalCount = list.size(); 
