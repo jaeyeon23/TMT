@@ -61,7 +61,7 @@ public class ModifyOrder extends ActionSupport implements SessionAware{
 		ovo.setDep(getDep());
 		ovo.setImage1(getImage1());
 		ovo.setPrice(getPrice());
-		ovo.setDay(getDay());
+		
 		ovo.setDd(getDd());
 		ovo.setCheckin(getCheckin());
 		ovo.setCheckout(getCheckout());

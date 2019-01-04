@@ -30,18 +30,8 @@ public class AdminNoticeDelete extends ActionSupport{
 		reader.close();
 	}
 public String execute() throws Exception {
+		sqlMapper.delete("deleteNotice", getNotice_no());
 		
-		//파라미터와 리절트 객체 생성
-		paramClass = new NoticeVO();
-		
-		
-		//등록할 항목 설정
-		paramClass.setNotice_no(getNotice_no());
-		
-		//등록 쿼리 수행
-		sqlMapper.delete("deleteNotice", paramClass);
-		
-
 		setUri("?currentPage="+getCurrentPage());
 		return SUCCESS;
 		

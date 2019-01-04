@@ -32,7 +32,7 @@ public class ViewNotice extends ActionSupport implements SessionAware {
 	@Override
 	public String execute() throws Exception {
 		
-		sqlMapper.update("readHitNotice",paramClass);
+		sqlMapper.update("readHitNotice",getNotice_no());
 		
 		resultClass = (NoticeVO)sqlMapper.queryForObject("noticeView",getNotice_no());
 		
