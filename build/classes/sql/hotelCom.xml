@@ -47,5 +47,10 @@
 		delete hotelcomment
 		where hotel_no=#hotel_no#
 	</delete>
+	
+	<delete id="deleteHotelCOne" parameterClass="int">
+		delete hotelcomment 
+		where c_ref=#c_ref#
+	</delete>
 
 </sqlMap>

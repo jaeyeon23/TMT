@@ -20,8 +20,8 @@ public class AdminOrderList extends ActionSupport implements SessionAware {
 	
 	private int currentPage = 1;
 	private int totalCount;
-	private int blockCount=9;
-	private int blockPage = 5;
+	private int blockCount=2;
+	private int blockPage = 1;
 	private String pagingHtml;
 	private OrderPaging page;
 	private String c;
@@ -46,7 +46,7 @@ public class AdminOrderList extends ActionSupport implements SessionAware {
 		}
 		
 		totalCount = list.size(); 
-		page = new OrderPaging(currentPage, totalCount, blockCount, blockPage);
+		page = new OrderPaging(currentPage, totalCount, blockCount, blockPage,getC());
 		pagingHtml = page.getPagingHtml().toString();
 		
 		int lastCount = totalCount;

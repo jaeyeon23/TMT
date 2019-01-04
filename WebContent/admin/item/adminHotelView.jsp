@@ -120,12 +120,12 @@ $(function()
 					<div class="offer-review__detail-info">
 						<form action="AdminHotelComment.action"> <!-- method="post" -->
 							<div class="form-group">
-								<input class="form-control input-sm" name="c_id" type="text" placeholder="아이디" style="width:30%;">
 								<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>
 								<input class="btn btn-default" type="submit" value="작성">
 								<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
 								<input type="hidden" name="hotel_no" value="<s:property value="no"/>">
 								<input type="hidden" name="currentPageC" value="<s:property value="currentPageC"/>">
+								<input type="hidden" name="c_id" value="<s:property value="%{session.session_id}"/>">
 							</div>
 						</form>
 					</div>
@@ -142,11 +142,18 @@ $(function()
 								<p class="offer-review__list--purpose"><s:property value="c_reg_date"/></p>
 								<p class="offer-review__list--message">
 								<div class="with-more " style="max-height: 100px;"><s:property value="c_content"/></div>
-								<div class="sideMenu" align="right"><button type="button" class="btn btn-default btn-xs">답글</button></div>
+								<div class="sideMenu" align="right">
+									<form action="AdminHotelCDelete.action">
+										<input type="button" class="btn btn-default btn-xs" value="답글">
+										<input class="btn btn-default btn-xs" type="submit" value="삭제">
+										<input type="hidden" name="no" value="<s:property value="hotel_no"/>">
+										<input type="hidden" name="c_ref" value="<s:property value="c_ref"/>">
+										<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
+									</form>
+								</div>
 								<div class="subb">
 									<form action="AdminHotelComment.action"> <!-- method="post" -->
 										<div class="form-group">
-											<input class="form-control input-sm" name="c_id" type="text" placeholder="아이디" style="width:30%;">
 											<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>
 											<input type="submit" value="작성" class="btn btn-default btn-xs">
 											<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
@@ -156,6 +163,7 @@ $(function()
 											<input type="hidden" name="c_re_step" value="<s:property value="c_re_step"/>">
 											<input type="hidden" name="c_re_level" value="<s:property value="c_re_level"/>">
 											<input type="hidden" name="currentPageC" value="<s:property value="currentPageC"/>">
+											<input type="hidden" name="c_id" value="관리자"/>">
 										</div>
 									</form>
 								</div>

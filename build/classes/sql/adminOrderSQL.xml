@@ -53,14 +53,14 @@
 	</resultMap> 
 	
 	<select id="orderHList" resultMap="orderHRes">
-		select no,substr(name,0,7) as name,price,country,region,image1,id,tel,to_date(checkin,'yyyy-mm-dd') as checkin,to_char(checkout,'yyyy-mm-dd') as checkout,
+		select no,substr(name,0,7) as name,price,country,region,image1,id,tel,to_char(checkin,'yyyy-mm-dd') as checkin,to_char(checkout,'yyyy-mm-dd') as checkout,
 		content,people,room from order_hotel
 		order by reg_date desc
 	</select>
 	
-	<select id="orderHView" resultMap="orderHRes">
+	<select id="orderHView" resultMap="orderHRes" parameterClass="Map">
 		select * from order_hotel
-		where no = #no#
+		where no = #no# and id = #id#
 	</select>
 	
 	<select id="orderTList" resultMap="orderTRes">
@@ -69,9 +69,9 @@
 		order by reg_date desc
 	</select>
 	
-	<select id="orderTView" resultMap="orderTRes">
+	<select id="orderTView" resultMap="orderTRes" parameterClass="Map">
 		select * from order_tour
-		where no = #no#
+		where no = #no# and id = #id#
 	</select>
 	
 	<select id="orderAList" resultMap="orderARes">
@@ -81,8 +81,8 @@
 		order by reg_date desc
 	</select>
 	
-	<select id="orderAView" resultMap="orderARes">
+	<select id="orderAView" resultMap="orderARes" parameterClass="Map">
 		select * from order_air
-		where no = #no#
+		where no = #no# and id = #id#
 	</select>
 </sqlMap>

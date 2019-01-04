@@ -13,6 +13,10 @@
 			<result type="redirect-action">TourView${uri}</result>
 		</action>
 		
+		<action name="TourCDelete" class="item.tour.TourComDelete">
+			<result type="redirect-action">TourView${param}</result>
+		</action>
+		
 		<action name="TourCheck" class="item.tour.TourCheck">
 			<result name="success" type="tiles">TourCheck</result>
 		</action>

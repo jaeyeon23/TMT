@@ -11,12 +11,12 @@ public class OrderPaging {
 	private int endCount;	 // 한 페이지에서 보여줄 게시글의 끝 번호
 	private int startPage;	 // 시작 페이지
 	private int endPage;	 // 마지막 페이지
-
+	
 	private StringBuffer pagingHtml;
 
 	// 페이징 생성자
 	public OrderPaging(int currentPage, int totalCount, int blockCount,
-			int blockPage) {
+			int blockPage,String c) {
 
 		this.blockCount = blockCount;
 		this.blockPage = blockPage;
@@ -50,10 +50,15 @@ public class OrderPaging {
 		// 이전 block 페이지
 		pagingHtml = new StringBuffer();
 		if (currentPage > blockPage) {
-			pagingHtml.append("<a href=AdminOrderList.action?currentPage="
-					+ (startPage - 1) + ">");
-			pagingHtml.append("이전");
-			pagingHtml.append("</a>");
+			pagingHtml.append("<a href=AdminOrderList.action?currentPage=")
+			.append(startPage - 1);
+			if(c!=null) {
+				pagingHtml.append("&c=")
+				.append(c);
+			}
+			pagingHtml.append(">")
+			.append("이전")
+			.append("</a>");
 		}
 
 		pagingHtml.append("&nbsp;|&nbsp;");
@@ -69,11 +74,15 @@ public class OrderPaging {
 				pagingHtml.append("</font></b>");
 			} else {
 				pagingHtml
-						.append("&nbsp;<a href='AdminOrderList.action?currentPage=");
-				pagingHtml.append(i);
-				pagingHtml.append("'>");
-				pagingHtml.append(i);
-				pagingHtml.append("</a>");
+				.append("&nbsp;<a href='AdminOrderList.action?currentPage=")
+				.append(i);
+				if(c!=null) {
+					pagingHtml.append("&c=")
+					.append(c);
+				}
+				pagingHtml.append("'>")
+				.append(i)
+				.append("</a>");
 			}
 
 			pagingHtml.append("&nbsp;");
@@ -83,10 +92,15 @@ public class OrderPaging {
 
 		// 다음 block 페이지
 		if (totalPage - startPage >= blockPage) {
-			pagingHtml.append("<a href=AdminOrderList.action?currentPage="
-					+ (endPage + 1) + ">");
-			pagingHtml.append("다음");
-			pagingHtml.append("</a>");
+			pagingHtml.append("<a href=AdminOrderList.action?currentPage=")
+			.append(endPage + 1);
+			if(c!=null) {
+				pagingHtml.append("&c=")
+				.append(c);
+			}
+			pagingHtml.append(">")
+			.append("다음")
+			.append("</a>");
 		}
 	}
 

@@ -12,109 +12,58 @@
 <link rel="stylesheet" media="screen" href="css/admin/view1.css">
 <link rel="stylesheet" media="all" href="css/admin/view2.css">
 <link rel="stylesheet" media="screen" href="css/admin/view3.css">
-<link rel="stylesheet" href="/TMT/item/tour/t.css" type="text/css">
+<link rel="stylesheet" href="service/notice.css" type="text/css">
+
 <script src="../js/bootstrap.js" type="text/javascript"></script>
-
-<script type="text/JavaScript">
-	var check = false;
-	function CheckAll() {
-		var chk = document.getElementsByName("deleteCheck");
-		if (check == false) {
-			check = true;
-			for (var i = 0; i < chk.length; i++) {
-				chk[i].checked = false;
-			}
-		} else {
-			check = false;
-			for (var i = 0; i < chk.length; i++) {
-				chk[i].checked = true;
-			}
-		}
-	}
-</script>
-<!--  -->
-<script type="text/javascript">
-	function check() {
-
-		if (frm.deleteCheck.checked == false) {
-			alert("체크박스를 선택해주세요");
-			return false;
-		}
-	}
-</script>
-
 </head>
 <body>
-
-<div id="tuor_body">
-	<div id="tuor_side">
-		<div id="side">
-		     <form id="Tsearch">
-					<div id="search_bar">
-						<input type="text" name="tourname" placeholder="상품을 검색해보세요">
-						<button>검색</button>
-						
-					</div>
-				</form>
-				<br>
-		     <b>CATEGORY</b>
-		     <br>
-		     <hr>
-		     <ul>
-		     	<li><a href="AdminOrderList.action?c=t" class="on">투어</a></li>
-	     	</ul>
-	     	<hr>
-	     	<ul>
-		     	<li><a href="AdminOrderList.action?c=a" class="on">항공</a></li>
-	     	</ul>
-	     	<hr>
-	     	<ul>
-		     	<li><a href="AdminOrderList.action?c=h" class="on">호텔</a></li>
-			</ul>
-			<hr>
-		</div>
+<div class="resp-container--row ">
+	<div>
+		<a href="AdminOrderList.action?c=t">투어</a> &nbsp;&nbsp; &nbsp;&nbsp;
+		<a href="AdminOrderList.action?c=a">항공</a> &nbsp;&nbsp;  &nbsp;&nbsp;
+		<a href="AdminOrderList.action?c=h">호텔</a>
 	</div>
-<div id="tourList">
 <s:if test='%{cc=="h"}'>
 	<h2>호텔</h2>
+	
 	<table class="table" border="0" width="100%" cellpadding="0" cellspacing="0">
 	    <tr height=26>
-			<th width="3%">
-			<input name="checkall" type="checkbox" onclick="javascript:CheckAll()"></th>
-			
+		
 			<th width="5%"><font size="2">번호</font></th>
 			<th width="10%"><font size="2">사진</font></th>
 			<th width="7%"><font size="2">아이디</font></th>
-			<th width="20%"><font size="2">상품명</font></th>
+			<th width="15%"><font size="2">상품명</font></th>
 			
-			<th width="10%"><font size="2">전화번호</font></th>
-			<th width="10%"><font size="2">체크인</font></th>
-			<th width="10%"><font size="2">체크아웃</font></th>
+			<th width="7%"><font size="2">전화번호</font></th>
+			<th width="9%"><font size="2">체크인</font></th>
+			<th width="9%"><font size="2">체크아웃</font></th>
 			<th width="5%"><font size="2">인원</font></th>
 			<th width="5%"><font size="2">잔여객실</font></th>
 			<th width="7%"><font size="2">가격</font></th>
+			<th width="7%"><font size="2">상세보기</font></th>
 		</tr>
 		<s:iterator value="list" status="stat">
-		<s:url id="viewURL" action="AdminOrderView"><!--  -->
-			<s:param name="no" value="no"/><!--  -->
-			<s:param name="currentPage" value="currentPage"/><!--  -->
-		</s:url>
-		
 		<tr bgcolor="#FFFFFF" >
-			<td><input type="checkbox" name="no" value="no"></td>
 			<td><s:property value="no"/></td>
 			<td><img src="/TMT/upload/hotel/<s:property value="image1"/>"></td>
 			<td><s:property value="id"/></td>
-			<td align="left">
-				<s:a href="%{viewURL}"><s:property value="name"/></s:a>
-			</td>
-			
+			<td align="left"><s:property value="name"/></td>
 			<td><s:property value="tel"/></td>
 			<td><s:property value="checkin"/></td>
 			<td><s:property value="checkout"/></td>
 			<td align="center"><s:property value="people"/></td>
 			<td align="center"><s:property value="room"/></td>
 			<td><s:property value="price"/></td>
+			<td>
+				<form action="AdminOrderView.action">
+					<input type="hidden" name="no" value="<s:property value="no"/>">
+					<input type="hidden" name="id" value="<s:property value="id"/>">
+					<input type="hidden" name="c" value="<s:property value="c"/>">
+					<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
+					<input type="hidden" name="reg_date" value="<s:property value="reg_date"/>">
+					<input type="submit" value="상세보기">
+				</form>
+			</td>
 		</tr>
 		</s:iterator>
 	</table>
@@ -123,10 +72,8 @@
 <h2>항공</h2>
 	<table class="table" border="0" width="100%" cellpadding="0" cellspacing="0">
 	    <tr height=26>
-			<th width="3%">
-			<input name="checkall" type="checkbox" onclick="javascript:CheckAll()"></th>
-			
-			<th width="5%"><font size="2">번호</font></th>
+		
+		<th width="5%"><font size="2">번호</font></th>
 			<th width="10%"><font size="2">사진</font></th>
 			<th width="7%"><font size="2">아이디</font></th>
 			<th width="5%"><font size="2">인원</font></th>
@@ -135,17 +82,12 @@
 			<th width="5%"><font size="2">도착일</font></th>
 			<th width="5%"><font size="2">출발일</font></th>
 			<th width="7%"><font size="2">가격</font></th>
+			<th width="7%"><font size="2">상세보기</font></th>
 		</tr>
 		<s:iterator value="list" status="stat">
-		<s:url id="viewURL" action="AdminOrderView"><!--  -->
-			<s:param name="no" value="no"/><!--  -->
-			<s:param name="currentPage" value="currentPage"/><!--  -->
-		</s:url>
-		
 		<tr bgcolor="#FFFFFF" >
-			<td><input type="checkbox" name="no" value="no"></td>
 			<td><s:property value="no"/></td>
-			<td><img src="/TMT/upload/air/<s:property value="image1"/>"></td>
+			<td><img width="30px" src="/TMT/upload/air/<s:property value="image1"/>"></td>
 			<td><s:property value="id"/></td>
 			<td align="center"><s:property value="people"/></td>
 			<td align="center"><s:property value="dep"/></td>
@@ -153,6 +95,16 @@
 			<td align="center"><s:property value="ad"/></td>
 			<td align="center"><s:property value="dd"/></td>
 			<td><s:property value="price"/></td>
+			<td>
+				<form action="AdminOrderView.action">
+					<input type="hidden" name="no" value="<s:property value="no"/>">
+					<input type="hidden" name="c" value="<s:property value="c"/>">
+					<input type="hidden" name="id" value="<s:property value="id"/>">
+					<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
+					<input type="hidden" name="reg_date" value="<s:property value="reg_date"/>">
+					<input type="submit" value="상세보기">
+				</form>
+			</td>
 		</tr>
 		</s:iterator>
 	</table>
@@ -161,35 +113,40 @@
 <h2>투어</h2>
 	<table class="table" border="0" width="100%" cellpadding="0" cellspacing="0">
 	    <tr height=26>
-			<th width="3%">
-			<input name="checkall" type="checkbox" onclick="javascript:CheckAll()"></th>
-			
 			<th width="5%"><font size="2">번호</font></th>
 			<th width="10%"><font size="2">사진</font></th>
 			<th width="7%"><font size="2">아이디</font></th>
 			<th width="20%"><font size="2">상품명</font></th>
 			<th width="7%"><font size="2">가격</font></th>
+			<th width="7%"><font size="2">상세보기</font></th>
 		</tr>
 		<s:iterator value="list" status="stat">
-		<s:url id="viewURL" action="AdminOrderView"><!--  -->
-			<s:param name="no" value="no"/><!--  -->
-			<s:param name="currentPage" value="currentPage"/><!--  -->
-		</s:url>
-		
 		<tr bgcolor="#FFFFFF" >
-			<td><input type="checkbox" name="no" value="no"></td>
 			<td><s:property value="no"/></td>
 			<td><img src="/TMT/upload/tour/<s:property value="image1"/>"></td>
 			<td><s:property value="id"/></td>
-			<td align="left">
-				<s:a href="%{viewURL}"><s:property value="name"/></s:a>
-			</td>
+			<td align="left"><s:property value="name"/></td>
 			<td><s:property value="price"/></td>
+			<td>
+				<form action="AdminOrderView.action">
+					<input type="hidden" name="no" value="<s:property value="no"/>">
+					<input type="hidden" name="c" value="<s:property value="c"/>">
+					<input type="hidden" name="id" value="<s:property value="id"/>">
+					<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
+					<input type="submit" value="상세보기">
+				</form>
+			</td>
 		</tr>
 		</s:iterator>
 	</table>
 </s:else>
-</div>
+	<div align="center"><s:property value="pagingHtml" escape="false"/></div>
+	<div id="search" align="center">
+		<form>
+			<input type="text" name="search">
+			<input type="submit" value="검색">
+		</form>
+	</div>	
 </div>
 </body>
 </html>

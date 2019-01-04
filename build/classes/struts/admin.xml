@@ -82,8 +82,13 @@
 		<action name="AdminHotelDelete" class="admin.item.AdminHotelDelete">
 			<result type="redirect-action">AdminHotelList${uri}</result>
 		</action>  
+		
 		<action name="AdminHotelComment" class="item.hotel.HotelComment">
 			<result type="redirect-action">AdminHotelView${uri}</result>
+		</action>
+		
+		<action name="AdminHotelCDelete" class="item.hotel.HotelComDelete">
+			<result type="redirect-action">AdminHotelView${param}</result>
 		</action>
 		
 		<!-- 투어 -->
@@ -117,6 +122,10 @@
 		
 		<action name="AdminTourComment" class="item.tour.TourComment">
 			<result type="redirect-action">AdminTourView${uri}</result>
+		</action>
+		
+		<action name="AdminTourCDelete" class="item.tour.TourComDelete">
+			<result type="redirect-action">AdminTourView${param}</result>
 		</action>
 	
 		<!-- 공지사항 -->
