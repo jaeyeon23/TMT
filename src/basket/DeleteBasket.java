@@ -30,13 +30,11 @@ public class DeleteBasket extends ActionSupport implements SessionAware {
 	private int seq_no;
 	private String seq_no_str;
 	
-	private int size;
-	private String size_str;
-		
 	private int[] deleteCheck;
 	private int[] deleteCheck2;
 
-	private String[] del;
+	private String[] rownum;
+	private String del;
 	
 	private Map session;
 	private HttpServletRequest request;
@@ -48,14 +46,18 @@ public class DeleteBasket extends ActionSupport implements SessionAware {
 	}
 
 	public String execute() throws Exception {
-		size = Integer.parseInt(size_str);
+		/*rownum = request.getParameterValues("del");*/
 		
-		System.out.println("test");
-		del = request.getParameterValues("del");
+		System.out.println("test : " + request.getParameter(del).length());
+		
+		for(int i = 0 ; i < request.getParameter("del").length() ; i++) {
+			System.out.println("testff");
+		}
+		
 		
 		tvo.setId(getId());
-		for(int i = 0 ; i < del.length ; i++) {
-			tvo.setSeq_no(Integer.parseInt(del[i]));
+		for(int i = 0 ; i < rownum.length ; i++) {
+			tvo.setSeq_no(Integer.parseInt(rownum[i]));
 			sqlMapper.delete("deletetbasket", hvo);
 		}
 		/*hvo.setId(getId());
@@ -173,28 +175,15 @@ public class DeleteBasket extends ActionSupport implements SessionAware {
 		this.seq_no = seq_no;
 	}
 
-	public int getSize() {
-		return size;
-	}
-
-	public void setSize(int size) {
-		this.size = size;
-	}
-
-
 	public void setSeq_no_str(String seq_no_str) {
 		this.seq_no_str = seq_no_str;
 	}
 
-	public void setSize_str(String size_str) {
-		this.size_str = size_str;
-	}
-
-	public String[] getDel() {
+	public String getDel() {
 		return del;
 	}
 
-	public void setDel(String[] del) {
+	public void setDel(String del) {
 		this.del = del;
 	}
 

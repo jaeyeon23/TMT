@@ -189,7 +189,6 @@
 											<td height="2" bgcolor="#FFDDDD"></td>
 										</tr>
 									</table> <s:if test="btlist.size()>0">
-										<s:hidden name="size_str" value="%{btlist.size()}" />
 										<input type="submit" value="선택삭제">
 									</s:if> <br>
 						</form>
