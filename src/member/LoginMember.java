@@ -53,8 +53,9 @@ public class LoginMember extends ActionSupport implements SessionAware{
 		if(resultClass != null){
 			
 			if(resultClass.getPassword().equals(getPassword())) {
-			sb.append(url.substring(url.lastIndexOf("/")+1, url.lastIndexOf(".")))
-			.append(url.substring(url.indexOf("?")));
+			sb.append(url.substring(url.lastIndexOf("/")+1, url.lastIndexOf(".")));
+			if(url.lastIndexOf("?")!= -1)
+				sb.append(url.substring(url.indexOf("?")));
 			url2 = sb.toString();
 			System.out.println(url2);
 			
