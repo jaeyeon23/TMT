@@ -23,7 +23,7 @@ public class AdminMemberList extends ActionSupport implements SessionAware {
 	
 	private int currentPage = 1;
 	private int totalCount;
-	private int blockCount=1;
+	private int blockCount=7;
 	private int blockPage = 5;
 	private String pagingHtml;
 	private MemberPaging page;
