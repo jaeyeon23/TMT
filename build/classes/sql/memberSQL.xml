@@ -40,6 +40,8 @@
 		<include refid="select-all" />
 		<include refid="where-Id" />
 	</select>
+	
+	
 
 	<insert id="JoinMember" parameterClass="member">
 		INSERT INTO MEMBER (NO,ID,PASSWORD,NAME,EMAIL,TEL,REGDATE,PASSPORT,ADMIN,MARKETING1,MARKETING2)
@@ -110,6 +112,12 @@
 			</isNotNull>
 		</dynamic>
 		order by regdate desc
+	</select>
+	
+	
+	<select id="selectOne_TT" resultMap="memberRes" parameterClass="java.util.Map">
+		SELECT * FROM MEMBER
+		where id = #id#
 	</select>
  
  </sqlMap>
