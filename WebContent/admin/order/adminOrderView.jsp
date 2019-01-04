@@ -25,9 +25,14 @@
 <s:property value="%{resultClass.name}"/>
 </s:if>
 
-<s:if test='%{c=="t"}'>
+<s:elseif test='%{c=="t"}'>
+<s:property value="%{resultClass.arv}"/>
+</s:elseif>
+
+<s:else>
 <s:property value="%{resultClass.name}"/>
-</s:if>
+</s:else>
+
 
 
 
