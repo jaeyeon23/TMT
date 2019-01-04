@@ -5,8 +5,41 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/TMT/item/tour/Hcheckcss.css" type="text/css">
 </head>
 <body>
+<div id="alls">
+        <div id="tops">
+        </div>
+        <div id="contents">
+			<div id="coutents_left">
+			   1.오늘은 돈내실 필요 없습니다. 요금은 현장에서 결제하세요.
+			</div>
+			<div id="coutents_right">
+			   1. 호텔정보
+			   2. 수량에 따른 메시지
+			       서두르세요 수량이 얼마남지 않았습니다.
+			3. 총 요금 
+			</div>
+		</div>
+</div>
+
+
+<!-- 
+<div>
+		<div id="tops">
+			<ul class="top_1">
+				<li>[이미지들어갈자리]예약 정보</li>
+				<li><hr></li>
+				<li>[이미지들어갈자리]예약 완료</li>
+			</ul>
+		</div>
+		<div>
+		오늘은 돈내실 필요 없습니다. 요금은 현장에서 결제하세요.
+		</div>
+
+	</div>
+ -->
 <h4 align="center">
 	예약 정보 확인
 </h4>
