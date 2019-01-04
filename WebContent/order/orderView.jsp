@@ -17,11 +17,13 @@
 <form action="ModifyOrder.action" name="mo" method="post">
 <button type="submit" class="btn btn-default">수정</button></div><br>
 </form>
-<form action="DeleteOrder.action" name="hodel" method="post">
+
 <div>
 <div>HOTEL</div>
-<s:iterator value="ohlist" status="stat">
+
 <table class="table" width="80%" cellpadding="0" cellspacing="0">
+ <form action="DeleteOrder.action" name="ohdel" method="post"> 
+			 <s:iterator value="hotelClass" status="stat">
 	<input type="hidden" name="id" value="<s:property value="%{session.session_id}"/>"/>
 
 			<tr>
@@ -39,20 +41,21 @@
 			   <th align="center"><font size="2"><strong>가격</strong></font></th>
 			   <td></td>
 			 </tr>
-	 
+			 
+			
 		    <tr>
-			   <td align="center"><s:property value="image1" /></td>
-			   <td align="center"><s:property value="no" /></td>
-			   <td align="center"><s:property value="name" /></td>
-			   <td align="center"><s:property value="content" /></td>
-			   <td align="center"><s:property value="country" /></td>
-			   <td align="center"><s:property value="region" /></td>
-			   <td align="center"><s:property value="tel" /></td>
-			   <td align="center"><s:property value="checkin" /></td>
-			   <td align="center"><s:property value="checkout" /></td>
-			   <td align="center"><s:property value="people" /></td>
-			   <td align="center"><s:property value="room" /></td>
-               <td align="center"><s:property value="price" /></td>	   
+			   <td align="center"><s:property value="%{hotelRClass.image1}" /></td>
+			   <td align="center"><s:property value="%{hotelRClass.no}" /></td>
+			   <td align="center"><s:property value="%{hotelRClass.name}" /></td>
+			   <td align="center"><s:property value="%{hotelRClass.content}" /></td>
+			   <td align="center"><s:property value="%{hotelRClass.country}" /></td>
+			   <td align="center"><s:property value="%{hotelRClass.region}" /></td>
+			   <td align="center"><s:property value="%{hotelRClass.tel}" /></td>
+			   <td align="center"><s:property value="%{hotelRClass.checkin}" /></td>
+			   <td align="center"><s:property value="%{hotelRClass.checkout}" /></td>
+			   <td align="center"><s:property value="%{hotelRClass.people}" /></td>
+			   <td align="center"><s:property value="%{hotelRClass.room}" /></td>
+               <td align="center"><s:property value="%{hotelRClass.price}" /></td>	   
                <td align="center"><input type="submit" name="submit" value="예약취소"/>
 			 </tr>
 
@@ -61,16 +64,20 @@
 			<tr>
 				<td height="2" ></td>
 			</tr>
+			</s:iterator>
+		</form>
 		</table>
-		</s:iterator>
+		
 </div>
 
 
 
 <div>
 <div>TOUR</div>
-<s:iterator value="otlist" status="stat">
+
 <table class="table" width="80%" cellpadding="0" cellspacing="0">
+<form action="DeleteOrder.action" name="todel" method="post"> 
+			 <s:iterator value="tourClass" status="stat">
 	<input type="hidden" name="id" value="<s:property value="%{session.session_id}"/>"/>
 
 			
@@ -85,16 +92,16 @@
 			   <th align="center"><font size="2"><strong>가격</strong></font></th>
 			   <td></td>
 			 </tr>
-			 
+			
 		    <tr align="left">
-			   <td align="center"><s:property value="image1"/></td>
-			   <td align="center"><s:property value="no" /></td>
-			   <td align="center"><s:property value="name" /></td>
-			   <td align="center"><s:property value="content" /></td>
-			   <td align="center"><s:property value="country" /></td>
-			   <td align="center"><s:property value="region" /></td>
-			   <td align="center"><s:property value="amount" /></td>
-			   <td align="center"><s:property value="price" /></td>
+			   <td align="center"><s:property value="%{tourRClass.image1}"/></td>
+			   <td align="center"><s:property value="%{tourRClass.no}" /></td>
+			   <td align="center"><s:property value="%{tourRClass.name}" /></td>
+			   <td align="center"><s:property value="%{tourRClass.content}" /></td>
+			   <td align="center"><s:property value="%{tourRClass.country}" /></td>
+			   <td align="center"><s:property value="%{tourRClass.region}" /></td>
+			   <td align="center"><s:property value="%{tourRClass.amount}" /></td>
+			   <td align="center"><s:property value="%{tourRClass.price}" /></td>
 			   <td align="center"><input type="submit" name="submit" value="예약취소"/>	   
 			 </tr>
 			  
@@ -103,14 +110,18 @@
 			<tr>
 				<td height="2" ></td>
 			</tr>
+			</s:iterator>
+		</form>
 		</table>
-		</s:iterator>
+		
 </div>
 
 <div>
 <div>AIR</div>
-<s:iterator value="oalist" status="stat">
+
 <table class="table" width="80%" cellpadding="0" cellspacing="0">
+<form action="DeleteOrder.action" name="aodel" method="post">  
+			 <s:iterator value="airClass" status="stat">
 	<input type="hidden" name="id" value="<s:property value="%{session.session_id}"/>"/>
 
 			
@@ -128,19 +139,19 @@
 			   <th align="center"><font size="2"><strong>가격</strong></font></th> 
 			   <td></td>
 			 </tr>
-			 
+			
 		    <tr align="left">
-			   <td align="center"><s:property value="image1"/></td>
-			   <td align="center"><s:property value="no" /></td>
-			   <td align="center"><s:property value="arv" /></td>
-			   <td align="center"><s:property value="dep" /></td>
-			   <td align="center"><s:property value="content" /></td>
-			   <td align="center"><s:property value="ad" /></td>
-			   <td align="center"><s:property value="dd" /></td>
-			   <td align="center"><s:property value="people" /></td>
-			   <td align="center"><s:property value="seat_grade" /></td>
-			   <td align="center"><s:property value="air_company" /></td>
-			   <td align="center"><s:property value="price" /></td>	   	
+			   <td align="center"><s:property value="%{airRClass.image1}"/></td>
+			   <td align="center"><s:property value="%{airRClass.no}" /></td>
+			   <td align="center"><s:property value="%{airRClass.arv}" /></td>
+			   <td align="center"><s:property value="%{airRClass.dep}" /></td>
+			   <td align="center"><s:property value="%{airRClass.content}" /></td>
+			   <td align="center"><s:property value="%{airRClass.ad}" /></td>
+			   <td align="center"><s:property value="%{airRClass.dd}" /></td>
+			   <td align="center"><s:property value="%{airRClass.people}" /></td>
+			   <td align="center"><s:property value="%{airRClass.seat_grade}" /></td>
+			   <td align="center"><s:property value="%{airRClass.air_company}" /></td>
+			   <td align="center"><s:property value="%{airRClass.price}" /></td>	   	
 			   <td align="center"><input type="submit" name="submit" value="예약취소"/>   
 			 </tr>
 			  
@@ -149,11 +160,12 @@
 			<tr>
 				<td height="2" ></td>
 			</tr>
+			</s:iterator>
+		</form>
 		</table>
-		</s:iterator>
+		
 </div>
 
-</form>
 
 </div>	
 
