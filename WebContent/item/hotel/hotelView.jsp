@@ -185,9 +185,11 @@ $(function()
 				<!-- review -->
 				<div class="offer-review" id="review">
 					<!-- reviewWrite -->
+					
 					<div class="offer-review__header">
 						<h4 class="offer-review__header__title">문의<span><s:property value="%{totalCount}"/></span></h4>
 					</div>
+					<s:if test="%{session.session_id!=null}">
 					<div class="offer-review__detail-info">
 						<form action="HotelComment.action"> <!-- method="post" -->
 							<div class="form-group">
@@ -201,6 +203,7 @@ $(function()
 						</form>
 					</div>
 					<div class="clear"></div>
+					</s:if>
 					<!-- /reviewWrite -->
 					<hr>
 					<!-- reviewList -->
