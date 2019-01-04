@@ -7,7 +7,7 @@
 	<typeAlias alias="order_tour" type="order.Order_Tour" />
 	<typeAlias alias="order_air" type="order.Order_Air" />
 	
-	<resultMap id="order_hotleRes" class="order_hotel">
+	<resultMap id="order_hotelRes" class="order_hotel">
 		<result property="no" column="no" />
 		<result property="name" column="name" />
 		<result property="price" column="price" />
@@ -37,6 +37,22 @@
 		<result property="reg_date" column="reg_date" />
 	</resultMap>
 	
+	<resultMap id="order_airRes" class="order_air">
+		<result property="no" column="no" />
+		<result property="arv" column="arv" />
+		<result property="dep" column="dep" />
+		<result property="content" column="content" />
+		<result property="price" column="price" />
+		<result property="air_company" column="air_company" />
+		<result property="image1" column="image1" />
+		<result property="people" column="people" />
+		<result property="id" column="id" />
+		<result property="reg_date" column="reg_date" />
+		<result property="seat_grade" column="seat_grade" />
+		<result property="ad" column="ad" />
+		<result property="dd" column="dd" />
+	</resultMap>
+	
 <sql id="select-allo">
 	SELECT * FROM ORDER_HOTEL
 </sql>
@@ -61,6 +77,23 @@
 		(no, arv, dep, price, content, image1, people, seat_grade, ad, dd, air_company, id, reg_date)
 		VALUES (#no#, #arv#, #dep#, #price#, #content#, #image1#, #people#, #seat_grade#, #ad#, #dd#, #air_company#, #id#, sysdate)
 	</insert>
+	
+	<!-- OrderList Hotel  -->
+	<select id="select_Horder" resultClass="order_hotel" parameterClass="order_hotel">
+	   SELECT  name,price,country,region,image1 FROM order_hotel WHERE id = #id#
+	</select>
+	
+	<!-- OrderList Tour  -->
+	<select id="select_Torder" resultClass="order_tour" parameterClass="order_tour">
+	   SELECT  name,price,country,region,image1 FROM order_tour WHERE id = #id#
+	</select>
+	
+	<!-- OrderList Air  -->
+	<select id="select_Aorder" resultClass="order_air" parameterClass="order_air">
+	   SELECT  arv,dep,price,air_company,image1 FROM order_air WHERE id = #id#
+	</select>
+	
+	<!-- OrderView  -->
 
 
 <!-- 	세션 id값에 해당하는 구매내역 테이블의 정보를 가져온다.
