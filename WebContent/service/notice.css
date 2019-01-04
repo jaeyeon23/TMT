@@ -14,7 +14,6 @@
 .left_num_time { font-size: 11px; color: #a8a8a8; line-height: 14px; }
 .left_num { font-size: 18px; font-weight: 900; color: #fa5c3f; font-family: Tahoma, 'Nanum Gothic', '돋움', Dotum, sans-serif; line-height: 15px; }
 
-
 /* 교육과정 좌측내비 */
 .edu .left_subject { width: 200px; }
 #left_nav.edu>ul { width: 200px; }
@@ -33,10 +32,11 @@
 #left_nav ul .subdepth:last-child>ul>li { padding-bottom: 15px; }
 #left_nav ul .subdepth:last-child>ul>li:last-child { padding-bottom: 0; }
 
-#content_right { width: 1060px; float: right; padding-top: 55px; min-height: 600px; }
+#content_right { width: 796px; float: right; padding-top: 55px; min-height: 600px; }
 
 #content_sub { margin-top: -1px; width: 100%; margin: 0 auto; background: #fff; position: relative; margin-top: 15px; /*border-bottom: 1px solid #e9e9e9;*/ }
-#content_sub_wrap { width: 1200px; margin: 0 auto; overflow: hidden; }
+#content_sub_wrap { width: 1060px; margin: 0 auto; overflow: hidden; }
 .dotted { height: 1px; background: url('/resources/images/common/point_bar.png'); }
 .dotted_y { width: 1px; background: url('/resources/images/common/point_bar_y.png'); }
 textarea { resize: none; }
+
