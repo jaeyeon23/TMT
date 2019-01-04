@@ -2,6 +2,8 @@ package order;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -18,13 +20,20 @@ public class ViewOrder extends ActionSupport implements SessionAware {
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 	private Map session;
-	private OrderVO paramClass = new OrderVO(); //�Ķ���͸� ������ ��ü
-	private OrderVO resultClass = new OrderVO(); //���� ��� ���� ������ ��ü
-	private OrderVO ovo = new OrderVO();
-	private int currentPage;
-
-	private int no;
 	
+	private List<Order_Hotel> ohlist = new ArrayList<Order_Hotel>();
+    private Order_Hotel hvo = new Order_Hotel();
+	         
+	  private List<Order_Tour> otlist = new ArrayList<Order_Tour>();
+	  private Order_Tour tvo = new Order_Tour();
+	   
+	   private List<Order_Air> oalist = new ArrayList<Order_Air>();
+	   private Order_Air avo = new Order_Air();
+	   
+	 private String id;
+	 private int no;
+
+
 	public ViewOrder() throws IOException {
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml"); // sqlMapConfig.xml ������ ���������� �����´�.
 		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader); // sqlMapConfig.xml�� ������ ������ sqlMapper ��ü ����.
@@ -35,8 +44,16 @@ public class ViewOrder extends ActionSupport implements SessionAware {
 	@Override
 	public String execute() throws Exception {
 		
-		ovo.setNo(no);
-		resultClass = (OrderVO) sqlMapper.queryForObject("selectOneo", ovo);
+		//호텔
+		 hvo.setId((String) session.get("session_id"));
+		 hvo.setNo(no);
+	      ohlist = sqlMapper.queryForList("selectH_view",hvo);
+		//투어
+	      tvo.setId((String) session.get("session_id"));
+	      otlist = sqlMapper.queryForList("selectT_view",tvo);
+		//항공
+	      avo.setId((String) session.get("session_id"));
+	      oalist = sqlMapper.queryForList("selectA_view",avo);
 		
 		return SUCCESS;
 	}
@@ -62,52 +79,84 @@ public class ViewOrder extends ActionSupport implements SessionAware {
 	}
 
 
-	public OrderVO getParamClass() {
-		return paramClass;
-	}
-
-
-	public void setParamClass(OrderVO paramClass) {
-		this.paramClass = paramClass;
-	}
-
-
-	public OrderVO getResultClass() {
-		return resultClass;
-	}
-
-
-	public void setResultClass(OrderVO resultClass) {
-		this.resultClass = resultClass;
-	}
-
-
-	public int getCurrentPage() {
-		return currentPage;
-	}
-
-
-	public void setCurrentPage(int currentPage) {
-		this.currentPage = currentPage;
-	}
-
-
-	public int getNo() {
-		return no;
-	}
-
-
-	public void setNo(int no) {
-		this.no = no;
-	}
-	
 	public Map getSession() {
-	      return session;
-	   }
+		return session;
+	}
+
 
 	public void setSession(Map session) {
-	      this.session = session;
-	   }
+		this.session = session;
+	}
 
 
+	public List<Order_Hotel> getOhlist() {
+		return ohlist;
+	}
+
+
+	public void setOhlist(List<Order_Hotel> ohlist) {
+		this.ohlist = ohlist;
+	}
+
+
+	public Order_Hotel getHvo() {
+		return hvo;
+	}
+
+
+	public void setHvo(Order_Hotel hvo) {
+		this.hvo = hvo;
+	}
+
+
+	public List<Order_Tour> getOtlist() {
+		return otlist;
+	}
+
+
+	public void setOtlist(List<Order_Tour> otlist) {
+		this.otlist = otlist;
+	}
+
+
+	public Order_Tour getTvo() {
+		return tvo;
+	}
+
+
+	public void setTvo(Order_Tour tvo) {
+		this.tvo = tvo;
+	}
+
+
+	public List<Order_Air> getOalist() {
+		return oalist;
+	}
+
+
+	public void setOalist(List<Order_Air> oalist) {
+		this.oalist = oalist;
+	}
+
+
+	public Order_Air getAvo() {
+		return avo;
+	}
+
+
+	public void setAvo(Order_Air avo) {
+		this.avo = avo;
+	}
+
+
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	
 }
