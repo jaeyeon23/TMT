@@ -159,8 +159,7 @@ function chkBox(){
 									</s:if> <br>
 						</form>
 						<tr align="center">
-							<td colspan="7"><s:property value="pagingHtml"
-									escape="false" /></td>
+							<td colspan="7"><s:property value="pagingHtml" escape="false" /></td>
 						</tr>
 					</table>
 				</div>
@@ -225,8 +224,7 @@ function chkBox(){
 									</s:if> <br>
 						</form>
 						<tr align="center">
-							<td colspan="7"><s:property value="pagingHtml2"
-									escape="false" /></td>
+							<td colspan="7"><s:property value="pagingHtml2"	escape="false" /></td>
 						</tr>
 					</table>
 				</div>
