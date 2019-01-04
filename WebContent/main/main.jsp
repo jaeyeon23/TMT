@@ -100,8 +100,6 @@
 	        	
     <link rel="stylesheet" href="/TMT/css/main/main.css"/>
 	<!-- 슬라이더 -->
-	<link href="./css/common.css" rel="stylesheet" type="text/css">
-    <link href="./css/basic_slider.css" rel="stylesheet" type="text/css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 </head>

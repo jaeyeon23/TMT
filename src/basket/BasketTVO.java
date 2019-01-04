@@ -10,6 +10,7 @@ public class BasketTVO {
    private String region;
    private String image1;
    private String id;
+   private int seq_no;
    
    public String getContent() {
 	return content;
@@ -59,5 +60,11 @@ public int getNo() {
    public void setId(String id) {
       this.id = id;
    }
+public int getSeq_no() {
+	return seq_no;
+}
+public void setSeq_no(int seq_no) {
+	this.seq_no = seq_no;
+}
 
 }
