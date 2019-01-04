@@ -35,7 +35,7 @@
 			<result name="success" type="tiles">ModifyOrder</result>
 		</action>
 		
-		<action name="DeleteOrder" class="order.DeleteOrder">
+		<action name="DeleteOrder" class="order.DeleteOrder" method="Delete">
 		     <result type="redirect-action">
 			  <param name="actionName">OrderList</param>
 			 </result>

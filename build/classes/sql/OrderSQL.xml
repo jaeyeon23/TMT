@@ -97,21 +97,21 @@
 	   SELECT  arv,dep,price,air_company,image1 FROM order_air WHERE id = #id#
 	</select>
 	
-	<!-- OrderView  -->
+
 	
-	<!-- Delete OrderList Hotel -->
+	<!-- Delete OrderHotel -->
 	 <delete id="deleteHorder" parameterClass="order_hotel">
-      DELETE FROM order_hotel WHERE id = #id# and no = #no#
+      DELETE FROM order_hotel WHERE id = #id# 
    </delete>
    
-   <!-- Delete OrderList Tour -->
+   <!-- Delete Order Tour -->
     <delete id="deleteTorder" parameterClass="order_tour">
-      DELETE FROM order_tour WHERE id = #id# and no = #no#
+      DELETE FROM order_tour WHERE id = #id# 
    </delete>
    
-   <!-- Delete OrderList Air -->
+   <!-- Delete Order Air -->
     <delete id="deleteAorder" parameterClass="order_air">
-      DELETE FROM order_air WHERE id = #id# and no = #no#
+      DELETE FROM order_air WHERE id = #id# 
    </delete>
    
    <!-- Order_HOTEL 상세보기 -->

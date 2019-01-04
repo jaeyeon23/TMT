@@ -13,22 +13,24 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
-import basket.BasketVO;
+import basket.BasketHVO;
+
+
 
 public class ViewOrder extends ActionSupport implements SessionAware {
 	
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 	private Map session;
+	private Order_Hotel hotelClass;
+	private List<Order_Hotel> hotelRClass = new ArrayList<Order_Hotel>();
 	
-	private List<Order_Hotel> ohlist = new ArrayList<Order_Hotel>();
-    private Order_Hotel hvo = new Order_Hotel();
-	         
-	  private List<Order_Tour> otlist = new ArrayList<Order_Tour>();
-	  private Order_Tour tvo = new Order_Tour();
-	   
-	   private List<Order_Air> oalist = new ArrayList<Order_Air>();
-	   private Order_Air avo = new Order_Air();
+	private Order_Tour tourClass;
+	private List<Order_Tour> tourRClass = new ArrayList<Order_Tour>();;
+	
+	private Order_Air airClass;
+	private List<Order_Air> airRClass = new ArrayList<Order_Air>();
+	
 	   
 	 private String id;
 	 private int no;
@@ -45,15 +47,21 @@ public class ViewOrder extends ActionSupport implements SessionAware {
 	public String execute() throws Exception {
 		
 		//호텔
-		 hvo.setId((String) session.get("session_id"));
-		 hvo.setNo(no);
-	      ohlist = sqlMapper.queryForList("selectH_view",hvo);
+		hotelClass = new Order_Hotel();
+		hotelClass.setId((String) session.get("session_id"));
+		
+		hotelRClass = sqlMapper.queryForList("selectH_view",hotelClass);
+		
 		//투어
-	      tvo.setId((String) session.get("session_id"));
-	      otlist = sqlMapper.queryForList("selectT_view",tvo);
+		tourClass = new Order_Tour();
+		tourClass.setId((String) session.get("session_id"));
+		
+		tourRClass = sqlMapper.queryForList("selectT_view",tourClass);
 		//항공
-	      avo.setId((String) session.get("session_id"));
-	      oalist = sqlMapper.queryForList("selectA_view",avo);
+		airClass = new Order_Air();
+		airClass.setId((String) session.get("session_id"));
+		
+		airRClass = sqlMapper.queryForList("selectA_view",airClass);
 		
 		return SUCCESS;
 	}
@@ -89,63 +97,63 @@ public class ViewOrder extends ActionSupport implements SessionAware {
 	}
 
 
-	public List<Order_Hotel> getOhlist() {
-		return ohlist;
+	public Order_Hotel getHotelClass() {
+		return hotelClass;
 	}
 
 
-	public void setOhlist(List<Order_Hotel> ohlist) {
-		this.ohlist = ohlist;
+	public void setHotelClass(Order_Hotel hotelClass) {
+		this.hotelClass = hotelClass;
 	}
 
 
-	public Order_Hotel getHvo() {
-		return hvo;
+	public List<Order_Hotel> getHotelRClass() {
+		return hotelRClass;
 	}
 
 
-	public void setHvo(Order_Hotel hvo) {
-		this.hvo = hvo;
+	public void setHotelRClass(List<Order_Hotel> hotelRClass) {
+		this.hotelRClass = hotelRClass;
 	}
 
 
-	public List<Order_Tour> getOtlist() {
-		return otlist;
+	public Order_Tour getTourClass() {
+		return tourClass;
 	}
 
 
-	public void setOtlist(List<Order_Tour> otlist) {
-		this.otlist = otlist;
+	public void setTourClass(Order_Tour tourClass) {
+		this.tourClass = tourClass;
 	}
 
 
-	public Order_Tour getTvo() {
-		return tvo;
+	public List<Order_Tour> getTourRClass() {
+		return tourRClass;
 	}
 
 
-	public void setTvo(Order_Tour tvo) {
-		this.tvo = tvo;
+	public void setTourRClass(List<Order_Tour> tourRClass) {
+		this.tourRClass = tourRClass;
 	}
 
 
-	public List<Order_Air> getOalist() {
-		return oalist;
+	public Order_Air getAirClass() {
+		return airClass;
 	}
 
 
-	public void setOalist(List<Order_Air> oalist) {
-		this.oalist = oalist;
+	public void setAirClass(Order_Air airClass) {
+		this.airClass = airClass;
 	}
 
 
-	public Order_Air getAvo() {
-		return avo;
+	public List<Order_Air> getAirRClass() {
+		return airRClass;
 	}
 
 
-	public void setAvo(Order_Air avo) {
-		this.avo = avo;
+	public void setAirRClass(List<Order_Air> airRClass) {
+		this.airRClass = airRClass;
 	}
 
 
@@ -157,6 +165,21 @@ public class ViewOrder extends ActionSupport implements SessionAware {
 	public void setId(String id) {
 		this.id = id;
 	}
+
+
+	public int getNo() {
+		return no;
+	}
+
+
+	public void setNo(int no) {
+		this.no = no;
+	}
+
+
+	
+	
+	
 	
 	
 }

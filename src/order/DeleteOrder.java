@@ -21,18 +21,20 @@ public class DeleteOrder extends ActionSupport implements SessionAware{
 	private static SqlMapClient sqlMapper;
 	private Map session;
 	
+	private Order_Hotel hoteldelClass;
+	private Order_Hotel hoteldelRClass;
+	
+	private Order_Tour tourdelClass;
+	private Order_Tour tourdelRClass;
+	
+	private Order_Air airdelClass;
+	private Order_Air airdelRClass;
+	
 
 	private String id;
 	private int no;
 	
-  private List<Order_Hotel> ohlist = new ArrayList<Order_Hotel>();
-  private Order_Hotel hvo = new Order_Hotel();
-	         
-  private List<Order_Tour> otlist = new ArrayList<Order_Tour>();
-  private Order_Tour tvo = new Order_Tour();
-	   
- private List<Order_Air> oalist = new ArrayList<Order_Air>();
- private Order_Air avo = new Order_Air();
+  
 
 	public DeleteOrder() throws IOException {
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -41,20 +43,31 @@ public class DeleteOrder extends ActionSupport implements SessionAware{
 	}
 	
 	public String execute() throws Exception {
-		//호텔
-		hvo.setNo(no);
-		hvo.setId((String) session.get("session_id"));
-	    ohlist = sqlMapper.queryForList("deleteHorder",hvo);
-		//투어
-	    tvo.setNo(no);
-		tvo.setId((String) session.get("session_id"));
-	    otlist = sqlMapper.queryForList("deleteTorder",tvo);
-	    //항공
-	    avo.setNo(no);
-	    avo.setId((String) session.get("session_id"));
-	    oalist = sqlMapper.queryForList("deleteAorder",avo);
 
 		return SUCCESS;
+	}
+	
+	public String Delete() throws Exception{
+
+		//호텔
+		
+		hoteldelClass = new Order_Hotel();
+		hoteldelClass.setId((String) session.get("session_id"));
+		sqlMapper.delete("deleteHorder",hoteldelClass);
+
+		//투어
+		tourdelClass = new Order_Tour();
+		tourdelClass.setId((String) session.get("session_id"));
+		sqlMapper.delete("deleteTorder",tourdelClass);
+		
+	    //항공
+		airdelClass = new Order_Air();
+		airdelClass.setId((String) session.get("session_id"));
+		sqlMapper.delete("deleteAorder",airdelClass);
+	    
+	    return SUCCESS;
+
+		
 	}
 	
 	
@@ -100,53 +113,55 @@ public class DeleteOrder extends ActionSupport implements SessionAware{
 		this.no = no;
 	}
 
-	public List<Order_Hotel> getOhlist() {
-		return ohlist;
+	public Order_Hotel getHoteldelClass() {
+		return hoteldelClass;
 	}
 
-	public void setOhlist(List<Order_Hotel> ohlist) {
-		this.ohlist = ohlist;
+	public void setHoteldelClass(Order_Hotel hoteldelClass) {
+		this.hoteldelClass = hoteldelClass;
 	}
 
-	public Order_Hotel getHvo() {
-		return hvo;
+	public Order_Hotel getHoteldelRClass() {
+		return hoteldelRClass;
 	}
 
-	public void setHvo(Order_Hotel hvo) {
-		this.hvo = hvo;
+	public void setHoteldelRClass(Order_Hotel hoteldelRClass) {
+		this.hoteldelRClass = hoteldelRClass;
 	}
 
-	public List<Order_Tour> getOtlist() {
-		return otlist;
+	public Order_Tour getTourdelClass() {
+		return tourdelClass;
 	}
 
-	public void setOtlist(List<Order_Tour> otlist) {
-		this.otlist = otlist;
+	public void setTourdelClass(Order_Tour tourdelClass) {
+		this.tourdelClass = tourdelClass;
 	}
 
-	public Order_Tour getTvo() {
-		return tvo;
+	public Order_Tour getTourdelRClass() {
+		return tourdelRClass;
 	}
 
-	public void setTvo(Order_Tour tvo) {
-		this.tvo = tvo;
+	public void setTourdelRClass(Order_Tour tourdelRClass) {
+		this.tourdelRClass = tourdelRClass;
 	}
 
-	public List<Order_Air> getOalist() {
-		return oalist;
+	public Order_Air getAirdelClass() {
+		return airdelClass;
 	}
 
-	public void setOalist(List<Order_Air> oalist) {
-		this.oalist = oalist;
+	public void setAirdelClass(Order_Air airdelClass) {
+		this.airdelClass = airdelClass;
 	}
 
-	public Order_Air getAvo() {
-		return avo;
+	public Order_Air getAirdelRClass() {
+		return airdelRClass;
 	}
 
-	public void setAvo(Order_Air avo) {
-		this.avo = avo;
+	public void setAirdelRClass(Order_Air airdelRClass) {
+		this.airdelRClass = airdelRClass;
 	}
+
+	
 	
 
 }
