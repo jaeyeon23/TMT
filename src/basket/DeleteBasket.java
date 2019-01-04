@@ -7,7 +7,14 @@ import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
+
+import jdk.nashorn.internal.ir.RuntimeNode.Request;
+
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 public class DeleteBasket extends ActionSupport implements SessionAware {
@@ -21,12 +28,19 @@ public class DeleteBasket extends ActionSupport implements SessionAware {
 	private String id;
 	private int no;
 	private int seq_no;
-
+	private String seq_no_str;
+	
+	private int size;
+	private String size_str;
+		
 	private int[] deleteCheck;
 	private int[] deleteCheck2;
 
+	private String[] del;
+	
 	private Map session;
-
+	private HttpServletRequest request;
+	
 	public DeleteBasket() throws IOException {
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
 		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
@@ -34,12 +48,17 @@ public class DeleteBasket extends ActionSupport implements SessionAware {
 	}
 
 	public String execute() throws Exception {
-
-		return SUCCESS;
-	}
-
-	public String Delete() throws Exception {
-		hvo.setId(getId());
+		size = Integer.parseInt(size_str);
+		
+		System.out.println("test");
+		del = request.getParameterValues("del");
+		
+		tvo.setId(getId());
+		for(int i = 0 ; i < del.length ; i++) {
+			tvo.setSeq_no(Integer.parseInt(del[i]));
+			sqlMapper.delete("deletetbasket", hvo);
+		}
+		/*hvo.setId(getId());
 		hvo.setSeq_no(getSeq_no());
 
 		if (deleteCheck != null) {
@@ -53,7 +72,8 @@ public class DeleteBasket extends ActionSupport implements SessionAware {
 		// 투어
 		tvo.setId(getId());
 		tvo.setSeq_no(getSeq_no());
-
+		
+		
 		if (deleteCheck2 != null) {
 			for (int i = 0; i < deleteCheck2.length; i++) {
 				tvo.setNo(deleteCheck2[i]);
@@ -61,6 +81,7 @@ public class DeleteBasket extends ActionSupport implements SessionAware {
 			}
 
 		}
+*/
 		return SUCCESS;
 	}
 
@@ -150,6 +171,31 @@ public class DeleteBasket extends ActionSupport implements SessionAware {
 
 	public void setSeq_no(int seq_no) {
 		this.seq_no = seq_no;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+
+	public void setSeq_no_str(String seq_no_str) {
+		this.seq_no_str = seq_no_str;
+	}
+
+	public void setSize_str(String size_str) {
+		this.size_str = size_str;
+	}
+
+	public String[] getDel() {
+		return del;
+	}
+
+	public void setDel(String[] del) {
+		this.del = del;
 	}
 
 }

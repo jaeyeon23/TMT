@@ -6,76 +6,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="../css/bootstrap.css" rel="stylesheet">
-<link href="../css/bootstrap-theme.css" rel="stylesheet">
-<script src="../js/bootstrap.js" type="text/javascript"></script>
 <style>
-	#image{
-		/* border-radius: 15px 15px 0 0;
+#image {
+	/* border-radius: 15px 15px 0 0;
 		padding: 1px 1px 1px 1px;
 		width:220px;  */
-		height:50px;
-	}
+	height: 40px;
+}
 </style>
 <meta charset="UTF-8">
 <title>나의 위시리스트</title>
-
-
-<script type="text/JavaScript">
-	var check = false;
-	function CheckAll() {
-		var chk = document.getElementsByName("deleteCheck");
-		if (check == false) {
-			check = true;
-			for (var i = 0; i < chk.length; i++) {
-				chk[i].checked = false;
-			}
-		} else {
-			check = false;
-			for (var i = 0; i < chk.length; i++) {
-				chk[i].checked = true;
-			}
-		}
-	}
-</script>
-<script type="text/JavaScript">
-	function check() {
-
-		if (frm.deleteCheck.checked == false) {
-			alert("체크박스를 선택해주세요");
-			return false;
-		} else
-	}
-</script>
-
-<script type="text/JavaScript">
-	var check2 = false;
-	function CheckAll2() {
-		var chk2 = document.getElementsByName("deleteCheck2");
-		if (check2 == false) {
-			check2 = true;
-			for (var i = 0; i < chk2.length; i++) {
-				chk2[i].checked = false;
-			}
-		} else {
-			check2 = false;
-			for (var i = 0; i < chk2.length; i++) {
-				chk2[i].checked = true;
-			}
-		}
-	}
-</script>
-<script type="text/JavaScript">
-	function check2() {
-
-		if (frm2.deleteCheck2.checked == false) {
-			alert("체크박스를 선택해주세요");
-			return false;
-		}
-	}
-</script>
-
-
 
 </head>
 <body>
@@ -110,11 +50,11 @@
 					<table class="table" align="center">
 						<form action="DeleteBasket.action" name="frm" method="post"
 							onsubmit="return check()">
-							<input type="hidden" name="id" value="<s:property value="%{session.session_id}"/>" />
+							<input type="hidden" name="id"
+								value="<s:property value="%{session.session_id}"/>" />
 							<tr>
 								<td colspan=2>
 									<p align="center">
-										<input type="hidden" name="order" value="basket">
 									<table class="table" cellpadding="0" cellspacing="0">
 										<tr align="center" height=26 bgcolor="#FFDDDD">
 											<td align=left><input name="checkall" type="checkbox"
@@ -130,16 +70,17 @@
 										</tr>
 
 										<s:iterator value="bhlist" status="stat">
-											<tr align="center">
-												<td align="left">
-													<input type="checkBox"	class="checkbox" id="del_id" name="deleteCheck"	value="<s:property value='no'/>" onclick="chk(this.checked)">
-												</td>
+											<tr align="center" height="80px">
+												<td align="left"><input type="checkBox"
+													class="checkbox" id="del_id" name="deleteCheck"
+													value="<s:property value='no'/>"
+													onclick="chk(this.checked)"></td>
 												<td><s:property value="no" /></td>
 												<td>
 													<div id="image">
 														<s:if test="image1 != null">
 															<img src="/TMT/upload/tour/<s:property value="%{image1}" />">
-														</s:if> 
+														</s:if>
 														<s:else>
 															<img src="/TMT/images/noimage.jpg">
 														</s:else>
@@ -149,14 +90,15 @@
 												<td><s:property value="country" /></td>
 												<td><s:property value="region" /></td>
 												<td><s:property value="price" /></td>
-												<s:hidden name="seq_no" value="%{seq_no}"/>
+												<s:hidden name="seq_no"
+													value="%{bhlist[#stat.index].seq_no}" />
 											</tr>
 										</s:iterator>
 										<s:if test="bhlist.size()<=0">
 											<tr align="center">
 												<td colspan="7"><br> <img
 													src="./images/wishlist_empty.jpg" width="40" height="40"><br>
-												<br>위시리스트에 담긴 상품이 없습니다.<br>TMT와 즐거운 여행을 계획해보세요.</td>
+													<br>위시리스트에 담긴 상품이 없습니다.<br>TMT와 즐거운 여행을 계획해보세요.</td>
 											</tr>
 										</s:if>
 
@@ -186,16 +128,15 @@
 					<s:property value="totalCount2" />
 					개의 상품
 					<table class="table" align="center">
-						<form action="DeleteBasket.action" name="frm2" method="post"
+						<form action="DeleteBasket.action" name="frm2" method="get"
 							onsubmit="return check()">
 							<input type="hidden" name="id"
 								value="<s:property value="%{session.session_id}"/>" />
 							<tr>
 								<td colspan=2>
 									<p align="center">
-										<input type="hidden" name="order" value="basket">
 									<table class="table" cellpadding="0" cellspacing="0">
-										<tr height=26 bgcolor="#FFDDDD">
+										<tr align="center" bgcolor="#FFDDDD">
 											<td align=left><input name="checkall2" type="checkbox"
 												onclick="javascript:CheckAll2()"></td>
 
@@ -207,20 +148,22 @@
 											<td width="10%"><font size="2">가격</font></td>
 
 										</tr>
+
 										<s:iterator value="btlist" status="stat">
-											<tr>
-												<td align="left"><input type="checkBox"
-													class="checkbox" id="del_id2" name="deleteCheck2"
-													value="<s:property value="no"/>"
-													onclick="chk2(this.checked)"></td>
+											<tr align="center" height="80px">
+												<td align="left">
+													<input type="checkBox" name="del" value="${seq_no }">
+												</td>
 												<td><s:property value="no" /></td>
 												<td>
 													<div id="image">
 														<s:if test="image1 != null">
-															<img src="/TMT/upload/tour/<s:property value="%{image1}" />">
-														</s:if> 
+															<img
+																src="/TMT/upload/tour/<s:property value="%{image1}" />">
+														</s:if>
 														<s:else>
-															<img src="/TMT/images/noimage.jpg" width="70px" height="70px">
+															<img src="/TMT/images/noimage.jpg" width="60px"
+																height="60px">
 														</s:else>
 													</div>
 												</td>
@@ -228,14 +171,13 @@
 												<td><s:property value="country" /></td>
 												<td><s:property value="region" /></td>
 												<td><s:property value="price" /></td>
-												<s:hidden name="seq_no" value="%{seq_no}"/>
 											</tr>
 										</s:iterator>
 										<s:if test="btlist.size()<=0">
 											<tr align="center">
 												<td colspan="7"><br> <img
 													src="./images/wishlist_empty.jpg" width="40" height="40"><br>
-												<br>위시리스트에 담긴 상품이 없습니다.<br>TMT와 즐거운 여행을 계획해보세요.</td>
+													<br>위시리스트에 담긴 상품이 없습니다.<br>TMT와 즐거운 여행을 계획해보세요.</td>
 											</tr>
 										</s:if>
 
@@ -247,8 +189,8 @@
 											<td height="2" bgcolor="#FFDDDD"></td>
 										</tr>
 									</table> <s:if test="btlist.size()>0">
-										<input type="submit" name="submit" value="선택삭제">
-										
+										<s:hidden name="size_str" value="%{btlist.size()}" />
+										<input type="submit" value="선택삭제">
 									</s:if> <br>
 						</form>
 						<tr align="center">

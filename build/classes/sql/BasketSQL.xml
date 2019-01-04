@@ -95,12 +95,12 @@
    
       <!-- 장바구니 체크박스 선택 삭제 -->
    <delete id="deletehbasket" parameterClass="baskethotel">
-      DELETE FROM basket_hotel WHERE no = #no# and id = #id# and seq_no=#seq_no#
+      DELETE FROM basket_hotel WHERE id = #id# and seq_no=#seq_no#
    </delete>
    
     <!-- 장바구니 체크박스 선택 삭제 -->
    <delete id="deletetbasket" parameterClass="baskettour">
-      DELETE FROM basket_tour WHERE no = #no# and id = #id# and seq_no=#seq_no#
+      DELETE FROM basket_tour WHERE id = #id# and seq_no=#seq_no#
    </delete>
    
    
