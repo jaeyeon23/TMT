@@ -199,6 +199,11 @@
 	<definition name="DeleteMemberForm" extends="Main">
 		<put-attribute name="body" value="/member/DeleteMemberCheck.jsp" />
 	</definition>
+	
+	<definition name="DeleteOrder" extends="Main">
+		<put-attribute name="body" value="/order/orderView.jsp" />
+	</definition>
+	
 
 <!-- 로그인 -->
 	<definition name="Login" extends="Main">

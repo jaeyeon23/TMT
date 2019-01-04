@@ -35,6 +35,11 @@
 			<result name="success" type="tiles">ModifyOrder</result>
 		</action>
 		
+		<action name="DeleteOrder" class="order.DeleteOrder">
+		     <result type="redirect-action">
+			  <param name="actionName">OrderList</param>
+			 </result>
+		</action>
 		
 	</package>
 </struts>
