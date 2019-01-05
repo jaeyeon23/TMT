@@ -29,6 +29,8 @@ public class LoginMember extends ActionSupport implements SessionAware{
 	private String password;
 	private int admin;
 	private Date regdate;
+	private String url;
+	private String url2;
 	
 	private Map session;
 	
@@ -44,13 +46,19 @@ public class LoginMember extends ActionSupport implements SessionAware{
 	}
 		
 	public String Login() throws Exception {
-		
+		url = getUrl();
+		StringBuffer sb = new StringBuffer();
 		resultClass = (MemberVO) sqlMapper.queryForObject("loginChk", getId());
 		
 		if(resultClass != null){
 			
 			if(resultClass.getPassword().equals(getPassword())) {
-
+			sb.append(url.substring(url.lastIndexOf("/")+1, url.lastIndexOf(".")));
+			if(url.lastIndexOf("?")!= -1)
+				sb.append(url.substring(url.indexOf("?")));
+			url2 = sb.toString();
+			System.out.println(url2);
+			
 	        session.put("session_id", resultClass.getId());
 	        session.put("session_admin",resultClass.getAdmin());
 			return SUCCESS;
@@ -71,6 +79,18 @@ public class LoginMember extends ActionSupport implements SessionAware{
 	}
 
 	 
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	public String getUrl2() {
+		return url2;
+	}
+	public void setUrl2(String url2) {
+		this.url2 = url2;
+	}
 	public String getPassword() {
 		return password;
 	}
