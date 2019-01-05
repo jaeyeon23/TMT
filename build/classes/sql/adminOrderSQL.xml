@@ -52,7 +52,7 @@
 		<result property="air_company" column="air_company" />
 		<result property="people" column="people" />
 		<result property="seq_no" column="seq_no"/>
-		<result property="reg_date" column="reg_date" />
+		
 	</resultMap> 
 	
 	<select id="orderHList" resultMap="orderHRes">

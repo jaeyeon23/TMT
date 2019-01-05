@@ -2,7 +2,6 @@ package admin.order;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -12,6 +11,7 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
+import member.MemberVO;
 import order.OrderVO;
 import order.Order_Air;
 import order.Order_Hotel;
@@ -26,7 +26,8 @@ public class AdminOrderView extends ActionSupport implements SessionAware {
 	private int currnetPage;
 	private int seq_no;
 	private String id;
-	OrderVO resultClass;
+	private OrderVO resultOrder;
+	private MemberVO resultMember;
 	
 	public AdminOrderView() throws IOException{
 	     reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -37,14 +38,17 @@ public class AdminOrderView extends ActionSupport implements SessionAware {
 	@Override
 	public String execute() throws Exception {
 		String cc = getC();
+		resultMember = new MemberVO();
+		resultMember.setId(getId());
 		;
 		if(cc==null||cc.equals("h")) {
-			resultClass = (Order_Hotel)sqlMapper.queryForObject("orderHView",getSeq_no());
+			resultOrder = (Order_Hotel)sqlMapper.queryForObject("orderHView",getSeq_no());
 		}else if(cc.equals("a")) {
-			resultClass = (Order_Air)sqlMapper.queryForObject("orderAView",getSeq_no());
+			resultOrder = (Order_Air)sqlMapper.queryForObject("orderAView",getSeq_no());
 		}else {
-			resultClass = (Order_Tour)sqlMapper.queryForObject("orderTView",getSeq_no());
+			resultOrder = (Order_Tour)sqlMapper.queryForObject("orderTView",getSeq_no());
 		}
+		resultMember = (MemberVO)sqlMapper.queryForObject("selectOne",resultMember);
 		
 		return SUCCESS;
 	}
@@ -54,12 +58,20 @@ public class AdminOrderView extends ActionSupport implements SessionAware {
 	
 
 	
-	public OrderVO getResultClass() {
-		return resultClass;
+	public MemberVO getResultMember() {
+		return resultMember;
 	}
 
-	public void setResultClass(OrderVO resultClass) {
-		this.resultClass = resultClass;
+	public void setResultMember(MemberVO resultMember) {
+		this.resultMember = resultMember;
+	}
+
+	public OrderVO getResultOrder() {
+		return resultOrder;
+	}
+
+	public void setResultOrder(OrderVO resultOrder) {
+		this.resultOrder = resultOrder;
 	}
 
 	public String getId() {

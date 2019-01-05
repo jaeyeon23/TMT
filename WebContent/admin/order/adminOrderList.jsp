@@ -27,7 +27,7 @@
 예약내역이 없습니다
 </s:if>
 <s:else>
-<s:if test='%{cc=="h"}'>
+<s:if test='%{cc=="h"}'><!-- 호텔 -->
 	<h2>호텔</h2>
 	
 	<table class="table" border="0" width="100%" cellpadding="0" cellspacing="0">
@@ -63,15 +63,15 @@
 					<input type="hidden" name="seq_no" value="<s:property value="seq_no"/>">
 					<input type="hidden" name="c" value="<s:property value="c"/>">
 					<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
-					
+					<input type="hidden" name="id" value="<s:property value="id"/>">
 					<input type="submit" value="상세보기">
 				</form>
 			</td>
 		</tr>
 		</s:iterator>
 	</table>
-</s:if>
-<s:elseif test='%{cc=="a"}'>
+</s:if><!-- /호텔 -->
+<s:elseif test='%{cc=="a"}'><!-- 항공 -->
 <h2>항공</h2>
 	<table class="table" border="0" width="100%" cellpadding="0" cellspacing="0">
 	    <tr height=26>
@@ -103,15 +103,15 @@
 					<input type="hidden" name="seq_no" value="<s:property value="seq_no"/>">
 					<input type="hidden" name="c" value="<s:property value="c"/>">
 					<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
-					
+					<input type="hidden" name="id" value="<s:property value="id"/>">
 					<input type="submit" value="상세보기">
 				</form>
 			</td>
 		</tr>
 		</s:iterator>
 	</table>
-</s:elseif>
-<s:else>
+</s:elseif><!-- /항공 -->
+<s:else><!-- 투어 -->
 <h2>투어</h2>
 	<table class="table" border="0" width="100%" cellpadding="0" cellspacing="0">
 	    <tr height=26>
@@ -134,13 +134,14 @@
 					<input type="hidden" name="seq_no" value="<s:property value="seq_no"/>">
 					<input type="hidden" name="c" value="<s:property value="c"/>">
 					<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
+					<input type="hidden" name="id" value="<s:property value="id"/>">
 					<input type="submit" value="상세보기">
 				</form>
 			</td>
 		</tr>
 		</s:iterator>
 	</table>
-</s:else>
+</s:else><!-- /투어 -->
 </s:else>
 	<div align="center"><s:property value="pagingHtml" escape="false"/></div>
 	<div id="search" align="center">
