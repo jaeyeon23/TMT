@@ -152,6 +152,7 @@
 			<input type="text" name="search">
 			<input type="hidden" name="c" value="<s:property value="c"/>">
 			<input type="submit" value="검색">
+			<input type="button" value="이전" onclick="history.back()">
 		</form>
 	</div>	
 </div>
