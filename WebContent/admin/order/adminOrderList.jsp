@@ -61,6 +61,7 @@
 			<td>
 				<form action="AdminOrderView.action">
 					<input type="hidden" name="seq_no" value="<s:property value="seq_no"/>">
+					<input type="hidden" name="no" value="<s:property value="no"/>">
 					<input type="hidden" name="c" value="<s:property value="c"/>">
 					<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
 					<input type="hidden" name="id" value="<s:property value="id"/>">
@@ -101,6 +102,7 @@
 			<td>
 				<form action="AdminOrderView.action">
 					<input type="hidden" name="seq_no" value="<s:property value="seq_no"/>">
+					<input type="hidden" name="no" value="<s:property value="no"/>">
 					<input type="hidden" name="c" value="<s:property value="c"/>">
 					<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
 					<input type="hidden" name="id" value="<s:property value="id"/>">
@@ -132,6 +134,7 @@
 			<td>
 				<form action="AdminOrderView.action">
 					<input type="hidden" name="seq_no" value="<s:property value="seq_no"/>">
+					<input type="hidden" name="no" value="<s:property value="no"/>">
 					<input type="hidden" name="c" value="<s:property value="c"/>">
 					<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
 					<input type="hidden" name="id" value="<s:property value="id"/>">

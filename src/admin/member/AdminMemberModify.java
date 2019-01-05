@@ -21,18 +21,19 @@ public class AdminMemberModify extends ActionSupport implements SessionAware {
 	private MemberVO paramClass;
 	private MemberVO resultClass;
 
-	private MemberVO mvo = new MemberVO();
-
 	private int no;
+	private String id;
 	private String name;
 	private String password;
-	private String newpassword;
+	private String passport;
 	private String email;
 	private int tel;
 	private String marketing1;
 	private String marketing2;
 	private String image1;
-
+	
+	private String uri;
+	private int currentPage;
 
 	public AdminMemberModify() throws IOException{
 		
@@ -50,165 +51,38 @@ public class AdminMemberModify extends ActionSupport implements SessionAware {
 	public String execute() throws Exception {
 		
 		paramClass = new MemberVO();
-		resultClass = new MemberVO();
 		
+		
+		paramClass.setId(getId());
 		paramClass.setName(getName());
 		paramClass.setEmail(getEmail());
 		paramClass.setTel(getTel());
 		paramClass.setPassword(getPassword());
+		paramClass.setPassport(getPassport());
 		paramClass.setMarketing1(getMarketing1());
-		paramClass.setMarketing2(getMarketing2());
 		
 		sqlMapper.update("ModifyMember", paramClass);
 		
-		
-		
+		uri ="?id="+getId()+"&currentPage="+getCurrentPage();
 		return SUCCESS;
 	}
-
-
-
-	public MemberVO getParamClass() {
-		return paramClass;
+	
+	public int getCurrentPage() {
+		return currentPage;
 	}
 
-
-
-	public void setParamClass(MemberVO paramClass) {
-		this.paramClass = paramClass;
+	public void setCurrentPage(int currentPage) {
+		this.currentPage = currentPage;
 	}
 
-
-
-	public MemberVO getResultClass() {
-		return resultClass;
+	public String getUri() {
+		return uri;
 	}
 
-
-
-	public void setResultClass(MemberVO resultClass) {
-		this.resultClass = resultClass;
+	public void setUri(String uri) {
+		this.uri = uri;
 	}
 
-
-
-	public MemberVO getMvo() {
-		return mvo;
-	}
-
-
-
-	public void setMvo(MemberVO mvo) {
-		this.mvo = mvo;
-	}
-
-
-
-	public int getNo() {
-		return no;
-	}
-
-
-
-	public void setNo(int no) {
-		this.no = no;
-	}
-
-
-
-	public String getName() {
-		return name;
-	}
-
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-
-	public String getPassword() {
-		return password;
-	}
-
-
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-
-
-	public String getNewpassword() {
-		return newpassword;
-	}
-
-
-
-	public void setNewpassword(String newpassword) {
-		this.newpassword = newpassword;
-	}
-
-
-
-	public String getEmail() {
-		return email;
-	}
-
-
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-
-
-	public int getTel() {
-		return tel;
-	}
-
-
-
-	public void setTel(int tel) {
-		this.tel = tel;
-	}
-
-
-
-	public String getMarketing1() {
-		return marketing1;
-	}
-
-
-
-	public void setMarketing1(String marketing1) {
-		this.marketing1 = marketing1;
-	}
-
-
-
-	public String getMarketing2() {
-		return marketing2;
-	}
-
-
-
-	public void setMarketing2(String marketing2) {
-		this.marketing2 = marketing2;
-	}
-
-
-
-	public String getImage1() {
-		return image1;
-	}
-
-
-
-	public void setImage1(String image1) {
-		this.image1 = image1;
-	}
 	public Map getSession() {
 		return session;
 	}
@@ -217,5 +91,101 @@ public class AdminMemberModify extends ActionSupport implements SessionAware {
 		this.session = session;
 	}
 
+	public MemberVO getParamClass() {
+		return paramClass;
+	}
+
+	public void setParamClass(MemberVO paramClass) {
+		this.paramClass = paramClass;
+	}
+
+	public MemberVO getResultClass() {
+		return resultClass;
+	}
+
+	public void setResultClass(MemberVO resultClass) {
+		this.resultClass = resultClass;
+	}
+
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+	public String getPassport() {
+		return passport;
+	}
+
+	public void setPassport(String passport) {
+		this.passport = passport;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getTel() {
+		return tel;
+	}
+
+	public void setTel(int tel) {
+		this.tel = tel;
+	}
+
+	public String getMarketing1() {
+		return marketing1;
+	}
+
+	public void setMarketing1(String marketing1) {
+		this.marketing1 = marketing1;
+	}
+
+	public String getMarketing2() {
+		return marketing2;
+	}
+
+	public void setMarketing2(String marketing2) {
+		this.marketing2 = marketing2;
+	}
+
+	public String getImage1() {
+		return image1;
+	}
+
+	public void setImage1(String image1) {
+		this.image1 = image1;
+	}
 	
 }

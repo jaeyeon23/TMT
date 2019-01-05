@@ -23,7 +23,7 @@ public class AdminOrderView extends ActionSupport implements SessionAware {
 	private Map session;
 	
 	private String c;
-	private int currnetPage;
+	private int currentPage;
 	private int seq_no;
 	private String id;
 	private OrderVO resultOrder;
@@ -98,12 +98,12 @@ public class AdminOrderView extends ActionSupport implements SessionAware {
 		this.c = c;
 	}
 
-	public int getCurrnetPage() {
-		return currnetPage;
+	public int getCurrentPage() {
+		return currentPage;
 	}
 
-	public void setCurrnetPage(int currnetPage) {
-		this.currnetPage = currnetPage;
+	public void setCurrentPage(int currentPage) {
+		this.currentPage = currentPage;
 	}
 
 	public int getSeq_no() {

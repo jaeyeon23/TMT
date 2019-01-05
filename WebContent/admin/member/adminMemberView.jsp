@@ -6,16 +6,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="../css/bootstrap.css" rel="stylesheet">
-<link href="../css/bootstrap-theme.css" rel="stylesheet">
-<script src="../js/bootstrap.js" type="text/javascript"></script>
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-theme.css" rel="stylesheet">
+<script src="js/bootstrap.js" type="text/javascript"></script>
 <link rel="stylesheet" href="/TMT/css/member/myPage.css"/>
 <script>
 function removeCheck() {
 	 if (confirm("정말 계정을 삭제하시겠습니까??") == true){    //확인
-	    location.href="DeleteMember.action";
-	 }else{   //취소
-	    location.href="MyPage.action";
+	    location.href='AdminMemberDelete.action?id=<s:property value="%{id}"/>';
 	 }
 }
 </script>
@@ -43,13 +41,13 @@ function removeCheck() {
 				</div>
 				<br><br>
 				<div class="username">
-					<h4><s:property value="%{session.session_id}"/>&nbsp;&nbsp;회원님</h4>
+					<h4><s:property value="%{id}"/>&nbsp;&nbsp;회원님</h4>
 				</div>
 			</div>
 			<div class="promotion-container box clearfix">
 				<div class="item">
 					<div class="item-header text-md">
-						나의 예약내역
+						예약내역
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<a href="OrderList.action">
@@ -57,15 +55,7 @@ function removeCheck() {
 							<img class="arrow" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/ic-arrow-right-xs@2x-b290f6804f2f002ced664adc4c5e63a59629269d2e6657184239261195f22147.png" width="16">
 						</a>
 					</div>
-						<div class="item-header text-md">
-						나의 위시리스트
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="BasketList.action">
-								확인하기
-							<img class="arrow" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/ic-arrow-right-xs@2x-b290f6804f2f002ced664adc4c5e63a59629269d2e6657184239261195f22147.png" width="16">
-						</a>
-					</div>	
+							
 				</div>
 			</div>
 		</div>
@@ -120,7 +110,8 @@ function removeCheck() {
 	<br>
 	<div class="text-clickable-container hide-on-mobile">
 		<div class="text text-sm" >
-			<button onclick="removeCheck()"class="btn-new btn--type-primary btn--width-100">계정 삭제하기</button>
+			<button onclick="removeCheck()" class="btn btn-default btn-sm" >계정 삭제하기</button>
+			<button onclick="history.back()" class="btn btn-default btn-sm" >이전화면</button>
 		</div>
 	</div>
 </center>

@@ -54,6 +54,9 @@
 		<result property="seq_no" column="seq_no"/>
 		
 	</resultMap> 
+	<sql id="orderNo">
+		where seq_no=#seq_no#
+	</sql>
 	
 	<select id="orderHList" resultMap="orderHRes">
 		select seq_no,no,substr(name,0,7) as name,price,country,region,image1,id,tel,to_char(checkin,'yyyy-mm-dd') as checkin,to_char(checkout,'yyyy-mm-dd') as checkout,
@@ -63,7 +66,7 @@
 	
 	<select id="orderHView" resultMap="orderHRes" parameterClass="int">
 		select * from order_hotel
-		where seq_no=#seq_no#
+		<include refid="orderNo"/>
 	</select>
 	
 	<select id="orderTList" resultMap="orderTRes">
@@ -74,7 +77,7 @@
 	
 	<select id="orderTView" resultMap="orderTRes" parameterClass="int">
 		select * from order_tour
-		where seq_no=#seq_no#
+		<include refid="orderNo"/>
 	</select>
 	
 	<select id="orderAList" resultMap="orderARes">
@@ -86,7 +89,7 @@
 	
 	<select id="orderAView" resultMap="orderARes" parameterClass="int">
 		select * from order_air
-		where seq_no=#seq_no#
+		<include refid="orderNo"/>
 	</select>
 	
 	<select id="orderHSearch" resultMap="orderHRes" parameterClass="String">
@@ -103,5 +106,20 @@
 		select * from order_air
 		where id like '%'||#id#||'%'
 	</select> 
+	
+	<delete id="orderTDelete" parameterClass="int">
+		delete order_tour
+		<include refid="orderNo"/>
+	</delete>
+	
+	<delete id="orderADelete" parameterClass="int">
+		delete order_air
+		<include refid="orderNo"/>
+	</delete>
+	
+	<delete id="orderHDelete" parameterClass="int">
+		delete order_hotel
+		<include refid="orderNo"/>
+	</delete>
 	 
 </sqlMap>

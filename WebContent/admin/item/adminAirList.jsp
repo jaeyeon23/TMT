@@ -208,7 +208,7 @@
 				</select>
 				<input type="submit" class="btn btn-primary" value="검색">
 				<button type="button" class="btn btn-primary btn" 
-						onclick="javascript:location.href='AdminAirWriteForm.action'">등록</button>
+						onclick="location.href='AdminAirWriteForm.action'">등록</button>
 			</form>
 		</div>
 	</div>
@@ -320,11 +320,11 @@
 					</td>
 					<td>
 						<button type="button" class="btn btn-primary btn" 
-						onclick="javascript:location.href='AdminAirModifyForm.action?no=<s:property value="no"/>&currentPage=<s:property value="currentPage"/>'">
+						onclick="location.href='AdminAirModifyForm.action?no=<s:property value="no"/>&currentPage=<s:property value="currentPage"/>'">
   							수정
 						</button>
 						<button type="button" class="btn btn-primary btn" 
-						onclick="javascript:location.href='AdminAirDelete.action?no=<s:property value="no"/>&currentPage=<s:property value="currentPage"/>'">
+						onclick="location.href='AdminAirDelete.action?no=<s:property value="no"/>&currentPage=<s:property value="currentPage"/>'">
   							삭제
 						</button>
 					</td>

@@ -46,11 +46,11 @@
 		</action>
 		
 		<action name="AdminMemberModify" class="admin.member.AdminMemberModify">
-			<result type="tiles">AdminMemberView${uri}</result>
+			<result type="redirect-action">AdminMemberView${uri}</result>
 		</action>
 		
 		<action name="AdminMemberDelete" class="admin.member.AdminMemberDelete">
-			<result type="tiles">AdminMemberList${uri}</result>
+			<result type="redirect-action">AdminMemberList${param}</result>
 		</action> 
 		
 		
@@ -167,7 +167,7 @@
 		</action>
 		
 		<action name="AdminOrderDelete" class="admin.order.AdminOrderDelete">
-			<result type="redirect-action">AdminOrderList${param}</result>
+			<result type="chain">AdminOrderList</result>
 		</action>
 		
 	</package>

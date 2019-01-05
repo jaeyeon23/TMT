@@ -33,13 +33,13 @@ function modifyCheck() {
 				</div>
 				<br><br>
 				<div class="username">
-					<h4><s:property value="%{session.session_id}"/>&nbsp;&nbsp;회원님</h4>
+					<h4><s:property value="%{id}"/>&nbsp;&nbsp;회원님</h4>
 				</div>
 			</div>
 			<div class="promotion-container box clearfix">
 				<div class="item">
 					<div class="item-header text-md">
-						나의 예약내역
+						예약내역
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<a href="OrderList.action">
@@ -47,15 +47,6 @@ function modifyCheck() {
 							<img class="arrow" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/ic-arrow-right-xs@2x-b290f6804f2f002ced664adc4c5e63a59629269d2e6657184239261195f22147.png" width="16">
 						</a>
 					</div>
-						<div class="item-header text-md">
-						나의 위시리스트
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="BasketList.action">
-								확인하기
-							<img class="arrow" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/ic-arrow-right-xs@2x-b290f6804f2f002ced664adc4c5e63a59629269d2e6657184239261195f22147.png" width="16">
-						</a>
-					</div>	
 				</div>
 			</div>
 		</div>
@@ -101,6 +92,13 @@ function modifyCheck() {
 					<div class="input-wrapper text-middle">
 						<input class="form-control text-content" name="password" 
 							type="password" placeholder="변경할 비밀번호를 입력하세요">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="title text-middle">여권번호</div>
+					<div class="input-wrapper text-middle">
+						<input class="form-control text-content" name="passport" 
+							type="text" placeholder="변경할 여권번호를 입력하세요">
 					</div>
 				</div>
 				<div class="form-group">

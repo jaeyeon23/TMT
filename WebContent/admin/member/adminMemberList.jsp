@@ -4,47 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-theme.css" rel="stylesheet">
 <link rel="stylesheet" media="screen" href="css/admin/view1.css" />
 <link rel="stylesheet" media="all" href="css/admin/view2.css" />
 <link rel="stylesheet" media="screen" href="css/admin/view3.css" />
-</head>
-<body>
-<link href="css/bootstrap.css" rel="stylesheet">
-<link href="css/bootstrap-theme.css" rel="stylesheet">
-<link rel="stylesheet" media="screen" href="css/admin/view1.css">
-<link rel="stylesheet" media="all" href="css/admin/view2.css">
-<link rel="stylesheet" media="screen" href="css/admin/view3.css">
-<script src="../js/bootstrap.js" type="text/javascript"></script>
-
-<script type="text/JavaScript">
-	var check = false;
-	function CheckAll() {
-		var chk = document.getElementsByName("deleteCheck");
-		if (check == false) {
-			check = true;
-			for (var i = 0; i < chk.length; i++) {
-				chk[i].checked = false;
-			}
-		} else {
-			check = false;
-			for (var i = 0; i < chk.length; i++) {
-				chk[i].checked = true;
-			}
-		}
-	}
-</script>
-<!--  -->
-<script type="text/javascript">
-	function check() {
-
-		if (frm.deleteCheck.checked == false) {
-			alert("체크박스를 선택해주세요");
-			return false;
-		}
-	}
-</script>
-
 </head>
 <body>
 
@@ -71,7 +35,12 @@
 				<img src="/TMT/upload/member/<s:property value="image1"/>"/>
 			</td>	
 			<td>
-				<s:property value="id"/>
+				<s:if test="admin==1">
+					<b>관리자</b>
+				</s:if>
+				<s:else>
+					<s:property value="id"/>
+				</s:else>
 			</td>
 			<td>
 				<s:property value="name"/>
@@ -83,18 +52,22 @@
 				<s:property value="email"/>
 			</td>
 			<td>
+				<s:if test="admin!=1 || session.session_id==id">
 				<button type="button" class="btn btn-default btn-sm" 
-				onclick="javascript:location.href='AdminMemberView.action?id=<s:property value="id"/>&currentPage=<s:property value="currentPage"/>'">
+				onclick="location.href='AdminMemberView.action?id=<s:property value="id"/>&currentPage=<s:property value="currentPage"/>'">
 							상세보기
 				</button>
-				<button type="button" class="btn btn-default btn-sm" 
-				onclick="javascript:location.href='AdminMemberModifyForm.action?id=<s:property value="id"/>&currentPage=<s:property value="currentPage"/>'">
-							수정
-				</button>
-				<button type="button" class="btn btn-default btn-sm" 
-				onclick="javascript:location.href='AdminMemberDelete.action?id=<s:property value="id"/>&currentPage=<s:property value="currentPage"/>'">
-							삭제
-				</button>
+				</s:if>
+				<s:if test="admin!=1">
+					<button type="button" class="btn btn-default btn-sm" 
+					onclick="location.href='AdminMemberModifyForm.action?id=<s:property value="id"/>&currentPage=<s:property value="currentPage"/>'">
+								수정
+					</button>
+					<button type="button" class="btn btn-default btn-sm" 
+					onclick="location.href='AdminMemberDelete.action?id=<s:property value="id"/>&currentPage=<s:property value="currentPage"/>&search=<s:property value="search"/>&searchh=<s:property value="searchh"/>'">
+								삭제
+					</button>
+				</s:if>
 			</td>
 		</tr>
 		</s:iterator>
