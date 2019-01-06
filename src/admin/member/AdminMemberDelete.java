@@ -11,16 +11,20 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
+import member.MemberVO;
+
 public class AdminMemberDelete extends ActionSupport implements SessionAware {
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 	private Map session;
 	
+	private String id;
 	private int currentPage = 1;
 	private String search;
 	private String[] searchh;
 	private StringBuffer sb = new StringBuffer();
 	private String param;
+	private MemberVO p = new MemberVO();
 	
 	public AdminMemberDelete() throws IOException{
 	      reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -29,6 +33,7 @@ public class AdminMemberDelete extends ActionSupport implements SessionAware {
 	}
 	
 	public String execute() throws Exception {
+		p.setId(getId());
 		sb.append("?currentPage=").append(getCurrentPage());
 		if(getSearch() !=null && !(getSearch().equals(""))) {
 			sb.append("&search=").append(getSearch());
@@ -36,9 +41,17 @@ public class AdminMemberDelete extends ActionSupport implements SessionAware {
 				sb.append("&searchh=").append(s);
 		}
 		
-		
+		sqlMapper.delete("deleteMember",p);
 		param = sb.toString();
 		return SUCCESS;
+	}
+
+public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 public Map getSession() {
