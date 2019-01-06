@@ -38,7 +38,6 @@ public class ViewNotice extends ActionSupport implements SessionAware {
 		
 		resultClass = (NoticeVO)sqlMapper.queryForObject("noticeView",getNotice_no());
 		next = (NoticeVO)sqlMapper.queryForObject("noticeNext",getNotice_no());
-		System.out.println(getNotice_no());
 		prev = (NoticeVO)sqlMapper.queryForObject("noticePrev",getNotice_no());
 		
 		
