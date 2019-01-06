@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/TMT/item/tour/checkcss.css" type="text/css">
-<style>
-</style>
+<script>		
+</script>
 </head>
 <body>
     <div id="alls">
@@ -63,10 +63,16 @@
 			   </div>
 			   <hr>
 			   <div id="coutents_left_1">
-			      <font color="#e30413"> 본인 이외의 구매는 불가합니다.</font>
+			        <font color="#e30413"> 본인 이외의 구매는 불가하며 회원정보로 예약 됩니다.<br>현장에서 확인 후 수령하실 수 있습니다.</font><br>	   
 			   </div>
 			   <hr>
-			   
+			   <div id="coutents_left_1">
+				  <s:iterator value="Tourlist" status="stat">
+						예약자명 : <s:property value="%{name}" /><br>
+						연락처 : <s:property value="%{tel}" />
+				  </s:iterator>
+			   </div>
+			   <hr>
 			   <div id="coutents_left_1">
 			   <h4><img width="28" height="25" src="/TMT/images/user_image2.png"> 약관</h4>
 			   <textarea rows="" cols="" disabled >
@@ -102,7 +108,7 @@
 			<div id="min_s">
 			<center>
 			<button type="button" onclick="location.href='javascript:history.go(-1)'" ><b>취소하기</b></button>
-			<form action="TourSuccess.action">
+			<form action="TourSuccess.action" >
 			<s:hidden name="no" value="%{no}" />  <!-- 상품번호  -->
 			<s:hidden name="name" value="%{name}" />  <!-- 상품명 -->
 			<s:hidden name="price" value="%{price}" />  <!-- 가격 -->
@@ -112,7 +118,7 @@
 			<s:hidden name="image1" value="%{image1}" />  <!-- 이미지 -->
 			<s:hidden name="amount" value="%{amount}" />  <!-- 수량 -->
 			<s:hidden name="id" value="%{session.session_id}" />  <!-- 아이디 -->
-			<b><input type="submit" value= "예약하기"></b>
+			<b><input type="submit" value= "예약하기" ></b>
 		  	</form>
 		  	</center>
 		  	</div>

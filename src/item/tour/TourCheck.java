@@ -45,7 +45,7 @@ public class TourCheck extends ActionSupport implements SessionAware  {
 	
 	@Override
 	public String execute() throws Exception {
-		map.put("id", getId());
+		map.put("userId", getId());
 		Lists = sqlMapper.queryForList("selectOne_TT", map);
 	
 		return SUCCESS;

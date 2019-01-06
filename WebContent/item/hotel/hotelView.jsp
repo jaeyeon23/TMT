@@ -20,16 +20,33 @@
 <link href="css/bootstrap-theme.css" rel="stylesheet">
 <link rel="stylesheet" href="/TMT/item/hotel/views.css" type="text/css">
 <script>
-$(function() 
-		{
-			$(".subb").hide();
-			$("div.sideMenu").click(function() 
-			{
-				if($(this).next().css("display")=="none")
-					$(".subb").slideUp("fast");
-				 $(this).next().slideToggle("fast"); 
-			})
-		})		
+	$(function() {
+		$(".subb").hide();
+		$("div.sideMenu").click(function() {
+			if ($(this).next().css("display") == "none")
+				$(".subb").slideUp("fast");
+			$(this).next().slideToggle("fast");
+		})
+	})
+
+	function check() {
+		if (document.HsearchForm.inDay.value == "") {
+			alert("체크인날짜를 선택해주세요.");
+			document.HsearchForm.inDay.focus();
+			return false;
+		}
+
+		if (document.HsearchForm.outDay.value == "") {
+			alert("체크아웃 날짜를 선택해주세요");
+			document.HsearchForm.outDay.focus();
+			return false;
+		}
+		if (document.HsearchForm.outDay.value > "<s:property value="%{resultClass.checkout}"/>" ) {
+			alert("예약가능일을 초과하였습니다. 다시선택해주세요.");
+			document.HsearchForm.outDay.focus();
+			return false;
+		}
+	}
 </script>
 <style>
 .sidebar {
@@ -74,7 +91,7 @@ $(function()
 			                   			</a>
 						    </s:if>	
 						    <s:else>						
-							<form id="Hsearch" name="HsearchForm" action="HotelCheck.action">
+							<form id="Hsearch" name="HsearchForm" onsubmit="return check()" action="HotelCheck.action">
 							<s:hidden name="no" value="%{no}" />
 							<s:hidden name="name" value="%{resultClass.name}" />
 							<s:hidden name="price" value="%{resultClass.price}" />  <!-- 가격 -->
