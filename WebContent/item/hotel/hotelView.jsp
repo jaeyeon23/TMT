@@ -55,9 +55,10 @@
   top: 80px;
 }
 
-#Hsearch input[type="submit"]{
-    outline: none;
-
+#Hsearch2 input[type="submit"] {
+    width: 100%;
+    margin-top: 30px;
+    height: 40px;
 }
 </style>
 </head>
@@ -91,61 +92,60 @@
 			                   			</a>
 						    </s:if>	
 						    <s:else>						
-							<form id="Hsearch" name="HsearchForm" onsubmit="return check()" action="HotelCheck.action">
-							<s:hidden name="no" value="%{no}" />
-							<s:hidden name="name" value="%{resultClass.name}" />
-							<s:hidden name="price" value="%{resultClass.price}" />  <!-- 가격 -->
-							<s:hidden name="content" value="%{resultClass.content}" />
-							<s:hidden name="country" value="%{resultClass.country}" />  <!-- 국가 -->
-							<s:hidden name="region" value="%{resultClass.region}" />  <!-- 지역 -->
-							<s:hidden name="image1" value="%{resultClass.main_image}" />  <!-- 이미지 -->
-							<s:hidden name="tel" value="%{resultClass.tel}" />  <!-- 전화번호 -->
-							
-							
-						   	 <b>&nbsp;&nbsp;체크인</b><br>
-							 <input type="text" size="20" name="inDay" id="inDay" readonly placeholder="체크인">
-							<b>&nbsp;&nbsp;체크아웃</b><br>
-							<input type="text" size="20" name="outDay" id="outDay" readonly
-								placeholder="체크아웃"> <br>
-							<b>&nbsp;&nbsp;인원 및 객실</b><br>
-							<select name="number" class="form-control">
-							<option value="1">1명</option>
-							<option value="2">2명</option>
-							<option value="3">3명</option>
-							<option value="4">4명</option>
-							<option value="5">5명</option>
-							<option value="6">6명</option>
-							<option value="7">7명</option>
-							<option value="8">8명</option>
-							<option value="9">9명</option>
-							<option value="9">10명</option>
-							</select> 
-							<select name="roomnum" class="form-control">
-							<option value="1">1개</option>
-							<option value="2">2개</option>
-							<option value="3">3개</option>
-							<option value="4">4개</option>
-							<option value="5">5개</option>
-							</select> 	
-							<br><br>
-							
-							<center>
-							<input type="submit" class="app-button app-button__type--primary app-button__size--l" value="예약 하기">
+							<form id="Hsearch2" name="HsearchForm" onsubmit="return check()" action="HotelCheck.action">
+								<s:hidden name="no" value="%{no}" />
+								<s:hidden name="name" value="%{resultClass.name}" />
+								<s:hidden name="price" value="%{resultClass.price}" />  <!-- 가격 -->
+								<s:hidden name="content" value="%{resultClass.content}" />
+								<s:hidden name="country" value="%{resultClass.country}" />  <!-- 국가 -->
+								<s:hidden name="region" value="%{resultClass.region}" />  <!-- 지역 -->
+								<s:hidden name="image1" value="%{resultClass.main_image}" />  <!-- 이미지 -->
+								<s:hidden name="tel" value="%{resultClass.tel}" />  <!-- 전화번호 -->
+								
+								
+							   	 <b>&nbsp;&nbsp;체크인</b><br>
+								 <input type="text" size="20" name="inDay" id="inDay" readonly placeholder="체크인">
+								<b>&nbsp;&nbsp;체크아웃</b><br>
+								<input type="text" size="20" name="outDay" id="outDay" readonly
+									placeholder="체크아웃"> <br>
+								<b>&nbsp;&nbsp;인원 및 객실</b><br>
+								<select name="number" class="form-control">
+								<option value="1">1명</option>
+								<option value="2">2명</option>
+								<option value="3">3명</option>
+								<option value="4">4명</option>
+								<option value="5">5명</option>
+								<option value="6">6명</option>
+								<option value="7">7명</option>
+								<option value="8">8명</option>
+								<option value="9">9명</option>
+								<option value="9">10명</option>
+								</select> 
+								<select name="roomnum" class="form-control">
+								<option value="1">1개</option>
+								<option value="2">2개</option>
+								<option value="3">3개</option>
+								<option value="4">4개</option>
+								<option value="5">5개</option>
+								</select> 	
+								
+								<input type="submit" class="app-button app-button__type--primary app-button__size--l" value="예약 하기">
+								
 							</form>
 							<form action="InsertBasket.action" method="get">
-							<button type="submit" >
-								<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;">위시리스트<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;">
-								<s:hidden name="no" value="%{resultClass.no}"/>
-								<s:hidden name="name" value="%{resultClass.name}"/>
-								<s:hidden name="price" value="%{resultClass.price}"/>
-								<s:hidden name="country" value="%{resultClass.country}"/>
-								<s:hidden name="region" value="%{resultClass.region}"/>
-								<s:hidden name="image1" value="%{resultClass.main_image}"/><!-- <s:hidden name="image1" value="%{resultClass.image1}"/> -->
-								<s:hidden name="id" value="%{session.session_id}"/>
-								<s:hidden name="type" value="2"/>
-							</button>
+								<button type="submit" class="app-button app-button__type--outline app-button__size--m">
+									<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;">위시리스트<img src="/TMT/images/admin/heart.svg" alt="wishlist" style="width: 24px; height: 24px; margin-right: 4px;">
+									<s:hidden name="no" value="%{resultClass.no}"/>
+									<s:hidden name="name" value="%{resultClass.name}"/>
+									<s:hidden name="price" value="%{resultClass.price}"/>
+									<s:hidden name="country" value="%{resultClass.country}"/>
+									<s:hidden name="region" value="%{resultClass.region}"/>
+									<s:hidden name="image1" value="%{resultClass.main_image}"/><!-- <s:hidden name="image1" value="%{resultClass.image1}"/> -->
+									<s:hidden name="id" value="%{session.session_id}"/>
+									<s:hidden name="type" value="2"/>
+								</button>
 							</form>
-							</center>
+							
 							</s:else>
 							</div>
 							
