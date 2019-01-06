@@ -44,7 +44,9 @@
 		</div>
         <div id="contents">
             <div id="contents_1">
-			<center><h2>Thank you</h2><br>예약이 완료 되었습니다.<br> 예약하신 정보는 <b><font color="#e30413">예약내역</font></b> 에서 확인가능합니다.<br>
+			<center><h2>Thank you</h2><br>예약이 완료 되었습니다.<br> 
+			예약하신 정보는 <a href="OrderList.action"><b><font color="#e30413" size="3" style="text-decoration:underline;" >[예약내역]</font></b></a> 
+			 에서 확인가능합니다.<br>
 				<br><br>
 				<button type="button" onclick="location.href='Main.action'"><b>홈으로</b></button>
 			</center>

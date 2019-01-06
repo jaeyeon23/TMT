@@ -9,13 +9,14 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
-import item.air.AirVO;
+import member.MemberVO;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.text.SimpleDateFormat;
 import org.apache.struts2.interceptor.SessionAware;
 
 public class HotelCheck extends ActionSupport implements SessionAware {
@@ -35,9 +36,13 @@ public class HotelCheck extends ActionSupport implements SessionAware {
 	private String country;	 //국가
 	private String region;	//지역
 	private String tel;       //전화번호
-
+	
+	private Map map = new HashMap<>();
+	private String id;
+	private List<MemberVO> Lists = new ArrayList<MemberVO>();
 	
 	private Map session;
+	private long day_s;
 	
 	public HotelCheck() throws IOException {
 		Charset charset = Charset.forName("UTF-8");
@@ -49,9 +54,24 @@ public class HotelCheck extends ActionSupport implements SessionAware {
 	
 	@Override
 	public String execute() throws Exception {
+		SimpleDateFormat yy = new SimpleDateFormat("yyyy-MM-dd");
+		Date IDay = yy.parse(inDay);
+		Date ODay = yy.parse(outDay);
+		long day_sub = ODay.getTime() - IDay.getTime();
+		day_s = day_sub / (24* 60 * 60 * 1000);
+		
+		map.put("userId", session.get("session_id"));
+		Lists = sqlMapper.queryForList("selectOne_TT", map);
+		
 		return SUCCESS;
 	}
 
+		public void setDay_s(long day_s) {
+			this.day_s = day_s;
+		}
+		public long getDay_s() {
+			return day_s;
+		}
 		//인원수
 		public String getNumber() {
 			return number;
@@ -150,5 +170,19 @@ public class HotelCheck extends ActionSupport implements SessionAware {
 			this.tel = tel;
 		}
 		
+		public List<MemberVO> getTourlist() {
+			return Lists;
+		}
+
+		public void setTourlist(List<MemberVO> list) {
+			this.Lists = list;
+		}
+		
+		public String getId() {
+			return id;
+		}
+		public void setId(String id) {
+			this.id = id;
+		}
 	
 }

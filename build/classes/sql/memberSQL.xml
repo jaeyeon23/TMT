@@ -117,7 +117,7 @@
 	
 	<select id="selectOne_TT" resultMap="memberRes" parameterClass="java.util.Map">
 		SELECT * FROM MEMBER
-		where id = #id#
+		where id = #userId#
 	</select>
  
  </sqlMap>
