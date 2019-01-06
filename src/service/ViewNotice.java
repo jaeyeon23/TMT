@@ -18,6 +18,8 @@ public class ViewNotice extends ActionSupport implements SessionAware {
 	
 	private NoticeVO paramClass;
 	private NoticeVO resultClass;
+	private NoticeVO next;
+	private NoticeVO prev;
 	
 	private int currentPage;
 	
@@ -35,6 +37,9 @@ public class ViewNotice extends ActionSupport implements SessionAware {
 		sqlMapper.update("readHitNotice",getNotice_no());
 		
 		resultClass = (NoticeVO)sqlMapper.queryForObject("noticeView",getNotice_no());
+		next = (NoticeVO)sqlMapper.queryForObject("noticeNext",getNotice_no());
+		System.out.println(getNotice_no());
+		prev = (NoticeVO)sqlMapper.queryForObject("noticePrev",getNotice_no());
 		
 		
 		return SUCCESS;
@@ -78,6 +83,22 @@ public Map getSession() {
 
 public void setSession(Map session) {
 	this.session = session;
+}
+
+public NoticeVO getNext() {
+	return next;
+}
+
+public void setNext(NoticeVO next) {
+	this.next = next;
+}
+
+public NoticeVO getPrev() {
+	return prev;
+}
+
+public void setPrev(NoticeVO prev) {
+	this.prev = prev;
 }
 
 	

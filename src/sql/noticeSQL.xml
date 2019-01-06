@@ -21,6 +21,18 @@
 		select * from notice where notice_no = #notice_no#
 	</select>
 	
+	<select id="noticeNext" resultMap="noticeRes" parameterClass="int">
+		<![CDATA[select * from notice where notice_no =(
+		select min(notice_no) from (select notice_no from notice 
+		where notice_no > #notice_no#))]]>
+	</select>
+	
+	<select id="noticePrev" resultMap="noticeRes" parameterClass="int">
+		<![CDATA[select * from notice where notice_no = (
+		select max(notice_no) from (select notice_no from notice 
+		where notice_no < #notice_no#))]]>
+	</select>
+	
 	<insert id="insertNotice" parameterClass="notice">
 		insert into notice(notice_no, subject, content, reg_date, readcount)
 		values(seq_noticevo.nextval, #subject#, #content#, #reg_date#, #readcount#)

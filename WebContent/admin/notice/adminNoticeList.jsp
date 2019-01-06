@@ -6,7 +6,7 @@
 <head>
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/bootstrap-theme.css" rel="stylesheet"> 
-<link href="service/notice.css" rel="stylesheet"> 
+<link href="service/noticeList.css" rel="stylesheet"> 
 <script src="js/bootstrap.js" type="text/javascript"></script>
 
 
