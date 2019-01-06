@@ -2,6 +2,7 @@ package service;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -16,10 +17,7 @@ public class ViewNotice extends ActionSupport implements SessionAware {
 	public static SqlMapClient sqlMapper;
 	private Map session;
 	
-	private NoticeVO paramClass;
-	private NoticeVO resultClass;
-	private NoticeVO next;
-	private NoticeVO prev;
+	private Map notice = new HashMap();
 	
 	private int currentPage;
 	
@@ -36,30 +34,15 @@ public class ViewNotice extends ActionSupport implements SessionAware {
 		
 		sqlMapper.update("readHitNotice",getNotice_no());
 		
-		resultClass = (NoticeVO)sqlMapper.queryForObject("noticeView",getNotice_no());
-		next = (NoticeVO)sqlMapper.queryForObject("noticeNext",getNotice_no());
-		prev = (NoticeVO)sqlMapper.queryForObject("noticePrev",getNotice_no());
+		notice.put("now", (NoticeVO)sqlMapper.queryForObject("noticeView",getNotice_no()));
+		notice.put("next", (NoticeVO)sqlMapper.queryForObject("noticeNext",getNotice_no()));
+		notice.put("prev", (NoticeVO)sqlMapper.queryForObject("noticePrev",getNotice_no()));
 		
 		
 		return SUCCESS;
 	}
 
-	public NoticeVO getParamClass() {
-		return paramClass;
-	}
-
-	public void setParamClass(NoticeVO paramClass) {
-		this.paramClass = paramClass;
-	}
-
-	public NoticeVO getResultClass() {
-		return resultClass;
-	}
-
-	public void setResultClass(NoticeVO resultClass) {
-		this.resultClass = resultClass;
-	}
-
+	
 	public int getCurrentPage() {
 		return currentPage;
 	}
@@ -84,21 +67,12 @@ public void setSession(Map session) {
 	this.session = session;
 }
 
-public NoticeVO getNext() {
-	return next;
+public Map getNotice() {
+	return notice;
 }
 
-public void setNext(NoticeVO next) {
-	this.next = next;
+public void setNotice(Map notice) {
+	this.notice = notice;
 }
 
-public NoticeVO getPrev() {
-	return prev;
-}
-
-public void setPrev(NoticeVO prev) {
-	this.prev = prev;
-}
-
-	
 }

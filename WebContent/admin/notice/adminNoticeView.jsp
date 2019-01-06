@@ -30,30 +30,30 @@
 	<div id="content_right">
 		<div id="board_view">
 			<div class="board_view_subject">
-				<p class="board_view_subject_left"><s:property value="resultClass.subject"/></p>
-				<p class="board_view_subject_right"><s:property value="resultClass.reg_date"/></p>
+				<p class="board_view_subject_left"><s:property value="notice.now.subject"/></p>
+				<p class="board_view_subject_right"><s:property value="notice.now.reg_date"/></p>
 			</div>
 			<div class="board_view_content">
-				<p><s:property value="resultClass.content"/></p>
+				<p><s:property value="notice.now.content"/></p>
 			</div>
 			
 			<div class="board_view_prev">
 				<span>다음글</span>
-				<a href="AdminNoticeView.action?notice_no=<s:property value="next.notice_no"/>&currentPage=<s:property value="currentPage"/>">
-				<s:property value="next.subject"/></a>
+				<a href="AdminNoticeView.action?notice_no=<s:property value="notice.next.notice_no"/>&currentPage=<s:property value="currentPage"/>">
+				<s:property value="notice.next.subject"/></a>
 			</div>
 			<div class="board_view_next">
 				<span>이전글</span>
-				<a href="AdminNoticeView.action?notice_no=<s:property value="prev.notice_no"/>&currentPage=<s:property value="currentPage"/>">
-				<s:property value="prev.subject"/></a>
+				<a href="AdminNoticeView.action?notice_no=<s:property value="notice.prev.notice_no"/>&currentPage=<s:property value="currentPage"/>">
+				<s:property value="notice.prev.subject"/></a>
 			</div>
 			
 			<div class="board_view_botton">
 			
 			<button type="button" class="btn btn-default btn-xs"
-			onclick="javascript:location.href='AdminNoticeModifyForm.action?currentPage=<s:property value="currentPage"/>&notice_no=<s:property value="resultClass.notice_no"/>'">수정</button>
+			onclick="javascript:location.href='AdminNoticeModifyForm.action?currentPage=<s:property value="currentPage"/>&notice_no=<s:property value="notice.now.notice_no"/>'">수정</button>
 			<button type="button" class="btn btn-default btn-xs"
-			onclick="javascript:location.href='AdminNoticeDelete.action?currentPage=<s:property value="currentPage"/>&notice_no=<s:property value="resultClass.notice_no"/>'">삭제</button>
+			onclick="javascript:location.href='AdminNoticeDelete.action?currentPage=<s:property value="currentPage"/>&notice_no=<s:property value="notice.now.notice_no"/>'">삭제</button>
 			<button type="button" class="btn btn-default btn-xs"
 			onclick="javascript:location.href='AdminNoticeList.action?currentPage=<s:property value="currentPage"/>'">목록</button>
 			</div>
