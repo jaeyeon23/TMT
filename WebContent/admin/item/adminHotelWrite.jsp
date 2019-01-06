@@ -80,7 +80,7 @@
 											</p>
 										</td>
 										<td>					
-											<input type="text" size="19" readonly name="checkin" id="inDay" placeholder="체크인">
+											<input type="text" readonly name="checkin" id="inDay" placeholder="체크인">
 										</td> 		
 									</tr>
 									<tr>
@@ -90,7 +90,7 @@
 											</p>
 										</td>
 										<td>	
-											<input type="text" size="19" readonly name="checkout" id="outDay" placeholder="체크아웃"> 
+											<input type="text" readonly name="checkout" id="outDay" placeholder="체크아웃"> 
 										</td>
 									</tr>
 									<tr>

@@ -4,15 +4,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link type="text/css" href="css/bootstrap.min.css" />
+	<link type="text/css" href="css/bootstrap-timepicker.min.css" />
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script>
+
+
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"/>
 	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 	<!-- datepicker 한국어로 -->
 	<script	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/datepicker-ko.js"></script>
-    <script language="JavaScript" src="/TMT/item/hotel/hotelscript2.js"></script>
+	<script language="JavaScript" src="/TMT/item/hotel/hotelscript2.js"></script>
 	<!-- 달력끝 -->
 	<link rel="stylesheet" href="/TMT/item/hotel/hotelcss.css" type="text/css">
-	
+	        
 </head>
 <body>
 	<s:form name="write" action="AdminAirWrite.action" method="post" enctype="multipart/form-data">
@@ -64,10 +71,32 @@
 											</p>
 										</td>
 										<td>					
-											<input type="text" size="19" name="ad" >
+											<input type="text" readonly name="ad" id="inDay">
 										</td>
 									</tr>
 									
+									<tr>
+										<td>
+											<p align="center">
+												<font size="2">출발시간</font>
+											</p>
+										</td>
+										<td>					
+											<div class="input-group bootstrap-timepicker timepicker">
+									            <input id="timepicker2" name="ad" type="text" class="input-small">
+									        </div>
+									        <script>
+									            $('#timepicker2').timepicker({
+									                minuteStep: 1,
+									                template: 'modal',
+									                appendWidgetTo: 'body',
+									                showSeconds: false,
+									                showMeridian: false,
+									                defaultTime: false
+									            });
+									        </script>
+										</td>
+									</tr>
 									
 									<tr>
 										<td>
@@ -76,9 +105,33 @@
 											</p>
 										</td>
 										<td>	
-											<input type="text" size="19" name="dd" > 
+											<input type="text" readonly name="dd" id="outDay"> 
 										</td>
 									</tr>
+									
+									<tr>
+										<td>
+											<p align="center">
+												<font size="2">도착시간</font>
+											</p>
+										</td>
+										<td>	
+											<div class="input-group bootstrap-timepicker timepicker">
+									            <input id="timepicker3" name="dd" type="text" class="input-small">
+									        </div>
+									        <script>
+									            $('#timepicker3').timepicker({
+									                minuteStep: 1,
+									                template: 'modal',
+									                appendWidgetTo: 'body',
+									                showSeconds: false,
+									                showMeridian: false,
+									                defaultTime: false
+									            });
+									        </script>
+										</td>
+									</tr>
+									
 									<tr>
 										<td>
 											<p align="center">
