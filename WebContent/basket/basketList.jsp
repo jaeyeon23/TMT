@@ -13,6 +13,11 @@
 		width:220px;  */
 	height: 40px;
 }
+#bkt_content{
+  width:80%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
 </style>
 <meta charset="UTF-8">
 <title>나의 위시리스트</title>
@@ -28,10 +33,10 @@
 		</h2>
 	</div>
 	<br>
-	<div class='wishlists-cards-container'>
+	<div class='wishlists-cards-container' id="bkt_content">
 		<h4>HOTEL</h4>
 		<br> 
-		hotel&nbsp;<s:property value="totalCount" />개의 상품
+		Hotel&nbsp;총 <s:property value="totalCount" />개의 상품
 		<table class="table" align="center">
 			<form action="DeleteBasket.action" method="get">
 				<s:hidden name="id" value="%{session.session_id}"/>
@@ -100,7 +105,7 @@
 					</table>
 				</div>
 
-				<div>
+				<div id="bkt_content">
 					<h4>TOUR</h4>
 					<br> tour&nbsp;
 					<s:property value="totalCount2" />

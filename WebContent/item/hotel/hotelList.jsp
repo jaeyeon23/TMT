@@ -36,13 +36,13 @@
 					<form id="Hsearch" name="HsearchForm" onsubmit="return check()">
 						    <br>
 						    <b>&nbsp;&nbsp;목적지</b>
-								<input type="text" size="26" name="hotelname"
+								<input type="text" size="29" name="hotelname"
 								placeholder=" 나라/지역 혹은 호텔명" />
 							<br><br>
 							 <b>&nbsp;&nbsp;체크인</b><br>
-							 <input type="text" size="21" name="inDay" id="inDay" readonly placeholder="체크인">
+							 <input type="text" size="23" name="inDay" id="inDay" readonly placeholder="체크인">
 							<br><br><b>&nbsp;&nbsp;체크아웃</b><br>
-							<input type="text" size="21" name="outDay" id="outDay" readonly
+							<input type="text" size="23" name="outDay" id="outDay" readonly
 								placeholder="체크아웃"> <br>
 							<br><b>&nbsp;&nbsp;인원 및 객실</b><br>
 							<select name="number" class="form-control">
