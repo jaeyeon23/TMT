@@ -21,11 +21,6 @@
 		document.search_T.submit();
 	}
 </script>
-<style>
-	#tuor_body{
-		margin-left:120px;
-	}
-</style>
 </head>
 <body>
 	<div id=tuor_body>

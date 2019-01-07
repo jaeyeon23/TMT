@@ -40,7 +40,7 @@
 			document.HsearchForm.outDay.focus();
 			return false;
 		}
-		if (document.HsearchForm.outDay.value > "<s:property value="%{resultClass.checkout}"/>" ) {
+		if (document.HsearchForm.outDay.value > "<s:property value='%{resultClass.checkout}'/>" ) {
 			alert("예약가능일을 초과하였습니다. 다시선택해주세요.");
 			document.HsearchForm.outDay.focus();
 			return false;
@@ -130,7 +130,7 @@ img.ui-datepicker-trigger {
 								
 								
 							   	 <b>&nbsp;&nbsp;체크인</b><br>
-								 <input type="text" size="23" name="inDay" id="inDay" readonly placeholder="체크인">
+								 <input type="text" size="23" name="inDay" id="inDay" readonly placeholder="체크인"><br>
 								<b>&nbsp;&nbsp;체크아웃</b><br>
 								<input type="text" size="23" name="outDay" id="outDay" readonly
 									placeholder="체크아웃"> <br>

@@ -137,9 +137,9 @@ public class JoinMember extends ActionSupport implements SessionAware{
 		message.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
 		//회원가입폼에서 입력한 정보를 노출되지않게 a태그로 발송
 		//여기를 누르면 해당 값이 가입로직으로 전달됨
-		String confirmUrl = "<a href='http://localhost:8080/TMT/Join.action?email=" + email + "&id=" + id
-				+ "&password=" + password + "&name=" + name + "&tel=" + tel + "&passport=" + passport +"&marketing1="+marketing1+"&marketing2="+marketing2+ "&admin=0'>여기</a>를 누르시면 회원가입이 완료됩니다.";
-		/*String confirmUrl = "<form action='http://localhost:8080/TMT/Join.action' method='post'>";
+		/*String confirmUrl = "<a href='http://localhost:8080/TMT/Join.action?email=" + email + "&id=" + id
+				+ "&password=" + password + "&name=" + name + "&tel=" + tel + "&passport=" + passport +"&marketing1="+marketing1+"&marketing2="+marketing2+ "&admin=0'>여기</a>를 누르시면 회원가입이 완료됩니다.";*/
+		String confirmUrl = "<form action='http://localhost:8080/TMT/Join.action' method='post'>";
 		confirmUrl += "<input type='hidden' name='email' value=" + email + "/>";
 		confirmUrl += "<input type='hidden' name='id' value=" + id + "/>";
 		confirmUrl += "<input type='hidden' name='password' value=" + password + "/>";
@@ -150,7 +150,7 @@ public class JoinMember extends ActionSupport implements SessionAware{
 		confirmUrl += "<input type='hidden' name='marketing2' value=" + marketing2 + "/>";
 		confirmUrl += "<input type='hidden' name='admin' value=0/>";
 		confirmUrl += "<input type='submit' value='이메일 인증'/>";
-		confirmUrl += "</form>";*/
+		confirmUrl += "</form>";
 
 		Multipart mp = new MimeMultipart();
 		MimeBodyPart mbp1 = new MimeBodyPart();

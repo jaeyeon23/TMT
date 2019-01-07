@@ -64,7 +64,7 @@
 				</div>
 				<div id="contents_left_1">
 					<div style="margin-right:80px; float:left;">
-						<s:property value="%{result.air_company}"/>
+						<span class="ico_airline"><img src="./upload/air/<s:property value='%{result.image1}'/>"></span>
 					</div>
 					<div style="float:left;margin-right:10px;">
 						<s:date name="%{result.ad}" format="MM월 dd일" />

@@ -28,7 +28,7 @@
 	</script>
 </head>
 <body>
-<div id = "allbox">
+<div id = "allbox" style="margin-left: 120pt;">
 		<div id="box1">
 			<div id="subbox1">
 			    <div id = "sub_h"><font size="4" color="white">호텔검색</font></div>
