@@ -55,7 +55,7 @@ public class LoginMember extends ActionSupport implements SessionAware{
 				if(resultClass.getAdmin()==1)
 					sb.append("Admin");
 				String t = sb.append(url.substring(url.lastIndexOf("/")+1, url.lastIndexOf("."))).toString();
-				if(t.contains("Find")||t.contains("Email")||t.contains("Join")||t.contains("Login")) {
+				if(t.contains("Find")||t.contains("Email")||t.contains("Join")||t.contains("Login")||t.contains("Main")) {
 					session.put("session_id", resultClass.getId());
 			        session.put("session_admin",resultClass.getAdmin());
 			        
