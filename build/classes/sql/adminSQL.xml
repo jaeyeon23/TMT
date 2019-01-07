@@ -40,7 +40,7 @@
 	
 	<update id="updateAir" parameterClass="adminAir">
 		update air set arv=#arv#,dep=#dep#,content=#content#,image1=#image1#,seat=#seat#,seat_grade=#seat_grade#
-		,ad=#ad#,dd=#dd#,air_company=#air_company#
+		,price=#price#,ad=#ad#,dd=#dd#,air_company=#air_company#
 		where no = #no#
 	</update>
 	
