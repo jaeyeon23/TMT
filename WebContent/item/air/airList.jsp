@@ -638,6 +638,7 @@
 						<s:property value="no"/>
 					</td>	
 					<td>
+						<span class="ico_airline"><img src="./upload/air/<s:property value='image1'/>"></span>
 						<s:property value="air_company"/>
 					</td>
 					<td>
