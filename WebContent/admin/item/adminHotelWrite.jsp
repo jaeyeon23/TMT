@@ -12,7 +12,63 @@
     <script language="JavaScript" src="/TMT/item/hotel/hotelscript2.js"></script>
 	<!-- 달력끝 -->
 	<link rel="stylesheet" href="/TMT/item/hotel/hotelcss.css" type="text/css">
-	
+<script>
+	function check(){
+		
+		var f=document.write;
+		if (f.name.value == "") {
+			alert("상품이름을 입력해주십시오");
+			f.name.focus();
+			return false;
+		}
+		if (f.price.value == "") {
+			alert("상품가격을 입력해주십시오");
+			f.price.focus();
+			return false;
+		}
+		if (f.country.value == "") {
+			alert("나라를 입력해주십시오");
+			f.country.focus();
+			return false;
+		}
+		if(f.region.value==""){
+			alert("지역을 입력해주십시오");
+			f.region.focus();
+			return false;
+		}
+		if(f.tel.value==""){
+			alert("전화번호를 입력해주십시오");
+			f.tel.focus();
+			return false;
+		}
+		if(f.checkin.value==""){
+			alert("체크인 날짜를 입력해주십시오");
+			f.checkin.focus();
+			return false;
+		}
+		if(f.checkout.value==""){
+			alert("체크아웃 날짜를 입력해주십시오");
+			f.checkout.focus();
+			return false;
+		}
+		if(f.maxnum.value==""){
+			alert("최대 인원 수 를 입력해주십시오");
+			f.maxnum.focus();
+			return false;
+		}
+		if(f.room.value==""){
+			alert("방개수를 입력해주십시오");
+			f.room.focus();
+			return false;
+		}
+		if(f.content.value==""){
+			alert("내용을 입력해주십시오");
+			f.content.focus();
+			return false;
+		}
+		
+	}
+</script>
 </head>
 <body>
 	<s:form name="write" action="AdminHotelWrite.action" method="post" enctype="multipart/form-data">
@@ -170,7 +226,7 @@
 						<tr>
 							<td height="75">
 								<p align="center">
-									<input type="submit" value="등록">&nbsp; <input
+									<input type="submit" onclick="return check()" value="등록">&nbsp; <input
 										type="reset" value="다시쓰기">
 								</p>
 							</td>

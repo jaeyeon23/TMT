@@ -19,7 +19,69 @@
 	<script language="JavaScript" src="/TMT/item/hotel/hotelscript2.js"></script>
 	<!-- 달력끝 -->
 	<link rel="stylesheet" href="/TMT/item/hotel/hotelcss.css" type="text/css">
-	
+<script>
+	function check(){
+		
+		var f=document.write;
+		var i=document.i
+		if (f.arv.value == "") {
+			alert("출발지를 입력해주십시오");
+			f.arv.focus();
+			return false;
+		}
+		if (f.dep.value == "") {
+			alert("도착지 입력해주십시오");
+			f.dep.focus();
+			return false;
+		}
+		if (f.price.value == "") {
+			alert("상품가격을 입력해주십시오");
+			f.price.focus();
+			return false;
+		}
+		if (f.ad.value == "") {
+			alert("출발날짜를 입력해주십시오");
+			f.ad.focus();
+			return false;
+		}
+		if(f.dd.value == ""){
+			alert("도착날짜를 입력해주십시오");
+			f.dd.focus();
+			return false;
+		}
+		if (f.ad_time.value == "") {
+			alert("출발시간을 입력해주십시오");
+			f.ad_time.focus();
+			return false;
+		}
+		if(f.dd_time.value == ""){
+			alert("도착시간을 입력해주십시오");
+			f.dd_time.focus();
+			return false;
+		}
+		if(f.air_company.value == ""){
+			alert("항공사 입력해주십시오");
+			f.air_company.focus();
+			return false;
+		}
+		if(f.seat.value==""){
+			alert("좌석수를 입력해주십시오");
+			f.seat.focus();
+			return false;
+		}
+		if(f.content.value==""){
+			alert("내용을 입력해주십시오");
+			f.content.focus();
+			return false;
+		}
+		if(f.upload.value==""){
+			alert("이미지를 등록해주십시오");
+			f.upload.focus();
+			return false;
+		}
+		
+	}
+</script>
 </head>
 <body>
 	<s:form name="write" action="AdminAirModify.action" method="post" enctype="multipart/form-data">
@@ -42,7 +104,7 @@
 									<tr>
 										<td>
 											<p align="center">
-												<font size="2">arv</font>
+												<font size="2">출발지</font>
 											</p>
 										</td>
 										<td><input value="<s:property value="%{resultClass.arv}"/>" type="text" name="arv"></td>
@@ -50,7 +112,7 @@
 									<tr>
 										<td>
 											<p align="center">
-												<font size="2">dep</font>
+												<font size="2">도착지</font>
 											</p>
 										</td>
 										<td><input value="<s:property value="%{resultClass.dep}"/>" type="text" name="dep"></td>
@@ -71,7 +133,7 @@
 											</p>
 										</td>
 										<td>					
-											<input value="<s:property value="%{resultClass.ad}"/>" type="text" readonly name="ad" id="inDay">
+											<input type="text" name="ad" id="inDay">
 										</td>
 									</tr>
 									
@@ -83,7 +145,7 @@
 										</td>
 										<td>					
 											<div class="input-group bootstrap-timepicker timepicker">
-									            <input value="<s:property value="%{resultClass.ad}"/>" id="timepicker2" name="ad" type="text" class="input-small">
+									            <input id="timepicker2" name="ad_time" type="text" class="input-small">
 									        </div>
 									        <script>
 									            $('#timepicker2').timepicker({
@@ -105,7 +167,7 @@
 											</p>
 										</td>
 										<td>	
-											<input value="<s:property value="%{resultClass.dd}"/>" type="text" readonly name="dd" id="outDay"> 
+											<input type="text" name="dd" id="outDay"> 
 										</td>
 									</tr>
 									
@@ -117,7 +179,7 @@
 										</td>
 										<td>	
 											<div class="input-group bootstrap-timepicker timepicker">
-									            <input value="<s:property value="%{resultClass.dd}"/>" id="timepicker3" name="dd" type="text"  class="input-small">
+									            <input id="timepicker3" name="dd_time" type="text"  class="input-small">
 									        </div>
 									        <script>
 									            $('#timepicker3').timepicker({
@@ -164,11 +226,11 @@
 												<font size="2">제품정보</font>
 											</p>
 										</td>
-										<td width="346"><textarea value="<s:property value="%{resultClass.content}"/>" name="content" cols="50"
-												rows="15"></textarea></td>
+										<td width="346"><textarea name="content" cols="50"
+												rows="15"><s:property value="%{resultClass.content}"/></textarea></td>
 									</tr>
 									<tr>
-										<td><s:file label="제품 메인이미지1" name="upload"><s:property value="image1" /></s:file></td>
+										<td><s:file name="upload"/></td>
 									</tr>
 																	
 								</table>
@@ -177,8 +239,8 @@
 						<tr>
 							<td height="75">
 								<p align="center">
-									<input type="submit" value="등록">&nbsp; <input
-										type="reset" value="다시쓰기">
+									<input type="submit" onclick="return check()" value="수정">&nbsp;
+									<input type="reset" value="다시쓰기">
 								</p>
 							</td>
 						</tr>
