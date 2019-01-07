@@ -6,7 +6,7 @@
 <html>
 <head>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<link rel="stylesheet" href="/TMT/item/tour/t.css" type="text/css">
+<link rel="stylesheet" href="/TMT/item/tour/tt.css" type="text/css">
 <script>
 	$(function() {
 		$(".subb").hide();
@@ -99,8 +99,8 @@
 							<a href="AdminTourView.action?no=<s:property value="%{no}" />&currentPage=<s:property value="%{currentPage}"/>">
 								<div id="contents">
 									<div id=imageT>
-										<s:if test="image1 != null">
-											<img src="/TMT/upload/tour/<s:property value="%{image1}" />">
+										<s:if test="main_image != null">
+											<img src="/TMT/upload/tour/<s:property value="%{main_image}" />">
 										</s:if>
 										<s:else>
 											<img src="/TMT/images/noimage.jpg">

@@ -154,6 +154,14 @@
 										<td><input type="text" name="region"></td>
 									</tr>
 									<tr>
+										<td>
+											<p align="center">
+												<font size="2">수량</font>
+											</p>
+										</td>
+										<td><input type="number" name="amount"></td>
+									</tr>
+									<tr>
 										<td width="196">
 											<p align="center">
 												<font size="2">제품정보</font>
@@ -164,6 +172,27 @@
 									</tr>
 									<tr>
 										<td><s:file label="제품 메인이미지1" name="uploads"><s:property value="main" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
 									</tr>
 									<tr>
 										<td><s:file name="uploads"><s:property value="content" /></s:file></td>

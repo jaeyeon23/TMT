@@ -4,6 +4,7 @@
 	"http://struts.apache.org/dtds/struts-2.0.dtd">
 	
 <struts>
+	<constant name="struts.multipart.maxSize" value="204857600"/>
 	<package name="TMT" extends="struts-default, tiles-default">
 		<action name="Main" class="main.Main">
 			<result name="success" type="tiles">Main</result>
@@ -23,7 +24,7 @@
 		</action>
 
 	</package>
-	<!-- <include file="/struts/admin.xml" /> -->
+	<include file="/struts/admin.xml" />
 	
 	<!-- 공지사항 -->
 	<include file="/struts/notice.xml" />

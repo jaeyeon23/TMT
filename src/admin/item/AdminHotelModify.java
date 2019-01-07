@@ -42,6 +42,7 @@ public class AdminHotelModify extends ActionSupport implements SessionAware {
 	private String checkout;
 	private int maxnum; 
 	private int grade;
+	private int room;
 	
 	private StringBuffer image;
 	
@@ -83,6 +84,7 @@ public class AdminHotelModify extends ActionSupport implements SessionAware {
 		resultClass.setCheckout(getCheckout());
 		resultClass.setMaxnum(getMaxnum());
 		resultClass.setGrade(0);
+		resultClass.setRoom(getRoom());
 		
 
 		if(uploads !=null) {
@@ -123,6 +125,13 @@ public class AdminHotelModify extends ActionSupport implements SessionAware {
 		
 		return SUCCESS;
 		
+	}
+	
+	public int getRoom() {
+		return room;
+	}
+	public void setRoom(int room) {
+		this.room = room;
 	}
 	public HotelVO getParamClass() {
 		return paramClass;
