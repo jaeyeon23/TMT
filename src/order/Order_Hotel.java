@@ -18,8 +18,8 @@ public class Order_Hotel extends OrderVO{
 	private int people; 	//인원수
 	private int room; 
 	private String id;
-
 	private String reg_date; 	// 구매시간
+	private int seq_no;
 
 	
 	
@@ -146,6 +146,14 @@ public class Order_Hotel extends OrderVO{
 
 	public void setReg_date(String reg_date) {
 		this.reg_date = reg_date;
+	}
+
+	public int getSeq_no() {
+		return seq_no;
+	}
+
+	public void setSeq_no(int seq_no) {
+		this.seq_no = seq_no;
 	}
 
 }

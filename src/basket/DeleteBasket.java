@@ -16,8 +16,8 @@ public class DeleteBasket extends ActionSupport implements SessionAware {
 	private static Reader reader;
 	private static SqlMapClient sqlMapper;
 
-	BasketHVO hvo = new BasketHVO();
-	BasketTVO tvo = new BasketTVO();
+	private BasketHVO hvo = new BasketHVO();
+	private BasketTVO tvo = new BasketTVO();
 
 	private String id;
 	private int no;

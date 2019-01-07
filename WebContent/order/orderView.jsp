@@ -1,173 +1,216 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>예약내역 상세보기</title>
-<link href="../css/bootstrap.css" rel="stylesheet">
-<link href="../css/bootstrap-theme.css" rel="stylesheet">
-<script src="../js/bootstrap.js" type="text/javascript"></script>
+<style>
+#main{
+	font-size: xx-large;
+}
+
+th {
+	background-color: #D8D8D8;
+	width: 250px;
+	padding: 3% 5%;
+	font-size: 12pt;
+}
+
+#min_s {
+	width: 100%;
+	float: left;
+	margin-top: 3%;
+	margin-bottom: 10%;
+}
+
+#min_s form {
+	display: inline;
+}
+
+#min_s button {
+	background-color: #EAEAEA;
+	padding: 8px 20px;
+	border: 1px solid #EAEAEA;
+	color: #5D5D5D;
+	text-align: center;
+	border-radius: 5px 5px 5px 5px;
+	width: 150px;
+	height: 47px;
+}
+
+#min_s button:hover {
+	background-color: #D5D5D5;
+}
+
+#min_s input[type="submit"] {
+	background-color: #1b5ac2;
+	padding: 8px 20px;
+	border: 1px solid #1b5ac2;
+	color: white;
+	text-align: center;
+	border-radius: 5px 5px 5px 5px;
+	width: 150px;
+	height: 47px;
+}
+
+#min_s input[type="submit"]:hover {
+	background-color: #323ab0;
+}
+</style>
 </head>
 <body>
-<div class="main">
-<div class='header-title'><h2><center>예약내역</center></h2></div><br><br>
-<div align="right">
-<form action="ModifyOrder.action" name="mo" method="post">
-<button type="submit" class="btn btn-default">수정</button></div><br>
-</form>
+	<s:if test="type == 0">
+		<p align="center" id="main">HOTEL</p>
+		<div style="width: 50%; margin: 0 auto;">
+			<table class="table">
+				<tr>
+					<th>상품명</th>
+					<td><s:property value="%{oh.name}" /></td>
+				</tr>
+				<tr>
+					<th>가격</th>
+					<td><s:property value="%{oh.price}" /></td>
+				</tr>
+				<tr>
+					<th>내용</th>
+					<td><s:property value="%{oh.content}" /></td>
+				</tr>
+				<tr>
+					<th>국가</th>
+					<td><s:property value="%{oh.country}" /></td>
+				</tr>
+				<tr>
+					<th>지역</th>
+					<td><s:property value="%{oh.region}" /></td>
+				</tr>
+				<tr>
+					<th>전화번호</th>
+					<td><s:property value="%{oh.tel}" /></td>
+				</tr>
+				<tr>
+					<th>체크인</th>
+					<td>
+						<s:property value="%{oh.checkin}"/>
+					</td>
+				</tr>
+				<tr>
+					<th>체크아웃</th>
+					<td>
+						<s:property value="%{oh.checkout}"/>
+					</td>
+				</tr>
+				<tr>
+					<th>인원수</th>
+					<td><s:property value="%{oh.people}" /></td>
+				</tr>
+				<tr>
+					<th>방 개수</th>
+					<td><s:property value="%{oh.room}" /></td>
+				</tr>
 
-<div>
-<div>HOTEL</div>
+			</table>
+		</div>
+	</s:if>
 
-<table class="table" width="80%" cellpadding="0" cellspacing="0">
- <form action="DeleteOrder.action" name="ohdel" method="post"> 
-			 <s:iterator value="hotelClass" status="stat">
-	<input type="hidden" name="id" value="<s:property value="%{session.session_id}"/>"/>
+	<s:elseif test="type == 1">
+		<p align="center" id="main">TOUR</p>
+		<div style="width: 50%; margin: 0 auto;">
+			<table class="table">
+				<tr>
+					<th>상품명</th>
+					<td><s:property value="%{ot.name}" /></td>
+				</tr>
+				<tr>
+					<th>가격</th>
+					<td><s:property value="%{ot.price}" /></td>
+				</tr>
+				<tr>
+					<th>내용</th>
+					<td><s:property value="%{ot.content}" /></td>
+				</tr>
+				<tr>
+					<th>국가</th>
+					<td><s:property value="%{ot.country}" /></td>
+				</tr>
+				<tr>
+					<th>지역</th>
+					<td><s:property value="%{ot.region}" /></td>
+				</tr>
+				<tr>
+					<th>상품 개수</th>
+					<td><s:property value="%{ot.amount}" /></td>
+				</tr>
+			</table>
+		</div>
+	</s:elseif>
 
-			<tr>
-			   <td align="center"><font size="2"><strong>사진</strong></font></td>
-			   <th align="center"><font size="2"><strong>번호</strong></font></th>
-			   <th align="center"><font size="2"><strong>상품명</strong></font></th>
-			   <th align="center"><font size="2"><strong>내용</strong></font></th>
-			   <th align="center"><font size="2"><strong>국가</strong></font></th>
-			   <th align="center"><font size="2"><strong>지역</strong></font></th>
-			   <th align="center"><font size="2"><strong>전화번호</strong></font></th>
-			   <th align="center"><font size="2"><strong>체크인</strong></font></th>
-			   <th align="center"><font size="2"><strong>체크아웃</strong></font></th>
-			   <th align="center"><font size="2"><strong>인원</strong></font></th>
-			   <th align="center"><font size="2"><strong>방</strong></font></th>
-			   <th align="center"><font size="2"><strong>가격</strong></font></th>
-			   <td></td>
-			 </tr>
-			 
-			
-		    <tr>
-			   <td align="center"><s:property value="%{hotelRClass.image1}" /></td>
-			   <td align="center"><s:property value="%{hotelRClass.no}" /></td>
-			   <td align="center"><s:property value="%{hotelRClass.name}" /></td>
-			   <td align="center"><s:property value="%{hotelRClass.content}" /></td>
-			   <td align="center"><s:property value="%{hotelRClass.country}" /></td>
-			   <td align="center"><s:property value="%{hotelRClass.region}" /></td>
-			   <td align="center"><s:property value="%{hotelRClass.tel}" /></td>
-			   <td align="center"><s:property value="%{hotelRClass.checkin}" /></td>
-			   <td align="center"><s:property value="%{hotelRClass.checkout}" /></td>
-			   <td align="center"><s:property value="%{hotelRClass.people}" /></td>
-			   <td align="center"><s:property value="%{hotelRClass.room}" /></td>
-               <td align="center"><s:property value="%{hotelRClass.price}" /></td>	   
-               <td align="center"><input type="submit" name="submit" value="예약취소"/>
-			 </tr>
+	<s:elseif test="type == 2">
+		<p align="center" id="main">AIR</p>
+		<div style="width: 50%; margin: 0 auto;">
+			<table class="table">
+				<tr>
+					<th>출발지</th>
+					<td><s:property value="%{oa.arv}" /></td>
+				</tr>
+				<tr>
+					<th>도착지</th>
+					<td><s:property value="%{oa.dep}" /></td>
+				</tr>
+				<tr>
+					<th>가격</th>
+					<td><s:property value="%{oa.price}" /></td>
+				</tr>
+				<tr>
+					<th>인원 수</th>
+					<td><s:property value="%{oa.people}" /></td>
+				</tr>
+				<tr>
+					<th>좌석 등급</th>
+					<td>
+						<s:if test="%{oa.seat_grade } == 0">
+							일반
+						</s:if>
+						<s:else>
+							비즈니스
+						</s:else>
+					</td>
+				</tr>
+				<tr>
+					<th>내용</th>
+					<td><s:property value="%{oa.content}" /></td>
+				</tr>
+				<tr>
+					<th>출발시간</th>
+					<td><s:date name="%{oa.ad}" format="yyyy-MM-dd HH:mm" />
+					</td>
+				</tr>
+				<tr>
+					<th>도착시간</th>
+					<td><s:date name="%{oa.dd}" format="yyyy-MM-dd HH:mm" />
+					</td>
+				</tr>
+				<tr>
+					<th>항공사</th>
+					<td><s:property value="%{oa.air_company}" /></td>
+				</tr>
+			</table>
+		</div>
+	</s:elseif>
 
-</table>
-	<table class="table">
-			<tr>
-				<td height="2" ></td>
-			</tr>
-			</s:iterator>
-		</form>
-		</table>
-		
-</div>
-
-
-
-<div>
-<div>TOUR</div>
-
-<table class="table" width="80%" cellpadding="0" cellspacing="0">
-<form action="DeleteOrder.action" name="todel" method="post"> 
-			 <s:iterator value="tourClass" status="stat">
-	<input type="hidden" name="id" value="<s:property value="%{session.session_id}"/>"/>
-
-			
-			<tr align="left">
-			   <td align="center"><font size="2"><strong>사진</strong></font></td>
-			   <th align="center"><font size="2"><strong>번호</strong></font></th>
-			   <th align="center"><font size="2"><strong>상품명</strong></font></th>
-			   <th align="center"><font size="2"><strong>내용</strong></font></th>
-			   <th align="center"><font size="2"><strong>국가</strong></font></th>
-			   <th align="center"><font size="2"><strong>지역</strong></font></th>
-			   <th align="center"><font size="2"><strong>개수</strong></font></th>
-			   <th align="center"><font size="2"><strong>가격</strong></font></th>
-			   <td></td>
-			 </tr>
-			
-		    <tr align="left">
-			   <td align="center"><s:property value="%{tourRClass.image1}"/></td>
-			   <td align="center"><s:property value="%{tourRClass.no}" /></td>
-			   <td align="center"><s:property value="%{tourRClass.name}" /></td>
-			   <td align="center"><s:property value="%{tourRClass.content}" /></td>
-			   <td align="center"><s:property value="%{tourRClass.country}" /></td>
-			   <td align="center"><s:property value="%{tourRClass.region}" /></td>
-			   <td align="center"><s:property value="%{tourRClass.amount}" /></td>
-			   <td align="center"><s:property value="%{tourRClass.price}" /></td>
-			   <td align="center"><input type="submit" name="submit" value="예약취소"/>	   
-			 </tr>
-			  
-</table>
-	<table class="table">
-			<tr>
-				<td height="2" ></td>
-			</tr>
-			</s:iterator>
-		</form>
-		</table>
-		
-</div>
-
-<div>
-<div>AIR</div>
-
-<table class="table" width="80%" cellpadding="0" cellspacing="0">
-<form action="DeleteOrder.action" name="aodel" method="post">  
-			 <s:iterator value="airClass" status="stat">
-	<input type="hidden" name="id" value="<s:property value="%{session.session_id}"/>"/>
-
-			
-			<tr align="left">
-			   <td align="center"><font size="2"><strong>사진</strong></font></td>
-			   <th align="center"><font size="2"><strong>번호</strong></font></th>
-			   <th align="center"><font size="2"><strong>출발지</strong></font></th>
-			   <th align="center"><font size="2"><strong>도착지</strong></font></th>
-			   <th align="center"><font size="2"><strong>내용</strong></font></th>
-			   <th align="center"><font size="2"><strong>출발일</strong></font></th>
-			   <th align="center"><font size="2"><strong>도착일</strong></font></th>
-			   <th align="center"><font size="2"><strong>인원</strong></font></th>
-			   <th align="center"><font size="2"><strong>좌석등급</strong></font></th>
-			   <th align="center"><font size="2"><strong>항공사</strong></font></th> 
-			   <th align="center"><font size="2"><strong>가격</strong></font></th> 
-			   <td></td>
-			 </tr>
-			
-		    <tr align="left">
-			   <td align="center"><s:property value="%{airRClass.image1}"/></td>
-			   <td align="center"><s:property value="%{airRClass.no}" /></td>
-			   <td align="center"><s:property value="%{airRClass.arv}" /></td>
-			   <td align="center"><s:property value="%{airRClass.dep}" /></td>
-			   <td align="center"><s:property value="%{airRClass.content}" /></td>
-			   <td align="center"><s:property value="%{airRClass.ad}" /></td>
-			   <td align="center"><s:property value="%{airRClass.dd}" /></td>
-			   <td align="center"><s:property value="%{airRClass.people}" /></td>
-			   <td align="center"><s:property value="%{airRClass.seat_grade}" /></td>
-			   <td align="center"><s:property value="%{airRClass.air_company}" /></td>
-			   <td align="center"><s:property value="%{airRClass.price}" /></td>	   	
-			   <td align="center"><input type="submit" name="submit" value="예약취소"/>   
-			 </tr>
-			  
-</table>
-	<table class="table">
-			<tr>
-				<td height="2" ></td>
-			</tr>
-			</s:iterator>
-		</form>
-		</table>
-		
-</div>
-
-
-</div>	
-
+	<div id="min_s">
+		<center>
+			<button type="button"
+				onclick="location.href='javascript:history.go(-1)'">
+				<b>뒤로가기</b>
+			</button>
+			<form action="Main.action">
+				<s:hidden name="id" value="%{session.session_id}" />
+				<b><input type="submit" value="홈으로"></b>
+			</form>
+		</center>
+	</div>
 </body>
 </html>
