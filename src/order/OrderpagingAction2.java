@@ -17,7 +17,7 @@ public class OrderpagingAction2 {
 	private StringBuffer pagingHtml2;
 
 	
-	public OrderpagingAction2(int currentPage2, int totalCount2, int blockCount2, int blockPage2) {
+	public OrderpagingAction2(int currentPage, int currentPage2, int currentPage3, int totalCount2, int blockCount2, int blockPage2) {
 
 		this.blockCount2 = blockCount2;
 		this.blockPage2 = blockPage2;
@@ -46,8 +46,8 @@ public class OrderpagingAction2 {
 
 		pagingHtml2 = new StringBuffer();
 		if (currentPage2 > blockPage2) {
-			pagingHtml2.append("<a href=OrderList.action?currentPage2="
-					+ (startPage2 - 1) + ">");
+			pagingHtml2.append("<a href=OrderList.action?currentPage=" + currentPage + "&currentPage2="
+					+ (startPage2 - 1) + "&currentPage3=" + currentPage3 + ">");
 			pagingHtml2.append("이전");
 			pagingHtml2.append("</a>");
 		}
@@ -65,9 +65,9 @@ public class OrderpagingAction2 {
 				pagingHtml2.append("</font></b>");
 			} else {
 				pagingHtml2
-						.append("&nbsp;<a href='OrderList.action?currentPage2=");
+						.append("&nbsp;<a href='OrderList.action?currentPage=" + currentPage + "&currentPage2=");
 				pagingHtml2.append(i);
-				pagingHtml2.append("'>");
+				pagingHtml2.append("&currentPage3=" + currentPage3 + "'>");
 				pagingHtml2.append(i);
 				pagingHtml2.append("</a>");
 			}
@@ -79,8 +79,8 @@ public class OrderpagingAction2 {
 
 		// 다음 block 페이지
 		if (totalPage2 - startPage2 >= blockPage2) {
-			pagingHtml2.append("<a href=OrderList.action?currentPage2="
-					+ (endPage2 + 1) + ">");
+			pagingHtml2.append("<a href=OrderList.action?currentPage=" + currentPage + "&currentPage2="
+					+ (endPage2 + 1) + "&currentPage3=" + currentPage3 + ">");
 			pagingHtml2.append("다음");
 			pagingHtml2.append("</a>");
 		}

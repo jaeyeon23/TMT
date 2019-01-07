@@ -15,7 +15,7 @@ public class Order_Tour extends OrderVO{
 	private int amount; 	//상품개수
 	private String reg_date; 	// 구매시간
 	private String id;
-	
+	private int seq_no;
 	
 	public String getId() {
 		return id;
@@ -104,6 +104,14 @@ public class Order_Tour extends OrderVO{
 
 	public void setReg_date(String reg_date) {
 		this.reg_date = reg_date;
+	}
+
+	public int getSeq_no() {
+		return seq_no;
+	}
+
+	public void setSeq_no(int seq_no) {
+		this.seq_no = seq_no;
 	}
 
 	

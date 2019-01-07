@@ -18,6 +18,7 @@ public class Order_Air extends OrderVO {
 
 	private String id;
 	private Date reg_date;
+	private int seq_no;
 	
 	public int getNo() {
 		return no;
@@ -97,6 +98,12 @@ public class Order_Air extends OrderVO {
 	}
 	public void setReg_date(Date reg_date) {
 		this.reg_date = reg_date;
+	}
+	public int getSeq_no() {
+		return seq_no;
+	}
+	public void setSeq_no(int seq_no) {
+		this.seq_no = seq_no;
 	}
 	
 	

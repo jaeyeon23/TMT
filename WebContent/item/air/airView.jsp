@@ -76,22 +76,22 @@
 									↓
 								</td>
 								<td>
-									<strong><s:date name="%{result.ad}" format="HH:mm"/></strong>&nbsp;&nbsp;<s:property value="%{result.arv}"/>
+									&nbsp;&nbsp;&nbsp;<strong><s:date name="%{result.ad}" format="HH:mm"/></strong>&nbsp;&nbsp;<s:property value="%{result.arv}"/>
 								</td>
 							</tr>
 							<tr>
 								<td style="color:gray;">
 									<s:if test="hour == 0">
-										<small><s:property value="min"/>분</small>
+										&nbsp;&nbsp;&nbsp;<small><s:property value="min"/>분</small>
 									</s:if>
 									<s:else>
-										<small><s:property value="hour"/>시간 <s:property value="min"/>분</small>
+										&nbsp;&nbsp;&nbsp;<small><s:property value="hour"/>시간 <s:property value="min"/>분</small>
 									</s:else>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<strong><s:date name="%{result.dd}" format="HH:mm"/></strong>&nbsp;&nbsp;<s:property value="%{result.dep}"/>
+									&nbsp;&nbsp;&nbsp;<strong><s:date name="%{result.dd}" format="HH:mm"/></strong>&nbsp;&nbsp;<s:property value="%{result.dep}"/>
 								</td>
 							</tr>
 						</table>
