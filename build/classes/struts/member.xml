@@ -12,6 +12,9 @@
 	     	<result type="redirect-action">
 				<param name="actionName">${url2}</param>
 		 	</result>
+		 	<result name="main" type="redirect-action">
+		 		<param name="actionName">Main</param>
+		 	</result>
 	    </action>
 	      
 	    <action name="LoginForm" class="member.LoginMember">

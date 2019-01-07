@@ -65,6 +65,7 @@ public class AdminTourWrite extends ActionSupport implements SessionAware {
 		paramClass.setCountry(getCountry());
 		paramClass.setRegion(getRegion());
 		paramClass.setGrade(0);
+		paramClass.setAmount(getAmount());
 		
 		if(uploads !=null) {
 			image = new StringBuffer();
