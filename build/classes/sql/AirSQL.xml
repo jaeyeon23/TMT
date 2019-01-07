@@ -31,33 +31,33 @@
 		<!-- ad날짜만 계산 -->
 		SELECT no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade  
 		from air WHERE arv=#arv# and seat>=#seat# 
-				and seat_grade=#seat_grade# and ad>=#ad#
+				and seat_grade=#seat_grade# and ad>=#ad# AND dep=#dep#
 	</select>
 	
 	<!-- 가격 낮은 순 -->
 	<select id="listAir_lowprice" resultMap="boardair" parameterClass="air">
 		SELECT no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade  
-		from air WHERE arv=#arv# and ad>=#ad# and 
+		from air WHERE arv=#arv# AND dep=#dep# and ad>=#ad# and 
 				seat>=#seat# and seat_grade=#seat_grade# order by price asc
 	</select>
 	
 	<!-- 출발시간 빠른 순 -->
 	<select id="listAir_ad_time" resultMap="boardair" parameterClass="air">
 		SELECT no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade  
-		from air WHERE arv=#arv# and ad>=#ad# and 
+		from air WHERE arv=#arv# AND dep=#dep# and ad>=#ad# and 
 				seat>=#seat# and seat_grade=#seat_grade# order by ad asc
 	</select>
 
 	<!-- 도착시간 빠른 순 -->
 	<select id="listAir_dd_time" resultMap="boardair" parameterClass="air">
-		SELECT * from air WHERE arv=#arv# and ad>=#ad# and 
+		SELECT * from air WHERE arv=#arv# AND dep=#dep# and ad>=#ad# and 
 				seat>=#seat# and seat_grade=#seat_grade# order by dd asc
 	</select>
 	
 	<!-- 검색 -->
 	<select id="listAir_search" resultMap="boardair" parameterClass="java.util.Map">
 		SELECT no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade, SUBSTR(TO_CHAR(DD,'YYYYMMDDHH24MISS'),9), SUBSTR(TO_CHAR(AD,'YYYYMMDDHH24MISS'),9)  	
-		from air WHERE arv=#arv# and ad>=#ad# 
+		from air WHERE arv=#arv# AND dep=#dep# and ad>=#ad# 
 		and	seat>=#seat# and seat_grade=#seat_grade# 
 			
 		<dynamic>

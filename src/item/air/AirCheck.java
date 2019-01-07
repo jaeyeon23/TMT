@@ -3,6 +3,7 @@ package item.air;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.charset.Charset;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
@@ -28,6 +29,8 @@ public class AirCheck extends ActionSupport implements SessionAware {
 	private int no;
 	private int seat;	
 	
+	private int hour;
+	private int min;
 	
 	/*order_air vo*/
 	private String arv;
@@ -59,7 +62,7 @@ public class AirCheck extends ActionSupport implements SessionAware {
 		avo.setNo(getNo());
 		avo.setSeat(getSeat());
 		
-		sqlMapper.insert("update_seat", avo);
+		sqlMapper.update("update_seat", avo);
 		result = (AirVO) sqlMapper.queryForObject("airCheck", getNo());
 
 		oa.setNo(result.getNo());
@@ -80,6 +83,30 @@ public class AirCheck extends ActionSupport implements SessionAware {
 		return SUCCESS;
 	}
 
+	
+	public String regulation() throws Exception{
+		
+		return SUCCESS;
+	}
+	
+	public String view() throws Exception{
+		avo.setNo(getNo());
+		
+		result = (AirVO) sqlMapper.queryForObject("airCheck", getNo());
+		
+		long diff = (long) ((result.getDd().getTime() - result.getAd().getTime())/(1000.0 * 60));
+		
+		if(diff < 60) {
+			setHour(0);
+			setMin((int) diff);
+		}else {
+			setHour((int)diff/60);
+			setMin((int)diff%60);
+		}
+		
+		return SUCCESS;
+	}
+	
 	public int getNo() {
 		return no;
 	}
@@ -222,6 +249,22 @@ public class AirCheck extends ActionSupport implements SessionAware {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public int getHour() {
+		return hour;
+	}
+
+	public void setHour(int hour) {
+		this.hour = hour;
+	}
+
+	public int getMin() {
+		return min;
+	}
+
+	public void setMin(int min) {
+		this.min = min;
 	}
 	
 }
