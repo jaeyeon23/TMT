@@ -115,6 +115,11 @@
 	</select>
 	
 	
+	<select id="selectOne_TT" resultMap="memberRes" parameterClass="java.util.Map">
+		SELECT * FROM MEMBER
+		where id = #userId#
+	</select>
+	
 	<select id="memberView" resultMap="memberRes" parameterClass="String">
 		SELECT * FROM MEMBER
 		where id = #id#
