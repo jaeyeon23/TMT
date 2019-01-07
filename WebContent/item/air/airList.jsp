@@ -36,12 +36,12 @@
 			}
 			if(forms.dep.value.length == 0){
 				alert("도착지를 입력하세요");
-				forms.arv.focus();
+				forms.dep.focus();
 				return false;
 			}
 			if(forms.ad_str.value.length == 0){
 				alert("날짜를 입력하세요");
-				forms.arv.focus();
+				forms.ad_str.focus();
 				return false;
 			}
 		}
@@ -52,7 +52,7 @@
 <body>
 	<div id="air_header">
 		<div id="air_header_search">
-			<form method="get" name="searchForm" onsubmit="return check()">
+			<form method="get" name="searchForm" onsubmit="return check()"><br><br><br>
 				<s:if test="arv != null">
 					<input type="text" id="arv" name="arv" readonly value="<s:property value='%{arv}'/>" data-toggle="modal" data-target="#modalTour_arv">
 				</s:if>
@@ -442,24 +442,26 @@
 					<input type="text" name="ad_str" class="date1" size="12" readonly placeholder="출발일"/>
 				</s:else>
 				
-				인원
-				<select name="seat" class="form-control" style="width:10%; display:inline;" value='<s:property value="%{seat}"/>'>
-					<option value="1">1</option>	
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-				</select>
-				좌석 등급
-				<select name="seat_grade" class="form-control" style="width:10%; display:inline;">
-					<option value="0">일반</option>	
-					<option value="1">비즈니스</option>
-				</select>
-				<input type="submit" class="btn btn-primary" value="검색">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<strong style="font-size:15pt">인원</strong>
+					<select name="seat" class="form-control" style="width:10%; display:inline;" value='<s:property value="%{seat}"/>'>
+						<option value="1">1</option>	
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+					</select>
+					&nbsp;&nbsp;&nbsp;&nbsp;<strong style="font-size:15pt">좌석 등급</strong>
+					<select name="seat_grade" class="form-control" style="width:10%; display:inline;">
+						<option value="0">일반</option>	
+						<option value="1">비즈니스</option>
+					</select>
+					<input type="submit" class="btn btn-primary" value="검색">
+				<!-- </div> -->
 			</form>
 		</div>
 	</div>
@@ -503,23 +505,79 @@
 	</div>
 	<div class="air_list">
 		<div class="air_left">
-			<form method="get">
+			<form>
 				<strong>출발시간</strong><br>
-				<input type="checkbox" name="ckAD_1" value="06">&nbsp;&nbsp;새벽 00:00~06:00<br>
-				<input type="checkbox" name="ckAD_2" value="12">&nbsp;&nbsp;오전 06:00~12:00<br>
-				<input type="checkbox" name="ckAD_3" value="18">&nbsp;&nbsp;오후 12:00~18:00<br>
-				<input type="checkbox" name="ckAD_4" value="24">&nbsp;&nbsp;야간 18:00~24:00<br>
+				<s:if test="ckAD_1 != null">
+					<input type="checkbox" name="ckAD_1" value="06" checked>&nbsp;&nbsp;새벽 00:00~06:00<br>
+				</s:if>
+				<s:else>
+					<input type="checkbox" name="ckAD_1" value="06">&nbsp;&nbsp;새벽 00:00~06:00<br>
+				</s:else>
+				<s:if test="ckAD_2 != null">
+					<input type="checkbox" name="ckAD_2" value="12" checked>&nbsp;&nbsp;오전 06:00~12:00<br>
+				</s:if>
+				<s:else>
+					<input type="checkbox" name="ckAD_2" value="12">&nbsp;&nbsp;오전 06:00~12:00<br>
+				</s:else>
+				<s:if test="ckAD_3 != null">
+					<input type="checkbox" name="ckAD_3" value="18" checked>&nbsp;&nbsp;오후 12:00~18:00<br>					
+				</s:if>
+				<s:else>
+					<input type="checkbox" name="ckAD_3" value="18">&nbsp;&nbsp;오후 12:00~18:00<br>
+				</s:else>
+				<s:if test="ckAD_4 != null">
+					<input type="checkbox" name="ckAD_4" value="24" checked>&nbsp;&nbsp;야간 18:00~24:00<br>				
+				</s:if>
+				<s:else>
+					<input type="checkbox" name="ckAD_4" value="24">&nbsp;&nbsp;야간 18:00~24:00<br>
+				</s:else>
 				<br><br>
-				<strong>도착시간</strong><br>			
-				<input type="checkbox" name="ckDD_1" value="06">&nbsp;&nbsp;새벽 00:00~06:00<br>
-				<input type="checkbox" name="ckDD_2" value="12">&nbsp;&nbsp;오전 06:00~12:00<br>
-				<input type="checkbox" name="ckDD_3" value="18">&nbsp;&nbsp;오후 12:00~18:00<br>
-				<input type="checkbox" name="ckDD_4" value="24">&nbsp;&nbsp;야간 18:00~24:00<br>
+				<strong>도착시간</strong><br>	
+				<s:if test="ckDD_1 != null">
+					<input type="checkbox" name="ckDD_1" value="06" checked>&nbsp;&nbsp;새벽 00:00~06:00<br>
+				</s:if>		
+				<s:else>
+					<input type="checkbox" name="ckDD_1" value="06">&nbsp;&nbsp;새벽 00:00~06:00<br>
+				</s:else>
+				<s:if test="ckDD_2 != null">
+					<input type="checkbox" name="ckDD_2" value="12" checked>&nbsp;&nbsp;오전 06:00~12:00<br>
+				</s:if>
+				<s:else>
+					<input type="checkbox" name="ckDD_2" value="12">&nbsp;&nbsp;오전 06:00~12:00<br>
+				</s:else>
+				<s:if test="ckDD_3 != null">
+					<input type="checkbox" name="ckDD_3" value="18" checked>&nbsp;&nbsp;오후 12:00~18:00<br>
+				</s:if>
+				<s:else>
+					<input type="checkbox" name="ckDD_3" value="18">&nbsp;&nbsp;오후 12:00~18:00<br>
+				</s:else>
+				<s:if test="ckDD_4 != null">
+					<input type="checkbox" name="ckDD_4" value="24" checked>&nbsp;&nbsp;야간 18:00~24:00<br>
+				</s:if>
+				<s:else>
+					<input type="checkbox" name="ckDD_4" value="24">&nbsp;&nbsp;야간 18:00~24:00<br>
+				</s:else>
 				<br><br>
 				<strong>항공사</strong><br>
-				<input type="checkbox" name="air_company_korea" value="대한항공">&nbsp;&nbsp;대한항공<br>
-				<input type="checkbox" name="air_company_asia" value="아시아나">&nbsp;&nbsp;아시아나<br>
-				<input type="checkbox" name="air_company_jin" value="진에어">&nbsp;&nbsp;진에어<br>
+				<s:if test="air_company_korea != null">
+					<input type="checkbox" name="air_company_korea" value="대한항공" checked>&nbsp;&nbsp;대한항공<br>
+				</s:if>
+				<s:else>
+					<input type="checkbox" name="air_company_korea" value="대한항공">&nbsp;&nbsp;대한항공<br>
+				</s:else>
+				<s:if test="air_company_asia != null">
+					<input type="checkbox" name="air_company_asia" value="아시아나" checked>&nbsp;&nbsp;아시아나<br>
+				</s:if>
+				<s:else>
+					<input type="checkbox" name="air_company_asia" value="아시아나">&nbsp;&nbsp;아시아나<br>
+				</s:else>
+				<s:if test="air_company_jin != null">
+					<input type="checkbox" name="air_company_jin" value="진에어" checked>&nbsp;&nbsp;진에어<br>
+				</s:if>
+				<s:else>
+					<input type="checkbox" name="air_company_jin" value="진에어">&nbsp;&nbsp;진에어<br>
+				</s:else>
+				
 				<br><br>
 				    
 			    <!-- test -->
@@ -561,14 +619,14 @@
 				</tr>
 				<s:if test="Airlist == null">
 				<tr>
-					<td colspan=5>
+					<td colspan=6>
 						<center>항공권을 검색해 주세요</center>
 					</td>
 				</tr>
 				</s:if>
 				<s:if test="Airlist.size() == 0">
 				<tr>
-					<td colspan=5>
+					<td colspan=6>
 						<center>해당 항공권이 존재하지 않습니다</center>
 					</td>
 				</tr>
@@ -583,7 +641,7 @@
 						<s:property value="air_company"/>
 					</td>
 					<td>
-						<s:date name="ad" format="HH:mm" />
+						<s:date name="ad" format="HH:mm" />  
 					</td>
 					<td>
 						<s:date name="dd" format="HH:mm" />
@@ -605,6 +663,7 @@
 												<span aria-hidden="true">&times;</span>
 											</button>
 											<h4 class="modal-title" id="myModalLabel">
+												<span class="label_blue label_box">가는편</span>
 												<s:property value="arv" />
 												&nbsp;<span class="glyphicon glyphicon-arrow-right"></span>&nbsp;
 												<s:property value="dep" />
@@ -631,7 +690,7 @@
 
 										<div class="modal-footer">
 											<s:if test="%{session.session_id!=null}">
-												<form action="AirCheck.action">
+												<form action="AirRegulation.action">
 													<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 													<button type="submit" class="btn btn-primary">
 														예약

@@ -28,9 +28,20 @@
 	<definition name="AirList" extends="Main">
 		<put-attribute name="body" value="/item/air/airList.jsp" />
 	</definition>
-	
+
+	<!-- 결제확인창 -->	
 	<definition name="AirCheck" extends="Main">
 		<put-attribute name="body" value="/item/air/airCheck.jsp" />
+	</definition>
+	
+	<!-- 운임규정확인 -->
+	<definition name="AirRegulation" extends="Main">
+		<put-attribute name="body" value="/item/air/airRegulation.jsp" />
+	</definition>
+	
+	<!-- 예약정보확인 -->
+	<definition name="AirView" extends="Main">
+		<put-attribute name="body" value="/item/air/airView.jsp" />
 	</definition>
 	
 	

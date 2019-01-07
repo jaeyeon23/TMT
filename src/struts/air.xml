@@ -6,12 +6,19 @@
 <struts>
 	<package name="air" extends="struts-default, tiles-default">
 		<action name="AirList" class="item.air.AirList">
-			<result name="success" type="tiles">AirList</result><!-- 
-			<result name="error" type="tiles">LoginForm</result> -->
+			<result name="success" type="tiles">AirList</result> 
 		</action>
 		
 		<action name="AirCheck" class="item.air.AirCheck">
 			<result name="success" type="tiles">AirCheck</result>
+		</action>
+		
+		<action name="AirRegulation" class="item.air.AirCheck" method="regulation">
+			<result name="success" type="tiles">AirRegulation</result>
+		</action>
+		
+		<action name="AirView" class="item.air.AirCheck" method="view">
+			<result name="success" type="tiles">AirView</result>
 		</action>
 	</package>
 </struts>

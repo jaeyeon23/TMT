@@ -23,7 +23,7 @@
 		</action>
 
 	</package>
-	<include file="/struts/admin.xml" />
+	<!-- <include file="/struts/admin.xml" /> -->
 	
 	<!-- 공지사항 -->
 	<include file="/struts/notice.xml" />

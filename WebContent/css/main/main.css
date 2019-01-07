@@ -1,15 +1,128 @@
-		input[type=text]{
-			width: 40%;
-			font-size: 20pt;
-		}
-		
-		.search_background{
-			size: 100%;	
-			background-image:url(https://d2ur7st6jjikze.cloudfront.net/cms/244_original_1525399192.jpg?1525399192);
-			width: 100%;
-        	height: 608px;
-		}
-		
-		.searchbox{
-			
-		}
+input[type=text] {
+	border: 2px solid #aaa;
+	border-radius: 4px;
+	margin: 8px 0;
+	outline: none;
+	padding: 10px;
+	box-sizing: border-box; transitio;
+	width: 50%;
+	font-size: 20pt;
+	width: 40%;
+}
+
+input[type=text]:focus {
+	border-color: dodgerBlue;
+	box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+.search_background {
+	background-position: center;
+	width: 100%;
+	height: 608px;
+	z-index: 1;
+}
+
+.searchbox_text {
+	margin: 320px 0px;
+	color: #fff;
+	font-size: 40px;
+	font-weight: 700;
+	letter-spacing: -.5px;
+	line-height: 1.25;
+	text-align: center;
+	text-shadow: 0 3px 8px rgba(73, 80, 86, 0.2), 0 1px 1px	rgba(0, 0, 0, 0.5);
+	top: 240px;
+	width: 1550px;
+	z-index: 10;
+	position: absolute;
+}
+
+.searchbox {
+	color: black;
+}
+
+input::-webkit-input-placeholder {
+	color: #D8D8D8;
+	font-style: italic;
+}
+
+input:-ms-input-placeholder {
+	color: #D8D8D8;
+	font-style: italic;
+}
+
+#searchTour_list {
+	width: 100%;
+	height: 500px;
+}
+
+#contentT {
+	background-color: white;
+	margin: 0 12px;
+}
+
+#contents img {
+	border-radius: 15px 15px 0 0;
+	padding: 1px 1px 1px 1px;
+	width: 200px;
+	height: 160px;
+}
+
+#contents {
+	float: left;
+	margin: 20px 10px;
+	border: 1px solid #BBBBBB;
+	border-radius: 15px;
+	width: 230px;
+	height: 300px;
+	align-content: center;
+}
+
+#contents:hover {
+	border: 1px solid #1b5ac2;
+}
+
+#contents dt {
+	margin: 0 25px;
+}
+.experience__summary{
+	padding-top:50px;	
+	padding-left:340px;
+}
+
+.summary__item {
+    float: left;
+    margin-right:40px;
+}
+
+.summary__item .summary__content {
+    display: inline-block;
+    margin-left: 12px;
+    padding: 5px 0;
+    text-align: left;
+}
+
+.summary__item .summary__content .summary__content__title {
+    font-weight: bold;
+    font-size: 16px;
+    color: #495056;
+}
+
+.summary__item .summary__content .summary__content__desc {
+    font-size: 14px;
+    font-weight: 500;
+    color: #848c94;
+}
+
+/* 캐러셀 너란 친구 내 오랜 숙원 */
+.carousel-fade .carousel-inner .item {
+    opacity: 0;
+    transition-property: opacity;
+}
+
+.carousel-fade .carousel-inner>.item.next.left, .carousel-fade .carousel-inner>.item.prev.right, .carousel-fade .carousel-inner>.item.active {
+    opacity: 1;
+   /*  -webkit-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0); */
+    transform: translate3d(0, 0, 0);
+}

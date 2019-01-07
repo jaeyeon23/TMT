@@ -1,8 +1,12 @@
 @charset "UTF-8";
 
 #air_header_search {
-	background-color: #8fc2f5;
+	/* background-color: #8fc2f5 */;
+	background-image: url("../images/air_background.jpg");
+	background-repeat:no-repeat;
+	background-position: center;
 	text-align: center;
+	height:200px;
 }
 
 .air_array {
@@ -33,6 +37,9 @@
 	margin-right: 5%;
 }
 
+select{
+	font-size: 20px;	
+}
 input[type=text]{
 	border: 2px solid #aaa;
 	border-radius: 4px;
@@ -40,10 +47,30 @@ input[type=text]{
 	outline: none;
 	padding: 10px;
 	box-sizing: border-box;
+	font-size: 17pt;
+	font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕", Roboto, Helvetica, Arial, sans-serif;
 	transitio;
 }
 
 input[type=text]:focus{
 	border-color: dodgerBlue;
 	box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+.label_box.label_blue {
+    background-color: #1583db;
+    color: #fff;
+}
+
+.label_box{
+    display: inline-block;
+    min-width: 44px;
+    height: 24px;
+    padding: 0 5px;
+    line-height: 24px;
+    font-size: 12px;
+    border-radius: 2px;
+    box-sizing: border-box;
+    text-align: center;
+    font-weight: bold;
 }
