@@ -51,15 +51,15 @@ public class LoginMember extends ActionSupport implements SessionAware{
 		resultClass = (MemberVO) sqlMapper.queryForObject("loginChk", getId());
 		
 		if(resultClass != null){
-			
 			if(resultClass.getPassword().equals(getPassword())) {
-				
-			String t = sb.append(url.substring(url.lastIndexOf("/")+1, url.lastIndexOf("."))).toString();
-			if(t.contains("Find")||t.contains("Email")||t.contains("Join")||t.contains("Login")) {
-				session.put("session_id", resultClass.getId());
-		        session.put("session_admin",resultClass.getAdmin());
-		        
-				return "main";
+				if(resultClass.getAdmin()==1)
+					sb.append("Admin");
+				String t = sb.append(url.substring(url.lastIndexOf("/")+1, url.lastIndexOf("."))).toString();
+				if(t.contains("Find")||t.contains("Email")||t.contains("Join")||t.contains("Login")) {
+					session.put("session_id", resultClass.getId());
+			        session.put("session_admin",resultClass.getAdmin());
+			        
+					return "main";
 			}
 			if(url.lastIndexOf("?")!= -1)
 				sb.append(url.substring(url.lastIndexOf("?")));
