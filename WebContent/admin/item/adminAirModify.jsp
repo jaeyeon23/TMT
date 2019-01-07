@@ -45,7 +45,7 @@
 												<font size="2">arv</font>
 											</p>
 										</td>
-										<td><input type="text" name="arv"></td>
+										<td><input value="<s:property value="%{resultClass.arv}"/>" type="text" name="arv"></td>
 									</tr>
 									<tr>
 										<td>
@@ -53,7 +53,7 @@
 												<font size="2">dep</font>
 											</p>
 										</td>
-										<td><input type="text" name="dep"></td>
+										<td><input value="<s:property value="%{resultClass.dep}"/>" type="text" name="dep"></td>
 									</tr>
 									<tr>
 										<td>
@@ -61,7 +61,7 @@
 												<font size="2">가격</font>
 											</p>
 										</td>
-										<td><input type="number" name="price"></td>
+										<td><input value="<s:property value="%{resultClass.price}"/>" type="number" name="price"></td>
 									</tr>
 								
 									<tr>
@@ -71,7 +71,7 @@
 											</p>
 										</td>
 										<td>					
-											<input type="text" readonly name="ad" id="inDay">
+											<input value="<s:property value="%{resultClass.ad}"/>" type="text" readonly name="ad" id="inDay">
 										</td>
 									</tr>
 									
@@ -83,7 +83,7 @@
 										</td>
 										<td>					
 											<div class="input-group bootstrap-timepicker timepicker">
-									            <input id="timepicker2" name="ad" type="text" class="input-small">
+									            <input value="<s:property value="%{resultClass.ad}"/>" id="timepicker2" name="ad" type="text" class="input-small">
 									        </div>
 									        <script>
 									            $('#timepicker2').timepicker({
@@ -105,7 +105,7 @@
 											</p>
 										</td>
 										<td>	
-											<input type="text" readonly name="dd" id="outDay"> 
+											<input value="<s:property value="%{resultClass.dd}"/>" type="text" readonly name="dd" id="outDay"> 
 										</td>
 									</tr>
 									
@@ -117,7 +117,7 @@
 										</td>
 										<td>	
 											<div class="input-group bootstrap-timepicker timepicker">
-									            <input id="timepicker3" name="dd" type="text"  class="input-small">
+									            <input value="<s:property value="%{resultClass.dd}"/>" id="timepicker3" name="dd" type="text"  class="input-small">
 									        </div>
 									        <script>
 									            $('#timepicker3').timepicker({
@@ -138,7 +138,7 @@
 												<font size="2">항공사</font>
 											</p>
 										</td>
-										<td><input type="text" name="air_company"></td>
+										<td><input value="<s:property value="%{resultClass.air_company}"/>" type="text" name="air_company"></td>
 									</tr>
 									
 									<tr>
@@ -147,7 +147,7 @@
 												<font size="2">좌석</font>
 											</p>
 										</td>
-										<td><input type="number" name="seat"></td>
+										<td><input value="<s:property value="%{resultClass.seat}"/>" type="number" name="seat"></td>
 									</tr>
 									<tr>
 										<td>
@@ -155,7 +155,7 @@
 												<font size="2">등급</font>
 											</p>
 										</td>
-										<td><input type="number" name="seat_grade"></td>
+										<td><input value="<s:property value="%{resultClass.seat_grade}"/>" type="number" name="seat_grade"></td>
 									</tr>
 									
 									<tr>
@@ -164,7 +164,7 @@
 												<font size="2">제품정보</font>
 											</p>
 										</td>
-										<td width="346"><textarea name="content" cols="50"
+										<td width="346"><textarea value="<s:property value="%{resultClass.content}"/>" name="content" cols="50"
 												rows="15"></textarea></td>
 									</tr>
 									<tr>

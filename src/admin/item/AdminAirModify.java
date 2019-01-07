@@ -15,6 +15,7 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
 import item.air.AirVO;
+import member.MemberVO;
 
 
 public class AdminAirModify extends ActionSupport implements SessionAware {
@@ -55,6 +56,8 @@ public class AdminAirModify extends ActionSupport implements SessionAware {
 		reader.close();
 	}
 	public String form() throws Exception {
+		resultClass = new AirVO();
+		resultClass = (AirVO)sqlMapper.queryForObject("airOne",getNo());
 		return SUCCESS;
 
 	}
