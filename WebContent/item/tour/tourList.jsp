@@ -6,7 +6,7 @@
 <html>
 <head>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<link rel="stylesheet"  href="/TMT/item/tour/tt.css"  type="text/css">
+<link rel="stylesheet"  href="item/tour/tt2.css"  type="text/css">
 <script>
 	$(function() {
 		$(".subb").hide();
@@ -66,22 +66,18 @@
 								<s:if test="num == 1 ">
 									<option value="1" selected>인기순</option>
 									<option value="2">가격낮은순</option>
-									<option value="3">별점순</option>
 								</s:if>
 								<s:elseif test="num == 2 ">
 									<option value="1">인기순</option>
 									<option value="2" selected>가격낮은순</option>
-									<option value="3">별점순</option>
 								</s:elseif>
 								<s:elseif test="num == 3">
 									<option value="1">인기순</option>
 									<option value="2">가격낮은순</option>
-									<option value="3" selected>별점순</option>
 								</s:elseif>
 								<s:else>
 									<option value="1">인기순</option>
 									<option value="2">가격낮은순</option>
-									<option value="3">별점순</option>
 								</s:else>
 							</select>
 							<s:hidden name="tourname" value="%{tourname}" />
@@ -110,41 +106,17 @@
 										</h4>
 										<font color="orange" size="5"><b><s:property
 													value="price" />원</b></font> / 1인<br>
-										<s:if test="grade == 0">
-											<font color=#BDBDBD>★★★★★</font>
-										</s:if>
-										<s:elseif test="grade == 1">
-											<font color="red">★</font>
-											<font color="#BDBDBD">★★★★</font>
-										</s:elseif>
-										<s:elseif test="grade == 2">
-											<font color="red">★★</font>
-											<font color="#BDBDBD">★★★</font>
-										</s:elseif>
-										<s:elseif test="grade == 3">
-											<font color="red">★★★</font>
-											<font color="#BDBDBD">★★</font>
-										</s:elseif>
-										<s:elseif test="grade == 4">
-											<font color="red">★★★★</font>
-											<font color="#BDBDBD">★★★★★</font>
-										</s:elseif>
-										<s:elseif test="grade == 5">
-											<font color="red">★★★★★</font>
-										</s:elseif>
-										(0)
 									</div>
 								</div>
 							</a>
-						</s:iterator>
-						<center>
-							<s:property value="pagingHtml" escape="false" />
-						</center>
+						</s:iterator>	
+						
 					</ul>
-
 				</dd>
 			</dl>
+			<div id="a"><center><s:property value="pagingHtml" escape="false" /></center></div>
 		</div>
+		
 	</div>
 	
 </body>

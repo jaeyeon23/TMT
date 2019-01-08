@@ -56,12 +56,6 @@
 		WHERE (name like '%'||#tourname#||'%' or country like '%'||#tourname#||'%' or region like '%'||#tourname#||'%')
 		order by price asc
 	</select>
-	<!-- 별점순 -->
-	<select id="Search_TourG" resultMap="boardtour" parameterClass="java.util.Map">
-		<include refid="select-allT" />
-		WHERE (name like '%'||#tourname#||'%' or country like '%'||#tourname#||'%' or region like '%'||#tourname#||'%')
-		order by  desc
-	</select>
 	
 	<!-- 등록 -->
 	<insert id="insertTour" parameterClass="tour">
