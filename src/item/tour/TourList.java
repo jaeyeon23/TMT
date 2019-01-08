@@ -3,26 +3,16 @@ package item.tour;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import java.util.Date;
-import java.util.HashMap;
-
-
-import com.opensymphony.xwork2.ActionSupport;
-
-import item.hotel.HotelVO;
-import item.hotel.HotelpagingAction;
-import item.tour.*;
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
-import com.ibatis.sqlmap.client.SqlMapClient; 
+import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
-
-
-import item.tour.TourpagingAction;
-import org.apache.struts2.interceptor.SessionAware;
+import com.opensymphony.xwork2.ActionSupport;
 public class TourList extends ActionSupport implements SessionAware{
 
 	
@@ -60,6 +50,8 @@ public class TourList extends ActionSupport implements SessionAware{
 		}
 	    // 모든글을 가져와 list에 넣는다
 		Tourlist = sqlMapper.queryForList("selectAllT");
+	
+		tvo = (TourVO)sqlMapper.queryForList("selectCountry");
 		
 		totalCount = Tourlist.size(); // 전체글 개수를 구한다.
 

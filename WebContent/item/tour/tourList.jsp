@@ -39,19 +39,26 @@
 			     <hr>
 				<div><a href="TourList.action" class="on"><font color="#1b5ac2"><b>전체</b></font></a></div>
 				<hr>
+				<s:iterator value="t" status="stat">
 				<div class="sideMenu"><b>한국</b></div>
 				<ul class="subb">
 					<li><a href="TourList.action?tourname=제주도" class="on">제주도</a></li>
 				</ul>
 				<hr>
-				<div class="sideMenu"><b>중국</b></div>
+				</s:iterator>
+				<div class="sideMenu"><b>일본</b></div>
 				<ul class="subb">
-					<li><a href="TourList.action?tourname=상하이" class="on">상하이</a></li>
+					<li><a href="TourList.action?tourname=교토" class="on">교토</a></li>
 				</ul>
 				<hr>
 				<div class="sideMenu"><b>미국</b></div>
 				<ul class="subb">
-					<li><a href="TourList.action?tourname=워싱턴" class="on">워싱턴</a></li>
+					<li><a href="TourList.action?tourname=뉴욕" class="on">뉴욕</a></li>
+				</ul>
+				<hr>
+				<div class="sideMenu"><b>프랑스</b></div>
+				<ul class="subb">
+					<li><a href="TourList.action?tourname=파리" class="on">파리</a></li>
 				</ul>
 				<hr>
 			</div>
