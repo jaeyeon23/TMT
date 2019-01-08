@@ -8,15 +8,13 @@
 		<result property="no" column="no" />
 		<result property="name" column="name" />
 		<result property="price" column="price" />
-		<result property="content" column="content" />
 		<result property="country" column="country" />
 		<result property="region" column="region"/>
 		<result property="readcount" column="readcount"/>
 		<result property="main_image" column="main_image" />
 		<result property="content_image" column="content_image" />
-		<result property="image3" column="image3" />
 		<result property="reg_date" column="reg_date" />
-		<result property="grade" column="grade" />
+
 		<result property="amount" column="amount" />		
 	</resultMap>
 
@@ -62,13 +60,13 @@
 	<select id="Search_TourG" resultMap="boardtour" parameterClass="java.util.Map">
 		<include refid="select-allT" />
 		WHERE (name like '%'||#tourname#||'%' or country like '%'||#tourname#||'%' or region like '%'||#tourname#||'%')
-		order by grade desc
+		order by  desc
 	</select>
 	
 	<!-- 등록 -->
 	<insert id="insertTour" parameterClass="tour">
-			insert into tour(no, name, price, content, country, region, readcount, main_image, content_image, image3, reg_date, grade, amount)
-			values(seq_tournum.nextval, #name#, #price#, #content#, #country#, #region#, 0, #main_image#, #content_image#, #image3#, sysdate, #grade#, #amount#)	
+			insert into tour(no, name, price,country, region, readcount, main_image, _image, reg_date, amount)
+			values(seq_tournum.nextval, #name#, #price#,  #country#, #region#, 0, #main_image#, #content_image#, , sysdate, , #amount#)	
 	</insert>
 	
 	<!-- 조회수 증가 -->
@@ -83,7 +81,7 @@
 	
 	<!-- 수정 -->
 	<update id="updateTour" parameterClass="tour">
-		update tour set name=#name#,price=#price#,content=#content#,country=#country#,region=#region#,main_image=#main_image#,content_image=#content_image#,
+		update tour set name=#name#,price=#price#,country=#country#,region=#region#,main_image=#main_image#,content_image=#content_image#,
 		amount=#amount#
 		where no=#no#
 	</update>
@@ -96,8 +94,8 @@
 	
 	<!-- 메인에서 사용할 내용 -->
 	<select id="Main_Tour" resultMap="boardtour" parameterClass="java.lang.String">
-	select no, name, price, content, country, region, readcount, main_image, content_image, image3, reg_date, grade, amount, r 
-		from(select no, name, price, content, country, region, readcount, main_image, content_image, image3, reg_date, grade, amount, rownum r 
+	select no, name, price, country, region, readcount, main_image, content_image, reg_date, amount, r 
+		from(select no, name, price,  country, region, readcount, main_image,content_image,  reg_date, amount, rownum r 
 			from(SELECT * FROM TOUR 
 			<isNotNull>
 				where region=#region# order by readcount desc

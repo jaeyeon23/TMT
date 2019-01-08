@@ -26,7 +26,7 @@ public class TourSuccess extends ActionSupport implements SessionAware {
 	private int no;            //상품 번호
 	private String name;      //상품명    
 	private int price;       //가격
-	private String content;  //내용
+	
 	private String country;	 //국가
 	private String region;	//지역
 	private String image1; 
@@ -50,7 +50,7 @@ public class TourSuccess extends ActionSupport implements SessionAware {
 		map.put("no", getNo());
 		map.put("name", getName());
 		map.put("price", getPrice());
-		map.put("content", getContent());
+		
 		map.put("country", getCountry());
 		map.put("region", getRegion());
 		map.put("image1", getImage1());
@@ -137,16 +137,7 @@ public class TourSuccess extends ActionSupport implements SessionAware {
 		public void setAmount(int amount) {
 			this.amount = amount;
 		}
-		
-		//내용
-		public String getContent() {
-			return content;
-		}
-		public void setContent(String content) {
-			this.content = content;
-		}
 	
-
 }
 
 
