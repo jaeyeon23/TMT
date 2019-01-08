@@ -44,6 +44,8 @@ public class AdminMemberModify extends ActionSupport implements SessionAware {
 	}
 
 	public String form()throws Exception{
+		resultClass = new MemberVO();
+		resultClass = (MemberVO)sqlMapper.queryForObject("memberView",getId());
 		return SUCCESS;
 	}
 	

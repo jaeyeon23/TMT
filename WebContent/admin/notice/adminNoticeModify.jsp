@@ -7,16 +7,18 @@
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/bootstrap-theme.css" rel="stylesheet">
 <script src="js/bootstrap.js" type="text/javascript"></script>
-<script type="text/javascript">
-	function validation(){
+<script>
+	function check(){
 		var frm = document.write;
 		
 		if(frm.subject.value==""){
 			alert("제목을 입력해주세요.");
-			return false;	
+			frm.subject.focus();
+			return false;
 		}
 		else if(frm.content.value==""){
 			alert("내용을 입력해주세요");
+			frm.content.focus();
 			return false;
 		}
 		return true;
@@ -61,9 +63,9 @@
 		</tr>
 		<tr>
 			<td align="right" colspan="2">
-				<input name="submit" type="submit" value="작성완료" class="inputb">
+				<input name="submit" onclick="return check()" type="submit" value="작성완료" class="inputb">
 				<input name="list" type="button" value="목록" class="inputb"
-					onclick="javascript:location.href='AdminNoticeList.action?currentPage=<s:property value="currentPage"/>'">
+					onclick="location.href='AdminNoticeList.action?currentPage=<s:property value="currentPage"/>'">
 			</td>
 		</tr>
 	</table>

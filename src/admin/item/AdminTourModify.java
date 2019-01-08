@@ -58,6 +58,8 @@ public class AdminTourModify extends ActionSupport implements SessionAware {
 	}
 	
 	public String form() throws Exception {
+		resultClass = new TourVO();
+		resultClass = (TourVO)sqlMapper.queryForObject("selectOneT",getNo());
 		return SUCCESS;
 
 	}

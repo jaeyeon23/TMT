@@ -13,9 +13,67 @@
 	<!-- 달력끝 -->
 	<link rel="stylesheet" href="/TMT/item/hotel/hotelcss.css" type="text/css">
 	
+<script>
+	function check(){
+		
+		var f=document.modify;
+		
+		if (f.name.value == "") {
+			alert("상품이름을 입력해주십시오");
+			f.name.focus();
+			return false;
+		}
+		if (f.price.value == "") {
+			alert("상품가격을 입력해주십시오");
+			f.price.focus();
+			return false;
+		}
+		if (f.country.value == "") {
+			alert("나라를 입력해주십시오");
+			f.country.focus();
+			return false;
+		}
+		if(f.region.value==""){
+			alert("지역을 입력해주십시오");
+			f.region.focus();
+			return false;
+		}
+		if(f.tel.value==""){
+			alert("전화번호를 입력해주십시오");
+			f.tel.focus();
+			return false;
+		}
+		if(f.checkin.value==""){
+			alert("체크인 날짜를 입력해주십시오");
+			f.checkin.focus();
+			return false;
+		}
+		if(f.checkout.value==""){
+			alert("체크아웃 날짜를 입력해주십시오");
+			f.checkout.focus();
+			return false;
+		}
+		if(f.maxnum.value==""){
+			alert("최대 인원 수 를 입력해주십시오");
+			f.maxnum.focus();
+			return false;
+		}
+		if(f.room.value==""){
+			alert("방개수를 입력해주십시오");
+			f.room.focus();
+			return false;
+		}
+		if(f.content.value==""){
+			alert("내용을 입력해주십시오");
+			f.content.focus();
+			return false;
+		}
+		
+	}
+</script>
 </head>
 <body>
-	<s:form name="write" action="AdminHotelModify.action" method="post" enctype="multipart/form-data">
+	<s:form name="modify" action="AdminHotelModify.action" method="post" enctype="multipart/form-data">
 		<s:hidden name="no" value="%{no}"/>
 		<s:hidden name="currentPage" value="%{currentPage}"/>
 			
@@ -40,7 +98,7 @@
 												<font size="2">상품이름</font>
 											</p>
 										</td>
-										<td><input type="text" name="name"></td>
+										<td><input type="text" name="name" type="text" value="<s:property value="%{resultClass.name}"/>"></td>
 									</tr>
 									<tr>
 										<td>
@@ -48,7 +106,7 @@
 												<font size="2">가격</font>
 											</p>
 										</td>
-										<td><input type="number" name="price"></td>
+										<td><input type="number" name="price" value="<s:property value="%{resultClass.price}"/>"></td>
 									</tr>
 									<tr>
 										<td>
@@ -56,7 +114,7 @@
 												<font size="2">나라</font>
 											</p>
 										</td>
-										<td><input type="text" name="country"></td>
+										<td><input type="text" name="country" value="<s:property value="%{resultClass.country}"/>"></td>
 									</tr>
 									<tr>
 										<td>
@@ -64,7 +122,7 @@
 												<font size="2">지역</font>
 											</p>
 										</td>
-										<td><input type="text" name="region"></td>
+										<td><input type="text" name="region" value="<s:property value="%{resultClass.region}"/>"></td>
 									</tr>
 									<tr>
 										<td>
@@ -72,7 +130,7 @@
 												<font size="2">전화번호</font>
 											</p>
 										</td>
-										<td><input type="text" name="tel"></td>
+										<td><input type="text" name="tel" value="<s:property value="%{resultClass.tel}"/>"></td>
 									</tr>
 									
 									<tr>
@@ -101,7 +159,7 @@
 												<font size="2">인원</font>
 											</p>
 										</td>
-										<td><input type="number" name="maxnum"></td>
+										<td><input type="number" name="maxnum" value="<s:property value="%{resultClass.maxnum}"/>"></td>
 									</tr>
 									<tr>
 										<td>
@@ -109,7 +167,7 @@
 												<font size="2">방개수</font>
 											</p>
 										</td>
-										<td><input type="number" name="room"></td>
+										<td><input type="number" name="room" value="<s:property value="%{resultClass.room}"/>"></td>
 									</tr>
 									<tr>
 										<td width="196">
@@ -118,52 +176,46 @@
 											</p>
 										</td>
 										<td width="346"><textarea name="content" cols="50"
-												rows="15"></textarea></td>
+												rows="15"><s:property value="%{resultClass.content}"/></textarea></td>
 									</tr>
 									<tr>
-										<td><s:file label="제품 메인이미지1" name="uploads"><s:property value="main" /></s:file></td>
+										<td><s:file name="uploads"/></td>
 									</tr>
 									<tr>
-										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+										<td><s:file name="uploads"/></td>
 									</tr>
 									<tr>
-										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+										<td><s:file name="uploads"/></td>
 									</tr>
 									<tr>
-										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+										<td><s:file name="uploads"/></td>
 									</tr>
 									<tr>
-										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+										<td><s:file name="uploads"/></td>
 									</tr>
 									<tr>
-										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+										<td><s:file name="uploads"/></td>
 									</tr>
 									<tr>
-										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+										<td><s:file name="uploads"/></td>
 									</tr>
 									<tr>
-										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+										<td><s:file name="uploads"/></td>
 									</tr>
 									<tr>
-										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+										<td><s:file name="uploads"/></td>
 									</tr>
 									<tr>
-										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+										<td><s:file name="uploads"/></td>
 									</tr>
 									<tr>
-										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+										<td><s:file name="uploads"/></td>
 									</tr>
 									<tr>
-										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+										<td><s:file name="uploads"/></td>
 									</tr>
 									<tr>
-										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
-									</tr>
-									<tr>
-										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
-									</tr>
-									<tr>
-										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+										<td><s:file name="uploads"/></td>
 									</tr>
 									
 								</table>
@@ -172,7 +224,7 @@
 						<tr>
 							<td height="75">
 								<p align="center">
-									<input type="submit" value="수정">&nbsp; <input
+									<input type="submit" onclick="return check()" value="수정">&nbsp; <input
 										type="reset" value="다시쓰기">
 								</p>
 							</td>

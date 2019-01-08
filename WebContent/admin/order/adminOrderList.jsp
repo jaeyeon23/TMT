@@ -37,8 +37,6 @@
 			<th width="10%"><font size="2">사진</font></th>
 			<th width="7%"><font size="2">아이디</font></th>
 			<th width="15%"><font size="2">상품명</font></th>
-			
-			<th width="7%"><font size="2">전화번호</font></th>
 			<th width="9%"><font size="2">체크인</font></th>
 			<th width="9%"><font size="2">체크아웃</font></th>
 			<th width="5%"><font size="2">인원</font></th>
@@ -49,10 +47,9 @@
 		<s:iterator value="list" status="stat">
 		<tr bgcolor="#FFFFFF" >
 			<td><s:property value="no"/></td>
-			<td><img src="/TMT/upload/hotel/<s:property value="image1"/>"></td>
+			<td><img width="100px" src="/TMT/upload/hotel/<s:property value="image1"/>"></td>
 			<td><s:property value="id"/></td>
 			<td align="left"><s:property value="name"/></td>
-			<td><s:property value="tel"/></td>
 			<td><s:property value="checkin"/></td>
 			<td><s:property value="checkout"/></td>
 			<td align="center"><s:property value="people"/></td>
@@ -127,9 +124,11 @@
 		<s:iterator value="list" status="stat">
 		<tr bgcolor="#FFFFFF" >
 			<td><s:property value="no"/></td>
-			<td><img src="/TMT/upload/tour/<s:property value="image1"/>"></td>
+			<td><img width="100px" src="/TMT/upload/tour/<s:property value="image1"/>"></td>
 			<td><s:property value="id"/></td>
-			<td align="left"><s:property value="name"/></td>
+			<td align="left">
+				<s:property value="name"/>
+			</td>
 			<td><s:property value="price"/></td>
 			<td>
 				<form action="AdminOrderView.action">

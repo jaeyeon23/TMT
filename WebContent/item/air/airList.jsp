@@ -7,7 +7,7 @@
 <head>
 	<title>Insert title here</title>
 
-	<link href="./css/airList2.css" rel="stylesheet" type="text/css">
+	<link href="./css/airList.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript">
 		
 		/* 정렬 */
@@ -638,6 +638,7 @@
 						<s:property value="no"/>
 					</td>	
 					<td>
+						<span class="ico_airline"><img src="./upload/air/<s:property value='image1'/>"></span>
 						<s:property value="air_company"/>
 					</td>
 					<td>
