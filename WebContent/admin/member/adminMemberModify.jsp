@@ -164,7 +164,7 @@ function check(){
 			<div class="form-btn-container clearfix">
 				<div class="btn--width-50">
 					<button class="btn btn-default btn-sm" onclick="return check()" type="submit">정보 수정하기</button>			
-					<button type="button" onclick="history.back()" class="btn btn-default btn-sm" >이전</button>			
+					<button type="button" onclick="history.back()" class="btn btn-default btn-sm" >취소</button>			
 				</div>
 			</div>
 		</div>

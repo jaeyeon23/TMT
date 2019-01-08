@@ -1,0 +1,37 @@
+#all_List{
+	width: 75%;
+	background-color: red;
+	margin-left: 12%;
+	margin-right: 12%;
+	margin-top: 5%;
+}
+#order_title{
+	width: 100%;
+	background-color: pink;
+	height: 60px;
+}
+
+#left_List{
+	float: left;
+	width: 25%;
+	background-color: green;
+	border:1px solid #EAEAEA;
+	margin-top: 2%;
+	padding: 2% 0 2% 0;  /* 위 오른 아래 왼 */
+}
+
+#right_List{
+	float: right;
+	width: 73%;
+	height: 700px;
+	background-color: yellow;
+	margin-top: 2%;
+}
+#con_order_1{
+	margin: 2% 2% 2% 2%;
+	background-color: red;
+	width: 96%;
+	height: 96%;
+}
+
+

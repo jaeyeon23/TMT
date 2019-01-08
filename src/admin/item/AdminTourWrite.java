@@ -29,14 +29,14 @@ public class AdminTourWrite extends ActionSupport implements SessionAware {
 	private int no;            
 	private String name;        
 	private int price;       
-	private String content; 
+
 	private String country;	
 	private String region;	
 	private String main_image; 
 	private String content_image;  
-	private String image3;  
+
 	private Date reg_date;   
-	private int grade;	
+	
 	private int amount;
 	
 	private StringBuffer image;
@@ -44,7 +44,8 @@ public class AdminTourWrite extends ActionSupport implements SessionAware {
 	private List<File> uploads = new ArrayList<File>();
 	private List<String> uploadsFileName = new ArrayList<String>();
 	private List<String> uploadsContentType = new ArrayList<String>();
-	private String fileUploadPath = "C:\\Java\\App\\TMT\\WebContent\\upload\\tour\\"; 
+	private String fileUploadPath = "C:\\인영\\java\\TMT\\WebContent\\upload\\tour\\";
+			// "C:\\Java\\App\\TMT\\WebContent\\upload\\tour\\"; 
 	
 	public AdminTourWrite() throws IOException {
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml"); 
@@ -61,10 +62,10 @@ public class AdminTourWrite extends ActionSupport implements SessionAware {
 		paramClass = new TourVO();
 		paramClass.setName(getName());
 		paramClass.setPrice(getPrice());
-		paramClass.setContent(getContent());
+	
 		paramClass.setCountry(getCountry());
 		paramClass.setRegion(getRegion());
-		paramClass.setGrade(0);
+	
 		paramClass.setAmount(getAmount());
 		
 		if(uploads !=null) {
@@ -128,12 +129,7 @@ public class AdminTourWrite extends ActionSupport implements SessionAware {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
-	}
+
 	public String getCountry() {
 		return country;
 	}
@@ -159,24 +155,14 @@ public class AdminTourWrite extends ActionSupport implements SessionAware {
 	public void setContent_image(String content_image) {
 		this.content_image = content_image;
 	}
-	public String getImage3() {
-		return image3;
-	}
-	public void setImage3(String image3) {
-		this.image3 = image3;
-	}
+
 	public Date getReg_date() {
 		return reg_date;
 	}
 	public void setReg_date(Date reg_date) {
 		this.reg_date = reg_date;
 	}
-	public int getGrade() {
-		return grade;
-	}
-	public void setGrade(int grade) {
-		this.grade = grade;
-	}
+	
 	public List<File> getUploads() {
 		return uploads;
 	}

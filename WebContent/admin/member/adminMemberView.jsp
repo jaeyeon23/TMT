@@ -128,7 +128,6 @@ function removeCheck() {
 	<div class="text-clickable-container hide-on-mobile">
 		<div class="text text-sm" >
 			<button onclick="removeCheck()" class="btn btn-default btn-sm" >계정 삭제하기</button>
-			<button onclick="history.back()" class="btn btn-default btn-sm" >이전화면</button>
 		</div>
 	</div>
 </center>

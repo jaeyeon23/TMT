@@ -44,7 +44,7 @@ public class Search extends ActionSupport implements SessionAware{
 	
 	@Override
 	public String execute() throws Exception {
-		Airlist = sqlMapper.queryForList("search_air", searchbox);
+/*		Airlist = sqlMapper.queryForList("search_air", searchbox);*/
 		Hotellist = sqlMapper.queryForList("search_hotel", searchbox);
 		Tourlist = sqlMapper.queryForList("search_tour", searchbox);
 		

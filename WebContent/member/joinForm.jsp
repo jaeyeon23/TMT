@@ -109,8 +109,8 @@ function chkBox(bool){
 						</div>
 					</div>
 				</div>
-				<div class="content-wrapper">
-					<div class="form-group">
+				<div>
+					<div>
 						<div class="content-title-box">
 							<div class="sub-title">
 								비밀번호
@@ -225,7 +225,7 @@ function chkBox(bool){
 										</div>		
 										<div class="form-wrapper">
 											<div class="btn-wrap">
-												<button class="btn-new btn--type-primary btn--width-100" data-disable_with="회원가입" data-gtm-action="이메일 회원가입" type="submit">
+												<button class="btn-new btn--type-primary btn--width-100" type="submit">
 													회원가입
 												</button>
 											</div>

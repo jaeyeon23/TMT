@@ -21,7 +21,11 @@
 	<script src="./script/calendar.js" type="text/javascript"></script>
 
 	<link rel="stylesheet" href="/TMT/css/main/header.css"/>
-
+    <style type="text/css">
+    #headerTop_right{
+      margin-top: -5%;
+    }
+    </style>
 </head>
 <body>
 	<!-- header -->
@@ -36,7 +40,7 @@
 					<!-- 로고 및 로고이미지에  링크추가 -->
 				</a>
 			</div>
-			
+			<div id = "headerTop_right">
 			<!--  관리자 로그인           -->			
 			<s:if test='%{session.session_admin==1}'>
 			<div class="ProfileNavItems " style="margin-right:30px;">
@@ -77,6 +81,7 @@
 				</div>
 			</div>
 			</s:else>
+			</div>
 		</div>
 		<!-- headTop -->
 		

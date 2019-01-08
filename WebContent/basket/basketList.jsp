@@ -6,6 +6,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="/TMT/basket/basketcss.css" type="text/css">
+
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
 <script>
 $(document).ready(function(){
@@ -45,9 +47,99 @@ $(document).ready(function(){
 }
 </style>
 <title>나의 위시리스트</title>
-
 </head>
 <body>
+<div id = "all_List">
+
+     <div id="order_title">나의 위시리스트♥</div>
+     <div id="hotel_box">
+          <div id="hotel_title">
+             Hotel <s:property value="totalCount" />
+     	  </div><!-- hotel_title 끝 -->
+     	  
+     	  <div id="hotel_content">
+     	     <s:if test="bhlist.size()<=0">
+     	         <div id="not_list">
+					 <center><img src="./images/wishlist_empty.jpg" width="40" height="40">
+					 <br><br>위시리스트에 담긴 상품이 없습니다.<br>TMT와 즐거운 여행을 계획해보세요.</center>
+				 </div>
+			</s:if>
+     	     <s:iterator value="bhlist" status="stat">
+     	          <div id="HC_all">
+     	              <div id="image_HC">
+							<s:if test="image1 != null">
+								<img src="/TMT/upload/tour/<s:property value="%{image1}" />">
+							</s:if>
+							<s:else>
+								<img src="/TMT/images/noimage.jpg">
+							</s:else>
+					  </div>
+				      <div id="CC_HC">
+				             <s:property value="country" /> · 
+				             <s:property value="region" />
+				             <br>
+				             <s:property value="name" />
+				             <br><br>
+				             <s:property value="price" />원 / 1인
+				      </div>     	             
+     	          </div>
+             </s:iterator>
+     	  </div><!-- hotel_content 끝 -->
+     	  
+     	  <div id="hotel_footer">
+            pageNum <s:property value="pagingHtml" escape="false" />
+     	  </div><!-- hotel_footer 끝 -->
+     </div><!-- hotel_box 끝 -->
+     
+     <div id= "tour_box">
+          <div id="tour_title">
+             Tour <s:property value="totalCount2" />
+     	  </div><!-- tour_title 끝 -->
+     	  
+     	  <div id="tour_content">
+             <s:if test="btlist.size()<=0">
+     	         <div id="not_list">
+					 <center><img src="./images/wishlist_empty.jpg" width="40" height="40">
+					 <br><br>위시리스트에 담긴 상품이 없습니다.<br>TMT와 즐거운 여행을 계획해보세요.</center>
+				 </div>
+			</s:if>
+			<s:iterator value="btlist" status="stat">
+			      <div id="HC_all">
+     	              <div id="image_HC">
+							<s:if test="image1 != null">
+								<img src="/TMT/upload/tour/<s:property value='%{image1}'/>">
+							</s:if>
+							<s:else>
+								<img src="/TMT/images/noimage.jpg" >
+							</s:else>
+						</div>
+     	              <s:property value="country" />
+     	          </div>
+			</s:iterator>
+     	  </div><!-- tour_content 끝 -->
+     	  
+     	  <div id="tour_footer">
+            pageNum <s:property value="pagingHtml2" escape="false" />
+     	  </div><!-- tour_footer 끝 -->
+     </div> <!-- tour_box 끝 -->
+
+</div> <!-- all_List 끝나는곳 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------절취선 ^^+-------------------------------
 	<div class='header-title'>
 		<h2>
 			<center>

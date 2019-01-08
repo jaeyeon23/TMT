@@ -70,7 +70,7 @@ public class JoinMember extends ActionSupport implements SessionAware{
 		return SUCCESS;
 	}
 	
-	public String Join()throws Exception{//회원가입
+	public String Join() throws Exception{//회원가입
 		
 		paramClass = new MemberVO();
 	    resultClass = new MemberVO();
@@ -107,6 +107,7 @@ public class JoinMember extends ActionSupport implements SessionAware{
 			out.println("history.go(-1);");
 			out.println("</script>");
 			out.close();
+			
 			return LOGIN;
 		}
 		

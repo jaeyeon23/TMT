@@ -599,7 +599,7 @@
 			<table class="table table-hover" style="width:70%">
 				<tr>
 					<th>
-						상품 번호
+						출발날짜
 					</th>
 					<th>
 						항공사
@@ -635,7 +635,7 @@
 				<s:iterator value="Airlist" status="stat">
 				<tr>
 					<td>
-						<s:property value="no"/>
+						<s:date name="ad" format="yyyy년 MM월 dd일" />  
 					</td>	
 					<td>
 						<span class="ico_airline"><img src="./upload/air/<s:property value='image1'/>"></span>
