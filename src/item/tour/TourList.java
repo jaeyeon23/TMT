@@ -77,6 +77,9 @@ public class TourList extends ActionSupport implements SessionAware{
 		}else if(num ==2) {
 			map.put("tourname", getTourname());
 			Tourlist = sqlMapper.queryForList("Search_TourP", map);
+		}else if(num ==3) {
+			map.put("tourname", getTourname());
+			Tourlist = sqlMapper.queryForList("Search_TourPP", map);
 		}else {
 		// 검색 내용에따른 글을 list를 넣는다
 		map.put("tourname", getTourname());

@@ -57,6 +57,13 @@
 		order by price asc
 	</select>
 	
+	<!-- 가격순 -->
+	<select id="Search_TourPP" resultMap="boardtour" parameterClass="java.util.Map">
+		<include refid="select-allT" />
+		WHERE (name like '%'||#tourname#||'%' or country like '%'||#tourname#||'%' or region like '%'||#tourname#||'%')
+		order by price desc
+	</select>
+	
 	<!-- 등록 -->
 	<insert id="insertTour" parameterClass="tour">
 			insert into tour(no, name, price,country, region, readcount, main_image, content_image, reg_date, amount)

@@ -82,14 +82,17 @@
 								<s:if test="num == 1 ">
 									<option value="1" selected>인기순</option>
 									<option value="2">가격낮은순</option>
+									<option value="3">가격높은순</option>
 								</s:if>
 								<s:elseif test="num == 2 ">
 									<option value="1">인기순</option>
 									<option value="2" selected>가격낮은순</option>
+									<option value="3">가격높은순</option>
 								</s:elseif>
 								<s:else>
 									<option value="1">인기순</option>
 									<option value="2">가격낮은순</option>
+									<option value="3">가격높은순</option>
 								</s:else>
 							</select>
 							<s:hidden name="tourname" value="%{tourname}" />
