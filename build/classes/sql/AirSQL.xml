@@ -93,7 +93,7 @@
 				</isNotEmpty> 
 			</isNotNull>
 				
-				<!-- 항공 -->
+			<!-- 항공 -->
 			<isNotNull prepend="and" removeFirstPrepend="true" open="(" close=")">
 				<isNotEmpty prepend="or" property="air_company_korea">
 					air_company=#air_company_korea#

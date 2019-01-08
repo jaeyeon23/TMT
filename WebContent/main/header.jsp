@@ -28,16 +28,12 @@
     </style>
 </head>
 <body>
-	<!-- header -->
 	<div id="header">
-		<!-- headTop -->
 		<div class="headTop">
-			<!-- headerTop_left -->
 			<div class="headerTop_left">
 				<a href="Main.action"> 
 				<br><br><br><br>
 					<img src="./images/logo3.png" width="300px" alt="TMT" id="logo"> 
-					<!-- 로고 및 로고이미지에  링크추가 -->
 				</a>
 			</div>
 			<div id = "headerTop_right">
@@ -83,7 +79,6 @@
 			</s:else>
 			</div>
 		</div>
-		<!-- headTop -->
 		
 	<!-- menu -->
 	<s:if test='%{session.session_admin==1}'><!-- 관리자메뉴 -->
@@ -109,10 +104,7 @@
 			<li><div class="menu_hotel"><a href="NoticeList.action">고객센터</a></div></li>
 		</ul>
 	</div>
-	<!-- menu -->
 	</s:else>
-	
 	</div>
-	<!-- header -->
 </body>
 </html>

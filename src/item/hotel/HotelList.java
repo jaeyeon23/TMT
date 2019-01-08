@@ -40,6 +40,7 @@ public class HotelList extends ActionSupport implements SessionAware{
 	private int blockPage = 5; 	// 한 화면에 보여줄 페이지 수
 	private String pagingHtml; 	//페이징을 구현한 HTML
 	private HotelpagingAction page; 	// 페이징 클래스
+	private HotelpagingAction_basic page_basic; 	// 페이징 클래스
 	
 	 Date date = new Date(); 
 	 SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd"); 
@@ -63,16 +64,36 @@ public class HotelList extends ActionSupport implements SessionAware{
 	//게시판 LIST 액션
 	public String execute() throws Exception {
 		
-		if(getHotelname() != null) {
+		if(getHotelname() == null || hotelname.length() == 0) {
+			hotelname = "";
+		}else {
 			return search();
 		}
+		
+		if(num == 0) {
+			num = 1;
+		}
+		
+		if(currentPage == 0) {
+			currentPage = 1;
+		}
+		
+		
 		// 모든글을 가져와 list에 넣는다
-		Hotellist = sqlMapper.queryForList("selectAllH");
+		if(num == 1) {
+			Hotellist = sqlMapper.queryForList("selectAllH");
+		}else if(num == 2) {
+			Hotellist = sqlMapper.queryForList("selectAllH_readcount");
+		}else if(num == 3) {
+			Hotellist = sqlMapper.queryForList("selectAllH_price_low");
+		}else if(num == 4) {
+			Hotellist = sqlMapper.queryForList("selectAllH_price_high");
+		}
 
 		totalCount = Hotellist.size(); // 전체글 개수를 구한다.
-
+		
 		// HotelpagingAction 객체생성
-		page = new HotelpagingAction(currentPage, totalCount, blockCount, blockPage, "");
+		page = new HotelpagingAction(currentPage, totalCount, blockCount, blockPage, num);
 		pagingHtml = page.getPagingHtml().toString();
 
 		//현재 페이지에서 보여줄 마지막 글의 번호 설정.
@@ -101,27 +122,25 @@ public class HotelList extends ActionSupport implements SessionAware{
 		}else if(num == 3) {
 			Hotellist = sqlMapper.queryForList("Search_Hotel_price", map);
 		}else if(num == 4) {
-			Hotellist = sqlMapper.queryForList("Search_Hotel_date", map);
+			Hotellist = sqlMapper.queryForList("Search_Hotel_price_high", map);
 		}else{
 			Hotellist = sqlMapper.queryForList("Search_Hotel",  map);		
 		}
 		
-		
-		
 		totalCount = Hotellist.size(); // 전체 글의 개수
 
 		// HotelpagingAction 객체생성
-		page = new HotelpagingAction(currentPage, totalCount, blockCount, blockPage, getHotelname());
-		pagingHtml = page.getPagingHtml().toString();
+		page_basic = new HotelpagingAction_basic(currentPage, totalCount, blockCount, blockPage, getHotelname(), num, inDay, outDay, number, roomnum);
+		pagingHtml = page_basic.getPagingHtml().toString();
 
 		// 현재 페이지에서 보여줄 마지막 글의 번호 설정.
 		int lastCount = totalCount;
 		// lastCount�� +1 번호로 설정
-		if (page.getEndCount() < totalCount)
-			lastCount = page.getEndCount() + 1;
+		if (page_basic.getEndCount() < totalCount)
+			lastCount = page_basic.getEndCount() + 1;
 
 		// 전체 리스트에서 현재 페이지만큼의 리스트만 가져온다.
-		Hotellist = Hotellist.subList(page.getStartCount(), lastCount);
+		Hotellist = Hotellist.subList(page_basic.getStartCount(), lastCount);
 
 		return SUCCESS;
 	}
