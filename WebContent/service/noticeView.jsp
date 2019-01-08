@@ -34,7 +34,7 @@
 				<p class="board_view_subject_right"><s:property value="notice.now.reg_date"/></p>
 			</div>
 			<div class="board_view_content">
-				<p><s:property value="notice.now.content"/></p>
+				<p><s:property value="notice.now.content" style="white-space:normal;"/></p>
 			</div>
 			
 			<div class="board_view_prev">

@@ -28,9 +28,6 @@ function modifyCheck() {
 				<div class="profile">
 					<img alt="여행자 사진" class="img-circle" src="https://d2ur7st6jjikze.cloudfront.net/profile_images/1387626/1387626_medium_1541323024.png?1541323024" width="80">
 				</div>
-				<div class="text-md setting hide-on-mobile">
-					<img alt="프로필 관리" class="icon item-inline" height="11px" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/traveler/reservation/ic_setting@2x-832c08d9d38f208502f94e8d35e78a320024fc5f61630f2eba7801845e1eda78.png" width="11px">
-				</div>
 				<br><br>
 				<div class="username">
 					<h4><s:property value="%{session.session_id}"/>&nbsp;&nbsp;회원님</h4>
@@ -40,20 +37,18 @@ function modifyCheck() {
 				<div class="item">
 					<div class="item-header text-md">
 						나의 예약내역
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<a href="OrderList.action">
-								확인하기
+								<p align="right">확인하기
 							<img class="arrow" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/ic-arrow-right-xs@2x-b290f6804f2f002ced664adc4c5e63a59629269d2e6657184239261195f22147.png" width="16">
+							</p>
 						</a>
 					</div>
 						<div class="item-header text-md">
 						나의 위시리스트
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<a href="BasketList.action">
-								확인하기
+								<p align="right">확인하기
 							<img class="arrow" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/ic-arrow-right-xs@2x-b290f6804f2f002ced664adc4c5e63a59629269d2e6657184239261195f22147.png" width="16">
+							</p>
 						</a>
 					</div>	
 				</div>
@@ -90,7 +85,7 @@ function modifyCheck() {
 						<div class="title text-middle">연락처</div>
 						<div class="input-wrapper text-middle">
 							<input class="form-control text-content" name="tel" 
-								type="text" placeholder="숫자만 입력하세요" >
+								type="text" placeholder="변경할  전화번호를 입력하세요" >
 						</div>
 					</div>
 				</div>
@@ -108,6 +103,7 @@ function modifyCheck() {
 							type="text" placeholder="변경할 여권번호를 입력하세요">
 					</div>
 				</div>
+
 
 	<br>
 		<div class="form-btn-wrap">

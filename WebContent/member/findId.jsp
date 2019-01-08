@@ -19,25 +19,20 @@
 
 <center>
 	<body>
-		<h3>아이디 찾기</h3>
-		<br>고객님의 정보와 일치하는 아이디입니다.
-		<br>
+		<h4>아이디 찾기</h4>
+		<h5><br>고객님의 정보와 일치하는 아이디입니다.</h5>
 		<br><br>
-		<div class="my-box">
+		<div class>
 			<form action="LoginForm.action" method="post">
-				<table>
 				<s:iterator value="%{list}" status="stat">
-					<tr> 
-						<td>아이디 : <s:property value="list.get(#stat.index).id"/>
-							&nbsp;</td>
-					</tr>
+					<p style="font-size:18px;">아이디 : <s:property value="list.get(#stat.index).id"/> &nbsp;</p>
 				</s:iterator>
-				</table>
-		</div><br><br>
-				<input type="submit" value="로그인" class="btn-new btn--type-primary btn--width-100"/> &nbsp; <input
-							type="button" value="비밀번호 찾기" onclick="javascript:location.href='FindPwForm.action'" class="btn-new btn--type-primary btn--width-100"/>
+		</div>
+		<br><br>
+				<input type="submit" value="로그인" class="btn-new btn--type-primary btn--width-100" style="display: inline"/> &nbsp; 
+				<input type="button" value="비밀번호 찾기" onclick="javascript:location.href='FindPwForm.action'" class="btn-new btn--type-primary btn--width-100"  style="display: inline"/>
 		</form>
-		
+		<br><br>
 	</body>
 </center>
 </html>

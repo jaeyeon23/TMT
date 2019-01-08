@@ -30,61 +30,6 @@
 </head>
 <body>
 
-<%-- 	<form action="FindId.action">
-		<br>
-		<table width="100%" border="0" cellspacing="0" cellpadding="0">
-			<tr>
-				<td align="center" height="300">
-					<table border="0">
-						<tr>
-							<td colspan="100%" align="center" class="title">아이디 찾기</td>
-						</tr>
-						<tr>
-							<td height="30"/>
-						</tr>
-						
-						<tr>
-							<td height="5" colspan="2"></td>
-						</tr>
-						<tr>
-							<td width="110" class="factors">이름&nbsp;<br/><br/>이메일&nbsp;
-							</td>
-							<td><input type="text" name="name"><br><br/>
-							<input type="text" name="email"></td>
-						</tr>
-						<tr>
-							<td height="10" colspan="2"></td>
-						</tr>
-						<tr>
-							<td align="center">
-							<input type="submit" value="  아이디 찾기  " class="button">
-							</td>
-							<s:if test='%{resultClass.id != null}'>
-								<td class="result">RESULT&nbsp;:&nbsp;</td>
-								<td align="left" class="result"><br> <b>${resultClass.name}</b>
-									님의 ID는 <b>${resultClass.id}</b>입니다.<br>&nbsp;</td>
-								<td align="middle">
-									<a href="LoginForm.action" class="button">&nbsp;&nbsp;로그인폼으로&nbsp;&nbsp;</a>
-								</td>
-							</s:if>
-							<s:else>
-								<td></td>
-								<td></td>
-								<td align="middle">
-									<a href="LoginForm.action" class="button">&nbsp;&nbsp;로그인폼으로&nbsp;&nbsp;</a>
-								</td>
-							</s:else>
-						</tr>
-						<tr>
-							<td height="5" colspan="2"></td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</table>
-	</form> --%>
-	
-	
 <main class="member member-verify">
 	<div class="container-fluid content-wrap with-panel-title">
 		<div class="panel-title-wrapper">

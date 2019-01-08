@@ -222,12 +222,14 @@ function chkBox(bool){
 												</div>
 												<small class="help-block" style="display: none;">
 												개인정보수집 동의에 체크해 주세요.</small>
-										</div>		
+										</div><br>		
 										<div class="form-wrapper">
 											<div class="btn-wrap">
+											<center>
 												<button class="btn-new btn--type-primary btn--width-100" type="submit">
 													회원가입
 												</button>
+												</center>
 											</div>
 										</div>
 									</div>
