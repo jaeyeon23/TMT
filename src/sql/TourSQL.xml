@@ -85,11 +85,6 @@
 		delete tour where no = #no#
 	</delete>
 	
-	<select id="selectCountry" resultMap="boardtour">
-		select distinct(region),country from tour
-	</select>
-	
-	
 	<!-- 메인에서 사용할 내용 -->
 	<select id="Main_Tour" resultMap="boardtour" parameterClass="java.lang.String">
 	select no, name, price, country, region, readcount, main_image, content_image, reg_date, amount, r 

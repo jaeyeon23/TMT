@@ -51,8 +51,6 @@ public class TourList extends ActionSupport implements SessionAware{
 	    // 모든글을 가져와 list에 넣는다
 		Tourlist = sqlMapper.queryForList("selectAllT");
 	
-		tvo = (TourVO)sqlMapper.queryForList("selectCountry");
-		
 		totalCount = Tourlist.size(); // 전체글 개수를 구한다.
 
 		// TourpagingAction ü .
