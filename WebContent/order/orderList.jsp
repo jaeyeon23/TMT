@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>예약내역</title>
+<link rel="stylesheet" href="/TMT/order/OLcss.css" type="text/css">
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
 <script>
 $(document).ready(function(){
@@ -52,6 +53,36 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+<div id = "all_List">
+     <div id="order_title">예약내역</div>
+     <div id="left_List">
+         <div id="menu_order_1">
+         	투어&티켓 <hr>
+         	항공권 <hr>
+         	호텔 
+         </div>
+     </div> <!-- left_List 끝 -->
+     <div id="right_List">
+        <div id= "con_order_1">
+				<s:if test="ohlist.size()<=0">
+				    <div id= "con_order_2" align="center" style="padding-top: 35%;">
+					 <img alt='empty' class='icon1'
+							src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/empty/ic_reservation@2x-8ab77f8ad8f413a06e719279615decc80fecd3deea6ed9c67ad032d95a8069a0.png'
+							width='58px'><br> 아직 준비중인 여행이 없습니다.<br />TMT와 함께 즐거운
+							여행을 떠나보세요.
+					</div>
+				</s:if>
+		</div> <!-- con_order_ 끝 -->
+     </div><!-- right_List 끝 -->
+</div> <!-- all_List 끝나는곳 -->
+
+
+
+
+
+
+
+-----------------------------------------^_^<br><br><br>
 	<main class='order-list'>
 	<div class='order-container'>
 		<div class='order-header-container'>

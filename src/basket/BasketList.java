@@ -33,14 +33,14 @@ public class BasketList extends ActionSupport implements SessionAware {
 
 	private int currentPage = 1;
 	private int totalCount;
-	private int blockCount = 5;
+	private int blockCount = 3;
 	private int blockPage = 5;
 	private String pagingHtml;
 	private BasketpagingAction page;
 
 	private int currentPage2 = 1;
 	private int totalCount2;
-	private int blockCount2 = 5;
+	private int blockCount2 = 3;
 	private int blockPage2 = 5;
 	private String pagingHtml2;
 	private BasketpagingAction2 page2;
