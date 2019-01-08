@@ -114,12 +114,6 @@ function removeCheck() {
 								<s:property value="%{resultClass.marketing1}"/>
 							</div>
 					</div>
-					<div class="form-group">
-						<div class="title text-middle">개인정보 수집 및 이용 </div>
-							<div class="input-wrapper text-middle">
-								<s:property value="%{resultClass.marketing2}"/>
-							</div>
-					</div>
 				</div>
 			</div>
 		</div>

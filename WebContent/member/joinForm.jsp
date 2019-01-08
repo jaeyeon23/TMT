@@ -206,8 +206,7 @@ function chkBox(bool){
 													회원가입 및 운영약관
 												</label>
 												<div class="terms-text" data-title="회원가입 및 운영약관">
-												<textarea rows="10" cols="90%" style="margin: 0px; width: 350px; height: 70px;" readonly="readonly"> 회원가입 및 운영약관   					제 1 조 (목적)이 약관은 주식회사 TMT(이하 "당사"이라 합니다)이 운영하는 웹사이트(https://www.TMT.com) 및 어플리케이션(Application, 이하 웹사이트와 어플리케이션을 통칭하여 “마이리얼트립 플랫폼”)에서 제공하는 서비스(이하 "서비스"라 합니다)를 이용함에 있어 “당사”와 이용자의 권리 및 의무 및 책임사항을 규정함을 목적으로 합니다.
-												</textarea>
+												<textarea rows="10" cols="90%" style="margin: 0px; width: 350px; height: 50px;" readonly="readonly"> 회원가입 및 운영약관&#10;제 1 조 (목적)이 약관은 주식회사 TMT(이하 "당사"이라 합니다)이 운영하는 웹사이트(https://www.TMT.com) 및 어플리케이션(Application, 이하 웹사이트와 어플리케이션을 통칭하여 “TMT 플랫폼”)에서 제공하는 서비스(이하 "서비스"라 합니다)를 이용함에 있어 “당사”와 이용자의 권리 및 의무 및 책임사항을 규정함을 목적으로 합니다.</textarea>
 												</div>
 												<small class="help-block" style="display: none;" data-fv-validator="notEmpty" data-fv-for="checkbox_agree">
 												약관 동의에 체크해 주세요.</small>
@@ -219,14 +218,11 @@ function chkBox(bool){
 													개인정보 수집 및 이용
 												</label>
 												<div class="terms-text" data-title="개인정보 수집 및 이용">
-												<textarea rows="10" cols="90%" style="margin: 0px; width: 350px; height: 70px;" readonly="readonly">
-													개인정보 수집 및 이용 주식회사 마이리얼트립 (이하 “당사”)은 고객의 개인정보를 중요시하며, 개인정보의 보호와 관련하여 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」 및 「개인정보 보호법」 등 관련법 상의 개인정보 보호 규정을 준수하고 있으며, 당사는 고객(가이드 포함)이 당사의 개인정보 처리방침의 내용에 대하여 「동의」버튼 또는 「취소」버튼을 클릭할 수 있는 절차를 마련하여, 「동의」버튼을 클릭하면 개인정보 수집 및 이용 등 아래 개인정보 처리방침에 대해 동의한 것으로 봅니다.
-												</textarea>
+												<textarea rows="10" cols="90%" style="margin: 0px; width: 350px; height: 50px;" readonly="readonly">개인정보 수집 및 이용&#10;개인정보 수집 및 이용 주식회사 TMT (이하 “당사”)은 고객의 개인정보를 중요시하며, 개인정보의 보호와 관련하여 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」 및 「개인정보 보호법」 등 관련법 상의 개인정보 보호 규정을 준수하고 있으며, 당사는 고객(가이드 포함)이 당사의 개인정보 처리방침의 내용에 대하여 「동의」버튼 또는 「취소」버튼을 클릭할 수 있는 절차를 마련하여, 「동의」버튼을 클릭하면 개인정보 수집 및 이용 등 아래 개인정보 처리방침에 대해 동의한 것으로 봅니다.</textarea>
 												</div>
 												<small class="help-block" style="display: none;">
 												개인정보수집 동의에 체크해 주세요.</small>
-										</div>
-										
+										</div>		
 										<div class="form-wrapper">
 											<div class="btn-wrap">
 												<button class="btn-new btn--type-primary btn--width-100" data-disable_with="회원가입" data-gtm-action="이메일 회원가입" type="submit">
