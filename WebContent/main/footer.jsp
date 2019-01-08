@@ -11,13 +11,13 @@
 <body>
 	<div id="footer">
 		<div>
-			Park Jae Yeon<br> KH ACADEMY<br>
-		</div>
-
+			<br>
+			상호명  TMT | 대표 : 박재연 | 직원 : 김상협, 김주영, 백인영, 우정윤 <br>
+			사업자정보확인 : 서울특별시 강남구 테헤란로14길 6 남도빌딩  3층 (주)TMT <br>
+			TMT는 통신판매중개자이며 통신판매의 당사자가 아닙니다. 따라서 TMT는 상품·거래정보 및 거래에 대하여 책임을 지지 않습니다.</div>
 		<div>
-			<br> COPYRIGHTⓒ 2018 KH ACADEMY. ALL RIGHTS RESERVED.
+			<br> COPYRIGHTⓒ 2018 KH ACADEMY. ALL RIGHTS RESERVED.<br><br>
 		</div>
-
 		<div>
 			<span id="social" style="color: blue">Social Media</span> <br>
 			<div id="icon">
@@ -39,6 +39,8 @@
 				</a>
 			</div>
 		</div>
+		<br>
+
 	</div>
 </body>
 </html>

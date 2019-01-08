@@ -16,24 +16,20 @@
 </head>
 <center>
 	<body>
-		<h3>비밀번호 찾기</h3>
-		<br>고객님 아이디의 비밀번호입니다.
-		<br>
+		<h4>비밀번호 찾기</h4>
+		<h5><br>고객님 아이디의 비밀번호입니다.</h5>
 		<br><br>
-		<div class="my-box">
+		<div class>
 			<form action="LoginForm.action" method="post">
-				<table>
 				<s:iterator value="%{list}" status="stat">
-					<tr> 
-						<td>비밀번호 : <s:property value="list.get(#stat.index).password"/>
-							&nbsp;</td>
-					</tr>
+					<p style="font-size:18px;">비밀번호 : <s:property value="list.get(#stat.index).password"/>&nbsp;</p>
 				</s:iterator>
-				</table>
-		</div><br><br>
-				<input type="submit" value="로그인" class="btn-new btn--type-primary btn--width-100"/> &nbsp; 
-				<input type="button" value="홈으로" onclick="javascript:location.href='Main.action'" class="btn-new btn--type-primary btn--width-100"/>
+		</div>
+		<br><br>
+				<input type="submit" value="로그인" class="btn-new btn--type-primary btn--width-100"  style="display: inline"/> &nbsp; 
+				<input type="button" value="홈으로" onclick="javascript:location.href='Main.action'" class="btn-new btn--type-primary btn--width-100"  style="display: inline"/>
 		</form>
+		<br><br>
 	</center>	
 </body>
 </html>

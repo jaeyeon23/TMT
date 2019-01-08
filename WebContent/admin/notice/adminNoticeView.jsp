@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%
+	pageContext.setAttribute("br","<br/>");
+	pageContext.setAttribute("cn","\n");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +40,9 @@
 				<p class="board_view_subject_right"><s:property value="notice.now.reg_date"/></p>
 			</div>
 			<div class="board_view_content">
-				<p><s:property value="notice.now.content"/></p>
+				<p>
+				${fn:replace(notice.now.content,cn,br)}
+				<%-- <s:property value="notice.now.content" /> --%></p>
 			</div>
 			
 			<div class="board_view_prev">
