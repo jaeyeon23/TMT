@@ -4,9 +4,9 @@
 <sqlMap>
 	<typeAlias alias="hotel" type="item.hotel.HotelVO" />
 	<typeAlias alias="tour" type="item.tour.TourVO" />
-	<typeAlias alias="air" type="item.air.AirVO" />
+	<!-- <typeAlias alias="air" type="item.air.AirVO" /> -->
 	
-	<!-- Air 리절트 맵 정의 -->
+	<!-- Air 리절트 맵 정의
 	<resultMap id="boardair" class="air">
 		<result property="no" column="no" />
 		<result property="arv" column="arv" />
@@ -20,7 +20,7 @@
 		<result property="dd" column="dd" />
 		<result property="air_company" column="air_company" />
 		<result property="grade" column="grade" />
-	</resultMap>
+	</resultMap> -->
 	
 	<!-- Hotel 리절트 맵 정의 -->
 	<resultMap id="boardhotel" class="hotel">
@@ -59,7 +59,7 @@
 	</resultMap>
 	
 	
-	<select id="search_air" resultMap="boardair" parameterClass="java.lang.String">
+	<!-- <select id="search_air" resultMap="boardair" parameterClass="java.lang.String">
 		select no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade, r 
 			from (select no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade, rownum r  
 				from (select no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade 
@@ -68,7 +68,7 @@
 						where arv like '%'||#searchbox#||'%' or dep like '%'||#searchbox#||'%' 
 					</isNotEmpty>
 					) <![CDATA[where rownum >= 1]]>) <![CDATA[where r <= 2]]>
-	</select>	
+	</select>	 -->
 	
 	<select id="search_hotel" resultMap="boardhotel" parameterClass="java.lang.String">
 		select no, name, price, content, country, region, readcount, main_image, content_image, image3, reg_date, tel, checkin, checkout, maxnum, grade, r 
