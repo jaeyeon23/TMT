@@ -50,7 +50,8 @@
 
 	<!-- 도착시간 빠른 순 -->
 	<select id="listAir_dd_time" resultMap="boardair" parameterClass="air">
-		SELECT * from air WHERE arv=#arv# AND dep=#dep# and ad>=#ad# and 
+		SELECT no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade   
+		from air WHERE arv=#arv# AND dep=#dep# and ad>=#ad# and 
 				seat>=#seat# and seat_grade=#seat_grade# order by dd asc
 	</select>
 	
@@ -62,7 +63,7 @@
 			
 		<dynamic>
 			<!-- 출발시간 -->
-			<isNotNull prepend="and" removeFirstPrepend="true" open="(" close=")">
+			<isNotNull prepend="and" removeFirstPrepend="true" open="(" close=") ">
 				<isNotEmpty prepend="or" property="ckAD_1">
 					SUBSTR(TO_CHAR(AD,'YYYYMMDDHH24MISS'),9) between '000000' and '0600000' 
 				</isNotEmpty>
@@ -78,7 +79,7 @@
 			</isNotNull>
 				
 			<!-- 도착시간 -->
-			<isNotNull prepend="and" removeFirstPrepend="true" open="(" close=")">
+			<isNotNull prepend="and" removeFirstPrepend="true" open="(" close=") ">
 				<isNotEmpty prepend="or" property="ckDD_1">
 					SUBSTR(TO_CHAR(DD,'YYYYMMDDHH24MISS'),9) between '000000' and '0600000' 
 				</isNotEmpty>
@@ -93,8 +94,8 @@
 				</isNotEmpty> 
 			</isNotNull>
 				
-				<!-- 항공 -->
-			<isNotNull prepend="and" removeFirstPrepend="true" open="(" close=")">
+			<!-- 항공 -->
+			<isNotNull prepend="and" removeFirstPrepend="true" open="(" close=") ">
 				<isNotEmpty prepend="or" property="air_company_korea">
 					air_company=#air_company_korea#
 				</isNotEmpty>
@@ -106,6 +107,16 @@
 				</isNotEmpty>
 			</isNotNull>			
 		</dynamic>
+		
+		<isEqual property="air_array" compareValue="1">
+			order by price asc			
+		</isEqual>		
+		<isEqual property="air_array" compareValue="2">
+			order by ad asc
+		</isEqual>
+		<isEqual property="air_array" compareValue="3">
+			order by dd asc
+		</isEqual>
 	</select>
 	
 	<!-- 구매내역 확인 -->

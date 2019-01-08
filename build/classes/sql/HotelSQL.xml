@@ -39,6 +39,18 @@
 			<include refid="select-allH" />
 			ORDER BY NO DESC
 		</select>
+		<select id="selectAllH_readcount" resultMap="boardhotel">
+			<include refid="select-allH" />
+			ORDER BY readcount asc
+		</select>
+		<select id="selectAllH_price_low" resultMap="boardhotel">
+			<include refid="select-allH" />
+			ORDER BY price asc
+		</select>
+		<select id="selectAllH_price_high" resultMap="boardhotel">
+			<include refid="select-allH" />
+			ORDER BY price desc
+		</select>
 		
 		<select id="selectOneH" resultMap="boardhotel" parameterClass="int">
 			<!-- <include refid="select-allH" /> -->
@@ -94,15 +106,15 @@
 	</select>
 	
     <!-- 별점순정렬 -->
-	<select id="Search_Hotel_date" parameterClass="java.util.Map" resultMap="boardhotel">
+	<select id="Search_Hotel_price_high" parameterClass="java.util.Map" resultMap="boardhotel">
 		<include refid="select-allH" />
 		WHERE (name like '%'||#hotelname#||'%' or country like '%'||#hotelname#||'%' or region like '%'||#hotelname#||'%')   
 		<isEmpty property="inDay">
-		 	order by grade desc	
+		 	order by price desc	
 		</isEmpty>
 		<isNotEmpty prepend="and" property="inDay">
 		<![CDATA[  
-				checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# and room >= #roomnum# order by grade desc	
+				checkin <= #inDay# and checkout >= #outDay# and maxnum >= #number# and room >= #roomnum# order by price desc	
 		]]>	 
 		</isNotEmpty>
 	</select>

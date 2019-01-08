@@ -84,8 +84,8 @@
 			</div>
 
 
-			<div style="margin: 100pt 110pt; float: clear;">
-				<h4 align="left" style="margin-left: 80pt;">
+			<div style="margin: 130pt 110pt; float: clear;">
+				<h4 align="left" style="margin-left: 40pt;">
 					<strong>지금 인기있는 여행지</strong>
 				</h4>
 				<br>
@@ -104,8 +104,8 @@
 								<a href="TourView.action?no=<s:property value="%{no}" />">
 									<div id="contents">
 										<div id=imageT>
-											<s:if test="image1 != null">
-												<img src="/TMT/upload/tour/<s:property value="%{image1}" />">
+											<s:if test="main_image != null">
+												<img src="/TMT/upload/tour/<s:property value='%{main_image}' />">
 											</s:if>
 											<s:else>
 												<img src="/TMT/images/noimage.jpg">
@@ -130,8 +130,8 @@
 								<a href="TourView.action?no=<s:property value="%{no}" />">
 									<div id="contents">
 										<div id=imageT>
-											<s:if test="image1 != null">
-												<img src="/TMT/upload/tour/<s:property value="%{image1}" />">
+											<s:if test="main_image != null">
+												<img src="/TMT/upload/tour/<s:property value='%{main_image}' />">
 											</s:if>
 											<s:else>
 												<img src="/TMT/images/noimage.jpg">
@@ -156,8 +156,8 @@
 								<a href="TourView.action?no=<s:property value="%{no}" />">
 									<div id="contents">
 										<div id=imageT>
-											<s:if test="image1 != null">
-												<img src="/TMT/upload/tour/<s:property value="%{image1}" />">
+											<s:if test="main_image != null">
+												<img src="/TMT/upload/tour/<s:property value='%{main_image}' />">
 											</s:if>
 											<s:else>
 												<img src="/TMT/images/noimage.jpg">
@@ -179,6 +179,7 @@
 						</div>
 					</div>
 				</div>
+				<br><br><br><br><br><br><br><br><br><br><br><br>
 			</div>
 		</center>
 	</div>
