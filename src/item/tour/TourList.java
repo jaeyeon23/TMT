@@ -34,7 +34,7 @@ public class TourList extends ActionSupport implements SessionAware{
 	
 	private int currentPage = 1;	//현재 페이지
 	private int totalCount; 		// 총 게시물의 수
-	private int blockCount = 6;	// 한 페이지의  게시물의 수
+	private int blockCount = 2;	// 한 페이지의  게시물의 수
 	private int blockPage = 5; 	// 한 화면에 보여줄 페이지 수
 	private String pagingHtml; 	//페이징을 구현한 HTML
 	private TourpagingAction page; // 페이징 클래스
@@ -64,7 +64,7 @@ public class TourList extends ActionSupport implements SessionAware{
 		totalCount = Tourlist.size(); // 전체글 개수를 구한다.
 
 		// TourpagingAction ü .
-		page = new TourpagingAction(currentPage, totalCount, blockCount, blockPage, "");
+		page = new TourpagingAction(currentPage, totalCount, blockCount, blockPage, "",getNum());
 		pagingHtml = page.getPagingHtml().toString();
 
 		// 현재 페이지에서 보여줄 마지막 글의 번호 설정.
@@ -87,9 +87,6 @@ public class TourList extends ActionSupport implements SessionAware{
 		}else if(num ==2) {
 			map.put("tourname", getTourname());
 			Tourlist = sqlMapper.queryForList("Search_TourP", map);
-		}else if(num ==3) {
-			map.put("tourname", getTourname());
-			Tourlist = sqlMapper.queryForList("Search_TourG", map);
 		}else {
 		// 검색 내용에따른 글을 list를 넣는다
 		map.put("tourname", getTourname());
@@ -99,7 +96,7 @@ public class TourList extends ActionSupport implements SessionAware{
 		totalCount = Tourlist.size(); // 전체 글의 개수
 
 		// HotelpagingAction 객체생성
-		page = new TourpagingAction(currentPage, totalCount, blockCount, blockPage, tourname);
+		page = new TourpagingAction(currentPage, totalCount, blockCount, blockPage, tourname,getNum());
 		pagingHtml = page.getPagingHtml().toString();
 
 		// 현재 페이지에서 보여줄 마지막 글의 번호 설정.

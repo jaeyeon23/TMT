@@ -71,10 +71,6 @@
 									<option value="1">인기순</option>
 									<option value="2" selected>가격낮은순</option>
 								</s:elseif>
-								<s:elseif test="num == 3">
-									<option value="1">인기순</option>
-									<option value="2">가격낮은순</option>
-								</s:elseif>
 								<s:else>
 									<option value="1">인기순</option>
 									<option value="2">가격낮은순</option>

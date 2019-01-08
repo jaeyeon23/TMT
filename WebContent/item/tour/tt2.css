@@ -36,7 +36,9 @@ div.sideMenu:hover {
 	color: #1b5ac2
 }
 #a{
-	padding-top: 80px;
+	width:100%;
+	float:right;
+	margin-bottom: 100px;
 }
 
 #tourList{   /* 리스트 전체 박스 */
@@ -44,7 +46,7 @@ div.sideMenu:hover {
    width:75%;
    background-color: white;
    margin: 20px 12px;
-   margin-bottom: 100px;
+   
 }
 #contentT{
 	background-color: white;
