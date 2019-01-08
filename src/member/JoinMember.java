@@ -45,7 +45,7 @@ public class JoinMember extends ActionSupport implements SessionAware{
 	private String passport;
 	private String name;
 	private String email;
-	private int tel;
+	private String tel;
 	private int admin;
 	private Date regdate;
 	private String marketing1;
@@ -251,13 +251,6 @@ public class JoinMember extends ActionSupport implements SessionAware{
 		this.email = email;
 	}
 
-	public int getTel() {
-		return tel;
-	}
-
-	public void setTel(int tel) {
-		this.tel = tel;
-	}
 
 	public int getAdmin() {
 		return admin;
@@ -337,6 +330,14 @@ public class JoinMember extends ActionSupport implements SessionAware{
 
 	public void setMarketing2(String marketing2) {
 		this.marketing2 = marketing2;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 	
 	
