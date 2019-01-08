@@ -42,11 +42,6 @@
 			f.amount.focus();
 			return false;
 		}
-		if(f.content.value==""){
-			alert("내용을 입력해주십시오");
-			f.content.focus();
-			return false;
-		}	
 	}
 </script>
 </head>
@@ -109,15 +104,6 @@
 											</p>
 										</td>
 										<td><input type="number" name="amount" value=<s:property value="%{resultClass.amount}"/>></td>
-									</tr>
-									<tr>
-										<td width="196">
-											<p align="center">
-												<font size="2">제품정보</font>
-											</p>
-										</td>
-										<td width="346"><textarea name="content" cols="50"
-												rows="15"><s:property value="%{resultClass.content}"/></textarea></td>
 									</tr>
 									<tr>
 										<td><s:file name="uploads"/></td>

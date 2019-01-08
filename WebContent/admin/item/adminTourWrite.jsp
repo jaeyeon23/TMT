@@ -42,11 +42,6 @@
 			f.amount.focus();
 			return false;
 		}
-		if(f.content.value==""){
-			alert("내용을 입력해주십시오");
-			f.content.focus();
-			return false;
-		}
 	}
 </script>
 </head>
@@ -109,15 +104,6 @@
 										<td><input type="number" name="amount"></td>
 									</tr>
 									
-									<tr>
-										<td width="196">
-											<p align="center">
-												<font size="2">제품정보</font>
-											</p>
-										</td>
-										<td width="346"><textarea name="content" cols="50"
-												rows="15"></textarea></td>
-									</tr>
 									<tr>
 										<td><s:file label="제품 메인이미지1" name="uploads"><s:property value="main" /></s:file></td>
 									</tr>
