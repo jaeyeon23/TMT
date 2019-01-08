@@ -1,5 +1,7 @@
 #allbox{  /* 바디전체 틀 */
-   width: 1200px;
+   margin-left: 10%;
+   margin-right: 10%;
+   width: 80%;
    height: 1600px;
   /*  background-color:#D5D5D5;  */
 }
@@ -55,11 +57,17 @@
 
 #Hsearch select{
 	width:120px;
-	height: 43px;
+	height: 40px;
 	display:inline;
 	text-align: center;
 	margin-left: 7px;
 	border:2px solid #BBBBBB;
+}
+
+#Hsearch input[type="text"]{
+	height: 40px;
+	border:2px solid #BBBBBB;
+	border-radius: 5px 5px 5px 5px ;
 }
 
 input[type="submit"]{

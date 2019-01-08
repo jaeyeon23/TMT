@@ -154,11 +154,12 @@
 									<tr>
 										<td>
 											<p align="center">
-												<font size="2">방갯수</font>
+												<font size="2">수량</font>
 											</p>
 										</td>
-										<td><input type="text" name="room"></td>
+										<td><input type="number" name="amount"></td>
 									</tr>
+									
 									<tr>
 										<td width="196">
 											<p align="center">
@@ -192,6 +193,31 @@
 									<tr>
 										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
 									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									<tr>
+										<td><s:file name="uploads"><s:property value="content" /></s:file></td>
+									</tr>
+									
 									
 								</table>
 							</td>

@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+#tuor_body{ /* 투어 바디 전체 */
+   width: 1400px;
+   height: 1600px;
+   background-color:#D5D5D5;
+}
+
+#tuor_side {
+	float: left;
+	width: 21%;
+	height: 1000px;
+	background-color: white;
+	margin: 20px 12px;
+}
+
+#side {
+	margin: 20px auto;
+	width: 250px;
+}
+
+div.sideMenu {
+	height: 35px;
+	cursor: pointer;     /* 마우스 커서..*/
+}
+
+.subb li a {
+	text-decoration: none;
+	display: block;
+	font-size: 15px;
+	line-height: 30px;
+}
+div.sideMenu:hover {
+	color: #1b5ac2
+}
+.subb li a:hover {
+	color: #1b5ac2
+}
+
+#tourList{   /* 리스트 전체 박스 */
+   float: right;
+   width:75%;
+   height: 1500px;
+   background-color: white;
+   margin: 20px 12px;
+}
+#contentT{
+	background-color: white;
+ 	margin: 0 12px;
+}
+#contents img{
+	border-radius: 15px 15px 0 0;
+	padding: 1px 1px 1px 1px;
+	width:290px; 
+	height:250px;
+}
+#contents{
+	float: left;
+	margin: 10px 18px;
+	border:1px solid #BBBBBB;
+	border-radius: 15px;
+	height:380px;
+	width:295px;
+}
+#contents:hover{
+	border:1px solid #1b5ac2;
+}
+#contents dt{
+	margin: 0 25px;
+}
+
+#search_bar{
+	height: 40px;
+	width : 250px;
+	border: 1px solid #1b5ac2;
+	background: #ffffff;
+}
+#search_bar input{
+	font-size: 16xp;
+	width: 180px;
+/* 	padding:  10px; */
+   height: 20px;
+	border: 0px;
+	outline: none;
+	float: left;
+}
+#search_bar button {
+	width: 50px;
+	height: 100%;
+	border: 0px;
+	background: #1b5ac2;
+	outline: none;
+	float: right;
+	color: #ffffff;
+}
+#ggg{
+	margin: 10px 10px;
+	padding-bottom: 10px;
+}
+#ggg select{
+	width: 150px;
+	height: 40px;
+	padding-left: 5px;
+	font-size: 15px;
+	/* color: #1b5ac2; */
+	border: 1px solid #1b5ac2;
+	border-radius: 3px;
+	float: right;
+}
+

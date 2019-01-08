@@ -47,7 +47,19 @@
 		}
 		
 	</script>
-	
+<style>
+.ico_airline {
+    display: block;
+    float: left;
+    width: 32px;
+    margin: 2px 14px 2px 4px;
+    text-align: center;
+}
+.ico_airline img {
+    width: 32px;
+    height: 32px;
+}
+</style>
 </head>
 <body>
 	<div id="air_header">
@@ -307,7 +319,7 @@
 						<s:property value="no"/>
 					</td>	
 					<td>
-						<s:property value="air_company"/>
+						<span class="ico_airline"><img src="/TMT/upload/air/<s:property value="image1"/>"></span><s:property value="air_company"/>
 					</td>
 					<td>
 						<s:date name="ad" format="HH:mm" />

@@ -7,7 +7,7 @@
 <head>
 	<title>Insert title here</title>
 
-	<link href="./css/airList.css" rel="stylesheet" type="text/css">
+	<link href="./css/airList2.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript">
 		
 		/* 정렬 */

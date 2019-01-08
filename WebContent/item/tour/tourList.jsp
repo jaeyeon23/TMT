@@ -6,7 +6,7 @@
 <html>
 <head>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<link rel="stylesheet" href="/TMT/item/tour/t.css" type="text/css">
+<link rel="stylesheet"  href="/TMT/item/tour/tt.css"  type="text/css">
 <script>
 	$(function() {
 		$(".subb").hide();
@@ -108,11 +108,9 @@
 											<img src="/TMT/images/noimage.jpg">
 										</s:else>
 									</div>
-									<div id=contentT>
+									<div id="contentT" style="" >
 										<h4>
-											[
-											<s:property value="region" />
-											]
+											
 											<s:property value="name" />
 										</h4>
 										<font color="orange" size="5"><b><s:property

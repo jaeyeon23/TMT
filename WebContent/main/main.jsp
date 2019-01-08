@@ -6,7 +6,7 @@
 
 <head>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <link rel="stylesheet" href="./css/main/main.css"/>
+    <link rel="stylesheet" href="./css/main/main1.css"/>
 </head>
 
 <body>
@@ -14,7 +14,7 @@
         <center>
         	<form action="MainSearch.action">
 	        	<div class="search_background">
-	        		<div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel" data-interval="5000">
+	        		<div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel" data-interval="4000">
 						<!-- Indicators -->
 						<!-- <ol class="carousel-indicators">
 							<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>

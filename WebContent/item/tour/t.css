@@ -56,10 +56,12 @@ div.sideMenu:hover {
 }
 #contents{
 	float: left;
+	width: 300px;
 	margin: 10px 18px;
 	border:1px solid #BBBBBB;
 	border-radius: 15px;
 	height:380px;
+	width:295px;
 }
 #contents:hover{
 	border:1px solid #1b5ac2;

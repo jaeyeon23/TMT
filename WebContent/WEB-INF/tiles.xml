@@ -195,7 +195,7 @@
 		<put-attribute name="body" value="/order/orderList.jsp" />
 	</definition>
 	
-	<definition name="ViewOrder" extends="Main">
+	<definition name="OrderView" extends="Main">
 		<put-attribute name="body" value="/order/orderView.jsp" />
 	</definition>
 	

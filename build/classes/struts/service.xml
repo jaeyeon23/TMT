@@ -26,18 +26,14 @@
 			<result name="success" type="tiles">OrderList</result>
 		</action>
 				
-		<action name="ViewOrder" class="order.ViewOrder">
-			<result name="success" type="tiles">ViewOrder</result>
+		<action name="OrderView" class="order.OrderView">
+			<result name="success" type="tiles">OrderView</result>
 		</action>
 		
-		<action name="ModifyOrder" class="order.ModifyOrder">
-			<result name="success" type="tiles">ModifyOrder</result>
-		</action>
-		
-		<action name="DeleteOrder" class="order.DeleteOrder" method="Delete">
-		     <result type="redirect-action">
-			  <param name="actionName">OrderList</param>
-			 </result>
+		<action name="DeleteOrder" class="order.DeleteOrder">
+			<result type="redirect-action">
+				<param name="actionName">OrderList</param>
+			</result>
 		</action>
 		
 	</package>

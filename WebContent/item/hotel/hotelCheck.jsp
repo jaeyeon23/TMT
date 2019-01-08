@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/TMT/item/hotel/hcheckcss.css" type="text/css">
+<link rel="stylesheet" href="/TMT/item/hotel/Hcheckcss.css" type="text/css">
 <style>
 #coutents_left_3{
     margin-left: 5%;

@@ -13,81 +13,68 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
+public class DeleteOrder extends ActionSupport implements SessionAware {
 
-
-public class DeleteOrder extends ActionSupport implements SessionAware{
-	
 	private static Reader reader;
 	private static SqlMapClient sqlMapper;
 	private Map session;
-	
-	private Order_Hotel hoteldelClass;
-	private Order_Hotel hoteldelRClass;
-	
-	private Order_Tour tourdelClass;
-	private Order_Tour tourdelRClass;
-	
-	private Order_Air airdelClass;
-	private Order_Air airdelRClass;
-	
+
+	private Order_Hotel order_Hotel = new Order_Hotel();
+	private Order_Tour order_Tour = new Order_Tour();
+	private Order_Air order_Air = new Order_Air();
 
 	private String id;
 	private int no;
-	
-  
+
+	private String del;
+	private String[] rownum;
+
+	private String type;
 
 	public DeleteOrder() throws IOException {
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
 		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
+
 		reader.close();
 	}
-	
+
+	@Override
 	public String execute() throws Exception {
+		if(del == null) {
+			return SUCCESS;
+		}
+		
+		rownum = del.split(", ");
+
+		if (type.equals("0")) {
+			order_Hotel.setId(getId());
+
+			for (int i = 0; i < rownum.length; i++) {
+				order_Hotel.setSeq_no(Integer.parseInt(rownum[i]));
+				sqlMapper.delete("deleteHorder", order_Hotel);
+			}
+		}
+		
+		if (type.equals("1")) {
+			order_Tour.setId(getId());
+
+			for (int i = 0; i < rownum.length; i++) {
+				order_Tour.setSeq_no(Integer.parseInt(rownum[i]));
+				sqlMapper.delete("deleteTorder", order_Tour);
+			}
+		}
+		
+		if (type.equals("2")) {
+			order_Air.setId(getId());
+
+			for (int i = 0; i < rownum.length; i++) {
+				order_Air.setSeq_no(Integer.parseInt(rownum[i]));
+				sqlMapper.delete("deleteAorder", order_Air);
+			}
+		}
 
 		return SUCCESS;
 	}
-	
-	public String Delete() throws Exception{
-
-		//호텔
-		
-		hoteldelClass = new Order_Hotel();
-		hoteldelClass.setId((String) session.get("session_id"));
-		sqlMapper.delete("deleteHorder",hoteldelClass);
-
-		//투어
-		tourdelClass = new Order_Tour();
-		tourdelClass.setId((String) session.get("session_id"));
-		sqlMapper.delete("deleteTorder",tourdelClass);
-		
-	    //항공
-		airdelClass = new Order_Air();
-		airdelClass.setId((String) session.get("session_id"));
-		sqlMapper.delete("deleteAorder",airdelClass);
-	    
-	    return SUCCESS;
-
-		
-	}
-	
-	
-
-	public static Reader getReader() {
-		return reader;
-	}
-
-	public static void setReader(Reader reader) {
-		DeleteOrder.reader = reader;
-	}
-
-	public static SqlMapClient getSqlMapper() {
-		return sqlMapper;
-	}
-
-	public static void setSqlMapper(SqlMapClient sqlMapper) {
-		DeleteOrder.sqlMapper = sqlMapper;
-	}
-
 
 	public String getId() {
 		return id;
@@ -98,12 +85,12 @@ public class DeleteOrder extends ActionSupport implements SessionAware{
 	}
 
 	public Map getSession() {
-	      return session;
-	   }
+		return session;
+	}
 
 	public void setSession(Map session) {
-	      this.session = session;
-	   }
+		this.session = session;
+	}
 
 	public int getNo() {
 		return no;
@@ -113,55 +100,44 @@ public class DeleteOrder extends ActionSupport implements SessionAware{
 		this.no = no;
 	}
 
-	public Order_Hotel getHoteldelClass() {
-		return hoteldelClass;
+	public Order_Hotel getOrder_Hotel() {
+		return order_Hotel;
 	}
 
-	public void setHoteldelClass(Order_Hotel hoteldelClass) {
-		this.hoteldelClass = hoteldelClass;
+	public void setOrder_Hotel(Order_Hotel order_Hotel) {
+		this.order_Hotel = order_Hotel;
 	}
 
-	public Order_Hotel getHoteldelRClass() {
-		return hoteldelRClass;
+	public Order_Tour getOrder_Tour() {
+		return order_Tour;
 	}
 
-	public void setHoteldelRClass(Order_Hotel hoteldelRClass) {
-		this.hoteldelRClass = hoteldelRClass;
+	public void setOrder_Tour(Order_Tour order_Tour) {
+		this.order_Tour = order_Tour;
 	}
 
-	public Order_Tour getTourdelClass() {
-		return tourdelClass;
+	public Order_Air getOrder_Air() {
+		return order_Air;
 	}
 
-	public void setTourdelClass(Order_Tour tourdelClass) {
-		this.tourdelClass = tourdelClass;
+	public void setOrder_Air(Order_Air order_Air) {
+		this.order_Air = order_Air;
 	}
 
-	public Order_Tour getTourdelRClass() {
-		return tourdelRClass;
+	public String getDel() {
+		return del;
 	}
 
-	public void setTourdelRClass(Order_Tour tourdelRClass) {
-		this.tourdelRClass = tourdelRClass;
+	public void setDel(String del) {
+		this.del = del;
 	}
 
-	public Order_Air getAirdelClass() {
-		return airdelClass;
+	public String getType() {
+		return type;
 	}
 
-	public void setAirdelClass(Order_Air airdelClass) {
-		this.airdelClass = airdelClass;
+	public void setType(String type) {
+		this.type = type;
 	}
-
-	public Order_Air getAirdelRClass() {
-		return airdelRClass;
-	}
-
-	public void setAirdelRClass(Order_Air airdelRClass) {
-		this.airdelRClass = airdelRClass;
-	}
-
-	
-	
 
 }
