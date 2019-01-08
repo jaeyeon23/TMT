@@ -66,7 +66,7 @@
 	<!-- 등록 -->
 	<insert id="insertTour" parameterClass="tour">
 			insert into tour(no, name, price,country, region, readcount, main_image, content_image, reg_date, amount)
-			values(seq_tournum.nextval, #name#, #price#,  #country#, #region#, 0, #main_image#, #content_image#, , sysdate, , #amount#)	
+			values(seq_tournum.nextval, #name#, #price#,  #country#, #region#, 0, #main_image#, #content_image#, sysdate, #amount#)	
 	</insert>
 	
 	<!-- 조회수 증가 -->
