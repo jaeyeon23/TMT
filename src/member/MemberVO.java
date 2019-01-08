@@ -8,7 +8,7 @@ public class MemberVO {
 	private String password;
 	private String name;
 	private String email;
-	private int tel;
+	private String tel;
 	private int admin;
 	private String passport;
 	private Date regdate;
@@ -47,12 +47,6 @@ public class MemberVO {
 	}
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public int getTel() {
-		return tel;
-	}
-	public void setTel(int tel) {
-		this.tel = tel;
 	}
 	public int getAdmin() {
 		return admin;
@@ -96,9 +90,13 @@ public class MemberVO {
 	public void setNewpassword(String newpassword) {
 		this.newpassword = newpassword;
 	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
 	
 
-	
-	
 	
 }
