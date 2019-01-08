@@ -273,7 +273,7 @@ $(document).ready(function(){
 												</td>
 												<td>
 													<s:if test="image1 != null">
-														<img src="/TMT/images/<s:property value='%{image1}' />">
+														<span class="ico_airline"><img src="/TMT/upload/air/<s:property value='image1'/>"></span>
 													</s:if>
 													<s:else>
 														<img src="/TMT/images/noimage.jpg">

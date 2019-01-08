@@ -64,6 +64,8 @@ public class AdminHotelModify extends ActionSupport implements SessionAware {
 		reader.close();
 	}
 	public String form() throws Exception {
+		resultClass = new HotelVO(); 
+		resultClass = (HotelVO)sqlMapper.queryForObject("selectOneH",getNo());
 		return SUCCESS;
 
 	}

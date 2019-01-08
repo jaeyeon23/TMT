@@ -35,21 +35,20 @@ public class AdminNoticeModify extends ActionSupport implements SessionAware {
 		reader.close();
 	}
 	public String form() throws Exception {
+		resultClass = new NoticeVO();
+		resultClass = (NoticeVO)sqlMapper.queryForObject("noticeView",getNotice_no());
 		return SUCCESS;
 
 	}
 	public String execute() throws Exception {
 		
-		//파라미터와 리절트 객체 생성
-		paramClass = new NoticeVO();
-		
-		//등록할 항목 설정
-		paramClass.setNotice_no(getNotice_no());
-		paramClass.setSubject(getSubject());
-		paramClass.setContent(getContent());
+		resultClass = new NoticeVO();
+		resultClass = (NoticeVO)sqlMapper.queryForObject("noticeView",getNotice_no());
+		resultClass.setSubject(getSubject());
+		resultClass.setContent(getContent());
 		
 		//등록 쿼리 수행
-		sqlMapper.update("modifyNotice", paramClass);
+		sqlMapper.update("modifyNotice", resultClass);
 		
 
 		setUri("?notice_no="+getNotice_no()+"&currentPage="+getCurrentPage());

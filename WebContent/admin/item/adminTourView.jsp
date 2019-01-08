@@ -56,7 +56,7 @@ $(function()
 									<img class="offer__side__main-box__share-icon" src="/TMT/images/admin/share.svg" alt="share-icon" role="button" tabindex="-1">
 										<div class="Popover  right-reverse "></div>
 								</div>
-								<a href="AdminTourModifyForm.action?no=<s:property value="no"/>">
+								<a href="AdminTourModifyForm.action?no=<s:property value="no"/>&currentPage=<s:property value="currentPage"/>">
 									<button type="button" class="app-button app-button__type--primary app-button__size--l">수정</button>
 								</a>
 								<div class="offer__side__main-box__instant">

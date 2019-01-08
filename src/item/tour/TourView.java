@@ -52,6 +52,7 @@ public class TourView extends ActionSupport implements SessionAware{
 	public String execute() throws Exception {
 		paramClass = new TourVO();
 		/*상세보기*/
+		sqlMapper.update("readHitTour",getNo());
 		resultClass = (TourVO)sqlMapper.queryForObject("selectOneT",getNo());
 		
 		if(resultClass.getContent_image()!=null) {

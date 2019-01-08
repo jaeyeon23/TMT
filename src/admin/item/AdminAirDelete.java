@@ -38,10 +38,7 @@ public class AdminAirDelete extends ActionSupport {
 		
 		resultClass = (AirVO)sqlMapper.queryForObject("airOne",getNo());
 		sqlMapper.delete("deleteAir",getNo());
-		
-		File deleteFile = new File(fileUploadPath + resultClass.getImage1());
-		deleteFile.delete();
-		
+	
 		uri = "?currnetPage="+getCurrentPage();
 		return SUCCESS;
 	}

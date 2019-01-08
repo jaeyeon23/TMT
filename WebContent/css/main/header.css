@@ -145,3 +145,15 @@ a, a:active, a:hover, a:link, a:visited {
 .ProfileNavItems--transparent .ProfileNavItems__button--outline:hover {
 	background-color: hsla(0, 0%, 100%, .3)
 }
+.ico_airline {
+	display: block;
+	float: left;
+	width: 32px;
+	margin: 2px 14px 2px 4px;
+	text-align: center;
+}
+
+.ico_airline img {
+	width: 32px;
+	height: 32px;
+}

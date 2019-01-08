@@ -52,6 +52,7 @@ public class HotelView extends ActionSupport implements SessionAware{
 	public String execute() throws Exception {
 		paramClass = new HotelVO();
 		/*상세보기*/
+		sqlMapper.update("readHitHotel",getNo());
 		resultClass = (HotelVO)sqlMapper.queryForObject("selectOneH",getNo());
 		
 		if(resultClass.getContent_image()!=null) {

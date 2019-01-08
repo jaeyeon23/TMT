@@ -119,5 +119,10 @@
 		SELECT * FROM MEMBER
 		where id = #userId#
 	</select>
+	
+	<select id="memberView" resultMap="memberRes" parameterClass="String">
+		SELECT * FROM MEMBER
+		where id = #id#
+	</select>
  
  </sqlMap>

@@ -34,8 +34,10 @@ public class AdminAirWrite extends ActionSupport implements SessionAware {
 	private String image1;	
 	private int seat;		
 	private int seat_grade;	
-	private String[] ad;		
-	private String[] dd;		
+	private String ad;		
+	private String dd;	
+	private String ad_time;
+	private String dd_time;
 	private String air_company;		
 	private int grade;		
 	
@@ -59,10 +61,8 @@ public class AdminAirWrite extends ActionSupport implements SessionAware {
 	}
 public String execute() throws Exception {
 		SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		StringBuffer adsb = new StringBuffer();
-		StringBuffer ddsb = new StringBuffer();
-		adsb.append(getAd()[0]).append(" ").append(getAd()[1]);
-		ddsb.append(getDd()[0]).append(" ").append(getDd()[1]);
+		ad = getAd()+" "+getAd_time();
+		dd = getDd()+" "+getDd_time();
 		
 		paramClass = new AirVO();
 		paramClass.setArv(getArv());
@@ -71,8 +71,8 @@ public String execute() throws Exception {
 		paramClass.setContent(getContent());
 		paramClass.setSeat(getSeat());
 		paramClass.setSeat_grade(getSeat_grade());
-		paramClass.setAd(transFormat.parse(adsb.toString()));
-		paramClass.setDd(transFormat.parse(ddsb.toString()));
+		paramClass.setAd(transFormat.parse(ad));
+		paramClass.setDd(transFormat.parse(dd));
 		paramClass.setAir_company(getAir_company());
 		paramClass.setGrade(0);
 		paramClass.setImage1(getUploadFileName());
@@ -155,18 +155,6 @@ public int getSeat_grade() {
 public void setSeat_grade(int seat_grade) {
 	this.seat_grade = seat_grade;
 }
-public String[] getAd() {
-	return ad;
-}
-public void setAd(String[] ad) {
-	this.ad = ad;
-}
-public String[] getDd() {
-	return dd;
-}
-public void setDd(String[] dd) {
-	this.dd = dd;
-}
 
 public String getAir_company() {
 	return air_company;
@@ -211,5 +199,30 @@ public int getCurrentPage() {
 public void setCurrentPage(int currentPage) {
 	this.currentPage = currentPage;
 }
-	
+public String getAd() {
+	return ad;
+}
+public void setAd(String ad) {
+	this.ad = ad;
+}
+public String getDd() {
+	return dd;
+}
+public void setDd(String dd) {
+	this.dd = dd;
+}
+public String getAd_time() {
+	return ad_time;
+}
+public void setAd_time(String ad_time) {
+	this.ad_time = ad_time;
+}
+public String getDd_time() {
+	return dd_time;
+}
+public void setDd_time(String dd_time) {
+	this.dd_time = dd_time;
+}
+
+
 }

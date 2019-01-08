@@ -59,7 +59,7 @@
 	</sql>
 	
 	<select id="orderHList" resultMap="orderHRes">
-		select seq_no,no,substr(name,0,7) as name,price,country,region,image1,id,tel,to_char(checkin,'yyyy-mm-dd') as checkin,to_char(checkout,'yyyy-mm-dd') as checkout,
+		select seq_no,no,name,price,country,region,image1,id,tel,to_char(checkin,'yyyy-mm-dd') as checkin,to_char(checkout,'yyyy-mm-dd') as checkout,
 		content,people,room from order_hotel
 		order by reg_date desc
 	</select>
@@ -70,7 +70,7 @@
 	</select>
 	
 	<select id="orderTList" resultMap="orderTRes">
-		select no,substr(name,0,7) as name,price,country,region,image1,id,amount,
+		select no,name,price,country,region,image1,id,amount,
 		content,seq_no from order_tour
 		order by reg_date desc
 	</select>
