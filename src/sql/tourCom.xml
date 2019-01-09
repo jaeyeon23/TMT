@@ -30,6 +30,10 @@
 		select count(*) from tourcomment where tour_no = #tour_no#
 	</select>
 	
+		<select id="tourCOne" resultClass="int" parameterClass="Map">
+		select min(c_ref) from tourcomment where c_id=#id#
+	</select>
+	
 	<insert id="insertTourC" parameterClass="tourC">
 		insert into tourcomment(tour_no,c_no,c_id,c_reg_date,c_content,c_grade,c_ref,c_re_step,c_re_level) 
 		values (#tour_no#,seq_tourcom.nextval,#c_id#,sysdate,#c_content#,#c_grade#,seq_tourcom.currval,0,0)
@@ -52,6 +56,10 @@
 	<delete id="deleteTourCOne" parameterClass="int">
 		delete tourcomment 
 		where c_ref=#c_ref#
+	</delete>
+	
+	<delete id="deleteMemberCT" parameterClass="Map">
+		delete tourcomment where c_id=#id# and c_ref>=#refT#
 	</delete>
 
 </sqlMap>

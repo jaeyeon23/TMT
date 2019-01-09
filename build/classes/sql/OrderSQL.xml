@@ -151,5 +151,18 @@
 		where id=#id#
 	</update>
 	
+	<delete id="deleteMemberH" parameterClass="Map">
+      DELETE FROM order_hotel WHERE id = #id#
+   </delete>
+   
+   <!-- Delete Order Tour -->
+    <delete id="deleteMemberT" parameterClass="Map">
+      DELETE FROM order_tour WHERE id = #id# 
+   </delete>
+   
+   <!-- Delete Order Air -->
+    <delete id="deleteMemberA" parameterClass="Map">
+      DELETE FROM order_air WHERE id = #id# 
+   </delete>
 
 </sqlMap>

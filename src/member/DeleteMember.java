@@ -1,16 +1,16 @@
 package member;
 
 import java.io.IOException;
+import java.io.Reader;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
-import java.io.Reader;
 
 import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
-
-import java.util.Map;
 
 public class DeleteMember extends ActionSupport implements SessionAware{
 	
@@ -38,9 +38,22 @@ public class DeleteMember extends ActionSupport implements SessionAware{
 	public String Delete() throws Exception {
 		
 		paramClass.setId((String) session.get("session_id"));
-
+		Map map = new HashMap();
+		String idd = paramClass.getId();
+		map.put("id",idd);
+		int tmp1 = (Integer)sqlMapper.queryForObject("hotelCOne",map);
+		int tmp2 = (Integer)sqlMapper.queryForObject("tourCOne",map);
+		map.put("refH",tmp1);
+		map.put("refT",tmp2);
 		sqlMapper.delete("deleteMember", paramClass);
-		
+		sqlMapper.delete("deleteMemberH",map);
+		sqlMapper.delete("deleteMemberT",map);
+		sqlMapper.delete("deleteMemberA",map);
+		sqlMapper.delete("deleteMemberBH",map);
+		sqlMapper.delete("deleteMemberBT",map);
+		sqlMapper.delete("deleteMemberCH",map);
+		sqlMapper.delete("deleteMemberCT",map);
+	
 		session.remove("session_id");
 		session.remove("session_admin");
 		
