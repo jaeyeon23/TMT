@@ -9,6 +9,17 @@
 <link rel="stylesheet" media="screen" href="css/admin/view1.css" />
 <link rel="stylesheet" media="all" href="css/admin/view2.css" />
 <link rel="stylesheet" media="screen" href="css/admin/view3.css" />
+<%-- <script>
+function check(){
+	
+	var f=document.d;
+	
+	if (f.searchh.value == "") {
+		alert("비밀번호를 입력해주십시오");
+		return false;
+	}
+}
+</script> --%>
 </head>
 <body>
 
@@ -18,7 +29,6 @@
 	<table class="table" border="0" width="100%" cellpadding="0" cellspacing="0">
 	    <tr height=26>
 			<th width="5%"><font size="2">번호</font></th>
-			<th width="6%"><font size="2">사진</font></th>
 			<th width="7%"><font size="2">아이디</font></th>
 			<th width="10%"><font size="2">이름</font></th>
 			<th width="15%"><font size="2">여권번호</font></th>
@@ -30,9 +40,6 @@
 		<tr>
 			<td>
 				<s:property value="no"/>
-			</td>	
-			<td>
-				<img src="/TMT/upload/member/<s:property value="image1"/>"/>
 			</td>	
 			<td>
 				<s:if test="admin==1">
@@ -75,13 +82,13 @@
 	<div align="center"><s:property value="pagingHtml" escape="false"/></div>
 	
 	<div id="search" align="center">
-		<form>
+		<form name="d">
 			아이디<input type="checkbox" name="searchh" value="id" checked="checked">
 			이름<input type="checkbox" name="searchh" value="name">&nbsp;
 			이메일<input type="checkbox" name="searchh" value="email">&nbsp;
 			여권번호<input type="checkbox" name="searchh" value="passport">&nbsp;
 			<input type="text" name="search">
-			<input type="submit" value="검색">
+			<input type="submit" onclick="return check()" value="검색">
 		</form>
 	</div>
 </div>
