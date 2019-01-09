@@ -10,11 +10,11 @@
 		</action>
 	
 		<action name="HotelComment" class="item.hotel.HotelComment">
-			<result type="redirect-action">HotelView</result>
+			<result type="redirect-action">HotelView${uri}</result>
 		</action>
 		
 		<action name="HotelCDelete" class="item.hotel.HotelComDelete">
-			<result type="redirect-action">HotelView</result>
+			<result type="redirect-action">HotelView${param}</result>
 		</action>
 		
 		<action name="HotelCheck" class="item.hotel.HotelCheck">
