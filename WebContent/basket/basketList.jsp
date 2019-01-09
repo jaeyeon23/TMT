@@ -39,18 +39,11 @@ $(document).ready(function(){
 
 </script>
 <style>
-#image {
-	/* border-radius: 15px 15px 0 0;
-		padding: 1px 1px 1px 1px;
-		width:220px;  */
-	height: 40px;
-}
 </style>
 <title>나의 위시리스트</title>
 </head>
 <body>
 <div id = "all_List">
-
      <div id="order_title">
         	<b><font size="6"><img src="./images/logo_ss.JPG" width="70" height="60">&nbsp;<s:property value="%{session.session_id}" />의 위시리스트&nbsp;<img src="./images/heart.png" width="25" height="25"></font></b>
      </div>
@@ -79,7 +72,7 @@ $(document).ready(function(){
      	           <div id="HC_all">
      	              <div id="image_HC">
 							<s:if test="image1 != null">
-								<img src="/TMT/upload/tour/<s:property value="%{image1}" />">
+								<img src="/TMT/upload/hotel/<s:property value="%{image1}" />">
 							</s:if>
 							<s:else>
 								<img src="/TMT/images/noimage.jpg">
