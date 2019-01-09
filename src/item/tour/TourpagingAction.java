@@ -19,7 +19,7 @@ public class TourpagingAction{
 
 	//생성자
 	public TourpagingAction(int currentPage, int totalCount, int blockCount,
-			int blockPage, String tourname) {
+			int blockPage, String tourname,int num) {
 		
 		this.blockCount = blockCount;
 		this.blockPage = blockPage;
@@ -55,11 +55,18 @@ public class TourpagingAction{
 		pagingHtml = new StringBuffer();
 		
 		if (currentPage > blockPage) {
-			if(tourname != "")
-				pagingHtml.append("<a href=TourList.action?currentPage=" + (startPage - 1) + "&tourname="+tourname+">");
-			else
-				pagingHtml.append("<a href=TourList.action?currentPage=" + (startPage - 1) + ">");
-			pagingHtml.append("이전");
+			pagingHtml
+			.append("<a href=TourList.action?currentPage=")
+			.append(startPage - 1);
+			
+			if(tourname != "") {
+				pagingHtml
+				.append("&tourname=")
+				.append(tourname);
+			}
+			pagingHtml
+			.append(">")
+			.append("이전");
 			pagingHtml.append("</a>");
 		}
 
@@ -78,7 +85,7 @@ public class TourpagingAction{
 				pagingHtml.append("&nbsp;<a href='TourList.action?currentPage=");
 				pagingHtml.append(i);
 				if(tourname != "")
-					pagingHtml.append("&tourname="+tourname);
+					pagingHtml.append("&tourname="+tourname).append("&num=").append(num);
 				pagingHtml.append("'>");
 				pagingHtml.append(i);
 				pagingHtml.append("</a>");
@@ -94,8 +101,8 @@ public class TourpagingAction{
 			pagingHtml.append("&nbsp;<a href=TourList.action?currentPage=");
 			pagingHtml.append((endPage+1));
 			if(tourname != "")
-				pagingHtml.append("&tourname="+tourname);
-			pagingHtml.append("'>");
+				pagingHtml.append("&tourname="+tourname).append("&num=").append(num);
+			pagingHtml.append(">");
 			pagingHtml.append("다음");
 			pagingHtml.append("</a>");
 		}

@@ -41,8 +41,8 @@
 						<a href="TourView.action?no=<s:property value="%{no}" />">
 							<div id="contents">
 							    <div id= imageT>
-								<s:if test="image1 != null">
-									<img src="/TMT/upload/tour/<s:property value="%{image1}" />">
+								<s:if test="main_image != null">
+									<img src="/TMT/upload/tour/<s:property value="%{main_image}" />">
 								</s:if> 
 								<s:else>
 									<img src="/TMT/images/noimage.jpg">
@@ -52,24 +52,6 @@
 								<h4>
 									[<s:property value="region" />]<s:property value="name" /></h4>
 									<font color="orange" size = "5"><b><s:property value="price" />원</b></font> / 1인<br>
-									<s:if test="grade == 0">
-									<font color=#BDBDBD>★★★★★</font>
-							    	</s:if> 
-							    	<s:elseif test ="grade == 1">
-							    		<font color="red">★</font><font color="#BDBDBD">★★★★</font>
-							    	</s:elseif>	
-							    	<s:elseif test ="grade == 2">
-							    		<font color="red">★★</font><font color="#BDBDBD">★★★</font>
-							    	</s:elseif>	
-							    	<s:elseif test ="grade == 3">
-							    		<font color="red">★★★</font><font color="#BDBDBD">★★</font>
-							    	</s:elseif>	
-							    	<s:elseif test ="grade == 4">
-							    		<font color="red">★★★★</font><font color="#BDBDBD">★★★★★</font>
-							    	</s:elseif>					
-							    	<s:elseif test ="grade == 5">
-							    		<font color="red">★★★★★</font>
-							    	</s:elseif>			
 								</div>
 							</div>
 						</a>
@@ -92,8 +74,8 @@
 						<a href="HotelView.action?no=<s:property value='%{no}' />">
 							<div id="contents">
 							    <div id= imageT>
-								<s:if test="image1 != null">
-									<img src="/TMT/upload/tour/<s:property value="%{image1}" />">
+								<s:if test="main_image != null">
+									<img src="/TMT/upload/hotel/<s:property value="%{main_image}" />">
 								</s:if> 
 								<s:else>
 									<img src="/TMT/images/noimage.jpg">

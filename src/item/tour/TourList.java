@@ -3,26 +3,16 @@ package item.tour;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import java.util.Date;
-import java.util.HashMap;
-
-
-import com.opensymphony.xwork2.ActionSupport;
-
-import item.hotel.HotelVO;
-import item.hotel.HotelpagingAction;
-import item.tour.*;
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
-import com.ibatis.sqlmap.client.SqlMapClient; 
+import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
-
-
-import item.tour.TourpagingAction;
-import org.apache.struts2.interceptor.SessionAware;
+import com.opensymphony.xwork2.ActionSupport;
 public class TourList extends ActionSupport implements SessionAware{
 
 	
@@ -60,11 +50,11 @@ public class TourList extends ActionSupport implements SessionAware{
 		}
 	    // 모든글을 가져와 list에 넣는다
 		Tourlist = sqlMapper.queryForList("selectAllT");
-		
+	
 		totalCount = Tourlist.size(); // 전체글 개수를 구한다.
 
 		// TourpagingAction ü .
-		page = new TourpagingAction(currentPage, totalCount, blockCount, blockPage, "");
+		page = new TourpagingAction(currentPage, totalCount, blockCount, blockPage, "",getNum());
 		pagingHtml = page.getPagingHtml().toString();
 
 		// 현재 페이지에서 보여줄 마지막 글의 번호 설정.
@@ -89,7 +79,7 @@ public class TourList extends ActionSupport implements SessionAware{
 			Tourlist = sqlMapper.queryForList("Search_TourP", map);
 		}else if(num ==3) {
 			map.put("tourname", getTourname());
-			Tourlist = sqlMapper.queryForList("Search_TourG", map);
+			Tourlist = sqlMapper.queryForList("Search_TourPP", map);
 		}else {
 		// 검색 내용에따른 글을 list를 넣는다
 		map.put("tourname", getTourname());
@@ -99,7 +89,7 @@ public class TourList extends ActionSupport implements SessionAware{
 		totalCount = Tourlist.size(); // 전체 글의 개수
 
 		// HotelpagingAction 객체생성
-		page = new TourpagingAction(currentPage, totalCount, blockCount, blockPage, tourname);
+		page = new TourpagingAction(currentPage, totalCount, blockCount, blockPage, tourname,getNum());
 		pagingHtml = page.getPagingHtml().toString();
 
 		// 현재 페이지에서 보여줄 마지막 글의 번호 설정.

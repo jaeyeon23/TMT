@@ -90,7 +90,8 @@ public class AirList extends ActionSupport implements SessionAware{
 			avo.setSeat_grade(getSeat_grade());
 			
 			
-			if(air_array == null) {
+			
+		/*	if(air_array == null) {
 				if(ckAD_1 == null && ckAD_2 == null && ckAD_3 == null && ckAD_4 == null
 						&& ckDD_1 == null && ckDD_2 == null && ckDD_3 == null && ckDD_4 == null
 						&& air_company_asia == null && air_company_korea == null && air_company_jin == null) {
@@ -99,7 +100,7 @@ public class AirList extends ActionSupport implements SessionAware{
 					makeSearch();
 				}
 				
-			}else {
+			}else{
 				if(getAir_array().equals("1")) {
 					Airlist = sqlMapper.queryForList("listAir_lowprice", avo);
 				}else if(getAir_array().equals("2")) {
@@ -108,19 +109,38 @@ public class AirList extends ActionSupport implements SessionAware{
 					Airlist = sqlMapper.queryForList("listAir_dd_time", avo);
 				}
 			}
+			*/
 			
+			if(ckAD_1 == null && ckAD_2 == null && ckAD_3 == null && ckAD_4 == null
+					&& ckDD_1 == null && ckDD_2 == null && ckDD_3 == null && ckDD_4 == null
+					&& air_company_asia == null && air_company_korea == null && air_company_jin == null) {
+				
+				if(getAir_array().equals("1")) {
+					Airlist = sqlMapper.queryForList("listAir_lowprice", avo);
+				}else if(getAir_array().equals("2")) {
+					Airlist = sqlMapper.queryForList("listAir_ad_time", avo);
+				}else if(getAir_array().equals("3")) {
+					Airlist = sqlMapper.queryForList("listAir_dd_time", avo);
+				}
+				
+			}else {
+				makeSearch(air_array);
+			}
 		}
+		
+		setAir_array(air_array);
 		
 		return SUCCESS;
 	}
 
-	private void makeSearch() throws IOException, SQLException{
+	private void makeSearch(String air_array) throws IOException, SQLException{
 		/*검색을 위한 map*/
 		map.put("ad", getAd_str());
 		map.put("arv", getArv());
 		map.put("dep", getDep());
 		map.put("seat", getSeat());
 		map.put("seat_grade", getSeat_grade());
+		map.put("air_array", air_array);
 		
 		/*출발시간*/
 		if(ckAD_1 != null && ckAD_1.equals("06")) {

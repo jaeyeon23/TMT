@@ -460,6 +460,7 @@
 						<option value="0">일반</option>	
 						<option value="1">비즈니스</option>
 					</select>
+					<s:hidden name="air_array" value="1"/>
 					<input type="submit" class="btn btn-primary" value="검색">
 				<!-- </div> -->
 			</form>
@@ -491,6 +492,42 @@
 					<s:hidden name="seat" value="%{seat}"/>
 					<s:hidden name="ad_str" value="%{ad_str}"/>
 					<s:hidden name="seat_grade" value="%{seat_grade}"/>	
+					
+					<s:if test="ckAD_1 != null && ckAD_1 != ''">
+						<s:hidden name="ckAD_1" value="%{ckAD_1}"/>
+					</s:if>
+					<s:if test="ckAD_2 != null && ckAD_2 != ''">
+						<s:hidden name="ckAD_2" value="%{ckAD_2}"/>
+					</s:if>
+					<s:if test="ckAD_3 != null && ckAD_3 != ''">
+						<s:hidden name="ckAD_3" value="%{ckAD_3}"/>
+					</s:if>
+					<s:if test="ckAD_4 != null && ckAD_4 != ''">
+						<s:hidden name="ckAD_4" value="%{ckAD_4}"/>
+					</s:if>
+					
+					<s:if test="ckDD_1 != null && ckDD_1 != ''">
+						<s:hidden name="ckDD_1" value="%{ckDD_1}"/>
+					</s:if>
+					<s:if test="ckDD_2 != null && ckDD_2 != ''">
+						<s:hidden name="ckDD_2" value="%{ckDD_2}"/>
+					</s:if>
+					<s:if test="ckDD_3 != null && ckDD_3 != ''">
+						<s:hidden name="ckDD_3" value="%{ckDD_3}"/>
+					</s:if>
+					<s:if test="ckDD_4 != null && ckDD_4 != ''">
+						<s:hidden name="ckDD_4" value="%{ckDD_4}"/>
+					</s:if>
+					
+					<s:if test="air_company_korea != null && air_company_korea != ''">
+						<s:hidden name="air_company_korea" value="%{air_company_korea}"/>
+					</s:if>
+					<s:if test="air_company_asia != null && air_company_asia != ''">
+						<s:hidden name="air_company_asia" value="%{air_company_asia}"/>
+					</s:if>
+					<s:if test="air_company_jin != null && air_company_jin != ''">
+						<s:hidden name="air_company_jin" value="%{air_company_jin}"/>
+					</s:if>
 				</select>
 			</s:if>
 			<s:else>
@@ -587,6 +624,7 @@
 					<s:hidden name="seat" value="%{seat}"/>
 					<s:hidden name="ad_str" value="%{ad_str}"/>
 					<s:hidden name="seat_grade" value="%{seat_grade}"/>	
+					<s:hidden name="air_array" value="1"/>
 				    <input type="submit" class="btn btn-info" value="세부 검색">
 			    </s:if>
 			    <s:else>
@@ -599,7 +637,10 @@
 			<table class="table table-hover" style="width:70%">
 				<tr>
 					<th>
-						상품 번호
+						출발날짜
+					</th>
+					<th>
+						도착날짜
 					</th>
 					<th>
 						항공사
@@ -619,14 +660,14 @@
 				</tr>
 				<s:if test="Airlist == null">
 				<tr>
-					<td colspan=6>
+					<td colspan=7>
 						<center>항공권을 검색해 주세요</center>
 					</td>
 				</tr>
 				</s:if>
 				<s:if test="Airlist.size() == 0">
 				<tr>
-					<td colspan=6>
+					<td colspan=7>
 						<center>해당 항공권이 존재하지 않습니다</center>
 					</td>
 				</tr>
@@ -635,7 +676,10 @@
 				<s:iterator value="Airlist" status="stat">
 				<tr>
 					<td>
-						<s:property value="no"/>
+						<s:date name="ad" format="yyyy년 MM월 dd일" />  
+					</td>	
+					<td>
+						<s:date name="dd" format="yyyy년 MM월 dd일" />  
 					</td>	
 					<td>
 						<span class="ico_airline"><img src="./upload/air/<s:property value='image1'/>"></span>

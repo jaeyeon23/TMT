@@ -115,7 +115,7 @@
 		     	   &nbsp; |&nbsp; 
 		     	   <a href="HotelList.action?num=3&hotelname=<s:property value="%{hotelname}" />&inDay=<s:property value="%{inDay}"/>&outDay=<s:property value="%{outDay}" />&number=<s:property value="%{number}" />&roomnum=<s:property value="%{roomnum}" /> "> 가격 낮은순</a>
 		     	   &nbsp; | &nbsp;
-		     	   <a href="HotelList.action?num=4&hotelname=<s:property value="%{hotelname}" />&inDay=<s:property value="%{inDay}" />&outDay=<s:property value="%{outDay}" />&number=<s:property value="%{number}" />&roomnum=<s:property value="%{roomnum}" /> ">별점순</a></font>
+		     	   <a href="HotelList.action?num=4&hotelname=<s:property value="%{hotelname}" />&inDay=<s:property value="%{inDay}" />&outDay=<s:property value="%{outDay}" />&number=<s:property value="%{number}" />&roomnum=<s:property value="%{roomnum}" /> ">가격 높은순</a></font>
 		        </div>
 				<s:if test="Hotellist.size() <= 0">
 					<br><br>
@@ -162,7 +162,9 @@
 					</div>  <!-- 리스트 콘텐트 끝나는곳 -->
 		        </div>
 		        </s:iterator> 
-		        <center><s:property value="pagingHtml" escape="false" /></center>
+		        <center>
+		       		<s:property value="pagingHtml" escape="false" />
+		        </center>
 		    </div>
 		</div>  <!-- box2 끝 -->
 </div>

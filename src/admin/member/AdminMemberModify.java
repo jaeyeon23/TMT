@@ -27,7 +27,7 @@ public class AdminMemberModify extends ActionSupport implements SessionAware {
 	private String password;
 	private String passport;
 	private String email;
-	private int tel;
+	private String tel;
 	private String marketing1;
 	private String marketing2;
 	private String image1;
@@ -158,11 +158,11 @@ public class AdminMemberModify extends ActionSupport implements SessionAware {
 		this.email = email;
 	}
 
-	public int getTel() {
+	public String getTel() {
 		return tel;
 	}
 
-	public void setTel(int tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 

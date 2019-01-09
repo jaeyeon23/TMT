@@ -22,9 +22,12 @@
 		<a href="AdminOrderList.action?c=a">항공</a> &nbsp;&nbsp;  &nbsp;&nbsp;
 		<a href="AdminOrderList.action?c=h">호텔</a>
 	</div>
-
+	<s:url id="itemView"/>
 <table class="table" border="0" width="100%" cellpadding="0" cellspacing="0">
 	<s:if test='%{c=="h"}'>
+		<s:url id="itemView" action="AdminHotelView.action">
+					<s:param name="no" value="no"/>
+		</s:url>
 		<tr>
 			<th width="10%">회원정보</th>
 			<th width="40%"></th>
@@ -142,7 +145,9 @@
 		<td colspan="4" align="center">
 			<form action="AdminOrderDelete.action">
 				<input type="button" value="회원정보" onclick="location.href='AdminMemberView.action?id=<s:property value="%{resultMember.id}"/>'">
-				<input type="button" value="목록" onclick="history.go(-1)">
+				
+				<s:a href="%{itemView}"/>
+				
 				<input type="submit" value="삭제">
 				<input type="hidden" name="seq_no" value="<s:property value="seq_no"/>">
 				<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">

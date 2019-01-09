@@ -30,12 +30,12 @@ public class AdminTourModify extends ActionSupport implements SessionAware {
 	
 	private String name;        
 	private int price;       
-	private String content; 
+
 	private String country;	
 	private String region;	
 	private String main_image; 
 	private String content_image;  
-	private String image3;  
+
 	private int amount;
 	
 	private StringBuffer image;
@@ -71,7 +71,7 @@ public class AdminTourModify extends ActionSupport implements SessionAware {
 		
 		resultClass.setName(getName());
 		resultClass.setPrice(getPrice());
-		resultClass.setContent(getContent());
+
 		resultClass.setCountry(getCountry());
 		resultClass.setRegion(getRegion());
 		resultClass.setAmount(getAmount());
@@ -185,14 +185,6 @@ public class AdminTourModify extends ActionSupport implements SessionAware {
 		this.price = price;
 	}
 
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
-	}
-
 	public String getCountry() {
 		return country;
 	}
@@ -223,14 +215,6 @@ public class AdminTourModify extends ActionSupport implements SessionAware {
 
 	public void setContent_image(String content_image) {
 		this.content_image = content_image;
-	}
-
-	public String getImage3() {
-		return image3;
-	}
-
-	public void setImage3(String image3) {
-		this.image3 = image3;
 	}
 
 	public List<File> getUploads() {
