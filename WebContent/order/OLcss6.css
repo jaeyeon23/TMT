@@ -96,24 +96,64 @@ input[type="submit"]:hover{
 	margin-left: 4%;
 }
 #ABC_AA{
-	margin-top: 1%;
-	float: left;
-	width: 65px;
-}
-#ABC_AB{
-	float: left;
-	margin-left: 13%;
-	width: 350px;
-	margin-top: -1%;
-}
-#ABC_AC{
-	margin: -0.5%;
-	margin-top: -1%;
-	margin-left:10%;
-	padding: 0.5%;
+	margin-top: -1.5%;
 	float: left;
 	height: 50px;
+	width: 80px;
+	text-align: center;
+	padding-top: 3%;
+}
+#ABC_AB{
+	/* margin-top: -1%; */
+	float: left;
+	height: 50px;
+	
+	text-align: center;
+	margin-left: 5%;
+}
+#ABC_AC{
+	margin-left: 1%;
+	/* margin-top: -1%; */
+	float: left;
+	height: 50px;
+	
+	text-align: center;
+}
+#ABC_AD{
+	margin-left: 1%;
+	/* margin-top: -1%; */
+	float: left;
+	height: 50px;
+	
+	text-align: center;
+}
+#ABC_AE{
+	margin-left: 1%;
+	/* margin-top: -1%; */
+	float: left;
+	height: 50px;
+	
+	text-align: center;
+}
+#ABC_AF{
+	margin-left: 1%;
+	/* margin-top: -1%; */
+	float: left;
+	height: 50px;
+	
+	text-align: center;
+}
+#ABC_AG{
+	margin: -0.5%;
+	margin-top: -1%;
+	margin-right:10%;
+	padding: 0.5%;
+	float: right;
+	height: 50px;
 	border:1px solid #EAEAEA;
+}
+#ABC_AG:hover{
+	border:1px solid #1b5ac2;
 }
 #air_footer{
 	width: 100%;
@@ -192,14 +232,17 @@ input[type="submit"]:hover{
 	height: 60px;
 }
 #ABC_HB{
-	float: left;
+	float: right;
 	margin-top: 5%;
-	margin-left: 3%;
-	padding-right:3%;
-	/* border:1px solid #EAEAEA; */
-	width: 245px;
+	margin-right: 3%;
+	padding: 2%;
+	border:1px solid #EAEAEA; 
+	width: 120px;
 	height: 40px;
 	text-align: right;
+}
+#ABC_HB:hover{
+	border:1px solid #1b5ac2; 
 }
 
 #hotel_footer{

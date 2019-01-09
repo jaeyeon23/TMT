@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="../basket/basketcss.css" type="text/css">
+<link rel="stylesheet" href="/TMT/basket/basketcss2.css" type="text/css">
 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
 <script>
@@ -45,7 +45,7 @@ $(document).ready(function(){
 <body>
 <div id = "all_List">
      <div id="order_title">
-        	<b><font size="6"><img src="./images/logo_ss.JPG" width="70" height="60">&nbsp;<s:property value="%{session.session_id}" />의 위시리스트&nbsp;<img src="./images/heart.png" width="25" height="25"></font></b>
+        	<b><font size="6"><img src="./images/logo_ss.JPG" width="70" height="60">&nbsp;<s:property value="%{session.session_id}" /> 님의 위시리스트&nbsp;<img src="./images/heart.png" width="25" height="25"></font></b>
      </div>
      <div id="hotel_box">
           <div id="hotel_title">
@@ -123,7 +123,7 @@ $(document).ready(function(){
 					</div>	<!-- delete_title 끝 -->
 					</s:if>
 				<s:iterator value="btlist" status="stat">
-				  <a href="TourView.action?no=<s:property value='no'/>"><s:property value="name" />
+				  <a href="TourView.action?no=<s:property value='no'/>">
 			      <div id="HC_all">
      	              <div id="image_HC">
 							<s:if test="image1 != null">
