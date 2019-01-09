@@ -6,9 +6,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="../css/bootstrap.css" rel="stylesheet">
-<link href="../css/bootstrap-theme.css" rel="stylesheet">
-<script src="../js/bootstrap.js" type="text/javascript"></script>
 <link rel="stylesheet" href="/TMT/css/member/myPage.css"/>
 <script>
 function removeCheck() {
@@ -68,6 +65,7 @@ function removeCheck() {
 			<div class="content-wrapper">
 				<div class="profile-img-container hide-on-tablet">
 					<img width="98" class="img profile-img" src="https://d2ur7st6jjikze.cloudfront.net/profile_images/1387626/1387626_medium_1541323024.png?1541323024">
+					test : <s:property value="%{resultImage.mem_image}"/>
 				</div>
 				<br>
 				<div class="member-wrapper">
@@ -89,12 +87,12 @@ function removeCheck() {
 								<s:property value="%{resultClass.tel}"/>
 							</div>
 					</div>
-					<div class="form-group">
+					<%-- <div class="form-group">
 						<div class="title text-middle">비밀번호</div>
 							<div class="input-wrapper text-middle">
 								<s:property value="%{resultClass.password}"/>
 							</div>
-					</div>
+					</div> --%>
 					<div class="form-group">
 						<div class="title text-middle">여권번호</div>
 							<div class="input-wrapper text-middle">

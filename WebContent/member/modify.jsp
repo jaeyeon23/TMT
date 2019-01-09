@@ -1,13 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<link rel="stylesheet" href="/TMT/css/member/myPage.css" />
 <!DOCTYPE html>
 <html>
 <head>
-<link href="../css/bootstrap.css" rel="stylesheet">
-<link href="../css/bootstrap-theme.css" rel="stylesheet">
-<script src="../js/bootstrap.js" type="text/javascript"></script>
 <link rel="stylesheet" href="/TMT/css/member/myPage.css"/>
 <script>
 function modifyCheck() {
@@ -63,6 +59,7 @@ function modifyCheck() {
 					<div class="profile-img-container hide-on-tablet">
 						<img width="98" class="img profile-img"
 							src="https://d2ur7st6jjikze.cloudfront.net/profile_images/1387626/1387626_medium_1541323024.png?1541323024">
+							<s:file name="upload" />
 					</div>
 					<br>
 					<div class="member-wrapper">
@@ -70,14 +67,14 @@ function modifyCheck() {
 							<div class="title text-middle">이름</div>
 							<div class="input-wrapper text-middle">
 								<input class="form-control text-content" name="name" type="text"
-									placeholder="변경할 계정 이름를 입력하세요">
+									value="${resultClass.name }">
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="title text-middle">이메일</div>
 							<div class="input-wrapper text-middle">
 								<input class="form-control text-content" name="email"
-									type="email" placeholder="이메일 형식에 맞게 입력하세요">
+									type="email" value="${resultClass.email }" readonly>
 							</div>
 						</div>
 					</div>
@@ -85,7 +82,7 @@ function modifyCheck() {
 						<div class="title text-middle">연락처</div>
 						<div class="input-wrapper text-middle">
 							<input class="form-control text-content" name="tel" 
-								type="text" placeholder="변경할  전화번호를 입력하세요" >
+								type="text" value="${resultClass.tel }" >
 						</div>
 					</div>
 				</div>
@@ -93,14 +90,14 @@ function modifyCheck() {
 					<div class="title text-middle">비밀번호</div>
 					<div class="input-wrapper text-middle">
 						<input class="form-control text-content" name="password" 
-							type="password" placeholder="변경할 비밀번호를 입력하세요">
+							type="password" value="${resultClass.password }">
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="title text-middle">여권번호</div>
 					<div class="input-wrapper text-middle">
 						<input class="form-control text-content" name="passport" 
-							type="text" placeholder="변경할 여권번호를 입력하세요">
+							type="text" value="${resultClass.passport }">
 					</div>
 				</div>
 
