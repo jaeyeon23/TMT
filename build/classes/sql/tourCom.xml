@@ -59,7 +59,7 @@
 	</delete>
 	
 	<delete id="deleteMemberCT" parameterClass="Map">
-		delete tourcomment where c_id=#id# and c_ref>=#refT#
+		<![CDATA[delete tourcomment where c_id=#id# and c_ref >= #refT#]]>
 	</delete>
 
 </sqlMap>
