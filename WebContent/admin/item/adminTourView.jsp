@@ -26,10 +26,17 @@ $(function()
 					$(".subb").slideUp("fast");
 				 $(this).next().slideToggle("fast"); 
 			})
-		})
-
-		
+		})		
+function checkC(){
+	var f=document.com;
+	if (f.c_content.value == "") {
+		alert("내용을 입력해주십시오");
+		f.c_content.focus();
+		return false;
+	}
+}
 </script>
+
 <style>
 .sidebar {
   position: -webkit-sticky;
@@ -115,10 +122,10 @@ $(function()
 						<h4 class="offer-review__header__title">문의<span><s:property value="%{totalCount}"/></span></h4>
 					</div>
 					<div class="offer-review__detail-info">
-						<form action="AdminTourComment.action"> <!-- method="post" -->
+						<form action="AdminTourComment.action" name="com"> <!-- method="post" -->
 							<div class="form-group">
 								<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>
-								<input class="btn btn-default" type="submit" value="작성">
+								<input class="btn btn-default" type="submit" onclick="return checkC()" value="작성">
 								<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
 								<input type="hidden" name="tour_no" value="<s:property value="no"/>">
 								<input type="hidden" name="currentPageC" value="<s:property value="currentPageC"/>">
@@ -149,10 +156,10 @@ $(function()
 									</form>
 								</div>
 								<div class="subb">
-									<form action="AdminTourComment.action"> <!-- method="post" -->
+									<form action="AdminTourComment.action" name="re"> <!-- method="post" -->
 										<div class="form-group">
 											<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>
-											<input type="submit" value="작성" class="btn btn-default btn-xs">
+											<input type="submit" value="작성" onclick="return checkC()" class="btn btn-default btn-xs">
 											<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
 											<input type="hidden" name="c_no" value="<s:property value="c_no"/>">
 											<input type="hidden" name="tour_no" value="<s:property value="no"/>">

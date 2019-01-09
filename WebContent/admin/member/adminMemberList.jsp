@@ -9,17 +9,6 @@
 <link rel="stylesheet" media="screen" href="css/admin/view1.css" />
 <link rel="stylesheet" media="all" href="css/admin/view2.css" />
 <link rel="stylesheet" media="screen" href="css/admin/view3.css" />
-<%-- <script>
-function check(){
-	
-	var f=document.d;
-	
-	if (f.searchh.value == "") {
-		alert("비밀번호를 입력해주십시오");
-		return false;
-	}
-}
-</script> --%>
 </head>
 <body>
 
@@ -83,12 +72,12 @@ function check(){
 	
 	<div id="search" align="center">
 		<form name="d">
-			아이디<input type="checkbox" name="searchh" value="id" checked="checked">
+			아이디<input type="checkbox" name="searchh" value="id">
 			이름<input type="checkbox" name="searchh" value="name">&nbsp;
 			이메일<input type="checkbox" name="searchh" value="email">&nbsp;
 			여권번호<input type="checkbox" name="searchh" value="passport">&nbsp;
 			<input type="text" name="search">
-			<input type="submit" onclick="return check()" value="검색">
+			<input type="submit" value="검색">
 		</form>
 	</div>
 </div>

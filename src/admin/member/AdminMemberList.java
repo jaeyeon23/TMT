@@ -44,7 +44,7 @@ public class AdminMemberList extends ActionSupport implements SessionAware {
 	
 	@Override
 	public String execute() throws Exception {
-		if(getSearch()!=null) {
+		if(getSearchh()!=null) {
 			for(String a : searchh) {
 				if(a.equals("id"))
 					searchch.put("id", a);
@@ -54,6 +54,7 @@ public class AdminMemberList extends ActionSupport implements SessionAware {
 					searchch.put("email", a);
 				if(a.equals("passport"))
 					searchch.put("passport", a);
+				
 			}
 			searchch.put("search", search);
 			list = sqlMapper.queryForList("searchMember",searchch);

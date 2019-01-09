@@ -23,7 +23,6 @@
 	function check(){
 		
 		var f=document.write;
-		var i=document.i
 		if (f.arv.value == "") {
 			alert("출발지를 입력해주십시오");
 			f.arv.focus();

@@ -41,7 +41,7 @@ public class AdminHotelView extends ActionSupport implements SessionAware {
 	private Map page = new HashMap();
 	private int currentPageC = 1;
 	private int totalCount;
-	private int blockCount=3;
+	private int blockCount=4;
 	private int blockPage = 5;
 	private String pagingHtml;
 	private HotelComPaging cPage;
