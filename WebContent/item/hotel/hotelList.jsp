@@ -82,24 +82,24 @@
 						</ul>
 						<hr>
 						<div class="sideMenu">
-							<b>중국</b>
-						</div>
-						<ul class="subb">
-							<li><a href="HotelList.action?num=1&hotelname=상하이" class="on">상하이</a></li>
-						</ul>
-						<hr>
-						<div class="sideMenu">
-							<b>미국</b>
-						</div>
-						<ul class="subb">
-							<li><a href="HotelList.action?num=1&hotelname=하노이" class="on">하노이</a></li>
-						</ul>
-						<hr>
-						<div class="sideMenu">
 							<b>일본</b>
 						</div>
 						<ul class="subb">
-							<li><a href="HotelList.action?num=1&hotelname=오사카">오사카</a></li>
+							<li><a href="HotelList.action?num=1&hotelname=오사카" class="on">오사카</a></li>
+						</ul>
+						<hr>
+						<div class="sideMenu">
+							<b>영국</b>
+						</div>
+						<ul class="subb">
+							<li><a href="HotelList.action?num=1&hotelname=런던" class="on">런던</a></li>
+						</ul>
+						<hr>
+						<div class="sideMenu">
+							<b>프랑스</b>
+						</div>
+						<ul class="subb">
+							<li><a href="HotelList.action?num=1&hotelname=파리">파리</a></li>
 						</ul>
 						<hr>
                     </div>

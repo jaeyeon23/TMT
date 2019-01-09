@@ -134,10 +134,10 @@ $(function()
 							<s:if test="c_re_step < 1">
 							<div class="offer-review__list--content">
 								<div class="starRating starRating--m starRating--blue starRating--"></div>
-								<p class="offer-review__list--writer"><s:property value="c_id"/><p>
-								<p class="offer-review__list--purpose"><s:property value="c_reg_date"/></p>
+								<p class="offer-review__list--writer"><font size="4" color="#51abf3"><b>Q.</b></font>&nbsp;&nbsp;<s:property value="c_id"/><p>
+								<p class="offer-review__list--purpose" style="text-align:right; margin-right:2%; margin-top: -6.5%;" ><s:property value="c_reg_date"/></p>
 								<p class="offer-review__list--message">
-								<div class="with-more " style="max-height: 100px;"><s:property value="c_content"/></div>
+								<div class="with-more " style="max-height: 100px; margin-left: 5%; margin-right: 5%;" ><s:property value="c_content"/></div>
 								<div align="right">
 									<form action="AdminTourCDelete.action">
 										<input class="btn btn-default btn-xs" type="submit" value="삭제">
@@ -172,8 +172,16 @@ $(function()
 							<s:else>
 							<div class="offer-review__reply">
 								<img class="offer-review__reply--icon" src="/TMT/images/admin/reply.svg" alt="reply">
-								<p class="offer-review__reply--guide"><s:property value="c_id"/></p>
-								<p class="offer-review__reply--message"><s:property value="c_content"/></p>
+								<p class="offer-review__reply--guide"><font size="4" color="#1b5ac2"><b>A.</b></font><s:property value="c_id"/></p>
+								<p style="margin-left: 7%; margin-right: 7%;" class="offer-review__reply--message"><s:property value="c_content"/></p>
+								<div align="right">
+									<form action="AdminTourCDelete.action">
+										<input class="btn btn-default btn-xs" type="submit" value="삭제">
+										<input type="hidden" name="no" value="<s:property value="tour_no"/>">
+										<input type="hidden" name="c_no" value="<s:property value="c_no"/>">
+										<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
+									</form>
+								</div>
 							</div>
 							</s:else>
 							<hr>

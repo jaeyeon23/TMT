@@ -19,6 +19,7 @@ public class HotelComDelete extends ActionSupport implements SessionAware{
 	private int no;
 	private int currentPage;
 	private int c_ref;
+	private int c_no;
 	private String param;
 	
 	public HotelComDelete()throws IOException{
@@ -27,7 +28,12 @@ public class HotelComDelete extends ActionSupport implements SessionAware{
 		reader.close();
 	}
 	public String execute()throws Exception{
-		sqlMapper.delete("deleteHotelCOne",getC_ref());
+		int tmp = getC_ref();
+		if(tmp==0) {
+			tmp = getC_no();
+			sqlMapper.delete("deleteHotelCNo",tmp);
+		}else
+			sqlMapper.delete("deleteHotelCRef",tmp);
 		param = "?no="+getNo()+"&currentPage="+getCurrentPage();
 		return SUCCESS;
 	}
@@ -35,6 +41,12 @@ public class HotelComDelete extends ActionSupport implements SessionAware{
 
 
 	
+	public int getC_no() {
+		return c_no;
+	}
+	public void setC_no(int c_no) {
+		this.c_no = c_no;
+	}
 	public String getParam() {
 		return param;
 	}
