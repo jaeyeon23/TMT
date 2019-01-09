@@ -31,9 +31,9 @@
 		</form>
 			<h3>투어&티켓</h3>
 			<s:if test="Tourlist.size() == 0">
-			<div id="searchTour_list" style="height:50px;">
-				검색값에 대한 투어&티켓이 없습니다
-			</div>
+				<div id="searchTour_list" style="height:50px;">
+					검색값에 대한 투어&티켓이 없습니다
+				</div>
 			</s:if>
 			<s:else>
 				<div id="searchTour_list">
@@ -58,8 +58,16 @@
 					</s:iterator>
 				</div>
 			</s:else>
-		
-			<button type="button" class="btn btn-success" onclick="window.location.href='TourList.action'">투어 & 티켓 자세히 보기</button>
+			
+			<s:if test="Tourlist.size() == 0">
+				<button type="button" class="btn btn-success" onclick="window.location.href='TourList.action'">투어 & 티켓 자세히 보기</button>
+			
+			</s:if>
+			<s:else>
+				<button type="button" class="btn btn-success" onclick="window.location.href='TourList.action?tourname=${searchbox}'">투어 & 티켓 자세히 보기</button>
+			</s:else>
+			
+				
 		
 			<br><br><br>
 			<h3>호텔</h3>
@@ -91,7 +99,11 @@
 					</s:iterator>
 				</div>
 			</s:else>
-			
-			<button type="button" class="btn btn-success" onclick="window.location.href='HotelList.action'">호텔 자세히 보기</button><br><br>
+			<s:if test="Hotellist.size() == 0">
+				<button type="button" class="btn btn-success" onclick="window.location.href='HotelList.action'">호텔 자세히 보기</button><br><br>
+			</s:if>
+			<s:else>
+				<button type="button" class="btn btn-success" onclick="window.location.href='HotelList.action?num=1&hotelname=${searchbox}'">호텔 자세히 보기</button><br><br>
+			</s:else>
 </body>
 </html>
