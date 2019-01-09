@@ -60,11 +60,11 @@
 			</s:else>
 			
 			<s:if test="Tourlist.size() == 0">
-				<button type="button" class="btn btn-success" onclick="window.location.href='TourList.action'">투어 & 티켓 자세히 보기</button>
+				<button type="button" class="btn" onclick="window.location.href='TourList.action'" >투어 & 티켓 자세히 보기</button>
 			
 			</s:if>
 			<s:else>
-				<button type="button" class="btn btn-success" onclick="window.location.href='TourList.action?tourname=${searchbox}'">투어 & 티켓 자세히 보기</button>
+				<button type="button" class="btn" onclick="window.location.href='TourList.action?tourname=${searchbox}'">투어 & 티켓 자세히 보기</button>
 			</s:else>
 			
 				
@@ -100,10 +100,11 @@
 				</div>
 			</s:else>
 			<s:if test="Hotellist.size() == 0">
-				<button type="button" class="btn btn-success" onclick="window.location.href='HotelList.action'">호텔 자세히 보기</button><br><br>
+				<button type="button" class="btn" onclick="window.location.href='HotelList.action'">호텔 자세히 보기</button><br><br>
 			</s:if>
 			<s:else>
-				<button type="button" class="btn btn-success" onclick="window.location.href='HotelList.action?num=1&hotelname=${searchbox}'">호텔 자세히 보기</button><br><br>
+				<button type="button" class="btn" onclick="window.location.href='HotelList.action?num=1&hotelname=${searchbox}'">호텔 자세히 보기</button><br><br>
 			</s:else>
+			
 </body>
 </html>
