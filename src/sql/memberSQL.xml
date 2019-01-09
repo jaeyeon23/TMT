@@ -55,6 +55,9 @@
 		(SEQ_NO.NEXTVAL,#id#,#password#,#name#,#email#,#tel#,#regdate#,#passport#,0,#marketing1#,#marketing2#)
 	</insert>
 
+	<insert id="Join_image" parameterClass="java.lang.String">
+		insert into member_image (id, mem_image) values(#id#, null)
+	</insert>
 	<update id="ModifyMember" parameterClass="member">
 		UPDATE MEMBER SET NAME=#name#, PASSWORD=#password#,
 		PASSPORT=#passport#, EMAIL=#email#, TEL=#tel#,
@@ -131,9 +134,9 @@
 		where id = #id#
 	</select>
  
- 	<insert id="member_image_insert" parameterClass="java.util.Map">
- 		insert into member_image values(#id#, #mem_image#)
- 	</insert>
+ 	<update id="member_image_update" parameterClass="java.util.Map">
+ 		update member_image set mem_image=#mem_image# where id=#id#
+ 	</update>
  	
  	<select id="member_image_select" resultClass="member_image" parameterClass="java.util.Map">
 		select mem_image from member_image where id=#id#  	

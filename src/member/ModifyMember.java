@@ -23,6 +23,7 @@ public class ModifyMember extends ActionSupport implements SessionAware{
 	
 	private MemberVO paramClass;
 	private MemberVO resultClass;
+	private Member_imageVO resultImage = new Member_imageVO();
 	
 	private int no;
 	private String id;
@@ -39,10 +40,10 @@ public class ModifyMember extends ActionSupport implements SessionAware{
 	private Map imageClass = new HashMap<>();;
 
 	/*test*/
-	private File upload ;
+	private File upload;
 	private String uploadFileName; 
-	private String uploadContentType ;
-	private String fileUploadPath = "C:\\Java\\App\\TMT\\WebContent\\upload\\mem_image\\"; 
+	private String uploadContentType;
+	private String fileUploadPath = "C:\\Users\\박재연\\Desktop\\TMT\\TMT\\WebContent\\upload\\mem_image\\"; 
 	/*text end*/
 	
 	private StringBuffer image;
@@ -51,8 +52,8 @@ public class ModifyMember extends ActionSupport implements SessionAware{
 		
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml"); // sqlMapConfig.xml 파일의 설정내용을 가져온다.
 		sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader); // sqlMapConfig.xml의 내용을 적용한 sqlMapper 객체 생성.
+		
 		reader.close();
-
 	}
 
 	public String execute() throws Exception{
@@ -60,6 +61,10 @@ public class ModifyMember extends ActionSupport implements SessionAware{
 		
 		paramClass.setId((String) session.get("session_id"));
 		resultClass = (MemberVO) sqlMapper.queryForObject("selectOne",paramClass);		
+		
+		imageClass.put("id", id);
+		
+		resultImage = (Member_imageVO)sqlMapper.queryForObject("member_image_select", imageClass);
 		
 		return SUCCESS;
 	}
@@ -78,20 +83,19 @@ public class ModifyMember extends ActionSupport implements SessionAware{
 		sqlMapper.update("ModifyMember", paramClass);
 				
 		
-		System.out.println("test : " + getUploadFileName());
-		
-		/*test start*/
 		if(upload != null) {
-			imageClass.put("mem_image", getUploadFileName());
+			
+			int check = getUploadContentType().indexOf("/");
+			String type = getUploadContentType().substring(check + 1);
+			
+			imageClass.put("mem_image", (String)session.get("session_id") + "." + type);
 			imageClass.put("id", (String)session.get("session_id"));
 			
-			
-			File destFile = new File(fileUploadPath + getUploadFileName());
+			File destFile = new File(fileUploadPath + (String)session.get("session_id") + "." + type);
 			FileUtils.copyFile(getUpload(), destFile);
 			
-			sqlMapper.insert("member_image_insert", imageClass);
+			sqlMapper.update("member_image_update", imageClass);
 		}
-		/*test end*/
 		
 		return SUCCESS;
 	}
@@ -246,5 +250,13 @@ public class ModifyMember extends ActionSupport implements SessionAware{
 
 	public void setImageClass(Map imageClass) {
 		this.imageClass = imageClass;
+	}
+
+	public Member_imageVO getResultImage() {
+		return resultImage;
+	}
+
+	public void setResultImage(Member_imageVO resultImage) {
+		this.resultImage = resultImage;
 	}
 }

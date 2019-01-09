@@ -87,6 +87,9 @@ public class JoinMember extends ActionSupport implements SessionAware{
 	    paramClass.setMarketing1(getMarketing1());
 	    paramClass.setMarketing2(getMarketing2());
 	    sqlMapper.insert("JoinMember", paramClass);
+	    
+	    //마이페이지 이미지 저장
+	    sqlMapper.insert("Join_image", getId());
 
 		return SUCCESS;
 	}
