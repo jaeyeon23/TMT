@@ -3,6 +3,7 @@
 	'http://ibatis.apache.org/dtd/sql-map-2.dtd'>
 <sqlMap>
 	<typeAlias alias="member" type="member.MemberVO" />
+	<typeAlias alias="member_image" type="member.Member_imageVO" />
 
 	<resultMap id="memberRes" class="member">
 		<result property="no" column="no" />
@@ -16,6 +17,11 @@
 		<result property="marketing1" column="marketing1" />
 		<result property="marketing2" column="marketing2" />
 		<result property="admin" column="admin"/>
+	</resultMap>
+	
+	<resultMap id="member_image_Res" class="member_image">
+		<result property="id" column="id" />
+		<result property="mem_image" column="mem_image" />
 	</resultMap>
 
 	<sql id="select-all">
@@ -125,4 +131,11 @@
 		where id = #id#
 	</select>
  
+ 	<insert id="member_image_insert" parameterClass="java.util.Map">
+ 		insert into member_image values(#id#, #mem_image#)
+ 	</insert>
+ 	
+ 	<select id="member_image_select" resultClass="member_image" parameterClass="java.util.Map">
+		select mem_image from member_image where id=#id#  	
+ 	</select>
  </sqlMap>

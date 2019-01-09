@@ -2,6 +2,7 @@ package member;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -13,8 +14,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ServiceMember extends ActionSupport implements SessionAware{
 	
-	private Reader reader;
-	private SqlMapClient sqlMapper;
+	private static Reader reader;
+	private static SqlMapClient sqlMapper;
 	private Map session;
 	
 	private String id;
@@ -29,6 +30,9 @@ public class ServiceMember extends ActionSupport implements SessionAware{
 	
 	private MemberVO paramClass= new MemberVO();
 	private MemberVO resultClass = new MemberVO();
+	private Member_imageVO resultImage = new Member_imageVO();
+	
+	private Map imageClass = new HashMap<>();
 	
 	public ServiceMember() throws IOException {
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -41,6 +45,9 @@ public class ServiceMember extends ActionSupport implements SessionAware{
 		
 		paramClass.setId((String) session.get("session_id"));
 		resultClass = (MemberVO) sqlMapper.queryForObject("selectOne",paramClass);		
+		
+		imageClass.put("id", (String)session.get("session_id"));
+		resultImage = (Member_imageVO)sqlMapper.queryForObject("member_image_select", imageClass);
 			
 		return SUCCESS;
 	}
@@ -49,21 +56,6 @@ public class ServiceMember extends ActionSupport implements SessionAware{
 	}
 	public void setImage1(String image1) {
 		this.image1 = image1;
-	}
-	public Reader getReader() {
-		return reader;
-	}
-
-	public void setReader(Reader reader) {
-		this.reader = reader;
-	}
-
-	public SqlMapClient getSqlMapper() {
-		return sqlMapper;
-	}
-
-	public void setSqlMapper(SqlMapClient sqlMapper) {
-		this.sqlMapper = sqlMapper;
 	}
 
 	public String getId() {
@@ -152,6 +144,22 @@ public class ServiceMember extends ActionSupport implements SessionAware{
 
 	public void setPassport(String passport) {
 		this.passport = passport;
+	}
+
+	public Member_imageVO getResultImage() {
+		return resultImage;
+	}
+
+	public void setResultImage(Member_imageVO resultImage) {
+		this.resultImage = resultImage;
+	}
+
+	public Map getImageClass() {
+		return imageClass;
+	}
+
+	public void setImageClass(Map imageClass) {
+		this.imageClass = imageClass;
 	}
 		
 }

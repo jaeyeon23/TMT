@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/TMT/basket/basketcss.css" type="text/css">
+<link rel="stylesheet" href="../basket/basketcss.css" type="text/css">
 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
 <script>
