@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>예약내역 상세보기</title>
+<link rel="stylesheet" href="/TMT/order/Oviewcss4.css" type="text/css">
 <style>
 #main{
 	font-size: xx-large;
@@ -23,7 +24,7 @@ th {
 	width: 100%;
 	float: left;
 	margin-top: 3%;
-	margin-bottom: 10%;
+	margin-bottom: 16%;
 }
 
 #min_s form {
@@ -62,145 +63,72 @@ th {
 </style>
 </head>
 <body>
-	<s:if test="type == 0">
-		<p align="center" id="main">HOTEL</p>
-		<div style="width: 50%; margin: 0 auto;">
-			<table class="table">
-				<tr>
-					<th>상품명</th>
-					<td><s:property value="%{oh.name}" /></td>
-				</tr>
-				<tr>
-					<th>가격</th>
-					<td><s:property value="%{oh.price}" /></td>
-				</tr>
-				<tr>
-					<th>내용</th>
-					<td><s:property value="%{oh.content}" /></td>
-				</tr>
-				<tr>
-					<th>국가</th>
-					<td><s:property value="%{oh.country}" /></td>
-				</tr>
-				<tr>
-					<th>지역</th>
-					<td><s:property value="%{oh.region}" /></td>
-				</tr>
-				<tr>
-					<th>전화번호</th>
-					<td><s:property value="%{oh.tel}" /></td>
-				</tr>
-				<tr>
-					<th>체크인</th>
-					<td>
-						<s:property value="%{oh.checkin}"/>
-					</td>
-				</tr>
-				<tr>
-					<th>체크아웃</th>
-					<td>
-						<s:property value="%{oh.checkout}"/>
-					</td>
-				</tr>
-				<tr>
-					<th>인원수</th>
-					<td><s:property value="%{oh.people}" /></td>
-				</tr>
-				<tr>
-					<th>방 개수</th>
-					<td><s:property value="%{oh.room}" /></td>
-				</tr>
-
-			</table>
-		</div>
-	</s:if>
-
-	<s:elseif test="type == 1">
-		<p align="center" id="main">TOUR</p>
-		<div style="width: 50%; margin: 0 auto;">
-			<table class="table">
-				<tr>
-					<th>상품명</th>
-					<td><s:property value="%{ot.name}" /></td>
-				</tr>
-				<tr>
-					<th>가격</th>
-					<td><s:property value="%{ot.price}" /></td>
-				</tr>
-				<tr>
-					<th>내용</th>
-					<td><s:property value="%{ot.content}" /></td>
-				</tr>
-				<tr>
-					<th>국가</th>
-					<td><s:property value="%{ot.country}" /></td>
-				</tr>
-				<tr>
-					<th>지역</th>
-					<td><s:property value="%{ot.region}" /></td>
-				</tr>
-				<tr>
-					<th>상품 개수</th>
-					<td><s:property value="%{ot.amount}" /></td>
-				</tr>
-			</table>
-		</div>
-	</s:elseif>
-
-	<s:elseif test="type == 2">
-		<p align="center" id="main">AIR</p>
-		<div style="width: 50%; margin: 0 auto;">
-			<table class="table">
-				<tr>
-					<th>출발지</th>
-					<td><s:property value="%{oa.arv}" /></td>
-				</tr>
-				<tr>
-					<th>도착지</th>
-					<td><s:property value="%{oa.dep}" /></td>
-				</tr>
-				<tr>
-					<th>가격</th>
-					<td><s:property value="%{oa.price}" /></td>
-				</tr>
-				<tr>
-					<th>인원 수</th>
-					<td><s:property value="%{oa.people}" /></td>
-				</tr>
-				<tr>
-					<th>좌석 등급</th>
-					<td>
-						<s:if test="%{oa.seat_grade } == 0">
-							일반
-						</s:if>
-						<s:else>
-							비즈니스
-						</s:else>
-					</td>
-				</tr>
-				<tr>
-					<th>내용</th>
-					<td><s:property value="%{oa.content}" /></td>
-				</tr>
-				<tr>
-					<th>출발시간</th>
-					<td><s:date name="%{oa.ad}" format="yyyy-MM-dd HH:mm" />
-					</td>
-				</tr>
-				<tr>
-					<th>도착시간</th>
-					<td><s:date name="%{oa.dd}" format="yyyy-MM-dd HH:mm" />
-					</td>
-				</tr>
-				<tr>
-					<th>항공사</th>
-					<td><s:property value="%{oa.air_company}" /></td>
-				</tr>
-			</table>
-		</div>
-	</s:elseif>
-
-	<div id="min_s">
+<s:if test="type == 2">
+<div id="all-view">
+	<div id="all-pp">
+      <div id="view-title">
+            <b><font size="5">Air -  상세내역</font></b>
+      </div>
+      <div id ="view-cont">
+          <div id="air_content_N" style="font-size:18px;">
+     	                <div id="image_AA">
+							<s:if test="oa.image1 != null">
+								<span class="ico_airline"><img
+									src="/TMT/upload/air/<s:property value='%{oa.image1}'/>"></span>
+							</s:if>
+							<s:else>
+								<img src="/TMT/images/noimage.jpg">
+							</s:else>
+						</div>
+						 <div id="ABC_AA">
+						   <b><s:property value="%{oa.air_company}"/></b>
+						 </div>
+						 <div id="ABC_AB">
+							<font style="background-color:#DB0000;color:white; padding:1%;">출 발</font><br>
+							<s:date name="oa.ad" format="M월 dd일"/>
+						 </div>
+						 <div id="ABC_AC" >
+						    <s:property value="%{oa.arv}"/><br>
+						    <s:date name="oa.ad" format="HH:mm"/> 
+						 </div>
+						 <div id="ABC_AD" >
+						     <img src="/TMT/images/air_c.JPG" width="80%;">
+						 </div>
+						 <div id="ABC_AE" >
+						     <s:property value="%{oa.dep}"/><br>
+						     <s:date name="oa.dd" format="HH:mm"/>
+						 </div>
+						 <div id="ABC_AF" >
+						     <font style="background-color:#003399; color:white; padding:1%;">도착</font><br>
+						     <s:date name="oa.dd" format="M월dd일"/>
+						 </div>
+			</div>
+			<div id="air_content_plus">
+				<div id="AB_AA" style="font-size:20px;">
+					좌석수<br>
+					좌석등급  <br>
+					
+					좌석혜택<br>
+				</div>
+				<div id="AB_AA2" style="font-size:20px; text-align: right;">
+					<s:property value="%{oa.people}" /> 개<br>
+					<s:if test="%{oa.seat_grade } == 0">
+					일반
+					</s:if>
+					<s:else>
+					비즈니스
+					</s:else><br>
+					
+					<s:property value="%{oa.content}" /><br>
+				</div>
+				<div id="AB_AB" style="font-size:20px;">
+				    가격 : <s:property value="%{oa.price}" /> 원
+				</div>
+			</div>
+      </div>
+      </div>
+      
+      <div id="min_s">
 		<center>
 			<button type="button"
 				onclick="location.href='javascript:history.go(-1)'">
@@ -212,5 +140,118 @@ th {
 			</form>
 		</center>
 	</div>
+</div>
+
+</s:if>
+
+<s:elseif test="type == 0">
+<div id="all-viewH">
+	<div id="all-ppH">
+      <div id="view-titleH">
+            <b><font size="5">Hotel -  상세내역</font></b>
+      </div>
+      <div id ="view-contH">
+          <div id="air_content_NH">
+     	                <div id="image_AAH">
+							<s:if test="oh.image1 != null">
+								<img  src="/TMT/upload/hotel/<s:property value='%{oh.image1}'/>" width="380"  height="190">
+							</s:if>
+							<s:else>
+								<img src="/TMT/images/noimage.jpg">
+							</s:else>
+						</div>
+						 <div id="ABC_AAH">
+						   <b><font size="5"><s:property value="%{oh.name}" /></font><br> [<s:property value="%{oh.country}" /> - <s:property value="%{oh.region}" />]</b>
+						 </div>
+						 <div id="ABC_ABH">
+						      <b><font size="4" > 총 예약금액</font></b><br>
+							<b><font size="5" color="orange"> <s:property value="%{oh.price}" />원</font></b>
+						 </div>
+			</div>
+			<div id="air_content_plusH">
+				<div id="AB_AAH">
+				체크인<br> 
+				체크아웃 <br>
+				객실수<br>
+				인 원<br>
+				</div>
+				<div id="AB_ACH">
+				  <s:property value="%{oh.checkin}" /><br> 
+				  <s:property value="%{oh.checkout}"/><br>
+			      <s:property value="%{oh.room}" /> 개<br>
+				  <s:property value="%{oh.people}" /> 명<br>
+				</div>
+				<div id="AB_ABH">
+				  <b><font size="4"> 숙소문의 : <s:property value="%{oh.tel}" /></font></b>
+				</div>
+			</div>
+      </div>
+      </div>
+      
+      <div id="min_s">
+		<center>
+			<button type="button"
+				onclick="location.href='javascript:history.go(-1)'">
+				<b>뒤로가기</b>
+			</button>
+			<form action="Main.action">
+				<s:hidden name="id" value="%{session.session_id}" />
+				<b><input type="submit" value="홈으로"></b>
+			</form>
+		</center>
+	</div>
+</div>
+
+</s:elseif>
+
+
+<s:elseif test="type == 1">
+<div id="all-viewT">
+	<div id="all-ppH">
+      <div id="view-titleH">
+            <b><font size="5">Tour -  상세내역</font></b>
+      </div>
+      <div id ="view-contH">
+          <div id="air_content_NH">
+     	                <div id="image_AAH">
+							<s:if test="ot.image1 != null">
+								<img  src="/TMT/upload/tour/<s:property value='%{ot.image1}'/>" width="380" height="190">
+							</s:if>
+							<s:else>
+								<img src="/TMT/images/noimage.jpg">
+							</s:else>
+						</div>
+						 <div id="ABC_AAH">
+						   <b><font size="5"><s:property value="%{ot.name}" /></font><br> [<s:property value="%{ot.country}" /> - <s:property value="%{ot.region}" />]</b>
+						 </div>
+						 <div id="ABC_ABH">
+						      <b><font size="4"> 총 예약금액</font></b><br>
+							<b><font size="5" color="orange"> <s:property value="%{ot.price}" />원</font></b>
+						 </div>
+			</div>
+			<div id="air_content_plusT">
+				<div id="AB_ABT">
+				  <b><font size="4"> 예약개수 : <s:property value="%{ot.amount}" /> 개</font></b>
+				</div>
+			</div>
+      </div>
+      </div>
+      
+      <div id="min_s">
+		<center>
+			<button type="button"
+				onclick="location.href='javascript:history.go(-1)'">
+				<b>뒤로가기</b>
+			</button>
+			<form action="Main.action">
+				<s:hidden name="id" value="%{session.session_id}" />
+				<b><input type="submit" value="홈으로"></b>
+			</form>
+		</center>
+	</div>
+</div>
+
+</s:elseif>
+
 </body>
 </html>

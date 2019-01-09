@@ -23,7 +23,14 @@
 	<link rel="stylesheet" href="/TMT/css/main/header.css"/>
     <style type="text/css">
     #headerTop_right{
-      margin-top: -5%;
+      margin-top: -4%; 
+  /*  border:1px solid #EAEAEA;  */
+   padding-top: 1%;
+      height: 100px;
+      line-height: 100%;
+    }
+    #header{
+    margin-top: -2%; 
     }
     </style>
 </head>
@@ -50,7 +57,7 @@
 			<!--   회원로그인 후           -->
 			<s:elseif test='%{session.session_id!=null}'>
 			<p align="right" style="margin-right:30px;"><s:property value="session.session_id"/>님이 로그인 하셨습니다.</p><br>
-			<div class="ProfileNavItems " style="margin-right:30px;">
+			<div class="ProfileNavItems " style="margin-right:30px; " >
 				<div class="ProfileNavItems__item gtm-gnb-signin" style="margin-right:20px;">
 					<a href="BasketList.action" class="ProfileNavItems__button" >위시리스트</a>&nbsp;
 				</div>

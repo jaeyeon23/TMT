@@ -1,0 +1,253 @@
+#all-view{
+	width: 50%;
+	margin-left: 25%;
+	margin-top: 7%;
+	height: 400px;
+	/* background-color: red; */
+}
+#all-pp{
+	border:1px solid #EAEAEA; 
+	height: 100%;
+}
+#view-title{
+	margin-top: -4%;
+	border:1px solid #EAEAEA; 
+	width: 170px;
+	height:50px;
+	padding-top: 1%;
+	background-color: #EAEAEA;
+	text-align: center;
+	border-radius: 10px; 
+	margin-left: 38%;
+}
+
+/* 항공부분 */
+#air_content_N{
+	border:1px solid #EAEAEA; 
+	width: 700px;
+	height: 100px;
+	float: left;
+	margin-top: 5%;
+	/* background-color: pink; */
+	margin-left: 4.5%;
+}
+#air_content_plus{
+	border:1px solid #EAEAEA; 
+	width: 700px;
+	height: 170px;
+	float: left;
+	/* background-color: blue; */
+	margin-left:4.5%;
+}
+
+#image_AA{
+	margin-top: 4.5%;
+	margin-left: 10%;
+}
+#ABC_AA{
+	margin-top: -1.5%;
+	float: left;
+	height: 50px;
+	
+	text-align: center;
+	padding-top: 3%;
+}
+#ABC_AB{
+	/* margin-top: -1%; */
+	float: left;
+	height: 50px;
+	
+	text-align: center;
+	margin-left: 5%;
+}
+#ABC_AC{
+	margin-left: 1%;
+	/* margin-top: -1%; */
+	float: left;
+	height: 50px;
+	
+	text-align: center;
+}
+#ABC_AD{
+	margin-left: 1%;
+	/* margin-top: -1%; */
+	float: left;
+	height: 50px;
+	
+	text-align: center;
+}
+#ABC_AE{
+	margin-left: 1%;
+	/* margin-top: -1%; */
+	float: left;
+	height: 50px;
+	
+	text-align: center;
+}
+#ABC_AF{
+	margin-left: 1%;
+	/* margin-top: -1%; */
+	float: left;
+	height: 50px;
+	
+	text-align: center;
+}
+
+#AB_AA{
+	margin-left: 11%;
+	margin-top: 4%;
+	float: left;
+	
+	font-size: 15px;
+	line-height: 200%;
+}
+#AB_AA2{
+	margin-top: 4%;
+	float: left;
+	font-size: 15px;
+	line-height: 200%;
+	width: 180px;
+}
+
+#AB_AB{
+	margin-right: 10%;
+	margin-top: 17%;
+	font-size: 15px;
+	float: right;
+	height: 50px;
+	
+}
+
+
+/* 호텔&투어 */
+#all-viewH{
+	width: 50%;
+	margin-left: 25%;
+	margin-top: 7%;
+	height: 545px;
+	/* background-color: red; */
+}
+#all-ppH{
+	border:1px solid #EAEAEA; 
+	height: 100%;
+}
+#view-titleH{
+	margin-top: -4%;
+	border:1px solid #EAEAEA; 
+	width: 200px;
+	height:50px;
+	padding-top: 1%;
+	background-color: #EAEAEA;
+	text-align: center;
+	border-radius: 10px; 
+	margin-left: 35%;
+}
+
+#air_content_NH{
+	border:1px solid #EAEAEA; 
+	width: 90%;
+	height: 235px;
+	float: left;
+	margin-top: 5%;
+	/* background-color: pink; */
+	margin-left: 5%;
+}
+#air_content_plusH{
+	border:1px solid #EAEAEA; 
+	width: 90%;
+	height: 195px;
+	float: left;
+	/* background-color: blue; */
+	margin-left: 5%;
+}
+
+#image_AAH{
+	margin-top: 3%;
+	margin-left: 4%;
+	float: left;
+	
+}
+#ABC_AAH{
+	float: left;
+	width: 230px;
+	height: 120px;
+	margin-left: 4%;
+	margin-right: 4%;
+	margin-top: 3%;
+	/* border:1px solid #EAEAEA;  */
+	
+}
+#ABC_ABH{
+    /* border:1px solid #EAEAEA;  */
+    width: 230px;
+    float: left;
+    margin-top: 2%;
+    margin-left: 4%;
+	margin-right: 4%;
+	text-align: right;
+}
+
+#AB_AAH{
+	margin-top: 3%;
+	margin-left: 8%;
+	font-size: 15px;
+	float: left;
+	height: 150px;
+	width: 100px;
+	/* border:1px solid #EAEAEA;  */
+	line-height: 210%;
+	font-size: 19px;
+}
+#AB_ACH{
+	margin-top: 3%;
+	font-size: 15px;
+	float: left;
+	height: 150px;
+	width: 150px;
+	text-align:right;
+	/* border:1px solid #EAEAEA;  */
+	line-height: 210%;
+	font-size: 19px;
+}
+
+#AB_ABH{
+	margin-right: 8%;
+	float: right;
+	width: 230px;
+	/* border: 1px solid #EAEAEA; */
+	margin-top: 20%;
+	text-align: right;
+	
+}
+
+#air_content_plusT{
+	border:1px solid #EAEAEA; 
+	width: 90%;
+	height: 100px;
+	float: left;
+	/* background-color: blue; */
+	margin-left: 5%;
+}
+#AB_ABT{
+	margin-right: 4%;
+	float: right;
+	width: 230px;
+	/* border: 1px solid #EAEAEA; */
+	margin-top: 8%;
+	text-align: right;
+	
+}
+#all-viewT{
+	width: 50%;
+	margin-left: 25%;
+	margin-top: 7%;
+	height: 455px;
+	/* background-color: red; */
+}
+
+
+
+
+
+
+

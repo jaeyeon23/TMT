@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>예약내역</title>
-<link rel="stylesheet" href="/TMT/order/OLcss4.css" type="text/css">
+<link rel="stylesheet" href="/TMT/order/OLcss6.css" type="text/css">
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
 <script>
 $(document).ready(function(){
@@ -55,7 +55,7 @@ $(document).ready(function(){
 <body>
 <div id = "all_List">
      <div id="order_title">
-        	<b><font size="6"><img src="./images/logo_ss.JPG" width="70" height="60">&nbsp;<s:property value="%{session.session_id}" />님의 예약내역&nbsp;<img src="./images/heart.png" width="25" height="25"></font></b>
+        	<b><font size="6"><img src="./images/logo_ss.JPG" width="70" height="60">&nbsp;<s:property value="%{session.session_id}" /> 님의 예약내역&nbsp;<img src="./images/heart.png" width="25" height="25"></font></b>
      </div>
      <div id="air_box">
           <div id="air_title">
@@ -92,20 +92,29 @@ $(document).ready(function(){
 							</s:else>
 						</div>
 						 <div id="ABC_AA">
-						 <s:property value="air_company" />
+						   <s:property value="%{air_company}"/>
 						 </div>
-						  <div id="ABC_AB">
-							&nbsp;<font style="background-color:#DB0000;color:white; padding:1%;">출발</font>
-							&nbsp;&nbsp;&nbsp;<b><s:property value="arv"/></b>
-							&nbsp;&nbsp;<img src="/TMT/images/air_c.JPG">
-							&nbsp;<b><s:property value="dep"/></b>
-							&nbsp;&nbsp;&nbsp;<font style="background-color:#003399; color:white; padding:1%;">도착</font><br>
-							<s:date name="ad" format="MM-dd"/>&nbsp;&nbsp;&nbsp;<s:date name="ad" format="HH:mm"/> 
-							<img src="/TMT/images/white_image.JPG" height="20" width="130">
-							<s:date name="dd" format="HH:mm"/>&nbsp;&nbsp;<s:date name="dd" format="MM-dd"/>
-						  </div>
+						 <div id="ABC_AB">
+							<font style="background-color:#DB0000;color:white; padding:1%;">출 발</font><br>
+							<s:date name="ad" format="M월 dd일"/>
+						 </div>
+						 <div id="ABC_AC" >
+						    <s:property value="%{arv}"/><br>
+						    <s:date name="ad" format="HH:mm"/> 
+						 </div>
+						 <div id="ABC_AD" >
+						     <img src="/TMT/images/air_c.JPG" >
+						 </div>
+						 <div id="ABC_AE" >
+						     <s:property value="%{dep}"/><br>
+						     <s:date name="dd" format="HH:mm"/>
+						 </div>
+						 <div id="ABC_AF" >
+						     <font style="background-color:#003399; color:white; padding:1%;">도착</font><br>
+						     <s:date name="dd" format="M월dd일"/>
+						 </div>
 						  <a href="OrderView.action?seq_no=<s:property value='seq_no'/>&id=<s:property value='%{session.session_id}'/>&type=2">
-						  <div id="ABC_AC" >
+						  <div id="ABC_AG" >
 							예약내역<br>
 							상세보기
 						  </div>
@@ -161,9 +170,11 @@ $(document).ready(function(){
 						<div id="ABC_HA">
 							<b><font size="4"><s:property value="name"/></font></b>
 						 </div>
+						 <a href="OrderView.action?seq_no=<s:property value='seq_no'/>&id=<s:property value='%{session.session_id}'/>&type=0">
 						 <div id="ABC_HB">
-							<a href="OrderView.action?seq_no=<s:property value='seq_no'/>&id=<s:property value='%{session.session_id}'/>&type=0">예약상세내역 ></a>
+							예약상세내역 >
 						 </div>
+						 </a>
 					</div>
      		   		</s:iterator>				
 			</form>
@@ -214,9 +225,11 @@ $(document).ready(function(){
 						<div id="ABC_HA">
 							<b><font size="4"><s:property value="name"/></font></b>
 						 </div>
+						 <a href="OrderView.action?seq_no=<s:property value='seq_no'/>&id=<s:property value='%{session.session_id}'/>&type=1">
 						 <div id="ABC_HB">
-							<a href="OrderView.action?seq_no=<s:property value='seq_no'/>&id=<s:property value='%{session.session_id}'/>&type=1">예약상세내역 ></a>
+							예약상세내역 >
 						 </div>
+						 </a>
 					</div>
      		   		</s:iterator>	
 			</form>
@@ -230,8 +243,6 @@ $(document).ready(function(){
      
 </div> <!-- all_List 끝나는곳 -->
 
-<%-- <a href="OrderView.action?seq_no=<s:property value='seq_no'/>&id=<s:property value='%{session.session_id}'/>&type=2"/>
-														<s:property value="arv"/> → <s:property value="dep"/>
-</a> --%>
+
 </body>
 </html>

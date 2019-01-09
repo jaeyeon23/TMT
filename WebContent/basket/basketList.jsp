@@ -45,7 +45,7 @@ $(document).ready(function(){
 <body>
 <div id = "all_List">
      <div id="order_title">
-        	<b><font size="6"><img src="./images/logo_ss.JPG" width="70" height="60">&nbsp;<s:property value="%{session.session_id}" />의 위시리스트&nbsp;<img src="./images/heart.png" width="25" height="25"></font></b>
+        	<b><font size="6"><img src="./images/logo_ss.JPG" width="70" height="60">&nbsp;<s:property value="%{session.session_id}" /> 님의 위시리스트&nbsp;<img src="./images/heart.png" width="25" height="25"></font></b>
      </div>
      <div id="hotel_box">
           <div id="hotel_title">
