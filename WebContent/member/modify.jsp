@@ -22,7 +22,12 @@ function modifyCheck() {
 		<div class="sidebar-wrapper">
 			<div class="profile-container box">
 				<div class="profile">
-					<img alt="여행자 사진" class="img-circle" src="https://d2ur7st6jjikze.cloudfront.net/profile_images/1387626/1387626_medium_1541323024.png?1541323024" width="80">
+					<s:if test="%{resultImage.mem_image == null}">
+						<img alt="여행자 사진" class="img-circle" src="https://d2ur7st6jjikze.cloudfront.net/profile_images/1387626/1387626_medium_1541323024.png?1541323024" width="80">
+					</s:if>
+					<s:else>
+						<img alt="여행자 사진" class="img-circle" src="/TMT/upload/mem_image/<s:property value='%{resultImage.mem_image}' />" width="80">
+					</s:else>
 				</div>
 				<br><br>
 				<div class="username">
@@ -53,13 +58,12 @@ function modifyCheck() {
 	</div>
 <main class="member-box box mode-readonly clearfix">
 	<center>
-		<form action="ModifyMember.action" class="fv-form fv-form-bootstrap" >	
+		<s:form action="ModifyMember.action" method="post" enctype="multipart/form-data">
 			<div class="member-container with-edit-btn">
 				<div class="content-wrapper">
 					<div class="profile-img-container hide-on-tablet">
 						<img width="98" class="img profile-img"
 							src="https://d2ur7st6jjikze.cloudfront.net/profile_images/1387626/1387626_medium_1541323024.png?1541323024">
-							<s:file name="upload" />
 					</div>
 					<br>
 					<div class="member-wrapper">
@@ -100,7 +104,12 @@ function modifyCheck() {
 							type="text" value="${resultClass.passport }">
 					</div>
 				</div>
-
+				<div class="form-group">
+					<div class="title text-middle">프로필</div>
+					<div class="input-wrapper text-middle">
+						<input type="file" name="upload">
+					</div>
+				</div>
 
 	<br>
 		<div class="form-btn-wrap">
@@ -111,7 +120,7 @@ function modifyCheck() {
 				</div>
 			</div>
 		</div>
-	</form>
+	</s:form>
 </div>
 </center>
 </main>

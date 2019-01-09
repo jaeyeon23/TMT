@@ -76,9 +76,9 @@
 				from (select no, name, price, content, country, region, readcount, main_image, content_image, image3, reg_date, tel, checkin, checkout, maxnum, grade 
 					from hotel
 					<isNotEmpty>
-						where region like '%'||#searchbox#||'%' 
+						where region like '%'||#searchbox#||'%' or country like '%'||#searchbox#||'%'
 					</isNotEmpty>
-					) <![CDATA[where rownum >= 1]]>) <![CDATA[where r <= 4]]>
+					) <![CDATA[where rownum >= 1]]>) <![CDATA[where r <= 5]]>
 	</select>
 	
 	<select id="search_tour" resultMap="boardtour" parameterClass="java.lang.String">
@@ -87,8 +87,8 @@
 				from (select no, name, price, country, region, readcount, main_image, content_image,  reg_date
 					from tour
 					<isNotEmpty>
-						where region like '%'||#searchbox#||'%'  
+						where region like '%'||#searchbox#||'%' or country like '%'||#searchbox#||'%'
 					</isNotEmpty>
-					) <![CDATA[where rownum >= 1]]>) <![CDATA[where r <= 4]]>
+					) <![CDATA[where rownum >= 1]]>) <![CDATA[where r <= 5]]>
 	</select>
 </sqlMap>

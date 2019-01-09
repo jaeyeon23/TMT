@@ -616,8 +616,7 @@
 				</s:else>
 				
 				<br><br>
-				    
-			    <!-- test -->
+				
 			    <s:if test="arv != null">
 				    <s:hidden name="arv" value="%{arv}"/>
 					<s:hidden name="dep" value="%{dep}"/>
