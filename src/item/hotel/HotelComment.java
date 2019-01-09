@@ -40,7 +40,10 @@ public class HotelComment extends ActionSupport implements SessionAware
 		cParam = new HotelComVO();
 	
 		cParam.setC_id(getC_id());
-		cParam.setC_content(getC_content());
+		if(getC_content().equals("")||getC_content()==null)
+			cParam.setC_content("답변");
+		else
+			cParam.setC_content(getC_content());
 		cParam.setHotel_no(getHotel_no());
 		
 		if(getC_ref() == 0) {

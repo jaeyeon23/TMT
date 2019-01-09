@@ -126,10 +126,10 @@ function checkC(){
 						<h4 class="offer-review__header__title">문의<span><s:property value="%{totalCount}"/></span></h4>
 					</div>
 					<div class="offer-review__detail-info">
-						<form action="AdminHotelComment.action" name="com"> <!-- method="post" -->
+						<form action="AdminHotelComment.action"> <!-- method="post" -->
 							<div class="form-group">
 								<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>
-								<input class="btn btn-default" type="submit" onclick="return checkC()" value="작성">
+								<input class="btn btn-default" type="submit" value="작성">
 								<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
 								<input type="hidden" name="hotel_no" value="<s:property value="no"/>">
 								<input type="hidden" name="currentPageC" value="<s:property value="currentPageC"/>">
@@ -160,10 +160,10 @@ function checkC(){
 									</form>
 								</div>
 								<div class="subb">
-									<form action="AdminHotelComment.action" name="re"> <!-- method="post" -->
+									<form action="AdminHotelComment.action"> <!-- method="post" -->
 										<div class="form-group">
 											<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>
-											<input type="submit" value="작성" onclick="return checkC()"  class="btn btn-default btn-xs">
+											<input type="submit" value="작성" class="btn btn-default btn-xs">
 											<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
 											<input type="hidden" name="c_no" value="<s:property value="c_no"/>">
 											<input type="hidden" name="hotel_no" value="<s:property value="no"/>">

@@ -27,14 +27,6 @@ $(function()
 				 $(this).next().slideToggle("fast"); 
 			})
 		})		
-function checkC(){
-	var f=document.com;
-	if (f.c_content.value == "") {
-		alert("내용을 입력해주십시오");
-		f.c_content.focus();
-		return false;
-	}
-}
 </script>
 
 <style>
@@ -122,10 +114,10 @@ function checkC(){
 						<h4 class="offer-review__header__title">문의<span><s:property value="%{totalCount}"/></span></h4>
 					</div>
 					<div class="offer-review__detail-info">
-						<form action="AdminTourComment.action" name="com"> <!-- method="post" -->
+						<form action="AdminTourComment.action"> <!-- method="post" -->
 							<div class="form-group">
 								<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>
-								<input class="btn btn-default" type="submit" onclick="return checkC()" value="작성">
+								<input class="btn btn-default" type="submit" value="작성">
 								<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
 								<input type="hidden" name="tour_no" value="<s:property value="no"/>">
 								<input type="hidden" name="currentPageC" value="<s:property value="currentPageC"/>">
@@ -146,20 +138,22 @@ function checkC(){
 								<p class="offer-review__list--purpose"><s:property value="c_reg_date"/></p>
 								<p class="offer-review__list--message">
 								<div class="with-more " style="max-height: 100px;"><s:property value="c_content"/></div>
-								<div class="sideMenu" align="right">
+								<div align="right">
 									<form action="AdminTourCDelete.action">
-										<input type="button" class="btn btn-default btn-xs" value="답글">
 										<input class="btn btn-default btn-xs" type="submit" value="삭제">
 										<input type="hidden" name="no" value="<s:property value="tour_no"/>">
 										<input type="hidden" name="c_ref" value="<s:property value="c_ref"/>">
 										<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
 									</form>
 								</div>
+								<div class="sideMenu" align="right">
+									<input type="button" class="btn btn-default btn-xs" value="답글">
+								</div>
 								<div class="subb">
-									<form action="AdminTourComment.action" name="re"> <!-- method="post" -->
+									<form action="AdminTourComment.action"> <!-- method="post" -->
 										<div class="form-group">
 											<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>
-											<input type="submit" value="작성" onclick="return checkC()" class="btn btn-default btn-xs">
+											<input type="submit" value="작성" class="btn btn-default btn-xs">
 											<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
 											<input type="hidden" name="c_no" value="<s:property value="c_no"/>">
 											<input type="hidden" name="tour_no" value="<s:property value="no"/>">
