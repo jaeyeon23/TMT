@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/TMT/basket/basketcss.css" type="text/css">
+<link rel="stylesheet" href="/TMT/basket/basketcss2.css" type="text/css">
 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
 <script>
@@ -123,7 +123,7 @@ $(document).ready(function(){
 					</div>	<!-- delete_title 끝 -->
 					</s:if>
 				<s:iterator value="btlist" status="stat">
-				  <a href="TourView.action?no=<s:property value='no'/>"><s:property value="name" />
+				  <a href="TourView.action?no=<s:property value='no'/>">
 			      <div id="HC_all">
      	              <div id="image_HC">
 							<s:if test="image1 != null">
