@@ -38,11 +38,15 @@ public class DeleteMember extends ActionSupport implements SessionAware{
 	public String Delete() throws Exception {
 		
 		paramClass.setId((String) session.get("session_id"));
+		
 		Map map = new HashMap();
 		String idd = paramClass.getId();
+		
 		map.put("id",idd);
+		
 		int tmp1 = (Integer)sqlMapper.queryForObject("hotelCOne",map);
 		int tmp2 = (Integer)sqlMapper.queryForObject("tourCOne",map);
+		
 		map.put("refH",tmp1);
 		map.put("refT",tmp2);
 		sqlMapper.delete("deleteMember", paramClass);

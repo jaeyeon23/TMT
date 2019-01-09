@@ -2,6 +2,7 @@ package admin.member;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -40,8 +41,24 @@ public class AdminMemberDelete extends ActionSupport implements SessionAware {
 			for(String s:searchh)
 				sb.append("&searchh=").append(s);
 		}
+		Map map = new HashMap();
+		String idd = p.getId();
 		
-		sqlMapper.delete("deleteMember",p);
+		map.put("id",idd);
+		
+		int tmp1 = (Integer)sqlMapper.queryForObject("hotelCOne",map);
+		int tmp2 = (Integer)sqlMapper.queryForObject("tourCOne",map);
+		
+		map.put("refH",tmp1);
+		map.put("refT",tmp2);
+		sqlMapper.delete("deleteMember", p);
+		sqlMapper.delete("deleteMemberH",map);
+		sqlMapper.delete("deleteMemberT",map);
+		sqlMapper.delete("deleteMemberA",map);
+		sqlMapper.delete("deleteMemberBH",map);
+		sqlMapper.delete("deleteMemberBT",map);
+		sqlMapper.delete("deleteMemberCH",map);
+		sqlMapper.delete("deleteMemberCT",map);
 		param = sb.toString();
 		return SUCCESS;
 	}
