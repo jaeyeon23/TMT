@@ -39,24 +39,18 @@ $(document).ready(function(){
 
 </script>
 <style>
-#image {
-	/* border-radius: 15px 15px 0 0;
-		padding: 1px 1px 1px 1px;
-		width:220px;  */
-	height: 40px;
-}
 </style>
 <title>나의 위시리스트</title>
 </head>
 <body>
 <div id = "all_List">
-
-     <div id="order_title">나의 위시리스트♥</div>
+     <div id="order_title">
+        	<b><font size="6"><img src="./images/logo_ss.JPG" width="70" height="60">&nbsp;<s:property value="%{session.session_id}" />의 위시리스트&nbsp;<img src="./images/heart.png" width="25" height="25"></font></b>
+     </div>
      <div id="hotel_box">
           <div id="hotel_title">
-             Hotel <s:property value="totalCount" />
+             <b><font size="8">Hotel</font> 총 <s:property value="totalCount" />개의 상품</b>
      	  </div><!-- hotel_title 끝 -->
-     	  
      	  <div id="hotel_content">
      	     <s:if test="bhlist.size()<=0">
      	         <div id="not_list">
@@ -64,38 +58,54 @@ $(document).ready(function(){
 					 <br><br>위시리스트에 담긴 상품이 없습니다.<br>TMT와 즐거운 여행을 계획해보세요.</center>
 				 </div>
 			</s:if>
-     	     <s:iterator value="bhlist" status="stat">
-     	          <div id="HC_all">
+			<form action="DeleteBasket.action" method="get">
+					<s:hidden name="id" value="%{session.session_id}" />
+					<s:hidden name="type" value="0" />
+					 <s:if test="bhlist.size()>0">
+					<div id="delete_title" align="right" style="margin-top: -3%; margin-right: 6%;">
+					      <input id="checkall_hotel" type="checkbox">전체선택&nbsp;&nbsp;&nbsp;&nbsp;
+						 <input type="submit" value="선택삭제">
+					</div>	<!-- delete_title 끝 -->
+					</s:if>
+				<s:iterator value="bhlist" status="stat">
+				   <a href="HotelView.action?no=<s:property value='no'/>">
+     	           <div id="HC_all">
      	              <div id="image_HC">
 							<s:if test="image1 != null">
-								<img src="/TMT/upload/tour/<s:property value="%{image1}" />">
+								<img src="/TMT/upload/hotel/<s:property value="%{image1}" />">
 							</s:if>
 							<s:else>
 								<img src="/TMT/images/noimage.jpg">
 							</s:else>
 					  </div>
 				      <div id="CC_HC">
-				             <s:property value="country" /> · 
-				             <s:property value="region" />
+				             <font size="2" color=#8C8C8C><s:property value="country" /> · 
+				             <s:property value="region" /></font>
 				             <br>
-				             <s:property value="name" />
+				             <b> <font size="3"><s:property value="name" /></font></b>
 				             <br><br>
-				             <s:property value="price" />원 / 1인
+				             <font size="3" color=#8C8C8C><b><s:property value="price" />원</b></font>
+				             <font size="2" color=#8C8C8C>/ 1인</font>
+				             <div align="right">
+				             <input id="checkbox_hotel" type="checkbox" name="del" value="${seq_no}">
+				             </div>
 				      </div>     	             
      	          </div>
+     	          </a>
              </s:iterator>
+             </form>
      	  </div><!-- hotel_content 끝 -->
-     	  
+     	   <s:if test="bhlist.size()>0">
      	  <div id="hotel_footer">
-            pageNum <s:property value="pagingHtml" escape="false" />
+            <center><s:property value="pagingHtml" escape="false" /></center>
      	  </div><!-- hotel_footer 끝 -->
+     	  </s:if>
      </div><!-- hotel_box 끝 -->
      
      <div id= "tour_box">
           <div id="tour_title">
-             Tour <s:property value="totalCount2" />
+             <b><font size="8">Tour</font> 총 <s:property value="totalCount2" />개의 상품</b>
      	  </div><!-- tour_title 끝 -->
-     	  
      	  <div id="tour_content">
              <s:if test="btlist.size()<=0">
      	         <div id="not_list">
@@ -103,7 +113,17 @@ $(document).ready(function(){
 					 <br><br>위시리스트에 담긴 상품이 없습니다.<br>TMT와 즐거운 여행을 계획해보세요.</center>
 				 </div>
 			</s:if>
-			<s:iterator value="btlist" status="stat">
+			<form action="DeleteBasket.action" name="frm2" method="get">
+					<s:hidden name="id" value="%{session.session_id}" />
+				<s:hidden name="type" value="1" />
+					<s:if test="btlist.size() > 0">
+					<div id="delete_title" align="right" style="margin-top: -3%; margin-right: 6%;">
+					     <input id="checkall_tour" type="checkbox">전체선택
+						 <input type="submit" value="선택삭제">
+					</div>	<!-- delete_title 끝 -->
+					</s:if>
+				<s:iterator value="btlist" status="stat">
+				  <a href="TourView.action?no=<s:property value='no'/>"><s:property value="name" />
 			      <div id="HC_all">
      	              <div id="image_HC">
 							<s:if test="image1 != null">
@@ -113,187 +133,31 @@ $(document).ready(function(){
 								<img src="/TMT/images/noimage.jpg" >
 							</s:else>
 						</div>
-     	              <s:property value="country" />
+     	                <div id="CC_HC">
+				             <font size="2" color=#8C8C8C><s:property value="country" /> · 
+				             <s:property value="region" /></font>
+				             <br>
+				             <b> <font size="3"><s:property value="name" /></font></b>
+				             <br><br>
+				             <font size="3" color=#8C8C8C><b><s:property value="price" />원</b></font>
+				             <font size="2" color=#8C8C8C>/ 1인</font>
+				             <div align="right">
+				             <input id="checkbox_tour" type="checkBox" name="del" value="${seq_no }">
+				             </div>
+				      </div>   
      	          </div>
+     	           </a>
 			</s:iterator>
+			</form>
      	  </div><!-- tour_content 끝 -->
-     	  
+     	  <s:if test="btlist.size() > 0">
      	  <div id="tour_footer">
-            pageNum <s:property value="pagingHtml2" escape="false" />
+            <center><s:property value="pagingHtml2" escape="false" /></center>
      	  </div><!-- tour_footer 끝 -->
+     	  </s:if>
      </div> <!-- tour_box 끝 -->
 
 </div> <!-- all_List 끝나는곳 -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-------절취선 ^^+-------------------------------
-	<div class='header-title'>
-		<h2>
-			<center>
-				<s:property value="%{session.session_id}" />
-				의 위시리스트&nbsp;<img src="./images/heart.png" width="20" height="20">
-			</center>
-		</h2>
-	</div>
-	<br>
-	<div class='wishlists-cards-container'>
-		<h4>HOTEL</h4>
-		<br> hotel&nbsp;
-		<s:property value="totalCount" />
-		개의 상품
-		<table class="table" align="center">
-			<form action="DeleteBasket.action" method="get">
-				<s:hidden name="id" value="%{session.session_id}" />
-				<s:hidden name="type" value="0" />
-				<tr>
-					<td colspan=2>
-						<p align="center">
-						<table class="table" cellpadding="0" cellspacing="0">
-							<tr align="center" height=26 bgcolor="#FFDDDD">
-								<td align=left><input id="checkall_hotel" type="checkbox"></td>
-								<td width="10%"><font size="2">번호</font></td>
-								<td width="15%"><font size="2">사진</font></td>
-								<td width="45%"><font size="2">상품명</font></td>
-								<td width="10%"><font size="2">국가</font></td>
-								<td width="10%"><font size="2">지역</font></td>
-								<td width="10%"><font size="2">가격</font></td>
-
-							</tr>
-
-							<s:iterator value="bhlist" status="stat">
-								<tr align="center" height="80px">
-									<td align="left"><input id="checkbox_hotel" type="checkbox" name="del"
-										value="${seq_no}"></td>
-									<td><s:property value="no" /></td>
-									<td>
-										<div id="image">
-											<s:if test="image1 != null">
-												<img src="/TMT/upload/tour/<s:property value="%{image1}" />">
-											</s:if>
-											<s:else>
-												<img src="/TMT/images/noimage.jpg">
-											</s:else>
-										</div>
-									</td>
-									<td><a href="HotelView.action?no=<s:property value='no'/>"><s:property value="name" /></a></td>
-									<td><s:property value="country" /></td>
-									<td><s:property value="region" /></td>
-									<td><s:property value="price" /></td>
-								</tr>
-							</s:iterator>
-							<s:if test="bhlist.size()<=0">
-								<tr align="center">
-									<td colspan="7"><br> <img
-										src="./images/wishlist_empty.jpg" width="40" height="40"><br>
-										<br>위시리스트에 담긴 상품이 없습니다.<br>TMT와 즐거운 여행을 계획해보세요.</td>
-								</tr>
-							</s:if>
-
-						</table>
-
-
-						<table class="table" border="0" cellspacing="0" cellpadding="0">
-							<tr>
-								<td height="2" bgcolor="#FFDDDD"></td>
-							</tr>
-						</table> <s:if test="bhlist.size()>0">
-							<input type="submit" value="선택삭제">
-						</s:if> <br>
-			</form>
-
-			<tr align="center">
-				<td colspan="7"><s:property value="pagingHtml" escape="false" /></td>
-			</tr>
-
-		</table>
-	</div>
-
-	<div>
-		<h4>TOUR</h4>
-		<br> tour&nbsp;
-		<s:property value="totalCount2" />
-		개의 상품
-		<table class="table" align="center">
-			<form action="DeleteBasket.action" name="frm2" method="get">
-				<s:hidden name="id" value="%{session.session_id}" />
-				<s:hidden name="type" value="1" />
-				<tr>
-					<td colspan=2>
-						<p align="center">
-						<table class="table" cellpadding="0" cellspacing="0">
-							<tr align="center" bgcolor="#FFDDDD">
-								<td align=left><input id="checkall_tour" type="checkbox"></td>
-								<td width="10%"><font size="2">번호</font></td>
-								<td width="15%"><font size="2">사진</font></td>
-								<td width="45%"><font size="2">상품명</font></td>
-								<td width="10%"><font size="2">국가</font></td>
-								<td width="10%"><font size="2">지역</font></td>
-								<td width="10%"><font size="2">가격</font></td>
-
-							</tr>
-
-							<s:iterator value="btlist" status="stat">
-								<tr align="center" height="80px">
-									<td align="left"><input id="checkbox_tour" type="checkBox" name="del"
-										value="${seq_no }"></td>
-									<td><s:property value="no" /></td>
-									<td>
-										<div id="image">
-											<s:if test="image1 != null">
-												<img src="/TMT/upload/tour/<s:property value='%{image1}'/>">
-											</s:if>
-											<s:else>
-												<img src="/TMT/images/noimage.jpg" width="60px"
-													height="60px">
-											</s:else>
-										</div>
-									</td>
-									<td><a href="TourView.action?no=<s:property value='no'/>"><s:property value="name" /></a></td>
-									<td><s:property value="country" /></td>
-									<td><s:property value="region" /></td>
-									<td><s:property value="price" /></td>
-								</tr>
-							</s:iterator>
-							<s:if test="btlist.size()<=0">
-								<tr align="center">
-									<td colspan="7"><br> <img
-										src="./images/wishlist_empty.jpg" width="40" height="40"><br>
-										<br>위시리스트에 담긴 상품이 없습니다.<br>TMT와 즐거운 여행을 계획해보세요.</td>
-								</tr>
-							</s:if>
-
-						</table>
-
-
-						<table class="table" border="0" cellspacing="0" cellpadding="0">
-							<tr>
-								<td height="2" bgcolor="#FFDDDD"></td>
-							</tr>
-						</table> <s:if test="btlist.size() > 0">
-							<input type="submit" value="선택삭제">
-						</s:if> <br>
-			</form>
-			<tr align="center">
-				<td colspan="7"><s:property value="pagingHtml2" escape="false" />
-				</td>
-			</tr>
-
-		</table>
-	</div>
-
 
 </body>
 </html>

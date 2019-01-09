@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>예약내역</title>
-<link rel="stylesheet" href="/TMT/order/OLcss.css" type="text/css">
+<link rel="stylesheet" href="/TMT/order/OLcss4.css" type="text/css">
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
 <script>
 $(document).ready(function(){
@@ -54,278 +54,184 @@ $(document).ready(function(){
 </head>
 <body>
 <div id = "all_List">
-     <div id="order_title">예약내역</div>
-     <div id="left_List">
-         <div id="menu_order_1">
-         	투어&티켓 <hr>
-         	항공권 <hr>
-         	호텔 
-         </div>
-     </div> <!-- left_List 끝 -->
-     <div id="right_List">
-        <div id= "con_order_1">
-				<s:if test="ohlist.size()<=0">
-				    <div id= "con_order_2" align="center" style="padding-top: 35%;">
-					 <img alt='empty' class='icon1'
-							src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/empty/ic_reservation@2x-8ab77f8ad8f413a06e719279615decc80fecd3deea6ed9c67ad032d95a8069a0.png'
-							width='58px'><br> 아직 준비중인 여행이 없습니다.<br />TMT와 함께 즐거운
-							여행을 떠나보세요.
+     <div id="order_title">
+        	<b><font size="6"><img src="./images/logo_ss.JPG" width="70" height="60">&nbsp;<s:property value="%{session.session_id}" />님의 예약내역&nbsp;<img src="./images/heart.png" width="25" height="25"></font></b>
+     </div>
+     <div id="air_box">
+          <div id="air_title">
+             <b><font size="8">Air</font> 총 <s:property value="totalCount3" />개의 상품</b>
+     	  </div><!-- air_title 끝 -->
+     	  <div id="air_content">
+     	     <s:if test="oalist.size()<=0">
+     	         <div id="not_list">
+					 <center><img src="./images/wishlist_empty.jpg" width="40" height="40">
+					 <br><br>아직준비중인 여행이 없습니다.<br>TMT와 즐거운 여행을 계획해보세요.</center>
+				 </div>
+			</s:if>
+			<form action="DeleteOrder.action" method="get">
+					<s:hidden name="id" value="%{session.session_id}"/>
+					<s:hidden name="type" value="2"/>
+					 <s:if test="oalist.size()>0">
+					<div id="delete_title_AA">
+					      <input id="checkall_air" type="checkbox">전체선택&nbsp;&nbsp;&nbsp;&nbsp;
+						 <input type="submit" value="선택삭제">
+					</div>	<!-- delete_title 끝 -->
+					</s:if> 
+				<s:iterator value="oalist" status="stat">
+			        <div id="check_ari">
+			        <input type="checkBox" id="checkbox_air" name="del" value="${seq_no }">
+			        </div>
+     	     		<div id="air_content_N">
+     	                <div id="image_AA">
+							<s:if test="image1 != null">
+								<span class="ico_airline"><img
+									src="/TMT/upload/air/<s:property value='image1'/>"></span>
+							</s:if>
+							<s:else>
+								<img src="/TMT/images/noimage.jpg">
+							</s:else>
+						</div>
+						 <div id="ABC_AA">
+						 <s:property value="air_company" />
+						 </div>
+						  <div id="ABC_AB">
+							&nbsp;<font style="background-color:#DB0000;color:white; padding:1%;">출발</font>
+							&nbsp;&nbsp;&nbsp;<b><s:property value="arv"/></b>
+							&nbsp;&nbsp;<img src="/TMT/images/air_c.JPG">
+							&nbsp;<b><s:property value="dep"/></b>
+							&nbsp;&nbsp;&nbsp;<font style="background-color:#003399; color:white; padding:1%;">도착</font><br>
+							<s:date name="ad" format="MM-dd"/>&nbsp;&nbsp;&nbsp;<s:date name="ad" format="HH:mm"/> 
+							<img src="/TMT/images/white_image.JPG" height="20" width="130">
+							<s:date name="dd" format="HH:mm"/>&nbsp;&nbsp;<s:date name="dd" format="MM-dd"/>
+						  </div>
+						  <a href="OrderView.action?seq_no=<s:property value='seq_no'/>&id=<s:property value='%{session.session_id}'/>&type=2">
+						  <div id="ABC_AC" >
+							예약내역<br>
+							상세보기
+						  </div>
+						  </a>
 					</div>
-				</s:if>
-		</div> <!-- con_order_ 끝 -->
-     </div><!-- right_List 끝 -->
+     		    </s:iterator>
+     	    </form>
+     	  </div><!-- air_content 끝 -->
+     	   <s:if test="oalist.size()>0">
+     	  <div id="air_footer">
+            <center><s:property value="pagingHtml3" escape="false" /></center>
+     	  </div><!-- air_footer 끝 -->
+     	  </s:if>
+     </div><!-- "air_box" 끝 -->
+     
+     
+     <div id="hotel_box">
+          <div id="hotel_title">
+             <b><font size="8">Hotel</font> 총 <s:property value="totalCount" />개의 상품</b>
+     	  </div><!-- hotel_title 끝 -->
+     	  <div id="hotel_content">
+     	     <s:if test="ohlist.size()<=0">
+     	         <div id="not_list_HT">
+					 <center><img src="./images/wishlist_empty.jpg" width="40" height="40">
+					 <br><br>아직준비중인 여행이 없습니다.<br>TMT와 즐거운 여행을 계획해보세요.</center>
+				 </div>
+			</s:if>
+			<form action="DeleteOrder.action" method="get">
+					<s:hidden name="id" value="%{session.session_id}"/>
+					<s:hidden name="type" value="0"/>
+					
+					<s:if test="ohlist.size()>0">
+					<div id="delete_title_HH">
+					      <input id="checkall_hotel" type="checkbox">전체선택&nbsp;&nbsp;&nbsp;&nbsp;
+						 <input type="submit" value="선택삭제">
+					</div>	<!-- delete_title 끝 -->
+					</s:if> 
+					
+					
+					<s:iterator value="ohlist" status="stat">
+			        <div id="check_hotel">
+			        	<input type="checkBox" id="checkbox_hotel" name="del" value="${seq_no }">
+			        </div>
+     	     		<div id="hotel_content_N">
+     	                <div id="image_HH">
+							<s:if test="image1 != null">
+								<img src="/TMT/upload/hotel/<s:property value='image1'/>" width="200" height="120">
+							</s:if>
+							<s:else>
+								<img src="/TMT/images/noimage.jpg">
+							</s:else>
+						</div> 
+						<div id="ABC_HA">
+							<b><font size="4"><s:property value="name"/></font></b>
+						 </div>
+						 <div id="ABC_HB">
+							<a href="OrderView.action?seq_no=<s:property value='seq_no'/>&id=<s:property value='%{session.session_id}'/>&type=0">예약상세내역 ></a>
+						 </div>
+					</div>
+     		   		</s:iterator>				
+			</form>
+     	  </div><!-- hotel_content 끝 -->
+     	   <s:if test="ohlist.size()>0">
+     	  <div id="hotel_footer">
+            <center><s:property value="pagingHtml" escape="false" /></center>
+     	  </div><!-- hotel_footer 끝 -->
+     	  </s:if>
+     </div><!-- hotel_box 끝 -->
+     
+     
+     
+     <div id= "tour_box">
+          <div id="tour_title">
+             <b><font size="8">Tour</font> 총 <s:property value="totalCount2" />개의 상품</b>
+     	  </div><!-- tour_title 끝 -->
+     	  <div id="tour_content">
+             <s:if test="otlist.size()<=0">
+     	         <div id="not_list_HT">
+					 <center><img src="./images/wishlist_empty.jpg" width="40" height="40">
+					 <br><br>아직준비중인 여행이 없습니다.<br>TMT와 즐거운 여행을 계획해보세요.</center>
+				 </div>
+			</s:if>
+			<form action="DeleteOrder.action" method="get">
+					<s:hidden name="id" value="%{session.session_id}"/>
+					<s:hidden name="type" value="1"/>
+					<s:if test="otlist.size()>0">
+					<div id="delete_title_HH">
+					      <input id="checkall_tour" type="checkbox">전체선택&nbsp;&nbsp;&nbsp;&nbsp;
+						 <input type="submit" value="선택삭제">
+					</div>	<!-- delete_title 끝 -->
+					</s:if> 
+					
+					<s:iterator value="otlist" status="stat">
+			        <div id="check_hotel">
+			        	<input type="checkBox" id="checkbox_tour" name="del" value="${seq_no }">
+			        </div>
+     	     		<div id="hotel_content_N">
+     	                <div id="image_HH">
+							<s:if test="image1 != null">
+								<img src="/TMT/upload/tour/<s:property value='image1'/>" width="200" height="120">
+							</s:if>
+							<s:else>
+								<img src="/TMT/images/noimage.jpg">
+							</s:else>
+						</div> 
+						<div id="ABC_HA">
+							<b><font size="4"><s:property value="name"/></font></b>
+						 </div>
+						 <div id="ABC_HB">
+							<a href="OrderView.action?seq_no=<s:property value='seq_no'/>&id=<s:property value='%{session.session_id}'/>&type=1">예약상세내역 ></a>
+						 </div>
+					</div>
+     		   		</s:iterator>	
+			</form>
+     	  </div><!-- tour_content 끝 -->
+     	  <s:if test="otlist.size() > 0">
+     	  <div id="tour_footer">
+            <center><s:property value="pagingHtml2" escape="false" /></center>
+     	  </div><!-- tour_footer 끝 -->
+     	  </s:if>
+     </div> <!-- tour_box 끝 -->
+     
 </div> <!-- all_List 끝나는곳 -->
 
-
-
-
-
-
-
------------------------------------------^_^<br><br><br>
-	<main class='order-list'>
-	<div class='order-container'>
-		<div class='order-header-container'>
-			<div class='order-title-wrapper'>
-
-				<div class='header-title'>
-					<h2>
-						<center>
-							<s:property value="%{session.session_id}" />
-							의 예약내역
-						</center>
-					</h2>
-
-				</div>
-				<br>
-			</div>
-			<div class='order-header-divider'></div>
-
-			<div class='order-cards-container'>
-
-				<div>
-					<h4>HOTEL</h4>
-					<br> hotel&nbsp;
-					<s:property value="totalCount" />
-					개의 상품
-					<table class="table" align="center">
-						<form action="DeleteOrder.action" method="get">
-							<s:hidden name="id" value="%{session.session_id}"/>
-							<s:hidden name="type" value="0"/>
-							<tr>
-								<td colspan=2>
-									<p align="center">
-									<table class="table" cellpadding="0" cellspacing="0">
-										<tr align="center" height=26 bgcolor="#EEDAFF">
-											<td align=left><input id="checkall_hotel" type="checkbox"></td>
-											<td width="15%"><font size="2">사진</font></td>
-											<td width="45%"><font size="2">상품명</font></td>
-											<td width="10%"><font size="2">국가</font></td>
-											<td width="10%"><font size="2">지역</font></td>
-											<td width="10%"><font size="2">가격</font></td>
-
-										</tr>
-										<s:iterator value="ohlist" status="stat">
-											<tr align="center">
-												<td align="left">
-													<input type="checkBox" id="checkbox_hotel" name="del" value="${seq_no }">
-												</td>
-												<td>
-													<s:if test="image1 != null">
-														<img src="/TMT/images/<s:property value='%{image1}' />">
-													</s:if>
-													<s:else>
-														<img src="/TMT/images/noimage.jpg">
-													</s:else>
-												</td>
-												<td><a href="OrderView.action?seq_no=<s:property value='seq_no'/>&id=<s:property value='%{session.session_id}'/>&type=0"/><s:property value="name"/></a></td>
-												<td><s:property value="country" /></td>
-												<td><s:property value="region" /></td>
-												<td><s:property value="price" /></td>
-											</tr>
-										</s:iterator>
-										<s:if test="ohlist.size()<=0">
-											<tr align="center">
-												<td colspan="6"><br> <img alt='empty' class='icon1'	src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/empty/ic_reservation@2x-8ab77f8ad8f413a06e719279615decc80fecd3deea6ed9c67ad032d95a8069a0.png'
-													width='58px'><br> 아직 준비중인 여행이 없습니다.<br />TMT와 함께
-													즐거운 여행을 떠나보세요.<br>
-												<br></td>
-											</tr>
-										</s:if>
-
-									</table>
-
-									<table class="table" border="0" cellspacing="0" cellpadding="0">
-										<tr>
-											<td height="2" bgcolor="#EEDAFF"></td>
-										</tr>
-									</table>
-									<s:if test="ohlist.size() > 0">
-										<input type="submit" value="선택삭제">
-									</s:if> <br>
-						</form>
-
-						<tr align="center">
-							<td colspan="7"><s:property value="pagingHtml" escape="false" /></td>
-						</tr>
-
-					</table>
-				</div>
-
-				<div>
-					<h4>TOUR</h4>
-					<br> tour&nbsp;
-					<s:property value="totalCount2" />
-					개의 상품
-					<table class="table" align="center">
-						<form action="DeleteOrder.action" method="get">
-							<s:hidden name="id" value="%{session.session_id}"/>
-							<s:hidden name="type" value="1"/>
-							<tr>
-								<td colspan=2>
-									<p align="center">
-									<table class="table" cellpadding="0" cellspacing="0">
-										<tr height=26 bgcolor="#EEDAFF">
-											<td align=left><input id="checkall_tour" type="checkbox"></td>
-											<td width="15%"><font size="2">사진</font></td>
-											<td width="45%"><font size="2">상품명</font></td>
-											<td width="10%"><font size="2">국가</font></td>
-											<td width="10%"><font size="2">지역</font></td>
-											<td width="10%"><font size="2">가격</font></td>
-
-										</tr>
-										<s:iterator value="otlist" status="stat">
-											<tr>
-												<td align="left">
-													<input type="checkBox" id="checkbox_tour" name="del" value="${seq_no }">
-												</td>
-												<td>
-													<s:if test="image1 != null">
-														<img src="/TMT/images/<s:property value='%{image1}' />">
-													</s:if>
-													<s:else>
-														<img src="/TMT/images/noimage.jpg" width="20" height="20">
-													</s:else>
-												</td>
-												<td><a href="OrderView.action?seq_no=<s:property value='seq_no'/>&id=<s:property value='%{session.session_id}'/>&type=1"/><s:property value="name"/></a></td>
-												<td><s:property value="country" /></td>
-												<td><s:property value="region" /></td>
-												<td><s:property value="price" /></td>
-											</tr>
-										</s:iterator>
-										<s:if test="otlist.size()<=0">
-											<tr align="center">
-												<td colspan="6"><br> <img alt='empty'
-													class='icon1'
-													src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/empty/ic_reservation@2x-8ab77f8ad8f413a06e719279615decc80fecd3deea6ed9c67ad032d95a8069a0.png'
-													width='58px'><br> 아직 준비중인 여행이 없습니다.<br />TMT와 함께
-													즐거운 여행을 떠나보세요.<br>
-												<br></td>
-											</tr>
-										</s:if>
-
-									</table>
-
-
-									<table class="table" border="0" cellspacing="0" cellpadding="0">
-										<tr>
-											<td height="2" bgcolor="#EEDAFF"></td>
-										</tr>
-									</table>
-									<s:if test="otlist.size() > 0">
-										<input type="submit" value="선택삭제">
-									</s:if> <br>
-						</form>
-						<tr align="center">
-							<td colspan="7"><s:property value="pagingHtml2"	escape="false" /></td>
-						</tr>
-
-					</table>
-				</div>
-
-				<div>
-					<h4>AIR</h4>
-					<br> air&nbsp;
-					<s:property value="totalCount3" />
-					개의 상품
-					<table class="table" align="center">
-						<form action="DeleteOrder.action" method="get">
-							<s:hidden name="id" value="%{session.session_id}"/>
-							<s:hidden name="type" value="2"/>
-							<tr>
-								<td colspan=2>
-									<p align="center">
-									<table class="table" cellpadding="0" cellspacing="0">
-										<tr height=26 bgcolor="#EEDAFF">
-											<td align=left><input id="checkall_air" type="checkbox"></td>
-											<td width="15%"><font size="2">사진</font></td>
-											<td width="30%"><font size="2">출발지→도착지</font></td>
-											<td width="15%"><font size="2">항공사</font></td>
-											<td width="10%"><font size="2">가격</font></td>
-											<td width="15%"><font size="2">출발일</font></td>
-											<td width="15%"><font size="2">도착일</font></td>
-
-										</tr>
-										<s:iterator value="oalist" status="stat">
-											<tr>
-												<td align="left">
-													<input type="checkBox" id="checkbox_air" name="del" value="${seq_no }">
-												</td>
-												<td>
-													<s:if test="image1 != null">
-														<span class="ico_airline"><img src="/TMT/upload/air/<s:property value='image1'/>"></span>
-													</s:if>
-													<s:else>
-														<img src="/TMT/images/noimage.jpg">
-													</s:else>
-												</td>
-												<td>
-													<a href="OrderView.action?seq_no=<s:property value='seq_no'/>&id=<s:property value='%{session.session_id}'/>&type=2"/>
+<%-- <a href="OrderView.action?seq_no=<s:property value='seq_no'/>&id=<s:property value='%{session.session_id}'/>&type=2"/>
 														<s:property value="arv"/> → <s:property value="dep"/>
-													</a>
-												</td>
-												<td><s:property value="air_company" /></td>
-												<td><s:property value="price" /></td>
-												<td><s:date name="ad" format="MM-dd HH:mm"/></td>
-												<td><s:date name="dd" format="MM-dd HH:mm"/></td>
-											</tr>
-										</s:iterator>
-										<s:if test="oalist.size()<=0">
-											<tr align="center">
-												<td colspan="4"><br> <img alt='empty'
-													class='icon1'
-													src='https://d2yoing0loi5gh.cloudfront.net/assets/kitty/empty/ic_reservation@2x-8ab77f8ad8f413a06e719279615decc80fecd3deea6ed9c67ad032d95a8069a0.png'
-													width='58px'><br> 아직 준비중인 여행이 없습니다.<br />TMT와 함께
-													즐거운 여행을 떠나보세요.<br>
-												<br></td>
-											</tr>
-										</s:if>
-
-									</table>
-
-
-									<table class="table" border="0" cellspacing="0" cellpadding="0">
-										<tr>
-											<td height="2" bgcolor="#EEDAFF"></td>
-										</tr>
-									</table> 
-									<s:if test="oalist.size() > 0">
-										<input type="submit" value="선택삭제">
-									</s:if> <br>
-						</form>
-						<tr align="center">
-							<td colspan="4"><s:property value="pagingHtml3"
-									escape="false" /></td>
-						</tr>
-
-					</table>
-				</div>
-
-
-			</div>
-		</div>
-	</main>
-
-
+</a> --%>
 </body>
 </html>
