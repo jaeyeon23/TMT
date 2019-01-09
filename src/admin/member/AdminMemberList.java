@@ -54,8 +54,12 @@ public class AdminMemberList extends ActionSupport implements SessionAware {
 					searchch.put("email", a);
 				if(a.equals("passport"))
 					searchch.put("passport", a);
-				
 			}
+			searchch.put("search", search);
+			list = sqlMapper.queryForList("searchMember",searchch);
+		}
+		else if(searchh==null&&search!=null) {
+			searchch.put("name","name");
 			searchch.put("search", search);
 			list = sqlMapper.queryForList("searchMember",searchch);
 		}

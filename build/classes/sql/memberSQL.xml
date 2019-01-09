@@ -100,7 +100,6 @@
 	<!-- 회원검색 -->
 	<select id="searchMember" parameterClass="Map" resultMap="memberRes">
 		select * from member
-		
 		<dynamic  prepend="where">
 			<isNotNull prepend="and" removeFirstPrepend="true" open="(" close=")">
 				<isNotEmpty prepend="or" property="id">
