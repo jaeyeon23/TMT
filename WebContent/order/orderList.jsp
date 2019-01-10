@@ -74,7 +74,7 @@ $(document).ready(function(){
 					 <s:if test="oalist.size()>0">
 					<div id="delete_title_AA">
 					      <input id="checkall_air" type="checkbox">전체선택&nbsp;&nbsp;&nbsp;&nbsp;
-						 <input type="submit" value="선택삭제">
+						 <input type="submit" value="예약취소">
 					</div>	<!-- delete_title 끝 -->
 					</s:if> 
 				<s:iterator value="oalist" status="stat">
@@ -149,7 +149,7 @@ $(document).ready(function(){
 					<s:if test="ohlist.size()>0">
 					<div id="delete_title_HH">
 					      <input id="checkall_hotel" type="checkbox">전체선택&nbsp;&nbsp;&nbsp;&nbsp;
-						 <input type="submit" value="선택삭제">
+						 <input type="submit" value="예약취소">
 					</div>	<!-- delete_title 끝 -->
 					</s:if> 
 					
@@ -205,7 +205,7 @@ $(document).ready(function(){
 					<s:if test="otlist.size()>0">
 					<div id="delete_title_HH">
 					      <input id="checkall_tour" type="checkbox">전체선택&nbsp;&nbsp;&nbsp;&nbsp;
-						 <input type="submit" value="선택삭제">
+						 <input type="submit" value="예약취소">
 					</div>	<!-- delete_title 끝 -->
 					</s:if> 
 					
