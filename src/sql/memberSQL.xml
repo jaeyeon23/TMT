@@ -140,4 +140,8 @@
  	<select id="member_image_select" resultClass="member_image" parameterClass="java.util.Map">
 		select mem_image from member_image where id=#id#  	
  	</select>
+ 	
+ 	<delete id="deleteImage" parameterClass="Map">
+ 		delete member_image where id = #id#
+ 	</delete>
  </sqlMap>

@@ -19,7 +19,7 @@ public class AdminOrderDelete extends ActionSupport implements SessionAware{
 	private int currentPage = 1;
 	private String c;
 	private int seq_no;
-	
+	private int no;
 	
 	public AdminOrderDelete() throws IOException{
 	      reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -30,14 +30,21 @@ public class AdminOrderDelete extends ActionSupport implements SessionAware{
 	@Override
 	public String execute() throws Exception {
 		String cc;
-		if(getC().equals("h"))
+		String ccc;
+		if(getC().equals("h")) {
 			cc = "orderHDelete";
-		else if(getC().equals("a"))
+			ccc = "HHH";
+		}
+		else if(getC().equals("a")) {
 			cc = "orderADelete";
-		else
+			ccc = "AAA";
+		}
+		else {
 			cc = "orderTDelete";
-		
+			ccc = "TTT";
+		}
 		sqlMapper.delete(cc,getSeq_no());
+		sqlMapper.update(ccc,getNo());
 		
 		return SUCCESS;
 	}
@@ -72,6 +79,14 @@ public class AdminOrderDelete extends ActionSupport implements SessionAware{
 
 	public void setSeq_no(int seq_no) {
 		this.seq_no = seq_no;
+	}
+
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
 	}
 
 }

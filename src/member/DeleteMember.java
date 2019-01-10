@@ -41,16 +41,15 @@ public class DeleteMember extends ActionSupport implements SessionAware{
 		paramClass.setId((String) session.get("session_id"));
 		
 		Map map = new HashMap();
+		
 		String idd = paramClass.getId();
 	
 		map.put("id",idd);
-		if(sqlMapper.queryForList("hotelCOne",map)!=null) {
-			
+		if(sqlMapper.queryForList("hotelCOne",map).size()!=0) {
 			map.put("hc",sqlMapper.queryForList("hotelCOne",map));
 			sqlMapper.delete("deleteMemberCH",map);
 		}
-		if(sqlMapper.queryForList("tourCOne",map)!=null) {
-			
+		if(sqlMapper.queryForList("tourCOne",map).size()!=0) {
 			map.put("tc",sqlMapper.queryForList("tourCOne",map));
 			sqlMapper.delete("deleteMemberCT",map);
 		}
@@ -68,14 +67,13 @@ public class DeleteMember extends ActionSupport implements SessionAware{
 		for(int i=0;i<h.size();i++) {
 			sqlMapper.update("HHH",h.get(i));
 		}
-		
+		sqlMapper.delete("deleteImage",map);
 		sqlMapper.delete("deleteMemberH",map);
 		sqlMapper.delete("deleteMemberT",map);
 		sqlMapper.delete("deleteMemberA",map);
 		sqlMapper.delete("deleteMemberBH",map);
 		sqlMapper.delete("deleteMemberBT",map);
 		sqlMapper.delete("deleteMember", paramClass);
-	
 		session.remove("session_id");
 		session.remove("session_admin");
 		
