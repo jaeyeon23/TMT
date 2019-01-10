@@ -7,8 +7,31 @@
 <head>
 <link href="css/mainSearch.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="/TMT/css/mainSearch1.css"/>
+	<style>
+		input[type=text]{
+			border: 2px solid #aaa;
+			border-radius: 4px;
+			margin: 8px	0;
+			outline: none;
+			padding: 10px;
+			box-sizing: border-box;
+			transitio;
+			font-size:20pt;
+		}
+		
+		input[type=text]:focus{
+			border-color: dodgerBlue;
+			box-shadow: 0 0 8px 0 dodgerBlue;
+		}
+	</style>
 </head>
 <body>
+	<center>
+		<form>
+		<br><input type="text" id="mainSearch_searchbox" name="searchbox"
+				value="${param.searchbox }" />
+		</form><br>
+	</center>
 	<s:if test="Tourlist.size() == 0">
 		<div>
 			<div class="resp-container" style="top: 0px; bottom: 0px;">
@@ -21,9 +44,9 @@
 						</div>
 						<div class="SearchHotel-module__button--1zAVc">
 							<a class="SearchHotel-module__link--39zoa"><button
-									type="button" onclick="window.location.href='Tourlist.size()'"
+									type="button" onclick="window.location.href='TourList.action'"
 									class="Button-module__button--227wS Button-module__outline--1gLZe Button-module__small--2gBmw Button-module__block--2YpGM">
-									<span>검색</span>
+									<span>보러가기</span>
 								</button> </a>
 						</div>
 					</div>
@@ -55,7 +78,7 @@
 								<a class="SearchHotel-module__link--39zoa"><button type="button"
 									onclick="window.location.href='TourList.action?tourname=${searchbox}'"
 									class="Button-module__button--227wS Button-module__outline--1gLZe Button-module__small--2gBmw Button-module__block--2YpGM">
-									<span>검색</span>
+									<span>보러가기</span>
 								</button>
 								</a>
 							</div>
@@ -69,7 +92,7 @@
 				<div class="resp-container--row ">
 					<div class="SearchOffers-module__header--oYZz1">
 						<h3 class="SearchOffers-module__title--_wzmp">여행 상품</h3>
-						<span class="SearchOffers-module__count--3mjFQ">검색결과 <s:property
+						<span class="SearchOffers-module__count--3mjFQ">검색 결과 <s:property
 								value="Tourlist.size()" />개
 						</span>
 					</div>
@@ -120,7 +143,7 @@
 									type="button"
 									onclick="window.location.href='HotelList.action'"
 									class="Button-module__button--227wS Button-module__outline--1gLZe Button-module__small--2gBmw Button-module__block--2YpGM">
-									<span>검색</span>
+									<span>보러가기</span>
 								</button> </a>
 						</div>
 					</div>
@@ -153,7 +176,7 @@
 								<a class="SearchHotel-module__link--39zoa"><button type="button"
 									onclick="window.location.href='HotelList.action?num=1&hotelname=${searchbox}'"
 									class="Button-module__button--227wS Button-module__outline--1gLZe Button-module__small--2gBmw Button-module__block--2YpGM">
-									<span>검색</span>
+									<span>보러가기</span>
 								</button>
 								</a>
 							</div>
@@ -167,7 +190,7 @@
 				<div class="resp-container--row ">
 					<div class="SearchOffers-module__header--oYZz1">
 						<h3 class="SearchOffers-module__title--_wzmp">숙소 상품</h3>
-						<span class="SearchOffers-module__count--3mjFQ">검색결과 <s:property
+						<span class="SearchOffers-module__count--3mjFQ">검색 결과 <s:property
 								value="Hotellist.size()" />개
 						</span>
 					</div>
