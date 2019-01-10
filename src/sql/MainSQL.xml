@@ -78,7 +78,7 @@
 					<isNotEmpty>
 						where region like '%'||#searchbox#||'%' or country like '%'||#searchbox#||'%'
 					</isNotEmpty>
-					) <![CDATA[where rownum >= 1]]>) <![CDATA[where r <= 5]]>
+					) <![CDATA[where rownum >= 1]]>) <![CDATA[where r <= 4]]>
 	</select>
 	
 	<select id="search_tour" resultMap="boardtour" parameterClass="java.lang.String">
@@ -89,6 +89,6 @@
 					<isNotEmpty>
 						where region like '%'||#searchbox#||'%' or country like '%'||#searchbox#||'%'
 					</isNotEmpty>
-					) <![CDATA[where rownum >= 1]]>) <![CDATA[where r <= 5]]>
+					) <![CDATA[where rownum >= 1]]>) <![CDATA[where r <= 4]]>
 	</select>
 </sqlMap>
