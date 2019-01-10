@@ -23,7 +23,7 @@ public class AdminHotelDelete extends ActionSupport{
 	private int no;           
 	private int currentPage;	
 	
-	private String fileUploadPath = "C:\\Java\\App\\TMT\\WebContent\\upload\\hotel\\"; 
+	private String fileUploadPath = "C:\\Users\\박재연\\Desktop\\TMT\\TMT\\WebContent\\upload\\hotel\\"; 
 	
 	private List<String> old_image = new ArrayList<String>();
 	private String[] old_content;
