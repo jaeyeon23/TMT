@@ -55,6 +55,11 @@
 			document.HsearchForm.roomnum.focus();
 			return false;
 		}
+		if (document.HsearchForm.inDay.value == document.HsearchForm.outDay.value ) {
+			alert("1박 이상 선택하셔야합니다. 다시선택해주세요.");
+			document.HsearchForm.outDay.focus();
+			return false;
+		}
 	}
 	function checkC(){
 		var f=document.com;
