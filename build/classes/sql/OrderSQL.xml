@@ -7,6 +7,10 @@
 	<typeAlias alias="order_tour" type="order.Order_Tour" />
 	<typeAlias alias="order_air" type="order.Order_Air" />
 	
+	<typeAlias alias="tour" type="item.tour.TourVO" />
+	<typeAlias alias="hotel" type="item.hotel.HotelVO" />
+	<typeAlias alias="air" type="item.air.AirVO" />
+	
 	<resultMap id="order_hotelRes" class="order_hotel">
 		<result property="no" column="no" />
 		<result property="name" column="name" />
@@ -113,6 +117,21 @@
       DELETE FROM order_air WHERE id = #id# and seq_no=#seq_no#
    </delete>
    
+   <!-- 삭제한 예약 내역 좌석 tour 테이블에 update -->
+   	<update id="update_Tour_Order" parameterClass="tour">
+   		update tour set amount = amount + #amount# where no=#no#
+   	</update>
+   	
+   	<!-- 삭제한 예약 내역 좌석 hotel 테이블에 update -->
+   	<update id="update_Hotel_Order" parameterClass="hotel">
+   		update hotel set room = room + #room# where no=#no#
+   	</update>
+   	
+   	<!-- 삭제한 예약 내역 좌석 air 테이블에 update -->
+   	<update id="update_Air_Order" parameterClass="air">
+   		update air set seat = seat + #seat# where no=#no#
+   	</update>
+   
    <select id="order_hotel_view" resultClass="order_hotel" parameterClass="order_hotel">
    		select * FROM order_hotel where id=#id# and seq_no=#seq_no#
    </select>
@@ -124,20 +143,6 @@
    <select id="order_air_view" resultClass="order_air" parameterClass="order_air">
    		select * FROM order_air where id=#id# and seq_no=#seq_no#
    </select>
- <!--   Order_HOTEL 상세보기
-   <select id="selectH_view" resultClass="order_hotel" parameterClass="order_hotel">
-     SELECT id, no, name, price, content,country,region,image1,checkin,checkout,tel,people,room FROM order_hotel WHERE id = #id#
-   </select>
-   
-   Order_Tour 상세보기
-   <select id="selectT_view" resultClass="order_tour" parameterClass="order_tour">
-     SELECT id, no, name, price, content, country, region,image1, amount FROM order_tour WHERE id = #id#
-   </select>
-   
-   Order Air 상세보기
-   <select id="selectA_view" resultClass="order_air" parameterClass="order_air">
-    SELECT id,no,arv,dep,content,price,air_company,people,seat_grade,ad,dd FROM order_air WHERE id = #id#
-   </select> -->
    
    <!-- Order_Hotel 수정 -->
    <update id="update_orderH" parameterClass="order_hotel">
