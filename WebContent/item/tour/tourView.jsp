@@ -36,6 +36,15 @@ $(function()
 			return false;
 		}
 	}
+	
+	
+function check() {
+	if (document.HsearchForm2.amount.value > "<s:property value='%{resultClass.amount}'/>" ) {
+		alert("예약가능한 상품수량을 초과하였습니다. 다시선택해주세요.");
+		document.HsearchForm2.amount.focus();
+		return false;
+	}
+}
 </script>
 <style>
 .sidebar {
@@ -60,6 +69,7 @@ $(function()
 	<div class="resp-container">
 		<div class="resp-container--row ">
 			<div class="OfferDetail">
+			    <s:if test="%{resultClass.amount != 0}">
 				<!-- side -->
 				<div class="sidebar">
 					<div data-margin-top="80" class="offer__side selector" style="">
@@ -76,7 +86,7 @@ $(function()
 										<div class="Popover  right-reverse "></div>
 								</div>
 								<s:if test="%{session.session_id!=null}">
-									<form action="TourCheck.action" id="Hsearch2">
+									<form action="TourCheck.action" id="Hsearch2" name="HsearchForm2"  onsubmit="return check();">
 										<select name="amount" class="form-control">
 											<option value="1">1</option>
 											<option value="2">2</option>
@@ -129,6 +139,7 @@ $(function()
 						</div>
 					</div>
 				</div>
+				</s:if>
 				<!-- /side -->
 				<!-- offer container-->
 				<div class="offer-container">
@@ -142,6 +153,7 @@ $(function()
 										<s:property value="%{resultClass.country}"/> / <s:property value="%{resultClass.region}"/> 
 									</p>
 								</div>
+								<s:if test="%{resultClass.amount != 0}">
 								<div class="starRating starRating--m starRating--blue starRating--">
 								<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path class="starColor" fill="#51ABF3" fill-rule="evenodd" d="M6 9.121L2.292 11 3 7.02 0 4.202l4.146-.581L6 0l1.854 3.621 4.146.58-3 2.82L9.708 11z"></path></svg>
 								</div>
@@ -164,6 +176,7 @@ $(function()
 							</div>
 						</div>
 					</div>
+					</s:if>
 					<!-- /main -->
 				</div>
 				<!-- /offer container-->

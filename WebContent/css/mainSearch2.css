@@ -1,6 +1,6 @@
 @charset "UTF-8";
 	#mainSearch_searchbox{
-		width:70%;
+		width:50%;
 	}
 	
 	#mainSearch_body{
@@ -17,7 +17,7 @@
 	#contents img{
 		border-radius: 15px 15px 0 0;
 		padding: 1px 1px 1px 1px;
-		width:220px; 
+		width:228px; 
 		height:250px;
 	}
 	#contents{

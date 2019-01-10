@@ -7,6 +7,10 @@
 	<typeAlias alias="orderA" type="order.Order_Air" />
 	<typeAlias alias="orderT" type="order.Order_Tour" />
 	
+	<typeAlias alias="tourT" type="item.tour.TourVO" />
+	<typeAlias alias="hotelH" type="item.hotel.HotelVO" />
+	<typeAlias alias="airA" type="item.air.AirVO" />
+	
 	<resultMap id="orderTRes" class="orderT">
 		<result property="no" column="no" />
 		<result property="name" column="name" />
@@ -101,7 +105,7 @@
 		select * from order_tour
 		where id like '%'||#id#||'%'
 	</select> 
-	
+		
 	<select id="orderASearch" resultMap="orderARes" parameterClass="String">
 		select * from order_air
 		where id like '%'||#id#||'%'
@@ -121,5 +125,24 @@
 		delete order_hotel
 		<include refid="orderNo"/>
 	</delete>
-	 
+	 <!-- 회원삭제시 주무내역삭제 -->
+	 <select id="TT" parameterClass="Map" resultClass="orderT">
+		 select amount,no from order_tour where id=#id#
+	 </select>
+	 <select id="AA" parameterClass="Map" resultClass="orderA">
+		 select people,no from order_air where id=#id#
+	 </select>
+	 <select id="HH" parameterClass="Map" resultClass="orderH">
+		 select room,no from order_hotel where id=#id#
+	 </select>
+	 <update id="TTT" parameterClass="orderT">
+	 	update tour set amount = amount+#amount# where no=#no#
+	 </update>
+ 	 <update id="AAA" parameterClass="orderA">
+	 	update air set seat = seat+#people# where no=#no#
+	 </update>
+ 	 <update id="HHH" parameterClass="orderH">
+	 	update hotel set room = room+#room# where no=#no#
+	 </update>
+	 <!-- /회원삭제시 주무내역삭제 -->
 </sqlMap>

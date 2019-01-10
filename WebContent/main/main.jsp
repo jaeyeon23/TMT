@@ -7,7 +7,7 @@
 <head>
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<link rel="stylesheet" href="./css/main/main1.css" />
+<link rel="stylesheet" href="./css/main/main2.css" />
 </head>
 
 <body>
@@ -95,8 +95,8 @@
 					<!-- 왼쪽과 오른쪽 탭에만 필요 -->
 					<ul class="nav nav-tabs">
 						<li class="active"><a href="#tab1" data-toggle="tab">제주도</a></li>
-						<li><a href="#tab2" data-toggle="tab">상하이</a></li>
-						<li><a href="#tab3" data-toggle="tab">워싱턴</a></li>
+						<li><a href="#tab2" data-toggle="tab">오사카</a></li>
+						<li><a href="#tab3" data-toggle="tab">파리</a></li>
 					</ul>
 					<div class="tab-content">
 						<div class="tab-pane active" id="tab1">

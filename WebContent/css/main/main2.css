@@ -64,7 +64,7 @@ input:-ms-input-placeholder {
 #contents img {
 	border-radius: 15px 15px 0 0;
 	padding: 1px 1px 1px 1px;
-	width: 200px;
+	width: 229px;
 	height: 160px;
 }
 
@@ -114,7 +114,7 @@ input:-ms-input-placeholder {
     color: #848c94;
 }
 
-/* Ä³·¯¼¿ ³Ê¶õ Ä£±¸ ³» ¿À·£ ¼÷¿ø */
+/* Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¶ï¿½ Ä£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ */
 .carousel-fade .carousel-inner .item {
     opacity: 0;
     transition-property: opacity;
