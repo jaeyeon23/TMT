@@ -1,5 +1,6 @@
 package member;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.HashMap;
@@ -13,6 +14,8 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
+import item.air.AirVO;
+
 public class DeleteMember extends ActionSupport implements SessionAware{
 	
 	private Reader reader;
@@ -25,6 +28,8 @@ public class DeleteMember extends ActionSupport implements SessionAware{
 
 	private MemberVO paramClass= new MemberVO();
 	private MemberVO resultClass = new MemberVO();
+	private String fileUploadPath = "C:\\Users\\박재연\\Desktop\\TMT\\TMT\\WebContent\\upload\\hotel\\"; 
+	private Member_imageVO image = new Member_imageVO();
 	
 	public DeleteMember() throws IOException {
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -43,8 +48,10 @@ public class DeleteMember extends ActionSupport implements SessionAware{
 		Map map = new HashMap();
 		
 		String idd = paramClass.getId();
-	
+		
 		map.put("id",idd);
+		image = (Member_imageVO)sqlMapper.queryForObject("member_image_select",map);
+		
 		if(sqlMapper.queryForList("hotelCOne",map).size()!=0) {
 			map.put("hc",sqlMapper.queryForList("hotelCOne",map));
 			sqlMapper.delete("deleteMemberCH",map);
@@ -53,7 +60,7 @@ public class DeleteMember extends ActionSupport implements SessionAware{
 			map.put("tc",sqlMapper.queryForList("tourCOne",map));
 			sqlMapper.delete("deleteMemberCT",map);
 		}
-
+		
 		
 		List a = sqlMapper.queryForList("AA",map);
 		List t = sqlMapper.queryForList("TT",map);
@@ -67,7 +74,13 @@ public class DeleteMember extends ActionSupport implements SessionAware{
 		for(int i=0;i<h.size();i++) {
 			sqlMapper.update("HHH",h.get(i));
 		}
+		
+		
+		File deleteFile = new File(fileUploadPath + image.getMem_image());
+		deleteFile.delete();
+		
 		sqlMapper.delete("deleteImage",map);
+		
 		sqlMapper.delete("deleteMemberH",map);
 		sqlMapper.delete("deleteMemberT",map);
 		sqlMapper.delete("deleteMemberA",map);

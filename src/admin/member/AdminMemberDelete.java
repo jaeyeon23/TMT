@@ -1,5 +1,6 @@
 package admin.member;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
 import member.MemberVO;
+import member.Member_imageVO;
 import order.Order_Tour;
 
 public class AdminMemberDelete extends ActionSupport implements SessionAware {
@@ -35,6 +37,9 @@ public class AdminMemberDelete extends ActionSupport implements SessionAware {
 	int[] hc;
 	int[] tc;
 	
+	private String fileUploadPath = "C:\\Users\\박재연\\Desktop\\TMT\\TMT\\WebContent\\upload\\hotel\\"; 
+	private Member_imageVO image = new Member_imageVO();
+	
 	public AdminMemberDelete() throws IOException{
 	      reader = Resources.getResourceAsReader("sqlMapConfig.xml");
 	      sqlMapper = SqlMapClientBuilder.buildSqlMapClient(reader);
@@ -53,6 +58,8 @@ public class AdminMemberDelete extends ActionSupport implements SessionAware {
 		String idd = p.getId();
 	
 		map.put("id",idd);
+		image = (Member_imageVO)sqlMapper.queryForObject("member_image_select",map);
+		
 		if(sqlMapper.queryForList("hotelCOne",map).size()!=0) {
 			map.put("hc",sqlMapper.queryForList("hotelCOne",map));
 			sqlMapper.delete("deleteMemberCH",map);
@@ -75,7 +82,12 @@ public class AdminMemberDelete extends ActionSupport implements SessionAware {
 		for(int i=0;i<h.size();i++) {
 			sqlMapper.update("HHH",h.get(i));
 		}
+		
+		File deleteFile = new File(fileUploadPath + image.getMem_image());
+		deleteFile.delete();
+		
 		sqlMapper.delete("deleteImage",map);
+		
 		sqlMapper.delete("deleteMemberH",map);
 		sqlMapper.delete("deleteMemberT",map);
 		sqlMapper.delete("deleteMemberA",map);
