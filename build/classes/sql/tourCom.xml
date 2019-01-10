@@ -31,7 +31,7 @@
 	</select>
 	
 		<select id="tourCOne" resultClass="int" parameterClass="Map">
-		select min(c_ref) from tourcomment where c_id=#id#
+		select c_ref from tourcomment where c_id=#id#
 	</select>
 	
 	<insert id="insertTourC" parameterClass="tourC">
@@ -64,7 +64,7 @@
 	</delete>
 	
 	<delete id="deleteMemberCT" parameterClass="Map">
-		<![CDATA[delete tourcomment where c_id=#id# and c_ref >= #refT#]]>
+		delete tourcomment where c_ref in <iterate open="(" close=")" property="tc" conjunction=",">#tc[]#</iterate>
 	</delete>
 
 </sqlMap>

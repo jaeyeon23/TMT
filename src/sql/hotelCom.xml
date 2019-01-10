@@ -26,7 +26,7 @@
 	</select>
 	
 	<select id="hotelCOne" resultClass="int" parameterClass="java.util.Map">
-		select min(c_ref) from hotelcomment where c_id=#id#
+		select c_ref from hotelcomment where c_id=#id#
 	</select>
 	
 	<select id="hotelCCount" resultClass="int" parameterClass="int">
@@ -63,7 +63,7 @@
 	</delete>
 	
 	<delete id="deleteMemberCH" parameterClass="Map">
-		<![CDATA[delete hotelcomment where c_id=#id# and c_ref >= #refH#]]>
+		delete hotelcomment where c_ref in <iterate open="(" close=")" property="hc" conjunction=",">#hc[]#</iterate>
 	</delete>
 
 </sqlMap>

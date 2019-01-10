@@ -6,7 +6,7 @@
 <html>
 <head>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<link rel="stylesheet" href="/TMT/item/tour/tt.css" type="text/css">
+<link rel="stylesheet" href="/TMT/item/tour/tt3.css" type="text/css">
 <script>
 	$(function() {
 		$(".subb").hide();
@@ -142,14 +142,11 @@
 								</div>
 							</a>
 						</s:iterator>
-						<center>
-							<s:property value="pagingHtml" escape="false" />
-						</center>
 					</ul>
 
 				</dd>
 			</dl>
-
+			<div id="a"><center><s:property value="pagingHtml" escape="false" /></center></div>
 		</div>
 	</div>
 	

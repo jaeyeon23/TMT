@@ -42,18 +42,19 @@ public class DeleteMember extends ActionSupport implements SessionAware{
 		
 		Map map = new HashMap();
 		String idd = paramClass.getId();
-		
+	
 		map.put("id",idd);
-		if(sqlMapper.queryForObject("hotelCOne",map)!=null) {
-			int tmp1 = (Integer)sqlMapper.queryForObject("hotelCOne",map);
-			map.put("refH",tmp1);
+		if(sqlMapper.queryForList("hotelCOne",map)!=null) {
+			
+			map.put("hc",sqlMapper.queryForList("hotelCOne",map));
 			sqlMapper.delete("deleteMemberCH",map);
 		}
-		if(sqlMapper.queryForObject("tourCOne",map)!=null) {
-			int tmp2 = (Integer)sqlMapper.queryForObject("tourCOne",map);
-			map.put("refT",tmp2);
+		if(sqlMapper.queryForList("tourCOne",map)!=null) {
+			
+			map.put("tc",sqlMapper.queryForList("tourCOne",map));
 			sqlMapper.delete("deleteMemberCT",map);
 		}
+
 		
 		List a = sqlMapper.queryForList("AA",map);
 		List t = sqlMapper.queryForList("TT",map);
