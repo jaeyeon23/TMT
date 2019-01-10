@@ -43,7 +43,7 @@ public class AdminTourModify extends ActionSupport implements SessionAware {
 	private List<File> uploads = new ArrayList<File>();
 	private List<String> uploadsFileName = new ArrayList<String>();
 	private List<String> uploadsContentType = new ArrayList<String>();
-	private String fileUploadPath = "C:\\인영\\java\\TMT\\WebContent\\upload\\tour\\";
+	private String fileUploadPath = "C:\\Users\\박재연\\Desktop\\TMT\\TMT\\WebContent\\upload\\tour\\";
 	//		"C:\\Java\\App\\TMT\\WebContent\\upload\\tour\\"; 
 	
 	private List<String> old_image = new ArrayList<String>();

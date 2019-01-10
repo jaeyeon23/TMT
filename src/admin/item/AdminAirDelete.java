@@ -22,7 +22,7 @@ public class AdminAirDelete extends ActionSupport {
 	private int no;           
 	private int currentPage;	
 	
-	private String fileUploadPath = "C:\\Java\\App\\TMT\\WebContent\\upload\\air\\"; 
+	private String fileUploadPath = "C:\\Users\\박재연\\Desktop\\TMT\\TMT\\WebContent\\upload\\air\\"; 
 	
 	private String uri;
 	
