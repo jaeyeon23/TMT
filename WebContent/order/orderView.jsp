@@ -112,7 +112,7 @@ th {
 				</div>
 				<div id="AB_AA2" style="font-size:20px; text-align: right;">
 					<s:property value="%{oa.people}" /> 개<br>
-					<s:if test="%{oa.seat_grade } == 0">
+					<s:if test="%{oa.seat_grade == 0}">
 					일반
 					</s:if>
 					<s:else>

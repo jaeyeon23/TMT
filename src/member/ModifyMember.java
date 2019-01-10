@@ -39,12 +39,10 @@ public class ModifyMember extends ActionSupport implements SessionAware{
 	private Map session;
 	private Map imageClass = new HashMap<>();;
 
-	/*test*/
 	private File upload;
 	private String uploadFileName; 
 	private String uploadContentType;
 	private String fileUploadPath = "C:\\Users\\박재연\\Desktop\\TMT\\TMT\\WebContent\\upload\\mem_image\\"; 
-	/*text end*/
 	
 	private StringBuffer image;
 	

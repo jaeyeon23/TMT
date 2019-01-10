@@ -61,7 +61,6 @@ public class AirList extends ActionSupport implements SessionAware{
 	private String air_company_asia;		//아시아나
 	private String air_company_jin;		//진에어
 	
-	private int max_price; 
 	private Map map = new HashMap<>();
 	
 	public AirList() throws IOException{
@@ -90,31 +89,9 @@ public class AirList extends ActionSupport implements SessionAware{
 			avo.setSeat(getSeat());
 			avo.setSeat_grade(getSeat_grade());
 			
-			max_price = (int) sqlMapper.queryForObject("listAir_max_price", avo);
-			
-		/*	if(air_array == null) {
-				if(ckAD_1 == null && ckAD_2 == null && ckAD_3 == null && ckAD_4 == null
-						&& ckDD_1 == null && ckDD_2 == null && ckDD_3 == null && ckDD_4 == null
-						&& air_company_asia == null && air_company_korea == null && air_company_jin == null) {
-					Airlist = sqlMapper.queryForList("listAir", avo);
-				}else {
-					makeSearch();
-				}
-				
-			}else{
-				if(getAir_array().equals("1")) {
-					Airlist = sqlMapper.queryForList("listAir_lowprice", avo);
-				}else if(getAir_array().equals("2")) {
-					Airlist = sqlMapper.queryForList("listAir_ad_time", avo);
-				}else if(getAir_array().equals("3")) {
-					Airlist = sqlMapper.queryForList("listAir_dd_time", avo);
-				}
-			}
-			*/
-			
 			if(ckAD_1 == null && ckAD_2 == null && ckAD_3 == null && ckAD_4 == null
 					&& ckDD_1 == null && ckDD_2 == null && ckDD_3 == null && ckDD_4 == null
-					&& air_company_asia == null && air_company_korea == null && air_company_jin == null && price == 0) {
+					&& air_company_asia == null && air_company_korea == null && air_company_jin == null) {
 				
 				if(getAir_array().equals("1")) {
 					Airlist = sqlMapper.queryForList("listAir_lowprice", avo);
@@ -142,7 +119,6 @@ public class AirList extends ActionSupport implements SessionAware{
 		map.put("seat", getSeat());
 		map.put("seat_grade", getSeat_grade());
 		map.put("air_array", air_array);
-		map.put("price", price);
 		
 		/*출발시간*/
 		if(ckAD_1 != null && ckAD_1.equals("06")) {
@@ -409,13 +385,5 @@ public class AirList extends ActionSupport implements SessionAware{
 
 	public Map getSession() {
 		return session;
-	}
-
-	public int getMax_price() {
-		return max_price;
-	}
-
-	public void setMax_price(int max_price) {
-		this.max_price = max_price;
 	}
 }
