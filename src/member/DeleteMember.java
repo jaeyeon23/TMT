@@ -3,6 +3,7 @@ package member;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -43,20 +44,36 @@ public class DeleteMember extends ActionSupport implements SessionAware{
 		String idd = paramClass.getId();
 		
 		map.put("id",idd);
+		if(sqlMapper.queryForObject("hotelCOne",map)!=null) {
+			int tmp1 = (Integer)sqlMapper.queryForObject("hotelCOne",map);
+			map.put("refH",tmp1);
+			sqlMapper.delete("deleteMemberCH",map);
+		}
+		if(sqlMapper.queryForObject("tourCOne",map)!=null) {
+			int tmp2 = (Integer)sqlMapper.queryForObject("tourCOne",map);
+			map.put("refT",tmp2);
+			sqlMapper.delete("deleteMemberCT",map);
+		}
 		
-		int tmp1 = (Integer)sqlMapper.queryForObject("hotelCOne",map);
-		int tmp2 = (Integer)sqlMapper.queryForObject("tourCOne",map);
+		List a = sqlMapper.queryForList("AA",map);
+		List t = sqlMapper.queryForList("TT",map);
+		List h = sqlMapper.queryForList("HH",map);
+		for(int i=0;i<a.size();i++) {
+			sqlMapper.update("AAA",a.get(i));
+		}
+		for(int i=0;i<t.size();i++) {
+			sqlMapper.update("TTT",t.get(i));
+		}
+		for(int i=0;i<h.size();i++) {
+			sqlMapper.update("HHH",h.get(i));
+		}
 		
-		map.put("refH",tmp1);
-		map.put("refT",tmp2);
-		sqlMapper.delete("deleteMember", paramClass);
 		sqlMapper.delete("deleteMemberH",map);
 		sqlMapper.delete("deleteMemberT",map);
 		sqlMapper.delete("deleteMemberA",map);
 		sqlMapper.delete("deleteMemberBH",map);
 		sqlMapper.delete("deleteMemberBT",map);
-		sqlMapper.delete("deleteMemberCH",map);
-		sqlMapper.delete("deleteMemberCT",map);
+		sqlMapper.delete("deleteMember", paramClass);
 	
 		session.remove("session_id");
 		session.remove("session_admin");
