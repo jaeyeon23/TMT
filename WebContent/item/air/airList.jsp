@@ -479,7 +479,7 @@
 		<form name="frm">
 			<s:if test="arv != null">
 				<select name="air_array" class="form-control" onchange="sort()">
-					<s:if test="air_array == 1 || air_array == null">
+					<s:if test="air_array == 2 || air_array == null">
 						<option value="1" selected>가격 낮은 순</option>	
 						<option value="2">가는 날 출발시간 빠른 순</option>
 						<option value="3">가는 날 도착시간 빠른 순</option>
