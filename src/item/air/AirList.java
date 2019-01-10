@@ -114,7 +114,7 @@ public class AirList extends ActionSupport implements SessionAware{
 			
 			if(ckAD_1 == null && ckAD_2 == null && ckAD_3 == null && ckAD_4 == null
 					&& ckDD_1 == null && ckDD_2 == null && ckDD_3 == null && ckDD_4 == null
-					&& air_company_asia == null && air_company_korea == null && air_company_jin == null) {
+					&& air_company_asia == null && air_company_korea == null && air_company_jin == null && price == 0) {
 				
 				if(getAir_array().equals("1")) {
 					Airlist = sqlMapper.queryForList("listAir_lowprice", avo);

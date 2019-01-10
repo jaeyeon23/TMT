@@ -80,6 +80,8 @@ $(document).ready(function(){
 				<s:iterator value="oalist" status="stat">
 			        <div id="check_ari">
 			        <input type="checkBox" id="checkbox_air" name="del" value="${seq_no }">
+			        <s:hidden name="arr_no" value="%{no}"/>
+			        <s:hidden name="arr_seat" value="%{people}"/>
 			        </div>
      	     		<div id="air_content_N">
      	                <div id="image_AA">
@@ -157,6 +159,8 @@ $(document).ready(function(){
 					<s:iterator value="ohlist" status="stat">
 			        <div id="check_hotel">
 			        	<input type="checkBox" id="checkbox_hotel" name="del" value="${seq_no }">
+			        	<s:hidden name="arr_no" value="%{no}"/>
+			        	<s:hidden name="arr_room" value="%{room}"/>
 			        </div>
      	     		<div id="hotel_content_N">
      	                <div id="image_HH">
@@ -212,6 +216,8 @@ $(document).ready(function(){
 					<s:iterator value="otlist" status="stat">
 			        <div id="check_hotel">
 			        	<input type="checkBox" id="checkbox_tour" name="del" value="${seq_no }">
+			        	<s:hidden name="arr_no" value="%{no}"/>
+			        	<s:hidden name="arr_amount" value="%{amount}"/>
 			        </div>
      	     		<div id="hotel_content_N">
      	                <div id="image_HH">
