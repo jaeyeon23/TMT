@@ -39,37 +39,19 @@
 			     <hr>
 				<div><a href="TourList.action" class="on"><font color="#1b5ac2"><b>전체</b></font></a></div>
 				<hr>
-				<div class="sideMenu"><b>한국</b></div>
+				<!-- 카테고리 -->
+				<s:iterator value="counList" status="a">
+				<div class="sideMenu"><b><s:property value="%{counList[#a.index].country}"/></b></div>
 				<ul class="subb">
-					<li><a href="TourList.action?tourname=제주도" class="on">제주도</a></li>
+					<s:iterator value="regionList" status="b">
+						<s:if test="%{counList[#a.index].country == country}"> 
+						<li><a href="TourList.action?tourname=<s:property value="%{region}"/>" class="on"><s:property value="%{regionList[#b.index].region}"/></a></li>
+						</s:if>
+					</s:iterator>
 				</ul>
 				<hr>
-				<div class="sideMenu"><b>일본</b></div>
-				<ul class="subb">
-					<li><a href="TourList.action?tourname=오사카" class="on">오사카</a></li>
-					<li><a href="TourList.action?tourname=교토" class="on">교토</a></li>
-				</ul>
-				<hr>
-				<div class="sideMenu"><b>미국</b></div>
-				<ul class="subb">
-					<li><a href="TourList.action?tourname=뉴욕" class="on">뉴욕</a></li>
-				</ul>
-				<hr>
-				<div class="sideMenu"><b>프랑스</b></div>
-				<ul class="subb">
-					<li><a href="TourList.action?tourname=파리" class="on">파리</a></li>
-				</ul>
-				<hr>
-				<div class="sideMenu"><b>스페인</b></div>
-				<ul class="subb">
-					<li><a href="TourList.action?tourname=세비야" class="on">세비야</a></li>
-				</ul>
-				<hr>
-				<div class="sideMenu"><b>쿠바</b></div>
-				<ul class="subb">
-					<li><a href="TourList.action?tourname=아바나" class="on">아바나</a></li>
-				</ul>
-				<hr>
+				</s:iterator>
+				<!-- /카테고리 -->
 			</div>
 		</div>
 		<div id=tourList>

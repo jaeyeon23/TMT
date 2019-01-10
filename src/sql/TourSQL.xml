@@ -102,4 +102,13 @@
 			</isNotNull>
 			) where rownum <![CDATA[>=1]]>) where r <![CDATA[<=5]]>
 	</select>
+	
+	<select id="country" resultClass="tour">
+		select distinct(country) from tour order by country asc 
+	</select>
+	
+	<select id="region" resultClass="tour">
+		select distinct(region),country from tour order by country asc 
+	</select> 
+	
 </sqlMap>

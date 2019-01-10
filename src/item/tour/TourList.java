@@ -34,6 +34,10 @@ public class TourList extends ActionSupport implements SessionAware{
 	
 	private int num = 0;
 	private Map map = new HashMap<>();
+	
+	
+	private List counList = new ArrayList();
+	private List regionList = new ArrayList();
 
 	// 생성자
 	public TourList() throws IOException {
@@ -66,6 +70,11 @@ public class TourList extends ActionSupport implements SessionAware{
 		// 전체 리스트에서 현재 페이지만큼의 리스트만 가져온다..
 		Tourlist = Tourlist.subList(page.getStartCount(), lastCount);
 		
+		
+		counList = sqlMapper.queryForList("country");
+		regionList = sqlMapper.queryForList("region");
+		
+		
 		return SUCCESS;
 	}
 	
@@ -85,6 +94,9 @@ public class TourList extends ActionSupport implements SessionAware{
 		map.put("tourname", getTourname());
 		Tourlist = sqlMapper.queryForList("Search_Tour", map);
 		}
+		
+		
+		
 		
 		totalCount = Tourlist.size(); // 전체 글의 개수
 
@@ -184,21 +196,20 @@ public class TourList extends ActionSupport implements SessionAware{
 		this.num = num;
 	}
 
+	public List getCounList() {
+		return counList;
+	}
+
+	public void setCounList(List counList) {
+		this.counList = counList;
+	}
+
+	public List getRegionList() {
+		return regionList;
+	}
+
+	public void setRegionList(List regionList) {
+		this.regionList = regionList;
+	}
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
