@@ -88,10 +88,12 @@
 			dateFormat : "yy-mm-dd", // 날짜의 형식
 			changeMonth : true, // 월을 이동하기 위한 선택상자 표시여부
 			minDate: "<s:property value='%{resultClass.checkin}'/>",    // 선택할수있는 최소날짜,
+			maxDate:"<s:property value='%{resultClass.checkout}'/>",
 			onClose : function(selectedDate) {
 				// 시작일(fromDate) datepicker가 닫힐때
 				// 종료일(toDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
 				$("#outDay").datepicker("option", "minDate", selectedDate);
+				$("#outDay").datepicker("option", "maxDate", "<s:property value='%{resultClass.checkout}'/>");
 			}
 		});
 
@@ -198,8 +200,7 @@ img.ui-datepicker-trigger {
 							   	 <b>&nbsp;&nbsp;체크인</b><br>
 								 <input type="text" size="23" name="inDay" id="inDay" readonly placeholder="체크인"><br>
 								<b>&nbsp;&nbsp;체크아웃</b><br>
-								<input type="text" size="23" name="outDay" id="outDay" readonly
-									placeholder="체크아웃"> <br>
+								<input type="text" size="23" name="outDay" id="outDay" readonly	placeholder="체크아웃"> <br>
 								<b>&nbsp;&nbsp;인원 및 객실</b><br>
 								<select name="number" class="form-control">
 								<option value="1">1명</option>
