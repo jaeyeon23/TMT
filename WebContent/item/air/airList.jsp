@@ -10,12 +10,6 @@
 	<link href="./css/airList.css" rel="stylesheet" type="text/css">
 
 	<script type="text/javascript">
-		/* 가격 범위 
-		function price_change(){
-			var price_range = document.getElementById("price_range").value;
-			document.getElementById("price_text").innerHTML = "￦" + price_range;
-		} */
-		
 		/* 정렬 */
 		function sort() {
 			document.frm.submit();
@@ -466,7 +460,7 @@
 						<option value="0">일반</option>	
 						<option value="1">비즈니스</option>
 					</select>
-					<s:hidden name="air_array" value="1"/>
+					<s:hidden name="air_array" value="2"/>
 					<input type="submit" class="btn btn-primary" value="검색">
 				<!-- </div> -->
 			</form>

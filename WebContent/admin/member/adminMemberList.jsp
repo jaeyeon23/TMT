@@ -73,7 +73,6 @@
 	<div id="search" align="center">
 		<form name="d">
 			아이디<input type="checkbox" name="searchh" value="id">
-			이름<input type="checkbox" name="searchh" value="name">&nbsp;
 			이메일<input type="checkbox" name="searchh" value="email">&nbsp;
 			여권번호<input type="checkbox" name="searchh" value="passport">&nbsp;
 			<input type="text" name="search">
