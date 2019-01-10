@@ -39,7 +39,7 @@ $(function()
 	
 	
 function check() {
-	if (document.HsearchForm2.amount.value > "<s:property value='%{resultClass.amount}'/>" ) {
+	if (document.HsearchForm2.amount.value > <s:property value="%{resultClass.amount}"/> ) {
 		alert("예약가능한 상품수량을 초과하였습니다. 다시선택해주세요.");
 		document.HsearchForm2.amount.focus();
 		return false;
@@ -97,7 +97,7 @@ function check() {
 											<option value="7">7</option>
 											<option value="8">8</option>
 											<option value="9">9</option>
-											<option value="9">10</option>
+											<option value="10">10</option>
 										</select>
 										<s:hidden name="no" value="%{resultClass.no}" />
 										<s:hidden name="name" value="%{resultClass.name}" />
