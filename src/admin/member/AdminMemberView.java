@@ -2,6 +2,7 @@ package admin.member;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -12,6 +13,7 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
 import member.MemberVO;
+import member.Member_imageVO;
 
 public class AdminMemberView extends ActionSupport implements SessionAware {
 	public static Reader reader;
@@ -20,10 +22,13 @@ public class AdminMemberView extends ActionSupport implements SessionAware {
 	
 	private MemberVO paramClass;
 	private MemberVO resultClass;
+	private Member_imageVO resultImage = new Member_imageVO();
 	
 	private int currentPage;
 	
 	private String id;
+	
+	private Map imageClass = new HashMap<>();;
 	
 	public AdminMemberView() throws IOException{
 		reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -36,6 +41,9 @@ public class AdminMemberView extends ActionSupport implements SessionAware {
 		paramClass.setId(getId());
 		resultClass = (MemberVO)sqlMapper.queryForObject("selectOne",paramClass);
 	
+		imageClass.put("id", id);
+		
+		resultImage = (Member_imageVO)sqlMapper.queryForObject("member_image_select", imageClass);
 		
 		return SUCCESS;
 	}
@@ -71,6 +79,18 @@ public Map getSession() {
 
 public void setSession(Map session) {
 	this.session = session;
+}
+public Member_imageVO getResultImage() {
+	return resultImage;
+}
+public void setResultImage(Member_imageVO resultImage) {
+	this.resultImage = resultImage;
+}
+public Map getImageClass() {
+	return imageClass;
+}
+public void setImageClass(Map imageClass) {
+	this.imageClass = imageClass;
 }
 
 }

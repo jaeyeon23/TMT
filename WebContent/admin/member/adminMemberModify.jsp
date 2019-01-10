@@ -5,9 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="../css/bootstrap.css" rel="stylesheet">
-<link href="../css/bootstrap-theme.css" rel="stylesheet">
-<script src="../js/bootstrap.js" type="text/javascript"></script>
 <link rel="stylesheet" href="/TMT/css/member/myPage.css"/>
 <script>
 function modifyCheck() {
@@ -57,46 +54,16 @@ function check(){
 		<div class="sidebar-wrapper">
 			<div class="profile-container box">
 				<div class="profile">
-					<img alt="여행자 사진" class="img-circle" src="https://d2ur7st6jjikze.cloudfront.net/profile_images/1387626/1387626_medium_1541323024.png?1541323024" width="80">
-				</div>
-				<div class="text-md setting hide-on-mobile">
-					<img alt="프로필 관리" class="icon item-inline" height="11px" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/traveler/reservation/ic_setting@2x-832c08d9d38f208502f94e8d35e78a320024fc5f61630f2eba7801845e1eda78.png" width="11px">
+					<s:if test="%{resultImage.mem_image == null}">
+						<img alt="여행자 사진" class="img-circle" src="https://d2ur7st6jjikze.cloudfront.net/profile_images/1387626/1387626_medium_1541323024.png?1541323024" width="80">
+					</s:if>
+					<s:else>
+						<img alt="여행자 사진" class="img-circle" src="/TMT/upload/mem_image/<s:property value='%{resultImage.mem_image}' />" width="80">
+					</s:else>
 				</div>
 				<br><br>
 				<div class="username">
 					<h4><s:property value="%{id}"/>&nbsp;&nbsp;회원님</h4>
-				</div>
-			</div>
-			<div class="promotion-container box clearfix">
-				<div class="item">
-					<div class="item-header text-md">
-						예약내역
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="AdminOrderList.action?c=t&search=<s:property value="%{id}"/>">
-								투어
-							<img class="arrow" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/ic-arrow-right-xs@2x-b290f6804f2f002ced664adc4c5e63a59629269d2e6657184239261195f22147.png" width="16">
-						</a>
-					</div>
-					<div class="item-header text-md">
-						
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="AdminOrderList.action?c=a&search=<s:property value="%{id}"/>">
-								항공
-							<img class="arrow" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/ic-arrow-right-xs@2x-b290f6804f2f002ced664adc4c5e63a59629269d2e6657184239261195f22147.png" width="16">
-						</a>
-					</div>
-					<div class="item-header text-md">
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="AdminOrderList.action?c=h&search=<s:property value="%{id}"/>">
-								호텔
-							<img class="arrow" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/ic-arrow-right-xs@2x-b290f6804f2f002ced664adc4c5e63a59629269d2e6657184239261195f22147.png" width="16">
-						</a>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -151,14 +118,6 @@ function check(){
 							type="text" value="<s:property value="%{resultClass.passport}"/>">
 					</div>
 				</div>
-				<div class="form-group">
-					<div class="title text-middle">마켓팅 수신동의</div>
-						<div class="input-wrapper text-middle">
-							<input type="radio" name="marketing1" id="inlineRadio1" value="true"> 수신 
-								<input type="radio" name="marketing1" id="inlineRadio2" value="false"> 수신안함 
-						</div>
-				</div>
-
 	<br>
 		<div class="form-btn-wrap">
 			<div class="form-btn-container clearfix">
