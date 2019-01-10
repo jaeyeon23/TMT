@@ -2,7 +2,9 @@ package admin.member;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -13,6 +15,7 @@ import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
 import member.MemberVO;
+import order.Order_Tour;
 
 public class AdminMemberDelete extends ActionSupport implements SessionAware {
 	public static Reader reader;
@@ -26,6 +29,9 @@ public class AdminMemberDelete extends ActionSupport implements SessionAware {
 	private StringBuffer sb = new StringBuffer();
 	private String param;
 	private MemberVO p = new MemberVO();
+	private List t = new ArrayList();
+	private List h = new ArrayList();
+	private List a = new ArrayList();
 	
 	public AdminMemberDelete() throws IOException{
 	      reader = Resources.getResourceAsReader("sqlMapConfig.xml");
@@ -51,6 +57,12 @@ public class AdminMemberDelete extends ActionSupport implements SessionAware {
 		
 		map.put("refH",tmp1);
 		map.put("refT",tmp2);
+		List a = sqlMapper.queryForList("AA",map);
+		List t = sqlMapper.queryForList("TT",map);
+		List h = sqlMapper.queryForList("HH",map);
+
+		
+		
 		sqlMapper.delete("deleteMember", p);
 		sqlMapper.delete("deleteMemberH",map);
 		sqlMapper.delete("deleteMemberT",map);

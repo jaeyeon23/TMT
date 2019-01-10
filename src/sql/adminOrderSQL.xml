@@ -122,4 +122,14 @@
 		<include refid="orderNo"/>
 	</delete>
 	 
+	 <select id="TT" parameterClass="Map" resultClass="orderT">
+		 select amount,no from order_tour where id=#id#
+	 </select>
+	 <select id="AA" parameterClass="Map" resultClass="orderT">
+		 select people,no from order_air where id=#id#
+	 </select>
+	 <select id="HH" parameterClass="Map" resultClass="orderT">
+		 select room,no from order_hotel where id=#id#
+	 </select>
+	 
 </sqlMap>
