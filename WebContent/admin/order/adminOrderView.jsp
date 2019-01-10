@@ -153,6 +153,9 @@
 				<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
 				<input type="hidden" name="c" value="<s:property value="c"/>">
 				<input type="hidden" name="no" value="<s:property value="%{resultOrder.no}"/>">
+				<input type="hidden" name="people" value="<s:property value="%{resultOrder.people}"/>">
+				<input type="hidden" name="room" value="<s:property value="%{resultOrder.room}"/>">
+				<input type="hidden" name="amount" value="<s:property value="%{resultOrder.amount}"/>">
 				
 			</form>
 		</td>

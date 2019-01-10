@@ -135,6 +135,7 @@
 	 <select id="HH" parameterClass="Map" resultClass="orderH">
 		 select room,no from order_hotel where id=#id#
 	 </select>
+	 
 	 <update id="TTT" parameterClass="orderT">
 	 	update tour set amount = amount+#amount# where no=#no#
 	 </update>
@@ -144,5 +145,7 @@
  	 <update id="HHH" parameterClass="orderH">
 	 	update hotel set room = room+#room# where no=#no#
 	 </update>
+	 
+	
 	 <!-- /회원삭제시 주무내역삭제 -->
 </sqlMap>
