@@ -61,6 +61,7 @@ public class AirList extends ActionSupport implements SessionAware{
 	private String air_company_asia;		//아시아나
 	private String air_company_jin;		//진에어
 	
+	private int max_price; 
 	private Map map = new HashMap<>();
 	
 	public AirList() throws IOException{
@@ -89,7 +90,7 @@ public class AirList extends ActionSupport implements SessionAware{
 			avo.setSeat(getSeat());
 			avo.setSeat_grade(getSeat_grade());
 			
-			
+			max_price = (int) sqlMapper.queryForObject("listAir_max_price", avo);
 			
 		/*	if(air_array == null) {
 				if(ckAD_1 == null && ckAD_2 == null && ckAD_3 == null && ckAD_4 == null
@@ -141,6 +142,7 @@ public class AirList extends ActionSupport implements SessionAware{
 		map.put("seat", getSeat());
 		map.put("seat_grade", getSeat_grade());
 		map.put("air_array", air_array);
+		map.put("price", price);
 		
 		/*출발시간*/
 		if(ckAD_1 != null && ckAD_1.equals("06")) {
@@ -182,6 +184,7 @@ public class AirList extends ActionSupport implements SessionAware{
 		}
 		
 		Airlist = sqlMapper.queryForList("listAir_search", map);
+		
 	}
 	
 	public int getNo() {
@@ -406,5 +409,13 @@ public class AirList extends ActionSupport implements SessionAware{
 
 	public Map getSession() {
 		return session;
+	}
+
+	public int getMax_price() {
+		return max_price;
+	}
+
+	public void setMax_price(int max_price) {
+		this.max_price = max_price;
 	}
 }
