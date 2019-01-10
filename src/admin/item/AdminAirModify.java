@@ -47,7 +47,7 @@ public class AdminAirModify extends ActionSupport implements SessionAware {
 	private File upload ;
 	private String uploadFileName; 
 	private String uploadContentType ;
-	private String fileUploadPath = "C:\\Java\\App\\TMT\\WebContent\\upload\\air\\"; 
+	private String fileUploadPath = "C:\\Users\\박재연\\Desktop\\TMT\\TMT\\WebContent\\upload\\air\\"; 
 	
 	private String uri;
 	
