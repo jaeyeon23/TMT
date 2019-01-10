@@ -78,28 +78,28 @@
 							<b>&nbsp;&nbsp;&nbsp;한국</b>
 						</div>
 						<ul class="subb">
-							<li><a href="AdminHotelList.action?num=1&hotelname=제주도">제주도</a></li>
-						</ul>
-						<hr>
-						<div class="sideMenu">
-							<b>중국</b>
-						</div>
-						<ul class="subb">
-							<li><a href="AdminHotelList.action?num=1&hotelname=상하이" class="on">상하이</a></li>
-						</ul>
-						<hr>
-						<div class="sideMenu">
-							<b>미국</b>
-						</div>
-						<ul class="subb">
-							<li><a href="AdminHotelList.action?num=1&hotelname=하노이" class="on">하노이</a></li>
+							<li><a href="HotelList.action?num=1&hotelname=제주도">제주도</a></li>
 						</ul>
 						<hr>
 						<div class="sideMenu">
 							<b>일본</b>
 						</div>
 						<ul class="subb">
-							<li><a href="AdminHotelList.action?num=1&hotelname=오사카">오사카</a></li>
+							<li><a href="HotelList.action?num=1&hotelname=오사카" class="on">오사카</a></li>
+						</ul>
+						<hr>
+						<div class="sideMenu">
+							<b>영국</b>
+						</div>
+						<ul class="subb">
+							<li><a href="HotelList.action?num=1&hotelname=런던" class="on">런던</a></li>
+						</ul>
+						<hr>
+						<div class="sideMenu">
+							<b>프랑스</b>
+						</div>
+						<ul class="subb">
+							<li><a href="HotelList.action?num=1&hotelname=파리">파리</a></li>
 						</ul>
 						<hr>
                     </div>
@@ -114,8 +114,6 @@
 		     	   <a href="AdminHotelList.action?num=2&hotelname=<s:property value="%{hotelname}" />&inDay=<s:property value="%{inDay}" />&outDay=<s:property value="%{outDay}" />&number=<s:property value="%{number}" />&roomnum=<s:property value="%{roomnum}" /> ">인기순</a>
 		     	   &nbsp; |&nbsp; 
 		     	   <a href="AdminHotelList.action?num=3&hotelname=<s:property value="%{hotelname}" />&inDay=<s:property value="%{inDay}"/>&outDay=<s:property value="%{outDay}" />&number=<s:property value="%{number}" />&roomnum=<s:property value="%{roomnum}" /> "> 가격 낮은순</a>
-		     	   &nbsp; | &nbsp;
-		     	   <a href="AdminHotelList.action?num=4&hotelname=<s:property value="%{hotelname}" />&inDay=<s:property value="%{inDay}" />&outDay=<s:property value="%{outDay}" />&number=<s:property value="%{number}" />&roomnum=<s:property value="%{roomnum}" /> ">별점순</a>
 		     	    &nbsp; | &nbsp;
 		     	   <a href="AdminHotelWriteForm.action">등록</a></font>
 		        </div>
