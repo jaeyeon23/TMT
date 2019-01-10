@@ -14,6 +14,14 @@
     text-align: right;
 }
 </style>
+<script>
+function check() {
+	if(!$("#a1").prop("checked")){
+		alert("약관에 동의해주세요.");
+		return false;
+	}
+}
+</script>
 </head>
 <body>
 <div id="alls">
@@ -124,7 +132,7 @@
 			<div id="min_s">
 			<center>
 			<button type="button" onclick="location.href='javascript:history.go(-1)'" ><b>취소하기</b></button>
-			<form action="HotelSuccess.action">
+			<form action="HotelSuccess.action" onsubmit="return check();">
 			<s:hidden name="no" value="%{no}" />  <!-- 상품번호  -->
 			<s:hidden name="name" value="%{name}" />  <!-- 상품명 -->
 			<s:hidden name="price" value="%{price*day_s}" />  <!-- 가격 -->

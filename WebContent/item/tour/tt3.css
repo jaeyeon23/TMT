@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+#gogo{
+	float: right;
+	margin-right: 4%;
+}
 #tuor_body{ /* 투어 바디 전체 */
    width: 1400px;
    background-color:#D5D5D5;
@@ -35,21 +39,27 @@ div.sideMenu:hover {
 .subb li a:hover {
 	color: #1b5ac2
 }
+#a{
+	width:100%;
+	float:right;
+	margin-bottom: 100px;
+}
 
 #tourList{   /* 리스트 전체 박스 */
    float: right;
    width:75%;
    background-color: white;
    margin: 20px 12px;
+   
 }
 #contentT{
 	background-color: white;
  	margin: 0 12px;
 }
-#contents img{
+#imageT img{
 	border-radius: 15px 15px 0 0;
 	padding: 1px 1px 1px 1px;
-	width:290px; 
+	width:293.5px; 
 	height:250px;
 }
 #contents{

@@ -6,7 +6,7 @@
 <html>
 <head>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<link rel="stylesheet"  href="item/tour/tt2.css"  type="text/css">
+<link rel="stylesheet"  href="item/tour/tt3.css"  type="text/css">
 <script>
 	$(function() {
 		$(".subb").hide();
@@ -114,13 +114,23 @@
 											<img src="/TMT/images/noimage.jpg">
 										</s:else>
 									</div>
-									<div id="contentT" style="" >
-										<h4>
-											
-											<s:property value="name" />
-										</h4>
-										<font color="orange" size="5"><b><s:property
+									<div id="contentT">
+									    <s:if test="amount == 0">
+									        <br>
+						    				<img src="/TMT/images/watch.png" width="20" height="20"><font color="#e30413"> &nbsp;<b>sorry! 상품이 모두 예약되었습니다.</b></font><br>
+						    				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>다른 상품을 이용해주세요.</b>
+						    				<br><br>
+						    				<div id="gogo">
+						    				<font color="#1b5ac2"><b>상품 문의로 이동하기</b></font>
+						    				</div>
+					      			 	 </s:if>
+					      			 	 <s:else>
+											<h4>
+												<s:property value="name" />
+											</h4>
+											<font color="orange" size="5"><b><s:property
 													value="price" />원</b></font> / 1인<br>
+									     </s:else>
 									</div>
 								</div>
 							</a>

@@ -43,10 +43,10 @@ public class Main extends ActionSupport implements SessionAware{
 		region = "제주도";
 		Tourlist_Jeju = sqlMapper.queryForList("Main_Tour", region);
 		
-		region = "상하이";
+		region = "오사카";
 		Tourlist_Sanghai = sqlMapper.queryForList("Main_Tour", region);
 		
-		region = "워싱턴";
+		region = "파리";
 		Tourlist_Washington = sqlMapper.queryForList("Main_Tour", region);
 		
 		return SUCCESS;

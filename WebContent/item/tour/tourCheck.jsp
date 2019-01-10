@@ -6,7 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/TMT/item/tour/checkcss.css" type="text/css">
-<script>		
+<script>
+function check() {
+	if(!$("#a1").prop("checked")){
+		alert("약관에 동의해주세요.");
+		return false;
+	}
+}
 </script>
 </head>
 <body>
@@ -102,13 +108,12 @@
 </textarea>
 <input id = "a1" type="checkbox" />예약 약관을 읽었으며, 내용에 동의 합니다.
 <br><br>
-</div>
-            
+</div>   
 			</div> <!--  오른쪽 박스 끝나는곳 -->
 			<div id="min_s">
 			<center>
 			<button type="button" onclick="location.href='javascript:history.go(-1)'" ><b>취소하기</b></button>
-			<form action="TourSuccess.action" >
+			<form action="TourSuccess.action" onsubmit="return check();" >
 			<s:hidden name="no" value="%{no}" />  <!-- 상품번호  -->
 			<s:hidden name="name" value="%{name}" />  <!-- 상품명 -->
 			<s:hidden name="price" value="%{price}" />  <!-- 가격 -->

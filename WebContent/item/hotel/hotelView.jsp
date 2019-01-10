@@ -45,6 +45,16 @@
 			document.HsearchForm.outDay.focus();
 			return false;
 		}
+		if (document.HsearchForm.inDay.value < "<s:property value='%{resultClass.checkin}'/>" ) {
+			alert("예약가능한 시작일이 아닙니다. 다시선택해주세요.");
+			document.HsearchForm.inDay.focus();
+			return false;
+		}
+		if (document.HsearchForm.roomnum.value > "<s:property value='%{resultClass.room}'/>" ) {
+			alert("예약가능한 객실수를 초과했습니다. 다시선택해주세요.");
+			document.HsearchForm.roomnum.focus();
+			return false;
+		}
 	}
 	function checkC(){
 		var f=document.com;

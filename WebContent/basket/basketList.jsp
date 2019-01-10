@@ -115,7 +115,7 @@ $(document).ready(function(){
 			</s:if>
 			<form action="DeleteBasket.action" name="frm2" method="get">
 					<s:hidden name="id" value="%{session.session_id}" />
-				<s:hidden name="type" value="1" />
+					<s:hidden name="type" value="1" />
 					<s:if test="btlist.size() > 0">
 					<div id="delete_title" align="right" style="margin-top: -3%; margin-right: 6%;">
 					     <input id="checkall_tour" type="checkbox">전체선택
