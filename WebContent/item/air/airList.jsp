@@ -8,7 +8,14 @@
 	<title>Insert title here</title>
 
 	<link href="./css/airList.css" rel="stylesheet" type="text/css">
+
+
 	<script type="text/javascript">
+		/* 가격 범위 */
+		function price_change(){
+			var price_range = document.getElementById("price_range").value;
+			document.getElementById("price_text").innerHTML = "￦" + price_range;
+		}
 		
 		/* 정렬 */
 		function sort() {
@@ -614,6 +621,17 @@
 				<s:else>
 					<input type="checkbox" name="air_company_jin" value="진에어">&nbsp;&nbsp;진에어<br>
 				</s:else>
+				
+				<br><br>
+				
+				<s:if test="arv != null">
+					<div class="range-slider">
+						<div style="float:left;">가격 : &nbsp;</div> 
+						<div id="price_text"></div>
+						<input type="range" id="price_range" name="price" value=${params.price } min="0" max="<s:property value='%{max_price}'/>" step="1000" onchange="price_change()">
+						<s:hidden name="max_price" value="%{max_price}"/>
+					</div>
+				</s:if>
 				
 				<br><br>
 				

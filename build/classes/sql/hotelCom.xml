@@ -52,13 +52,18 @@
 		where hotel_no=#hotel_no#
 	</delete>
 	
-	<delete id="deleteHotelCOne" parameterClass="int">
+	<delete id="deleteHotelCRef" parameterClass="int">
 		delete hotelcomment 
 		where c_ref=#c_ref#
 	</delete>
 	
+	<delete id="deleteHotelCNo" parameterClass="int">
+		delete hotelcomment 
+		where c_no=#c_no#
+	</delete>
+	
 	<delete id="deleteMemberCH" parameterClass="Map">
-		delete tourcomment where c_id=#id# and c_ref>=#refH#
+		<![CDATA[delete hotelcomment where c_id=#id# and c_ref >= #refH#]]>
 	</delete>
 
 </sqlMap>

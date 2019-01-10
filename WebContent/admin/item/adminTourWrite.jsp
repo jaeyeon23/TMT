@@ -16,7 +16,6 @@
 	function check(){
 		
 		var f=document.write;
-		var i=document.i
 		if (f.name.value == "") {
 			alert("상품이름을 입력해주십시오");
 			f.name.focus();

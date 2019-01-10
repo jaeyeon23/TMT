@@ -53,13 +53,18 @@
 		where tour_no=#tour_no#
 	</delete>
 	
-	<delete id="deleteTourCOne" parameterClass="int">
+	<delete id="deleteTourCRef" parameterClass="int">
 		delete tourcomment 
 		where c_ref=#c_ref#
 	</delete>
 	
+	<delete id="deleteTourCNo" parameterClass="int">
+		delete tourcomment 
+		where c_no=#c_no#
+	</delete>
+	
 	<delete id="deleteMemberCT" parameterClass="Map">
-		delete tourcomment where c_id=#id# and c_ref>=#refT#
+		<![CDATA[delete tourcomment where c_id=#id# and c_ref >= #refT#]]>
 	</delete>
 
 </sqlMap>

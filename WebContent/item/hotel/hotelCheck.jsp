@@ -37,7 +37,7 @@
 		</div>
         <div id="contents">
 			<div id="coutents_left">
-			   <img width="100%" height="230" src="/TMT/upload/tour/<s:property value="%{image1}"/>">
+			   <img width="100%" height="230" src="/TMT/upload/hotel/<s:property value="%{image1}"/>">
 			   <div id="coutents_left_1">
 			   <h4>[호텔] <s:property value="%{name}"/></h4>
 			   <s:property value="%{country}"/>-<s:property value="%{region}"/>			   

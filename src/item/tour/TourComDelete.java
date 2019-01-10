@@ -18,6 +18,7 @@ public class TourComDelete extends ActionSupport implements SessionAware{
 	private int no;
 	private int currentPage;
 	private int c_ref;
+	private int c_no;
 	private String param;
 	
 	public TourComDelete()throws IOException{
@@ -26,12 +27,24 @@ public class TourComDelete extends ActionSupport implements SessionAware{
 		reader.close();
 	}
 	public String execute()throws Exception{
-		sqlMapper.delete("deleteTourCOne",getC_ref());
+		int tmp = getC_ref();
+		if(tmp==0) {
+			tmp = getC_no();
+			sqlMapper.delete("deleteTourCNo",tmp);
+		}else
+			sqlMapper.delete("deleteTourCRef",tmp);
+		
 		param = "?no="+getNo()+"&currentPage="+getCurrentPage();
 		return SUCCESS;
 	}
 
 	
+	public int getC_no() {
+		return c_no;
+	}
+	public void setC_no(int c_no) {
+		this.c_no = c_no;
+	}
 	public String getParam() {
 		return param;
 	}

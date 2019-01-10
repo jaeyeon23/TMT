@@ -1,0 +1,273 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+*, *::before, *::after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+div {
+    display: block;
+}
+body, html {
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+    font-family: -apple-system,BlinkMacSystemFont,Malgun Gothic,"\B9D1\C740 \ACE0\B515",Roboto,Helvetica,Arial,sans-serif;
+    letter-spacing: -.2px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Malgun Gothic", "맑은 고딕", Roboto, Helvetica, Arial, sans-serif;
+}
+html, body {
+    background: #fff;
+    letter-spacing: -.2px;
+}
+html, body {
+    letter-spacing: -0.3px;
+    font-size: 10px;
+}
+html, body {
+    letter-spacing: -1px;
+    -webkit-font-smoothing: antialiased;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #373a3c;
+    background-color: #fff;
+}
+body, html {
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+    font-family: -apple-system,BlinkMacSystemFont,Malgun Gothic,"\B9D1\C740 \ACE0\B515",Roboto,Helvetica,Arial,sans-serif;
+    letter-spacing: -.2px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    background: #fff;
+    letter-spacing: -.2px;
+}
+html, body {
+    letter-spacing: -0.3px;
+    font-size: 10px;
+}
+html, body {
+    letter-spacing: -1px;
+    -webkit-font-smoothing: antialiased;
+}
+html {
+    font-size: 16px;
+    -webkit-tap-highlight-color: transparent;
+}
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+*, *::before, *::after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+*, *::before, *::after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+.resp-container {
+    width: 100%;
+}
+.SearchHotel-module__body--HjVRm {
+    padding: 24px 16px;
+    text-align: center;
+}
+.SearchHotel-module__content--2xl2M {
+    color: #343a40;
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: middle;
+}
+.SearchHotel-module__button--1zAVc {
+    display: inline-block;
+    margin-left: 42px;
+    vertical-align: middle;
+    width: 80px;
+}
+a, a:active, a:hover, a:link, a:visited {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+}
+a:link {
+    text-decoration: none;
+}
+.SearchHotel-module__link--39zoa {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+}
+a {
+    cursor: pointer;
+}
+a {
+    color: inherit;
+}
+a, area, button, [role="button"], input, label, select, summary, textarea {
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+a {
+    color: #0275d8;
+    text-decoration: none;
+}
+a {
+    background-color: transparent;
+}
+.SearchHotel-module__button--1zAVc button {
+    display: inline-block;
+    padding: 0;
+}
+.Button-module__block--2YpGM {
+    width: 100%;
+}
+.Button-module__outline--1gLZe {
+    border: 1px solid #ced4da;
+    background-color: #fff;
+    color: #495056;
+}
+.Button-module__small--2gBmw {
+    height: 32px;
+    padding-left: 11px;
+    padding-right: 11px;
+    font-size: 13px;
+    line-height: 32px;
+}
+.Button-module__button--227wS {
+    border: 0;
+    padding: 0;
+    border-radius: 2px;
+    background-color: rgba(0,0,0,0);
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow .1s ease-out,background-color .1s ease-out,color .1s ease-out,border-bottom .1s ease-out;
+}
+input:not([type="checkbox"]):not([type="radio"]), button, textarea, select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+input, button, select, textarea {
+    margin: 0;
+    line-height: inherit;
+    border-radius: 0;
+}
+a, area, button, [role="button"], input, label, select, summary, textarea {
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+button, select {
+    text-transform: none;
+}
+button {
+    overflow: visible;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font: inherit;
+    color: inherit;
+}
+.SearchSectionBar {
+    background-color: #e9ecef;
+    height: 1px;
+    width: 100%;
+}
+.SearchResult section {
+    min-height: 0;
+}
+.SearchOffers-module__container--2iYUn {
+    padding-top: 24px;
+}
+section {
+    min-height: 500px;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+.resp-container {
+    width: 100%;
+}
+.resp-container--row {
+    width: 1028px;
+}
+.resp-container--row {
+    margin: 0 auto;
+    position: relative;
+}
+.SearchOffers-module__header--oYZz1 {
+    margin-bottom: 16px;
+    position: relative;
+    width: 100%;
+}
+.SearchOffers-module__title--_wzmp {
+    color: #343a40;
+    font-size: 20px;
+    font-weight: 700;
+}
+h3 {
+    font-size: 1.75rem;
+    margin-bottom: .5rem;
+    font-family: inherit;
+    line-height: 1.1;
+    margin-top: 0;        
+}
+.SearchOffers-module__count--3mjFQ {
+    bottom: 0;
+    color: #848c94;
+    font-size: 14px;
+    font-weight: 500;
+    position: absolute;
+    right: 0;
+}
+.SearchOffers-module__horizontal--3x-rm {
+    display: none;
+}
+.Button-module__outline--1gLZe {
+    border: 1px solid #ced4da;
+    background-color: #fff;
+    color: #495056;
+}
+.SearchHotel-module__button--1zAVc button {
+    display: inline-block;
+    padding: 0;
+}
+
+.Button-module__block--2YpGM {
+    width: 100%;
+}

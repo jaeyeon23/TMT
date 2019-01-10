@@ -226,7 +226,6 @@ $(function()
 							</s:else>
 							<hr>
 						</s:iterator>
-						<!-- <div class="offer-review--more" style=""><button type="button" class="app-button app-button__type--outline app-button__size--m">후기 더 보기</button></div> -->
 					</div>
 					<!-- /reviewList -->
 					
