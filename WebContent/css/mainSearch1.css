@@ -148,7 +148,7 @@ a {
     padding: 0;
 }
 .Button-module__block--2YpGM {
-    width: 100%;
+    width: 120%;
 }
 .Button-module__outline--1gLZe {
     border: 1px solid #ced4da;
@@ -204,7 +204,7 @@ button, input, optgroup, select, textarea {
     color: inherit;
 }
 .SearchSectionBar {
-    background-color: #e9ecef;
+    background-color: #ccc;
     height: 1px;
     width: 100%;
 }
@@ -266,8 +266,4 @@ h3 {
 .SearchHotel-module__button--1zAVc button {
     display: inline-block;
     padding: 0;
-}
-
-.Button-module__block--2YpGM {
-    width: 100%;
 }
