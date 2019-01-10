@@ -37,7 +37,7 @@ public class AdminMemberDelete extends ActionSupport implements SessionAware {
 	int[] hc;
 	int[] tc;
 	
-	private String fileUploadPath = "C:\\Users\\박재연\\Desktop\\TMT\\TMT\\WebContent\\upload\\hotel\\"; 
+	private String fileUploadPath = "C:\\Users\\박재연\\Desktop\\TMT\\TMT\\WebContent\\upload\\mem_image\\"; 
 	private Member_imageVO image = new Member_imageVO();
 	
 	public AdminMemberDelete() throws IOException{

@@ -28,7 +28,7 @@ public class DeleteMember extends ActionSupport implements SessionAware{
 
 	private MemberVO paramClass= new MemberVO();
 	private MemberVO resultClass = new MemberVO();
-	private String fileUploadPath = "C:\\Users\\박재연\\Desktop\\TMT\\TMT\\WebContent\\upload\\hotel\\"; 
+	private String fileUploadPath = "C:\\Users\\박재연\\Desktop\\TMT\\TMT\\WebContent\\upload\\mem_image\\"; 
 	private Member_imageVO image = new Member_imageVO();
 	
 	public DeleteMember() throws IOException {
