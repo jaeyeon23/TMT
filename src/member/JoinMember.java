@@ -98,6 +98,8 @@ public class JoinMember extends ActionSupport implements SessionAware{
 		HttpServletResponse response = ServletActionContext.getResponse();
 
 		mvo.setEmail(email);
+		mvo.setId(getId());
+		mvo.setPassport(getPassport());
 
 		//회원가입 정보 입력시 입력한 이메일과 동일한 이메일이 데이터베이스에 존재하는지 확인
 		confirmemail = (String) sqlMapper.queryForObject("Email", mvo);
@@ -107,6 +109,30 @@ public class JoinMember extends ActionSupport implements SessionAware{
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('동일한 이메일이 존재합니다.');");
+			out.println("history.go(-1);");
+			out.println("</script>");
+			out.close();
+			
+			return LOGIN;
+		}
+		String confirmId = (String) sqlMapper.queryForObject("confirmId", mvo);
+		String confirmPassport = (String) sqlMapper.queryForObject("confirmPassport", mvo);
+		if (confirmId != null) {//동일한 이메일이 존재한다면 가입불가
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('동일한 아이디가 존재합니다.');");
+			out.println("history.go(-1);");
+			out.println("</script>");
+			out.close();
+			
+			return LOGIN;
+		}
+		if (confirmPassport != null) {//동일한 이메일이 존재한다면 가입불가
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('동일한 여권번호가 존재합니다.');");
 			out.println("history.go(-1);");
 			out.println("</script>");
 			out.close();

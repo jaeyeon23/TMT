@@ -90,7 +90,15 @@
 		SELECT email FROM member WHERE email = #email#
 	</select>
 
-
+	<select id="confirmId" resultClass="java.lang.String"
+		parameterClass="member">
+		SELECT id FROM member WHERE id = #id#
+	</select>
+	
+	<select id="confirmPassport" resultClass="java.lang.String"
+		parameterClass="member">
+		SELECT passport FROM member WHERE passport = #passport#
+	</select>
 
   	<!-- 관리자 -->
   	<!-- 멤버리스트 -->
