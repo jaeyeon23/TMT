@@ -3,6 +3,7 @@ package order;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,11 +14,17 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
+import member.Member_imageVO;
+
 public class OrderList extends ActionSupport implements SessionAware {
 
 	public static Reader reader;
 	public static SqlMapClient sqlMapper;
 	private Map session;
+	
+	private Map imageClass = new HashMap<>();
+	private Member_imageVO resultImage = new Member_imageVO();
+	
 
 	private List<Order_Hotel> ohlist = new ArrayList<Order_Hotel>();
 	private Order_Hotel hvo = new Order_Hotel();
@@ -116,6 +123,10 @@ public class OrderList extends ActionSupport implements SessionAware {
 			lastCount3 = page3.getEndCount3() + 1;
 
 		oalist = oalist.subList(page3.getStartCount3(), lastCount3);
+		
+		imageClass.put("id", (String)session.get("session_id"));
+		resultImage = (Member_imageVO)sqlMapper.queryForObject("member_image_select", imageClass);
+		
 
 		return SUCCESS;
 	}
@@ -326,6 +337,19 @@ public class OrderList extends ActionSupport implements SessionAware {
 
 	public void setPage3(OrderpagingAction3 page3) {
 		this.page3 = page3;
+	}
+	
+	public Member_imageVO getResultImage() {
+		return resultImage;
+	}
+	public void setResultImage(Member_imageVO resultImage) {
+		this.resultImage = resultImage;
+	}
+	public Map getImageClass() {
+		return imageClass;
+	}
+	public void setImageClass(Map imageClass) {
+		this.imageClass = imageClass;
 	}
 
 }

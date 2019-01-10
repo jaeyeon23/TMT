@@ -3,6 +3,7 @@ package basket;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import java.util.Map;
@@ -12,10 +13,15 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 import com.opensymphony.xwork2.ActionSupport;
 
+import member.Member_imageVO;
+
 public class BasketList extends ActionSupport implements SessionAware {
 
 	private Reader reader;
 	private SqlMapClient sqlMapper;
+	
+	private Map imageClass = new HashMap<>();
+	private Member_imageVO resultImage = new Member_imageVO();
 
 	private List<BasketHVO> bhlist = new ArrayList<BasketHVO>();
 	private BasketHVO hvo = new BasketHVO();
@@ -97,6 +103,10 @@ public class BasketList extends ActionSupport implements SessionAware {
 			lastCount2 = page2.getEndCount2() + 1;
 
 		btlist = btlist.subList(page2.getStartCount2(), lastCount2);
+		
+		imageClass.put("id", (String)session.get("session_id"));
+		resultImage = (Member_imageVO)sqlMapper.queryForObject("member_image_select", imageClass);
+		
 
 		return SUCCESS;
 	}
@@ -315,6 +325,20 @@ public class BasketList extends ActionSupport implements SessionAware {
 
 	public void setPage2(BasketpagingAction2 page2) {
 		this.page2 = page2;
+	}
+	
+	
+	public Member_imageVO getResultImage() {
+		return resultImage;
+	}
+	public void setResultImage(Member_imageVO resultImage) {
+		this.resultImage = resultImage;
+	}
+	public Map getImageClass() {
+		return imageClass;
+	}
+	public void setImageClass(Map imageClass) {
+		this.imageClass = imageClass;
 	}
 
 }
