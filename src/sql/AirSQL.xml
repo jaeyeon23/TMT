@@ -56,9 +56,6 @@
 	</select>
 	
 	
-	<select id="listAir_max_price" resultClass="int" parameterClass="air">
-		select max(price) from air where arv=#arv# AND dep=#dep# and ad>=#ad# and seat>=#seat# and seat_grade=#seat_grade# 
-	</select>
 	<!-- 검색 -->
 	<select id="listAir_search" resultMap="boardair" parameterClass="java.util.Map">
 		SELECT no, arv, dep, price, content, image1, seat, seat_grade, ad, dd, air_company, grade, SUBSTR(TO_CHAR(DD,'YYYYMMDDHH24MISS'),9), SUBSTR(TO_CHAR(AD,'YYYYMMDDHH24MISS'),9)    	
