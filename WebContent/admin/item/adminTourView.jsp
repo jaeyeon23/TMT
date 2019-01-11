@@ -26,7 +26,15 @@ $(function()
 					$(".subb").slideUp("fast");
 				 $(this).next().slideToggle("fast"); 
 			})
-		})		
+		})	
+		
+function check() {
+	if(!$("#a1").prop("checked")){
+		alert("내용을 입력해주세요.");
+		return false;
+	}
+}
+		
 </script>
 
 <style>
@@ -117,7 +125,7 @@ $(function()
 						<form action="AdminTourComment.action"> <!-- method="post" -->
 							<div class="form-group">
 								<textarea class="form-control" rows="4" placeholder="내용" name="c_content"></textarea>
-								<input class="btn btn-default" type="submit" value="작성">
+								<input class="btn btn-default" type="submit" onclick="return check()" value="작성">
 								<input type="hidden" name="currentPage" value="<s:property value="currentPage"/>">
 								<input type="hidden" name="tour_no" value="<s:property value="no"/>">
 								<input type="hidden" name="currentPageC" value="<s:property value="currentPageC"/>">
