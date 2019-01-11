@@ -37,7 +37,9 @@ public class AdminHotelList extends ActionSupport implements SessionAware{
 	private int blockPage = 5; 	// 한 화면에 보여줄 페이지 수
 	private String pagingHtml; 	//페이징을 구현한 HTML
 	private HotelPagingAction page; 	// 페이징 클래스
-
+	
+	private List counList = new ArrayList();
+	private List regionList = new ArrayList();
 
 	private Map map = new HashMap<>();
 
@@ -74,6 +76,9 @@ public class AdminHotelList extends ActionSupport implements SessionAware{
 
 		// 전체 리스트에서 현재 페이지만큼의 리스트만 가져온다.
 		Hotellist = Hotellist.subList(page.getStartCount(), lastCount);
+		
+		counList = sqlMapper.queryForList("countryH");
+		regionList = sqlMapper.queryForList("regionH");
 
 		return SUCCESS;
 	}
@@ -115,6 +120,9 @@ public class AdminHotelList extends ActionSupport implements SessionAware{
 
 		// 전체 리스트에서 현재 페이지만큼의 리스트만 가져온다.
 		Hotellist = Hotellist.subList(page.getStartCount(), lastCount);
+		
+		counList = sqlMapper.queryForList("countryH");
+		regionList = sqlMapper.queryForList("regionH");
 
 		return SUCCESS;
 	}
@@ -224,6 +232,22 @@ public class AdminHotelList extends ActionSupport implements SessionAware{
 
 	public void setSession(Map session) {
 		this.session = session;
+	}
+
+	public List getCounList() {
+		return counList;
+	}
+
+	public void setCounList(List counList) {
+		this.counList = counList;
+	}
+
+	public List getRegionList() {
+		return regionList;
+	}
+
+	public void setRegionList(List regionList) {
+		this.regionList = regionList;
 	}
 	
 }

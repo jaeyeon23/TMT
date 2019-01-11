@@ -145,6 +145,14 @@
 	<delete id="deleteHotel" parameterClass="int">
 		delete hotel where no = #no#
 	</delete>
+	
+	<select id="countryH" resultClass="hotel">
+		select distinct(country) from hotel order by country asc 
+	</select>
+	
+	<select id="regionH" resultClass="hotel">
+		select distinct(region),country from hotel order by country asc 
+	</select> 
 
 <!-- 검색로직 끝 -->
 

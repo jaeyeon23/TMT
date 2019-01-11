@@ -71,8 +71,8 @@ public class TourList extends ActionSupport implements SessionAware{
 		Tourlist = Tourlist.subList(page.getStartCount(), lastCount);
 		
 		
-		counList = sqlMapper.queryForList("country");
-		regionList = sqlMapper.queryForList("region");
+		counList = sqlMapper.queryForList("countryT");
+		regionList = sqlMapper.queryForList("regionT");
 		
 		
 		return SUCCESS;
@@ -112,6 +112,9 @@ public class TourList extends ActionSupport implements SessionAware{
 
 		// 전체 리스트에서 현재 페이지만큼의 리스트만 가져온다.
 		Tourlist = Tourlist.subList(page.getStartCount(), lastCount);
+		
+		counList = sqlMapper.queryForList("countryT");
+		regionList = sqlMapper.queryForList("regionT");
 
 		return SUCCESS;
 	}

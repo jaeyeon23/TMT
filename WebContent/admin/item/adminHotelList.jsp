@@ -72,37 +72,24 @@
 			<div id="subbox2">
 				<div id = "sub_h"><font size="4" color="white">지역검색</font></div>
 				<div id="search_h4">
+					<!-- 카테고리 -->
 					<div id=side>
+						<s:iterator value="counList" status="a">
 						<div class="sideMenu">
 						<br>
-							<b>&nbsp;&nbsp;&nbsp;한국</b>
+							<b>&nbsp;&nbsp;&nbsp;<s:property value="%{counList[#a.index].country}"/></b>
 						</div>
 						<ul class="subb">
-							<li><a href="HotelList.action?num=1&hotelname=제주도">제주도</a></li>
+							<s:iterator value="regionList" status="b">
+								<s:if test="%{counList[#a.index].country == country}"> 
+									<li><a href="HotelList.action?num=1&hotelname=<s:property value="%{region}"/>"><s:property value="%{region}"/></a></li>
+								</s:if>
+							</s:iterator>
 						</ul>
 						<hr>
-						<div class="sideMenu">
-							<b>일본</b>
-						</div>
-						<ul class="subb">
-							<li><a href="HotelList.action?num=1&hotelname=오사카" class="on">오사카</a></li>
-						</ul>
-						<hr>
-						<div class="sideMenu">
-							<b>영국</b>
-						</div>
-						<ul class="subb">
-							<li><a href="HotelList.action?num=1&hotelname=런던" class="on">런던</a></li>
-						</ul>
-						<hr>
-						<div class="sideMenu">
-							<b>프랑스</b>
-						</div>
-						<ul class="subb">
-							<li><a href="HotelList.action?num=1&hotelname=파리">파리</a></li>
-						</ul>
-						<hr>
+						</s:iterator>
                     </div>
+                   <!-- /카테고리 -->
 				</div>
 			</div>  <!--  subbox2끝나는곳  -->
 		</div><!-- box1끝내는곳  -->

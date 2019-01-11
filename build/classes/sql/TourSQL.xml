@@ -103,11 +103,11 @@
 			) where rownum <![CDATA[>=1]]>) where r <![CDATA[<=5]]>
 	</select>
 	
-	<select id="country" resultClass="tour">
+	<select id="countryT" resultClass="tour">
 		select distinct(country) from tour order by country asc 
 	</select>
 	
-	<select id="region" resultClass="tour">
+	<select id="regionT" resultClass="tour">
 		select distinct(region),country from tour order by country asc 
 	</select> 
 	

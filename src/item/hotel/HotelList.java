@@ -2,21 +2,19 @@ package item.hotel;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Date;
-import java.text.SimpleDateFormat;
-import java.util.HashMap;
 
-import com.opensymphony.xwork2.ActionSupport;
-
-import item.hotel.*;
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.ibatis.common.resources.Resources;
-import com.ibatis.sqlmap.client.SqlMapClient; 
+import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
-import org.apache.struts2.interceptor.SessionAware;
+import com.opensymphony.xwork2.ActionSupport;
 
 
 public class HotelList extends ActionSupport implements SessionAware{
@@ -42,11 +40,12 @@ public class HotelList extends ActionSupport implements SessionAware{
 	private HotelpagingAction page; 	// 페이징 클래스
 	private HotelpagingAction_basic page_basic; 	// 페이징 클래스
 	
-	 Date date = new Date(); 
-	 SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd"); 
-	 private String nowDate = simpleDate.format(date);
+	Date date = new Date(); 
+	SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy-MM-dd"); 
+	private String nowDate = simpleDate.format(date);
 
-
+	private List counList = new ArrayList();
+	private List regionList = new ArrayList();
 
 
 	private Map map = new HashMap<>();
@@ -104,6 +103,9 @@ public class HotelList extends ActionSupport implements SessionAware{
 
 		// 전체 리스트에서 현재 페이지만큼의 리스트만 가져온다.
 		Hotellist = Hotellist.subList(page.getStartCount(), lastCount);
+		
+		counList = sqlMapper.queryForList("countryH");
+		regionList = sqlMapper.queryForList("regionH");
 
 		return SUCCESS;
 	}
@@ -141,6 +143,9 @@ public class HotelList extends ActionSupport implements SessionAware{
 
 		// 전체 리스트에서 현재 페이지만큼의 리스트만 가져온다.
 		Hotellist = Hotellist.subList(page_basic.getStartCount(), lastCount);
+		
+		counList = sqlMapper.queryForList("countryH");
+		regionList = sqlMapper.queryForList("regionH");
 
 		return SUCCESS;
 	}
@@ -258,6 +263,22 @@ public class HotelList extends ActionSupport implements SessionAware{
 
 	public void setSession(Map session) {
 		this.session = session;
+	}
+
+	public List getCounList() {
+		return counList;
+	}
+
+	public void setCounList(List counList) {
+		this.counList = counList;
+	}
+
+	public List getRegionList() {
+		return regionList;
+	}
+
+	public void setRegionList(List regionList) {
+		this.regionList = regionList;
 	}
 	
 }
